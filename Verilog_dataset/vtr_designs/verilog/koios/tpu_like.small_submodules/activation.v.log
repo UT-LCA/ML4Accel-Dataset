@@ -1,0 +1,1529 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v' to AST representation.
+Generating RTLIL representation for module `\activation'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:172.1-189.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:192.1-209.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:212.1-251.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: activation          
+Automatically selected activation as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \activation
+
+2.3. Analyzing design hierarchy..
+Top module:  \activation
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 176 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:212$87 in module activation.
+Marked 16 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:192$86 in module activation.
+Marked 16 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:172$85 in module activation.
+Marked 22 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9 in module activation.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:82$5 in module activation.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 53 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:212$87'.
+     1/176: $176\address[63:60]
+     2/176: $175\address[63:60]
+     3/176: $174\address[63:60]
+     4/176: $173\address[63:60]
+     5/176: $172\address[63:60]
+     6/176: $171\address[63:60]
+     7/176: $170\address[63:60]
+     8/176: $169\address[63:60]
+     9/176: $168\address[63:60]
+    10/176: $167\address[63:60]
+    11/176: $166\address[63:60]
+    12/176: $165\address[59:56]
+    13/176: $164\address[59:56]
+    14/176: $163\address[59:56]
+    15/176: $162\address[59:56]
+    16/176: $161\address[59:56]
+    17/176: $160\address[59:56]
+    18/176: $159\address[59:56]
+    19/176: $158\address[59:56]
+    20/176: $157\address[59:56]
+    21/176: $156\address[59:56]
+    22/176: $155\address[59:56]
+    23/176: $154\address[55:52]
+    24/176: $153\address[55:52]
+    25/176: $152\address[55:52]
+    26/176: $151\address[55:52]
+    27/176: $150\address[55:52]
+    28/176: $149\address[55:52]
+    29/176: $148\address[55:52]
+    30/176: $147\address[55:52]
+    31/176: $146\address[55:52]
+    32/176: $145\address[55:52]
+    33/176: $144\address[55:52]
+    34/176: $143\address[51:48]
+    35/176: $142\address[51:48]
+    36/176: $141\address[51:48]
+    37/176: $140\address[51:48]
+    38/176: $139\address[51:48]
+    39/176: $138\address[51:48]
+    40/176: $137\address[51:48]
+    41/176: $136\address[51:48]
+    42/176: $135\address[51:48]
+    43/176: $134\address[51:48]
+    44/176: $133\address[51:48]
+    45/176: $132\address[47:44]
+    46/176: $131\address[47:44]
+    47/176: $130\address[47:44]
+    48/176: $129\address[47:44]
+    49/176: $128\address[47:44]
+    50/176: $127\address[47:44]
+    51/176: $126\address[47:44]
+    52/176: $125\address[47:44]
+    53/176: $124\address[47:44]
+    54/176: $123\address[47:44]
+    55/176: $122\address[47:44]
+    56/176: $121\address[43:40]
+    57/176: $120\address[43:40]
+    58/176: $119\address[43:40]
+    59/176: $118\address[43:40]
+    60/176: $117\address[43:40]
+    61/176: $116\address[43:40]
+    62/176: $115\address[43:40]
+    63/176: $114\address[43:40]
+    64/176: $113\address[43:40]
+    65/176: $112\address[43:40]
+    66/176: $111\address[43:40]
+    67/176: $110\address[39:36]
+    68/176: $109\address[39:36]
+    69/176: $108\address[39:36]
+    70/176: $107\address[39:36]
+    71/176: $106\address[39:36]
+    72/176: $105\address[39:36]
+    73/176: $104\address[39:36]
+    74/176: $103\address[39:36]
+    75/176: $102\address[39:36]
+    76/176: $101\address[39:36]
+    77/176: $100\address[39:36]
+    78/176: $99\address[35:32]
+    79/176: $98\address[35:32]
+    80/176: $97\address[35:32]
+    81/176: $96\address[35:32]
+    82/176: $95\address[35:32]
+    83/176: $94\address[35:32]
+    84/176: $93\address[35:32]
+    85/176: $92\address[35:32]
+    86/176: $91\address[35:32]
+    87/176: $90\address[35:32]
+    88/176: $89\address[35:32]
+    89/176: $88\address[31:28]
+    90/176: $87\address[31:28]
+    91/176: $86\address[31:28]
+    92/176: $85\address[31:28]
+    93/176: $84\address[31:28]
+    94/176: $83\address[31:28]
+    95/176: $82\address[31:28]
+    96/176: $81\address[31:28]
+    97/176: $80\address[31:28]
+    98/176: $79\address[31:28]
+    99/176: $78\address[31:28]
+   100/176: $77\address[27:24]
+   101/176: $76\address[27:24]
+   102/176: $75\address[27:24]
+   103/176: $74\address[27:24]
+   104/176: $73\address[27:24]
+   105/176: $72\address[27:24]
+   106/176: $71\address[27:24]
+   107/176: $70\address[27:24]
+   108/176: $69\address[27:24]
+   109/176: $68\address[27:24]
+   110/176: $67\address[27:24]
+   111/176: $66\address[23:20]
+   112/176: $65\address[23:20]
+   113/176: $64\address[23:20]
+   114/176: $63\address[23:20]
+   115/176: $62\address[23:20]
+   116/176: $61\address[23:20]
+   117/176: $60\address[23:20]
+   118/176: $59\address[23:20]
+   119/176: $58\address[23:20]
+   120/176: $57\address[23:20]
+   121/176: $56\address[23:20]
+   122/176: $55\address[19:16]
+   123/176: $54\address[19:16]
+   124/176: $53\address[19:16]
+   125/176: $52\address[19:16]
+   126/176: $51\address[19:16]
+   127/176: $50\address[19:16]
+   128/176: $49\address[19:16]
+   129/176: $48\address[19:16]
+   130/176: $47\address[19:16]
+   131/176: $46\address[19:16]
+   132/176: $45\address[19:16]
+   133/176: $44\address[15:12]
+   134/176: $43\address[15:12]
+   135/176: $42\address[15:12]
+   136/176: $41\address[15:12]
+   137/176: $40\address[15:12]
+   138/176: $39\address[15:12]
+   139/176: $38\address[15:12]
+   140/176: $37\address[15:12]
+   141/176: $36\address[15:12]
+   142/176: $35\address[15:12]
+   143/176: $34\address[15:12]
+   144/176: $33\address[11:8]
+   145/176: $32\address[11:8]
+   146/176: $31\address[11:8]
+   147/176: $30\address[11:8]
+   148/176: $29\address[11:8]
+   149/176: $28\address[11:8]
+   150/176: $27\address[11:8]
+   151/176: $26\address[11:8]
+   152/176: $25\address[11:8]
+   153/176: $24\address[11:8]
+   154/176: $23\address[11:8]
+   155/176: $22\address[7:4]
+   156/176: $21\address[7:4]
+   157/176: $20\address[7:4]
+   158/176: $19\address[7:4]
+   159/176: $18\address[7:4]
+   160/176: $17\address[7:4]
+   161/176: $16\address[7:4]
+   162/176: $15\address[7:4]
+   163/176: $14\address[7:4]
+   164/176: $13\address[7:4]
+   165/176: $12\address[7:4]
+   166/176: $11\address[3:0]
+   167/176: $10\address[3:0]
+   168/176: $9\address[3:0]
+   169/176: $8\address[3:0]
+   170/176: $7\address[3:0]
+   171/176: $6\address[3:0]
+   172/176: $5\address[3:0]
+   173/176: $4\address[3:0]
+   174/176: $3\address[3:0]
+   175/176: $2\address[3:0]
+   176/176: $1\address[3:0]
+Creating decoders for process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:192$86'.
+     1/16: $16\data_intercept[127:120]
+     2/16: $15\data_intercept[119:112]
+     3/16: $14\data_intercept[111:104]
+     4/16: $13\data_intercept[103:96]
+     5/16: $12\data_intercept[95:88]
+     6/16: $11\data_intercept[87:80]
+     7/16: $10\data_intercept[79:72]
+     8/16: $9\data_intercept[71:64]
+     9/16: $8\data_intercept[63:56]
+    10/16: $7\data_intercept[55:48]
+    11/16: $6\data_intercept[47:40]
+    12/16: $5\data_intercept[39:32]
+    13/16: $4\data_intercept[31:24]
+    14/16: $3\data_intercept[23:16]
+    15/16: $2\data_intercept[15:8]
+    16/16: $1\data_intercept[7:0]
+Creating decoders for process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:172$85'.
+     1/16: $16\data_slope[127:120]
+     2/16: $15\data_slope[119:112]
+     3/16: $14\data_slope[111:104]
+     4/16: $13\data_slope[103:96]
+     5/16: $12\data_slope[95:88]
+     6/16: $11\data_slope[87:80]
+     7/16: $10\data_slope[79:72]
+     8/16: $9\data_slope[71:64]
+     9/16: $8\data_slope[63:56]
+    10/16: $7\data_slope[55:48]
+    11/16: $6\data_slope[47:40]
+    12/16: $5\data_slope[39:32]
+    13/16: $4\data_slope[31:24]
+    14/16: $3\data_slope[23:16]
+    15/16: $2\data_slope[15:8]
+    16/16: $1\data_slope[7:0]
+Creating decoders for process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+     1/88: $0\data_intercept_flopped[127:0] [127:120]
+     2/88: $0\relu_applied_data_internal[127:0] [111:104]
+     3/88: $0\intercept_applied_data_internal[127:0] [111:104]
+     4/88: $0\data_intercept_delayed[127:0] [111:104]
+     5/88: $0\data_intercept_flopped[127:0] [111:104]
+     6/88: $0\slope_applied_data_internal[127:0] [111:104]
+     7/88: $0\relu_applied_data_internal[127:0] [103:96]
+     8/88: $0\intercept_applied_data_internal[127:0] [103:96]
+     9/88: $0\data_intercept_delayed[127:0] [103:96]
+    10/88: $0\data_intercept_flopped[127:0] [103:96]
+    11/88: $0\slope_applied_data_internal[127:0] [103:96]
+    12/88: $0\relu_applied_data_internal[127:0] [95:88]
+    13/88: $0\intercept_applied_data_internal[127:0] [95:88]
+    14/88: $0\data_intercept_delayed[127:0] [95:88]
+    15/88: $0\data_intercept_flopped[127:0] [95:88]
+    16/88: $0\slope_applied_data_internal[127:0] [95:88]
+    17/88: $0\relu_applied_data_internal[127:0] [87:80]
+    18/88: $0\intercept_applied_data_internal[127:0] [87:80]
+    19/88: $0\data_intercept_delayed[127:0] [87:80]
+    20/88: $0\data_intercept_flopped[127:0] [87:80]
+    21/88: $0\slope_applied_data_internal[127:0] [87:80]
+    22/88: $0\relu_applied_data_internal[127:0] [79:72]
+    23/88: $0\intercept_applied_data_internal[127:0] [79:72]
+    24/88: $0\data_intercept_delayed[127:0] [79:72]
+    25/88: $0\data_intercept_flopped[127:0] [79:72]
+    26/88: $0\slope_applied_data_internal[127:0] [79:72]
+    27/88: $0\relu_applied_data_internal[127:0] [71:64]
+    28/88: $0\intercept_applied_data_internal[127:0] [71:64]
+    29/88: $0\data_intercept_delayed[127:0] [71:64]
+    30/88: $0\data_intercept_flopped[127:0] [71:64]
+    31/88: $0\slope_applied_data_internal[127:0] [71:64]
+    32/88: $0\relu_applied_data_internal[127:0] [63:56]
+    33/88: $0\intercept_applied_data_internal[127:0] [63:56]
+    34/88: $0\data_intercept_delayed[127:0] [63:56]
+    35/88: $0\data_intercept_flopped[127:0] [63:56]
+    36/88: $0\slope_applied_data_internal[127:0] [63:56]
+    37/88: $0\relu_applied_data_internal[127:0] [55:48]
+    38/88: $0\intercept_applied_data_internal[127:0] [55:48]
+    39/88: $0\data_intercept_delayed[127:0] [55:48]
+    40/88: $0\data_intercept_flopped[127:0] [55:48]
+    41/88: $0\slope_applied_data_internal[127:0] [55:48]
+    42/88: $0\relu_applied_data_internal[127:0] [47:40]
+    43/88: $0\intercept_applied_data_internal[127:0] [47:40]
+    44/88: $0\data_intercept_delayed[127:0] [47:40]
+    45/88: $0\data_intercept_flopped[127:0] [47:40]
+    46/88: $0\slope_applied_data_internal[127:0] [47:40]
+    47/88: $0\relu_applied_data_internal[127:0] [39:32]
+    48/88: $0\intercept_applied_data_internal[127:0] [39:32]
+    49/88: $0\data_intercept_delayed[127:0] [39:32]
+    50/88: $0\data_intercept_flopped[127:0] [39:32]
+    51/88: $0\slope_applied_data_internal[127:0] [39:32]
+    52/88: $0\relu_applied_data_internal[127:0] [31:24]
+    53/88: $0\intercept_applied_data_internal[127:0] [31:24]
+    54/88: $0\data_intercept_delayed[127:0] [31:24]
+    55/88: $0\data_intercept_flopped[127:0] [31:24]
+    56/88: $0\slope_applied_data_internal[127:0] [31:24]
+    57/88: $0\relu_applied_data_internal[127:0] [23:16]
+    58/88: $0\intercept_applied_data_internal[127:0] [23:16]
+    59/88: $0\data_intercept_delayed[127:0] [23:16]
+    60/88: $0\data_intercept_flopped[127:0] [23:16]
+    61/88: $0\slope_applied_data_internal[127:0] [23:16]
+    62/88: $0\relu_applied_data_internal[127:0] [15:8]
+    63/88: $0\intercept_applied_data_internal[127:0] [15:8]
+    64/88: $0\data_intercept_delayed[127:0] [15:8]
+    65/88: $0\data_intercept_flopped[127:0] [15:8]
+    66/88: $0\slope_applied_data_internal[127:0] [15:8]
+    67/88: $0\relu_applied_data_internal[127:0] [7:0]
+    68/88: $0\intercept_applied_data_internal[127:0] [7:0]
+    69/88: $0\data_intercept_delayed[127:0] [7:0]
+    70/88: $0\data_intercept_flopped[127:0] [7:0]
+    71/88: $0\slope_applied_data_internal[127:0] [7:0]
+    72/88: $0\intercept_applied_data_internal[127:0] [127:120]
+    73/88: $0\slope_applied_data_internal[127:0] [127:120]
+    74/88: $0\relu_applied_data_internal[127:0] [127:120]
+    75/88: $0\data_intercept_delayed[127:0] [127:120]
+    76/88: $0\relu_applied_data_internal[127:0] [119:112]
+    77/88: $2\cycle_count[31:0]
+    78/88: $0\activation_in_progress[0:0]
+    79/88: $1\cycle_count[31:0]
+    80/88: $1\i[31:0]
+    81/88: $0\in_data_available_flopped[0:0]
+    82/88: $0\data_intercept_delayed[127:0] [119:112]
+    83/88: $0\intercept_applied_data_internal[127:0] [119:112]
+    84/88: $0\data_intercept_flopped[127:0] [119:112]
+    85/88: $0\slope_applied_data_internal[127:0] [119:112]
+    86/88: $2\i[31:0]
+    87/88: $0\out_data_available_internal[0:0]
+    88/88: $0\done_activation_internal[0:0]
+Creating decoders for process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:82$5'.
+     1/2: $0\data_slope_flopped[127:0]
+     2/2: $0\inp_data_flopped[127:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\activation.\i' from process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:212$87'.
+No latch inferred for signal `\activation.\address' from process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:212$87'.
+No latch inferred for signal `\activation.\i' from process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:192$86'.
+No latch inferred for signal `\activation.\data_intercept' from process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:192$86'.
+No latch inferred for signal `\activation.\i' from process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:172$85'.
+No latch inferred for signal `\activation.\data_slope' from process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:172$85'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\activation.\done_activation_internal' using process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+  created $dff cell `$procdff$4798' with positive edge clock.
+Creating register for signal `\activation.\out_data_available_internal' using process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+  created $dff cell `$procdff$4799' with positive edge clock.
+Creating register for signal `\activation.\slope_applied_data_internal' using process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+  created $dff cell `$procdff$4800' with positive edge clock.
+Creating register for signal `\activation.\intercept_applied_data_internal' using process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+  created $dff cell `$procdff$4801' with positive edge clock.
+Creating register for signal `\activation.\relu_applied_data_internal' using process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+  created $dff cell `$procdff$4802' with positive edge clock.
+Creating register for signal `\activation.\i' using process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+  created $dff cell `$procdff$4803' with positive edge clock.
+Creating register for signal `\activation.\cycle_count' using process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+  created $dff cell `$procdff$4804' with positive edge clock.
+Creating register for signal `\activation.\activation_in_progress' using process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+  created $dff cell `$procdff$4805' with positive edge clock.
+Creating register for signal `\activation.\data_intercept_delayed' using process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+  created $dff cell `$procdff$4806' with positive edge clock.
+Creating register for signal `\activation.\data_intercept_flopped' using process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+  created $dff cell `$procdff$4807' with positive edge clock.
+Creating register for signal `\activation.\in_data_available_flopped' using process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+  created $dff cell `$procdff$4808' with positive edge clock.
+Creating register for signal `\activation.\data_slope_flopped' using process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:82$5'.
+  created $dff cell `$procdff$4809' with positive edge clock.
+Creating register for signal `\activation.\inp_data_flopped' using process `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:82$5'.
+  created $dff cell `$procdff$4810' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 176 empty switches in `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:212$87'.
+Removing empty process `activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:212$87'.
+Found and cleaned up 16 empty switches in `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:192$86'.
+Removing empty process `activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:192$86'.
+Found and cleaned up 16 empty switches in `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:172$85'.
+Removing empty process `activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:172$85'.
+Found and cleaned up 24 empty switches in `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+Removing empty process `activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:97$9'.
+Found and cleaned up 1 empty switch in `\activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:82$5'.
+Removing empty process `activation.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:82$5'.
+Cleaned up 233 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module activation.
+<suppressed ~51 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module activation.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\activation'.
+<suppressed ~192 debug messages>
+Removed a total of 64 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \activation..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$21: \inp_data [15:8] -> { \inp_data [15:9] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$25: \inp_data [23:16] -> { \inp_data [23:17] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$29: \inp_data [31:24] -> { \inp_data [31:25] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$33: \inp_data [39:32] -> { \inp_data [39:33] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$37: \inp_data [47:40] -> { \inp_data [47:41] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$41: \inp_data [55:48] -> { \inp_data [55:49] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$45: \inp_data [63:56] -> { \inp_data [63:57] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$49: \inp_data [71:64] -> { \inp_data [71:65] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$53: \inp_data [79:72] -> { \inp_data [79:73] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$57: \inp_data [87:80] -> { \inp_data [87:81] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$61: \inp_data [95:88] -> { \inp_data [95:89] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$65: \inp_data [103:96] -> { \inp_data [103:97] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$69: \inp_data [111:104] -> { \inp_data [111:105] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$73: \inp_data [119:112] -> { \inp_data [119:113] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$77: \inp_data [127:120] -> { \inp_data [127:121] 1'0 }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$17: \inp_data [7:0] -> { \inp_data [7:1] 1'0 }
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$4762.
+    dead port 1/2 on $mux $procmux$4696.
+    dead port 1/2 on $mux $procmux$3683.
+    dead port 1/2 on $mux $procmux$3677.
+    dead port 1/2 on $mux $procmux$3674.
+    dead port 1/2 on $mux $procmux$3668.
+    dead port 1/2 on $mux $procmux$3665.
+    dead port 1/2 on $mux $procmux$3662.
+    dead port 1/2 on $mux $procmux$3656.
+    dead port 1/2 on $mux $procmux$3653.
+    dead port 1/2 on $mux $procmux$3650.
+    dead port 1/2 on $mux $procmux$3647.
+    dead port 1/2 on $mux $procmux$3641.
+    dead port 1/2 on $mux $procmux$3638.
+    dead port 1/2 on $mux $procmux$3635.
+    dead port 1/2 on $mux $procmux$3632.
+    dead port 1/2 on $mux $procmux$3629.
+    dead port 1/2 on $mux $procmux$3623.
+    dead port 1/2 on $mux $procmux$3620.
+    dead port 1/2 on $mux $procmux$3617.
+    dead port 1/2 on $mux $procmux$3614.
+    dead port 1/2 on $mux $procmux$3611.
+    dead port 1/2 on $mux $procmux$3608.
+    dead port 1/2 on $mux $procmux$3602.
+    dead port 1/2 on $mux $procmux$3599.
+    dead port 1/2 on $mux $procmux$3596.
+    dead port 1/2 on $mux $procmux$3593.
+    dead port 1/2 on $mux $procmux$3590.
+    dead port 1/2 on $mux $procmux$3587.
+    dead port 1/2 on $mux $procmux$3584.
+    dead port 1/2 on $mux $procmux$3578.
+    dead port 1/2 on $mux $procmux$3575.
+    dead port 1/2 on $mux $procmux$3572.
+    dead port 1/2 on $mux $procmux$3569.
+    dead port 1/2 on $mux $procmux$3566.
+    dead port 1/2 on $mux $procmux$3563.
+    dead port 1/2 on $mux $procmux$3560.
+    dead port 1/2 on $mux $procmux$3557.
+    dead port 1/2 on $mux $procmux$3551.
+    dead port 1/2 on $mux $procmux$3548.
+    dead port 1/2 on $mux $procmux$3545.
+    dead port 1/2 on $mux $procmux$3542.
+    dead port 1/2 on $mux $procmux$3539.
+    dead port 1/2 on $mux $procmux$3536.
+    dead port 1/2 on $mux $procmux$3533.
+    dead port 1/2 on $mux $procmux$3530.
+    dead port 1/2 on $mux $procmux$3527.
+    dead port 1/2 on $mux $procmux$3521.
+    dead port 1/2 on $mux $procmux$3518.
+    dead port 1/2 on $mux $procmux$3515.
+    dead port 1/2 on $mux $procmux$3512.
+    dead port 1/2 on $mux $procmux$3509.
+    dead port 1/2 on $mux $procmux$3506.
+    dead port 1/2 on $mux $procmux$3503.
+    dead port 1/2 on $mux $procmux$3500.
+    dead port 1/2 on $mux $procmux$3497.
+    dead port 1/2 on $mux $procmux$3494.
+    dead port 1/2 on $mux $procmux$3485.
+    dead port 1/2 on $mux $procmux$3479.
+    dead port 1/2 on $mux $procmux$3476.
+    dead port 1/2 on $mux $procmux$3470.
+    dead port 1/2 on $mux $procmux$3467.
+    dead port 1/2 on $mux $procmux$3464.
+    dead port 1/2 on $mux $procmux$3458.
+    dead port 1/2 on $mux $procmux$3455.
+    dead port 1/2 on $mux $procmux$3452.
+    dead port 1/2 on $mux $procmux$3449.
+    dead port 1/2 on $mux $procmux$3443.
+    dead port 1/2 on $mux $procmux$3440.
+    dead port 1/2 on $mux $procmux$3437.
+    dead port 1/2 on $mux $procmux$3434.
+    dead port 1/2 on $mux $procmux$3431.
+    dead port 1/2 on $mux $procmux$3425.
+    dead port 1/2 on $mux $procmux$3422.
+    dead port 1/2 on $mux $procmux$3419.
+    dead port 1/2 on $mux $procmux$3416.
+    dead port 1/2 on $mux $procmux$3413.
+    dead port 1/2 on $mux $procmux$3410.
+    dead port 1/2 on $mux $procmux$3404.
+    dead port 1/2 on $mux $procmux$3401.
+    dead port 1/2 on $mux $procmux$3398.
+    dead port 1/2 on $mux $procmux$3395.
+    dead port 1/2 on $mux $procmux$3392.
+    dead port 1/2 on $mux $procmux$3389.
+    dead port 1/2 on $mux $procmux$3386.
+    dead port 1/2 on $mux $procmux$3380.
+    dead port 1/2 on $mux $procmux$3377.
+    dead port 1/2 on $mux $procmux$3374.
+    dead port 1/2 on $mux $procmux$3371.
+    dead port 1/2 on $mux $procmux$3368.
+    dead port 1/2 on $mux $procmux$3365.
+    dead port 1/2 on $mux $procmux$3362.
+    dead port 1/2 on $mux $procmux$3359.
+    dead port 1/2 on $mux $procmux$3353.
+    dead port 1/2 on $mux $procmux$3350.
+    dead port 1/2 on $mux $procmux$3347.
+    dead port 1/2 on $mux $procmux$3344.
+    dead port 1/2 on $mux $procmux$3341.
+    dead port 1/2 on $mux $procmux$3338.
+    dead port 1/2 on $mux $procmux$3335.
+    dead port 1/2 on $mux $procmux$3332.
+    dead port 1/2 on $mux $procmux$3329.
+    dead port 1/2 on $mux $procmux$3323.
+    dead port 1/2 on $mux $procmux$3320.
+    dead port 1/2 on $mux $procmux$3317.
+    dead port 1/2 on $mux $procmux$3314.
+    dead port 1/2 on $mux $procmux$3311.
+    dead port 1/2 on $mux $procmux$3308.
+    dead port 1/2 on $mux $procmux$3305.
+    dead port 1/2 on $mux $procmux$3302.
+    dead port 1/2 on $mux $procmux$3299.
+    dead port 1/2 on $mux $procmux$3296.
+    dead port 1/2 on $mux $procmux$3287.
+    dead port 1/2 on $mux $procmux$3281.
+    dead port 1/2 on $mux $procmux$3278.
+    dead port 1/2 on $mux $procmux$3272.
+    dead port 1/2 on $mux $procmux$3269.
+    dead port 1/2 on $mux $procmux$3266.
+    dead port 1/2 on $mux $procmux$3260.
+    dead port 1/2 on $mux $procmux$3257.
+    dead port 1/2 on $mux $procmux$3254.
+    dead port 1/2 on $mux $procmux$3251.
+    dead port 1/2 on $mux $procmux$3245.
+    dead port 1/2 on $mux $procmux$3242.
+    dead port 1/2 on $mux $procmux$3239.
+    dead port 1/2 on $mux $procmux$3236.
+    dead port 1/2 on $mux $procmux$3233.
+    dead port 1/2 on $mux $procmux$3227.
+    dead port 1/2 on $mux $procmux$3224.
+    dead port 1/2 on $mux $procmux$3221.
+    dead port 1/2 on $mux $procmux$3218.
+    dead port 1/2 on $mux $procmux$3215.
+    dead port 1/2 on $mux $procmux$3212.
+    dead port 1/2 on $mux $procmux$3206.
+    dead port 1/2 on $mux $procmux$3203.
+    dead port 1/2 on $mux $procmux$3200.
+    dead port 1/2 on $mux $procmux$3197.
+    dead port 1/2 on $mux $procmux$3194.
+    dead port 1/2 on $mux $procmux$3191.
+    dead port 1/2 on $mux $procmux$3188.
+    dead port 1/2 on $mux $procmux$3182.
+    dead port 1/2 on $mux $procmux$3179.
+    dead port 1/2 on $mux $procmux$3176.
+    dead port 1/2 on $mux $procmux$3173.
+    dead port 1/2 on $mux $procmux$3170.
+    dead port 1/2 on $mux $procmux$3167.
+    dead port 1/2 on $mux $procmux$3164.
+    dead port 1/2 on $mux $procmux$3161.
+    dead port 1/2 on $mux $procmux$3155.
+    dead port 1/2 on $mux $procmux$3152.
+    dead port 1/2 on $mux $procmux$3149.
+    dead port 1/2 on $mux $procmux$3146.
+    dead port 1/2 on $mux $procmux$3143.
+    dead port 1/2 on $mux $procmux$3140.
+    dead port 1/2 on $mux $procmux$3137.
+    dead port 1/2 on $mux $procmux$3134.
+    dead port 1/2 on $mux $procmux$3131.
+    dead port 1/2 on $mux $procmux$3125.
+    dead port 1/2 on $mux $procmux$3122.
+    dead port 1/2 on $mux $procmux$3119.
+    dead port 1/2 on $mux $procmux$3116.
+    dead port 1/2 on $mux $procmux$3113.
+    dead port 1/2 on $mux $procmux$3110.
+    dead port 1/2 on $mux $procmux$3107.
+    dead port 1/2 on $mux $procmux$3104.
+    dead port 1/2 on $mux $procmux$3101.
+    dead port 1/2 on $mux $procmux$3098.
+    dead port 1/2 on $mux $procmux$3089.
+    dead port 1/2 on $mux $procmux$3083.
+    dead port 1/2 on $mux $procmux$3080.
+    dead port 1/2 on $mux $procmux$3074.
+    dead port 1/2 on $mux $procmux$3071.
+    dead port 1/2 on $mux $procmux$3068.
+    dead port 1/2 on $mux $procmux$3062.
+    dead port 1/2 on $mux $procmux$3059.
+    dead port 1/2 on $mux $procmux$3056.
+    dead port 1/2 on $mux $procmux$3053.
+    dead port 1/2 on $mux $procmux$3047.
+    dead port 1/2 on $mux $procmux$3044.
+    dead port 1/2 on $mux $procmux$3041.
+    dead port 1/2 on $mux $procmux$3038.
+    dead port 1/2 on $mux $procmux$3035.
+    dead port 1/2 on $mux $procmux$3029.
+    dead port 1/2 on $mux $procmux$3026.
+    dead port 1/2 on $mux $procmux$3023.
+    dead port 1/2 on $mux $procmux$3020.
+    dead port 1/2 on $mux $procmux$3017.
+    dead port 1/2 on $mux $procmux$3014.
+    dead port 1/2 on $mux $procmux$3008.
+    dead port 1/2 on $mux $procmux$3005.
+    dead port 1/2 on $mux $procmux$3002.
+    dead port 1/2 on $mux $procmux$2999.
+    dead port 1/2 on $mux $procmux$2996.
+    dead port 1/2 on $mux $procmux$2993.
+    dead port 1/2 on $mux $procmux$2990.
+    dead port 1/2 on $mux $procmux$2984.
+    dead port 1/2 on $mux $procmux$2981.
+    dead port 1/2 on $mux $procmux$2978.
+    dead port 1/2 on $mux $procmux$2975.
+    dead port 1/2 on $mux $procmux$2972.
+    dead port 1/2 on $mux $procmux$2969.
+    dead port 1/2 on $mux $procmux$2966.
+    dead port 1/2 on $mux $procmux$2963.
+    dead port 1/2 on $mux $procmux$2957.
+    dead port 1/2 on $mux $procmux$2954.
+    dead port 1/2 on $mux $procmux$2951.
+    dead port 1/2 on $mux $procmux$2948.
+    dead port 1/2 on $mux $procmux$2945.
+    dead port 1/2 on $mux $procmux$2942.
+    dead port 1/2 on $mux $procmux$2939.
+    dead port 1/2 on $mux $procmux$2936.
+    dead port 1/2 on $mux $procmux$2933.
+    dead port 1/2 on $mux $procmux$2927.
+    dead port 1/2 on $mux $procmux$2924.
+    dead port 1/2 on $mux $procmux$2921.
+    dead port 1/2 on $mux $procmux$2918.
+    dead port 1/2 on $mux $procmux$2915.
+    dead port 1/2 on $mux $procmux$2912.
+    dead port 1/2 on $mux $procmux$2909.
+    dead port 1/2 on $mux $procmux$2906.
+    dead port 1/2 on $mux $procmux$2903.
+    dead port 1/2 on $mux $procmux$2900.
+    dead port 1/2 on $mux $procmux$2891.
+    dead port 1/2 on $mux $procmux$2885.
+    dead port 1/2 on $mux $procmux$2882.
+    dead port 1/2 on $mux $procmux$2876.
+    dead port 1/2 on $mux $procmux$2873.
+    dead port 1/2 on $mux $procmux$2870.
+    dead port 1/2 on $mux $procmux$2864.
+    dead port 1/2 on $mux $procmux$2861.
+    dead port 1/2 on $mux $procmux$2858.
+    dead port 1/2 on $mux $procmux$2855.
+    dead port 1/2 on $mux $procmux$2849.
+    dead port 1/2 on $mux $procmux$2846.
+    dead port 1/2 on $mux $procmux$2843.
+    dead port 1/2 on $mux $procmux$2840.
+    dead port 1/2 on $mux $procmux$2837.
+    dead port 1/2 on $mux $procmux$2831.
+    dead port 1/2 on $mux $procmux$2828.
+    dead port 1/2 on $mux $procmux$2825.
+    dead port 1/2 on $mux $procmux$2822.
+    dead port 1/2 on $mux $procmux$2819.
+    dead port 1/2 on $mux $procmux$2816.
+    dead port 1/2 on $mux $procmux$2810.
+    dead port 1/2 on $mux $procmux$2807.
+    dead port 1/2 on $mux $procmux$2804.
+    dead port 1/2 on $mux $procmux$2801.
+    dead port 1/2 on $mux $procmux$2798.
+    dead port 1/2 on $mux $procmux$2795.
+    dead port 1/2 on $mux $procmux$2792.
+    dead port 1/2 on $mux $procmux$2786.
+    dead port 1/2 on $mux $procmux$2783.
+    dead port 1/2 on $mux $procmux$2780.
+    dead port 1/2 on $mux $procmux$2777.
+    dead port 1/2 on $mux $procmux$2774.
+    dead port 1/2 on $mux $procmux$2771.
+    dead port 1/2 on $mux $procmux$2768.
+    dead port 1/2 on $mux $procmux$2765.
+    dead port 1/2 on $mux $procmux$2759.
+    dead port 1/2 on $mux $procmux$2756.
+    dead port 1/2 on $mux $procmux$2753.
+    dead port 1/2 on $mux $procmux$2750.
+    dead port 1/2 on $mux $procmux$2747.
+    dead port 1/2 on $mux $procmux$2744.
+    dead port 1/2 on $mux $procmux$2741.
+    dead port 1/2 on $mux $procmux$2738.
+    dead port 1/2 on $mux $procmux$2735.
+    dead port 1/2 on $mux $procmux$2729.
+    dead port 1/2 on $mux $procmux$2726.
+    dead port 1/2 on $mux $procmux$2723.
+    dead port 1/2 on $mux $procmux$2720.
+    dead port 1/2 on $mux $procmux$2717.
+    dead port 1/2 on $mux $procmux$2714.
+    dead port 1/2 on $mux $procmux$2711.
+    dead port 1/2 on $mux $procmux$2708.
+    dead port 1/2 on $mux $procmux$2705.
+    dead port 1/2 on $mux $procmux$2702.
+    dead port 1/2 on $mux $procmux$2693.
+    dead port 1/2 on $mux $procmux$2687.
+    dead port 1/2 on $mux $procmux$2684.
+    dead port 1/2 on $mux $procmux$2678.
+    dead port 1/2 on $mux $procmux$2675.
+    dead port 1/2 on $mux $procmux$2672.
+    dead port 1/2 on $mux $procmux$2666.
+    dead port 1/2 on $mux $procmux$2663.
+    dead port 1/2 on $mux $procmux$2660.
+    dead port 1/2 on $mux $procmux$2657.
+    dead port 1/2 on $mux $procmux$2651.
+    dead port 1/2 on $mux $procmux$2648.
+    dead port 1/2 on $mux $procmux$2645.
+    dead port 1/2 on $mux $procmux$2642.
+    dead port 1/2 on $mux $procmux$2639.
+    dead port 1/2 on $mux $procmux$2633.
+    dead port 1/2 on $mux $procmux$2630.
+    dead port 1/2 on $mux $procmux$2627.
+    dead port 1/2 on $mux $procmux$2624.
+    dead port 1/2 on $mux $procmux$2621.
+    dead port 1/2 on $mux $procmux$2618.
+    dead port 1/2 on $mux $procmux$2612.
+    dead port 1/2 on $mux $procmux$2609.
+    dead port 1/2 on $mux $procmux$2606.
+    dead port 1/2 on $mux $procmux$2603.
+    dead port 1/2 on $mux $procmux$2600.
+    dead port 1/2 on $mux $procmux$2597.
+    dead port 1/2 on $mux $procmux$2594.
+    dead port 1/2 on $mux $procmux$2588.
+    dead port 1/2 on $mux $procmux$2585.
+    dead port 1/2 on $mux $procmux$2582.
+    dead port 1/2 on $mux $procmux$2579.
+    dead port 1/2 on $mux $procmux$2576.
+    dead port 1/2 on $mux $procmux$2573.
+    dead port 1/2 on $mux $procmux$2570.
+    dead port 1/2 on $mux $procmux$2567.
+    dead port 1/2 on $mux $procmux$2561.
+    dead port 1/2 on $mux $procmux$2558.
+    dead port 1/2 on $mux $procmux$2555.
+    dead port 1/2 on $mux $procmux$2552.
+    dead port 1/2 on $mux $procmux$2549.
+    dead port 1/2 on $mux $procmux$2546.
+    dead port 1/2 on $mux $procmux$2543.
+    dead port 1/2 on $mux $procmux$2540.
+    dead port 1/2 on $mux $procmux$2537.
+    dead port 1/2 on $mux $procmux$2531.
+    dead port 1/2 on $mux $procmux$2528.
+    dead port 1/2 on $mux $procmux$2525.
+    dead port 1/2 on $mux $procmux$2522.
+    dead port 1/2 on $mux $procmux$2519.
+    dead port 1/2 on $mux $procmux$2516.
+    dead port 1/2 on $mux $procmux$2513.
+    dead port 1/2 on $mux $procmux$2510.
+    dead port 1/2 on $mux $procmux$2507.
+    dead port 1/2 on $mux $procmux$2504.
+    dead port 1/2 on $mux $procmux$2495.
+    dead port 1/2 on $mux $procmux$2489.
+    dead port 1/2 on $mux $procmux$2486.
+    dead port 1/2 on $mux $procmux$2480.
+    dead port 1/2 on $mux $procmux$2477.
+    dead port 1/2 on $mux $procmux$2474.
+    dead port 1/2 on $mux $procmux$2468.
+    dead port 1/2 on $mux $procmux$2465.
+    dead port 1/2 on $mux $procmux$2462.
+    dead port 1/2 on $mux $procmux$2459.
+    dead port 1/2 on $mux $procmux$2453.
+    dead port 1/2 on $mux $procmux$2450.
+    dead port 1/2 on $mux $procmux$2447.
+    dead port 1/2 on $mux $procmux$2444.
+    dead port 1/2 on $mux $procmux$2441.
+    dead port 1/2 on $mux $procmux$2435.
+    dead port 1/2 on $mux $procmux$2432.
+    dead port 1/2 on $mux $procmux$2429.
+    dead port 1/2 on $mux $procmux$2426.
+    dead port 1/2 on $mux $procmux$2423.
+    dead port 1/2 on $mux $procmux$2420.
+    dead port 1/2 on $mux $procmux$2414.
+    dead port 1/2 on $mux $procmux$2411.
+    dead port 1/2 on $mux $procmux$2408.
+    dead port 1/2 on $mux $procmux$2405.
+    dead port 1/2 on $mux $procmux$2402.
+    dead port 1/2 on $mux $procmux$2399.
+    dead port 1/2 on $mux $procmux$2396.
+    dead port 1/2 on $mux $procmux$2390.
+    dead port 1/2 on $mux $procmux$2387.
+    dead port 1/2 on $mux $procmux$2384.
+    dead port 1/2 on $mux $procmux$2381.
+    dead port 1/2 on $mux $procmux$2378.
+    dead port 1/2 on $mux $procmux$2375.
+    dead port 1/2 on $mux $procmux$2372.
+    dead port 1/2 on $mux $procmux$2369.
+    dead port 1/2 on $mux $procmux$2363.
+    dead port 1/2 on $mux $procmux$2360.
+    dead port 1/2 on $mux $procmux$2357.
+    dead port 1/2 on $mux $procmux$2354.
+    dead port 1/2 on $mux $procmux$2351.
+    dead port 1/2 on $mux $procmux$2348.
+    dead port 1/2 on $mux $procmux$2345.
+    dead port 1/2 on $mux $procmux$2342.
+    dead port 1/2 on $mux $procmux$2339.
+    dead port 1/2 on $mux $procmux$2333.
+    dead port 1/2 on $mux $procmux$2330.
+    dead port 1/2 on $mux $procmux$2327.
+    dead port 1/2 on $mux $procmux$2324.
+    dead port 1/2 on $mux $procmux$2321.
+    dead port 1/2 on $mux $procmux$2318.
+    dead port 1/2 on $mux $procmux$2315.
+    dead port 1/2 on $mux $procmux$2312.
+    dead port 1/2 on $mux $procmux$2309.
+    dead port 1/2 on $mux $procmux$2306.
+    dead port 1/2 on $mux $procmux$2297.
+    dead port 1/2 on $mux $procmux$2291.
+    dead port 1/2 on $mux $procmux$2288.
+    dead port 1/2 on $mux $procmux$2282.
+    dead port 1/2 on $mux $procmux$2279.
+    dead port 1/2 on $mux $procmux$2276.
+    dead port 1/2 on $mux $procmux$2270.
+    dead port 1/2 on $mux $procmux$2267.
+    dead port 1/2 on $mux $procmux$2264.
+    dead port 1/2 on $mux $procmux$2261.
+    dead port 1/2 on $mux $procmux$2255.
+    dead port 1/2 on $mux $procmux$2252.
+    dead port 1/2 on $mux $procmux$2249.
+    dead port 1/2 on $mux $procmux$2246.
+    dead port 1/2 on $mux $procmux$2243.
+    dead port 1/2 on $mux $procmux$2237.
+    dead port 1/2 on $mux $procmux$2234.
+    dead port 1/2 on $mux $procmux$2231.
+    dead port 1/2 on $mux $procmux$2228.
+    dead port 1/2 on $mux $procmux$2225.
+    dead port 1/2 on $mux $procmux$2222.
+    dead port 1/2 on $mux $procmux$2216.
+    dead port 1/2 on $mux $procmux$2213.
+    dead port 1/2 on $mux $procmux$2210.
+    dead port 1/2 on $mux $procmux$2207.
+    dead port 1/2 on $mux $procmux$2204.
+    dead port 1/2 on $mux $procmux$2201.
+    dead port 1/2 on $mux $procmux$2198.
+    dead port 1/2 on $mux $procmux$2192.
+    dead port 1/2 on $mux $procmux$2189.
+    dead port 1/2 on $mux $procmux$2186.
+    dead port 1/2 on $mux $procmux$2183.
+    dead port 1/2 on $mux $procmux$2180.
+    dead port 1/2 on $mux $procmux$2177.
+    dead port 1/2 on $mux $procmux$2174.
+    dead port 1/2 on $mux $procmux$2171.
+    dead port 1/2 on $mux $procmux$2165.
+    dead port 1/2 on $mux $procmux$2162.
+    dead port 1/2 on $mux $procmux$2159.
+    dead port 1/2 on $mux $procmux$2156.
+    dead port 1/2 on $mux $procmux$2153.
+    dead port 1/2 on $mux $procmux$2150.
+    dead port 1/2 on $mux $procmux$2147.
+    dead port 1/2 on $mux $procmux$2144.
+    dead port 1/2 on $mux $procmux$2141.
+    dead port 1/2 on $mux $procmux$2135.
+    dead port 1/2 on $mux $procmux$2132.
+    dead port 1/2 on $mux $procmux$2129.
+    dead port 1/2 on $mux $procmux$2126.
+    dead port 1/2 on $mux $procmux$2123.
+    dead port 1/2 on $mux $procmux$2120.
+    dead port 1/2 on $mux $procmux$2117.
+    dead port 1/2 on $mux $procmux$2114.
+    dead port 1/2 on $mux $procmux$2111.
+    dead port 1/2 on $mux $procmux$2108.
+    dead port 1/2 on $mux $procmux$2099.
+    dead port 1/2 on $mux $procmux$2093.
+    dead port 1/2 on $mux $procmux$2090.
+    dead port 1/2 on $mux $procmux$2084.
+    dead port 1/2 on $mux $procmux$2081.
+    dead port 1/2 on $mux $procmux$2078.
+    dead port 1/2 on $mux $procmux$2072.
+    dead port 1/2 on $mux $procmux$2069.
+    dead port 1/2 on $mux $procmux$2066.
+    dead port 1/2 on $mux $procmux$2063.
+    dead port 1/2 on $mux $procmux$2057.
+    dead port 1/2 on $mux $procmux$2054.
+    dead port 1/2 on $mux $procmux$2051.
+    dead port 1/2 on $mux $procmux$2048.
+    dead port 1/2 on $mux $procmux$2045.
+    dead port 1/2 on $mux $procmux$2039.
+    dead port 1/2 on $mux $procmux$2036.
+    dead port 1/2 on $mux $procmux$2033.
+    dead port 1/2 on $mux $procmux$2030.
+    dead port 1/2 on $mux $procmux$2027.
+    dead port 1/2 on $mux $procmux$2024.
+    dead port 1/2 on $mux $procmux$2018.
+    dead port 1/2 on $mux $procmux$2015.
+    dead port 1/2 on $mux $procmux$2012.
+    dead port 1/2 on $mux $procmux$2009.
+    dead port 1/2 on $mux $procmux$2006.
+    dead port 1/2 on $mux $procmux$2003.
+    dead port 1/2 on $mux $procmux$2000.
+    dead port 1/2 on $mux $procmux$1994.
+    dead port 1/2 on $mux $procmux$1991.
+    dead port 1/2 on $mux $procmux$1988.
+    dead port 1/2 on $mux $procmux$1985.
+    dead port 1/2 on $mux $procmux$1982.
+    dead port 1/2 on $mux $procmux$1979.
+    dead port 1/2 on $mux $procmux$1976.
+    dead port 1/2 on $mux $procmux$1973.
+    dead port 1/2 on $mux $procmux$1967.
+    dead port 1/2 on $mux $procmux$1964.
+    dead port 1/2 on $mux $procmux$1961.
+    dead port 1/2 on $mux $procmux$1958.
+    dead port 1/2 on $mux $procmux$1955.
+    dead port 1/2 on $mux $procmux$1952.
+    dead port 1/2 on $mux $procmux$1949.
+    dead port 1/2 on $mux $procmux$1946.
+    dead port 1/2 on $mux $procmux$1943.
+    dead port 1/2 on $mux $procmux$1937.
+    dead port 1/2 on $mux $procmux$1934.
+    dead port 1/2 on $mux $procmux$1931.
+    dead port 1/2 on $mux $procmux$1928.
+    dead port 1/2 on $mux $procmux$1925.
+    dead port 1/2 on $mux $procmux$1922.
+    dead port 1/2 on $mux $procmux$1919.
+    dead port 1/2 on $mux $procmux$1916.
+    dead port 1/2 on $mux $procmux$1913.
+    dead port 1/2 on $mux $procmux$1910.
+    dead port 1/2 on $mux $procmux$1901.
+    dead port 1/2 on $mux $procmux$1895.
+    dead port 1/2 on $mux $procmux$1892.
+    dead port 1/2 on $mux $procmux$1886.
+    dead port 1/2 on $mux $procmux$1883.
+    dead port 1/2 on $mux $procmux$1880.
+    dead port 1/2 on $mux $procmux$1874.
+    dead port 1/2 on $mux $procmux$1871.
+    dead port 1/2 on $mux $procmux$1868.
+    dead port 1/2 on $mux $procmux$1865.
+    dead port 1/2 on $mux $procmux$1859.
+    dead port 1/2 on $mux $procmux$1856.
+    dead port 1/2 on $mux $procmux$1853.
+    dead port 1/2 on $mux $procmux$1850.
+    dead port 1/2 on $mux $procmux$1847.
+    dead port 1/2 on $mux $procmux$1841.
+    dead port 1/2 on $mux $procmux$1838.
+    dead port 1/2 on $mux $procmux$1835.
+    dead port 1/2 on $mux $procmux$1832.
+    dead port 1/2 on $mux $procmux$1829.
+    dead port 1/2 on $mux $procmux$1826.
+    dead port 1/2 on $mux $procmux$1820.
+    dead port 1/2 on $mux $procmux$1817.
+    dead port 1/2 on $mux $procmux$1814.
+    dead port 1/2 on $mux $procmux$1811.
+    dead port 1/2 on $mux $procmux$1808.
+    dead port 1/2 on $mux $procmux$1805.
+    dead port 1/2 on $mux $procmux$1802.
+    dead port 1/2 on $mux $procmux$1796.
+    dead port 1/2 on $mux $procmux$1793.
+    dead port 1/2 on $mux $procmux$1790.
+    dead port 1/2 on $mux $procmux$1787.
+    dead port 1/2 on $mux $procmux$1784.
+    dead port 1/2 on $mux $procmux$1781.
+    dead port 1/2 on $mux $procmux$1778.
+    dead port 1/2 on $mux $procmux$1775.
+    dead port 1/2 on $mux $procmux$1769.
+    dead port 1/2 on $mux $procmux$1766.
+    dead port 1/2 on $mux $procmux$1763.
+    dead port 1/2 on $mux $procmux$1760.
+    dead port 1/2 on $mux $procmux$1757.
+    dead port 1/2 on $mux $procmux$1754.
+    dead port 1/2 on $mux $procmux$1751.
+    dead port 1/2 on $mux $procmux$1748.
+    dead port 1/2 on $mux $procmux$1745.
+    dead port 1/2 on $mux $procmux$1739.
+    dead port 1/2 on $mux $procmux$1736.
+    dead port 1/2 on $mux $procmux$1733.
+    dead port 1/2 on $mux $procmux$1730.
+    dead port 1/2 on $mux $procmux$1727.
+    dead port 1/2 on $mux $procmux$1724.
+    dead port 1/2 on $mux $procmux$1721.
+    dead port 1/2 on $mux $procmux$1718.
+    dead port 1/2 on $mux $procmux$1715.
+    dead port 1/2 on $mux $procmux$1712.
+    dead port 1/2 on $mux $procmux$1703.
+    dead port 1/2 on $mux $procmux$1697.
+    dead port 1/2 on $mux $procmux$1694.
+    dead port 1/2 on $mux $procmux$1688.
+    dead port 1/2 on $mux $procmux$1685.
+    dead port 1/2 on $mux $procmux$1682.
+    dead port 1/2 on $mux $procmux$1676.
+    dead port 1/2 on $mux $procmux$1673.
+    dead port 1/2 on $mux $procmux$1670.
+    dead port 1/2 on $mux $procmux$1667.
+    dead port 1/2 on $mux $procmux$1661.
+    dead port 1/2 on $mux $procmux$1658.
+    dead port 1/2 on $mux $procmux$1655.
+    dead port 1/2 on $mux $procmux$1652.
+    dead port 1/2 on $mux $procmux$1649.
+    dead port 1/2 on $mux $procmux$1643.
+    dead port 1/2 on $mux $procmux$1640.
+    dead port 1/2 on $mux $procmux$1637.
+    dead port 1/2 on $mux $procmux$1634.
+    dead port 1/2 on $mux $procmux$1631.
+    dead port 1/2 on $mux $procmux$1628.
+    dead port 1/2 on $mux $procmux$1622.
+    dead port 1/2 on $mux $procmux$1619.
+    dead port 1/2 on $mux $procmux$1616.
+    dead port 1/2 on $mux $procmux$1613.
+    dead port 1/2 on $mux $procmux$1610.
+    dead port 1/2 on $mux $procmux$1607.
+    dead port 1/2 on $mux $procmux$1604.
+    dead port 1/2 on $mux $procmux$1598.
+    dead port 1/2 on $mux $procmux$1595.
+    dead port 1/2 on $mux $procmux$1592.
+    dead port 1/2 on $mux $procmux$1589.
+    dead port 1/2 on $mux $procmux$1586.
+    dead port 1/2 on $mux $procmux$1583.
+    dead port 1/2 on $mux $procmux$1580.
+    dead port 1/2 on $mux $procmux$1577.
+    dead port 1/2 on $mux $procmux$1571.
+    dead port 1/2 on $mux $procmux$1568.
+    dead port 1/2 on $mux $procmux$1565.
+    dead port 1/2 on $mux $procmux$1562.
+    dead port 1/2 on $mux $procmux$1559.
+    dead port 1/2 on $mux $procmux$1556.
+    dead port 1/2 on $mux $procmux$1553.
+    dead port 1/2 on $mux $procmux$1550.
+    dead port 1/2 on $mux $procmux$1547.
+    dead port 1/2 on $mux $procmux$1541.
+    dead port 1/2 on $mux $procmux$1538.
+    dead port 1/2 on $mux $procmux$1535.
+    dead port 1/2 on $mux $procmux$1532.
+    dead port 1/2 on $mux $procmux$1529.
+    dead port 1/2 on $mux $procmux$1526.
+    dead port 1/2 on $mux $procmux$1523.
+    dead port 1/2 on $mux $procmux$1520.
+    dead port 1/2 on $mux $procmux$1517.
+    dead port 1/2 on $mux $procmux$1514.
+    dead port 1/2 on $mux $procmux$1505.
+    dead port 1/2 on $mux $procmux$1499.
+    dead port 1/2 on $mux $procmux$1496.
+    dead port 1/2 on $mux $procmux$1490.
+    dead port 1/2 on $mux $procmux$1487.
+    dead port 1/2 on $mux $procmux$1484.
+    dead port 1/2 on $mux $procmux$1478.
+    dead port 1/2 on $mux $procmux$1475.
+    dead port 1/2 on $mux $procmux$1472.
+    dead port 1/2 on $mux $procmux$1469.
+    dead port 1/2 on $mux $procmux$1463.
+    dead port 1/2 on $mux $procmux$1460.
+    dead port 1/2 on $mux $procmux$1457.
+    dead port 1/2 on $mux $procmux$1454.
+    dead port 1/2 on $mux $procmux$1451.
+    dead port 1/2 on $mux $procmux$1445.
+    dead port 1/2 on $mux $procmux$1442.
+    dead port 1/2 on $mux $procmux$1439.
+    dead port 1/2 on $mux $procmux$1436.
+    dead port 1/2 on $mux $procmux$1433.
+    dead port 1/2 on $mux $procmux$1430.
+    dead port 1/2 on $mux $procmux$1424.
+    dead port 1/2 on $mux $procmux$1421.
+    dead port 1/2 on $mux $procmux$1418.
+    dead port 1/2 on $mux $procmux$1415.
+    dead port 1/2 on $mux $procmux$1412.
+    dead port 1/2 on $mux $procmux$1409.
+    dead port 1/2 on $mux $procmux$1406.
+    dead port 1/2 on $mux $procmux$1400.
+    dead port 1/2 on $mux $procmux$1397.
+    dead port 1/2 on $mux $procmux$1394.
+    dead port 1/2 on $mux $procmux$1391.
+    dead port 1/2 on $mux $procmux$1388.
+    dead port 1/2 on $mux $procmux$1385.
+    dead port 1/2 on $mux $procmux$1382.
+    dead port 1/2 on $mux $procmux$1379.
+    dead port 1/2 on $mux $procmux$1373.
+    dead port 1/2 on $mux $procmux$1370.
+    dead port 1/2 on $mux $procmux$1367.
+    dead port 1/2 on $mux $procmux$1364.
+    dead port 1/2 on $mux $procmux$1361.
+    dead port 1/2 on $mux $procmux$1358.
+    dead port 1/2 on $mux $procmux$1355.
+    dead port 1/2 on $mux $procmux$1352.
+    dead port 1/2 on $mux $procmux$1349.
+    dead port 1/2 on $mux $procmux$1343.
+    dead port 1/2 on $mux $procmux$1340.
+    dead port 1/2 on $mux $procmux$1337.
+    dead port 1/2 on $mux $procmux$1334.
+    dead port 1/2 on $mux $procmux$1331.
+    dead port 1/2 on $mux $procmux$1328.
+    dead port 1/2 on $mux $procmux$1325.
+    dead port 1/2 on $mux $procmux$1322.
+    dead port 1/2 on $mux $procmux$1319.
+    dead port 1/2 on $mux $procmux$1316.
+    dead port 1/2 on $mux $procmux$1307.
+    dead port 1/2 on $mux $procmux$1301.
+    dead port 1/2 on $mux $procmux$1298.
+    dead port 1/2 on $mux $procmux$1292.
+    dead port 1/2 on $mux $procmux$1289.
+    dead port 1/2 on $mux $procmux$1286.
+    dead port 1/2 on $mux $procmux$1280.
+    dead port 1/2 on $mux $procmux$1277.
+    dead port 1/2 on $mux $procmux$1274.
+    dead port 1/2 on $mux $procmux$1271.
+    dead port 1/2 on $mux $procmux$1265.
+    dead port 1/2 on $mux $procmux$1262.
+    dead port 1/2 on $mux $procmux$1259.
+    dead port 1/2 on $mux $procmux$1256.
+    dead port 1/2 on $mux $procmux$1253.
+    dead port 1/2 on $mux $procmux$1247.
+    dead port 1/2 on $mux $procmux$1244.
+    dead port 1/2 on $mux $procmux$1241.
+    dead port 1/2 on $mux $procmux$1238.
+    dead port 1/2 on $mux $procmux$1235.
+    dead port 1/2 on $mux $procmux$1232.
+    dead port 1/2 on $mux $procmux$1226.
+    dead port 1/2 on $mux $procmux$1223.
+    dead port 1/2 on $mux $procmux$1220.
+    dead port 1/2 on $mux $procmux$1217.
+    dead port 1/2 on $mux $procmux$1214.
+    dead port 1/2 on $mux $procmux$1211.
+    dead port 1/2 on $mux $procmux$1208.
+    dead port 1/2 on $mux $procmux$1202.
+    dead port 1/2 on $mux $procmux$1199.
+    dead port 1/2 on $mux $procmux$1196.
+    dead port 1/2 on $mux $procmux$1193.
+    dead port 1/2 on $mux $procmux$1190.
+    dead port 1/2 on $mux $procmux$1187.
+    dead port 1/2 on $mux $procmux$1184.
+    dead port 1/2 on $mux $procmux$1181.
+    dead port 1/2 on $mux $procmux$1175.
+    dead port 1/2 on $mux $procmux$1172.
+    dead port 1/2 on $mux $procmux$1169.
+    dead port 1/2 on $mux $procmux$1166.
+    dead port 1/2 on $mux $procmux$1163.
+    dead port 1/2 on $mux $procmux$1160.
+    dead port 1/2 on $mux $procmux$1157.
+    dead port 1/2 on $mux $procmux$1154.
+    dead port 1/2 on $mux $procmux$1151.
+    dead port 1/2 on $mux $procmux$1145.
+    dead port 1/2 on $mux $procmux$1142.
+    dead port 1/2 on $mux $procmux$1139.
+    dead port 1/2 on $mux $procmux$1136.
+    dead port 1/2 on $mux $procmux$1133.
+    dead port 1/2 on $mux $procmux$1130.
+    dead port 1/2 on $mux $procmux$1127.
+    dead port 1/2 on $mux $procmux$1124.
+    dead port 1/2 on $mux $procmux$1121.
+    dead port 1/2 on $mux $procmux$1118.
+    dead port 1/2 on $mux $procmux$1109.
+    dead port 1/2 on $mux $procmux$1103.
+    dead port 1/2 on $mux $procmux$1100.
+    dead port 1/2 on $mux $procmux$1094.
+    dead port 1/2 on $mux $procmux$1091.
+    dead port 1/2 on $mux $procmux$1088.
+    dead port 1/2 on $mux $procmux$1082.
+    dead port 1/2 on $mux $procmux$1079.
+    dead port 1/2 on $mux $procmux$1076.
+    dead port 1/2 on $mux $procmux$1073.
+    dead port 1/2 on $mux $procmux$1067.
+    dead port 1/2 on $mux $procmux$1064.
+    dead port 1/2 on $mux $procmux$1061.
+    dead port 1/2 on $mux $procmux$1058.
+    dead port 1/2 on $mux $procmux$1055.
+    dead port 1/2 on $mux $procmux$1049.
+    dead port 1/2 on $mux $procmux$1046.
+    dead port 1/2 on $mux $procmux$1043.
+    dead port 1/2 on $mux $procmux$1040.
+    dead port 1/2 on $mux $procmux$1037.
+    dead port 1/2 on $mux $procmux$1034.
+    dead port 1/2 on $mux $procmux$1028.
+    dead port 1/2 on $mux $procmux$1025.
+    dead port 1/2 on $mux $procmux$1022.
+    dead port 1/2 on $mux $procmux$1019.
+    dead port 1/2 on $mux $procmux$1016.
+    dead port 1/2 on $mux $procmux$1013.
+    dead port 1/2 on $mux $procmux$1010.
+    dead port 1/2 on $mux $procmux$1004.
+    dead port 1/2 on $mux $procmux$1001.
+    dead port 1/2 on $mux $procmux$998.
+    dead port 1/2 on $mux $procmux$995.
+    dead port 1/2 on $mux $procmux$992.
+    dead port 1/2 on $mux $procmux$989.
+    dead port 1/2 on $mux $procmux$986.
+    dead port 1/2 on $mux $procmux$983.
+    dead port 1/2 on $mux $procmux$977.
+    dead port 1/2 on $mux $procmux$974.
+    dead port 1/2 on $mux $procmux$971.
+    dead port 1/2 on $mux $procmux$968.
+    dead port 1/2 on $mux $procmux$965.
+    dead port 1/2 on $mux $procmux$962.
+    dead port 1/2 on $mux $procmux$959.
+    dead port 1/2 on $mux $procmux$956.
+    dead port 1/2 on $mux $procmux$953.
+    dead port 1/2 on $mux $procmux$947.
+    dead port 1/2 on $mux $procmux$944.
+    dead port 1/2 on $mux $procmux$941.
+    dead port 1/2 on $mux $procmux$938.
+    dead port 1/2 on $mux $procmux$935.
+    dead port 1/2 on $mux $procmux$932.
+    dead port 1/2 on $mux $procmux$929.
+    dead port 1/2 on $mux $procmux$926.
+    dead port 1/2 on $mux $procmux$923.
+    dead port 1/2 on $mux $procmux$920.
+    dead port 1/2 on $mux $procmux$911.
+    dead port 1/2 on $mux $procmux$905.
+    dead port 1/2 on $mux $procmux$902.
+    dead port 1/2 on $mux $procmux$896.
+    dead port 1/2 on $mux $procmux$893.
+    dead port 1/2 on $mux $procmux$890.
+    dead port 1/2 on $mux $procmux$884.
+    dead port 1/2 on $mux $procmux$881.
+    dead port 1/2 on $mux $procmux$878.
+    dead port 1/2 on $mux $procmux$875.
+    dead port 1/2 on $mux $procmux$869.
+    dead port 1/2 on $mux $procmux$866.
+    dead port 1/2 on $mux $procmux$863.
+    dead port 1/2 on $mux $procmux$860.
+    dead port 1/2 on $mux $procmux$857.
+    dead port 1/2 on $mux $procmux$851.
+    dead port 1/2 on $mux $procmux$848.
+    dead port 1/2 on $mux $procmux$845.
+    dead port 1/2 on $mux $procmux$842.
+    dead port 1/2 on $mux $procmux$839.
+    dead port 1/2 on $mux $procmux$836.
+    dead port 1/2 on $mux $procmux$830.
+    dead port 1/2 on $mux $procmux$827.
+    dead port 1/2 on $mux $procmux$824.
+    dead port 1/2 on $mux $procmux$821.
+    dead port 1/2 on $mux $procmux$818.
+    dead port 1/2 on $mux $procmux$815.
+    dead port 1/2 on $mux $procmux$812.
+    dead port 1/2 on $mux $procmux$806.
+    dead port 1/2 on $mux $procmux$803.
+    dead port 1/2 on $mux $procmux$800.
+    dead port 1/2 on $mux $procmux$797.
+    dead port 1/2 on $mux $procmux$794.
+    dead port 1/2 on $mux $procmux$791.
+    dead port 1/2 on $mux $procmux$788.
+    dead port 1/2 on $mux $procmux$785.
+    dead port 1/2 on $mux $procmux$779.
+    dead port 1/2 on $mux $procmux$776.
+    dead port 1/2 on $mux $procmux$773.
+    dead port 1/2 on $mux $procmux$770.
+    dead port 1/2 on $mux $procmux$767.
+    dead port 1/2 on $mux $procmux$764.
+    dead port 1/2 on $mux $procmux$761.
+    dead port 1/2 on $mux $procmux$758.
+    dead port 1/2 on $mux $procmux$755.
+    dead port 1/2 on $mux $procmux$749.
+    dead port 1/2 on $mux $procmux$746.
+    dead port 1/2 on $mux $procmux$743.
+    dead port 1/2 on $mux $procmux$740.
+    dead port 1/2 on $mux $procmux$737.
+    dead port 1/2 on $mux $procmux$734.
+    dead port 1/2 on $mux $procmux$731.
+    dead port 1/2 on $mux $procmux$728.
+    dead port 1/2 on $mux $procmux$725.
+    dead port 1/2 on $mux $procmux$722.
+    dead port 1/2 on $mux $procmux$713.
+    dead port 1/2 on $mux $procmux$707.
+    dead port 1/2 on $mux $procmux$704.
+    dead port 1/2 on $mux $procmux$698.
+    dead port 1/2 on $mux $procmux$695.
+    dead port 1/2 on $mux $procmux$692.
+    dead port 1/2 on $mux $procmux$686.
+    dead port 1/2 on $mux $procmux$683.
+    dead port 1/2 on $mux $procmux$680.
+    dead port 1/2 on $mux $procmux$677.
+    dead port 1/2 on $mux $procmux$671.
+    dead port 1/2 on $mux $procmux$668.
+    dead port 1/2 on $mux $procmux$665.
+    dead port 1/2 on $mux $procmux$662.
+    dead port 1/2 on $mux $procmux$659.
+    dead port 1/2 on $mux $procmux$653.
+    dead port 1/2 on $mux $procmux$650.
+    dead port 1/2 on $mux $procmux$647.
+    dead port 1/2 on $mux $procmux$644.
+    dead port 1/2 on $mux $procmux$641.
+    dead port 1/2 on $mux $procmux$638.
+    dead port 1/2 on $mux $procmux$632.
+    dead port 1/2 on $mux $procmux$629.
+    dead port 1/2 on $mux $procmux$626.
+    dead port 1/2 on $mux $procmux$623.
+    dead port 1/2 on $mux $procmux$620.
+    dead port 1/2 on $mux $procmux$617.
+    dead port 1/2 on $mux $procmux$614.
+    dead port 1/2 on $mux $procmux$608.
+    dead port 1/2 on $mux $procmux$605.
+    dead port 1/2 on $mux $procmux$602.
+    dead port 1/2 on $mux $procmux$599.
+    dead port 1/2 on $mux $procmux$596.
+    dead port 1/2 on $mux $procmux$593.
+    dead port 1/2 on $mux $procmux$590.
+    dead port 1/2 on $mux $procmux$587.
+    dead port 1/2 on $mux $procmux$581.
+    dead port 1/2 on $mux $procmux$578.
+    dead port 1/2 on $mux $procmux$575.
+    dead port 1/2 on $mux $procmux$572.
+    dead port 1/2 on $mux $procmux$569.
+    dead port 1/2 on $mux $procmux$566.
+    dead port 1/2 on $mux $procmux$563.
+    dead port 1/2 on $mux $procmux$560.
+    dead port 1/2 on $mux $procmux$557.
+    dead port 1/2 on $mux $procmux$551.
+    dead port 1/2 on $mux $procmux$548.
+    dead port 1/2 on $mux $procmux$545.
+    dead port 1/2 on $mux $procmux$542.
+    dead port 1/2 on $mux $procmux$539.
+    dead port 1/2 on $mux $procmux$536.
+    dead port 1/2 on $mux $procmux$533.
+    dead port 1/2 on $mux $procmux$530.
+    dead port 1/2 on $mux $procmux$527.
+    dead port 1/2 on $mux $procmux$524.
+Removed 882 multiplexer ports.
+<suppressed ~107 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \activation.
+    New ctrl vector for $pmux cell $procmux$4001: { $auto$opt_reduce.cc:134:opt_mux$4816 $auto$opt_reduce.cc:134:opt_mux$4814 $auto$opt_reduce.cc:134:opt_mux$4812 }
+    New ctrl vector for $pmux cell $procmux$3991: { $auto$opt_reduce.cc:134:opt_mux$4822 $auto$opt_reduce.cc:134:opt_mux$4820 $auto$opt_reduce.cc:134:opt_mux$4818 }
+    New ctrl vector for $pmux cell $procmux$3981: { $auto$opt_reduce.cc:134:opt_mux$4828 $auto$opt_reduce.cc:134:opt_mux$4826 $auto$opt_reduce.cc:134:opt_mux$4824 }
+    New ctrl vector for $pmux cell $procmux$3971: { $auto$opt_reduce.cc:134:opt_mux$4834 $auto$opt_reduce.cc:134:opt_mux$4832 $auto$opt_reduce.cc:134:opt_mux$4830 }
+    New ctrl vector for $pmux cell $procmux$3961: { $auto$opt_reduce.cc:134:opt_mux$4840 $auto$opt_reduce.cc:134:opt_mux$4838 $auto$opt_reduce.cc:134:opt_mux$4836 }
+    New ctrl vector for $pmux cell $procmux$3951: { $auto$opt_reduce.cc:134:opt_mux$4846 $auto$opt_reduce.cc:134:opt_mux$4844 $auto$opt_reduce.cc:134:opt_mux$4842 }
+    New ctrl vector for $pmux cell $procmux$3941: { $auto$opt_reduce.cc:134:opt_mux$4852 $auto$opt_reduce.cc:134:opt_mux$4850 $auto$opt_reduce.cc:134:opt_mux$4848 }
+    New ctrl vector for $pmux cell $procmux$3931: { $auto$opt_reduce.cc:134:opt_mux$4858 $auto$opt_reduce.cc:134:opt_mux$4856 $auto$opt_reduce.cc:134:opt_mux$4854 }
+    New ctrl vector for $pmux cell $procmux$3921: { $auto$opt_reduce.cc:134:opt_mux$4864 $auto$opt_reduce.cc:134:opt_mux$4862 $auto$opt_reduce.cc:134:opt_mux$4860 }
+    New ctrl vector for $pmux cell $procmux$3911: { $auto$opt_reduce.cc:134:opt_mux$4870 $auto$opt_reduce.cc:134:opt_mux$4868 $auto$opt_reduce.cc:134:opt_mux$4866 }
+    New ctrl vector for $pmux cell $procmux$3901: { $auto$opt_reduce.cc:134:opt_mux$4876 $auto$opt_reduce.cc:134:opt_mux$4874 $auto$opt_reduce.cc:134:opt_mux$4872 }
+    New ctrl vector for $pmux cell $procmux$3891: { $auto$opt_reduce.cc:134:opt_mux$4882 $auto$opt_reduce.cc:134:opt_mux$4880 $auto$opt_reduce.cc:134:opt_mux$4878 }
+    New ctrl vector for $pmux cell $procmux$3881: { $auto$opt_reduce.cc:134:opt_mux$4888 $auto$opt_reduce.cc:134:opt_mux$4886 $auto$opt_reduce.cc:134:opt_mux$4884 }
+    New ctrl vector for $pmux cell $procmux$3871: { $auto$opt_reduce.cc:134:opt_mux$4894 $auto$opt_reduce.cc:134:opt_mux$4892 $auto$opt_reduce.cc:134:opt_mux$4890 }
+    New ctrl vector for $pmux cell $procmux$3861: { $auto$opt_reduce.cc:134:opt_mux$4900 $auto$opt_reduce.cc:134:opt_mux$4898 $auto$opt_reduce.cc:134:opt_mux$4896 }
+    New ctrl vector for $pmux cell $procmux$3851: { $auto$opt_reduce.cc:134:opt_mux$4906 $auto$opt_reduce.cc:134:opt_mux$4904 $auto$opt_reduce.cc:134:opt_mux$4902 }
+    New ctrl vector for $mux cell $procmux$4717: { }
+  Optimizing cells in module \activation.
+Performed a total of 17 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\activation'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$4810 ($dff) from module activation (D = \inp_data, Q = \inp_data_flopped, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$4809 ($dff) from module activation (D = \data_slope, Q = \data_slope_flopped, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $procdff$4808 ($dff) from module activation (D = \in_data_available, Q = \in_data_available_flopped).
+Adding SRST signal on $procdff$4807 ($dff) from module activation (D = { $procmux$4010_Y $procmux$4742_Y $procmux$4046_Y $procmux$4091_Y $procmux$4136_Y $procmux$4181_Y $procmux$4226_Y $procmux$4271_Y $procmux$4316_Y $procmux$4361_Y $procmux$4406_Y $procmux$4451_Y $procmux$4496_Y $procmux$4541_Y $procmux$4586_Y $procmux$4631_Y }, Q = \data_intercept_flopped, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$4910 ($sdff) from module activation (D = { $procmux$3689_Y $procmux$3699_Y $procmux$3709_Y $procmux$3719_Y $procmux$3729_Y $procmux$3739_Y $procmux$3749_Y $procmux$3759_Y $procmux$3769_Y $procmux$3779_Y $procmux$3789_Y $procmux$3799_Y $procmux$3809_Y $procmux$3819_Y $procmux$3829_Y $procmux$3839_Y }, Q = \data_intercept_flopped).
+Adding SRST signal on $procdff$4806 ($dff) from module activation (D = { $procmux$4676_Y $procmux$4724_Y $procmux$4037_Y $procmux$4082_Y $procmux$4127_Y $procmux$4172_Y $procmux$4217_Y $procmux$4262_Y $procmux$4307_Y $procmux$4352_Y $procmux$4397_Y $procmux$4442_Y $procmux$4487_Y $procmux$4532_Y $procmux$4577_Y $procmux$4622_Y }, Q = \data_intercept_delayed, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$4916 ($sdff) from module activation (D = \data_intercept_flopped, Q = \data_intercept_delayed).
+Adding SRST signal on $procdff$4805 ($dff) from module activation (D = $procmux$4706_Y, Q = \activation_in_progress, rval = 1'0).
+Adding SRST signal on $procdff$4804 ($dff) from module activation (D = $2\cycle_count[31:0], Q = \cycle_count, rval = 0).
+Adding SRST signal on $procdff$4802 ($dff) from module activation (D = { $procmux$4667_Y $procmux$4685_Y $procmux$4019_Y $procmux$4064_Y $procmux$4109_Y $procmux$4154_Y $procmux$4199_Y $procmux$4244_Y $procmux$4289_Y $procmux$4334_Y $procmux$4379_Y $procmux$4424_Y $procmux$4469_Y $procmux$4514_Y $procmux$4559_Y $procmux$4604_Y }, Q = \relu_applied_data_internal, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$4928 ($sdff) from module activation (D = { $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$77_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$73_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$69_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$65_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$61_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$57_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$53_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$49_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$45_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$41_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$37_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$33_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$29_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$25_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$21_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:119$17_Y }, Q = \relu_applied_data_internal).
+Adding SRST signal on $procdff$4801 ($dff) from module activation (D = { $procmux$4649_Y $procmux$4733_Y $procmux$4028_Y $procmux$4073_Y $procmux$4118_Y $procmux$4163_Y $procmux$4208_Y $procmux$4253_Y $procmux$4298_Y $procmux$4343_Y $procmux$4388_Y $procmux$4433_Y $procmux$4478_Y $procmux$4523_Y $procmux$4568_Y $procmux$4613_Y }, Q = \intercept_applied_data_internal, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$4934 ($sdff) from module activation (D = { $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$76_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$72_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$68_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$64_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$60_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$56_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$52_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$48_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$44_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$40_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$36_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$32_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$28_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$24_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$20_Y $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:117$16_Y }, Q = \intercept_applied_data_internal).
+Adding SRST signal on $procdff$4800 ($dff) from module activation (D = { $procmux$4658_Y $procmux$4751_Y $procmux$4055_Y $procmux$4100_Y $procmux$4145_Y $procmux$4190_Y $procmux$4235_Y $procmux$4280_Y $procmux$4325_Y $procmux$4370_Y $procmux$4415_Y $procmux$4460_Y $procmux$4505_Y $procmux$4550_Y $procmux$4595_Y $procmux$4640_Y }, Q = \slope_applied_data_internal, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$4940 ($sdff) from module activation (D = { $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$75_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$71_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$67_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$63_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$59_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$55_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$51_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$47_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$43_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$39_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$35_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$31_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$27_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$23_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$19_Y $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:114$15_Y }, Q = \slope_applied_data_internal).
+Adding SRST signal on $procdff$4799 ($dff) from module activation (D = $procmux$4770_Y, Q = \out_data_available_internal, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$4946 ($sdff) from module activation (D = $procmux$4770_Y, Q = \out_data_available_internal).
+Adding SRST signal on $procdff$4798 ($dff) from module activation (D = $procmux$4785_Y, Q = \done_activation_internal, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$4958 ($sdff) from module activation (D = $procmux$4785_Y, Q = \done_activation_internal).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \activation..
+Removed 251 unused cells and 2819 unused wires.
+<suppressed ~252 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module activation.
+<suppressed ~2 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \activation..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~71 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \activation.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\activation'.
+<suppressed ~42 debug messages>
+Removed a total of 14 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $auto$ff.cc:262:slice$4927 ($sdff) from module activation (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/activation.v:110$13_Y, Q = \cycle_count, rval = 0).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \activation..
+Removed 1 unused cells and 15 unused wires.
+<suppressed ~2 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module activation.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \activation..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~70 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \activation.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\activation'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \activation..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module activation.
+
+4.23. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.24. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \activation..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~70 debug messages>
+
+4.25. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \activation.
+Performed a total of 0 changes.
+
+4.26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\activation'.
+Removed a total of 0 cells.
+
+4.27. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \activation..
+
+4.29. Executing OPT_EXPR pass (perform const folding).
+Optimizing module activation.
+
+4.30. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== activation ===
+
+   Number of wires:                901
+   Number of wire bits:           3427
+   Number of public wires:          28
+   Number of public wire bits:    1707
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                937
+     $add                          160
+     $dffe                           1
+     $eq                           704
+     $ge                          2560
+     $gt                          2048
+     $le                          2560
+     $logic_and                    128
+     $logic_not                    192
+     $logic_or                       2
+     $lt                          2048
+     $mul                          128
+     $mux                         1099
+     $ne                             4
+     $not                            2
+     $pmux                         256
+     $reduce_and                     4
+     $reduce_bool                    4
+     $reduce_or                     98
+     $sdff                         289
+     $sdffe                        642
+
+End of script. Logfile hash: 21b8ad039d, CPU: user 0.88s system 0.02s, MEM: 28.30 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 29% 6x opt_expr (0 sec), 17% 2x read_verilog (0 sec), ...

@@ -1,0 +1,534 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v' to AST representation.
+Generating RTLIL representation for module `\comparator'.
+Generating RTLIL representation for module `\compareRecFN_Fp16'.
+Generating RTLIL representation for module `\isSigNaNRecFN'.
+Generating RTLIL representation for module `\recFNToRawFN'.
+Generating RTLIL representation for module `\fNToRecFN'.
+Generating RTLIL representation for module `\countLeadingZerosfp16'.
+Generating RTLIL representation for module `\reverseFp16'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: reverseFp16         
+root of   1 design levels: countLeadingZerosfp16
+root of   2 design levels: fNToRecFN           
+root of   0 design levels: recFNToRawFN        
+root of   0 design levels: isSigNaNRecFN       
+root of   1 design levels: compareRecFN_Fp16   
+root of   3 design levels: comparator          
+Automatically selected comparator as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \comparator
+Used module:     \compareRecFN_Fp16
+Used module:         \isSigNaNRecFN
+Used module:         \recFNToRawFN
+Used module:     \fNToRecFN
+Used module:         \countLeadingZerosfp16
+Used module:             \reverseFp16
+Parameter 1 (\expWidth) = 5
+Parameter 2 (\sigWidth) = 11
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\fNToRecFN'.
+Parameter 1 (\expWidth) = 5
+Parameter 2 (\sigWidth) = 11
+Generating RTLIL representation for module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN'.
+Parameter 1 (\expWidth) = 5
+Parameter 2 (\sigWidth) = 11
+Found cached RTLIL representation for module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN'.
+Parameter 1 (\inWidth) = 2
+Parameter 2 (\countWidth) = 4
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\countLeadingZerosfp16'.
+Parameter 1 (\inWidth) = 2
+Parameter 2 (\countWidth) = 4
+Generating RTLIL representation for module `$paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16'.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v:283: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v:287: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v:291: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v:295: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v:299: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v:303: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v:307: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v:311: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+Parameter 1 (\expWidth) = 5
+Parameter 2 (\sigWidth) = 11
+
+2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\isSigNaNRecFN'.
+Parameter 1 (\expWidth) = 5
+Parameter 2 (\sigWidth) = 11
+Generating RTLIL representation for module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN'.
+Parameter 1 (\expWidth) = 5
+Parameter 2 (\sigWidth) = 11
+
+2.6. Executing AST frontend in derive mode using pre-parsed AST for module `\recFNToRawFN'.
+Parameter 1 (\expWidth) = 5
+Parameter 2 (\sigWidth) = 11
+Generating RTLIL representation for module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN'.
+Parameter 1 (\expWidth) = 5
+Parameter 2 (\sigWidth) = 11
+Found cached RTLIL representation for module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN'.
+Parameter 1 (\expWidth) = 5
+Parameter 2 (\sigWidth) = 11
+Found cached RTLIL representation for module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN'.
+
+2.7. Analyzing design hierarchy..
+Top module:  \comparator
+Used module:     \compareRecFN_Fp16
+Used module:         $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN
+Used module:         $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN
+Used module:     $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN
+Used module:         \countLeadingZerosfp16
+Used module:             \reverseFp16
+Parameter 1 (\inWidth) = 10
+Parameter 2 (\countWidth) = 4
+
+2.8. Executing AST frontend in derive mode using pre-parsed AST for module `\countLeadingZerosfp16'.
+Parameter 1 (\inWidth) = 10
+Parameter 2 (\countWidth) = 4
+Generating RTLIL representation for module `$paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16'.
+
+2.9. Analyzing design hierarchy..
+Top module:  \comparator
+Used module:     \compareRecFN_Fp16
+Used module:         $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN
+Used module:         $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN
+Used module:     $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN
+Used module:         $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16
+Used module:             \reverseFp16
+
+2.10. Analyzing design hierarchy..
+Top module:  \comparator
+Used module:     \compareRecFN_Fp16
+Used module:         $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN
+Used module:         $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN
+Used module:     $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN
+Used module:         $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16
+Used module:             \reverseFp16
+Removing unused module `$paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16'.
+Removing unused module `\countLeadingZerosfp16'.
+Removing unused module `\fNToRecFN'.
+Removing unused module `\recFNToRawFN'.
+Removing unused module `\isSigNaNRecFN'.
+Removed 5 unused modules.
+Mapping positional arguments of cell $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16.reverse_in (reverseFp16).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 10 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v:281$130 in module $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v:281$130'.
+     1/10: $10\count[3:0]
+     2/10: $9\count[3:0]
+     3/10: $8\count[3:0]
+     4/10: $7\count[3:0]
+     5/10: $6\count[3:0]
+     6/10: $5\count[3:0]
+     7/10: $4\count[3:0]
+     8/10: $3\count[3:0]
+     9/10: $2\count[3:0]
+    10/10: $1\count[3:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16.\count' from process `$paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v:281$130'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 10 empty switches in `$paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v:281$130'.
+Removing empty process `$paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/comparator.v:281$130'.
+Cleaned up 10 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module reverseFp16.
+Optimizing module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN.
+<suppressed ~3 debug messages>
+Optimizing module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN.
+Optimizing module $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16.
+<suppressed ~10 debug messages>
+Optimizing module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN.
+<suppressed ~3 debug messages>
+Optimizing module compareRecFN_Fp16.
+Optimizing module comparator.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module reverseFp16.
+Optimizing module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN.
+Optimizing module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN.
+Optimizing module $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16.
+Optimizing module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN.
+Optimizing module compareRecFN_Fp16.
+Optimizing module comparator.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\reverseFp16'.
+Finding identical cells in module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN'.
+Finding identical cells in module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN'.
+Finding identical cells in module `$paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16'.
+Finding identical cells in module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN'.
+Finding identical cells in module `\compareRecFN_Fp16'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\comparator'.
+Removed a total of 2 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \reverseFp16..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$274.
+    dead port 1/2 on $mux $procmux$271.
+    dead port 1/2 on $mux $procmux$268.
+    dead port 1/2 on $mux $procmux$265.
+    dead port 1/2 on $mux $procmux$259.
+    dead port 1/2 on $mux $procmux$256.
+    dead port 1/2 on $mux $procmux$253.
+    dead port 1/2 on $mux $procmux$250.
+    dead port 1/2 on $mux $procmux$247.
+    dead port 1/2 on $mux $procmux$241.
+    dead port 1/2 on $mux $procmux$238.
+    dead port 1/2 on $mux $procmux$235.
+    dead port 1/2 on $mux $procmux$232.
+    dead port 1/2 on $mux $procmux$229.
+    dead port 1/2 on $mux $procmux$226.
+    dead port 1/2 on $mux $procmux$220.
+    dead port 1/2 on $mux $procmux$217.
+    dead port 1/2 on $mux $procmux$214.
+    dead port 1/2 on $mux $procmux$211.
+    dead port 1/2 on $mux $procmux$208.
+    dead port 1/2 on $mux $procmux$205.
+    dead port 1/2 on $mux $procmux$202.
+    dead port 1/2 on $mux $procmux$196.
+    dead port 1/2 on $mux $procmux$193.
+    dead port 1/2 on $mux $procmux$190.
+    dead port 1/2 on $mux $procmux$187.
+    dead port 1/2 on $mux $procmux$184.
+    dead port 1/2 on $mux $procmux$181.
+    dead port 1/2 on $mux $procmux$178.
+    dead port 1/2 on $mux $procmux$175.
+    dead port 1/2 on $mux $procmux$169.
+    dead port 1/2 on $mux $procmux$166.
+    dead port 1/2 on $mux $procmux$163.
+    dead port 1/2 on $mux $procmux$160.
+    dead port 1/2 on $mux $procmux$157.
+    dead port 1/2 on $mux $procmux$154.
+    dead port 1/2 on $mux $procmux$151.
+    dead port 1/2 on $mux $procmux$148.
+    dead port 1/2 on $mux $procmux$145.
+    dead port 1/2 on $mux $procmux$301.
+    dead port 1/2 on $mux $procmux$295.
+    dead port 1/2 on $mux $procmux$292.
+    dead port 1/2 on $mux $procmux$286.
+    dead port 1/2 on $mux $procmux$283.
+    dead port 1/2 on $mux $procmux$280.
+Running muxtree optimizer on module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \compareRecFN_Fp16..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \comparator..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 45 multiplexer ports.
+<suppressed ~5 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \reverseFp16.
+  Optimizing cells in module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN.
+  Optimizing cells in module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN.
+  Optimizing cells in module $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16.
+  Optimizing cells in module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN.
+  Optimizing cells in module \compareRecFN_Fp16.
+  Optimizing cells in module \comparator.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\reverseFp16'.
+Finding identical cells in module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN'.
+Finding identical cells in module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN'.
+Finding identical cells in module `$paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16'.
+Finding identical cells in module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN'.
+Finding identical cells in module `\compareRecFN_Fp16'.
+Finding identical cells in module `\comparator'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \reverseFp16..
+Finding unused cells or wires in module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN..
+Finding unused cells or wires in module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN..
+Finding unused cells or wires in module $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16..
+Finding unused cells or wires in module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN..
+Finding unused cells or wires in module \compareRecFN_Fp16..
+Finding unused cells or wires in module \comparator..
+Removed 0 unused cells and 157 unused wires.
+<suppressed ~7 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16.
+Optimizing module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN.
+Optimizing module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN.
+Optimizing module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN.
+Optimizing module comparator.
+Optimizing module compareRecFN_Fp16.
+Optimizing module reverseFp16.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \comparator..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \compareRecFN_Fp16..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \reverseFp16..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16.
+  Optimizing cells in module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN.
+  Optimizing cells in module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN.
+  Optimizing cells in module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN.
+  Optimizing cells in module \comparator.
+  Optimizing cells in module \compareRecFN_Fp16.
+  Optimizing cells in module \reverseFp16.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16'.
+Finding identical cells in module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN'.
+Finding identical cells in module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN'.
+Finding identical cells in module `$paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN'.
+Finding identical cells in module `\comparator'.
+Finding identical cells in module `\compareRecFN_Fp16'.
+Finding identical cells in module `\reverseFp16'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16..
+Finding unused cells or wires in module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN..
+Finding unused cells or wires in module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN..
+Finding unused cells or wires in module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN..
+Finding unused cells or wires in module \comparator..
+Finding unused cells or wires in module \compareRecFN_Fp16..
+Finding unused cells or wires in module \reverseFp16..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16.
+Optimizing module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN.
+Optimizing module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN.
+Optimizing module $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN.
+Optimizing module comparator.
+Optimizing module compareRecFN_Fp16.
+Optimizing module reverseFp16.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16 ===
+
+   Number of wires:                 16
+   Number of wire bits:            145
+   Number of public wires:           4
+   Number of public wire bits:      35
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 14
+     $add                           32
+     $and                           32
+     $mux                           40
+     $not                           10
+
+=== $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN ===
+
+   Number of wires:                 21
+   Number of wire bits:            253
+   Number of public wires:          13
+   Number of public wire bits:      79
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 15
+     $add                           32
+     $eq                             2
+     $logic_and                      1
+     $logic_not                     16
+     $mux                           80
+     $or                            32
+     $shl                           10
+     $xor                           32
+
+=== $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN ===
+
+   Number of wires:                  4
+   Number of wire bits:             20
+   Number of public wires:           3
+   Number of public wire bits:      19
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $eq                             3
+     $logic_and                      1
+     $logic_not                      1
+
+=== $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN ===
+
+   Number of wires:                 11
+   Number of wire bits:             58
+   Number of public wires:          10
+   Number of public wire bits:      57
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $eq                             2
+     $logic_and                      2
+     $logic_not                     34
+
+=== comparator ===
+
+   Number of wires:                 16
+   Number of wire bits:             82
+   Number of public wires:          16
+   Number of public wire bits:      82
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $not                            1
+     $or                             2
+
+=== compareRecFN_Fp16 ===
+
+   Number of wires:                 57
+   Number of wire bits:            127
+   Number of public wires:          31
+   Number of public wire bits:     101
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 43
+     $eq                            20
+     $logic_and                     17
+     $logic_not                     10
+     $logic_or                       7
+     $lt                            19
+
+=== reverseFp16 ===
+
+   Number of wires:                  2
+   Number of wire bits:             20
+   Number of public wires:           2
+   Number of public wire bits:      20
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  0
+
+=== design hierarchy ===
+
+   comparator                        1
+     $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\fNToRecFN      0
+       $paramod$2a1f131e11d1b2199ecce1cc3c4396a32c4d7a6f\countLeadingZerosfp16      0
+         reverseFp16                 0
+     compareRecFN_Fp16               0
+       $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\isSigNaNRecFN      0
+       $paramod$9e98c8b57b69a62ae23148e1bd6c526f9a7e6d2f\recFNToRawFN      0
+
+   Number of wires:                 16
+   Number of wire bits:             82
+   Number of public wires:          16
+   Number of public wire bits:      82
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $not                            1
+     $or                             2
+
+Warnings: 1 unique messages, 8 total
+End of script. Logfile hash: 815d822658, CPU: user 0.13s system 0.00s, MEM: 12.62 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 22% 4x opt_expr (0 sec), 16% 3x opt_merge (0 sec), ...

@@ -1,0 +1,219 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_broad_cntl.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_broad_cntl.v' to AST representation.
+Generating RTLIL representation for module `\mesi_isc_broad_cntl'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: mesi_isc_broad_cntl 
+Automatically selected mesi_isc_broad_cntl as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \mesi_isc_broad_cntl
+
+2.3. Analyzing design hierarchy..
+Top module:  \mesi_isc_broad_cntl
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_broad_cntl.v:202$45 in module mesi_isc_broad_cntl.
+Marked 6 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_broad_cntl.v:202$45 in module mesi_isc_broad_cntl.
+Removed a total of 1 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `\mesi_isc_broad_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_broad_cntl.v:202$45'.
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\mesi_isc_broad_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_broad_cntl.v:202$45'.
+     1/4: $0\broad_fifo_rd_o[0:0]
+     2/4: $0\cbus_active_en_access_array[3:0]
+     3/4: $0\cbus_active_broad_array[3:0]
+     4/4: $0\broadcast_in_progress[0:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\mesi_isc_broad_cntl.\broad_fifo_rd_o' using process `\mesi_isc_broad_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_broad_cntl.v:202$45'.
+  created $adff cell `$procdff$114' with positive edge clock and positive level reset.
+Creating register for signal `\mesi_isc_broad_cntl.\broadcast_in_progress' using process `\mesi_isc_broad_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_broad_cntl.v:202$45'.
+  created $adff cell `$procdff$115' with positive edge clock and positive level reset.
+Creating register for signal `\mesi_isc_broad_cntl.\cbus_active_broad_array' using process `\mesi_isc_broad_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_broad_cntl.v:202$45'.
+  created $adff cell `$procdff$116' with positive edge clock and positive level reset.
+Creating register for signal `\mesi_isc_broad_cntl.\cbus_active_en_access_array' using process `\mesi_isc_broad_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_broad_cntl.v:202$45'.
+  created $adff cell `$procdff$117' with positive edge clock and positive level reset.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 5 empty switches in `\mesi_isc_broad_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_broad_cntl.v:202$45'.
+Removing empty process `mesi_isc_broad_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_broad_cntl.v:202$45'.
+Cleaned up 5 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mesi_isc_broad_cntl.
+<suppressed ~5 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mesi_isc_broad_cntl.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mesi_isc_broad_cntl'.
+<suppressed ~69 debug messages>
+Removed a total of 23 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mesi_isc_broad_cntl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mesi_isc_broad_cntl.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mesi_isc_broad_cntl'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$117 ($adff) from module mesi_isc_broad_cntl (D = $procmux$83_Y, Q = \cbus_active_en_access_array).
+Adding EN signal on $procdff$115 ($adff) from module mesi_isc_broad_cntl (D = $procmux$112_Y, Q = \broadcast_in_progress).
+Adding EN signal on $procdff$116 ($adff) from module mesi_isc_broad_cntl (D = $procmux$100_Y, Q = \cbus_active_broad_array).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mesi_isc_broad_cntl..
+Removed 1 unused cells and 54 unused wires.
+<suppressed ~2 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mesi_isc_broad_cntl.
+<suppressed ~3 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mesi_isc_broad_cntl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~10 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mesi_isc_broad_cntl.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mesi_isc_broad_cntl'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mesi_isc_broad_cntl..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mesi_isc_broad_cntl.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mesi_isc_broad_cntl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mesi_isc_broad_cntl.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mesi_isc_broad_cntl'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mesi_isc_broad_cntl..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mesi_isc_broad_cntl.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== mesi_isc_broad_cntl ===
+
+   Number of wires:                 65
+   Number of wire bits:            147
+   Number of public wires:          18
+   Number of public wire bits:      55
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 56
+     $adff                           1
+     $adffe                          9
+     $and                           17
+     $eq                             8
+     $logic_not                      4
+     $mux                           65
+     $ne                             2
+     $not                            6
+     $pmux                           8
+     $reduce_and                     2
+     $reduce_bool                    3
+     $reduce_or                      8
+
+End of script. Logfile hash: 951fce4b6a, CPU: user 0.08s system 0.00s, MEM: 11.51 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 38% 5x opt_expr (0 sec), 16% 3x opt_dff (0 sec), ...

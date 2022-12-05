@@ -1,0 +1,345 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v' to AST representation.
+Generating RTLIL representation for module `\or1200_rf'.
+Generating RTLIL representation for module `\dual_port_ram'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: dual_port_ram       
+root of   1 design levels: or1200_rf           
+Automatically selected or1200_rf as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \or1200_rf
+Used module:     \dual_port_ram
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 5
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\dual_port_ram'.
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 5
+Generating RTLIL representation for module `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram'.
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 5
+Found cached RTLIL representation for module `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \or1200_rf
+Used module:     $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram
+
+2.5. Analyzing design hierarchy..
+Top module:  \or1200_rf
+Used module:     $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram
+Removing unused module `\dual_port_ram'.
+Removed 1 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:847$66 in module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:838$58 in module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:707$33 in module or1200_rf.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:694$29 in module or1200_rf.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:667$12 in module or1200_rf.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 6 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:847$66'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:849$57_EN[31:0]$72
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:849$57_DATA[31:0]$71
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:849$57_ADDR[4:0]$70
+     4/4: $0\out2[31:0]
+Creating decoders for process `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:838$58'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:840$56_EN[31:0]$64
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:840$56_DATA[31:0]$63
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:840$56_ADDR[4:0]$62
+     4/4: $0\out1[31:0]
+Creating decoders for process `\or1200_rf.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:707$33'.
+     1/1: $0\datab_saved[32:0]
+Creating decoders for process `\or1200_rf.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:694$29'.
+     1/1: $0\dataa_saved[32:0]
+Creating decoders for process `\or1200_rf.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:667$12'.
+     1/1: $0\rf_we_allow[0:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.\out2' using process `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:847$66'.
+  created $dff cell `$procdff$119' with positive edge clock.
+Creating register for signal `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:849$57_ADDR' using process `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:847$66'.
+  created $dff cell `$procdff$120' with positive edge clock.
+Creating register for signal `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:849$57_DATA' using process `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:847$66'.
+  created $dff cell `$procdff$121' with positive edge clock.
+Creating register for signal `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:849$57_EN' using process `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:847$66'.
+  created $dff cell `$procdff$122' with positive edge clock.
+Creating register for signal `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.\out1' using process `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:838$58'.
+  created $dff cell `$procdff$123' with positive edge clock.
+Creating register for signal `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:840$56_ADDR' using process `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:838$58'.
+  created $dff cell `$procdff$124' with positive edge clock.
+Creating register for signal `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:840$56_DATA' using process `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:838$58'.
+  created $dff cell `$procdff$125' with positive edge clock.
+Creating register for signal `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:840$56_EN' using process `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:838$58'.
+  created $dff cell `$procdff$126' with positive edge clock.
+Creating register for signal `\or1200_rf.\datab_saved' using process `\or1200_rf.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:707$33'.
+  created $dff cell `$procdff$127' with positive edge clock.
+Creating register for signal `\or1200_rf.\dataa_saved' using process `\or1200_rf.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:694$29'.
+  created $dff cell `$procdff$128' with positive edge clock.
+Creating register for signal `\or1200_rf.\rf_we_allow' using process `\or1200_rf.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:667$12'.
+  created $dff cell `$procdff$129' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:847$66'.
+Removing empty process `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:847$66'.
+Found and cleaned up 1 empty switch in `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:838$58'.
+Removing empty process `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:838$58'.
+Found and cleaned up 3 empty switches in `\or1200_rf.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:707$33'.
+Removing empty process `or1200_rf.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:707$33'.
+Found and cleaned up 3 empty switches in `\or1200_rf.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:694$29'.
+Removing empty process `or1200_rf.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:694$29'.
+Found and cleaned up 2 empty switches in `\or1200_rf.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:667$12'.
+Removing empty process `or1200_rf.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:667$12'.
+Cleaned up 10 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.
+Optimizing module or1200_rf.
+<suppressed ~3 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.
+Optimizing module or1200_rf.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram'.
+Finding identical cells in module `\or1200_rf'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \or1200_rf..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.
+    Consolidated identical input bits for $mux cell $procmux$87:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$procmux$87_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$87_Y [0]
+      New connections: $procmux$87_Y [31:1] = { $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] $procmux$87_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$75:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$procmux$75_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$75_Y [0]
+      New connections: $procmux$75_Y [31:1] = { $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] $procmux$75_Y [0] }
+  Optimizing cells in module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.
+  Optimizing cells in module \or1200_rf.
+Performed a total of 2 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram'.
+Finding identical cells in module `\or1200_rf'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$119 ($dff) from module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:852$73_DATA, Q = \out2).
+Adding EN signal on $procdff$123 ($dff) from module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:843$65_DATA, Q = \out1).
+Adding SRST signal on $procdff$127 ($dff) from module or1200_rf (D = $procmux$101_Y, Q = \datab_saved, rval = 33'000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$134 ($sdff) from module or1200_rf (D = $procmux$101_Y, Q = \datab_saved).
+Adding SRST signal on $procdff$128 ($dff) from module or1200_rf (D = $procmux$109_Y, Q = \dataa_saved, rval = 33'000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$138 ($sdff) from module or1200_rf (D = $procmux$109_Y, Q = \dataa_saved).
+Adding SRST signal on $procdff$129 ($dff) from module or1200_rf (D = $procmux$114_Y, Q = \rf_we_allow, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$142 ($sdff) from module or1200_rf (D = $not$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_rf.v:671$14_Y, Q = \rf_we_allow).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram..
+Finding unused cells or wires in module \or1200_rf..
+Removed 19 unused cells and 67 unused wires.
+<suppressed ~24 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.
+Optimizing module or1200_rf.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \or1200_rf..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~13 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.
+  Optimizing cells in module \or1200_rf.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram'.
+Finding identical cells in module `\or1200_rf'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram..
+Finding unused cells or wires in module \or1200_rf..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.
+Optimizing module or1200_rf.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \or1200_rf..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~14 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.
+  Optimizing cells in module \or1200_rf.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram'.
+Finding identical cells in module `\or1200_rf'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram..
+Finding unused cells or wires in module \or1200_rf..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram.
+Optimizing module or1200_rf.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram ===
+
+   Number of wires:                 17
+   Number of wire bits:            343
+   Number of public wires:           9
+   Number of public wire bits:     141
+   Number of memories:               1
+   Number of memory bits:          160
+   Number of processes:              0
+   Number of cells:                 12
+     $dffe                          64
+     $mux                           76
+
+=== or1200_rf ===
+
+   Number of wires:                 55
+   Number of wire bits:            607
+   Number of public wires:          35
+   Number of public wire bits:     491
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 32
+     $and                            8
+     $eq                             6
+     $logic_not                      3
+     $mux                          205
+     $ne                             4
+     $not                            2
+     $or                             2
+     $reduce_or                      5
+     $sdffe                         67
+
+=== design hierarchy ===
+
+   or1200_rf                         1
+     $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\dual_port_ram      0
+
+   Number of wires:                 55
+   Number of wire bits:            607
+   Number of public wires:          35
+   Number of public wire bits:     491
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 32
+     $and                            8
+     $eq                             6
+     $logic_not                      3
+     $mux                          205
+     $ne                             4
+     $not                            2
+     $or                             2
+     $reduce_or                      5
+     $sdffe                         67
+
+End of script. Logfile hash: 4c92f477b8, CPU: user 0.06s system 0.01s, MEM: 11.98 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 23% 5x opt_expr (0 sec), 23% 3x opt_clean (0 sec), ...

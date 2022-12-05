@@ -1,0 +1,756 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v' to AST representation.
+Generating RTLIL representation for module `\td_fused_top_td_fused_axi_in'.
+Generating RTLIL representation for module `\td_fused_top_td_fused_axi_in_p'.
+Generating RTLIL representation for module `\td_fused_top_td_fused_axi_in_p_ram'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: td_fused_top_td_fused_axi_in_p_ram
+root of   1 design levels: td_fused_top_td_fused_axi_in_p
+root of   2 design levels: td_fused_top_td_fused_axi_in
+Automatically selected td_fused_top_td_fused_axi_in as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \td_fused_top_td_fused_axi_in
+Used module:     \td_fused_top_td_fused_axi_in_p
+Used module:         \td_fused_top_td_fused_axi_in_p_ram
+Parameter \DataWidth = 16
+Parameter \AddressRange = 4
+Parameter \AddressWidth = 2
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\td_fused_top_td_fused_axi_in_p'.
+Parameter \DataWidth = 16
+Parameter \AddressRange = 4
+Parameter \AddressWidth = 2
+Generating RTLIL representation for module `$paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \td_fused_top_td_fused_axi_in
+Used module:     $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p
+Used module:         \td_fused_top_td_fused_axi_in_p_ram
+
+2.5. Analyzing design hierarchy..
+Top module:  \td_fused_top_td_fused_axi_in
+Used module:     $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p
+Used module:         \td_fused_top_td_fused_axi_in_p_ram
+Removing unused module `\td_fused_top_td_fused_axi_in_p'.
+Removed 1 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:757$346 in module td_fused_top_td_fused_axi_in_p_ram.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:741$334 in module td_fused_top_td_fused_axi_in_p_ram.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:725$322 in module td_fused_top_td_fused_axi_in_p_ram.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:708$310 in module td_fused_top_td_fused_axi_in_p_ram.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:478$250 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:470$240 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:462$232 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:454$226 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:446$220 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:438$214 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:430$208 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:422$202 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:414$194 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:406$186 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:398$184 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:390$178 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:382$172 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:374$164 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:366$160 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:358$158 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:350$152 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:342$148 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:291$100 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:283$86 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:275$72 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:267$58 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:259$46 in module td_fused_top_td_fused_axi_in.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:245$34 in module td_fused_top_td_fused_axi_in.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:233$19 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:223$16 in module td_fused_top_td_fused_axi_in.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:211$7 in module td_fused_top_td_fused_axi_in.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:199$3 in module td_fused_top_td_fused_axi_in.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:191$1 in module td_fused_top_td_fused_axi_in.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 37 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:0$305'.
+  Set init value: \ap_done_reg = 1'0
+  Set init value: \ap_CS_fsm = 3'001
+  Set init value: \ap_enable_reg_pp0_iter0 = 1'0
+  Set init value: \ap_enable_reg_pp0_iter1 = 1'0
+  Set init value: \ap_enable_reg_pp0_iter2 = 1'0
+  Set init value: \ap_enable_reg_pp0_iter3 = 1'0
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:765$356'.
+     1/1: $0\q4[15:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:757$346'.
+     1/6: $2$memwr$\ram3$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:761$309_EN[15:0]$355
+     2/6: $2$memwr$\ram3$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:761$309_DATA[15:0]$354
+     3/6: $2$memwr$\ram3$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:761$309_ADDR[1:0]$353
+     4/6: $1$memwr$\ram3$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:761$309_EN[15:0]$352
+     5/6: $1$memwr$\ram3$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:761$309_DATA[15:0]$351
+     6/6: $1$memwr$\ram3$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:761$309_ADDR[1:0]$350
+Creating decoders for process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:749$344'.
+     1/1: $0\q3[15:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:741$334'.
+     1/6: $2$memwr$\ram2$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:745$308_EN[15:0]$343
+     2/6: $2$memwr$\ram2$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:745$308_DATA[15:0]$342
+     3/6: $2$memwr$\ram2$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:745$308_ADDR[1:0]$341
+     4/6: $1$memwr$\ram2$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:745$308_EN[15:0]$340
+     5/6: $1$memwr$\ram2$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:745$308_DATA[15:0]$339
+     6/6: $1$memwr$\ram2$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:745$308_ADDR[1:0]$338
+Creating decoders for process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:733$332'.
+     1/1: $0\q2[15:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:725$322'.
+     1/6: $2$memwr$\ram1$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:729$307_EN[15:0]$331
+     2/6: $2$memwr$\ram1$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:729$307_DATA[15:0]$330
+     3/6: $2$memwr$\ram1$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:729$307_ADDR[1:0]$329
+     4/6: $1$memwr$\ram1$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:729$307_EN[15:0]$328
+     5/6: $1$memwr$\ram1$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:729$307_DATA[15:0]$327
+     6/6: $1$memwr$\ram1$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:729$307_ADDR[1:0]$326
+Creating decoders for process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:717$320'.
+     1/1: $0\q1[15:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:708$310'.
+     1/6: $2$memwr$\ram0$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:712$306_EN[15:0]$319
+     2/6: $2$memwr$\ram0$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:712$306_DATA[15:0]$318
+     3/6: $2$memwr$\ram0$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:712$306_ADDR[1:0]$317
+     4/6: $1$memwr$\ram0$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:712$306_EN[15:0]$316
+     5/6: $1$memwr$\ram0$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:712$306_DATA[15:0]$315
+     6/6: $1$memwr$\ram0$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:712$306_ADDR[1:0]$314
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:0$305'.
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:527$273'.
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:478$250'.
+     1/4: $4\ap_NS_fsm[2:0]
+     2/4: $3\ap_NS_fsm[2:0]
+     3/4: $2\ap_NS_fsm[2:0]
+     4/4: $1\ap_NS_fsm[2:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:470$240'.
+     1/1: $1\stream_in_TREADY[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:462$232'.
+     1/1: $1\p_we0[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:454$226'.
+     1/1: $1\p_ce4[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:446$220'.
+     1/1: $1\p_ce3[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:438$214'.
+     1/1: $1\p_ce2[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:430$208'.
+     1/1: $1\p_ce1[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:422$202'.
+     1/1: $1\p_ce0[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:414$194'.
+     1/1: $1\fmaps_we1[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:406$186'.
+     1/1: $1\fmaps_ce1[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:398$184'.
+     1/1: $1\ap_ready[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:390$178'.
+     1/1: $1\ap_phi_mux_r_phi_fu_222_p4[7:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:382$172'.
+     1/1: $1\ap_phi_mux_c_phi_fu_233_p4[7:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:374$164'.
+     1/1: $1\ap_idle_pp0[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:366$160'.
+     1/1: $1\ap_idle[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:358$158'.
+     1/1: $1\ap_done[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:350$152'.
+     1/1: $1\ap_condition_pp0_flush_enable[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:342$148'.
+     1/1: $1\ap_condition_pp0_exit_iter2_state4[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:336$140'.
+     1/1: $0\tmp_data_1_fu_88[15:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:329$134'.
+     1/2: $0\select_ln19_48_reg_522[7:0]
+     2/2: $0\select_ln22_1_reg_517[7:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:323$124'.
+     1/1: $0\p_load_3_reg_512[15:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:317$122'.
+     1/1: $0\icmp_ln17_reg_483_pp0_iter2_reg[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:307$118'.
+     1/5: $0\icmp_ln25_reg_498_pp0_iter1_reg[0:0]
+     2/5: $0\and_ln22_reg_493_pp0_iter1_reg[0:0]
+     3/5: $0\icmp_ln18_reg_487_pp0_iter1_reg[0:0]
+     4/5: $0\icmp_ln17_reg_483_pp0_iter1_reg[0:0]
+     5/5: $0\icmp_ln17_reg_483[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:299$112'.
+     1/3: $0\icmp_ln25_reg_498[0:0]
+     2/3: $0\and_ln22_reg_493[0:0]
+     3/3: $0\icmp_ln18_reg_487[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:291$100'.
+     1/1: $0\r_reg_218[7:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:283$86'.
+     1/1: $0\indvar_flatten_reg_196[9:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:275$72'.
+     1/1: $0\indvar_flatten16_reg_185[17:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:267$58'.
+     1/1: $0\ch_reg_207[1:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:259$46'.
+     1/1: $0\c_reg_229[7:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:245$34'.
+     1/1: $0\ap_enable_reg_pp0_iter3[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:233$19'.
+     1/1: $0\ap_enable_reg_pp0_iter2[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:223$16'.
+     1/1: $0\ap_enable_reg_pp0_iter1[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:211$7'.
+     1/1: $0\ap_enable_reg_pp0_iter0[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:199$3'.
+     1/1: $0\ap_done_reg[0:0]
+Creating decoders for process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:191$1'.
+     1/1: $0\ap_CS_fsm[2:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\ap_block_state1' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:527$273'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\ap_NS_fsm' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:478$250'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\stream_in_TREADY' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:470$240'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\p_we0' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:462$232'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\p_ce4' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:454$226'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\p_ce3' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:446$220'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\p_ce2' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:438$214'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\p_ce1' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:430$208'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\p_ce0' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:422$202'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\fmaps_we1' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:414$194'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\fmaps_ce1' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:406$186'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\ap_ready' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:398$184'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\ap_phi_mux_r_phi_fu_222_p4' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:390$178'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\ap_phi_mux_c_phi_fu_233_p4' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:382$172'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\ap_idle_pp0' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:374$164'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\ap_idle' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:366$160'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\ap_done' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:358$158'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\ap_condition_pp0_flush_enable' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:350$152'.
+No latch inferred for signal `\td_fused_top_td_fused_axi_in.\ap_condition_pp0_exit_iter2_state4' from process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:342$148'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.\q4' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:765$356'.
+  created $dff cell `$procdff$649' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.$memwr$\ram3$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:761$309_ADDR' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:757$346'.
+  created $dff cell `$procdff$650' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.$memwr$\ram3$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:761$309_DATA' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:757$346'.
+  created $dff cell `$procdff$651' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.$memwr$\ram3$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:761$309_EN' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:757$346'.
+  created $dff cell `$procdff$652' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.\q3' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:749$344'.
+  created $dff cell `$procdff$653' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.$memwr$\ram2$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:745$308_ADDR' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:741$334'.
+  created $dff cell `$procdff$654' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.$memwr$\ram2$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:745$308_DATA' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:741$334'.
+  created $dff cell `$procdff$655' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.$memwr$\ram2$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:745$308_EN' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:741$334'.
+  created $dff cell `$procdff$656' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.\q2' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:733$332'.
+  created $dff cell `$procdff$657' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.$memwr$\ram1$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:729$307_ADDR' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:725$322'.
+  created $dff cell `$procdff$658' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.$memwr$\ram1$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:729$307_DATA' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:725$322'.
+  created $dff cell `$procdff$659' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.$memwr$\ram1$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:729$307_EN' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:725$322'.
+  created $dff cell `$procdff$660' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.\q1' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:717$320'.
+  created $dff cell `$procdff$661' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.$memwr$\ram0$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:712$306_ADDR' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:708$310'.
+  created $dff cell `$procdff$662' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.$memwr$\ram0$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:712$306_DATA' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:708$310'.
+  created $dff cell `$procdff$663' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in_p_ram.$memwr$\ram0$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:712$306_EN' using process `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:708$310'.
+  created $dff cell `$procdff$664' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\tmp_data_1_fu_88' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:336$140'.
+  created $dff cell `$procdff$665' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\select_ln22_1_reg_517' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:329$134'.
+  created $dff cell `$procdff$666' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\select_ln19_48_reg_522' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:329$134'.
+  created $dff cell `$procdff$667' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\p_load_3_reg_512' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:323$124'.
+  created $dff cell `$procdff$668' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\icmp_ln17_reg_483_pp0_iter2_reg' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:317$122'.
+  created $dff cell `$procdff$669' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\icmp_ln17_reg_483' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:307$118'.
+  created $dff cell `$procdff$670' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\icmp_ln17_reg_483_pp0_iter1_reg' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:307$118'.
+  created $dff cell `$procdff$671' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\icmp_ln18_reg_487_pp0_iter1_reg' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:307$118'.
+  created $dff cell `$procdff$672' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\and_ln22_reg_493_pp0_iter1_reg' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:307$118'.
+  created $dff cell `$procdff$673' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\icmp_ln25_reg_498_pp0_iter1_reg' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:307$118'.
+  created $dff cell `$procdff$674' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\icmp_ln18_reg_487' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:299$112'.
+  created $dff cell `$procdff$675' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\and_ln22_reg_493' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:299$112'.
+  created $dff cell `$procdff$676' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\icmp_ln25_reg_498' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:299$112'.
+  created $dff cell `$procdff$677' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\r_reg_218' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:291$100'.
+  created $dff cell `$procdff$678' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\indvar_flatten_reg_196' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:283$86'.
+  created $dff cell `$procdff$679' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\indvar_flatten16_reg_185' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:275$72'.
+  created $dff cell `$procdff$680' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\ch_reg_207' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:267$58'.
+  created $dff cell `$procdff$681' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\c_reg_229' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:259$46'.
+  created $dff cell `$procdff$682' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\ap_enable_reg_pp0_iter3' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:245$34'.
+  created $dff cell `$procdff$683' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\ap_enable_reg_pp0_iter2' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:233$19'.
+  created $dff cell `$procdff$684' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\ap_enable_reg_pp0_iter1' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:223$16'.
+  created $dff cell `$procdff$685' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\ap_enable_reg_pp0_iter0' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:211$7'.
+  created $dff cell `$procdff$686' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\ap_done_reg' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:199$3'.
+  created $dff cell `$procdff$687' with positive edge clock.
+Creating register for signal `\td_fused_top_td_fused_axi_in.\ap_CS_fsm' using process `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:191$1'.
+  created $dff cell `$procdff$688' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:765$356'.
+Removing empty process `td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:765$356'.
+Found and cleaned up 2 empty switches in `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:757$346'.
+Removing empty process `td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:757$346'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:749$344'.
+Removing empty process `td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:749$344'.
+Found and cleaned up 2 empty switches in `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:741$334'.
+Removing empty process `td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:741$334'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:733$332'.
+Removing empty process `td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:733$332'.
+Found and cleaned up 2 empty switches in `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:725$322'.
+Removing empty process `td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:725$322'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:717$320'.
+Removing empty process `td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:717$320'.
+Found and cleaned up 2 empty switches in `\td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:708$310'.
+Removing empty process `td_fused_top_td_fused_axi_in_p_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:708$310'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:0$305'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:527$273'.
+Found and cleaned up 4 empty switches in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:478$250'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:478$250'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:470$240'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:470$240'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:462$232'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:462$232'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:454$226'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:454$226'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:446$220'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:446$220'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:438$214'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:438$214'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:430$208'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:430$208'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:422$202'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:422$202'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:414$194'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:414$194'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:406$186'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:406$186'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:398$184'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:398$184'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:390$178'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:390$178'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:382$172'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:382$172'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:374$164'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:374$164'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:366$160'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:366$160'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:358$158'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:358$158'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:350$152'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:350$152'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:342$148'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:342$148'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:336$140'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:336$140'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:329$134'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:329$134'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:323$124'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:323$124'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:317$122'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:317$122'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:307$118'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:307$118'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:299$112'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:299$112'.
+Found and cleaned up 2 empty switches in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:291$100'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:291$100'.
+Found and cleaned up 2 empty switches in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:283$86'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:283$86'.
+Found and cleaned up 2 empty switches in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:275$72'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:275$72'.
+Found and cleaned up 2 empty switches in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:267$58'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:267$58'.
+Found and cleaned up 2 empty switches in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:259$46'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:259$46'.
+Found and cleaned up 4 empty switches in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:245$34'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:245$34'.
+Found and cleaned up 3 empty switches in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:233$19'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:233$19'.
+Found and cleaned up 2 empty switches in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:223$16'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:223$16'.
+Found and cleaned up 3 empty switches in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:211$7'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:211$7'.
+Found and cleaned up 3 empty switches in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:199$3'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:199$3'.
+Found and cleaned up 1 empty switch in `\td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:191$1'.
+Removing empty process `td_fused_top_td_fused_axi_in.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:191$1'.
+Cleaned up 65 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module td_fused_top_td_fused_axi_in_p_ram.
+Optimizing module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p.
+Optimizing module td_fused_top_td_fused_axi_in.
+<suppressed ~212 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module td_fused_top_td_fused_axi_in_p_ram.
+Optimizing module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p.
+Optimizing module td_fused_top_td_fused_axi_in.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\td_fused_top_td_fused_axi_in_p_ram'.
+Finding identical cells in module `$paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p'.
+Finding identical cells in module `\td_fused_top_td_fused_axi_in'.
+<suppressed ~207 debug messages>
+Removed a total of 69 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \td_fused_top_td_fused_axi_in_p_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$463.
+    dead port 2/2 on $mux $procmux$457.
+    dead port 2/2 on $mux $procmux$451.
+    dead port 2/2 on $mux $procmux$434.
+    dead port 2/2 on $mux $procmux$428.
+    dead port 2/2 on $mux $procmux$422.
+    dead port 2/2 on $mux $procmux$405.
+    dead port 2/2 on $mux $procmux$399.
+    dead port 2/2 on $mux $procmux$393.
+    dead port 2/2 on $mux $procmux$376.
+    dead port 2/2 on $mux $procmux$370.
+    dead port 2/2 on $mux $procmux$364.
+Running muxtree optimizer on module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \td_fused_top_td_fused_axi_in..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$606.
+    dead port 2/2 on $mux $procmux$606.
+    dead port 1/2 on $mux $procmux$617.
+    dead port 2/2 on $mux $procmux$617.
+    dead port 2/2 on $mux $procmux$477.
+    dead port 2/2 on $mux $procmux$480.
+    dead port 2/2 on $mux $procmux$482.
+    dead port 2/2 on $mux $procmux$489.
+    dead port 2/2 on $mux $procmux$497.
+Removed 21 multiplexer ports.
+<suppressed ~63 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \td_fused_top_td_fused_axi_in_p_ram.
+    Consolidated identical input bits for $mux cell $procmux$449:
+      Old ports: A=16'0000000000000000, B=16'1111111111111111, Y=$procmux$449_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$449_Y [0]
+      New connections: $procmux$449_Y [15:1] = { $procmux$449_Y [0] $procmux$449_Y [0] $procmux$449_Y [0] $procmux$449_Y [0] $procmux$449_Y [0] $procmux$449_Y [0] $procmux$449_Y [0] $procmux$449_Y [0] $procmux$449_Y [0] $procmux$449_Y [0] $procmux$449_Y [0] $procmux$449_Y [0] $procmux$449_Y [0] $procmux$449_Y [0] $procmux$449_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$420:
+      Old ports: A=16'0000000000000000, B=16'1111111111111111, Y=$procmux$420_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$420_Y [0]
+      New connections: $procmux$420_Y [15:1] = { $procmux$420_Y [0] $procmux$420_Y [0] $procmux$420_Y [0] $procmux$420_Y [0] $procmux$420_Y [0] $procmux$420_Y [0] $procmux$420_Y [0] $procmux$420_Y [0] $procmux$420_Y [0] $procmux$420_Y [0] $procmux$420_Y [0] $procmux$420_Y [0] $procmux$420_Y [0] $procmux$420_Y [0] $procmux$420_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$391:
+      Old ports: A=16'0000000000000000, B=16'1111111111111111, Y=$procmux$391_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$391_Y [0]
+      New connections: $procmux$391_Y [15:1] = { $procmux$391_Y [0] $procmux$391_Y [0] $procmux$391_Y [0] $procmux$391_Y [0] $procmux$391_Y [0] $procmux$391_Y [0] $procmux$391_Y [0] $procmux$391_Y [0] $procmux$391_Y [0] $procmux$391_Y [0] $procmux$391_Y [0] $procmux$391_Y [0] $procmux$391_Y [0] $procmux$391_Y [0] $procmux$391_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$362:
+      Old ports: A=16'0000000000000000, B=16'1111111111111111, Y=$procmux$362_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$362_Y [0]
+      New connections: $procmux$362_Y [15:1] = { $procmux$362_Y [0] $procmux$362_Y [0] $procmux$362_Y [0] $procmux$362_Y [0] $procmux$362_Y [0] $procmux$362_Y [0] $procmux$362_Y [0] $procmux$362_Y [0] $procmux$362_Y [0] $procmux$362_Y [0] $procmux$362_Y [0] $procmux$362_Y [0] $procmux$362_Y [0] $procmux$362_Y [0] $procmux$362_Y [0] }
+  Optimizing cells in module \td_fused_top_td_fused_axi_in_p_ram.
+    Consolidated identical input bits for $mux cell $procmux$466:
+      Old ports: A=16'0000000000000000, B=$procmux$449_Y, Y=$procmux$466_Y
+      New ports: A=1'0, B=$procmux$449_Y [0], Y=$procmux$466_Y [0]
+      New connections: $procmux$466_Y [15:1] = { $procmux$466_Y [0] $procmux$466_Y [0] $procmux$466_Y [0] $procmux$466_Y [0] $procmux$466_Y [0] $procmux$466_Y [0] $procmux$466_Y [0] $procmux$466_Y [0] $procmux$466_Y [0] $procmux$466_Y [0] $procmux$466_Y [0] $procmux$466_Y [0] $procmux$466_Y [0] $procmux$466_Y [0] $procmux$466_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$437:
+      Old ports: A=16'0000000000000000, B=$procmux$420_Y, Y=$procmux$437_Y
+      New ports: A=1'0, B=$procmux$420_Y [0], Y=$procmux$437_Y [0]
+      New connections: $procmux$437_Y [15:1] = { $procmux$437_Y [0] $procmux$437_Y [0] $procmux$437_Y [0] $procmux$437_Y [0] $procmux$437_Y [0] $procmux$437_Y [0] $procmux$437_Y [0] $procmux$437_Y [0] $procmux$437_Y [0] $procmux$437_Y [0] $procmux$437_Y [0] $procmux$437_Y [0] $procmux$437_Y [0] $procmux$437_Y [0] $procmux$437_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$408:
+      Old ports: A=16'0000000000000000, B=$procmux$391_Y, Y=$procmux$408_Y
+      New ports: A=1'0, B=$procmux$391_Y [0], Y=$procmux$408_Y [0]
+      New connections: $procmux$408_Y [15:1] = { $procmux$408_Y [0] $procmux$408_Y [0] $procmux$408_Y [0] $procmux$408_Y [0] $procmux$408_Y [0] $procmux$408_Y [0] $procmux$408_Y [0] $procmux$408_Y [0] $procmux$408_Y [0] $procmux$408_Y [0] $procmux$408_Y [0] $procmux$408_Y [0] $procmux$408_Y [0] $procmux$408_Y [0] $procmux$408_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$379:
+      Old ports: A=16'0000000000000000, B=$procmux$362_Y, Y=$procmux$379_Y
+      New ports: A=1'0, B=$procmux$362_Y [0], Y=$procmux$379_Y [0]
+      New connections: $procmux$379_Y [15:1] = { $procmux$379_Y [0] $procmux$379_Y [0] $procmux$379_Y [0] $procmux$379_Y [0] $procmux$379_Y [0] $procmux$379_Y [0] $procmux$379_Y [0] $procmux$379_Y [0] $procmux$379_Y [0] $procmux$379_Y [0] $procmux$379_Y [0] $procmux$379_Y [0] $procmux$379_Y [0] $procmux$379_Y [0] $procmux$379_Y [0] }
+  Optimizing cells in module \td_fused_top_td_fused_axi_in_p_ram.
+  Optimizing cells in module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p.
+  Optimizing cells in module \td_fused_top_td_fused_axi_in.
+Performed a total of 8 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\td_fused_top_td_fused_axi_in_p_ram'.
+<suppressed ~81 debug messages>
+Finding identical cells in module `$paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p'.
+Finding identical cells in module `\td_fused_top_td_fused_axi_in'.
+<suppressed ~15 debug messages>
+Removed a total of 32 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$657 ($dff) from module td_fused_top_td_fused_axi_in_p_ram (D = $memrd$\ram1$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:736$333_DATA, Q = \q2).
+Adding EN signal on $procdff$649 ($dff) from module td_fused_top_td_fused_axi_in_p_ram (D = $memrd$\ram3$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:768$357_DATA, Q = \q4).
+Adding EN signal on $procdff$661 ($dff) from module td_fused_top_td_fused_axi_in_p_ram (D = $memrd$\ram0$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:720$321_DATA, Q = \q1).
+Adding EN signal on $procdff$653 ($dff) from module td_fused_top_td_fused_axi_in_p_ram (D = $memrd$\ram2$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:752$345_DATA, Q = \q3).
+Adding SRST signal on $procdff$688 ($dff) from module td_fused_top_td_fused_axi_in (D = \ap_NS_fsm, Q = \ap_CS_fsm, rval = 3'001).
+Adding SRST signal on $procdff$687 ($dff) from module td_fused_top_td_fused_axi_in (D = $procmux$638_Y, Q = \ap_done_reg, rval = 1'0).
+Adding SRST signal on $procdff$686 ($dff) from module td_fused_top_td_fused_axi_in (D = $procmux$630_Y, Q = \ap_enable_reg_pp0_iter0, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$705 ($sdff) from module td_fused_top_td_fused_axi_in (D = 1'1, Q = \ap_enable_reg_pp0_iter0).
+Adding SRST signal on $procdff$685 ($dff) from module td_fused_top_td_fused_axi_in (D = $procmux$625_Y, Q = \ap_enable_reg_pp0_iter1, rval = 1'0).
+Adding SRST signal on $procdff$684 ($dff) from module td_fused_top_td_fused_axi_in (D = $procmux$620_Y, Q = \ap_enable_reg_pp0_iter2, rval = 1'0).
+Adding EN signal on $procdff$681 ($dff) from module td_fused_top_td_fused_axi_in (D = $procmux$599_Y, Q = \ch_reg_207).
+Adding EN signal on $procdff$680 ($dff) from module td_fused_top_td_fused_axi_in (D = $procmux$594_Y, Q = \indvar_flatten16_reg_185).
+Adding EN signal on $procdff$679 ($dff) from module td_fused_top_td_fused_axi_in (D = $procmux$589_Y, Q = \indvar_flatten_reg_196).
+Adding EN signal on $procdff$678 ($dff) from module td_fused_top_td_fused_axi_in (D = $procmux$584_Y, Q = \r_reg_218).
+Adding EN signal on $procdff$677 ($dff) from module td_fused_top_td_fused_axi_in (D = $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:563$286_Y, Q = \icmp_ln25_reg_498).
+Adding EN signal on $procdff$675 ($dff) from module td_fused_top_td_fused_axi_in (D = $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:559$282_Y, Q = \icmp_ln18_reg_487).
+Adding EN signal on $procdff$674 ($dff) from module td_fused_top_td_fused_axi_in (D = \icmp_ln25_reg_498, Q = \icmp_ln25_reg_498_pp0_iter1_reg).
+Adding EN signal on $procdff$673 ($dff) from module td_fused_top_td_fused_axi_in (D = \and_ln22_reg_493, Q = \and_ln22_reg_493_pp0_iter1_reg).
+Adding EN signal on $procdff$672 ($dff) from module td_fused_top_td_fused_axi_in (D = \icmp_ln18_reg_487, Q = \icmp_ln18_reg_487_pp0_iter1_reg).
+Adding EN signal on $procdff$671 ($dff) from module td_fused_top_td_fused_axi_in (D = \icmp_ln17_reg_483, Q = \icmp_ln17_reg_483_pp0_iter1_reg).
+Adding EN signal on $procdff$670 ($dff) from module td_fused_top_td_fused_axi_in (D = $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:557$280_Y, Q = \icmp_ln17_reg_483).
+Adding EN signal on $procdff$668 ($dff) from module td_fused_top_td_fused_axi_in (D = \p_q4, Q = \p_load_3_reg_512).
+Adding EN signal on $procdff$667 ($dff) from module td_fused_top_td_fused_axi_in (D = $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:583$294_Y, Q = \select_ln19_48_reg_522).
+Adding EN signal on $procdff$666 ($dff) from module td_fused_top_td_fused_axi_in (D = $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:587$298_Y, Q = \select_ln22_1_reg_517).
+Adding EN signal on $procdff$665 ($dff) from module td_fused_top_td_fused_axi_in (D = $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:597$303_Y, Q = \tmp_data_1_fu_88).
+Adding EN signal on $procdff$676 ($dff) from module td_fused_top_td_fused_axi_in (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_td_fused_axi_in.v:513$272_Y, Q = \and_ln22_reg_493).
+Adding SRST signal on $procdff$683 ($dff) from module td_fused_top_td_fused_axi_in (D = $procmux$612_Y, Q = \ap_enable_reg_pp0_iter3, rval = 1'0).
+Adding EN signal on $procdff$682 ($dff) from module td_fused_top_td_fused_axi_in (D = $procmux$604_Y, Q = \c_reg_229).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \td_fused_top_td_fused_axi_in_p_ram..
+Finding unused cells or wires in module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p..
+Finding unused cells or wires in module \td_fused_top_td_fused_axi_in..
+Removed 39 unused cells and 553 unused wires.
+<suppressed ~44 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p.
+Optimizing module td_fused_top_td_fused_axi_in.
+<suppressed ~5 debug messages>
+Optimizing module td_fused_top_td_fused_axi_in_p_ram.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \td_fused_top_td_fused_axi_in..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \td_fused_top_td_fused_axi_in_p_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~31 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p.
+  Optimizing cells in module \td_fused_top_td_fused_axi_in.
+  Optimizing cells in module \td_fused_top_td_fused_axi_in_p_ram.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p'.
+Finding identical cells in module `\td_fused_top_td_fused_axi_in'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\td_fused_top_td_fused_axi_in_p_ram'.
+Removed a total of 4 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p..
+Finding unused cells or wires in module \td_fused_top_td_fused_axi_in..
+Finding unused cells or wires in module \td_fused_top_td_fused_axi_in_p_ram..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p.
+Optimizing module td_fused_top_td_fused_axi_in.
+Optimizing module td_fused_top_td_fused_axi_in_p_ram.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \td_fused_top_td_fused_axi_in..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \td_fused_top_td_fused_axi_in_p_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p.
+  Optimizing cells in module \td_fused_top_td_fused_axi_in.
+  Optimizing cells in module \td_fused_top_td_fused_axi_in_p_ram.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p'.
+Finding identical cells in module `\td_fused_top_td_fused_axi_in'.
+Finding identical cells in module `\td_fused_top_td_fused_axi_in_p_ram'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p..
+Finding unused cells or wires in module \td_fused_top_td_fused_axi_in..
+Finding unused cells or wires in module \td_fused_top_td_fused_axi_in_p_ram..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p.
+Optimizing module td_fused_top_td_fused_axi_in.
+Optimizing module td_fused_top_td_fused_axi_in_p_ram.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p ===
+
+   Number of wires:                 18
+   Number of wire bits:             98
+   Number of public wires:          18
+   Number of public wire bits:      98
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+
+=== td_fused_top_td_fused_axi_in ===
+
+   Number of wires:                154
+   Number of wire bits:            886
+   Number of public wires:         105
+   Number of public wire bits:     758
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                109
+     $add                           62
+     $and                           19
+     $dff                            1
+     $dffe                         102
+     $eq                            41
+     $mux                          174
+     $not                            8
+     $or                             3
+     $pmux                           3
+     $reduce_bool                    4
+     $reduce_or                      4
+     $sdff                           7
+     $sdffe                          1
+     $sub                           16
+
+=== td_fused_top_td_fused_axi_in_p_ram ===
+
+   Number of wires:                 27
+   Number of wire bits:            229
+   Number of public wires:          17
+   Number of public wire bits:      97
+   Number of memories:               4
+   Number of memory bits:          256
+   Number of processes:              0
+   Number of cells:                 18
+     $dffe                          64
+     $mux                           38
+
+=== design hierarchy ===
+
+   td_fused_top_td_fused_axi_in      1
+     $paramod$3b3093dce04cc215b30fddfb79efe68f534335c0\td_fused_top_td_fused_axi_in_p      0
+       td_fused_top_td_fused_axi_in_p_ram      0
+
+   Number of wires:                154
+   Number of wire bits:            886
+   Number of public wires:         105
+   Number of public wire bits:     758
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                109
+     $add                           62
+     $and                           19
+     $dff                            1
+     $dffe                         102
+     $eq                            41
+     $mux                          174
+     $not                            8
+     $or                             3
+     $pmux                           3
+     $reduce_bool                    4
+     $reduce_or                      4
+     $sdff                           7
+     $sdffe                          1
+     $sub                           16
+
+End of script. Logfile hash: d0ca4ec1b9, CPU: user 0.17s system 0.00s, MEM: 15.37 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 28% 2x read_verilog (0 sec), 25% 5x opt_expr (0 sec), ...

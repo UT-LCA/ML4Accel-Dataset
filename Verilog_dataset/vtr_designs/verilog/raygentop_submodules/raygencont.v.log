@@ -1,0 +1,386 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v' to AST representation.
+Generating RTLIL representation for module `\raygencont'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119.5-352.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: raygencont          
+Automatically selected raygencont as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \raygencont
+
+2.3. Analyzing design hierarchy..
+Top module:  \raygencont
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 30 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5 in module raygencont.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1 in module raygencont.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 9 redundant assignments.
+Promoted 16 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5'.
+     1/72: $1\temp_groupID[1:0] [1]
+     2/72: $8\temp_raygroupvalid1[0:0]
+     3/72: $12\temp_active[0:0]
+     4/72: $7\temp_raygroupvalid1[0:0]
+     5/72: $11\temp_active[0:0]
+     6/72: $3\temp_count[14:0]
+     7/72: $7\temp_raygroupvalid0[0:0]
+     8/72: $3\temp_groupID[0:0]
+     9/72: $14\next_state[2:0]
+    10/72: $13\next_state[2:0]
+    11/72: $12\next_state[2:0]
+    12/72: $10\temp_active[0:0]
+    13/72: $6\temp_raygroupvalid0[0:0]
+    14/72: $9\temp_active[0:0]
+    15/72: $5\temp_raygroupvalid0[0:0]
+    16/72: $8\temp_active[0:0]
+    17/72: $2\temp_count[14:0]
+    18/72: $6\temp_raygroupvalid1[0:0]
+    19/72: $2\temp_groupID[1:1]
+    20/72: $11\next_state[2:0]
+    21/72: $10\next_state[2:0]
+    22/72: $9\next_state[2:0]
+    23/72: $1\temp_groupID[1:0] [0]
+    24/72: $1\temp_loaded[1:0] [1]
+    25/72: $13\temp_active[0:0]
+    26/72: $7\temp_active[0:0]
+    27/72: $6\temp_addr[1:0]
+    28/72: $6\temp_active[0:0]
+    29/72: $5\temp_raygroupvalid1[0:0]
+    30/72: $5\temp_active[0:0]
+    31/72: $5\temp_addr[1:0]
+    32/72: $4\temp_raygroupvalid0[0:0]
+    33/72: $4\temp_raygroupvalid1[0:0]
+    34/72: $4\temp_active[0:0]
+    35/72: $4\temp_addr[1:0]
+    36/72: $3\temp_raygroupvalid0[0:0]
+    37/72: $3\temp_raygroupvalid1[0:0]
+    38/72: $3\temp_active[0:0]
+    39/72: $3\temp_addr[1:0]
+    40/72: $2\temp_addr[1:0]
+    41/72: $2\temp_raygroupvalid0[0:0]
+    42/72: $2\temp_raygroupvalid1[0:0]
+    43/72: $2\temp_active[0:0]
+    44/72: $8\next_state[2:0]
+    45/72: $7\next_state[2:0]
+    46/72: $6\next_state[2:0]
+    47/72: $5\next_state[2:0]
+    48/72: $4\next_state[2:0]
+    49/72: $3\temp_loaded[1:0] [0]
+    50/72: $3\temp_loaded[1:0] [1]
+    51/72: $2\temp_loaded[1:0]
+    52/72: $2\temp_nas1[0:0]
+    53/72: $2\temp_nas0[0:0]
+    54/72: $3\next_state[2:0]
+    55/72: $2\temp_cycles[30:0]
+    56/72: $2\next_state[2:0]
+    57/72: $1\temp_active[0:0]
+    58/72: $1\temp_count[14:0]
+    59/72: $1\temp_loaded[1:0] [0]
+    60/72: $7\temp_addr[1:0]
+    61/72: $1\temp_addr[1:0]
+    62/72: $1\temp_cycles[30:0]
+    63/72: $1\temp_nas1[0:0]
+    64/72: $1\temp_nas0[0:0]
+    65/72: $1\temp_busyout[0:0]
+    66/72: $1\statepeek[2:0]
+    67/72: $1\next_state[2:0]
+    68/72: $1\wantDir[0:0]
+    69/72: $1\as[0:0]
+    70/72: $1\temp_raygroupvalid0[0:0]
+    71/72: $1\temp_raygroupvalid1[0:0]
+    72/72: $1\temp_dir[47:0]
+Creating decoders for process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+     1/13: $0\active[0:0]
+     2/13: $0\loaded[1:0]
+     3/13: $0\raygroupvalid1[0:0]
+     4/13: $0\raygroupvalid0[0:0]
+     5/13: $0\count[14:0]
+     6/13: $0\groupID[1:0]
+     7/13: $0\addr[3:0] [1:0]
+     8/13: $0\dir[47:0]
+     9/13: $0\cycles[30:0]
+    10/13: $0\state[2:0]
+    11/13: $0\destaddr[17:0]
+    12/13: $0\first[0:0]
+    13/13: $0\addr[3:0] [3:2]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\raygencont.\temp_busyout' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$858
+Latch inferred for signal `\raygencont.\temp_nas0' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$911
+Latch inferred for signal `\raygencont.\temp_nas1' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$956
+Latch inferred for signal `\raygencont.\wantDir' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$979
+Latch inferred for signal `\raygencont.\as' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$1002
+Latch inferred for signal `\raygencont.\statepeek' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$1037
+Latch inferred for signal `\raygencont.\next_state' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$1072
+Latch inferred for signal `\raygencont.\temp_dir' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$1083
+Latch inferred for signal `\raygencont.\temp_cycles' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$1136
+Latch inferred for signal `\raygencont.\temp_addr' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$1377
+Latch inferred for signal `\raygencont.\temp_loaded [0]' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$1442
+Latch inferred for signal `\raygencont.\temp_loaded [1]' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$1499
+Latch inferred for signal `\raygencont.\temp_groupID [0]' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$1534
+Latch inferred for signal `\raygencont.\temp_groupID [1]' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$1569
+Latch inferred for signal `\raygencont.\temp_count' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$1612
+Latch inferred for signal `\raygencont.\temp_active' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$1865
+Latch inferred for signal `\raygencont.\temp_raygroupvalid1' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$2036
+Latch inferred for signal `\raygencont.\temp_raygroupvalid0' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5': $auto$proc_dlatch.cc:427:proc_dlatch$2171
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\raygencont.\cycles' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+  created $dff cell `$procdff$2172' with positive edge clock.
+Creating register for signal `\raygencont.\addr' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+  created $dff cell `$procdff$2173' with positive edge clock.
+Creating register for signal `\raygencont.\dir' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+  created $dff cell `$procdff$2174' with positive edge clock.
+Creating register for signal `\raygencont.\raygroupvalid0' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+  created $dff cell `$procdff$2175' with positive edge clock.
+Creating register for signal `\raygencont.\raygroupvalid1' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+  created $dff cell `$procdff$2176' with positive edge clock.
+Creating register for signal `\raygencont.\state' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+  created $dff cell `$procdff$2177' with positive edge clock.
+Creating register for signal `\raygencont.\count' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+  created $dff cell `$procdff$2178' with positive edge clock.
+Creating register for signal `\raygencont.\first' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+  created $dff cell `$procdff$2179' with positive edge clock.
+Creating register for signal `\raygencont.\destaddr' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+  created $dff cell `$procdff$2180' with positive edge clock.
+Creating register for signal `\raygencont.\loaded' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+  created $dff cell `$procdff$2181' with positive edge clock.
+Creating register for signal `\raygencont.\groupID' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+  created $dff cell `$procdff$2182' with positive edge clock.
+Creating register for signal `\raygencont.\active' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+  created $dff cell `$procdff$2183' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 30 empty switches in `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5'.
+Removing empty process `raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:119$5'.
+Found and cleaned up 1 empty switch in `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+Removing empty process `raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:74$1'.
+Cleaned up 31 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module raygencont.
+<suppressed ~581 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module raygencont.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\raygencont'.
+<suppressed ~909 debug messages>
+Removed a total of 303 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \raygencont..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~30 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \raygencont.
+    New ctrl vector for $pmux cell $procmux$770: $procmux$776_CMP
+    New ctrl vector for $pmux cell $procmux$765: { $procmux$784_CMP $procmux$778_CMP }
+    New ctrl vector for $pmux cell $procmux$758: $procmux$784_CMP
+    New ctrl vector for $pmux cell $procmux$749: { $procmux$784_CMP $procmux$778_CMP $procmux$777_CMP $procmux$776_CMP }
+    New ctrl vector for $pmux cell $procmux$742: { $procmux$784_CMP $procmux$778_CMP $procmux$777_CMP $procmux$776_CMP }
+    New ctrl vector for $pmux cell $procmux$256: $procmux$784_CMP
+    New ctrl vector for $pmux cell $procmux$251: $procmux$776_CMP
+    New ctrl vector for $pmux cell $procmux$669: { $procmux$778_CMP $procmux$777_CMP $procmux$776_CMP }
+    New ctrl vector for $pmux cell $procmux$735: $auto$opt_reduce.cc:134:opt_mux$2185
+    New ctrl vector for $pmux cell $procmux$680: $procmux$784_CMP
+    New ctrl vector for $pmux cell $procmux$708: $procmux$778_CMP
+    New ctrl vector for $pmux cell $procmux$775: $procmux$777_CMP
+    New ctrl vector for $pmux cell $procmux$728: $procmux$784_CMP
+    New ctrl vector for $pmux cell $procmux$74: $procmux$777_CMP
+    New ctrl vector for $pmux cell $procmux$721: $procmux$784_CMP
+    New ctrl vector for $pmux cell $procmux$675: $auto$opt_reduce.cc:134:opt_mux$2187
+    New ctrl vector for $pmux cell $procmux$714: $auto$opt_reduce.cc:134:opt_mux$2189
+  Optimizing cells in module \raygencont.
+Performed a total of 17 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\raygencont'.
+<suppressed ~24 debug messages>
+Removed a total of 8 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$2183 ($dff) from module raygencont (D = \temp_active, Q = \active, rval = 1'0).
+Adding SRST signal on $procdff$2182 ($dff) from module raygencont (D = \temp_groupID, Q = \groupID, rval = 2'00).
+Adding SRST signal on $procdff$2181 ($dff) from module raygencont (D = \temp_loaded, Q = \loaded, rval = 2'00).
+Adding EN signal on $procdff$2180 ($dff) from module raygencont (D = 18'000000000000000000, Q = \destaddr).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 2 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 3 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 4 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 5 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 6 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 7 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 8 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 9 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 10 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 11 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 12 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 13 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 14 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 15 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 16 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Setting constant 0-bit at position 17 on $auto$ff.cc:262:slice$2193 ($dffe) from module raygencont.
+Adding EN signal on $procdff$2179 ($dff) from module raygencont (D = 1'0, Q = \first).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$2194 ($dffe) from module raygencont.
+Adding SRST signal on $procdff$2178 ($dff) from module raygencont (D = \temp_count, Q = \count, rval = 15'000000000000000).
+Adding SRST signal on $procdff$2177 ($dff) from module raygencont (D = \next_state, Q = \state, rval = 3'000).
+Adding SRST signal on $procdff$2176 ($dff) from module raygencont (D = \temp_raygroupvalid1, Q = \raygroupvalid1, rval = 1'0).
+Adding SRST signal on $procdff$2175 ($dff) from module raygencont (D = \temp_raygroupvalid0, Q = \raygroupvalid0, rval = 1'0).
+Adding SRST signal on $procdff$2174 ($dff) from module raygencont (D = \temp_dir, Q = \dir, rval = 48'000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$2173 ($dff) from module raygencont (D = \temp_addr, Q = \addr [1:0], rval = 2'00).
+Adding EN signal on $procdff$2173 ($dff) from module raygencont (D = $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/raygencont.v:96$4_Y, Q = \addr [3:2]).
+Adding SRST signal on $procdff$2172 ($dff) from module raygencont (D = \temp_cycles, Q = \cycles, rval = 31'0000000000000000000000000000000).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \raygencont..
+Removed 28 unused cells and 1090 unused wires.
+<suppressed ~29 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module raygencont.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \raygencont..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \raygencont.
+    New ctrl vector for $pmux cell $procmux$669: { $auto$opt_reduce.cc:134:opt_mux$2205 $procmux$100_CMP }
+  Optimizing cells in module \raygencont.
+Performed a total of 1 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\raygencont'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \raygencont..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module raygencont.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \raygencont..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \raygencont.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\raygencont'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \raygencont..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module raygencont.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== raygencont ===
+
+   Number of wires:                245
+   Number of wire bits:            707
+   Number of public wires:          46
+   Number of public wire bits:     354
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                227
+     $add                           34
+     $and                          111
+     $dffe                           2
+     $dlatch                       113
+     $eq                            14
+     $gt                            32
+     $logic_not                      5
+     $mux                           96
+     $ne                             4
+     $not                           17
+     $pmux                           8
+     $reduce_or                     67
+     $sdff                         106
+     $sub                           32
+
+End of script. Logfile hash: 80334b9cff, CPU: user 0.27s system 0.00s, MEM: 16.30 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 29% 5x opt_expr (0 sec), 21% 4x opt_merge (0 sec), ...

@@ -1,0 +1,112 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/tpu_like.medium.v
+Parsing SystemVerilog input from `/home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/tpu_like.medium.v' to AST representation.
+Generating RTLIL representation for module `\matmul_32x32_systolic'.
+Generating RTLIL representation for module `\output_logic'.
+Generating RTLIL representation for module `\systolic_data_setup'.
+Generating RTLIL representation for module `\systolic_pe_matrix'.
+Generating RTLIL representation for module `\processing_element'.
+Generating RTLIL representation for module `\seq_mac'.
+Generating RTLIL representation for module `\qmult'.
+Generating RTLIL representation for module `\qadd'.
+Generating RTLIL representation for module `\cfg'.
+Generating RTLIL representation for module `\norm'.
+Generating RTLIL representation for module `\ram'.
+Generating RTLIL representation for module `\control'.
+Generating RTLIL representation for module `\pool'.
+Generating RTLIL representation for module `\activation'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/tpu_like.medium.v:14987.1-15004.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/tpu_like.medium.v:15007.1-15024.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/tpu_like.medium.v:15027.1-15066.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\top'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   5 design levels: top                 
+root of   0 design levels: activation          
+root of   0 design levels: pool                
+root of   0 design levels: control             
+root of   0 design levels: ram                 
+root of   0 design levels: norm                
+root of   0 design levels: cfg                 
+root of   0 design levels: qadd                
+root of   0 design levels: qmult               
+root of   1 design levels: seq_mac             
+root of   2 design levels: processing_element  
+root of   3 design levels: systolic_pe_matrix  
+root of   0 design levels: systolic_data_setup 
+root of   0 design levels: output_logic        
+root of   4 design levels: matmul_32x32_systolic
+Automatically selected top as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \activation
+Used module:     \pool
+Used module:     \norm
+Used module:     \matmul_32x32_systolic
+Used module:         \systolic_pe_matrix
+Used module:             \processing_element
+Used module:                 \seq_mac
+Used module:                     \qadd
+Used module:                     \qmult
+Used module:         \output_logic
+Used module:         \systolic_data_setup
+Used module:     \cfg
+Used module:     \control
+Used module:     \ram
+
+2.3. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \activation
+Used module:     \pool
+Used module:     \norm
+Used module:     \matmul_32x32_systolic
+Used module:         \systolic_pe_matrix
+Used module:             \processing_element
+Used module:                 \seq_mac
+Used module:                     \qadd
+Used module:                     \qmult
+Used module:         \output_logic
+Used module:         \systolic_data_setup
+Used module:     \cfg
+Used module:     \control
+Used module:     \ram
+Removed 0 unused modules.
+
+End of script. Logfile hash: 04d274876c, CPU: user 1.14s system 0.03s, MEM: 120.48 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 98% 2x read_verilog (1 sec), 1% 1x hierarchy (0 sec)

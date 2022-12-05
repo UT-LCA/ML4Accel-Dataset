@@ -1,0 +1,1706 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v' to AST representation.
+Generating RTLIL representation for module `\matmul_16x16_systolic'.
+Generating RTLIL representation for module `\systolic_pe_matrix'.
+Generating RTLIL representation for module `\processing_element'.
+Generating RTLIL representation for module `\seq_mac'.
+Generating RTLIL representation for module `\qadd'.
+Generating RTLIL representation for module `\qmult'.
+Generating RTLIL representation for module `\output_logic'.
+Generating RTLIL representation for module `\systolic_data_setup'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: systolic_data_setup 
+root of   0 design levels: output_logic        
+root of   0 design levels: qmult               
+root of   0 design levels: qadd                
+root of   1 design levels: seq_mac             
+root of   2 design levels: processing_element  
+root of   3 design levels: systolic_pe_matrix  
+root of   4 design levels: matmul_16x16_systolic
+Automatically selected matmul_16x16_systolic as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \matmul_16x16_systolic
+Used module:     \systolic_pe_matrix
+Used module:         \processing_element
+Used module:             \seq_mac
+Used module:                 \qadd
+Used module:                 \qmult
+Used module:     \output_logic
+Used module:     \systolic_data_setup
+
+2.3. Analyzing design hierarchy..
+Top module:  \matmul_16x16_systolic
+Used module:     \systolic_pe_matrix
+Used module:         \processing_element
+Used module:             \seq_mac
+Used module:                 \qadd
+Used module:                 \qmult
+Used module:     \output_logic
+Used module:     \systolic_data_setup
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344 in module systolic_data_setup.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3800$242 in module systolic_data_setup.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3775$227 in module systolic_data_setup.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222 in module systolic_data_setup.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3346$120 in module systolic_data_setup.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3321$105 in module systolic_data_setup.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94 in module output_logic.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2394$77 in module processing_element.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:144$4 in module matmul_16x16_systolic.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 245 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+     1/120: $0\b15_data_delayed_15[7:0]
+     2/120: $0\b15_data_delayed_14[7:0]
+     3/120: $0\b15_data_delayed_13[7:0]
+     4/120: $0\b15_data_delayed_12[7:0]
+     5/120: $0\b15_data_delayed_11[7:0]
+     6/120: $0\b15_data_delayed_10[7:0]
+     7/120: $0\b15_data_delayed_9[7:0]
+     8/120: $0\b15_data_delayed_8[7:0]
+     9/120: $0\b15_data_delayed_7[7:0]
+    10/120: $0\b15_data_delayed_6[7:0]
+    11/120: $0\b15_data_delayed_5[7:0]
+    12/120: $0\b15_data_delayed_4[7:0]
+    13/120: $0\b15_data_delayed_3[7:0]
+    14/120: $0\b15_data_delayed_2[7:0]
+    15/120: $0\b15_data_delayed_1[7:0]
+    16/120: $0\b14_data_delayed_14[7:0]
+    17/120: $0\b14_data_delayed_13[7:0]
+    18/120: $0\b14_data_delayed_12[7:0]
+    19/120: $0\b14_data_delayed_11[7:0]
+    20/120: $0\b14_data_delayed_10[7:0]
+    21/120: $0\b14_data_delayed_9[7:0]
+    22/120: $0\b14_data_delayed_8[7:0]
+    23/120: $0\b14_data_delayed_7[7:0]
+    24/120: $0\b14_data_delayed_6[7:0]
+    25/120: $0\b14_data_delayed_5[7:0]
+    26/120: $0\b14_data_delayed_4[7:0]
+    27/120: $0\b14_data_delayed_3[7:0]
+    28/120: $0\b14_data_delayed_2[7:0]
+    29/120: $0\b14_data_delayed_1[7:0]
+    30/120: $0\b13_data_delayed_13[7:0]
+    31/120: $0\b13_data_delayed_12[7:0]
+    32/120: $0\b13_data_delayed_11[7:0]
+    33/120: $0\b13_data_delayed_10[7:0]
+    34/120: $0\b13_data_delayed_9[7:0]
+    35/120: $0\b13_data_delayed_8[7:0]
+    36/120: $0\b13_data_delayed_7[7:0]
+    37/120: $0\b13_data_delayed_6[7:0]
+    38/120: $0\b13_data_delayed_5[7:0]
+    39/120: $0\b13_data_delayed_4[7:0]
+    40/120: $0\b13_data_delayed_3[7:0]
+    41/120: $0\b13_data_delayed_2[7:0]
+    42/120: $0\b13_data_delayed_1[7:0]
+    43/120: $0\b12_data_delayed_12[7:0]
+    44/120: $0\b12_data_delayed_11[7:0]
+    45/120: $0\b12_data_delayed_10[7:0]
+    46/120: $0\b12_data_delayed_9[7:0]
+    47/120: $0\b12_data_delayed_8[7:0]
+    48/120: $0\b12_data_delayed_7[7:0]
+    49/120: $0\b12_data_delayed_6[7:0]
+    50/120: $0\b12_data_delayed_5[7:0]
+    51/120: $0\b12_data_delayed_4[7:0]
+    52/120: $0\b12_data_delayed_3[7:0]
+    53/120: $0\b12_data_delayed_2[7:0]
+    54/120: $0\b12_data_delayed_1[7:0]
+    55/120: $0\b11_data_delayed_11[7:0]
+    56/120: $0\b11_data_delayed_10[7:0]
+    57/120: $0\b11_data_delayed_9[7:0]
+    58/120: $0\b11_data_delayed_8[7:0]
+    59/120: $0\b11_data_delayed_7[7:0]
+    60/120: $0\b11_data_delayed_6[7:0]
+    61/120: $0\b11_data_delayed_5[7:0]
+    62/120: $0\b11_data_delayed_4[7:0]
+    63/120: $0\b11_data_delayed_3[7:0]
+    64/120: $0\b11_data_delayed_2[7:0]
+    65/120: $0\b11_data_delayed_1[7:0]
+    66/120: $0\b10_data_delayed_10[7:0]
+    67/120: $0\b10_data_delayed_9[7:0]
+    68/120: $0\b10_data_delayed_8[7:0]
+    69/120: $0\b10_data_delayed_7[7:0]
+    70/120: $0\b10_data_delayed_6[7:0]
+    71/120: $0\b10_data_delayed_5[7:0]
+    72/120: $0\b10_data_delayed_4[7:0]
+    73/120: $0\b10_data_delayed_3[7:0]
+    74/120: $0\b10_data_delayed_2[7:0]
+    75/120: $0\b10_data_delayed_1[7:0]
+    76/120: $0\b9_data_delayed_9[7:0]
+    77/120: $0\b9_data_delayed_8[7:0]
+    78/120: $0\b9_data_delayed_7[7:0]
+    79/120: $0\b9_data_delayed_6[7:0]
+    80/120: $0\b9_data_delayed_5[7:0]
+    81/120: $0\b9_data_delayed_4[7:0]
+    82/120: $0\b9_data_delayed_3[7:0]
+    83/120: $0\b9_data_delayed_2[7:0]
+    84/120: $0\b9_data_delayed_1[7:0]
+    85/120: $0\b8_data_delayed_8[7:0]
+    86/120: $0\b8_data_delayed_7[7:0]
+    87/120: $0\b8_data_delayed_6[7:0]
+    88/120: $0\b8_data_delayed_5[7:0]
+    89/120: $0\b8_data_delayed_4[7:0]
+    90/120: $0\b8_data_delayed_3[7:0]
+    91/120: $0\b8_data_delayed_2[7:0]
+    92/120: $0\b8_data_delayed_1[7:0]
+    93/120: $0\b7_data_delayed_7[7:0]
+    94/120: $0\b7_data_delayed_6[7:0]
+    95/120: $0\b7_data_delayed_5[7:0]
+    96/120: $0\b7_data_delayed_4[7:0]
+    97/120: $0\b7_data_delayed_3[7:0]
+    98/120: $0\b7_data_delayed_2[7:0]
+    99/120: $0\b7_data_delayed_1[7:0]
+   100/120: $0\b6_data_delayed_6[7:0]
+   101/120: $0\b6_data_delayed_5[7:0]
+   102/120: $0\b6_data_delayed_4[7:0]
+   103/120: $0\b6_data_delayed_3[7:0]
+   104/120: $0\b6_data_delayed_2[7:0]
+   105/120: $0\b6_data_delayed_1[7:0]
+   106/120: $0\b5_data_delayed_5[7:0]
+   107/120: $0\b5_data_delayed_4[7:0]
+   108/120: $0\b5_data_delayed_3[7:0]
+   109/120: $0\b5_data_delayed_2[7:0]
+   110/120: $0\b5_data_delayed_1[7:0]
+   111/120: $0\b4_data_delayed_4[7:0]
+   112/120: $0\b4_data_delayed_3[7:0]
+   113/120: $0\b4_data_delayed_2[7:0]
+   114/120: $0\b4_data_delayed_1[7:0]
+   115/120: $0\b3_data_delayed_3[7:0]
+   116/120: $0\b3_data_delayed_2[7:0]
+   117/120: $0\b3_data_delayed_1[7:0]
+   118/120: $0\b2_data_delayed_2[7:0]
+   119/120: $0\b2_data_delayed_1[7:0]
+   120/120: $0\b1_data_delayed_1[7:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3800$242'.
+     1/1: $0\b_mem_access_counter[7:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3775$227'.
+     1/2: $0\b_mem_access[0:0]
+     2/2: $0\b_addr[9:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+     1/120: $0\a15_data_delayed_15[7:0]
+     2/120: $0\a15_data_delayed_14[7:0]
+     3/120: $0\a15_data_delayed_13[7:0]
+     4/120: $0\a15_data_delayed_12[7:0]
+     5/120: $0\a15_data_delayed_11[7:0]
+     6/120: $0\a15_data_delayed_10[7:0]
+     7/120: $0\a15_data_delayed_9[7:0]
+     8/120: $0\a15_data_delayed_8[7:0]
+     9/120: $0\a15_data_delayed_7[7:0]
+    10/120: $0\a15_data_delayed_6[7:0]
+    11/120: $0\a15_data_delayed_5[7:0]
+    12/120: $0\a15_data_delayed_4[7:0]
+    13/120: $0\a15_data_delayed_3[7:0]
+    14/120: $0\a15_data_delayed_2[7:0]
+    15/120: $0\a15_data_delayed_1[7:0]
+    16/120: $0\a14_data_delayed_14[7:0]
+    17/120: $0\a14_data_delayed_13[7:0]
+    18/120: $0\a14_data_delayed_12[7:0]
+    19/120: $0\a14_data_delayed_11[7:0]
+    20/120: $0\a14_data_delayed_10[7:0]
+    21/120: $0\a14_data_delayed_9[7:0]
+    22/120: $0\a14_data_delayed_8[7:0]
+    23/120: $0\a14_data_delayed_7[7:0]
+    24/120: $0\a14_data_delayed_6[7:0]
+    25/120: $0\a14_data_delayed_5[7:0]
+    26/120: $0\a14_data_delayed_4[7:0]
+    27/120: $0\a14_data_delayed_3[7:0]
+    28/120: $0\a14_data_delayed_2[7:0]
+    29/120: $0\a14_data_delayed_1[7:0]
+    30/120: $0\a13_data_delayed_13[7:0]
+    31/120: $0\a13_data_delayed_12[7:0]
+    32/120: $0\a13_data_delayed_11[7:0]
+    33/120: $0\a13_data_delayed_10[7:0]
+    34/120: $0\a13_data_delayed_9[7:0]
+    35/120: $0\a13_data_delayed_8[7:0]
+    36/120: $0\a13_data_delayed_7[7:0]
+    37/120: $0\a13_data_delayed_6[7:0]
+    38/120: $0\a13_data_delayed_5[7:0]
+    39/120: $0\a13_data_delayed_4[7:0]
+    40/120: $0\a13_data_delayed_3[7:0]
+    41/120: $0\a13_data_delayed_2[7:0]
+    42/120: $0\a13_data_delayed_1[7:0]
+    43/120: $0\a12_data_delayed_12[7:0]
+    44/120: $0\a12_data_delayed_11[7:0]
+    45/120: $0\a12_data_delayed_10[7:0]
+    46/120: $0\a12_data_delayed_9[7:0]
+    47/120: $0\a12_data_delayed_8[7:0]
+    48/120: $0\a12_data_delayed_7[7:0]
+    49/120: $0\a12_data_delayed_6[7:0]
+    50/120: $0\a12_data_delayed_5[7:0]
+    51/120: $0\a12_data_delayed_4[7:0]
+    52/120: $0\a12_data_delayed_3[7:0]
+    53/120: $0\a12_data_delayed_2[7:0]
+    54/120: $0\a12_data_delayed_1[7:0]
+    55/120: $0\a11_data_delayed_11[7:0]
+    56/120: $0\a11_data_delayed_10[7:0]
+    57/120: $0\a11_data_delayed_9[7:0]
+    58/120: $0\a11_data_delayed_8[7:0]
+    59/120: $0\a11_data_delayed_7[7:0]
+    60/120: $0\a11_data_delayed_6[7:0]
+    61/120: $0\a11_data_delayed_5[7:0]
+    62/120: $0\a11_data_delayed_4[7:0]
+    63/120: $0\a11_data_delayed_3[7:0]
+    64/120: $0\a11_data_delayed_2[7:0]
+    65/120: $0\a11_data_delayed_1[7:0]
+    66/120: $0\a10_data_delayed_10[7:0]
+    67/120: $0\a10_data_delayed_9[7:0]
+    68/120: $0\a10_data_delayed_8[7:0]
+    69/120: $0\a10_data_delayed_7[7:0]
+    70/120: $0\a10_data_delayed_6[7:0]
+    71/120: $0\a10_data_delayed_5[7:0]
+    72/120: $0\a10_data_delayed_4[7:0]
+    73/120: $0\a10_data_delayed_3[7:0]
+    74/120: $0\a10_data_delayed_2[7:0]
+    75/120: $0\a10_data_delayed_1[7:0]
+    76/120: $0\a9_data_delayed_9[7:0]
+    77/120: $0\a9_data_delayed_8[7:0]
+    78/120: $0\a9_data_delayed_7[7:0]
+    79/120: $0\a9_data_delayed_6[7:0]
+    80/120: $0\a9_data_delayed_5[7:0]
+    81/120: $0\a9_data_delayed_4[7:0]
+    82/120: $0\a9_data_delayed_3[7:0]
+    83/120: $0\a9_data_delayed_2[7:0]
+    84/120: $0\a9_data_delayed_1[7:0]
+    85/120: $0\a8_data_delayed_8[7:0]
+    86/120: $0\a8_data_delayed_7[7:0]
+    87/120: $0\a8_data_delayed_6[7:0]
+    88/120: $0\a8_data_delayed_5[7:0]
+    89/120: $0\a8_data_delayed_4[7:0]
+    90/120: $0\a8_data_delayed_3[7:0]
+    91/120: $0\a8_data_delayed_2[7:0]
+    92/120: $0\a8_data_delayed_1[7:0]
+    93/120: $0\a7_data_delayed_7[7:0]
+    94/120: $0\a7_data_delayed_6[7:0]
+    95/120: $0\a7_data_delayed_5[7:0]
+    96/120: $0\a7_data_delayed_4[7:0]
+    97/120: $0\a7_data_delayed_3[7:0]
+    98/120: $0\a7_data_delayed_2[7:0]
+    99/120: $0\a7_data_delayed_1[7:0]
+   100/120: $0\a6_data_delayed_6[7:0]
+   101/120: $0\a6_data_delayed_5[7:0]
+   102/120: $0\a6_data_delayed_4[7:0]
+   103/120: $0\a6_data_delayed_3[7:0]
+   104/120: $0\a6_data_delayed_2[7:0]
+   105/120: $0\a6_data_delayed_1[7:0]
+   106/120: $0\a5_data_delayed_5[7:0]
+   107/120: $0\a5_data_delayed_4[7:0]
+   108/120: $0\a5_data_delayed_3[7:0]
+   109/120: $0\a5_data_delayed_2[7:0]
+   110/120: $0\a5_data_delayed_1[7:0]
+   111/120: $0\a4_data_delayed_4[7:0]
+   112/120: $0\a4_data_delayed_3[7:0]
+   113/120: $0\a4_data_delayed_2[7:0]
+   114/120: $0\a4_data_delayed_1[7:0]
+   115/120: $0\a3_data_delayed_3[7:0]
+   116/120: $0\a3_data_delayed_2[7:0]
+   117/120: $0\a3_data_delayed_1[7:0]
+   118/120: $0\a2_data_delayed_2[7:0]
+   119/120: $0\a2_data_delayed_1[7:0]
+   120/120: $0\a1_data_delayed_1[7:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3346$120'.
+     1/1: $0\a_mem_access_counter[7:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3321$105'.
+     1/2: $0\a_mem_access[0:0]
+     2/2: $0\a_addr[9:0]
+Creating decoders for process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+     1/20: $0\c_data_out_15[127:0]
+     2/20: $0\c_data_out_14[127:0]
+     3/20: $0\c_data_out_13[127:0]
+     4/20: $0\c_data_out_12[127:0]
+     5/20: $0\c_data_out_11[127:0]
+     6/20: $0\c_data_out_10[127:0]
+     7/20: $0\c_data_out_9[127:0]
+     8/20: $0\c_data_out_8[127:0]
+     9/20: $0\c_data_out_7[127:0]
+    10/20: $0\c_data_out_6[127:0]
+    11/20: $0\c_data_out_5[127:0]
+    12/20: $0\c_data_out_4[127:0]
+    13/20: $0\c_data_out_3[127:0]
+    14/20: $0\c_data_out_2[127:0]
+    15/20: $0\c_data_out_1[127:0]
+    16/20: $0\counter[31:0]
+    17/20: $0\start_capturing_c_data[0:0]
+    18/20: $0\c_data_available[0:0]
+    19/20: $0\c_addr[9:0]
+    20/20: $0\c_data_out[127:0]
+Creating decoders for process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2439$80'.
+Creating decoders for process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2431$79'.
+Creating decoders for process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2423$78'.
+Creating decoders for process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2394$77'.
+     1/2: $0\out_b[7:0]
+     2/2: $0\out_a[7:0]
+Creating decoders for process `\matmul_16x16_systolic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:144$4'.
+     1/2: $0\clk_cnt[7:0]
+     2/2: $0\done_mat_mul[0:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\systolic_data_setup.\b1_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1400' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b2_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1401' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b2_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1402' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b3_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1403' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b3_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1404' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b3_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1405' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b4_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1406' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b4_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1407' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b4_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1408' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b4_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1409' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b5_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1410' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b5_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1411' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b5_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1412' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b5_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1413' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b5_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1414' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b6_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1415' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b6_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1416' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b6_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1417' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b6_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1418' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b6_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1419' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b6_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1420' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b7_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1421' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b7_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1422' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b7_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1423' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b7_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1424' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b7_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1425' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b7_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1426' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b7_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1427' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b8_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1428' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b8_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1429' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b8_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1430' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b8_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1431' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b8_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1432' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b8_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1433' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b8_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1434' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b8_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1435' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b9_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1436' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b9_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1437' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b9_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1438' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b9_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1439' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b9_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1440' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b9_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1441' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b9_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1442' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b9_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1443' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b9_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1444' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b10_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1445' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b10_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1446' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b10_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1447' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b10_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1448' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b10_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1449' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b10_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1450' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b10_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1451' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b10_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1452' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b10_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1453' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b10_data_delayed_10' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1454' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b11_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1455' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b11_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1456' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b11_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1457' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b11_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1458' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b11_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1459' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b11_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1460' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b11_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1461' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b11_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1462' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b11_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1463' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b11_data_delayed_10' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1464' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b11_data_delayed_11' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1465' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b12_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1466' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b12_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1467' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b12_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1468' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b12_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1469' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b12_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1470' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b12_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1471' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b12_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1472' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b12_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1473' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b12_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1474' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b12_data_delayed_10' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1475' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b12_data_delayed_11' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1476' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b12_data_delayed_12' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1477' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b13_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1478' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b13_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1479' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b13_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1480' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b13_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1481' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b13_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1482' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b13_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1483' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b13_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1484' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b13_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1485' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b13_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1486' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b13_data_delayed_10' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1487' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b13_data_delayed_11' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1488' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b13_data_delayed_12' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1489' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b13_data_delayed_13' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1490' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1491' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1492' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1493' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1494' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1495' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1496' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1497' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1498' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1499' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_10' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1500' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_11' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1501' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_12' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1502' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_13' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1503' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b14_data_delayed_14' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1504' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1505' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1506' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1507' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1508' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1509' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1510' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1511' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1512' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1513' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_10' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1514' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_11' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1515' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_12' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1516' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_13' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1517' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_14' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1518' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b15_data_delayed_15' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+  created $dff cell `$procdff$1519' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b_mem_access_counter' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3800$242'.
+  created $dff cell `$procdff$1520' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b_addr' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3775$227'.
+  created $dff cell `$procdff$1521' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b_mem_access' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3775$227'.
+  created $dff cell `$procdff$1522' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a1_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1523' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a2_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1524' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a2_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1525' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a3_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1526' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a3_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1527' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a3_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1528' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a4_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1529' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a4_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1530' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a4_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1531' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a4_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1532' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a5_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1533' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a5_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1534' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a5_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1535' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a5_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1536' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a5_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1537' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a6_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1538' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a6_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1539' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a6_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1540' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a6_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1541' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a6_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1542' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a6_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1543' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a7_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1544' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a7_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1545' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a7_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1546' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a7_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1547' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a7_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1548' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a7_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1549' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a7_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1550' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a8_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1551' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a8_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1552' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a8_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1553' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a8_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1554' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a8_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1555' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a8_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1556' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a8_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1557' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a8_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1558' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a9_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1559' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a9_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1560' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a9_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1561' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a9_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1562' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a9_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1563' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a9_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1564' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a9_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1565' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a9_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1566' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a9_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1567' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a10_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1568' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a10_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1569' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a10_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1570' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a10_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1571' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a10_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1572' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a10_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1573' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a10_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1574' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a10_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1575' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a10_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1576' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a10_data_delayed_10' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1577' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a11_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1578' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a11_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1579' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a11_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1580' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a11_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1581' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a11_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1582' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a11_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1583' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a11_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1584' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a11_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1585' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a11_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1586' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a11_data_delayed_10' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1587' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a11_data_delayed_11' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1588' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a12_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1589' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a12_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1590' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a12_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1591' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a12_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1592' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a12_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1593' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a12_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1594' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a12_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1595' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a12_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1596' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a12_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1597' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a12_data_delayed_10' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1598' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a12_data_delayed_11' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1599' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a12_data_delayed_12' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1600' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a13_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1601' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a13_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1602' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a13_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1603' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a13_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1604' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a13_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1605' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a13_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1606' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a13_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1607' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a13_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1608' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a13_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1609' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a13_data_delayed_10' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1610' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a13_data_delayed_11' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1611' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a13_data_delayed_12' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1612' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a13_data_delayed_13' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1613' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1614' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1615' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1616' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1617' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1618' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1619' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1620' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1621' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1622' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_10' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1623' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_11' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1624' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_12' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1625' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_13' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1626' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a14_data_delayed_14' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1627' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_1' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1628' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_2' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1629' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_3' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1630' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_4' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1631' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_5' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1632' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_6' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1633' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_7' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1634' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_8' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1635' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_9' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1636' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_10' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1637' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_11' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1638' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_12' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1639' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_13' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1640' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_14' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1641' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a15_data_delayed_15' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+  created $dff cell `$procdff$1642' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a_mem_access_counter' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3346$120'.
+  created $dff cell `$procdff$1643' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a_addr' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3321$105'.
+  created $dff cell `$procdff$1644' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a_mem_access' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3321$105'.
+  created $dff cell `$procdff$1645' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1646' with positive edge clock.
+Creating register for signal `\output_logic.\c_addr' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1647' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_available' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1648' with positive edge clock.
+Creating register for signal `\output_logic.\start_capturing_c_data' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1649' with positive edge clock.
+Creating register for signal `\output_logic.\counter' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1650' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_1' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1651' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_2' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1652' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_3' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1653' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_4' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1654' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_5' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1655' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_6' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1656' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_7' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1657' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_8' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1658' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_9' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1659' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_10' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1660' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_11' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1661' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_12' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1662' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_13' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1663' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_14' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1664' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_15' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+  created $dff cell `$procdff$1665' with positive edge clock.
+Creating register for signal `\seq_mac.\out_temp' using process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2439$80'.
+  created $dff cell `$procdff$1666' with positive edge clock.
+Creating register for signal `\seq_mac.\mul_out_temp_reg' using process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2431$79'.
+  created $dff cell `$procdff$1667' with positive edge clock.
+Creating register for signal `\seq_mac.\a_flopped' using process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2423$78'.
+  created $dff cell `$procdff$1668' with positive edge clock.
+Creating register for signal `\seq_mac.\b_flopped' using process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2423$78'.
+  created $dff cell `$procdff$1669' with positive edge clock.
+Creating register for signal `\processing_element.\out_a' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2394$77'.
+  created $dff cell `$procdff$1670' with positive edge clock.
+Creating register for signal `\processing_element.\out_b' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2394$77'.
+  created $dff cell `$procdff$1671' with positive edge clock.
+Creating register for signal `\matmul_16x16_systolic.\done_mat_mul' using process `\matmul_16x16_systolic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:144$4'.
+  created $dff cell `$procdff$1672' with positive edge clock.
+Creating register for signal `\matmul_16x16_systolic.\clk_cnt' using process `\matmul_16x16_systolic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:144$4'.
+  created $dff cell `$procdff$1673' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3975$344'.
+Found and cleaned up 2 empty switches in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3800$242'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3800$242'.
+Found and cleaned up 2 empty switches in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3775$227'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3775$227'.
+Found and cleaned up 1 empty switch in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3521$222'.
+Found and cleaned up 2 empty switches in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3346$120'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3346$120'.
+Found and cleaned up 2 empty switches in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3321$105'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3321$105'.
+Found and cleaned up 5 empty switches in `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+Removing empty process `output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3059$94'.
+Removing empty process `seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2439$80'.
+Removing empty process `seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2431$79'.
+Removing empty process `seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2423$78'.
+Found and cleaned up 1 empty switch in `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2394$77'.
+Removing empty process `processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2394$77'.
+Found and cleaned up 3 empty switches in `\matmul_16x16_systolic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:144$4'.
+Removing empty process `matmul_16x16_systolic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:144$4'.
+Cleaned up 19 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_data_setup.
+<suppressed ~42 debug messages>
+Optimizing module output_logic.
+<suppressed ~1 debug messages>
+Optimizing module qmult.
+Optimizing module qadd.
+Optimizing module seq_mac.
+<suppressed ~2 debug messages>
+Optimizing module processing_element.
+Optimizing module systolic_pe_matrix.
+Optimizing module matmul_16x16_systolic.
+<suppressed ~36 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_data_setup.
+Optimizing module output_logic.
+Optimizing module qmult.
+Optimizing module qadd.
+Optimizing module seq_mac.
+Optimizing module processing_element.
+Optimizing module systolic_pe_matrix.
+Optimizing module matmul_16x16_systolic.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_data_setup'.
+<suppressed ~42 debug messages>
+Finding identical cells in module `\output_logic'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\qmult'.
+Finding identical cells in module `\qadd'.
+Finding identical cells in module `\seq_mac'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\processing_element'.
+Finding identical cells in module `\systolic_pe_matrix'.
+Finding identical cells in module `\matmul_16x16_systolic'.
+<suppressed ~96 debug messages>
+Removed a total of 51 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \systolic_data_setup..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \output_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \qmult..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \qadd..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \seq_mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2453$85: { \out_temp [15] 7'0000000 } -> 8'10000000
+      Replacing known input bits on port B of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2453$85: { \out_temp [15] \out_temp [6:0] } -> { 1'1 \out_temp [6:0] }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2447$83: { \out_temp [15] \out_temp [6:0] } -> { 1'0 \out_temp [6:0] }
+      Replacing known input bits on port B of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:2447$83: { \out_temp [15] 7'1111111 } -> 8'01111111
+  Analyzing evaluation results.
+Running muxtree optimizer on module \processing_element..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \systolic_pe_matrix..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \matmul_16x16_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$1392: \done_mat_mul -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~305 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \systolic_data_setup.
+  Optimizing cells in module \output_logic.
+  Optimizing cells in module \qmult.
+  Optimizing cells in module \qadd.
+  Optimizing cells in module \seq_mac.
+  Optimizing cells in module \processing_element.
+  Optimizing cells in module \systolic_pe_matrix.
+  Optimizing cells in module \matmul_16x16_systolic.
+    New ctrl vector for $mux cell $procmux$1392: { }
+    New ctrl vector for $mux cell $procmux$1383: { }
+    New ctrl vector for $mux cell $procmux$1386: { }
+  Optimizing cells in module \matmul_16x16_systolic.
+Performed a total of 3 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_data_setup'.
+Finding identical cells in module `\output_logic'.
+Finding identical cells in module `\qmult'.
+Finding identical cells in module `\qadd'.
+Finding identical cells in module `\seq_mac'.
+Finding identical cells in module `\processing_element'.
+Finding identical cells in module `\systolic_pe_matrix'.
+Finding identical cells in module `\matmul_16x16_systolic'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$1630 ($dff) from module systolic_data_setup (D = \a15_data_delayed_2, Q = \a15_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1625 ($dff) from module systolic_data_setup (D = \a14_data_delayed_11, Q = \a14_data_delayed_12, rval = 8'00000000).
+Adding SRST signal on $procdff$1645 ($dff) from module systolic_data_setup (D = $procmux$1091_Y, Q = \a_mem_access, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1676 ($sdff) from module systolic_data_setup (D = 1'1, Q = \a_mem_access).
+Adding SRST signal on $procdff$1631 ($dff) from module systolic_data_setup (D = \a15_data_delayed_3, Q = \a15_data_delayed_4, rval = 8'00000000).
+Adding EN signal on $procdff$1644 ($dff) from module systolic_data_setup (D = $procmux$1099_Y, Q = \a_addr).
+Adding SRST signal on $procdff$1643 ($dff) from module systolic_data_setup (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3351$124_Y [7:0], Q = \a_mem_access_counter, rval = 8'00000000).
+Adding SRST signal on $procdff$1632 ($dff) from module systolic_data_setup (D = \a15_data_delayed_4, Q = \a15_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1626 ($dff) from module systolic_data_setup (D = \a14_data_delayed_12, Q = \a14_data_delayed_13, rval = 8'00000000).
+Adding SRST signal on $procdff$1642 ($dff) from module systolic_data_setup (D = \a15_data_delayed_14, Q = \a15_data_delayed_15, rval = 8'00000000).
+Adding SRST signal on $procdff$1633 ($dff) from module systolic_data_setup (D = \a15_data_delayed_5, Q = \a15_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1627 ($dff) from module systolic_data_setup (D = \a14_data_delayed_13, Q = \a14_data_delayed_14, rval = 8'00000000).
+Adding SRST signal on $procdff$1634 ($dff) from module systolic_data_setup (D = \a15_data_delayed_6, Q = \a15_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1624 ($dff) from module systolic_data_setup (D = \a14_data_delayed_10, Q = \a14_data_delayed_11, rval = 8'00000000).
+Adding SRST signal on $procdff$1635 ($dff) from module systolic_data_setup (D = \a15_data_delayed_7, Q = \a15_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1628 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3397$221_Y, Q = \a15_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1641 ($dff) from module systolic_data_setup (D = \a15_data_delayed_13, Q = \a15_data_delayed_14, rval = 8'00000000).
+Adding SRST signal on $procdff$1636 ($dff) from module systolic_data_setup (D = \a15_data_delayed_8, Q = \a15_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1640 ($dff) from module systolic_data_setup (D = \a15_data_delayed_12, Q = \a15_data_delayed_13, rval = 8'00000000).
+Adding SRST signal on $procdff$1639 ($dff) from module systolic_data_setup (D = \a15_data_delayed_11, Q = \a15_data_delayed_12, rval = 8'00000000).
+Adding SRST signal on $procdff$1637 ($dff) from module systolic_data_setup (D = \a15_data_delayed_9, Q = \a15_data_delayed_10, rval = 8'00000000).
+Adding SRST signal on $procdff$1629 ($dff) from module systolic_data_setup (D = \a15_data_delayed_1, Q = \a15_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1638 ($dff) from module systolic_data_setup (D = \a15_data_delayed_10, Q = \a15_data_delayed_11, rval = 8'00000000).
+Adding SRST signal on $procdff$1400 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3837$315_Y, Q = \b1_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1401 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3838$317_Y, Q = \b2_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1402 ($dff) from module systolic_data_setup (D = \b2_data_delayed_1, Q = \b2_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1403 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3839$319_Y, Q = \b3_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1404 ($dff) from module systolic_data_setup (D = \b3_data_delayed_1, Q = \b3_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1405 ($dff) from module systolic_data_setup (D = \b3_data_delayed_2, Q = \b3_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1406 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3840$321_Y, Q = \b4_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1407 ($dff) from module systolic_data_setup (D = \b4_data_delayed_1, Q = \b4_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1408 ($dff) from module systolic_data_setup (D = \b4_data_delayed_2, Q = \b4_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1409 ($dff) from module systolic_data_setup (D = \b4_data_delayed_3, Q = \b4_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1410 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3841$323_Y, Q = \b5_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1411 ($dff) from module systolic_data_setup (D = \b5_data_delayed_1, Q = \b5_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1412 ($dff) from module systolic_data_setup (D = \b5_data_delayed_2, Q = \b5_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1413 ($dff) from module systolic_data_setup (D = \b5_data_delayed_3, Q = \b5_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1414 ($dff) from module systolic_data_setup (D = \b5_data_delayed_4, Q = \b5_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1415 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3842$325_Y, Q = \b6_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1416 ($dff) from module systolic_data_setup (D = \b6_data_delayed_1, Q = \b6_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1417 ($dff) from module systolic_data_setup (D = \b6_data_delayed_2, Q = \b6_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1418 ($dff) from module systolic_data_setup (D = \b6_data_delayed_3, Q = \b6_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1419 ($dff) from module systolic_data_setup (D = \b6_data_delayed_4, Q = \b6_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1420 ($dff) from module systolic_data_setup (D = \b6_data_delayed_5, Q = \b6_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1421 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3843$327_Y, Q = \b7_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1422 ($dff) from module systolic_data_setup (D = \b7_data_delayed_1, Q = \b7_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1423 ($dff) from module systolic_data_setup (D = \b7_data_delayed_2, Q = \b7_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1424 ($dff) from module systolic_data_setup (D = \b7_data_delayed_3, Q = \b7_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1425 ($dff) from module systolic_data_setup (D = \b7_data_delayed_4, Q = \b7_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1426 ($dff) from module systolic_data_setup (D = \b7_data_delayed_5, Q = \b7_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1427 ($dff) from module systolic_data_setup (D = \b7_data_delayed_6, Q = \b7_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1428 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3844$329_Y, Q = \b8_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1429 ($dff) from module systolic_data_setup (D = \b8_data_delayed_1, Q = \b8_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1430 ($dff) from module systolic_data_setup (D = \b8_data_delayed_2, Q = \b8_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1431 ($dff) from module systolic_data_setup (D = \b8_data_delayed_3, Q = \b8_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1432 ($dff) from module systolic_data_setup (D = \b8_data_delayed_4, Q = \b8_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1433 ($dff) from module systolic_data_setup (D = \b8_data_delayed_5, Q = \b8_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1434 ($dff) from module systolic_data_setup (D = \b8_data_delayed_6, Q = \b8_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1435 ($dff) from module systolic_data_setup (D = \b8_data_delayed_7, Q = \b8_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1436 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3845$331_Y, Q = \b9_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1437 ($dff) from module systolic_data_setup (D = \b9_data_delayed_1, Q = \b9_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1438 ($dff) from module systolic_data_setup (D = \b9_data_delayed_2, Q = \b9_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1439 ($dff) from module systolic_data_setup (D = \b9_data_delayed_3, Q = \b9_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1440 ($dff) from module systolic_data_setup (D = \b9_data_delayed_4, Q = \b9_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1441 ($dff) from module systolic_data_setup (D = \b9_data_delayed_5, Q = \b9_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1442 ($dff) from module systolic_data_setup (D = \b9_data_delayed_6, Q = \b9_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1443 ($dff) from module systolic_data_setup (D = \b9_data_delayed_7, Q = \b9_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1444 ($dff) from module systolic_data_setup (D = \b9_data_delayed_8, Q = \b9_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1445 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3846$333_Y, Q = \b10_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1446 ($dff) from module systolic_data_setup (D = \b10_data_delayed_1, Q = \b10_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1447 ($dff) from module systolic_data_setup (D = \b10_data_delayed_2, Q = \b10_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1448 ($dff) from module systolic_data_setup (D = \b10_data_delayed_3, Q = \b10_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1449 ($dff) from module systolic_data_setup (D = \b10_data_delayed_4, Q = \b10_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1450 ($dff) from module systolic_data_setup (D = \b10_data_delayed_5, Q = \b10_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1451 ($dff) from module systolic_data_setup (D = \b10_data_delayed_6, Q = \b10_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1452 ($dff) from module systolic_data_setup (D = \b10_data_delayed_7, Q = \b10_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1453 ($dff) from module systolic_data_setup (D = \b10_data_delayed_8, Q = \b10_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1454 ($dff) from module systolic_data_setup (D = \b10_data_delayed_9, Q = \b10_data_delayed_10, rval = 8'00000000).
+Adding SRST signal on $procdff$1455 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3847$335_Y, Q = \b11_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1456 ($dff) from module systolic_data_setup (D = \b11_data_delayed_1, Q = \b11_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1457 ($dff) from module systolic_data_setup (D = \b11_data_delayed_2, Q = \b11_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1458 ($dff) from module systolic_data_setup (D = \b11_data_delayed_3, Q = \b11_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1459 ($dff) from module systolic_data_setup (D = \b11_data_delayed_4, Q = \b11_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1460 ($dff) from module systolic_data_setup (D = \b11_data_delayed_5, Q = \b11_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1461 ($dff) from module systolic_data_setup (D = \b11_data_delayed_6, Q = \b11_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1462 ($dff) from module systolic_data_setup (D = \b11_data_delayed_7, Q = \b11_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1463 ($dff) from module systolic_data_setup (D = \b11_data_delayed_8, Q = \b11_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1464 ($dff) from module systolic_data_setup (D = \b11_data_delayed_9, Q = \b11_data_delayed_10, rval = 8'00000000).
+Adding SRST signal on $procdff$1465 ($dff) from module systolic_data_setup (D = \b11_data_delayed_10, Q = \b11_data_delayed_11, rval = 8'00000000).
+Adding SRST signal on $procdff$1466 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3848$337_Y, Q = \b12_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1467 ($dff) from module systolic_data_setup (D = \b12_data_delayed_1, Q = \b12_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1468 ($dff) from module systolic_data_setup (D = \b12_data_delayed_2, Q = \b12_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1469 ($dff) from module systolic_data_setup (D = \b12_data_delayed_3, Q = \b12_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1470 ($dff) from module systolic_data_setup (D = \b12_data_delayed_4, Q = \b12_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1471 ($dff) from module systolic_data_setup (D = \b12_data_delayed_5, Q = \b12_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1472 ($dff) from module systolic_data_setup (D = \b12_data_delayed_6, Q = \b12_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1473 ($dff) from module systolic_data_setup (D = \b12_data_delayed_7, Q = \b12_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1474 ($dff) from module systolic_data_setup (D = \b12_data_delayed_8, Q = \b12_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1475 ($dff) from module systolic_data_setup (D = \b12_data_delayed_9, Q = \b12_data_delayed_10, rval = 8'00000000).
+Adding SRST signal on $procdff$1476 ($dff) from module systolic_data_setup (D = \b12_data_delayed_10, Q = \b12_data_delayed_11, rval = 8'00000000).
+Adding SRST signal on $procdff$1477 ($dff) from module systolic_data_setup (D = \b12_data_delayed_11, Q = \b12_data_delayed_12, rval = 8'00000000).
+Adding SRST signal on $procdff$1478 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3849$339_Y, Q = \b13_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1479 ($dff) from module systolic_data_setup (D = \b13_data_delayed_1, Q = \b13_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1480 ($dff) from module systolic_data_setup (D = \b13_data_delayed_2, Q = \b13_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1481 ($dff) from module systolic_data_setup (D = \b13_data_delayed_3, Q = \b13_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1482 ($dff) from module systolic_data_setup (D = \b13_data_delayed_4, Q = \b13_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1483 ($dff) from module systolic_data_setup (D = \b13_data_delayed_5, Q = \b13_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1484 ($dff) from module systolic_data_setup (D = \b13_data_delayed_6, Q = \b13_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1485 ($dff) from module systolic_data_setup (D = \b13_data_delayed_7, Q = \b13_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1486 ($dff) from module systolic_data_setup (D = \b13_data_delayed_8, Q = \b13_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1487 ($dff) from module systolic_data_setup (D = \b13_data_delayed_9, Q = \b13_data_delayed_10, rval = 8'00000000).
+Adding SRST signal on $procdff$1488 ($dff) from module systolic_data_setup (D = \b13_data_delayed_10, Q = \b13_data_delayed_11, rval = 8'00000000).
+Adding SRST signal on $procdff$1489 ($dff) from module systolic_data_setup (D = \b13_data_delayed_11, Q = \b13_data_delayed_12, rval = 8'00000000).
+Adding SRST signal on $procdff$1490 ($dff) from module systolic_data_setup (D = \b13_data_delayed_12, Q = \b13_data_delayed_13, rval = 8'00000000).
+Adding SRST signal on $procdff$1491 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3850$341_Y, Q = \b14_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1492 ($dff) from module systolic_data_setup (D = \b14_data_delayed_1, Q = \b14_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1493 ($dff) from module systolic_data_setup (D = \b14_data_delayed_2, Q = \b14_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1494 ($dff) from module systolic_data_setup (D = \b14_data_delayed_3, Q = \b14_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1495 ($dff) from module systolic_data_setup (D = \b14_data_delayed_4, Q = \b14_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1496 ($dff) from module systolic_data_setup (D = \b14_data_delayed_5, Q = \b14_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1497 ($dff) from module systolic_data_setup (D = \b14_data_delayed_6, Q = \b14_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1498 ($dff) from module systolic_data_setup (D = \b14_data_delayed_7, Q = \b14_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1499 ($dff) from module systolic_data_setup (D = \b14_data_delayed_8, Q = \b14_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1500 ($dff) from module systolic_data_setup (D = \b14_data_delayed_9, Q = \b14_data_delayed_10, rval = 8'00000000).
+Adding SRST signal on $procdff$1501 ($dff) from module systolic_data_setup (D = \b14_data_delayed_10, Q = \b14_data_delayed_11, rval = 8'00000000).
+Adding SRST signal on $procdff$1502 ($dff) from module systolic_data_setup (D = \b14_data_delayed_11, Q = \b14_data_delayed_12, rval = 8'00000000).
+Adding SRST signal on $procdff$1503 ($dff) from module systolic_data_setup (D = \b14_data_delayed_12, Q = \b14_data_delayed_13, rval = 8'00000000).
+Adding SRST signal on $procdff$1504 ($dff) from module systolic_data_setup (D = \b14_data_delayed_13, Q = \b14_data_delayed_14, rval = 8'00000000).
+Adding SRST signal on $procdff$1505 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3851$343_Y, Q = \b15_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1506 ($dff) from module systolic_data_setup (D = \b15_data_delayed_1, Q = \b15_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1507 ($dff) from module systolic_data_setup (D = \b15_data_delayed_2, Q = \b15_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1508 ($dff) from module systolic_data_setup (D = \b15_data_delayed_3, Q = \b15_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1509 ($dff) from module systolic_data_setup (D = \b15_data_delayed_4, Q = \b15_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1510 ($dff) from module systolic_data_setup (D = \b15_data_delayed_5, Q = \b15_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1511 ($dff) from module systolic_data_setup (D = \b15_data_delayed_6, Q = \b15_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1512 ($dff) from module systolic_data_setup (D = \b15_data_delayed_7, Q = \b15_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1513 ($dff) from module systolic_data_setup (D = \b15_data_delayed_8, Q = \b15_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1514 ($dff) from module systolic_data_setup (D = \b15_data_delayed_9, Q = \b15_data_delayed_10, rval = 8'00000000).
+Adding SRST signal on $procdff$1515 ($dff) from module systolic_data_setup (D = \b15_data_delayed_10, Q = \b15_data_delayed_11, rval = 8'00000000).
+Adding SRST signal on $procdff$1516 ($dff) from module systolic_data_setup (D = \b15_data_delayed_11, Q = \b15_data_delayed_12, rval = 8'00000000).
+Adding SRST signal on $procdff$1517 ($dff) from module systolic_data_setup (D = \b15_data_delayed_12, Q = \b15_data_delayed_13, rval = 8'00000000).
+Adding SRST signal on $procdff$1518 ($dff) from module systolic_data_setup (D = \b15_data_delayed_13, Q = \b15_data_delayed_14, rval = 8'00000000).
+Adding SRST signal on $procdff$1519 ($dff) from module systolic_data_setup (D = \b15_data_delayed_14, Q = \b15_data_delayed_15, rval = 8'00000000).
+Adding SRST signal on $procdff$1520 ($dff) from module systolic_data_setup (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3805$246_Y [7:0], Q = \b_mem_access_counter, rval = 8'00000000).
+Adding EN signal on $procdff$1521 ($dff) from module systolic_data_setup (D = $procmux$723_Y, Q = \b_addr).
+Adding SRST signal on $procdff$1522 ($dff) from module systolic_data_setup (D = $procmux$715_Y, Q = \b_mem_access, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1831 ($sdff) from module systolic_data_setup (D = 1'1, Q = \b_mem_access).
+Adding SRST signal on $procdff$1523 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3383$193_Y, Q = \a1_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1524 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3384$195_Y, Q = \a2_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1525 ($dff) from module systolic_data_setup (D = \a2_data_delayed_1, Q = \a2_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1526 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3385$197_Y, Q = \a3_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1527 ($dff) from module systolic_data_setup (D = \a3_data_delayed_1, Q = \a3_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1528 ($dff) from module systolic_data_setup (D = \a3_data_delayed_2, Q = \a3_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1529 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3386$199_Y, Q = \a4_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1530 ($dff) from module systolic_data_setup (D = \a4_data_delayed_1, Q = \a4_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1531 ($dff) from module systolic_data_setup (D = \a4_data_delayed_2, Q = \a4_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1532 ($dff) from module systolic_data_setup (D = \a4_data_delayed_3, Q = \a4_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1533 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3387$201_Y, Q = \a5_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1534 ($dff) from module systolic_data_setup (D = \a5_data_delayed_1, Q = \a5_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1535 ($dff) from module systolic_data_setup (D = \a5_data_delayed_2, Q = \a5_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1536 ($dff) from module systolic_data_setup (D = \a5_data_delayed_3, Q = \a5_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1537 ($dff) from module systolic_data_setup (D = \a5_data_delayed_4, Q = \a5_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1538 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3388$203_Y, Q = \a6_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1539 ($dff) from module systolic_data_setup (D = \a6_data_delayed_1, Q = \a6_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1540 ($dff) from module systolic_data_setup (D = \a6_data_delayed_2, Q = \a6_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1541 ($dff) from module systolic_data_setup (D = \a6_data_delayed_3, Q = \a6_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1542 ($dff) from module systolic_data_setup (D = \a6_data_delayed_4, Q = \a6_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1543 ($dff) from module systolic_data_setup (D = \a6_data_delayed_5, Q = \a6_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1544 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3389$205_Y, Q = \a7_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1545 ($dff) from module systolic_data_setup (D = \a7_data_delayed_1, Q = \a7_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1546 ($dff) from module systolic_data_setup (D = \a7_data_delayed_2, Q = \a7_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1547 ($dff) from module systolic_data_setup (D = \a7_data_delayed_3, Q = \a7_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1548 ($dff) from module systolic_data_setup (D = \a7_data_delayed_4, Q = \a7_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1549 ($dff) from module systolic_data_setup (D = \a7_data_delayed_5, Q = \a7_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1550 ($dff) from module systolic_data_setup (D = \a7_data_delayed_6, Q = \a7_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1551 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3390$207_Y, Q = \a8_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1552 ($dff) from module systolic_data_setup (D = \a8_data_delayed_1, Q = \a8_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1553 ($dff) from module systolic_data_setup (D = \a8_data_delayed_2, Q = \a8_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1554 ($dff) from module systolic_data_setup (D = \a8_data_delayed_3, Q = \a8_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1555 ($dff) from module systolic_data_setup (D = \a8_data_delayed_4, Q = \a8_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1556 ($dff) from module systolic_data_setup (D = \a8_data_delayed_5, Q = \a8_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1557 ($dff) from module systolic_data_setup (D = \a8_data_delayed_6, Q = \a8_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1558 ($dff) from module systolic_data_setup (D = \a8_data_delayed_7, Q = \a8_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1559 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3391$209_Y, Q = \a9_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1560 ($dff) from module systolic_data_setup (D = \a9_data_delayed_1, Q = \a9_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1561 ($dff) from module systolic_data_setup (D = \a9_data_delayed_2, Q = \a9_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1562 ($dff) from module systolic_data_setup (D = \a9_data_delayed_3, Q = \a9_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1563 ($dff) from module systolic_data_setup (D = \a9_data_delayed_4, Q = \a9_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1564 ($dff) from module systolic_data_setup (D = \a9_data_delayed_5, Q = \a9_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1565 ($dff) from module systolic_data_setup (D = \a9_data_delayed_6, Q = \a9_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1566 ($dff) from module systolic_data_setup (D = \a9_data_delayed_7, Q = \a9_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1567 ($dff) from module systolic_data_setup (D = \a9_data_delayed_8, Q = \a9_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1568 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3392$211_Y, Q = \a10_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1569 ($dff) from module systolic_data_setup (D = \a10_data_delayed_1, Q = \a10_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1570 ($dff) from module systolic_data_setup (D = \a10_data_delayed_2, Q = \a10_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1571 ($dff) from module systolic_data_setup (D = \a10_data_delayed_3, Q = \a10_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1572 ($dff) from module systolic_data_setup (D = \a10_data_delayed_4, Q = \a10_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1573 ($dff) from module systolic_data_setup (D = \a10_data_delayed_5, Q = \a10_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1574 ($dff) from module systolic_data_setup (D = \a10_data_delayed_6, Q = \a10_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1575 ($dff) from module systolic_data_setup (D = \a10_data_delayed_7, Q = \a10_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1576 ($dff) from module systolic_data_setup (D = \a10_data_delayed_8, Q = \a10_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1577 ($dff) from module systolic_data_setup (D = \a10_data_delayed_9, Q = \a10_data_delayed_10, rval = 8'00000000).
+Adding SRST signal on $procdff$1578 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3393$213_Y, Q = \a11_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1579 ($dff) from module systolic_data_setup (D = \a11_data_delayed_1, Q = \a11_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1580 ($dff) from module systolic_data_setup (D = \a11_data_delayed_2, Q = \a11_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1581 ($dff) from module systolic_data_setup (D = \a11_data_delayed_3, Q = \a11_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1582 ($dff) from module systolic_data_setup (D = \a11_data_delayed_4, Q = \a11_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1583 ($dff) from module systolic_data_setup (D = \a11_data_delayed_5, Q = \a11_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1584 ($dff) from module systolic_data_setup (D = \a11_data_delayed_6, Q = \a11_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1585 ($dff) from module systolic_data_setup (D = \a11_data_delayed_7, Q = \a11_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1586 ($dff) from module systolic_data_setup (D = \a11_data_delayed_8, Q = \a11_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1587 ($dff) from module systolic_data_setup (D = \a11_data_delayed_9, Q = \a11_data_delayed_10, rval = 8'00000000).
+Adding SRST signal on $procdff$1588 ($dff) from module systolic_data_setup (D = \a11_data_delayed_10, Q = \a11_data_delayed_11, rval = 8'00000000).
+Adding SRST signal on $procdff$1589 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3394$215_Y, Q = \a12_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1590 ($dff) from module systolic_data_setup (D = \a12_data_delayed_1, Q = \a12_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1591 ($dff) from module systolic_data_setup (D = \a12_data_delayed_2, Q = \a12_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1592 ($dff) from module systolic_data_setup (D = \a12_data_delayed_3, Q = \a12_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1593 ($dff) from module systolic_data_setup (D = \a12_data_delayed_4, Q = \a12_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1594 ($dff) from module systolic_data_setup (D = \a12_data_delayed_5, Q = \a12_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1595 ($dff) from module systolic_data_setup (D = \a12_data_delayed_6, Q = \a12_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1596 ($dff) from module systolic_data_setup (D = \a12_data_delayed_7, Q = \a12_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1597 ($dff) from module systolic_data_setup (D = \a12_data_delayed_8, Q = \a12_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1598 ($dff) from module systolic_data_setup (D = \a12_data_delayed_9, Q = \a12_data_delayed_10, rval = 8'00000000).
+Adding SRST signal on $procdff$1599 ($dff) from module systolic_data_setup (D = \a12_data_delayed_10, Q = \a12_data_delayed_11, rval = 8'00000000).
+Adding SRST signal on $procdff$1600 ($dff) from module systolic_data_setup (D = \a12_data_delayed_11, Q = \a12_data_delayed_12, rval = 8'00000000).
+Adding SRST signal on $procdff$1601 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3395$217_Y, Q = \a13_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1602 ($dff) from module systolic_data_setup (D = \a13_data_delayed_1, Q = \a13_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1603 ($dff) from module systolic_data_setup (D = \a13_data_delayed_2, Q = \a13_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1604 ($dff) from module systolic_data_setup (D = \a13_data_delayed_3, Q = \a13_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1605 ($dff) from module systolic_data_setup (D = \a13_data_delayed_4, Q = \a13_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1606 ($dff) from module systolic_data_setup (D = \a13_data_delayed_5, Q = \a13_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1607 ($dff) from module systolic_data_setup (D = \a13_data_delayed_6, Q = \a13_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1608 ($dff) from module systolic_data_setup (D = \a13_data_delayed_7, Q = \a13_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1609 ($dff) from module systolic_data_setup (D = \a13_data_delayed_8, Q = \a13_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1610 ($dff) from module systolic_data_setup (D = \a13_data_delayed_9, Q = \a13_data_delayed_10, rval = 8'00000000).
+Adding SRST signal on $procdff$1611 ($dff) from module systolic_data_setup (D = \a13_data_delayed_10, Q = \a13_data_delayed_11, rval = 8'00000000).
+Adding SRST signal on $procdff$1612 ($dff) from module systolic_data_setup (D = \a13_data_delayed_11, Q = \a13_data_delayed_12, rval = 8'00000000).
+Adding SRST signal on $procdff$1613 ($dff) from module systolic_data_setup (D = \a13_data_delayed_12, Q = \a13_data_delayed_13, rval = 8'00000000).
+Adding SRST signal on $procdff$1614 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/matmul_16x16_systolic.v:3396$219_Y, Q = \a14_data_delayed_1, rval = 8'00000000).
+Adding SRST signal on $procdff$1615 ($dff) from module systolic_data_setup (D = \a14_data_delayed_1, Q = \a14_data_delayed_2, rval = 8'00000000).
+Adding SRST signal on $procdff$1616 ($dff) from module systolic_data_setup (D = \a14_data_delayed_2, Q = \a14_data_delayed_3, rval = 8'00000000).
+Adding SRST signal on $procdff$1617 ($dff) from module systolic_data_setup (D = \a14_data_delayed_3, Q = \a14_data_delayed_4, rval = 8'00000000).
+Adding SRST signal on $procdff$1618 ($dff) from module systolic_data_setup (D = \a14_data_delayed_4, Q = \a14_data_delayed_5, rval = 8'00000000).
+Adding SRST signal on $procdff$1619 ($dff) from module systolic_data_setup (D = \a14_data_delayed_5, Q = \a14_data_delayed_6, rval = 8'00000000).
+Adding SRST signal on $procdff$1620 ($dff) from module systolic_data_setup (D = \a14_data_delayed_6, Q = \a14_data_delayed_7, rval = 8'00000000).
+Adding SRST signal on $procdff$1621 ($dff) from module systolic_data_setup (D = \a14_data_delayed_7, Q = \a14_data_delayed_8, rval = 8'00000000).
+Adding SRST signal on $procdff$1622 ($dff) from module systolic_data_setup (D = \a14_data_delayed_8, Q = \a14_data_delayed_9, rval = 8'00000000).
+Adding SRST signal on $procdff$1623 ($dff) from module systolic_data_setup (D = \a14_data_delayed_9, Q = \a14_data_delayed_10, rval = 8'00000000).
+Adding SRST signal on $procdff$1665 ($dff) from module output_logic (D = $procmux$1110_Y, Q = \c_data_out_15, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1934 ($sdff) from module output_logic (D = $procmux$1110_Y, Q = \c_data_out_15).
+Adding SRST signal on $procdff$1661 ($dff) from module output_logic (D = $procmux$1166_Y, Q = \c_data_out_11, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1938 ($sdff) from module output_logic (D = $procmux$1166_Y, Q = \c_data_out_11).
+Adding SRST signal on $procdff$1662 ($dff) from module output_logic (D = $procmux$1152_Y, Q = \c_data_out_12, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1942 ($sdff) from module output_logic (D = $procmux$1152_Y, Q = \c_data_out_12).
+Adding SRST signal on $procdff$1663 ($dff) from module output_logic (D = $procmux$1138_Y, Q = \c_data_out_13, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1946 ($sdff) from module output_logic (D = $procmux$1138_Y, Q = \c_data_out_13).
+Adding SRST signal on $procdff$1664 ($dff) from module output_logic (D = $procmux$1124_Y, Q = \c_data_out_14, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1950 ($sdff) from module output_logic (D = $procmux$1124_Y, Q = \c_data_out_14).
+Adding SRST signal on $procdff$1646 ($dff) from module output_logic (D = $procmux$1371_Y, Q = \c_data_out, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1954 ($sdff) from module output_logic (D = $procmux$1371_Y, Q = \c_data_out).
+Adding EN signal on $procdff$1647 ($dff) from module output_logic (D = $procmux$1360_Y, Q = \c_addr).
+Adding SRST signal on $procdff$1648 ($dff) from module output_logic (D = $procmux$1343_Y, Q = \c_data_available, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1961 ($sdff) from module output_logic (D = $procmux$1343_Y, Q = \c_data_available).
+Adding SRST signal on $procdff$1649 ($dff) from module output_logic (D = $procmux$1329_Y, Q = \start_capturing_c_data, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1969 ($sdff) from module output_logic (D = $procmux$1329_Y, Q = \start_capturing_c_data).
+Adding SRST signal on $procdff$1650 ($dff) from module output_logic (D = $procmux$1320_Y, Q = \counter, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$1973 ($sdff) from module output_logic (D = $procmux$1320_Y, Q = \counter).
+Adding SRST signal on $procdff$1651 ($dff) from module output_logic (D = $procmux$1306_Y, Q = \c_data_out_1, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1983 ($sdff) from module output_logic (D = $procmux$1306_Y, Q = \c_data_out_1).
+Adding SRST signal on $procdff$1652 ($dff) from module output_logic (D = $procmux$1292_Y, Q = \c_data_out_2, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1987 ($sdff) from module output_logic (D = $procmux$1292_Y, Q = \c_data_out_2).
+Adding SRST signal on $procdff$1653 ($dff) from module output_logic (D = $procmux$1278_Y, Q = \c_data_out_3, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1991 ($sdff) from module output_logic (D = $procmux$1278_Y, Q = \c_data_out_3).
+Adding SRST signal on $procdff$1654 ($dff) from module output_logic (D = $procmux$1264_Y, Q = \c_data_out_4, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1995 ($sdff) from module output_logic (D = $procmux$1264_Y, Q = \c_data_out_4).
+Adding SRST signal on $procdff$1655 ($dff) from module output_logic (D = $procmux$1250_Y, Q = \c_data_out_5, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1999 ($sdff) from module output_logic (D = $procmux$1250_Y, Q = \c_data_out_5).
+Adding SRST signal on $procdff$1656 ($dff) from module output_logic (D = $procmux$1236_Y, Q = \c_data_out_6, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2003 ($sdff) from module output_logic (D = $procmux$1236_Y, Q = \c_data_out_6).
+Adding SRST signal on $procdff$1657 ($dff) from module output_logic (D = $procmux$1222_Y, Q = \c_data_out_7, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2007 ($sdff) from module output_logic (D = $procmux$1222_Y, Q = \c_data_out_7).
+Adding SRST signal on $procdff$1658 ($dff) from module output_logic (D = $procmux$1208_Y, Q = \c_data_out_8, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2011 ($sdff) from module output_logic (D = $procmux$1208_Y, Q = \c_data_out_8).
+Adding SRST signal on $procdff$1659 ($dff) from module output_logic (D = $procmux$1194_Y, Q = \c_data_out_9, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2015 ($sdff) from module output_logic (D = $procmux$1194_Y, Q = \c_data_out_9).
+Adding SRST signal on $procdff$1660 ($dff) from module output_logic (D = $procmux$1180_Y, Q = \c_data_out_10, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2019 ($sdff) from module output_logic (D = $procmux$1180_Y, Q = \c_data_out_10).
+Adding SRST signal on $procdff$1670 ($dff) from module processing_element (D = \in_a, Q = \out_a, rval = 8'00000000).
+Adding SRST signal on $procdff$1671 ($dff) from module processing_element (D = \in_b, Q = \out_b, rval = 8'00000000).
+Adding SRST signal on $procdff$1673 ($dff) from module matmul_16x16_systolic (D = $procmux$1386_Y, Q = \clk_cnt, rval = 8'00000000).
+Adding SRST signal on $procdff$1672 ($dff) from module matmul_16x16_systolic (D = $procmux$1395_Y, Q = \done_mat_mul, rval = 1'0).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_data_setup..
+Finding unused cells or wires in module \output_logic..
+Finding unused cells or wires in module \qmult..
+Finding unused cells or wires in module \qadd..
+Finding unused cells or wires in module \seq_mac..
+Finding unused cells or wires in module \processing_element..
+Finding unused cells or wires in module \systolic_pe_matrix..
+Finding unused cells or wires in module \matmul_16x16_systolic..
+Removed 273 unused cells and 1281 unused wires.
+<suppressed ~522 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_16x16_systolic.
+Optimizing module output_logic.
+<suppressed ~20 debug messages>
+Optimizing module processing_element.
+Optimizing module qadd.
+Optimizing module qmult.
+Optimizing module seq_mac.
+Optimizing module systolic_data_setup.
+<suppressed ~2 debug messages>
+Optimizing module systolic_pe_matrix.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_16x16_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \output_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \processing_element..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \qadd..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \qmult..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \seq_mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \systolic_data_setup..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \systolic_pe_matrix..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~58 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_16x16_systolic.
+  Optimizing cells in module \output_logic.
+  Optimizing cells in module \processing_element.
+  Optimizing cells in module \qadd.
+  Optimizing cells in module \qmult.
+  Optimizing cells in module \seq_mac.
+  Optimizing cells in module \systolic_data_setup.
+  Optimizing cells in module \systolic_pe_matrix.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_16x16_systolic'.
+Finding identical cells in module `\output_logic'.
+<suppressed ~54 debug messages>
+Finding identical cells in module `\processing_element'.
+Finding identical cells in module `\qadd'.
+Finding identical cells in module `\qmult'.
+Finding identical cells in module `\seq_mac'.
+Finding identical cells in module `\systolic_data_setup'.
+Finding identical cells in module `\systolic_pe_matrix'.
+Removed a total of 18 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_16x16_systolic..
+Finding unused cells or wires in module \output_logic..
+Finding unused cells or wires in module \processing_element..
+Finding unused cells or wires in module \qadd..
+Finding unused cells or wires in module \qmult..
+Finding unused cells or wires in module \seq_mac..
+Finding unused cells or wires in module \systolic_data_setup..
+Finding unused cells or wires in module \systolic_pe_matrix..
+Removed 0 unused cells and 18 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_16x16_systolic.
+Optimizing module output_logic.
+Optimizing module processing_element.
+Optimizing module qadd.
+Optimizing module qmult.
+Optimizing module seq_mac.
+Optimizing module systolic_data_setup.
+Optimizing module systolic_pe_matrix.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_16x16_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \output_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \processing_element..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \qadd..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \qmult..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \seq_mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \systolic_data_setup..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \systolic_pe_matrix..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~58 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_16x16_systolic.
+  Optimizing cells in module \output_logic.
+  Optimizing cells in module \processing_element.
+  Optimizing cells in module \qadd.
+  Optimizing cells in module \qmult.
+  Optimizing cells in module \seq_mac.
+  Optimizing cells in module \systolic_data_setup.
+  Optimizing cells in module \systolic_pe_matrix.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_16x16_systolic'.
+Finding identical cells in module `\output_logic'.
+Finding identical cells in module `\processing_element'.
+Finding identical cells in module `\qadd'.
+Finding identical cells in module `\qmult'.
+Finding identical cells in module `\seq_mac'.
+Finding identical cells in module `\systolic_data_setup'.
+Finding identical cells in module `\systolic_pe_matrix'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_16x16_systolic..
+Finding unused cells or wires in module \output_logic..
+Finding unused cells or wires in module \processing_element..
+Finding unused cells or wires in module \qadd..
+Finding unused cells or wires in module \qmult..
+Finding unused cells or wires in module \seq_mac..
+Finding unused cells or wires in module \systolic_data_setup..
+Finding unused cells or wires in module \systolic_pe_matrix..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_16x16_systolic.
+Optimizing module output_logic.
+Optimizing module processing_element.
+Optimizing module qadd.
+Optimizing module qmult.
+Optimizing module seq_mac.
+Optimizing module systolic_data_setup.
+Optimizing module systolic_pe_matrix.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== matmul_16x16_systolic ===
+
+   Number of wires:                394
+   Number of wire bits:           4161
+   Number of public wires:         385
+   Number of public wire bits:    4059
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 46
+     $add                           64
+     $eq                             8
+     $logic_not                     16
+     $logic_or                       1
+     $mux                          257
+     $not                            1
+     $sdff                           9
+     $sub                           32
+
+=== output_logic ===
+
+   Number of wires:                382
+   Number of wire bits:          12862
+   Number of public wires:         287
+   Number of public wire bits:    4316
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                116
+     $add                           80
+     $dffe                          10
+     $eq                            32
+     $ge                            32
+     $mux                         8376
+     $ne                             5
+     $not                            1
+     $or                             1
+     $reduce_and                     5
+     $reduce_bool                   11
+     $sdffe                       2082
+     $sub                           80
+
+=== processing_element ===
+
+   Number of wires:                  8
+   Number of wire bits:             50
+   Number of public wires:           8
+   Number of public wire bits:      50
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $sdff                          16
+
+=== qadd ===
+
+   Number of wires:                  3
+   Number of wire bits:             48
+   Number of public wires:           3
+   Number of public wire bits:      48
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $add                           16
+
+=== qmult ===
+
+   Number of wires:                  3
+   Number of wire bits:             32
+   Number of public wires:           3
+   Number of public wire bits:      32
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $mul                           16
+
+=== seq_mac ===
+
+   Number of wires:                 14
+   Number of wire bits:            123
+   Number of public wires:          11
+   Number of public wire bits:     106
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 10
+     $dff                           48
+     $mux                           24
+     $reduce_or                      8
+
+=== systolic_data_setup ===
+
+   Number of wires:                489
+   Number of wire bits:           3211
+   Number of public wires:         297
+   Number of public wire bits:    2623
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                472
+     $add                          112
+     $and                          512
+     $dffe                          20
+     $eq                           256
+     $ge                            96
+     $logic_and                     34
+     $logic_not                      8
+     $logic_or                      34
+     $lt                            16
+     $mux                           42
+     $not                           35
+     $reduce_bool                    4
+     $reduce_or                      4
+     $sdff                        1936
+     $sdffe                          2
+     $sub                           32
+
+=== systolic_pe_matrix ===
+
+   Number of wires:                806
+   Number of wire bits:           6660
+   Number of public wires:         806
+   Number of public wire bits:    6660
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                257
+     $or                             1
+
+=== design hierarchy ===
+
+   matmul_16x16_systolic             1
+     output_logic                    0
+     systolic_data_setup             0
+     systolic_pe_matrix              0
+       processing_element            0
+         seq_mac                     0
+           qadd                      0
+           qmult                     0
+
+   Number of wires:                394
+   Number of wire bits:           4161
+   Number of public wires:         385
+   Number of public wire bits:    4059
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 46
+     $add                           64
+     $eq                             8
+     $logic_not                     16
+     $logic_or                       1
+     $mux                          257
+     $not                            1
+     $sdff                           9
+     $sub                           32
+
+End of script. Logfile hash: 21163347b4, CPU: user 1.41s system 0.01s, MEM: 40.27 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 26% 3x opt_dff (0 sec), 20% 3x opt_clean (0 sec), ...

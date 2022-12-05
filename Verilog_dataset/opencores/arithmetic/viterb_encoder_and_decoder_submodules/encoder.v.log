@@ -1,0 +1,240 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v' to AST representation.
+Generating RTLIL representation for module `\encoder'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: encoder             
+Automatically selected encoder as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \encoder
+
+2.3. Analyzing design hierarchy..
+Top module:  \encoder
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:139$12 in module encoder.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:26$3 in module encoder.
+Marked 9 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:26$3 in module encoder.
+Removed a total of 1 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 3 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `\encoder.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:139$12'.
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\encoder.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:139$12'.
+     1/1: $0\cstate[2:0]
+Creating decoders for process `\encoder.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:26$3'.
+     1/18: $9\d_out_reg[1:0]
+     2/18: $9\nstate[2:0]
+     3/18: $8\d_out_reg[1:0]
+     4/18: $8\nstate[2:0]
+     5/18: $7\d_out_reg[1:0]
+     6/18: $7\nstate[2:0]
+     7/18: $6\d_out_reg[1:0]
+     8/18: $6\nstate[2:0]
+     9/18: $5\d_out_reg[1:0]
+    10/18: $5\nstate[2:0]
+    11/18: $4\d_out_reg[1:0]
+    12/18: $4\nstate[2:0]
+    13/18: $3\d_out_reg[1:0]
+    14/18: $3\nstate[2:0]
+    15/18: $2\d_out_reg[1:0]
+    16/18: $2\nstate[2:0]
+    17/18: $1\d_out_reg[1:0]
+    18/18: $1\nstate[2:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\encoder.\valid_o' from process `\encoder.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:26$3'.
+No latch inferred for signal `\encoder.\nstate' from process `\encoder.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:26$3'.
+No latch inferred for signal `\encoder.\d_out_reg' from process `\encoder.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:26$3'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\encoder.\cstate' using process `\encoder.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:139$12'.
+  created $adff cell `$procdff$172' with positive edge clock and negative level reset.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\encoder.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:139$12'.
+Removing empty process `encoder.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:139$12'.
+Found and cleaned up 9 empty switches in `\encoder.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:26$3'.
+Removing empty process `encoder.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/viterb_encoder_and_decoder_submodules/encoder.v:26$3'.
+Cleaned up 10 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module encoder.
+<suppressed ~32 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module encoder.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\encoder'.
+<suppressed ~93 debug messages>
+Removed a total of 31 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \encoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$96.
+    dead port 2/2 on $mux $procmux$86.
+    dead port 2/2 on $mux $procmux$77.
+    dead port 2/2 on $mux $procmux$68.
+    dead port 2/2 on $mux $procmux$60.
+    dead port 2/2 on $mux $procmux$52.
+    dead port 2/2 on $mux $procmux$152.
+    dead port 2/2 on $mux $procmux$45.
+    dead port 2/2 on $mux $procmux$38.
+    dead port 2/2 on $mux $procmux$32.
+    dead port 2/2 on $mux $procmux$140.
+    dead port 2/2 on $mux $procmux$26.
+    dead port 2/2 on $mux $procmux$21.
+    dead port 2/2 on $mux $procmux$128.
+    dead port 2/2 on $mux $procmux$117.
+    dead port 2/2 on $mux $procmux$106.
+Removed 16 multiplexer ports.
+<suppressed ~2 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \encoder.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\encoder'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \encoder..
+Removed 3 unused cells and 99 unused wires.
+<suppressed ~4 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module encoder.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \encoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \encoder.
+    New ctrl vector for $pmux cell $procmux$154: { $auto$opt_reduce.cc:134:opt_mux$176 $auto$opt_reduce.cc:134:opt_mux$174 }
+  Optimizing cells in module \encoder.
+Performed a total of 1 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\encoder'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \encoder..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module encoder.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \encoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \encoder.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\encoder'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \encoder..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module encoder.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== encoder ===
+
+   Number of wires:                 30
+   Number of wire bits:             56
+   Number of public wires:           9
+   Number of public wire bits:      15
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 25
+     $adff                           3
+     $eq                            21
+     $logic_not                      3
+     $mux                           33
+     $pmux                           5
+     $reduce_or                      8
+
+End of script. Logfile hash: 4598f6bc25, CPU: user 0.02s system 0.01s, MEM: 11.51 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 24% 5x opt_expr (0 sec), 24% 3x opt_clean (0 sec), ...

@@ -1,0 +1,169 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic//crcahb.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic//crcahb.v' to AST representation.
+Generating RTLIL representation for module `\bit_reversal'.
+Generating RTLIL representation for module `\crc_comb'.
+Generating RTLIL representation for module `\crc_control_unit'.
+Generating RTLIL representation for module `\crc_datapath'.
+Generating RTLIL representation for module `\crc_ip'.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//crcahb.v:1053: Warning: Identifier `\reset_pending' is implicitly declared.
+Generating RTLIL representation for module `\crc_parallel'.
+Generating RTLIL representation for module `\crc_unit'.
+Generating RTLIL representation for module `\host_interface'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: host_interface      
+root of   3 design levels: crc_unit            
+root of   1 design levels: crc_parallel        
+root of   4 design levels: crc_ip              
+root of   2 design levels: crc_datapath        
+root of   0 design levels: crc_control_unit    
+root of   0 design levels: crc_comb            
+root of   0 design levels: bit_reversal        
+Automatically selected crc_ip as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \crc_ip
+Used module:     \crc_unit
+Used module:         \crc_control_unit
+Used module:         \crc_datapath
+Used module:             \crc_parallel
+Used module:                 \crc_comb
+Used module:             \bit_reversal
+Used module:     \host_interface
+Parameter \CRC_SIZE = 32
+Parameter \FRAME_SIZE = 8
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\crc_parallel'.
+Parameter \CRC_SIZE = 32
+Parameter \FRAME_SIZE = 8
+Generating RTLIL representation for module `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel'.
+Parameter \DATA_SIZE = 32
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\bit_reversal'.
+Parameter \DATA_SIZE = 32
+Generating RTLIL representation for module `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+
+2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Generating RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+
+2.6. Analyzing design hierarchy..
+Top module:  \crc_ip
+Used module:     \crc_unit
+Used module:         \crc_control_unit
+Used module:         \crc_datapath
+Used module:             $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel
+Used module:                 \crc_comb
+Used module:             $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000
+Used module:     \host_interface
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+
+2.7. Executing AST frontend in derive mode using pre-parsed AST for module `\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Generating RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+
+2.8. Analyzing design hierarchy..
+Top module:  \crc_ip
+Used module:     \crc_unit
+Used module:         \crc_control_unit
+Used module:         \crc_datapath
+Used module:             $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel
+Used module:                 $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb
+Used module:             $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000
+Used module:     \host_interface
+
+2.9. Analyzing design hierarchy..
+Top module:  \crc_ip
+Used module:     \crc_unit
+Used module:         \crc_control_unit
+Used module:         \crc_datapath
+Used module:             $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel
+Used module:                 $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb
+Used module:             $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000
+Used module:     \host_interface
+Removing unused module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Removing unused module `\crc_parallel'.
+Removing unused module `\crc_comb'.
+Removing unused module `\bit_reversal'.
+Removed 4 unused modules.
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: d348d34179, CPU: user 0.18s system 0.00s, MEM: 16.47 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 58% 2x read_verilog (0 sec), 41% 1x hierarchy (0 sec)

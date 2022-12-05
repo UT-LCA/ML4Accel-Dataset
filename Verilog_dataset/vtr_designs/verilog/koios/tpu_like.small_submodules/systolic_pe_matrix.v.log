@@ -1,0 +1,339 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v' to AST representation.
+Generating RTLIL representation for module `\systolic_pe_matrix'.
+Generating RTLIL representation for module `\processing_element'.
+Generating RTLIL representation for module `\seq_mac'.
+Generating RTLIL representation for module `\qadd'.
+Generating RTLIL representation for module `\qmult'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: qmult               
+root of   0 design levels: qadd                
+root of   1 design levels: seq_mac             
+root of   2 design levels: processing_element  
+root of   3 design levels: systolic_pe_matrix  
+Automatically selected systolic_pe_matrix as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \systolic_pe_matrix
+Used module:     \processing_element
+Used module:         \seq_mac
+Used module:             \qadd
+Used module:             \qmult
+
+2.3. Analyzing design hierarchy..
+Top module:  \systolic_pe_matrix
+Used module:     \processing_element
+Used module:         \seq_mac
+Used module:             \qadd
+Used module:             \qmult
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:972$2 in module processing_element.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1017$5'.
+Creating decoders for process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1009$4'.
+Creating decoders for process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1001$3'.
+Creating decoders for process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:972$2'.
+     1/2: $0\out_b[7:0]
+     2/2: $0\out_a[7:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\seq_mac.\out_temp' using process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1017$5'.
+  created $dff cell `$procdff$20' with positive edge clock.
+Creating register for signal `\seq_mac.\mul_out_temp_reg' using process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1009$4'.
+  created $dff cell `$procdff$21' with positive edge clock.
+Creating register for signal `\seq_mac.\a_flopped' using process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1001$3'.
+  created $dff cell `$procdff$22' with positive edge clock.
+Creating register for signal `\seq_mac.\b_flopped' using process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1001$3'.
+  created $dff cell `$procdff$23' with positive edge clock.
+Creating register for signal `\processing_element.\out_a' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:972$2'.
+  created $dff cell `$procdff$24' with positive edge clock.
+Creating register for signal `\processing_element.\out_b' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:972$2'.
+  created $dff cell `$procdff$25' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1017$5'.
+Removing empty process `seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1009$4'.
+Removing empty process `seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1001$3'.
+Found and cleaned up 1 empty switch in `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:972$2'.
+Removing empty process `processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:972$2'.
+Cleaned up 1 empty switch.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module qmult.
+Optimizing module qadd.
+Optimizing module seq_mac.
+<suppressed ~2 debug messages>
+Optimizing module processing_element.
+Optimizing module systolic_pe_matrix.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module qmult.
+Optimizing module qadd.
+Optimizing module seq_mac.
+Optimizing module processing_element.
+Optimizing module systolic_pe_matrix.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\qmult'.
+Finding identical cells in module `\qadd'.
+Finding identical cells in module `\seq_mac'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\processing_element'.
+Finding identical cells in module `\systolic_pe_matrix'.
+Removed a total of 1 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \qmult..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \qadd..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \seq_mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1031$10: { \out_temp [15] 7'0000000 } -> 8'10000000
+      Replacing known input bits on port B of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1031$10: { \out_temp [15] \out_temp [6:0] } -> { 1'1 \out_temp [6:0] }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1025$8: { \out_temp [15] \out_temp [6:0] } -> { 1'0 \out_temp [6:0] }
+      Replacing known input bits on port B of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/systolic_pe_matrix.v:1025$8: { \out_temp [15] 7'1111111 } -> 8'01111111
+  Analyzing evaluation results.
+Running muxtree optimizer on module \processing_element..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \systolic_pe_matrix..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \qmult.
+  Optimizing cells in module \qadd.
+  Optimizing cells in module \seq_mac.
+  Optimizing cells in module \processing_element.
+  Optimizing cells in module \systolic_pe_matrix.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\qmult'.
+Finding identical cells in module `\qadd'.
+Finding identical cells in module `\seq_mac'.
+Finding identical cells in module `\processing_element'.
+Finding identical cells in module `\systolic_pe_matrix'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$24 ($dff) from module processing_element (D = \in_a, Q = \out_a, rval = 8'00000000).
+Adding SRST signal on $procdff$25 ($dff) from module processing_element (D = \in_b, Q = \out_b, rval = 8'00000000).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \qmult..
+Finding unused cells or wires in module \qadd..
+Finding unused cells or wires in module \seq_mac..
+Finding unused cells or wires in module \processing_element..
+Finding unused cells or wires in module \systolic_pe_matrix..
+Removed 3 unused cells and 17 unused wires.
+<suppressed ~9 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module processing_element.
+Optimizing module qadd.
+Optimizing module qmult.
+Optimizing module seq_mac.
+Optimizing module systolic_pe_matrix.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \processing_element..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \qadd..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \qmult..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \seq_mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \systolic_pe_matrix..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \processing_element.
+  Optimizing cells in module \qadd.
+  Optimizing cells in module \qmult.
+  Optimizing cells in module \seq_mac.
+  Optimizing cells in module \systolic_pe_matrix.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\processing_element'.
+Finding identical cells in module `\qadd'.
+Finding identical cells in module `\qmult'.
+Finding identical cells in module `\seq_mac'.
+Finding identical cells in module `\systolic_pe_matrix'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \processing_element..
+Finding unused cells or wires in module \qadd..
+Finding unused cells or wires in module \qmult..
+Finding unused cells or wires in module \seq_mac..
+Finding unused cells or wires in module \systolic_pe_matrix..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module processing_element.
+Optimizing module qadd.
+Optimizing module qmult.
+Optimizing module seq_mac.
+Optimizing module systolic_pe_matrix.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== processing_element ===
+
+   Number of wires:                  8
+   Number of wire bits:             50
+   Number of public wires:           8
+   Number of public wire bits:      50
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $sdff                          16
+
+=== qadd ===
+
+   Number of wires:                  3
+   Number of wire bits:             48
+   Number of public wires:           3
+   Number of public wire bits:      48
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $add                           16
+
+=== qmult ===
+
+   Number of wires:                  3
+   Number of wire bits:             32
+   Number of public wires:           3
+   Number of public wire bits:      32
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $mul                           16
+
+=== seq_mac ===
+
+   Number of wires:                 14
+   Number of wire bits:            123
+   Number of public wires:          11
+   Number of public wire bits:     106
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 10
+     $dff                           48
+     $mux                           24
+     $reduce_or                      8
+
+=== systolic_pe_matrix ===
+
+   Number of wires:                806
+   Number of wire bits:           6660
+   Number of public wires:         806
+   Number of public wire bits:    6660
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                257
+     $or                             1
+
+=== design hierarchy ===
+
+   systolic_pe_matrix                1
+     processing_element              0
+       seq_mac                       0
+         qadd                        0
+         qmult                       0
+
+   Number of wires:                806
+   Number of wire bits:           6660
+   Number of public wires:         806
+   Number of public wire bits:    6660
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                257
+     $or                             1
+
+End of script. Logfile hash: f9ab44e4d5, CPU: user 0.20s system 0.00s, MEM: 21.78 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 42% 2x read_verilog (0 sec), 24% 2x opt_clean (0 sec), ...

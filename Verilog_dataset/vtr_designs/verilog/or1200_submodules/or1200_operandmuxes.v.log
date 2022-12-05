@@ -1,0 +1,241 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v' to AST representation.
+Warning: Encountered `parallel_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `parallel_case' attribute or the SystemVerilog `unique' or `priority' keywords is recommended!
+Generating RTLIL representation for module `\or1200_operandmuxes'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:630.1-640.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:645.1-658.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: or1200_operandmuxes 
+Automatically selected or1200_operandmuxes as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \or1200_operandmuxes
+
+2.3. Analyzing design hierarchy..
+Top module:  \or1200_operandmuxes
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:645$24 in module or1200_operandmuxes.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:630$23 in module or1200_operandmuxes.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:614$12 in module or1200_operandmuxes.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:598$1 in module or1200_operandmuxes.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:645$24'.
+     1/1: $1\muxed_b[31:0]
+Creating decoders for process `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:630$23'.
+     1/1: $1\muxed_a[31:0]
+Creating decoders for process `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:614$12'.
+     1/2: $0\saved_b[0:0]
+     2/2: $0\operand_b[31:0]
+Creating decoders for process `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:598$1'.
+     1/2: $0\saved_a[0:0]
+     2/2: $0\operand_a[31:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\or1200_operandmuxes.\muxed_b' from process `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:645$24'.
+No latch inferred for signal `\or1200_operandmuxes.\muxed_a' from process `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:630$23'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\or1200_operandmuxes.\operand_b' using process `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:614$12'.
+  created $dff cell `$procdff$74' with positive edge clock.
+Creating register for signal `\or1200_operandmuxes.\saved_b' using process `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:614$12'.
+  created $dff cell `$procdff$75' with positive edge clock.
+Creating register for signal `\or1200_operandmuxes.\operand_a' using process `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:598$1'.
+  created $dff cell `$procdff$76' with positive edge clock.
+Creating register for signal `\or1200_operandmuxes.\saved_a' using process `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:598$1'.
+  created $dff cell `$procdff$77' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:645$24'.
+Removing empty process `or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:645$24'.
+Found and cleaned up 1 empty switch in `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:630$23'.
+Removing empty process `or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:630$23'.
+Found and cleaned up 4 empty switches in `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:614$12'.
+Removing empty process `or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:614$12'.
+Found and cleaned up 4 empty switches in `\or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:598$1'.
+Removing empty process `or1200_operandmuxes.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_operandmuxes.v:598$1'.
+Cleaned up 10 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module or1200_operandmuxes.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module or1200_operandmuxes.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\or1200_operandmuxes'.
+<suppressed ~30 debug messages>
+Removed a total of 10 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \or1200_operandmuxes..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \or1200_operandmuxes.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\or1200_operandmuxes'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$74 ($dff) from module or1200_operandmuxes (D = $procmux$49_Y, Q = \operand_b, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$78 ($sdff) from module or1200_operandmuxes (D = $procmux$49_Y, Q = \operand_b).
+Adding SRST signal on $procdff$75 ($dff) from module or1200_operandmuxes (D = $procmux$40_Y, Q = \saved_b, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$82 ($sdff) from module or1200_operandmuxes (D = $procmux$40_Y, Q = \saved_b).
+Adding SRST signal on $procdff$76 ($dff) from module or1200_operandmuxes (D = $procmux$69_Y, Q = \operand_a, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$90 ($sdff) from module or1200_operandmuxes (D = $procmux$69_Y, Q = \operand_a).
+Adding SRST signal on $procdff$77 ($dff) from module or1200_operandmuxes (D = $procmux$60_Y, Q = \saved_a, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$94 ($sdff) from module or1200_operandmuxes (D = $procmux$60_Y, Q = \saved_a).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \or1200_operandmuxes..
+Removed 4 unused cells and 38 unused wires.
+<suppressed ~5 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module or1200_operandmuxes.
+<suppressed ~4 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \or1200_operandmuxes..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \or1200_operandmuxes.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\or1200_operandmuxes'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \or1200_operandmuxes..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module or1200_operandmuxes.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \or1200_operandmuxes..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~7 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \or1200_operandmuxes.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\or1200_operandmuxes'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \or1200_operandmuxes..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module or1200_operandmuxes.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== or1200_operandmuxes ===
+
+   Number of wires:                 49
+   Number of wire bits:            454
+   Number of public wires:          17
+   Number of public wire bits:     298
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 38
+     $eq                            10
+     $logic_and                      6
+     $logic_not                      4
+     $mux                          133
+     $ne                             4
+     $pmux                          64
+     $reduce_and                     4
+     $reduce_bool                   10
+     $sdffe                         66
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: a378327cbc, CPU: user 0.08s system 0.00s, MEM: 11.79 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 27% 5x opt_expr (0 sec), 22% 3x opt_clean (0 sec), ...

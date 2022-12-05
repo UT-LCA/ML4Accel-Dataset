@@ -1,0 +1,255 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v' to AST representation.
+Generating RTLIL representation for module `\crc_control_unit'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: crc_control_unit    
+Automatically selected crc_control_unit as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \crc_control_unit
+
+2.3. Analyzing design hierarchy..
+Top module:  \crc_control_unit
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 7 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:216$66 in module crc_control_unit.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:208$64 in module crc_control_unit.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:182$47 in module crc_control_unit.
+Marked 6 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:136$34 in module crc_control_unit.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:128$32 in module crc_control_unit.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:79$14 in module crc_control_unit.
+Marked 6 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:79$14 in module crc_control_unit.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:65$1 in module crc_control_unit.
+Removed a total of 1 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:216$66'.
+     1/7: $7\next_state_reset[2:0]
+     2/7: $6\next_state_reset[2:0]
+     3/7: $5\next_state_reset[2:0]
+     4/7: $4\next_state_reset[2:0]
+     5/7: $3\next_state_reset[2:0]
+     6/7: $2\next_state_reset[2:0]
+     7/7: $1\next_state_reset[2:0]
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:208$64'.
+     1/1: $0\state_reset[2:0]
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:182$47'.
+     1/1: $1\byte_sel[1:0]
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:136$34'.
+     1/6: $6\next_state_byte[2:0]
+     2/6: $5\next_state_byte[2:0]
+     3/6: $4\next_state_byte[2:0]
+     4/6: $3\next_state_byte[2:0]
+     5/6: $2\next_state_byte[2:0]
+     6/6: $1\next_state_byte[2:0]
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:128$32'.
+     1/1: $0\state_byte[2:0]
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:79$14'.
+     1/6: $6\next_state_full[1:0]
+     2/6: $5\next_state_full[1:0]
+     3/6: $4\next_state_full[1:0]
+     4/6: $3\next_state_full[1:0]
+     5/6: $2\next_state_full[1:0]
+     6/6: $1\next_state_full[1:0]
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:65$1'.
+     1/1: $0\state_full[1:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\crc_control_unit.\next_state_reset' from process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:216$66'.
+No latch inferred for signal `\crc_control_unit.\byte_sel' from process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:182$47'.
+No latch inferred for signal `\crc_control_unit.\next_state_byte' from process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:136$34'.
+No latch inferred for signal `\crc_control_unit.\next_state_full' from process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:79$14'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\crc_control_unit.\state_reset' using process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:208$64'.
+  created $dff cell `$procdff$268' with positive edge clock.
+Creating register for signal `\crc_control_unit.\state_byte' using process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:128$32'.
+  created $dff cell `$procdff$269' with positive edge clock.
+Creating register for signal `\crc_control_unit.\state_full' using process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:65$1'.
+  created $dff cell `$procdff$270' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 7 empty switches in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:216$66'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:216$66'.
+Found and cleaned up 1 empty switch in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:208$64'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:208$64'.
+Found and cleaned up 1 empty switch in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:182$47'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:182$47'.
+Found and cleaned up 6 empty switches in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:136$34'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:136$34'.
+Found and cleaned up 1 empty switch in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:128$32'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:128$32'.
+Found and cleaned up 6 empty switches in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:79$14'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:79$14'.
+Found and cleaned up 1 empty switch in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:65$1'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_control_unit.v:65$1'.
+Cleaned up 23 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module crc_control_unit.
+<suppressed ~19 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module crc_control_unit.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\crc_control_unit'.
+<suppressed ~162 debug messages>
+Removed a total of 54 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \crc_control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$149.
+    dead port 2/2 on $mux $procmux$139.
+    dead port 2/2 on $mux $procmux$249.
+    dead port 2/2 on $mux $procmux$129.
+    dead port 2/2 on $mux $procmux$120.
+    dead port 2/2 on $mux $procmux$241.
+    dead port 2/2 on $mux $procmux$112.
+    dead port 2/2 on $mux $procmux$105.
+    dead port 1/2 on $mux $procmux$239.
+    dead port 2/2 on $mux $procmux$231.
+    dead port 2/2 on $mux $procmux$225.
+    dead port 2/2 on $mux $procmux$251.
+    dead port 2/2 on $mux $procmux$210.
+    dead port 2/2 on $mux $procmux$201.
+    dead port 2/2 on $mux $procmux$199.
+    dead port 2/2 on $mux $procmux$189.
+    dead port 2/2 on $mux $procmux$181.
+    dead port 2/2 on $mux $procmux$179.
+    dead port 2/2 on $mux $procmux$170.
+    dead port 2/2 on $mux $procmux$258.
+Removed 20 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \crc_control_unit.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\crc_control_unit'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$270 ($dff) from module crc_control_unit (D = $procmux$260_Y, Q = \state_full, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$271 ($sdff) from module crc_control_unit (D = $procmux$260_Y, Q = \state_full).
+Adding SRST signal on $procdff$268 ($dff) from module crc_control_unit (D = $procmux$152_Y, Q = \state_reset, rval = 3'000).
+Adding EN signal on $auto$ff.cc:262:slice$283 ($sdff) from module crc_control_unit (D = $procmux$152_Y, Q = \state_reset).
+Adding SRST signal on $procdff$269 ($dff) from module crc_control_unit (D = $procmux$213_Y, Q = \state_byte, rval = 3'100).
+Adding EN signal on $auto$ff.cc:262:slice$291 ($sdff) from module crc_control_unit (D = $procmux$213_Y, Q = \state_byte).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \crc_control_unit..
+Removed 4 unused cells and 145 unused wires.
+<suppressed ~5 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module crc_control_unit.
+<suppressed ~2 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \crc_control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \crc_control_unit.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\crc_control_unit'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \crc_control_unit..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module crc_control_unit.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== crc_control_unit ===
+
+   Number of wires:                108
+   Number of wire bits:            155
+   Number of public wires:          23
+   Number of public wire bits:      35
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                102
+     $eq                            34
+     $logic_and                     24
+     $logic_not                     15
+     $logic_or                      13
+     $mux                           56
+     $ne                            21
+     $pmux                          10
+     $reduce_and                     8
+     $reduce_bool                   16
+     $sdffe                          8
+
+End of script. Logfile hash: 44963c1f01, CPU: user 0.06s system 0.00s, MEM: 12.24 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 35% 4x opt_expr (0 sec), 21% 3x opt_merge (0 sec), ...

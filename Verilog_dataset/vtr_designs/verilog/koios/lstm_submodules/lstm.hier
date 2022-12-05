@@ -1,0 +1,195 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/lstm.v
+Parsing SystemVerilog input from `/home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/lstm.v' to AST representation.
+Generating RTLIL representation for module `\top'.
+Generating RTLIL representation for module `\spram_v'.
+Generating RTLIL representation for module `\spram_u'.
+Generating RTLIL representation for module `\spram_b'.
+Generating RTLIL representation for module `\lstm_top'.
+Generating RTLIL representation for module `\vecmat_mul_h'.
+Generating RTLIL representation for module `\vecmat_add_h'.
+Generating RTLIL representation for module `\vecmat_mul_x'.
+Generating RTLIL representation for module `\vecmat_add_x'.
+Generating RTLIL representation for module `\signedmul'.
+Generating RTLIL representation for module `\qadd2'.
+Generating RTLIL representation for module `\sigmoid'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/lstm.v:1265.1-1321.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/lstm.v:1324.1-1501.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\tanh'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/lstm.v:1519.1-1548.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/lstm.v:1550.1-1635.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: tanh                
+root of   0 design levels: sigmoid             
+root of   0 design levels: qadd2               
+root of   0 design levels: signedmul           
+root of   1 design levels: vecmat_add_x        
+root of   1 design levels: vecmat_mul_x        
+root of   1 design levels: vecmat_add_h        
+root of   1 design levels: vecmat_mul_h        
+root of   2 design levels: lstm_top            
+root of   0 design levels: spram_b             
+root of   0 design levels: spram_u             
+root of   0 design levels: spram_v             
+root of   3 design levels: top                 
+Automatically selected top as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \lstm_top
+Used module:         \signedmul
+Used module:         \tanh
+Used module:         \qadd2
+Used module:         \vecmat_add_h
+Used module:         \vecmat_add_x
+Used module:         \vecmat_mul_h
+Used module:         \vecmat_mul_x
+Used module:         \sigmoid
+Used module:     \spram_b
+Used module:     \spram_v
+Used module:     \spram_u
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\vecmat_add_h'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Generating RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\vecmat_add_x'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Generating RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+
+2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\vecmat_mul_h'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Generating RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+
+2.6. Executing AST frontend in derive mode using pre-parsed AST for module `\vecmat_mul_x'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Generating RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Found cached RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Found cached RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Found cached RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Found cached RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Found cached RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Found cached RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Found cached RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Found cached RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Found cached RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Found cached RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Found cached RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Found cached RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x'.
+
+2.7. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \lstm_top
+Used module:         \signedmul
+Used module:         \tanh
+Used module:         \qadd2
+Used module:         $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h
+Used module:         $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x
+Used module:         $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h
+Used module:         $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x
+Used module:         \sigmoid
+Used module:     \spram_b
+Used module:     \spram_v
+Used module:     \spram_u
+
+2.8. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \lstm_top
+Used module:         \signedmul
+Used module:         \tanh
+Used module:         \qadd2
+Used module:         $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h
+Used module:         $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x
+Used module:         $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h
+Used module:         $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x
+Used module:         \sigmoid
+Used module:     \spram_b
+Used module:     \spram_v
+Used module:     \spram_u
+Removing unused module `\vecmat_add_x'.
+Removing unused module `\vecmat_mul_x'.
+Removing unused module `\vecmat_add_h'.
+Removing unused module `\vecmat_mul_h'.
+Removed 4 unused modules.
+Mapping positional arguments of cell lstm_top.tan_c2 (tanh).
+Mapping positional arguments of cell lstm_top.tan_c1 (tanh).
+Mapping positional arguments of cell lstm_top.sigo (sigmoid).
+Mapping positional arguments of cell lstm_top.sigi (sigmoid).
+Mapping positional arguments of cell lstm_top.sigf (sigmoid).
+
+End of script. Logfile hash: 0c79c1a954, CPU: user 0.24s system 0.00s, MEM: 34.01 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 76% 2x read_verilog (0 sec), 23% 1x hierarchy (0 sec)

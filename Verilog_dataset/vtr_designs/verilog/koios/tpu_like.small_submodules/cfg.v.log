@@ -1,0 +1,412 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v' to AST representation.
+Generating RTLIL representation for module `\cfg'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: cfg                 
+Automatically selected cfg as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \cfg
+
+2.3. Analyzing design hierarchy..
+Top module:  \cfg
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1 in module cfg.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+     1/42: $0\State[1:0]
+     2/42: $0\reg_dummy[31:0]
+     3/42: $0\pe_reset[0:0]
+     4/42: $0\batch_size[31:0]
+     5/42: $0\out_img_width[15:0]
+     6/42: $0\out_img_height[15:0]
+     7/42: $0\inp_img_width[15:0]
+     8/42: $0\inp_img_height[15:0]
+     9/42: $0\num_channels_out[15:0]
+    10/42: $0\num_channels_inp[15:0]
+    11/42: $0\conv_padding_bottom[3:0]
+    12/42: $0\conv_padding_top[3:0]
+    13/42: $0\conv_padding_right[3:0]
+    14/42: $0\conv_padding_left[3:0]
+    15/42: $0\conv_stride_verti[3:0]
+    16/42: $0\conv_stride_horiz[3:0]
+    17/42: $0\conv_filter_width[3:0]
+    18/42: $0\conv_filter_height[3:0]
+    19/42: $0\activation_type[0:0]
+    20/42: $0\address_stride_c[15:0]
+    21/42: $0\address_stride_b[15:0]
+    22/42: $0\address_stride_a[15:0]
+    23/42: $0\add_accum_to_output[0:0]
+    24/42: $0\save_output_to_accum[0:0]
+    25/42: $0\validity_mask_b_cols[15:0]
+    26/42: $0\validity_mask_b_rows[15:0]
+    27/42: $0\validity_mask_a_cols[15:0]
+    28/42: $0\validity_mask_a_rows[15:0]
+    29/42: $0\address_mat_c[9:0]
+    30/42: $0\address_mat_b[9:0]
+    31/42: $0\address_mat_a[9:0]
+    32/42: $0\pool_window_size[2:0]
+    33/42: $0\inv_var[7:0]
+    34/42: $0\mean[7:0]
+    35/42: $0\enable_conv_mode[0:0]
+    36/42: $0\enable_activation[0:0]
+    37/42: $0\enable_pool[0:0]
+    38/42: $0\enable_norm[0:0]
+    39/42: $0\enable_matmul[0:0]
+    40/42: $0\start_tpu[0:0]
+    41/42: $0\PREADY[0:0]
+    42/42: $0\PRDATA[31:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\cfg.\PRDATA' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$934' with positive edge clock.
+Creating register for signal `\cfg.\PREADY' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$935' with positive edge clock.
+Creating register for signal `\cfg.\start_tpu' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$936' with positive edge clock.
+Creating register for signal `\cfg.\enable_matmul' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$937' with positive edge clock.
+Creating register for signal `\cfg.\enable_norm' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$938' with positive edge clock.
+Creating register for signal `\cfg.\enable_pool' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$939' with positive edge clock.
+Creating register for signal `\cfg.\enable_activation' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$940' with positive edge clock.
+Creating register for signal `\cfg.\enable_conv_mode' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$941' with positive edge clock.
+Creating register for signal `\cfg.\mean' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$942' with positive edge clock.
+Creating register for signal `\cfg.\inv_var' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$943' with positive edge clock.
+Creating register for signal `\cfg.\pool_window_size' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$944' with positive edge clock.
+Creating register for signal `\cfg.\address_mat_a' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$945' with positive edge clock.
+Creating register for signal `\cfg.\address_mat_b' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$946' with positive edge clock.
+Creating register for signal `\cfg.\address_mat_c' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$947' with positive edge clock.
+Creating register for signal `\cfg.\validity_mask_a_rows' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$948' with positive edge clock.
+Creating register for signal `\cfg.\validity_mask_a_cols' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$949' with positive edge clock.
+Creating register for signal `\cfg.\validity_mask_b_rows' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$950' with positive edge clock.
+Creating register for signal `\cfg.\validity_mask_b_cols' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$951' with positive edge clock.
+Creating register for signal `\cfg.\save_output_to_accum' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$952' with positive edge clock.
+Creating register for signal `\cfg.\add_accum_to_output' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$953' with positive edge clock.
+Creating register for signal `\cfg.\address_stride_a' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$954' with positive edge clock.
+Creating register for signal `\cfg.\address_stride_b' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$955' with positive edge clock.
+Creating register for signal `\cfg.\address_stride_c' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$956' with positive edge clock.
+Creating register for signal `\cfg.\activation_type' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$957' with positive edge clock.
+Creating register for signal `\cfg.\conv_filter_height' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$958' with positive edge clock.
+Creating register for signal `\cfg.\conv_filter_width' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$959' with positive edge clock.
+Creating register for signal `\cfg.\conv_stride_horiz' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$960' with positive edge clock.
+Creating register for signal `\cfg.\conv_stride_verti' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$961' with positive edge clock.
+Creating register for signal `\cfg.\conv_padding_left' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$962' with positive edge clock.
+Creating register for signal `\cfg.\conv_padding_right' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$963' with positive edge clock.
+Creating register for signal `\cfg.\conv_padding_top' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$964' with positive edge clock.
+Creating register for signal `\cfg.\conv_padding_bottom' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$965' with positive edge clock.
+Creating register for signal `\cfg.\num_channels_inp' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$966' with positive edge clock.
+Creating register for signal `\cfg.\num_channels_out' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$967' with positive edge clock.
+Creating register for signal `\cfg.\inp_img_height' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$968' with positive edge clock.
+Creating register for signal `\cfg.\inp_img_width' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$969' with positive edge clock.
+Creating register for signal `\cfg.\out_img_height' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$970' with positive edge clock.
+Creating register for signal `\cfg.\out_img_width' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$971' with positive edge clock.
+Creating register for signal `\cfg.\batch_size' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$972' with positive edge clock.
+Creating register for signal `\cfg.\pe_reset' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$973' with positive edge clock.
+Creating register for signal `\cfg.\reg_dummy' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$974' with positive edge clock.
+Creating register for signal `\cfg.\State' using process `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+  created $dff cell `$procdff$975' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 8 empty switches in `\cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+Removing empty process `cfg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.small_submodules/cfg.v:114$1'.
+Cleaned up 8 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cfg.
+<suppressed ~54 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cfg.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cfg'.
+<suppressed ~309 debug messages>
+Removed a total of 103 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cfg..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cfg.
+    New ctrl vector for $pmux cell $procmux$24: $auto$opt_reduce.cc:134:opt_mux$977
+  Optimizing cells in module \cfg.
+Performed a total of 1 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cfg'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$966 ($dff) from module cfg (D = $procmux$178_Y, Q = \num_channels_inp, rval = 16'0000000000000100).
+Adding EN signal on $auto$ff.cc:262:slice$978 ($sdff) from module cfg (D = \PWDATA [15:0], Q = \num_channels_inp).
+Adding SRST signal on $procdff$967 ($dff) from module cfg (D = $procmux$163_Y, Q = \num_channels_out, rval = 16'0000000000000100).
+Adding EN signal on $auto$ff.cc:262:slice$982 ($sdff) from module cfg (D = \PWDATA [31:16], Q = \num_channels_out).
+Adding SRST signal on $procdff$968 ($dff) from module cfg (D = $procmux$148_Y, Q = \inp_img_height, rval = 16'0000000000001000).
+Adding EN signal on $auto$ff.cc:262:slice$986 ($sdff) from module cfg (D = \PWDATA [15:0], Q = \inp_img_height).
+Adding SRST signal on $procdff$969 ($dff) from module cfg (D = $procmux$134_Y, Q = \inp_img_width, rval = 16'0000000000001000).
+Adding EN signal on $auto$ff.cc:262:slice$990 ($sdff) from module cfg (D = \PWDATA [31:16], Q = \inp_img_width).
+Adding SRST signal on $procdff$970 ($dff) from module cfg (D = $procmux$120_Y, Q = \out_img_height, rval = 16'0000000000000111).
+Adding EN signal on $auto$ff.cc:262:slice$994 ($sdff) from module cfg (D = \PWDATA [15:0], Q = \out_img_height).
+Adding SRST signal on $procdff$971 ($dff) from module cfg (D = $procmux$107_Y, Q = \out_img_width, rval = 16'0000000000000111).
+Adding EN signal on $auto$ff.cc:262:slice$998 ($sdff) from module cfg (D = \PWDATA [31:16], Q = \out_img_width).
+Adding SRST signal on $procdff$972 ($dff) from module cfg (D = $procmux$94_Y, Q = \batch_size, rval = 2).
+Adding EN signal on $auto$ff.cc:262:slice$1002 ($sdff) from module cfg (D = \PWDATA, Q = \batch_size).
+Adding SRST signal on $procdff$973 ($dff) from module cfg (D = $procmux$81_Y, Q = \pe_reset, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1006 ($sdff) from module cfg (D = $procmux$81_Y, Q = \pe_reset).
+Adding SRST signal on $procdff$974 ($dff) from module cfg (D = $procmux$49_Y, Q = \reg_dummy, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$1016 ($sdff) from module cfg (D = \PWDATA, Q = \reg_dummy).
+Adding SRST signal on $procdff$975 ($dff) from module cfg (D = $procmux$14_Y, Q = \State, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$1022 ($sdff) from module cfg (D = $procmux$12_Y, Q = \State).
+Adding SRST signal on $procdff$934 ($dff) from module cfg (D = $procmux$928_Y, Q = \PRDATA, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$1026 ($sdff) from module cfg (D = $procmux$928_Y, Q = \PRDATA).
+Adding SRST signal on $procdff$935 ($dff) from module cfg (D = $procmux$892_Y, Q = \PREADY, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1034 ($sdff) from module cfg (D = $procmux$892_Y, Q = \PREADY).
+Adding SRST signal on $procdff$936 ($dff) from module cfg (D = $procmux$884_Y, Q = \start_tpu, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1044 ($sdff) from module cfg (D = \PWDATA [0], Q = \start_tpu).
+Adding SRST signal on $procdff$937 ($dff) from module cfg (D = $procmux$852_Y, Q = \enable_matmul, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1048 ($sdff) from module cfg (D = \PWDATA [0], Q = \enable_matmul).
+Adding SRST signal on $procdff$938 ($dff) from module cfg (D = $procmux$819_Y, Q = \enable_norm, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1052 ($sdff) from module cfg (D = \PWDATA [1], Q = \enable_norm).
+Adding SRST signal on $procdff$939 ($dff) from module cfg (D = $procmux$786_Y, Q = \enable_pool, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1056 ($sdff) from module cfg (D = \PWDATA [2], Q = \enable_pool).
+Adding SRST signal on $procdff$940 ($dff) from module cfg (D = $procmux$753_Y, Q = \enable_activation, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1060 ($sdff) from module cfg (D = \PWDATA [3], Q = \enable_activation).
+Adding SRST signal on $procdff$941 ($dff) from module cfg (D = $procmux$720_Y, Q = \enable_conv_mode, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1064 ($sdff) from module cfg (D = \PWDATA [31], Q = \enable_conv_mode).
+Adding SRST signal on $procdff$942 ($dff) from module cfg (D = $procmux$687_Y, Q = \mean, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:262:slice$1068 ($sdff) from module cfg (D = \PWDATA [7:0], Q = \mean).
+Adding SRST signal on $procdff$943 ($dff) from module cfg (D = $procmux$656_Y, Q = \inv_var, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:262:slice$1072 ($sdff) from module cfg (D = \PWDATA [7:0], Q = \inv_var).
+Adding SRST signal on $procdff$944 ($dff) from module cfg (D = $procmux$626_Y, Q = \pool_window_size, rval = 3'001).
+Adding EN signal on $auto$ff.cc:262:slice$1076 ($sdff) from module cfg (D = \PWDATA [2:0], Q = \pool_window_size).
+Adding SRST signal on $procdff$945 ($dff) from module cfg (D = $procmux$604_Y, Q = \address_mat_a, rval = 10'0000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1080 ($sdff) from module cfg (D = \PWDATA [9:0], Q = \address_mat_a).
+Adding SRST signal on $procdff$946 ($dff) from module cfg (D = $procmux$575_Y, Q = \address_mat_b, rval = 10'0000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1084 ($sdff) from module cfg (D = \PWDATA [9:0], Q = \address_mat_b).
+Adding SRST signal on $procdff$947 ($dff) from module cfg (D = $procmux$547_Y, Q = \address_mat_c, rval = 10'0000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1088 ($sdff) from module cfg (D = \PWDATA [9:0], Q = \address_mat_c).
+Adding SRST signal on $procdff$948 ($dff) from module cfg (D = $procmux$520_Y, Q = \validity_mask_a_rows, rval = 16'1111111111111111).
+Adding EN signal on $auto$ff.cc:262:slice$1092 ($sdff) from module cfg (D = \PWDATA [15:0], Q = \validity_mask_a_rows).
+Adding SRST signal on $procdff$949 ($dff) from module cfg (D = $procmux$494_Y, Q = \validity_mask_a_cols, rval = 16'1111111111111111).
+Adding EN signal on $auto$ff.cc:262:slice$1096 ($sdff) from module cfg (D = \PWDATA [15:0], Q = \validity_mask_a_cols).
+Adding SRST signal on $procdff$950 ($dff) from module cfg (D = $procmux$469_Y, Q = \validity_mask_b_rows, rval = 16'1111111111111111).
+Adding EN signal on $auto$ff.cc:262:slice$1100 ($sdff) from module cfg (D = \PWDATA [15:0], Q = \validity_mask_b_rows).
+Adding SRST signal on $procdff$951 ($dff) from module cfg (D = $procmux$445_Y, Q = \validity_mask_b_cols, rval = 16'1111111111111111).
+Adding EN signal on $auto$ff.cc:262:slice$1104 ($sdff) from module cfg (D = \PWDATA [15:0], Q = \validity_mask_b_cols).
+Adding SRST signal on $procdff$952 ($dff) from module cfg (D = $procmux$422_Y, Q = \save_output_to_accum, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1108 ($sdff) from module cfg (D = \PWDATA [0], Q = \save_output_to_accum).
+Adding SRST signal on $procdff$953 ($dff) from module cfg (D = $procmux$401_Y, Q = \add_accum_to_output, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1112 ($sdff) from module cfg (D = \PWDATA [1], Q = \add_accum_to_output).
+Adding SRST signal on $procdff$954 ($dff) from module cfg (D = $procmux$380_Y, Q = \address_stride_a, rval = 16'0000000000010000).
+Adding EN signal on $auto$ff.cc:262:slice$1116 ($sdff) from module cfg (D = \PWDATA [15:0], Q = \address_stride_a).
+Adding SRST signal on $procdff$955 ($dff) from module cfg (D = $procmux$360_Y, Q = \address_stride_b, rval = 16'0000000000010000).
+Adding EN signal on $auto$ff.cc:262:slice$1120 ($sdff) from module cfg (D = \PWDATA [15:0], Q = \address_stride_b).
+Adding SRST signal on $procdff$956 ($dff) from module cfg (D = $procmux$341_Y, Q = \address_stride_c, rval = 16'0000000000010000).
+Adding EN signal on $auto$ff.cc:262:slice$1124 ($sdff) from module cfg (D = \PWDATA [15:0], Q = \address_stride_c).
+Adding SRST signal on $procdff$957 ($dff) from module cfg (D = $procmux$323_Y, Q = \activation_type, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$1128 ($sdff) from module cfg (D = \PWDATA [0], Q = \activation_type).
+Adding SRST signal on $procdff$958 ($dff) from module cfg (D = $procmux$306_Y, Q = \conv_filter_height, rval = 4'0010).
+Adding EN signal on $auto$ff.cc:262:slice$1132 ($sdff) from module cfg (D = \PWDATA [3:0], Q = \conv_filter_height).
+Adding SRST signal on $procdff$959 ($dff) from module cfg (D = $procmux$290_Y, Q = \conv_filter_width, rval = 4'0010).
+Adding EN signal on $auto$ff.cc:262:slice$1136 ($sdff) from module cfg (D = \PWDATA [7:4], Q = \conv_filter_width).
+Adding SRST signal on $procdff$960 ($dff) from module cfg (D = $procmux$274_Y, Q = \conv_stride_horiz, rval = 4'0001).
+Adding EN signal on $auto$ff.cc:262:slice$1140 ($sdff) from module cfg (D = \PWDATA [11:8], Q = \conv_stride_horiz).
+Adding SRST signal on $procdff$961 ($dff) from module cfg (D = $procmux$258_Y, Q = \conv_stride_verti, rval = 4'0001).
+Adding EN signal on $auto$ff.cc:262:slice$1144 ($sdff) from module cfg (D = \PWDATA [15:12], Q = \conv_stride_verti).
+Adding SRST signal on $procdff$962 ($dff) from module cfg (D = $procmux$242_Y, Q = \conv_padding_left, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:262:slice$1148 ($sdff) from module cfg (D = \PWDATA [19:16], Q = \conv_padding_left).
+Adding SRST signal on $procdff$963 ($dff) from module cfg (D = $procmux$226_Y, Q = \conv_padding_right, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:262:slice$1152 ($sdff) from module cfg (D = \PWDATA [23:20], Q = \conv_padding_right).
+Adding SRST signal on $procdff$964 ($dff) from module cfg (D = $procmux$210_Y, Q = \conv_padding_top, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:262:slice$1156 ($sdff) from module cfg (D = \PWDATA [27:24], Q = \conv_padding_top).
+Adding SRST signal on $procdff$965 ($dff) from module cfg (D = $procmux$194_Y, Q = \conv_padding_bottom, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:262:slice$1160 ($sdff) from module cfg (D = \PWDATA [31:28], Q = \conv_padding_bottom).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cfg..
+Removed 159 unused cells and 390 unused wires.
+<suppressed ~160 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cfg.
+<suppressed ~3 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cfg..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cfg.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cfg'.
+<suppressed ~51 debug messages>
+Removed a total of 17 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cfg..
+Removed 0 unused cells and 17 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cfg.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cfg..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cfg.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cfg'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cfg..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cfg.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== cfg ===
+
+   Number of wires:                125
+   Number of wire bits:            613
+   Number of public wires:          50
+   Number of public wire bits:     444
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                117
+     $eq                           172
+     $logic_and                      4
+     $logic_not                     11
+     $mux                           38
+     $ne                             7
+     $not                            1
+     $pmux                          66
+     $reduce_and                    79
+     $reduce_bool                    7
+     $reduce_or                     22
+     $sdffe                        398
+
+End of script. Logfile hash: e48c543c52, CPU: user 0.19s system 0.01s, MEM: 14.32 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 27% 5x opt_expr (0 sec), 14% 2x read_verilog (0 sec), ...

@@ -1,0 +1,304 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v' to AST representation.
+Generating RTLIL representation for module `\mode3_exp'.
+Generating RTLIL representation for module `\expunit'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:112.5-118.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\ExpLUT'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:125.5-256.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: ExpLUT              
+root of   1 design levels: expunit             
+root of   2 design levels: mode3_exp           
+Automatically selected mode3_exp as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \mode3_exp
+Used module:     \expunit
+Used module:         \ExpLUT
+
+2.3. Analyzing design hierarchy..
+Top module:  \mode3_exp
+Used module:     \expunit
+Used module:         \ExpLUT
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:125$11 in module ExpLUT.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:125$11 in module ExpLUT.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:112$9 in module expunit.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:94$2 in module expunit.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:81$1 in module expunit.
+Removed a total of 1 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ExpLUT.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:125$11'.
+     1/1: $1\exp[31:0]
+Creating decoders for process `\expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:112$9'.
+     1/1: $1\z[15:0]
+Creating decoders for process `\expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:94$2'.
+     1/3: $0\Mult_out_reg[31:0]
+     2/3: $0\a_reg[15:0]
+     3/3: $0\LUTout_reg[31:0]
+Creating decoders for process `\expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:81$1'.
+     1/3: $0\a_comp_reg[15:0]
+     2/3: $0\a_reg2[15:0]
+     3/3: $0\LUTout_reg2[31:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\ExpLUT.\exp' from process `\ExpLUT.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:125$11'.
+No latch inferred for signal `\expunit.\z' from process `\expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:112$9'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\expunit.\LUTout_reg' using process `\expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:94$2'.
+  created $dff cell `$procdff$174' with positive edge clock.
+Creating register for signal `\expunit.\a_reg' using process `\expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:94$2'.
+  created $dff cell `$procdff$175' with positive edge clock.
+Creating register for signal `\expunit.\Mult_out_reg' using process `\expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:94$2'.
+  created $dff cell `$procdff$176' with positive edge clock.
+Creating register for signal `\expunit.\LUTout_reg2' using process `\expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:81$1'.
+  created $dff cell `$procdff$177' with positive edge clock.
+Creating register for signal `\expunit.\a_reg2' using process `\expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:81$1'.
+  created $dff cell `$procdff$178' with positive edge clock.
+Creating register for signal `\expunit.\a_comp_reg' using process `\expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:81$1'.
+  created $dff cell `$procdff$179' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\ExpLUT.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:125$11'.
+Removing empty process `ExpLUT.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:125$11'.
+Found and cleaned up 1 empty switch in `\expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:112$9'.
+Removing empty process `expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:112$9'.
+Found and cleaned up 2 empty switches in `\expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:94$2'.
+Removing empty process `expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:94$2'.
+Found and cleaned up 2 empty switches in `\expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:81$1'.
+Removing empty process `expunit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:81$1'.
+Cleaned up 6 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ExpLUT.
+<suppressed ~1 debug messages>
+Optimizing module expunit.
+Optimizing module mode3_exp.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ExpLUT.
+Optimizing module expunit.
+Optimizing module mode3_exp.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ExpLUT'.
+Finding identical cells in module `\expunit'.
+Finding identical cells in module `\mode3_exp'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ExpLUT..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \expunit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mode3_exp..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ExpLUT.
+    New ctrl vector for $pmux cell $procmux$12: { $procmux$140_CMP $procmux$139_CMP $procmux$138_CMP $procmux$137_CMP $procmux$136_CMP $procmux$135_CMP $procmux$134_CMP $procmux$133_CMP $procmux$132_CMP $procmux$131_CMP $procmux$130_CMP $procmux$129_CMP $procmux$128_CMP $procmux$127_CMP $procmux$126_CMP $procmux$125_CMP $procmux$124_CMP $procmux$123_CMP $procmux$122_CMP $procmux$121_CMP $procmux$120_CMP $procmux$119_CMP $procmux$118_CMP $procmux$117_CMP $procmux$116_CMP $procmux$115_CMP $procmux$114_CMP $procmux$113_CMP $procmux$112_CMP $procmux$111_CMP $procmux$110_CMP $procmux$109_CMP $procmux$108_CMP $procmux$107_CMP $procmux$106_CMP $procmux$105_CMP $procmux$104_CMP $procmux$103_CMP $procmux$102_CMP $procmux$101_CMP $procmux$100_CMP $procmux$99_CMP $procmux$98_CMP $procmux$97_CMP $procmux$96_CMP $procmux$95_CMP $procmux$94_CMP $procmux$93_CMP $procmux$92_CMP $procmux$91_CMP $procmux$90_CMP $procmux$89_CMP $procmux$88_CMP $procmux$87_CMP $procmux$86_CMP $procmux$85_CMP $procmux$84_CMP $procmux$83_CMP $procmux$82_CMP $procmux$81_CMP $procmux$80_CMP $procmux$79_CMP $procmux$78_CMP $procmux$77_CMP $procmux$76_CMP $procmux$75_CMP $procmux$74_CMP $procmux$73_CMP $procmux$72_CMP $procmux$71_CMP $procmux$70_CMP $procmux$69_CMP $procmux$68_CMP $procmux$67_CMP $procmux$66_CMP $procmux$65_CMP $procmux$64_CMP $procmux$63_CMP $procmux$62_CMP $procmux$61_CMP $procmux$60_CMP $procmux$59_CMP $procmux$58_CMP $procmux$57_CMP $procmux$56_CMP $procmux$55_CMP $procmux$54_CMP $procmux$53_CMP $procmux$52_CMP $procmux$51_CMP $procmux$50_CMP $procmux$49_CMP $procmux$48_CMP $procmux$47_CMP $procmux$46_CMP $procmux$45_CMP $procmux$44_CMP $procmux$43_CMP $procmux$42_CMP $procmux$41_CMP $procmux$40_CMP $procmux$39_CMP $procmux$38_CMP $procmux$37_CMP $procmux$36_CMP $procmux$35_CMP $procmux$34_CMP $procmux$33_CMP $procmux$32_CMP $procmux$31_CMP $procmux$30_CMP $procmux$29_CMP $procmux$28_CMP $procmux$27_CMP $procmux$26_CMP $procmux$25_CMP $procmux$24_CMP $procmux$23_CMP $procmux$22_CMP $procmux$21_CMP $procmux$20_CMP $procmux$19_CMP $procmux$18_CMP $auto$opt_reduce.cc:134:opt_mux$181 $procmux$15_CMP $procmux$14_CMP $procmux$13_CMP }
+  Optimizing cells in module \ExpLUT.
+  Optimizing cells in module \expunit.
+  Optimizing cells in module \mode3_exp.
+Performed a total of 1 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ExpLUT'.
+Finding identical cells in module `\expunit'.
+Finding identical cells in module `\mode3_exp'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$174 ($dff) from module expunit (D = $procmux$154_Y, Q = \LUTout_reg, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$182 ($sdff) from module expunit (D = \LUTout_reg2, Q = \LUTout_reg).
+Adding SRST signal on $procdff$175 ($dff) from module expunit (D = $procmux$149_Y, Q = \a_reg, rval = 16'0000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$184 ($sdff) from module expunit (D = \a_reg2, Q = \a_reg).
+Adding SRST signal on $procdff$176 ($dff) from module expunit (D = $procmux$144_Y, Q = \Mult_out_reg, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$186 ($sdff) from module expunit (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:109$7_Y, Q = \Mult_out_reg).
+Adding SRST signal on $procdff$177 ($dff) from module expunit (D = $procmux$169_Y, Q = \LUTout_reg2, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$188 ($sdff) from module expunit (D = \LUTout, Q = \LUTout_reg2).
+Adding SRST signal on $procdff$178 ($dff) from module expunit (D = $procmux$164_Y, Q = \a_reg2, rval = 16'0000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$190 ($sdff) from module expunit (D = \a, Q = \a_reg2).
+Adding SRST signal on $procdff$179 ($dff) from module expunit (D = $procmux$159_Y, Q = \a_comp_reg, rval = 16'0000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$192 ($sdff) from module expunit (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode3_exp.v:107$4_Y, Q = \a_comp_reg).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ExpLUT..
+Finding unused cells or wires in module \expunit..
+Finding unused cells or wires in module \mode3_exp..
+Removed 12 unused cells and 40 unused wires.
+<suppressed ~14 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ExpLUT.
+Optimizing module expunit.
+Optimizing module mode3_exp.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ExpLUT..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \expunit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mode3_exp..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ExpLUT.
+  Optimizing cells in module \expunit.
+  Optimizing cells in module \mode3_exp.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ExpLUT'.
+Finding identical cells in module `\expunit'.
+Finding identical cells in module `\mode3_exp'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ExpLUT..
+Finding unused cells or wires in module \expunit..
+Finding unused cells or wires in module \mode3_exp..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ExpLUT.
+Optimizing module expunit.
+Optimizing module mode3_exp.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== ExpLUT ===
+
+   Number of wires:                131
+   Number of wire bits:            168
+   Number of public wires:           2
+   Number of public wire bits:      39
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                130
+     $eq                           889
+     $logic_not                      7
+     $pmux                          32
+     $reduce_or                      2
+
+=== expunit ===
+
+   Number of wires:                 21
+   Number of wire bits:            365
+   Number of public wires:          17
+   Number of public wire bits:     284
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 15
+     $add                           64
+     $eq                             4
+     $mul                           32
+     $mux                           16
+     $not                           48
+     $sdffe                        144
+
+=== mode3_exp ===
+
+   Number of wires:                 12
+   Number of wire bits:            132
+   Number of public wires:          12
+   Number of public wire bits:     132
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+
+=== design hierarchy ===
+
+   mode3_exp                         1
+     expunit                         0
+       ExpLUT                        0
+
+   Number of wires:                 12
+   Number of wire bits:            132
+   Number of public wires:          12
+   Number of public wire bits:     132
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+
+End of script. Logfile hash: e00d0ff7a2, CPU: user 0.25s system 0.00s, MEM: 12.59 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 34% 2x opt_reduce (0 sec), 18% 4x opt_expr (0 sec), ...

@@ -1,0 +1,534 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v' to AST representation.
+Generating RTLIL representation for module `\mesi_isc_breq_fifos'.
+Generating RTLIL representation for module `\mesi_isc_basic_fifo'.
+Warning: Replacing memory \entry with list of registers. See /home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:412
+Generating RTLIL representation for module `\mesi_isc_breq_fifos_cntl'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: mesi_isc_breq_fifos_cntl
+root of   0 design levels: mesi_isc_basic_fifo 
+root of   1 design levels: mesi_isc_breq_fifos 
+Automatically selected mesi_isc_breq_fifos as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \mesi_isc_breq_fifos
+Used module:     \mesi_isc_basic_fifo
+Used module:     \mesi_isc_breq_fifos_cntl
+Parameter 1 (\DATA_WIDTH) = 43
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\mesi_isc_basic_fifo'.
+Parameter 1 (\DATA_WIDTH) = 43
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+Generating RTLIL representation for module `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo'.
+Warning: Replacing memory \entry with list of registers. See /home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:412
+Parameter 1 (\DATA_WIDTH) = 43
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+Found cached RTLIL representation for module `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo'.
+Parameter 1 (\DATA_WIDTH) = 43
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+Found cached RTLIL representation for module `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo'.
+Parameter 1 (\DATA_WIDTH) = 43
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+Found cached RTLIL representation for module `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo'.
+Parameter 1 (\MBUS_CMD_WIDTH) = 3
+Parameter 2 (\ADDR_WIDTH) = 32
+Parameter 3 (\BROAD_TYPE_WIDTH) = 2
+Parameter 4 (\BROAD_ID_WIDTH) = 7
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\mesi_isc_breq_fifos_cntl'.
+Parameter 1 (\MBUS_CMD_WIDTH) = 3
+Parameter 2 (\ADDR_WIDTH) = 32
+Parameter 3 (\BROAD_TYPE_WIDTH) = 2
+Parameter 4 (\BROAD_ID_WIDTH) = 7
+Generating RTLIL representation for module `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl'.
+
+2.5. Analyzing design hierarchy..
+Top module:  \mesi_isc_breq_fifos
+Used module:     $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo
+Used module:     $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl
+
+2.6. Analyzing design hierarchy..
+Top module:  \mesi_isc_breq_fifos
+Used module:     $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo
+Used module:     $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl
+Removing unused module `\mesi_isc_breq_fifos_cntl'.
+Removing unused module `\mesi_isc_basic_fifo'.
+Removed 2 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:846$293 in module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:774$276 in module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:737$247 in module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:654$202 in module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:476$188 in module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:462$182 in module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:446$179 in module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Removed 2 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:428$160 in module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:428$160 in module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:408$152 in module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Removed a total of 2 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 8 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:846$293'.
+Found async reset \rst in `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:774$276'.
+Found async reset \rst in `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:737$247'.
+Found async reset \rst in `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:654$202'.
+Found async reset \rst in `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:476$188'.
+Found async reset \rst in `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:462$182'.
+Found async reset \rst in `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:446$179'.
+Found async reset \rst in `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:428$160'.
+Found async reset \rst in `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:408$152'.
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:846$293'.
+     1/1: $0\breq_id_base[4:0]
+Creating decoders for process `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:774$276'.
+     1/4: $1\breq_type_array_o[7:0] [1:0]
+     2/4: $1\breq_type_array_o[7:0] [3:2]
+     3/4: $1\breq_type_array_o[7:0] [5:4]
+     4/4: $1\breq_type_array_o[7:0] [7:6]
+Creating decoders for process `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:737$247'.
+     1/4: $0\mbus_ack_array[3:0] [0]
+     2/4: $0\mbus_ack_array[3:0] [1]
+     3/4: $0\mbus_ack_array[3:0] [2]
+     4/4: $0\mbus_ack_array[3:0] [3]
+Creating decoders for process `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:654$202'.
+     1/1: $0\fifos_priority[3:0]
+Creating decoders for process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:476$188'.
+     1/1: $0\status_full[0:0]
+Creating decoders for process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:462$182'.
+     1/1: $0\status_empty[0:0]
+Creating decoders for process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:446$179'.
+     1/1: $0\ptr_rd[0:0]
+Creating decoders for process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:428$160'.
+     1/15: $4$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:443$151_DATA[42:0]$178
+     2/15: $4$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:440$150_DATA[42:0]$177
+     3/15: $3$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:440$150_DATA[42:0]$174
+     4/15: $3$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:440$150_ADDR[0:0]$173
+     5/15: $3$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:443$151_DATA[42:0]$176
+     6/15: $3$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:443$151_ADDR[0:0]$175
+     7/15: $0\data_o[42:0]
+     8/15: $2$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:443$151_DATA[42:0]$172
+     9/15: $2$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:443$151_ADDR[0:0]$171
+    10/15: $2$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:440$150_DATA[42:0]$170
+    11/15: $2$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:440$150_ADDR[0:0]$169
+    12/15: $1$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:443$151_DATA[42:0]$168
+    13/15: $1$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:443$151_ADDR[0:0]$167
+    14/15: $1$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:440$150_DATA[42:0]$166
+    15/15: $1$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:440$150_ADDR[0:0]$165
+Creating decoders for process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:408$152'.
+     1/8: $2$mem2reg_wr$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:417$149_ADDR[0:0]$157
+     2/8: $2$mem2reg_wr$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:417$149_DATA[42:0]$158
+     3/8: $1$mem2reg_wr$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:417$149_DATA[42:0]$156
+     4/8: $1$mem2reg_wr$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:417$149_ADDR[0:0]$155
+     5/8: $1\i[31:0]
+     6/8: $0\entry[1][42:0]
+     7/8: $0\entry[0][42:0]
+     8/8: $0\ptr_wr[0:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.\breq_id_base' using process `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:846$293'.
+  created $adff cell `$procdff$392' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.\breq_type_array_o' using process `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:774$276'.
+  created $adff cell `$procdff$393' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.\mbus_ack_array' using process `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:737$247'.
+  created $adff cell `$procdff$394' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.\fifos_priority' using process `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:654$202'.
+  created $adff cell `$procdff$395' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.\status_full' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:476$188'.
+  created $adff cell `$procdff$396' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.\status_empty' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:462$182'.
+  created $adff cell `$procdff$397' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.\ptr_rd' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:446$179'.
+  created $adff cell `$procdff$398' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.\data_o' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:428$160'.
+  created $adff cell `$procdff$399' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:440$150_ADDR' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:428$160'.
+  created $adff cell `$procdff$400' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:440$150_DATA' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:428$160'.
+  created $adff cell `$procdff$401' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:443$151_ADDR' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:428$160'.
+  created $adff cell `$procdff$402' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$mem2reg_rd$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:443$151_DATA' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:428$160'.
+  created $adff cell `$procdff$403' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.\ptr_wr' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:408$152'.
+  created $adff cell `$procdff$404' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.\i' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:408$152'.
+  created $adff cell `$procdff$405' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.\entry[0]' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:408$152'.
+  created $adff cell `$procdff$406' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.\entry[1]' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:408$152'.
+  created $adff cell `$procdff$407' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$mem2reg_wr$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:417$149_ADDR' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:408$152'.
+  created $adff cell `$procdff$408' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$mem2reg_wr$\entry$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:417$149_DATA' using process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:408$152'.
+  created $adff cell `$procdff$409' with positive edge clock and positive level reset.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:846$293'.
+Removing empty process `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:846$293'.
+Removing empty process `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:774$276'.
+Removing empty process `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:737$247'.
+Found and cleaned up 1 empty switch in `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:654$202'.
+Removing empty process `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:654$202'.
+Found and cleaned up 2 empty switches in `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:476$188'.
+Removing empty process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:476$188'.
+Found and cleaned up 2 empty switches in `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:462$182'.
+Removing empty process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:462$182'.
+Found and cleaned up 1 empty switch in `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:446$179'.
+Removing empty process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:446$179'.
+Found and cleaned up 4 empty switches in `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:428$160'.
+Removing empty process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:428$160'.
+Found and cleaned up 2 empty switches in `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:408$152'.
+Removing empty process `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:408$152'.
+Cleaned up 13 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.
+<suppressed ~4 debug messages>
+Optimizing module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+<suppressed ~8 debug messages>
+Optimizing module mesi_isc_breq_fifos.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.
+Optimizing module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Optimizing module mesi_isc_breq_fifos.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl'.
+<suppressed ~33 debug messages>
+Finding identical cells in module `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo'.
+<suppressed ~18 debug messages>
+Finding identical cells in module `\mesi_isc_breq_fifos'.
+Removed a total of 17 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$376.
+    dead port 2/2 on $mux $procmux$376.
+    dead port 1/2 on $mux $procmux$373.
+    dead port 2/2 on $mux $procmux$373.
+    dead port 1/2 on $mux $procmux$370.
+    dead port 2/2 on $mux $procmux$370.
+    dead port 1/2 on $mux $procmux$367.
+    dead port 2/2 on $mux $procmux$367.
+    dead port 1/2 on $mux $procmux$364.
+    dead port 2/2 on $mux $procmux$364.
+    dead port 1/2 on $mux $procmux$361.
+    dead port 2/2 on $mux $procmux$361.
+    dead port 1/2 on $mux $procmux$352.
+    dead port 2/2 on $mux $procmux$352.
+    dead port 1/2 on $mux $procmux$349.
+    dead port 2/2 on $mux $procmux$349.
+    dead port 1/2 on $mux $procmux$346.
+    dead port 2/2 on $mux $procmux$346.
+    dead port 1/2 on $mux $procmux$343.
+    dead port 2/2 on $mux $procmux$343.
+    dead port 1/2 on $mux $procmux$340.
+    dead port 2/2 on $mux $procmux$340.
+    dead port 1/2 on $mux $procmux$337.
+    dead port 2/2 on $mux $procmux$337.
+    dead port 1/2 on $mux $procmux$334.
+    dead port 2/2 on $mux $procmux$334.
+    dead port 1/2 on $mux $procmux$331.
+    dead port 2/2 on $mux $procmux$331.
+    dead port 1/2 on $mux $procmux$328.
+    dead port 2/2 on $mux $procmux$325.
+    dead port 1/2 on $mux $procmux$319.
+    dead port 1/2 on $mux $procmux$316.
+Running muxtree optimizer on module \mesi_isc_breq_fifos..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 32 multiplexer ports.
+<suppressed ~16 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.
+  Optimizing cells in module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+  Optimizing cells in module \mesi_isc_breq_fifos.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl'.
+Finding identical cells in module `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo'.
+Finding identical cells in module `\mesi_isc_breq_fifos'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$392 ($adff) from module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:851$295_Y [4:0], Q = \breq_id_base).
+Adding EN signal on $procdff$395 ($adff) from module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl (D = { \fifos_priority [2:0] \fifos_priority [3] }, Q = \fifos_priority).
+Setting constant 1-bit at position 0 on $procdff$402 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 0 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 1 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 2 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 3 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 4 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 5 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 6 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 7 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 8 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 9 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 10 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 11 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 12 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 13 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 14 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 15 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 16 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 17 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 18 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 19 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 20 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 21 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 22 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 23 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 24 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 25 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 26 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 27 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 28 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 29 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 30 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 31 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 32 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 33 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 34 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 35 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 36 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 37 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 38 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 39 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 40 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 41 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 42 on $procdff$403 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Adding EN signal on $procdff$404 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:418$159_Y [0], Q = \ptr_wr).
+Handling D = Q on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo (removing D path).
+Setting constant 0-bit at position 0 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 1-bit at position 1 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 2 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 3 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 4 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 5 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 6 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 7 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 8 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 9 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 10 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 11 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 12 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 13 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 14 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 15 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 16 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 17 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 18 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 19 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 20 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 21 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 22 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 23 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 24 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 25 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 26 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 27 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 28 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 29 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 30 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Setting constant 0-bit at position 31 on $procdff$405 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Adding EN signal on $procdff$396 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo (D = $procmux$303_Y, Q = \status_full).
+Adding EN signal on $procdff$397 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo (D = $procmux$308_Y, Q = \status_empty).
+Adding EN signal on $procdff$398 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/mesi_isc_submodules/mesi_isc_breq_fifos.v:453$181_Y [0], Q = \ptr_rd).
+Adding EN signal on $procdff$406 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo (D = \data_i, Q = \entry[0]).
+Adding EN signal on $procdff$407 ($adff) from module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo (D = \data_i, Q = \entry[1]).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl..
+Finding unused cells or wires in module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo..
+Finding unused cells or wires in module \mesi_isc_breq_fifos..
+Removed 9 unused cells and 135 unused wires.
+<suppressed ~11 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+<suppressed ~2 debug messages>
+Optimizing module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.
+Optimizing module mesi_isc_breq_fifos.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mesi_isc_breq_fifos..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+  Optimizing cells in module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.
+  Optimizing cells in module \mesi_isc_breq_fifos.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo'.
+Finding identical cells in module `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl'.
+Finding identical cells in module `\mesi_isc_breq_fifos'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo..
+Finding unused cells or wires in module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl..
+Finding unused cells or wires in module \mesi_isc_breq_fifos..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo.
+Optimizing module $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl.
+Optimizing module mesi_isc_breq_fifos.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo ===
+
+   Number of wires:                 45
+   Number of wire bits:            474
+   Number of public wires:          19
+   Number of public wire bits:     218
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 36
+     $add                           64
+     $adff                          43
+     $adffe                         90
+     $and                            8
+     $logic_not                      2
+     $mux                           90
+     $not                            4
+     $pmux                          86
+     $reduce_and                     4
+     $reduce_bool                    4
+     $sub                            1
+
+=== $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl ===
+
+   Number of wires:                100
+   Number of wire bits:            700
+   Number of public wires:          31
+   Number of public wire bits:     328
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 86
+     $add                           32
+     $adff                          12
+     $adffe                          9
+     $and                          200
+     $eq                            24
+     $mux                           32
+     $not                           13
+     $or                           133
+     $reduce_or                     24
+
+=== mesi_isc_breq_fifos ===
+
+   Number of wires:                 22
+   Number of wire bits:            423
+   Number of public wires:          22
+   Number of public wire bits:     423
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+
+=== design hierarchy ===
+
+   mesi_isc_breq_fifos               1
+     $paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo      0
+     $paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl      0
+
+   Number of wires:                 22
+   Number of wire bits:            423
+   Number of public wires:          22
+   Number of public wire bits:     423
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+
+Warnings: 1 unique messages, 2 total
+End of script. Logfile hash: fcc6acb643, CPU: user 0.21s system 0.00s, MEM: 14.55 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 24% 4x opt_expr (0 sec), 19% 2x read_verilog (0 sec), ...

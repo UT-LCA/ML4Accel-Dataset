@@ -1,0 +1,250 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v' to AST representation.
+Warning: Encountered `translate_off' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using a portable and standards-compliant construct such as `ifdef is recommended!
+Generating RTLIL representation for module `\dpsram_128x16'.
+Generating RTLIL representation for module `\fht_1d_x8'.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:366: Warning: Identifier `\h0_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:367: Warning: Identifier `\h1_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:368: Warning: Identifier `\h2_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:369: Warning: Identifier `\h3_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:370: Warning: Identifier `\h4_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:371: Warning: Identifier `\h5_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:372: Warning: Identifier `\h6_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:373: Warning: Identifier `\h7_valid' is implicitly declared.
+Generating RTLIL representation for module `\fht_8x8_core'.
+Generating RTLIL representation for module `\fht_bfly_noFF'.
+Generating RTLIL representation for module `\fht_bfly'.
+Generating RTLIL representation for module `\mtx_trps_8x8_dpsram'.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:943: Warning: Identifier `\rd_DATA' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:943: Warning: Range select [7:0] out of bounds on signal `\rd_DATA': Setting all 8 result bits to undef.
+Generating RTLIL representation for module `\signed_mult_const_asic'.
+Generating RTLIL representation for module `\signed_mult_const_fpga'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: signed_mult_const_fpga
+root of   0 design levels: signed_mult_const_asic
+root of   0 design levels: mtx_trps_8x8_dpsram 
+root of   0 design levels: fht_bfly            
+root of   0 design levels: fht_bfly_noFF       
+root of   2 design levels: fht_8x8_core        
+root of   1 design levels: fht_1d_x8           
+Automatically selected fht_8x8_core as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \fht_8x8_core
+Used module:     \fht_1d_x8
+Used module:         \fht_bfly
+Used module:         \fht_bfly_noFF
+Used module:     \mtx_trps_8x8_dpsram
+Parameter 1 (\N) = 10
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\fht_bfly'.
+Parameter 1 (\N) = 10
+Generating RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001010'.
+Parameter 1 (\N) = 10
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001010'.
+Parameter 1 (\N) = 10
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001010'.
+Parameter 1 (\N) = 10
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001010'.
+Parameter 1 (\N) = 9
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\fht_bfly'.
+Parameter 1 (\N) = 9
+Generating RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001001'.
+Parameter 1 (\N) = 9
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001001'.
+Parameter 1 (\N) = 9
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001001'.
+Parameter 1 (\N) = 8
+
+2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\fht_bfly_noFF'.
+Parameter 1 (\N) = 8
+Generating RTLIL representation for module `$paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000'.
+Parameter 1 (\N) = 8
+Found cached RTLIL representation for module `$paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000'.
+Parameter 1 (\N) = 8
+Found cached RTLIL representation for module `$paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000'.
+Parameter 1 (\N) = 8
+Found cached RTLIL representation for module `$paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000'.
+Parameter 1 (\N) = 11
+
+2.6. Executing AST frontend in derive mode using pre-parsed AST for module `\fht_1d_x8'.
+Parameter 1 (\N) = 11
+Generating RTLIL representation for module `$paramod\fht_1d_x8\N=s32'00000000000000000000000000001011'.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:366: Warning: Identifier `\h0_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:367: Warning: Identifier `\h1_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:368: Warning: Identifier `\h2_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:369: Warning: Identifier `\h3_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:370: Warning: Identifier `\h4_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:371: Warning: Identifier `\h5_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:372: Warning: Identifier `\h6_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:373: Warning: Identifier `\h7_valid' is implicitly declared.
+Parameter 1 (\N) = 11
+
+2.7. Executing AST frontend in derive mode using pre-parsed AST for module `\mtx_trps_8x8_dpsram'.
+Parameter 1 (\N) = 11
+Generating RTLIL representation for module `$paramod\mtx_trps_8x8_dpsram\N=s32'00000000000000000000000000001011'.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:943: Warning: Identifier `\rd_DATA' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:943: Warning: Range select [10:0] out of bounds on signal `\rd_DATA': Setting all 11 result bits to undef.
+Parameter 1 (\N) = 8
+
+2.8. Executing AST frontend in derive mode using pre-parsed AST for module `\fht_1d_x8'.
+Parameter 1 (\N) = 8
+Generating RTLIL representation for module `$paramod\fht_1d_x8\N=s32'00000000000000000000000000001000'.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:366: Warning: Identifier `\h0_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:367: Warning: Identifier `\h1_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:368: Warning: Identifier `\h2_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:369: Warning: Identifier `\h3_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:370: Warning: Identifier `\h4_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:371: Warning: Identifier `\h5_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:372: Warning: Identifier `\h6_valid' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic//two_dimensional_fast_hartley_transform.v:373: Warning: Identifier `\h7_valid' is implicitly declared.
+
+2.9. Analyzing design hierarchy..
+Top module:  \fht_8x8_core
+Used module:     $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011
+Used module:         \fht_bfly
+Used module:         \fht_bfly_noFF
+Used module:     $paramod\mtx_trps_8x8_dpsram\N=s32'00000000000000000000000000001011
+Used module:     $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000
+Parameter 1 (\N) = 13
+
+2.10. Executing AST frontend in derive mode using pre-parsed AST for module `\fht_bfly'.
+Parameter 1 (\N) = 13
+Generating RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001101'.
+Parameter 1 (\N) = 13
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001101'.
+Parameter 1 (\N) = 13
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001101'.
+Parameter 1 (\N) = 13
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001101'.
+Parameter 1 (\N) = 12
+
+2.11. Executing AST frontend in derive mode using pre-parsed AST for module `\fht_bfly'.
+Parameter 1 (\N) = 12
+Generating RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001100'.
+Parameter 1 (\N) = 12
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001100'.
+Parameter 1 (\N) = 12
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001100'.
+Parameter 1 (\N) = 11
+
+2.12. Executing AST frontend in derive mode using pre-parsed AST for module `\fht_bfly_noFF'.
+Parameter 1 (\N) = 11
+Generating RTLIL representation for module `$paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001011'.
+Parameter 1 (\N) = 11
+Found cached RTLIL representation for module `$paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001011'.
+Parameter 1 (\N) = 11
+Found cached RTLIL representation for module `$paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001011'.
+Parameter 1 (\N) = 11
+Found cached RTLIL representation for module `$paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001011'.
+Parameter 1 (\N) = 10
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001010'.
+Parameter 1 (\N) = 10
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001010'.
+Parameter 1 (\N) = 10
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001010'.
+Parameter 1 (\N) = 10
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001010'.
+Parameter 1 (\N) = 9
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001001'.
+Parameter 1 (\N) = 9
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001001'.
+Parameter 1 (\N) = 9
+Found cached RTLIL representation for module `$paramod\fht_bfly\N=s32'00000000000000000000000000001001'.
+Parameter 1 (\N) = 8
+Found cached RTLIL representation for module `$paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000'.
+Parameter 1 (\N) = 8
+Found cached RTLIL representation for module `$paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000'.
+Parameter 1 (\N) = 8
+Found cached RTLIL representation for module `$paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000'.
+Parameter 1 (\N) = 8
+Found cached RTLIL representation for module `$paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000'.
+
+2.13. Analyzing design hierarchy..
+Top module:  \fht_8x8_core
+Used module:     $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011
+Used module:         $paramod\fht_bfly\N=s32'00000000000000000000000000001101
+Used module:         $paramod\fht_bfly\N=s32'00000000000000000000000000001100
+Used module:         $paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001011
+Used module:     $paramod\mtx_trps_8x8_dpsram\N=s32'00000000000000000000000000001011
+Used module:     $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000
+Used module:         $paramod\fht_bfly\N=s32'00000000000000000000000000001010
+Used module:         $paramod\fht_bfly\N=s32'00000000000000000000000000001001
+Used module:         $paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000
+
+2.14. Analyzing design hierarchy..
+Top module:  \fht_8x8_core
+Used module:     $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011
+Used module:         $paramod\fht_bfly\N=s32'00000000000000000000000000001101
+Used module:         $paramod\fht_bfly\N=s32'00000000000000000000000000001100
+Used module:         $paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001011
+Used module:     $paramod\mtx_trps_8x8_dpsram\N=s32'00000000000000000000000000001011
+Used module:     $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000
+Used module:         $paramod\fht_bfly\N=s32'00000000000000000000000000001010
+Used module:         $paramod\fht_bfly\N=s32'00000000000000000000000000001001
+Used module:         $paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000
+Removing unused module `\signed_mult_const_fpga'.
+Removing unused module `\signed_mult_const_asic'.
+Removing unused module `\mtx_trps_8x8_dpsram'.
+Removing unused module `\fht_bfly'.
+Removing unused module `\fht_bfly_noFF'.
+Removing unused module `\fht_1d_x8'.
+Removed 6 unused modules.
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000.u34_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001010).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000.u33_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001010).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000.u32_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001010).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000.u31_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001010).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000.u23_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001001).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000.u22_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001001).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000.u21_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001001).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000.u14_fht_bfly ($paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000.u13_fht_bfly ($paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000.u12_fht_bfly ($paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001000.u11_fht_bfly ($paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001000).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011.u34_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001101).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011.u33_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001101).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011.u32_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001101).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011.u31_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001101).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011.u23_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001100).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011.u22_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001100).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011.u21_fht_bfly ($paramod\fht_bfly\N=s32'00000000000000000000000000001100).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011.u14_fht_bfly ($paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001011).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011.u13_fht_bfly ($paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001011).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011.u12_fht_bfly ($paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001011).
+Mapping positional arguments of cell $paramod\fht_1d_x8\N=s32'00000000000000000000000000001011.u11_fht_bfly ($paramod\fht_bfly_noFF\N=s32'00000000000000000000000000001011).
+
+Warnings: 12 unique messages, 29 total
+End of script. Logfile hash: 2f9f46e943, CPU: user 0.41s system 0.00s, MEM: 32.41 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 77% 1x hierarchy (0 sec), 22% 2x read_verilog (0 sec)

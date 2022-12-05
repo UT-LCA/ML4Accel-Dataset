@@ -1,0 +1,585 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v' to AST representation.
+Generating RTLIL representation for module `\clk_ctl'.
+Generating RTLIL representation for module `\uart_core'.
+Generating RTLIL representation for module `\uart_rxfsm'.
+Generating RTLIL representation for module `\uart_txfsm'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: uart_txfsm          
+root of   0 design levels: uart_rxfsm          
+root of   1 design levels: uart_core           
+root of   0 design levels: clk_ctl             
+Automatically selected uart_core as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \uart_core
+Used module:     \uart_rxfsm
+Used module:     \uart_txfsm
+Used module:     \clk_ctl
+Parameter 1 (\WD) = 11
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\clk_ctl'.
+Parameter 1 (\WD) = 11
+Generating RTLIL representation for module `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \uart_core
+Used module:     \uart_rxfsm
+Used module:     \uart_txfsm
+Used module:     $paramod\clk_ctl\WD=s32'00000000000000000000000000001011
+
+2.5. Analyzing design hierarchy..
+Top module:  \uart_core
+Used module:     \uart_rxfsm
+Used module:     \uart_txfsm
+Used module:     $paramod\clk_ctl\WD=s32'00000000000000000000000000001011
+Removing unused module `\clk_ctl'.
+Removed 1 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:623$59 in module uart_txfsm.
+Marked 12 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16 in module uart_rxfsm.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:94$74 in module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 5 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset_n in `\uart_txfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:623$59'.
+Found async reset \reset_n in `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+Found async reset \reset_n in `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:94$74'.
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\uart_txfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:623$59'.
+     1/6: $0\divcnt[3:0]
+     2/6: $0\txdata[7:0]
+     3/6: $0\txstate[2:0]
+     4/6: $0\cnt[2:0]
+     5/6: $0\so[0:0]
+     6/6: $0\fifo_rd[0:0]
+Creating decoders for process `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+     1/17: $3$lookahead\fifo_data$15[7:0]$40
+     2/17: $3$bitselwrite$data$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:473$14[7:0]$39
+     3/17: $3$bitselwrite$mask$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:473$13[7:0]$38
+     4/17: $2$lookahead\fifo_data$15[7:0]$27
+     5/17: $2$bitselwrite$data$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:473$14[7:0]$26
+     6/17: $2$bitselwrite$mask$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:473$13[7:0]$25
+     7/17: $1$lookahead\fifo_data$15[7:0]$23
+     8/17: $1$bitselwrite$data$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:473$14[7:0]$22
+     9/17: $1$bitselwrite$mask$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:473$13[7:0]$21
+    10/17: $0\offset[3:0]
+    11/17: $0\si_2d[0:0]
+    12/17: $0\si_d[0:0]
+    13/17: $0\rxstate[2:0]
+    14/17: $0\rxpos[3:0]
+    15/17: $0\cnt[2:0]
+    16/17: $0\fifo_wr[0:0]
+    17/17: $0\error_ind[1:0]
+Creating decoders for process `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:94$74'.
+     1/3: $0\mclk_div[0:0]
+     2/3: $0\low_count[10:0]
+     3/3: $0\high_count[10:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\uart_txfsm.\fifo_rd' using process `\uart_txfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:623$59'.
+  created $adff cell `$procdff$333' with positive edge clock and negative level reset.
+Creating register for signal `\uart_txfsm.\so' using process `\uart_txfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:623$59'.
+  created $adff cell `$procdff$334' with positive edge clock and negative level reset.
+Creating register for signal `\uart_txfsm.\cnt' using process `\uart_txfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:623$59'.
+  created $adff cell `$procdff$335' with positive edge clock and negative level reset.
+Creating register for signal `\uart_txfsm.\txstate' using process `\uart_txfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:623$59'.
+  created $adff cell `$procdff$336' with positive edge clock and negative level reset.
+Creating register for signal `\uart_txfsm.\txdata' using process `\uart_txfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:623$59'.
+  created $adff cell `$procdff$337' with positive edge clock and negative level reset.
+Creating register for signal `\uart_txfsm.\divcnt' using process `\uart_txfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:623$59'.
+  created $adff cell `$procdff$338' with positive edge clock and negative level reset.
+Creating register for signal `\uart_rxfsm.\error_ind' using process `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+  created $adff cell `$procdff$339' with positive edge clock and negative level reset.
+Creating register for signal `\uart_rxfsm.\fifo_data' using process `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+  created $adff cell `$procdff$340' with positive edge clock and negative level reset.
+Creating register for signal `\uart_rxfsm.\fifo_wr' using process `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+  created $adff cell `$procdff$341' with positive edge clock and negative level reset.
+Creating register for signal `\uart_rxfsm.\cnt' using process `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+  created $adff cell `$procdff$342' with positive edge clock and negative level reset.
+Creating register for signal `\uart_rxfsm.\offset' using process `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+  created $adff cell `$procdff$343' with positive edge clock and negative level reset.
+Creating register for signal `\uart_rxfsm.\rxpos' using process `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+  created $adff cell `$procdff$344' with positive edge clock and negative level reset.
+Creating register for signal `\uart_rxfsm.\rxstate' using process `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+  created $adff cell `$procdff$345' with positive edge clock and negative level reset.
+Creating register for signal `\uart_rxfsm.\si_d' using process `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+  created $adff cell `$procdff$346' with positive edge clock and negative level reset.
+Creating register for signal `\uart_rxfsm.\si_2d' using process `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+  created $adff cell `$procdff$347' with positive edge clock and negative level reset.
+Creating register for signal `\uart_rxfsm.$bitselwrite$mask$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:473$13' using process `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+  created $adff cell `$procdff$348' with positive edge clock and negative level reset.
+Creating register for signal `\uart_rxfsm.$bitselwrite$data$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:473$14' using process `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+  created $adff cell `$procdff$349' with positive edge clock and negative level reset.
+Creating register for signal `\uart_rxfsm.$lookahead\fifo_data$15' using process `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+  created $adff cell `$procdff$350' with positive edge clock and negative level reset.
+Creating register for signal `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011.\high_count' using process `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:94$74'.
+  created $adff cell `$procdff$351' with positive edge clock and negative level reset.
+Creating register for signal `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011.\low_count' using process `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:94$74'.
+  created $adff cell `$procdff$352' with positive edge clock and negative level reset.
+Creating register for signal `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011.\mclk_div' using process `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:94$74'.
+  created $adff cell `$procdff$353' with positive edge clock and negative level reset.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 7 empty switches in `\uart_txfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:623$59'.
+Removing empty process `uart_txfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:623$59'.
+Found and cleaned up 17 empty switches in `\uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+Removing empty process `uart_rxfsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:426$16'.
+Found and cleaned up 2 empty switches in `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:94$74'.
+Removing empty process `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:94$74'.
+Cleaned up 26 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uart_txfsm.
+<suppressed ~10 debug messages>
+Optimizing module uart_rxfsm.
+<suppressed ~11 debug messages>
+Optimizing module uart_core.
+Optimizing module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011.
+<suppressed ~3 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uart_txfsm.
+Optimizing module uart_rxfsm.
+Optimizing module uart_core.
+Optimizing module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uart_txfsm'.
+<suppressed ~33 debug messages>
+Finding identical cells in module `\uart_rxfsm'.
+<suppressed ~78 debug messages>
+Finding identical cells in module `\uart_core'.
+Finding identical cells in module `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011'.
+Removed a total of 37 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \uart_txfsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \uart_rxfsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$192.
+    dead port 2/2 on $mux $procmux$192.
+    dead port 1/2 on $mux $procmux$186.
+    dead port 2/2 on $mux $procmux$186.
+    dead port 1/2 on $mux $procmux$174.
+    dead port 2/2 on $mux $procmux$174.
+    dead port 1/2 on $mux $procmux$172.
+    dead port 2/2 on $mux $procmux$172.
+    dead port 1/2 on $mux $procmux$165.
+    dead port 2/2 on $mux $procmux$165.
+    dead port 1/2 on $mux $procmux$163.
+    dead port 2/2 on $mux $procmux$163.
+    dead port 2/2 on $mux $procmux$156.
+Running muxtree optimizer on module \uart_core..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 13 multiplexer ports.
+<suppressed ~14 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \uart_txfsm.
+    New ctrl vector for $pmux cell $procmux$125: { $procmux$146_CMP $procmux$143_CMP $procmux$131_CMP $auto$opt_reduce.cc:134:opt_mux$355 }
+  Optimizing cells in module \uart_txfsm.
+  Optimizing cells in module \uart_rxfsm.
+    New ctrl vector for $pmux cell $procmux$275: { $procmux$283_CMP $auto$opt_reduce.cc:134:opt_mux$357 }
+  Optimizing cells in module \uart_rxfsm.
+  Optimizing cells in module \uart_core.
+  Optimizing cells in module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011.
+Performed a total of 2 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uart_txfsm'.
+Finding identical cells in module `\uart_rxfsm'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\uart_core'.
+Finding identical cells in module `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011'.
+Removed a total of 2 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$333 ($adff) from module uart_txfsm (D = $procmux$147_Y, Q = \fifo_rd).
+Adding EN signal on $procdff$334 ($adff) from module uart_txfsm (D = $procmux$125_Y, Q = \so).
+Adding EN signal on $procdff$335 ($adff) from module uart_txfsm (D = $procmux$117_Y, Q = \cnt).
+Adding EN signal on $procdff$336 ($adff) from module uart_txfsm (D = $procmux$95_Y, Q = \txstate).
+Adding EN signal on $procdff$337 ($adff) from module uart_txfsm (D = \fifo_data, Q = \txdata).
+Setting constant 1-bit at position 0 on $procdff$349 ($adff) from module uart_rxfsm.
+Setting constant 1-bit at position 1 on $procdff$349 ($adff) from module uart_rxfsm.
+Setting constant 1-bit at position 2 on $procdff$349 ($adff) from module uart_rxfsm.
+Setting constant 1-bit at position 3 on $procdff$349 ($adff) from module uart_rxfsm.
+Setting constant 1-bit at position 4 on $procdff$349 ($adff) from module uart_rxfsm.
+Setting constant 1-bit at position 5 on $procdff$349 ($adff) from module uart_rxfsm.
+Setting constant 1-bit at position 6 on $procdff$349 ($adff) from module uart_rxfsm.
+Setting constant 1-bit at position 7 on $procdff$349 ($adff) from module uart_rxfsm.
+Adding EN signal on $procdff$339 ($adff) from module uart_rxfsm (D = $procmux$290_Y, Q = \error_ind).
+Adding EN signal on $procdff$340 ($adff) from module uart_rxfsm (D = $or$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:0$46_Y, Q = \fifo_data).
+Adding EN signal on $procdff$341 ($adff) from module uart_rxfsm (D = $procmux$275_Y, Q = \fifo_wr).
+Adding EN signal on $procdff$342 ($adff) from module uart_rxfsm (D = $procmux$257_Y, Q = \cnt).
+Adding EN signal on $procdff$344 ($adff) from module uart_rxfsm (D = $add$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/uart2spi.v:449$30_Y [3:0], Q = \rxpos).
+Adding EN signal on $procdff$345 ($adff) from module uart_rxfsm (D = $procmux$199_Y, Q = \rxstate).
+Adding EN signal on $procdff$351 ($adff) from module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011 (D = $procmux$331_Y, Q = \high_count).
+Adding EN signal on $procdff$352 ($adff) from module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011 (D = $procmux$322_Y, Q = \low_count).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uart_txfsm..
+Finding unused cells or wires in module \uart_rxfsm..
+Finding unused cells or wires in module \uart_core..
+Finding unused cells or wires in module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011..
+Removed 16 unused cells and 148 unused wires.
+<suppressed ~20 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011.
+Optimizing module uart_core.
+Optimizing module uart_rxfsm.
+<suppressed ~4 debug messages>
+Optimizing module uart_txfsm.
+<suppressed ~3 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \uart_core..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \uart_rxfsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \uart_txfsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011.
+  Optimizing cells in module \uart_core.
+  Optimizing cells in module \uart_rxfsm.
+    New ctrl vector for $pmux cell $procmux$290: { $procmux$235_CMP $procmux$212_CMP $auto$opt_reduce.cc:134:opt_mux$458 }
+  Optimizing cells in module \uart_rxfsm.
+  Optimizing cells in module \uart_txfsm.
+Performed a total of 1 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011'.
+Finding identical cells in module `\uart_core'.
+Finding identical cells in module `\uart_rxfsm'.
+<suppressed ~18 debug messages>
+Finding identical cells in module `\uart_txfsm'.
+<suppressed ~6 debug messages>
+Removed a total of 8 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$ff.cc:262:slice$391 ($adffe) from module uart_rxfsm (D = $0\error_ind[1:0], Q = \error_ind).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011..
+Finding unused cells or wires in module \uart_core..
+Finding unused cells or wires in module \uart_rxfsm..
+Finding unused cells or wires in module \uart_txfsm..
+Removed 0 unused cells and 8 unused wires.
+<suppressed ~2 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011.
+Optimizing module uart_core.
+Optimizing module uart_rxfsm.
+Optimizing module uart_txfsm.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \uart_core..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \uart_rxfsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \uart_txfsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011.
+  Optimizing cells in module \uart_core.
+  Optimizing cells in module \uart_rxfsm.
+    New input vector for $reduce_and cell $auto$opt_dff.cc:223:make_patterns_logic$465: { $auto$opt_dff.cc:197:make_patterns_logic$462 $auto$opt_dff.cc:197:make_patterns_logic$394 $auto$opt_dff.cc:197:make_patterns_logic$392 $auto$opt_dff.cc:197:make_patterns_logic$460 $auto$opt_dff.cc:197:make_patterns_logic$396 $auto$opt_dff.cc:197:make_patterns_logic$398 }
+  Optimizing cells in module \uart_rxfsm.
+  Optimizing cells in module \uart_txfsm.
+Performed a total of 1 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011'.
+Finding identical cells in module `\uart_core'.
+Finding identical cells in module `\uart_rxfsm'.
+Finding identical cells in module `\uart_txfsm'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011..
+Finding unused cells or wires in module \uart_core..
+Finding unused cells or wires in module \uart_rxfsm..
+Finding unused cells or wires in module \uart_txfsm..
+Removed 1 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011.
+Optimizing module uart_core.
+Optimizing module uart_rxfsm.
+Optimizing module uart_txfsm.
+
+4.23. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.24. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \uart_core..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \uart_rxfsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \uart_txfsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+4.25. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011.
+  Optimizing cells in module \uart_core.
+  Optimizing cells in module \uart_rxfsm.
+  Optimizing cells in module \uart_txfsm.
+Performed a total of 0 changes.
+
+4.26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\clk_ctl\WD=s32'00000000000000000000000000001011'.
+Finding identical cells in module `\uart_core'.
+Finding identical cells in module `\uart_rxfsm'.
+Finding identical cells in module `\uart_txfsm'.
+Removed a total of 0 cells.
+
+4.27. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011..
+Finding unused cells or wires in module \uart_core..
+Finding unused cells or wires in module \uart_rxfsm..
+Finding unused cells or wires in module \uart_txfsm..
+
+4.29. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\clk_ctl\WD=s32'00000000000000000000000000001011.
+Optimizing module uart_core.
+Optimizing module uart_rxfsm.
+Optimizing module uart_txfsm.
+
+4.30. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod\clk_ctl\WD=s32'00000000000000000000000000001011 ===
+
+   Number of wires:                 20
+   Number of wire bits:            184
+   Number of public wires:           7
+   Number of public wire bits:      38
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 16
+     $add                            2
+     $adff                           1
+     $adffe                          2
+     $mux                            5
+     $ne                             1
+     $not                            1
+     $reduce_bool                    2
+     $sub                            2
+
+=== uart_core ===
+
+   Number of wires:                 20
+   Number of wire bits:             47
+   Number of public wires:          19
+   Number of public wire bits:      46
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $eq                             2
+     $logic_not                      1
+     $paramod\clk_ctl\WD=s32'00000000000000000000000000001011      1
+     uart_rxfsm                      1
+     uart_txfsm                      1
+
+=== uart_rxfsm ===
+
+   Number of wires:                101
+   Number of wire bits:            298
+   Number of public wires:          16
+   Number of public wire bits:      35
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 93
+     $add                            3
+     $adff                           3
+     $adffe                          6
+     $and                            1
+     $eq                             8
+     $logic_and                      3
+     $logic_not                      3
+     $lt                             1
+     $mux                           27
+     $ne                            15
+     $not                            3
+     $or                             1
+     $pmux                           4
+     $reduce_and                     6
+     $reduce_bool                    4
+     $reduce_or                      2
+     $reduce_xor                     1
+     $shl                            2
+
+=== uart_txfsm ===
+
+   Number of wires:                 56
+   Number of wire bits:            157
+   Number of public wires:          13
+   Number of public wire bits:      35
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 48
+     $add                            2
+     $adff                           1
+     $adffe                          5
+     $eq                             6
+     $logic_and                      1
+     $logic_not                      4
+     $mux                            9
+     $ne                             4
+     $not                            1
+     $pmux                           4
+     $reduce_and                     5
+     $reduce_bool                    3
+     $reduce_or                      1
+     $reduce_xor                     1
+     $shiftx                         1
+
+=== design hierarchy ===
+
+   uart_core                         1
+     $paramod\clk_ctl\WD=s32'00000000000000000000000000001011      1
+     uart_rxfsm                      1
+     uart_txfsm                      1
+
+   Number of wires:                197
+   Number of wire bits:            686
+   Number of public wires:          55
+   Number of public wire bits:     154
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                160
+     $add                            7
+     $adff                           5
+     $adffe                         13
+     $and                            1
+     $eq                            16
+     $logic_and                      4
+     $logic_not                      8
+     $lt                             1
+     $mux                           41
+     $ne                            20
+     $not                            5
+     $or                             1
+     $pmux                           8
+     $reduce_and                    11
+     $reduce_bool                    9
+     $reduce_or                      3
+     $reduce_xor                     2
+     $shiftx                         1
+     $shl                            2
+     $sub                            2
+
+End of script. Logfile hash: 8dc94f6efb, CPU: user 0.14s system 0.00s, MEM: 12.17 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 29% 6x opt_expr (0 sec), 14% 4x opt_clean (0 sec), ...

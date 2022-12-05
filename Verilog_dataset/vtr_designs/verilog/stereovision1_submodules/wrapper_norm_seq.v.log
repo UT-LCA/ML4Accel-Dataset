@@ -1,0 +1,423 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v' to AST representation.
+Generating RTLIL representation for module `\wrapper_norm_seq'.
+Generating RTLIL representation for module `\my_wrapper_divider'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:99.2-138.5 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\my_divider'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:174.2-203.5 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:213.2-276.5 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: my_divider          
+root of   1 design levels: my_wrapper_divider  
+root of   2 design levels: wrapper_norm_seq    
+Automatically selected wrapper_norm_seq as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \wrapper_norm_seq
+Used module:     \my_wrapper_divider
+Used module:         \my_divider
+
+2.3. Analyzing design hierarchy..
+Top module:  \wrapper_norm_seq
+Used module:     \my_wrapper_divider
+Used module:         \my_divider
+Removed 0 unused modules.
+Mapping positional arguments of cell my_wrapper_divider.my_divider_inst (my_divider).
+Mapping positional arguments of cell wrapper_norm_seq.my_div_inst_2 (my_wrapper_divider).
+Mapping positional arguments of cell wrapper_norm_seq.my_div_inst_1 (my_wrapper_divider).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 9 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:278$22 in module my_divider.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:213$19 in module my_divider.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:205$17 in module my_divider.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:174$13 in module my_divider.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:99$11 in module my_wrapper_divider.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:99$11 in module my_wrapper_divider.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:91$9 in module my_wrapper_divider.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:27$1 in module wrapper_norm_seq.
+Removed a total of 1 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 11 redundant assignments.
+Promoted 18 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:278$22'.
+     1/5: $0\Count[3:0]
+     2/5: $0\ff0[0:0]
+     3/5: $0\DataA[15:0]
+     4/5: $0\Remainder[7:0]
+     5/5: $0\RegB[16:0]
+Creating decoders for process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:213$19'.
+     1/13: $2\EC[0:0]
+     2/13: $3\LR[0:0]
+     3/13: $2\EA[0:0]
+     4/13: $2\ER0[0:0]
+     5/13: $2\LR[0:0]
+     6/13: $1\ER0[0:0]
+     7/13: $1\LR[0:0]
+     8/13: $1\EA[0:0]
+     9/13: $1\Done[0:0]
+    10/13: $1\Rsel[0:0]
+    11/13: $1\EC[0:0]
+    12/13: $1\ER[0:0]
+    13/13: $1\LC[0:0]
+Creating decoders for process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:205$17'.
+     1/1: $0\y[1:0]
+Creating decoders for process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:174$13'.
+     1/4: $4\Y[1:0]
+     2/4: $3\Y[1:0]
+     3/4: $2\Y[1:0]
+     4/4: $1\Y[1:0]
+Creating decoders for process `\my_wrapper_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:99$11'.
+     1/5: $2\Y[1:0]
+     2/5: $1\Y[1:0]
+     3/5: $1\start[0:0]
+     4/5: $1\EB[0:0]
+     5/5: $1\LA[0:0]
+Creating decoders for process `\my_wrapper_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:91$9'.
+     1/1: $0\y[1:0]
+Creating decoders for process `\wrapper_norm_seq.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:27$1'.
+     1/4: $0\addin_2[15:0]
+     2/4: $0\addin_1[15:0]
+     3/4: $0\din_2_reg[15:0]
+     4/4: $0\din_1_reg[15:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\my_divider.\Done' from process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:213$19'.
+No latch inferred for signal `\my_divider.\EA' from process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:213$19'.
+No latch inferred for signal `\my_divider.\Rsel' from process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:213$19'.
+No latch inferred for signal `\my_divider.\LR' from process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:213$19'.
+No latch inferred for signal `\my_divider.\ER' from process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:213$19'.
+No latch inferred for signal `\my_divider.\ER0' from process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:213$19'.
+No latch inferred for signal `\my_divider.\LC' from process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:213$19'.
+No latch inferred for signal `\my_divider.\EC' from process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:213$19'.
+No latch inferred for signal `\my_divider.\Y' from process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:174$13'.
+No latch inferred for signal `\my_wrapper_divider.\Y' from process `\my_wrapper_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:99$11'.
+No latch inferred for signal `\my_wrapper_divider.\start' from process `\my_wrapper_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:99$11'.
+No latch inferred for signal `\my_wrapper_divider.\LA' from process `\my_wrapper_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:99$11'.
+No latch inferred for signal `\my_wrapper_divider.\EB' from process `\my_wrapper_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:99$11'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\my_divider.\Remainder' using process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:278$22'.
+  created $dff cell `$procdff$225' with positive edge clock.
+Creating register for signal `\my_divider.\Count' using process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:278$22'.
+  created $dff cell `$procdff$226' with positive edge clock.
+Creating register for signal `\my_divider.\RegB' using process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:278$22'.
+  created $dff cell `$procdff$227' with positive edge clock.
+Creating register for signal `\my_divider.\DataA' using process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:278$22'.
+  created $dff cell `$procdff$228' with positive edge clock.
+Creating register for signal `\my_divider.\ff0' using process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:278$22'.
+  created $dff cell `$procdff$229' with positive edge clock.
+Creating register for signal `\my_divider.\y' using process `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:205$17'.
+  created $dff cell `$procdff$230' with positive edge clock.
+Creating register for signal `\my_wrapper_divider.\y' using process `\my_wrapper_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:91$9'.
+  created $dff cell `$procdff$231' with positive edge clock.
+Creating register for signal `\wrapper_norm_seq.\din_1_reg' using process `\wrapper_norm_seq.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:27$1'.
+  created $dff cell `$procdff$232' with positive edge clock.
+Creating register for signal `\wrapper_norm_seq.\din_2_reg' using process `\wrapper_norm_seq.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:27$1'.
+  created $dff cell `$procdff$233' with positive edge clock.
+Creating register for signal `\wrapper_norm_seq.\din_1_tmp1' using process `\wrapper_norm_seq.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:27$1'.
+  created $dff cell `$procdff$234' with positive edge clock.
+Creating register for signal `\wrapper_norm_seq.\din_2_tmp1' using process `\wrapper_norm_seq.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:27$1'.
+  created $dff cell `$procdff$235' with positive edge clock.
+Creating register for signal `\wrapper_norm_seq.\din_1_tmp2' using process `\wrapper_norm_seq.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:27$1'.
+  created $dff cell `$procdff$236' with positive edge clock.
+Creating register for signal `\wrapper_norm_seq.\din_2_tmp2' using process `\wrapper_norm_seq.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:27$1'.
+  created $dff cell `$procdff$237' with positive edge clock.
+Creating register for signal `\wrapper_norm_seq.\addin_1' using process `\wrapper_norm_seq.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:27$1'.
+  created $dff cell `$procdff$238' with positive edge clock.
+Creating register for signal `\wrapper_norm_seq.\addin_2' using process `\wrapper_norm_seq.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:27$1'.
+  created $dff cell `$procdff$239' with positive edge clock.
+Creating register for signal `\wrapper_norm_seq.\add_out' using process `\wrapper_norm_seq.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:27$1'.
+  created $dff cell `$procdff$240' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 9 empty switches in `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:278$22'.
+Removing empty process `my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:278$22'.
+Found and cleaned up 4 empty switches in `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:213$19'.
+Removing empty process `my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:213$19'.
+Found and cleaned up 1 empty switch in `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:205$17'.
+Removing empty process `my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:205$17'.
+Found and cleaned up 4 empty switches in `\my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:174$13'.
+Removing empty process `my_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:174$13'.
+Found and cleaned up 2 empty switches in `\my_wrapper_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:99$11'.
+Removing empty process `my_wrapper_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:99$11'.
+Found and cleaned up 1 empty switch in `\my_wrapper_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:91$9'.
+Removing empty process `my_wrapper_divider.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:91$9'.
+Found and cleaned up 3 empty switches in `\wrapper_norm_seq.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:27$1'.
+Removing empty process `wrapper_norm_seq.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:27$1'.
+Cleaned up 24 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module my_divider.
+<suppressed ~34 debug messages>
+Optimizing module my_wrapper_divider.
+<suppressed ~7 debug messages>
+Optimizing module wrapper_norm_seq.
+<suppressed ~5 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module my_divider.
+Optimizing module my_wrapper_divider.
+Optimizing module wrapper_norm_seq.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\my_divider'.
+<suppressed ~66 debug messages>
+Finding identical cells in module `\my_wrapper_divider'.
+<suppressed ~39 debug messages>
+Finding identical cells in module `\wrapper_norm_seq'.
+Removed a total of 35 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \my_divider..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$118.
+    dead port 2/2 on $mux $procmux$110.
+    dead port 2/2 on $mux $procmux$170.
+    dead port 2/2 on $mux $procmux$103.
+    dead port 2/2 on $mux $procmux$95.
+    dead port 2/2 on $mux $procmux$88.
+    dead port 2/2 on $mux $procmux$178.
+    dead port 2/2 on $mux $procmux$163.
+Running muxtree optimizer on module \my_wrapper_divider..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$188.
+Running muxtree optimizer on module \wrapper_norm_seq..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$217: \din_1_reg -> { 1'0 \din_1_reg [14:0] }
+  Analyzing evaluation results.
+Removed 9 multiplexer ports.
+<suppressed ~22 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \my_divider.
+    New ctrl vector for $pmux cell $procmux$122: $auto$opt_reduce.cc:134:opt_mux$242
+    New ctrl vector for $pmux cell $procmux$148: $auto$opt_reduce.cc:134:opt_mux$244
+  Optimizing cells in module \my_divider.
+  Optimizing cells in module \my_wrapper_divider.
+    New ctrl vector for $pmux cell $procmux$195: { $procmux$207_CMP $auto$opt_reduce.cc:134:opt_mux$246 }
+    New ctrl vector for $pmux cell $procmux$200: { $procmux$208_CMP $auto$opt_reduce.cc:134:opt_mux$248 }
+    New ctrl vector for $pmux cell $procmux$205: { $procmux$208_CMP $auto$opt_reduce.cc:134:opt_mux$250 }
+  Optimizing cells in module \my_wrapper_divider.
+  Optimizing cells in module \wrapper_norm_seq.
+Performed a total of 5 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\my_divider'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\my_wrapper_divider'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\wrapper_norm_seq'.
+Removed a total of 4 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$227 ($dff) from module my_divider (D = $procmux$78_Y, Q = \RegB, rval = 17'00000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$251 ($sdff) from module my_divider (D = \data_in_b, Q = \RegB).
+Adding SRST signal on $procdff$228 ($dff) from module my_divider (D = $procmux$63_Y, Q = \DataA, rval = 16'0000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$253 ($sdff) from module my_divider (D = $procmux$63_Y, Q = \DataA).
+Adding SRST signal on $procdff$226 ($dff) from module my_divider (D = $procmux$45_Y, Q = \Count, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:262:slice$257 ($sdff) from module my_divider (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:340$38_Y [3:0], Q = \Count).
+Adding SRST signal on $procdff$225 ($dff) from module my_divider (D = $procmux$72_Y, Q = \Remainder, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:262:slice$261 ($sdff) from module my_divider (D = $procmux$72_Y, Q = \Remainder).
+Adding SRST signal on $procdff$229 ($dff) from module my_divider (D = \DataA [15], Q = \ff0, rval = 1'0).
+Adding SRST signal on $procdff$230 ($dff) from module my_divider (D = $procmux$181_Y, Q = \y, rval = 2'00).
+Adding SRST signal on $procdff$231 ($dff) from module my_wrapper_divider (D = $procmux$190_Y, Q = \y, rval = 2'00).
+Adding EN signal on $procdff$232 ($dff) from module wrapper_norm_seq (D = \din_1, Q = \din_1_reg).
+Adding EN signal on $procdff$233 ($dff) from module wrapper_norm_seq (D = \din_2, Q = \din_2_reg).
+Adding SRST signal on $procdff$238 ($dff) from module wrapper_norm_seq (D = $sub$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision1_submodules/wrapper_norm_seq.v:51$4_Y [15], Q = \addin_1 [15], rval = 1'0).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \my_divider..
+Finding unused cells or wires in module \my_wrapper_divider..
+Finding unused cells or wires in module \wrapper_norm_seq..
+Removed 19 unused cells and 173 unused wires.
+<suppressed ~24 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module my_divider.
+<suppressed ~2 debug messages>
+Optimizing module my_wrapper_divider.
+Optimizing module wrapper_norm_seq.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \my_divider..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \my_wrapper_divider..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \wrapper_norm_seq..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \my_divider.
+  Optimizing cells in module \my_wrapper_divider.
+  Optimizing cells in module \wrapper_norm_seq.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\my_divider'.
+Finding identical cells in module `\my_wrapper_divider'.
+Finding identical cells in module `\wrapper_norm_seq'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \my_divider..
+Finding unused cells or wires in module \my_wrapper_divider..
+Finding unused cells or wires in module \wrapper_norm_seq..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module my_divider.
+Optimizing module my_wrapper_divider.
+Optimizing module wrapper_norm_seq.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== my_divider ===
+
+   Number of wires:                 53
+   Number of wire bits:            373
+   Number of public wires:          26
+   Number of public wire bits:     122
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 42
+     $add                           96
+     $eq                             4
+     $logic_not                      6
+     $mux                           95
+     $not                           33
+     $or                            24
+     $pmux                           4
+     $reduce_bool                    4
+     $reduce_or                      6
+     $sdff                           3
+     $sdffe                         45
+
+=== my_wrapper_divider ===
+
+   Number of wires:                 19
+   Number of wire bits:             67
+   Number of public wires:          12
+   Number of public wire bits:      59
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 12
+     $eq                             6
+     $logic_not                      2
+     $mux                            2
+     $pmux                           4
+     $reduce_or                      6
+     $sdff                           2
+
+=== wrapper_norm_seq ===
+
+   Number of wires:                 21
+   Number of wire bits:            292
+   Number of public wires:          15
+   Number of public wire bits:     195
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 18
+     $add                           33
+     $dff                          112
+     $dffe                          32
+     $mux                           32
+     $sdff                           1
+     $sub                           32
+
+=== design hierarchy ===
+
+   wrapper_norm_seq                  1
+     my_wrapper_divider              0
+       my_divider                    0
+
+   Number of wires:                 21
+   Number of wire bits:            292
+   Number of public wires:          15
+   Number of public wire bits:     195
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 18
+     $add                           33
+     $dff                          112
+     $dffe                          32
+     $mux                           32
+     $sdff                           1
+     $sub                           32
+
+End of script. Logfile hash: 94aec2fa20, CPU: user 0.08s system 0.00s, MEM: 12.37 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 27% 4x opt_expr (0 sec), 16% 2x read_verilog (0 sec), ...

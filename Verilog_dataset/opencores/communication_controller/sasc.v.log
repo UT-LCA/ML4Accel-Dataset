@@ -1,0 +1,508 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v' to AST representation.
+Generating RTLIL representation for module `\sasc_brg'.
+Generating RTLIL representation for module `\sasc_fifo4'.
+Generating RTLIL representation for module `\sasc_top'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:558.1-577.7 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   1 design levels: sasc_top            
+root of   0 design levels: sasc_fifo4          
+root of   0 design levels: sasc_brg            
+Automatically selected sasc_top as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \sasc_top
+Used module:     \sasc_fifo4
+
+2.3. Analyzing design hierarchy..
+Top module:  \sasc_top
+Used module:     \sasc_fifo4
+Removing unused module `\sasc_brg'.
+Removed 1 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:276$48 in module sasc_fifo4.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:268$36 in module sasc_fifo4.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:255$32 in module sasc_fifo4.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:245$28 in module sasc_fifo4.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:558$106 in module sasc_top.
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:558$106 in module sasc_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:553$104 in module sasc_top.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:544$99 in module sasc_top.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:506$79 in module sasc_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:485$73 in module sasc_top.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:475$67 in module sasc_top.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:468$64 in module sasc_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:463$62 in module sasc_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:450$52 in module sasc_top.
+Removed a total of 1 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 19 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:255$32'.
+Found async reset \rst in `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:245$28'.
+Found async reset \rst in `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:553$104'.
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:276$48'.
+     1/1: $0\gb[0:0]
+Creating decoders for process `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:268$36'.
+     1/3: $1$memwr$\mem$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:269$27_EN[7:0]$42
+     2/3: $1$memwr$\mem$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:269$27_DATA[7:0]$41
+     3/3: $1$memwr$\mem$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:269$27_ADDR[1:0]$40
+Creating decoders for process `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:255$32'.
+     1/1: $0\rp[1:0]
+Creating decoders for process `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:245$28'.
+     1/1: $0\wp[1:0]
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:587$109'.
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:584$108'.
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:581$107'.
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:558$106'.
+     1/6: $5\dpll_next_state[1:0]
+     2/6: $4\dpll_next_state[1:0]
+     3/6: $3\dpll_next_state[1:0]
+     4/6: $2\dpll_next_state[1:0]
+     5/6: $1\dpll_next_state[1:0]
+     6/6: $1\rx_sio_ce_d[0:0]
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:553$104'.
+     1/1: $0\dpll_state[1:0]
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:544$99'.
+     1/1: $0\change[0:0]
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:541$98'.
+     1/1: $0\rxd_r2[0:0]
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:538$97'.
+     1/1: $0\rxd_r1[0:0]
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:527$96'.
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:524$94'.
+     1/1: $0\rxr[9:0]
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:519$89'.
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:516$87'.
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:513$85'.
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:506$79'.
+     1/1: $0\rx_bit_cnt[3:0]
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:495$75'.
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:485$73'.
+     1/1: $0\shift_en_r[0:0]
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:482$71'.
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:475$67'.
+     1/1: $0\tx_bit_cnt[3:0]
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:468$64'.
+     1/1: $0\txd_o[0:0]
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:463$62'.
+     1/1: $0\hold_reg[9:0]
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:458$60'.
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:455$54'.
+Creating decoders for process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:450$52'.
+     1/1: $0\txf_empty_r[0:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\sasc_top.\rx_sio_ce_d' from process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:558$106'.
+No latch inferred for signal `\sasc_top.\dpll_next_state' from process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:558$106'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\sasc_fifo4.\gb' using process `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:276$48'.
+  created $dff cell `$procdff$232' with positive edge clock.
+Creating register for signal `\sasc_fifo4.$memwr$\mem$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:269$27_ADDR' using process `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:268$36'.
+  created $dff cell `$procdff$233' with positive edge clock.
+Creating register for signal `\sasc_fifo4.$memwr$\mem$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:269$27_DATA' using process `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:268$36'.
+  created $dff cell `$procdff$234' with positive edge clock.
+Creating register for signal `\sasc_fifo4.$memwr$\mem$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:269$27_EN' using process `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:268$36'.
+  created $dff cell `$procdff$235' with positive edge clock.
+Creating register for signal `\sasc_fifo4.\rp' using process `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:255$32'.
+  created $adff cell `$procdff$236' with positive edge clock and negative level reset.
+Creating register for signal `\sasc_fifo4.\wp' using process `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:245$28'.
+  created $adff cell `$procdff$237' with positive edge clock and negative level reset.
+Creating register for signal `\sasc_top.\rx_sio_ce' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:587$109'.
+  created $dff cell `$procdff$238' with positive edge clock.
+Creating register for signal `\sasc_top.\rx_sio_ce_r2' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:584$108'.
+  created $dff cell `$procdff$239' with positive edge clock.
+Creating register for signal `\sasc_top.\rx_sio_ce_r1' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:581$107'.
+  created $dff cell `$procdff$240' with positive edge clock.
+Creating register for signal `\sasc_top.\dpll_state' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:553$104'.
+  created $adff cell `$procdff$241' with positive edge clock and negative level reset.
+Creating register for signal `\sasc_top.\change' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:544$99'.
+  created $dff cell `$procdff$242' with positive edge clock.
+Creating register for signal `\sasc_top.\rxd_r2' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:541$98'.
+  created $dff cell `$procdff$243' with positive edge clock.
+Creating register for signal `\sasc_top.\rxd_r1' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:538$97'.
+  created $dff cell `$procdff$244' with positive edge clock.
+Creating register for signal `\sasc_top.\rts_o' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:527$96'.
+  created $dff cell `$procdff$245' with positive edge clock.
+Creating register for signal `\sasc_top.\rxr' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:524$94'.
+  created $dff cell `$procdff$246' with positive edge clock.
+Creating register for signal `\sasc_top.\rx_valid_r' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:519$89'.
+  created $dff cell `$procdff$247' with positive edge clock.
+Creating register for signal `\sasc_top.\rx_valid' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:516$87'.
+  created $dff cell `$procdff$248' with positive edge clock.
+Creating register for signal `\sasc_top.\rx_go' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:513$85'.
+  created $dff cell `$procdff$249' with positive edge clock.
+Creating register for signal `\sasc_top.\rx_bit_cnt' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:506$79'.
+  created $dff cell `$procdff$250' with positive edge clock.
+Creating register for signal `\sasc_top.\rxd_s' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:495$75'.
+  created $dff cell `$procdff$251' with positive edge clock.
+Creating register for signal `\sasc_top.\rxd_r' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:495$75'.
+  created $dff cell `$procdff$252' with positive edge clock.
+Creating register for signal `\sasc_top.\rxd_dly' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:495$75'.
+  created $dff cell `$procdff$253' with positive edge clock.
+Creating register for signal `\sasc_top.\shift_en_r' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:485$73'.
+  created $dff cell `$procdff$254' with positive edge clock.
+Creating register for signal `\sasc_top.\shift_en' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:482$71'.
+  created $dff cell `$procdff$255' with positive edge clock.
+Creating register for signal `\sasc_top.\tx_bit_cnt' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:475$67'.
+  created $dff cell `$procdff$256' with positive edge clock.
+Creating register for signal `\sasc_top.\txd_o' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:468$64'.
+  created $dff cell `$procdff$257' with positive edge clock.
+Creating register for signal `\sasc_top.\hold_reg' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:463$62'.
+  created $dff cell `$procdff$258' with positive edge clock.
+Creating register for signal `\sasc_top.\load_r' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:458$60'.
+  created $dff cell `$procdff$259' with positive edge clock.
+Creating register for signal `\sasc_top.\load' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:455$54'.
+  created $dff cell `$procdff$260' with positive edge clock.
+Creating register for signal `\sasc_top.\txf_empty_r' using process `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:450$52'.
+  created $dff cell `$procdff$261' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 4 empty switches in `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:276$48'.
+Removing empty process `sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:276$48'.
+Found and cleaned up 1 empty switch in `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:268$36'.
+Removing empty process `sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:268$36'.
+Found and cleaned up 2 empty switches in `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:255$32'.
+Removing empty process `sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:255$32'.
+Found and cleaned up 2 empty switches in `\sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:245$28'.
+Removing empty process `sasc_fifo4.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:245$28'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:587$109'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:584$108'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:581$107'.
+Found and cleaned up 5 empty switches in `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:558$106'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:558$106'.
+Found and cleaned up 1 empty switch in `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:553$104'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:553$104'.
+Found and cleaned up 3 empty switches in `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:544$99'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:544$99'.
+Found and cleaned up 1 empty switch in `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:541$98'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:541$98'.
+Found and cleaned up 1 empty switch in `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:538$97'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:538$97'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:527$96'.
+Found and cleaned up 1 empty switch in `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:524$94'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:524$94'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:519$89'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:516$87'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:513$85'.
+Found and cleaned up 3 empty switches in `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:506$79'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:506$79'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:495$75'.
+Found and cleaned up 2 empty switches in `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:485$73'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:485$73'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:482$71'.
+Found and cleaned up 3 empty switches in `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:475$67'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:475$67'.
+Found and cleaned up 3 empty switches in `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:468$64'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:468$64'.
+Found and cleaned up 2 empty switches in `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:463$62'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:463$62'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:458$60'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:455$54'.
+Found and cleaned up 2 empty switches in `\sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:450$52'.
+Removing empty process `sasc_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:450$52'.
+Cleaned up 36 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sasc_fifo4.
+<suppressed ~1 debug messages>
+Optimizing module sasc_top.
+<suppressed ~11 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sasc_fifo4.
+Optimizing module sasc_top.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sasc_fifo4'.
+<suppressed ~9 debug messages>
+Finding identical cells in module `\sasc_top'.
+<suppressed ~48 debug messages>
+Removed a total of 19 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sasc_fifo4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \sasc_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$165.
+    dead port 2/2 on $mux $procmux$157.
+    dead port 2/2 on $mux $procmux$150.
+    dead port 2/2 on $mux $procmux$144.
+Removed 4 multiplexer ports.
+<suppressed ~18 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sasc_fifo4.
+    Consolidated identical input bits for $mux cell $procmux$124:
+      Old ports: A=8'00000000, B=8'11111111, Y=$procmux$124_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$124_Y [0]
+      New connections: $procmux$124_Y [7:1] = { $procmux$124_Y [0] $procmux$124_Y [0] $procmux$124_Y [0] $procmux$124_Y [0] $procmux$124_Y [0] $procmux$124_Y [0] $procmux$124_Y [0] }
+  Optimizing cells in module \sasc_fifo4.
+  Optimizing cells in module \sasc_top.
+    New ctrl vector for $pmux cell $procmux$172: { $procmux$175_CMP $auto$opt_reduce.cc:134:opt_mux$264 }
+  Optimizing cells in module \sasc_top.
+Performed a total of 2 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sasc_fifo4'.
+Finding identical cells in module `\sasc_top'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$236 ($adff) from module sasc_fifo4 (D = $procmux$135_Y, Q = \rp).
+Adding EN signal on $procdff$237 ($adff) from module sasc_fifo4 (D = $procmux$140_Y, Q = \wp).
+Adding SRST signal on $procdff$232 ($dff) from module sasc_fifo4 (D = $procmux$115_Y, Q = \gb, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$271 ($sdff) from module sasc_fifo4 (D = $procmux$115_Y, Q = \gb).
+Adding EN signal on $procdff$246 ($dff) from module sasc_top (D = { \rxd_s \rxr [9:1] }, Q = \rxr).
+Adding SRST signal on $procdff$261 ($dff) from module sasc_top (D = $procmux$227_Y, Q = \txf_empty_r, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$280 ($sdff) from module sasc_top (D = \txf_empty, Q = \txf_empty_r).
+Adding SRST signal on $procdff$250 ($dff) from module sasc_top (D = { $procmux$196_Y [3] $procmux$196_Y [1] }, Q = { \rx_bit_cnt [3] \rx_bit_cnt [1] }, rval = 2'11).
+Adding SRST signal on $procdff$250 ($dff) from module sasc_top (D = { $procmux$193_Y [2] $procmux$193_Y [0] }, Q = { \rx_bit_cnt [2] \rx_bit_cnt [0] }, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$283 ($sdff) from module sasc_top (D = { $add$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:511$84_Y [2] $add$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:511$84_Y [0] }, Q = { \rx_bit_cnt [2] \rx_bit_cnt [0] }).
+Adding EN signal on $auto$ff.cc:262:slice$282 ($sdff) from module sasc_top (D = { $procmux$196_Y [3] $procmux$196_Y [1] }, Q = { \rx_bit_cnt [3] \rx_bit_cnt [1] }).
+Adding EN signal on $procdff$241 ($adff) from module sasc_top (D = $procmux$167_Y, Q = \dpll_state).
+Adding SRST signal on $procdff$254 ($dff) from module sasc_top (D = $procmux$201_Y, Q = \shift_en_r, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$293 ($sdff) from module sasc_top (D = \shift_en, Q = \shift_en_r).
+Adding SRST signal on $procdff$242 ($dff) from module sasc_top (D = $procmux$182_Y, Q = \change, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$295 ($sdff) from module sasc_top (D = $procmux$182_Y, Q = \change).
+Adding EN signal on $procdff$243 ($dff) from module sasc_top (D = \rxd_r1, Q = \rxd_r2).
+Adding SRST signal on $procdff$256 ($dff) from module sasc_top (D = { $procmux$209_Y [3] $procmux$209_Y [0] }, Q = { \tx_bit_cnt [3] \tx_bit_cnt [0] }, rval = 2'11).
+Adding SRST signal on $procdff$256 ($dff) from module sasc_top (D = $procmux$206_Y [2:1], Q = \tx_bit_cnt [2:1], rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$301 ($sdff) from module sasc_top (D = $add$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sasc.v:480$70_Y [2:1], Q = \tx_bit_cnt [2:1]).
+Adding EN signal on $auto$ff.cc:262:slice$300 ($sdff) from module sasc_top (D = { $procmux$209_Y [3] $procmux$209_Y [0] }, Q = { \tx_bit_cnt [3] \tx_bit_cnt [0] }).
+Adding EN signal on $procdff$244 ($dff) from module sasc_top (D = \rxd_s, Q = \rxd_r1).
+Adding SRST signal on $procdff$257 ($dff) from module sasc_top (D = $procmux$217_Y, Q = \txd_o, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$311 ($sdff) from module sasc_top (D = $procmux$215_Y, Q = \txd_o).
+Adding SRST signal on $procdff$258 ($dff) from module sasc_top (D = { $procmux$222_Y [9] $procmux$222_Y [0] }, Q = { \hold_reg [9] \hold_reg [0] }, rval = 2'10).
+Adding EN signal on $procdff$258 ($dff) from module sasc_top (D = $procmux$225_Y [8:1], Q = \hold_reg [8:1]).
+Adding EN signal on $auto$ff.cc:262:slice$313 ($sdff) from module sasc_top (D = { 1'1 \hold_reg [1] }, Q = { \hold_reg [9] \hold_reg [0] }).
+Setting constant 1-bit at position 1 on $auto$ff.cc:262:slice$318 ($sdffe) from module sasc_top.
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sasc_fifo4..
+Finding unused cells or wires in module \sasc_top..
+Removed 23 unused cells and 136 unused wires.
+<suppressed ~29 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sasc_fifo4.
+<suppressed ~3 debug messages>
+Optimizing module sasc_top.
+<suppressed ~4 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sasc_fifo4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \sasc_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~13 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sasc_fifo4.
+  Optimizing cells in module \sasc_top.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sasc_fifo4'.
+Finding identical cells in module `\sasc_top'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sasc_fifo4..
+Finding unused cells or wires in module \sasc_top..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sasc_fifo4.
+Optimizing module sasc_top.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sasc_fifo4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \sasc_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~13 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sasc_fifo4.
+  Optimizing cells in module \sasc_top.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sasc_fifo4'.
+Finding identical cells in module `\sasc_top'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sasc_fifo4..
+Finding unused cells or wires in module \sasc_top..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sasc_fifo4.
+Optimizing module sasc_top.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== sasc_fifo4 ===
+
+   Number of wires:                 32
+   Number of wire bits:             69
+   Number of public wires:          14
+   Number of public wire bits:      32
+   Number of memories:               1
+   Number of memory bits:           32
+   Number of processes:              0
+   Number of cells:                 27
+     $add                            2
+     $adffe                          2
+     $and                            3
+     $eq                             2
+     $logic_not                      1
+     $memrd                          1
+     $memwr_v2                       1
+     $mux                            9
+     $not                            1
+     $reduce_bool                    3
+     $reduce_or                      1
+     $sdffe                          1
+
+=== sasc_top ===
+
+   Number of wires:                 89
+   Number of wire bits:            180
+   Number of public wires:          42
+   Number of public wire bits:      94
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 79
+     $add                            2
+     $adffe                          1
+     $and                           10
+     $dff                           12
+     $dffe                           3
+     $eq                             4
+     $logic_not                      8
+     $logic_or                       1
+     $mux                           12
+     $ne                             4
+     $not                            2
+     $or                             1
+     $pmux                           2
+     $reduce_bool                    3
+     $reduce_or                      3
+     $sdffe                          9
+     sasc_fifo4                      2
+
+=== design hierarchy ===
+
+   sasc_top                          1
+     sasc_fifo4                      2
+
+   Number of wires:                153
+   Number of wire bits:            318
+   Number of public wires:          70
+   Number of public wire bits:     158
+   Number of memories:               2
+   Number of memory bits:           64
+   Number of processes:              0
+   Number of cells:                131
+     $add                            6
+     $adffe                          5
+     $and                           16
+     $dff                           12
+     $dffe                           3
+     $eq                             8
+     $logic_not                     10
+     $logic_or                       1
+     $memrd                          2
+     $memwr_v2                       2
+     $mux                           30
+     $ne                             4
+     $not                            4
+     $or                             1
+     $pmux                           2
+     $reduce_bool                    9
+     $reduce_or                      5
+     $sdffe                         11
+
+End of script. Logfile hash: b2d4693841, CPU: user 0.07s system 0.00s, MEM: 12.22 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 27% 5x opt_expr (0 sec), 22% 4x opt_merge (0 sec), ...

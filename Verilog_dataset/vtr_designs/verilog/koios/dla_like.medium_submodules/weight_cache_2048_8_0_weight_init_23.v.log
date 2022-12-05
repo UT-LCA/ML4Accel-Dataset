@@ -1,0 +1,268 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v' to AST representation.
+Generating RTLIL representation for module `\weight_cache_2048_8_0_weight_init_23'.
+Generating RTLIL representation for module `\dual_port_ram'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: dual_port_ram       
+root of   1 design levels: weight_cache_2048_8_0_weight_init_23
+Automatically selected weight_cache_2048_8_0_weight_init_23 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \weight_cache_2048_8_0_weight_init_23
+Used module:     \dual_port_ram
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 11
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\dual_port_ram'.
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 11
+Generating RTLIL representation for module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \weight_cache_2048_8_0_weight_init_23
+Used module:     $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram
+
+2.5. Analyzing design hierarchy..
+Top module:  \weight_cache_2048_8_0_weight_init_23
+Used module:     $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram
+Removing unused module `\dual_port_ram'.
+Removed 1 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:84$30 in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:75$22 in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 10 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:84$30'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:86$21_EN[7:0]$36
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:86$21_DATA[7:0]$35
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:86$21_ADDR[10:0]$34
+     4/4: $0\out2[7:0]
+Creating decoders for process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:75$22'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:77$20_EN[7:0]$28
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:77$20_DATA[7:0]$27
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:77$20_ADDR[10:0]$26
+     4/4: $0\out1[7:0]
+Creating decoders for process `\weight_cache_2048_8_0_weight_init_23.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:21$1'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.\out2' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:84$30'.
+  created $dff cell `$procdff$62' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:86$21_ADDR' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:84$30'.
+  created $dff cell `$procdff$63' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:86$21_DATA' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:84$30'.
+  created $dff cell `$procdff$64' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:86$21_EN' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:84$30'.
+  created $dff cell `$procdff$65' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.\out1' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:75$22'.
+  created $dff cell `$procdff$66' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:77$20_ADDR' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:75$22'.
+  created $dff cell `$procdff$67' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:77$20_DATA' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:75$22'.
+  created $dff cell `$procdff$68' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:77$20_EN' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:75$22'.
+  created $dff cell `$procdff$69' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_23.\addr0_reg' using process `\weight_cache_2048_8_0_weight_init_23.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:21$1'.
+  created $dff cell `$procdff$70' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_23.\addr1_reg' using process `\weight_cache_2048_8_0_weight_init_23.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:21$1'.
+  created $dff cell `$procdff$71' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_23.\pipeline0_reg_0' using process `\weight_cache_2048_8_0_weight_init_23.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:21$1'.
+  created $dff cell `$procdff$72' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_23.\pipeline1_reg_0' using process `\weight_cache_2048_8_0_weight_init_23.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:21$1'.
+  created $dff cell `$procdff$73' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:84$30'.
+Removing empty process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:84$30'.
+Found and cleaned up 1 empty switch in `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:75$22'.
+Removing empty process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:75$22'.
+Removing empty process `weight_cache_2048_8_0_weight_init_23.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:21$1'.
+Cleaned up 2 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+Optimizing module weight_cache_2048_8_0_weight_init_23.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+Optimizing module weight_cache_2048_8_0_weight_init_23.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_23'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_23..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+    Consolidated identical input bits for $mux cell $procmux$51:
+      Old ports: A=8'00000000, B=8'11111111, Y=$procmux$51_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$51_Y [0]
+      New connections: $procmux$51_Y [7:1] = { $procmux$51_Y [0] $procmux$51_Y [0] $procmux$51_Y [0] $procmux$51_Y [0] $procmux$51_Y [0] $procmux$51_Y [0] $procmux$51_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$39:
+      Old ports: A=8'00000000, B=8'11111111, Y=$procmux$39_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$39_Y [0]
+      New connections: $procmux$39_Y [7:1] = { $procmux$39_Y [0] $procmux$39_Y [0] $procmux$39_Y [0] $procmux$39_Y [0] $procmux$39_Y [0] $procmux$39_Y [0] $procmux$39_Y [0] }
+  Optimizing cells in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_23.
+Performed a total of 2 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_23'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$62 ($dff) from module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:89$37_DATA, Q = \out2).
+Adding EN signal on $procdff$66 ($dff) from module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/weight_cache_2048_8_0_weight_init_23.v:80$29_DATA, Q = \out1).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_23..
+Removed 8 unused cells and 34 unused wires.
+<suppressed ~10 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+Optimizing module weight_cache_2048_8_0_weight_init_23.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_23..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_23.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_23'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_23..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+Optimizing module weight_cache_2048_8_0_weight_init_23.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram ===
+
+   Number of wires:                 17
+   Number of wire bits:            127
+   Number of public wires:           9
+   Number of public wire bits:      57
+   Number of memories:               1
+   Number of memory bits:           88
+   Number of processes:              0
+   Number of cells:                 12
+     $dffe                          16
+     $mux                           40
+
+=== weight_cache_2048_8_0_weight_init_23 ===
+
+   Number of wires:                 15
+   Number of wire bits:            111
+   Number of public wires:          15
+   Number of public wire bits:     111
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $dff                           38
+
+=== design hierarchy ===
+
+   weight_cache_2048_8_0_weight_init_23      1
+     $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram      0
+
+   Number of wires:                 15
+   Number of wire bits:            111
+   Number of public wires:          15
+   Number of public wire bits:     111
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $dff                           38
+
+End of script. Logfile hash: 024cbc7b1b, CPU: user 0.05s system 0.00s, MEM: 11.65 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 33% 4x opt_expr (0 sec), 16% 2x read_verilog (0 sec), ...

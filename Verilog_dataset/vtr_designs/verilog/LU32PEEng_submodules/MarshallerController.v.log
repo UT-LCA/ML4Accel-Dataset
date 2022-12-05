@@ -1,0 +1,432 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v' to AST representation.
+Generating RTLIL representation for module `\MarshallerController'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:522.1-534.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: MarshallerController
+Automatically selected MarshallerController as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \MarshallerController
+
+2.3. Analyzing design hierarchy..
+Top module:  \MarshallerController
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 15 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111 in module MarshallerController.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:522$110 in module MarshallerController.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:508$109 in module MarshallerController.
+Marked 24 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:352$72 in module MarshallerController.
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:312$47 in module MarshallerController.
+Marked 10 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:241$27 in module MarshallerController.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+     1/20: $0\block_n[6:0]
+     2/20: $0\block_m[6:0]
+     3/20: $0\mem_write_size_buf[6:0]
+     4/20: $0\mem_write_size[6:0]
+     5/20: $0\mem_write_buf[23:0]
+     6/20: $0\mem_cur[23:0]
+     7/20: $0\mem_left[23:0]
+     8/20: $0\mem_write[23:0]
+     9/20: $0\mem_top[23:0]
+    10/20: $0\mem_base[23:0]
+    11/20: $0\no_left_switch[0:0]
+    12/20: $0\write_n_buf[6:0]
+    13/20: $0\write_n[6:0]
+    14/20: $0\ncount[19:0]
+    15/20: $0\mcount[19:0]
+    16/20: $0\comp_N[19:0]
+    17/20: $0\left_mem_sel[0:0]
+    18/20: $0\cur_mem_sel[0:0]
+    19/20: $0\loop[6:0]
+    20/20: $0\N[19:0]
+Creating decoders for process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:522$110'.
+     1/1: $1\mode[1:0]
+Creating decoders for process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:508$109'.
+     1/2: $0\cur_mem_state[3:0]
+     2/2: $0\cur_state[4:0]
+Creating decoders for process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:352$72'.
+     1/1: $0\next_state[4:0]
+Creating decoders for process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:312$47'.
+     1/5: $0\mem_read[1:0]
+     2/5: $0\mem_count[6:0]
+     3/5: $0\mem_addr[23:0]
+     4/5: $0\ram_addr[6:0]
+     5/5: $0\read_n[6:0]
+Creating decoders for process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:241$27'.
+     1/1: $0\next_mem_state[3:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\MarshallerController.\mode' from process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:522$110'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\MarshallerController.\N' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$521' with positive edge clock.
+Creating register for signal `\MarshallerController.\block_m' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$522' with positive edge clock.
+Creating register for signal `\MarshallerController.\block_n' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$523' with positive edge clock.
+Creating register for signal `\MarshallerController.\loop' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$524' with positive edge clock.
+Creating register for signal `\MarshallerController.\cur_mem_sel' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$525' with positive edge clock.
+Creating register for signal `\MarshallerController.\left_mem_sel' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$526' with positive edge clock.
+Creating register for signal `\MarshallerController.\comp_N' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$527' with positive edge clock.
+Creating register for signal `\MarshallerController.\mcount' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$528' with positive edge clock.
+Creating register for signal `\MarshallerController.\ncount' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$529' with positive edge clock.
+Creating register for signal `\MarshallerController.\Ndivk' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$530' with positive edge clock.
+Creating register for signal `\MarshallerController.\mem_N' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$531' with positive edge clock.
+Creating register for signal `\MarshallerController.\write_n' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$532' with positive edge clock.
+Creating register for signal `\MarshallerController.\write_n_buf' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$533' with positive edge clock.
+Creating register for signal `\MarshallerController.\no_left_switch' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$534' with positive edge clock.
+Creating register for signal `\MarshallerController.\mem_base' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$535' with positive edge clock.
+Creating register for signal `\MarshallerController.\mem_top' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$536' with positive edge clock.
+Creating register for signal `\MarshallerController.\mem_write' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$537' with positive edge clock.
+Creating register for signal `\MarshallerController.\mem_left' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$538' with positive edge clock.
+Creating register for signal `\MarshallerController.\mem_cur' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$539' with positive edge clock.
+Creating register for signal `\MarshallerController.\mem_write_buf' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$540' with positive edge clock.
+Creating register for signal `\MarshallerController.\mem_write_size' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$541' with positive edge clock.
+Creating register for signal `\MarshallerController.\mem_write_size_buf' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$542' with positive edge clock.
+Creating register for signal `\MarshallerController.\mem_read_size' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+  created $dff cell `$procdff$543' with positive edge clock.
+Creating register for signal `\MarshallerController.\cur_state' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:508$109'.
+  created $dff cell `$procdff$544' with positive edge clock.
+Creating register for signal `\MarshallerController.\cur_mem_state' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:508$109'.
+  created $dff cell `$procdff$545' with positive edge clock.
+Creating register for signal `\MarshallerController.\next_state' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:352$72'.
+  created $dff cell `$procdff$546' with positive edge clock.
+Creating register for signal `\MarshallerController.\read_n' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:312$47'.
+  created $dff cell `$procdff$547' with positive edge clock.
+Creating register for signal `\MarshallerController.\ram_addr' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:312$47'.
+  created $dff cell `$procdff$548' with positive edge clock.
+Creating register for signal `\MarshallerController.\mem_addr' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:312$47'.
+  created $dff cell `$procdff$549' with positive edge clock.
+Creating register for signal `\MarshallerController.\mem_count' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:312$47'.
+  created $dff cell `$procdff$550' with positive edge clock.
+Creating register for signal `\MarshallerController.\mem_read' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:312$47'.
+  created $dff cell `$procdff$551' with positive edge clock.
+Creating register for signal `\MarshallerController.\next_mem_state' using process `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:241$27'.
+  created $dff cell `$procdff$552' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 24 empty switches in `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+Removing empty process `MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:536$111'.
+Found and cleaned up 1 empty switch in `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:522$110'.
+Removing empty process `MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:522$110'.
+Found and cleaned up 1 empty switch in `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:508$109'.
+Removing empty process `MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:508$109'.
+Found and cleaned up 24 empty switches in `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:352$72'.
+Removing empty process `MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:352$72'.
+Found and cleaned up 6 empty switches in `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:312$47'.
+Removing empty process `MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:312$47'.
+Found and cleaned up 10 empty switches in `\MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:241$27'.
+Removing empty process `MarshallerController.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:241$27'.
+Cleaned up 66 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MarshallerController.
+<suppressed ~29 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MarshallerController.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MarshallerController'.
+<suppressed ~294 debug messages>
+Removed a total of 98 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MarshallerController..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~31 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MarshallerController.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MarshallerController'.
+<suppressed ~21 debug messages>
+Removed a total of 7 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$529 ($dff) from module MarshallerController (D = $procmux$296_Y, Q = \ncount, rval = 20'00000000000001000000).
+Adding EN signal on $auto$ff.cc:262:slice$553 ($sdff) from module MarshallerController (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:617$153_Y, Q = \ncount).
+Adding EN signal on $procdff$551 ($dff) from module MarshallerController (D = $procmux$446_Y, Q = \mem_read).
+Adding SRST signal on $procdff$550 ($dff) from module MarshallerController (D = $procmux$448_Y, Q = \mem_count, rval = 7'0000000).
+Adding EN signal on $auto$ff.cc:262:slice$558 ($sdff) from module MarshallerController (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:346$71_Y, Q = \mem_count).
+Adding EN signal on $procdff$549 ($dff) from module MarshallerController (D = $procmux$465_Y, Q = \mem_addr).
+Adding EN signal on $procdff$527 ($dff) from module MarshallerController (D = $procmux$309_Y, Q = \comp_N).
+Adding SRST signal on $procdff$548 ($dff) from module MarshallerController (D = $procmux$467_Y, Q = \ram_addr, rval = 7'0000000).
+Adding EN signal on $auto$ff.cc:262:slice$568 ($sdff) from module MarshallerController (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:344$69_Y, Q = \ram_addr).
+Adding EN signal on $procdff$547 ($dff) from module MarshallerController (D = $procmux$477_Y, Q = \read_n).
+Adding SRST signal on $procdff$545 ($dff) from module MarshallerController (D = \next_mem_state, Q = \cur_mem_state, rval = 4'0000).
+Adding SRST signal on $procdff$544 ($dff) from module MarshallerController (D = \next_state, Q = \cur_state, rval = 5'00000).
+Setting constant 0-bit at position 0 on $procdff$543 ($dff) from module MarshallerController.
+Setting constant 1-bit at position 1 on $procdff$543 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 2 on $procdff$543 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 3 on $procdff$543 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 4 on $procdff$543 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 5 on $procdff$543 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 6 on $procdff$543 ($dff) from module MarshallerController.
+Adding SRST signal on $procdff$542 ($dff) from module MarshallerController (D = $procmux$210_Y, Q = \mem_write_size_buf, rval = 7'0000010).
+Adding EN signal on $auto$ff.cc:262:slice$579 ($sdff) from module MarshallerController (D = \mem_read_size, Q = \mem_write_size_buf).
+Adding SRST signal on $procdff$541 ($dff) from module MarshallerController (D = $procmux$215_Y, Q = \mem_write_size, rval = 7'0000010).
+Adding EN signal on $auto$ff.cc:262:slice$581 ($sdff) from module MarshallerController (D = \mem_write_size_buf, Q = \mem_write_size).
+Adding SRST signal on $procdff$540 ($dff) from module MarshallerController (D = $procmux$220_Y, Q = \mem_write_buf, rval = 24'000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$583 ($sdff) from module MarshallerController (D = \mem_cur, Q = \mem_write_buf).
+Adding EN signal on $procdff$539 ($dff) from module MarshallerController (D = $procmux$237_Y, Q = \mem_cur).
+Adding EN signal on $procdff$538 ($dff) from module MarshallerController (D = $procmux$251_Y, Q = \mem_left).
+Adding SRST signal on $procdff$537 ($dff) from module MarshallerController (D = $procmux$253_Y, Q = \mem_write, rval = 24'000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$595 ($sdff) from module MarshallerController (D = \mem_write_buf, Q = \mem_write).
+Adding EN signal on $procdff$536 ($dff) from module MarshallerController (D = $procmux$270_Y, Q = \mem_top).
+Adding EN signal on $procdff$535 ($dff) from module MarshallerController (D = $procmux$276_Y, Q = \mem_base).
+Adding SRST signal on $procdff$534 ($dff) from module MarshallerController (D = $procmux$281_Y, Q = \no_left_switch, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$609 ($sdff) from module MarshallerController (D = $procmux$281_Y, Q = \no_left_switch).
+Adding EN signal on $procdff$533 ($dff) from module MarshallerController (D = $procmux$289_Y, Q = \write_n_buf).
+Adding EN signal on $procdff$532 ($dff) from module MarshallerController (D = $procmux$294_Y, Q = \write_n).
+Adding SRST signal on $procdff$528 ($dff) from module MarshallerController (D = $procmux$301_Y, Q = \mcount, rval = 20'00000000000001000000).
+Adding EN signal on $auto$ff.cc:262:slice$619 ($sdff) from module MarshallerController (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:611$149_Y, Q = \mcount).
+Adding EN signal on $procdff$521 ($dff) from module MarshallerController (D = \input_N, Q = \N).
+Adding SRST signal on $procdff$522 ($dff) from module MarshallerController (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:623$156_Y [6:0], Q = \block_m, rval = 7'1000000).
+Adding SRST signal on $procdff$523 ($dff) from module MarshallerController (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:629$159_Y [6:0], Q = \block_n, rval = 7'1000000).
+Adding SRST signal on $procdff$524 ($dff) from module MarshallerController (D = $procmux$321_Y, Q = \loop, rval = 7'1000000).
+Adding EN signal on $auto$ff.cc:262:slice$624 ($sdff) from module MarshallerController (D = $sub$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:605$141_Y [6:0], Q = \loop).
+Adding SRST signal on $procdff$525 ($dff) from module MarshallerController (D = $procmux$316_Y, Q = \cur_mem_sel, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$626 ($sdff) from module MarshallerController (D = $logic_not$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:636$175_Y, Q = \cur_mem_sel).
+Adding SRST signal on $procdff$526 ($dff) from module MarshallerController (D = $procmux$311_Y, Q = \left_mem_sel, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$628 ($sdff) from module MarshallerController (D = $logic_not$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:652$203_Y, Q = \left_mem_sel).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MarshallerController..
+Removed 32 unused cells and 298 unused wires.
+<suppressed ~33 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MarshallerController.
+<suppressed ~10 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MarshallerController..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MarshallerController.
+    New ctrl vector for $pmux cell $procmux$344: { $eq$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:246$28_Y $procmux$434_CMP $procmux$433_CMP $procmux$422_CMP $procmux$421_CMP $auto$opt_reduce.cc:134:opt_mux$633 $procmux$410_CMP $procmux$409_CMP $eq$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:234$5_Y $eq$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:574$133_Y $procmux$394_CMP $eq$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:569$130_Y $procmux$379_CMP $auto$opt_reduce.cc:134:opt_mux$631 $procmux$365_CMP $procmux$364_CMP $eq$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:254$38_Y $procmux$359_CMP $eq$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:234$13_Y $procmux$354_CMP $eq$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU32PEEng_submodules/MarshallerController.v:254$36_Y $procmux$349_CMP \done }
+  Optimizing cells in module \MarshallerController.
+Performed a total of 1 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MarshallerController'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $procdff$531 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 1 on $procdff$531 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 2 on $procdff$531 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 3 on $procdff$531 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 4 on $procdff$531 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 5 on $procdff$531 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 0 on $procdff$530 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 1 on $procdff$530 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 2 on $procdff$530 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 3 on $procdff$530 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 4 on $procdff$530 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$580 ($sdffe) from module MarshallerController.
+Setting constant 1-bit at position 1 on $auto$ff.cc:262:slice$580 ($sdffe) from module MarshallerController.
+Setting constant 0-bit at position 2 on $auto$ff.cc:262:slice$580 ($sdffe) from module MarshallerController.
+Setting constant 0-bit at position 3 on $auto$ff.cc:262:slice$580 ($sdffe) from module MarshallerController.
+Setting constant 0-bit at position 4 on $auto$ff.cc:262:slice$580 ($sdffe) from module MarshallerController.
+Setting constant 0-bit at position 5 on $auto$ff.cc:262:slice$580 ($sdffe) from module MarshallerController.
+Setting constant 0-bit at position 6 on $auto$ff.cc:262:slice$580 ($sdffe) from module MarshallerController.
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MarshallerController..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MarshallerController.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MarshallerController..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MarshallerController.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MarshallerController'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$634 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$634 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 2 on $auto$ff.cc:262:slice$634 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 3 on $auto$ff.cc:262:slice$634 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 4 on $auto$ff.cc:262:slice$634 ($dff) from module MarshallerController.
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$582 ($sdffe) from module MarshallerController.
+Setting constant 1-bit at position 1 on $auto$ff.cc:262:slice$582 ($sdffe) from module MarshallerController.
+Setting constant 0-bit at position 2 on $auto$ff.cc:262:slice$582 ($sdffe) from module MarshallerController.
+Setting constant 0-bit at position 3 on $auto$ff.cc:262:slice$582 ($sdffe) from module MarshallerController.
+Setting constant 0-bit at position 4 on $auto$ff.cc:262:slice$582 ($sdffe) from module MarshallerController.
+Setting constant 0-bit at position 5 on $auto$ff.cc:262:slice$582 ($sdffe) from module MarshallerController.
+Setting constant 0-bit at position 6 on $auto$ff.cc:262:slice$582 ($sdffe) from module MarshallerController.
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MarshallerController..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MarshallerController.
+<suppressed ~1 debug messages>
+
+4.23. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.24. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MarshallerController..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+4.25. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MarshallerController.
+Performed a total of 0 changes.
+
+4.26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MarshallerController'.
+Removed a total of 0 cells.
+
+4.27. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MarshallerController..
+
+4.29. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MarshallerController.
+
+4.30. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== MarshallerController ===
+
+   Number of wires:                232
+   Number of wire bits:           1700
+   Number of public wires:          49
+   Number of public wire bits:     483
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                217
+     $add                          270
+     $dff                           33
+     $dffe                         183
+     $eq                           239
+     $le                            20
+     $logic_and                      5
+     $logic_not                     13
+     $logic_or                      28
+     $lt                            40
+     $mux                          681
+     $ne                             7
+     $not                            2
+     $pmux                          11
+     $reduce_and                     7
+     $reduce_bool                   18
+     $reduce_or                      6
+     $sdff                          23
+     $sdffe                        112
+     $sub                          103
+
+End of script. Logfile hash: 5fe9fa0de1, CPU: user 0.28s system 0.00s, MEM: 15.06 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 27% 6x opt_expr (0 sec), 17% 5x opt_merge (0 sec), ...

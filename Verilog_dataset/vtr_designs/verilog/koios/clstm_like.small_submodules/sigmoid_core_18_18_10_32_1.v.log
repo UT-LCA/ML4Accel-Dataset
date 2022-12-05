@@ -1,0 +1,1434 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v' to AST representation.
+Generating RTLIL representation for module `\sigmoid_core_18_18_10_32_1'.
+Generating RTLIL representation for module `\abs_unit_18'.
+Generating RTLIL representation for module `\dsp_signed_mac_18_13_23_32'.
+Generating RTLIL representation for module `\fp_rounding_unit_1_32_11'.
+Generating RTLIL representation for module `\shift_register_unit_1_3'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: shift_register_unit_1_3
+root of   0 design levels: fp_rounding_unit_1_32_11
+root of   0 design levels: dsp_signed_mac_18_13_23_32
+root of   0 design levels: abs_unit_18         
+root of   1 design levels: sigmoid_core_18_18_10_32_1
+Automatically selected sigmoid_core_18_18_10_32_1 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \sigmoid_core_18_18_10_32_1
+Used module:     \fp_rounding_unit_1_32_11
+Used module:     \abs_unit_18
+Used module:     \shift_register_unit_1_3
+Used module:     \dsp_signed_mac_18_13_23_32
+
+2.3. Analyzing design hierarchy..
+Top module:  \sigmoid_core_18_18_10_32_1
+Used module:     \fp_rounding_unit_1_32_11
+Used module:     \abs_unit_18
+Used module:     \shift_register_unit_1_3
+Used module:     \dsp_signed_mac_18_13_23_32
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:491$57 in module shift_register_unit_1_3.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:456$53 in module fp_rounding_unit_1_32_11.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:446$52 in module fp_rounding_unit_1_32_11.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:416$51 in module dsp_signed_mac_18_13_23_32.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:400$48 in module dsp_signed_mac_18_13_23_32.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:371$47 in module abs_unit_18.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:362$44 in module abs_unit_18.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:326$41 in module sigmoid_core_18_18_10_32_1.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:319$39 in module sigmoid_core_18_18_10_32_1.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:268$36 in module sigmoid_core_18_18_10_32_1.
+Marked 32 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:166$3 in module sigmoid_core_18_18_10_32_1.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 9 redundant assignments.
+Promoted 68 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\shift_register_unit_1_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:491$57'.
+     1/3: $0\shift_registers_2[0:0]
+     2/3: $0\shift_registers_1[0:0]
+     3/3: $0\shift_registers_0[0:0]
+Creating decoders for process `\fp_rounding_unit_1_32_11.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:456$53'.
+     1/6: $0\floor_ceil_valid[0:0]
+     2/6: $0\is_ceil[0:0]
+     3/6: $0\ceil[31:0]
+     4/6: $0\floor[31:0]
+     5/6: $0\out_reg[31:0]
+     6/6: $0\valid_reg[0:0]
+Creating decoders for process `\fp_rounding_unit_1_32_11.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:446$52'.
+     1/1: $1\rounded_result[31:0]
+Creating decoders for process `\dsp_signed_mac_18_13_23_32.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:416$51'.
+     1/3: $0\output_valid[0:0]
+     2/3: $0\result_valid[0:0]
+     3/3: $0\input_valid[0:0]
+Creating decoders for process `\dsp_signed_mac_18_13_23_32.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:400$48'.
+     1/4: $0\reg_res[31:0]
+     2/4: $0\reg_az[22:0]
+     3/4: $0\reg_ay[12:0]
+     4/4: $0\reg_ax[17:0]
+Creating decoders for process `\abs_unit_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:371$47'.
+     1/2: $0\out_reg[17:0]
+     2/2: $0\valid_reg[0:0]
+Creating decoders for process `\abs_unit_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:362$44'.
+     1/1: $1\abs_result[17:0]
+Creating decoders for process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:326$41'.
+     1/5: $0\is_x_negative[0:0]
+     2/5: $0\valid_y[0:0]
+     3/5: $0\valid_x[0:0]
+     4/5: $0\y[17:0]
+     5/5: $0\x[17:0]
+Creating decoders for process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:319$39'.
+     1/1: $1\y_compute[31:0]
+Creating decoders for process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:268$36'.
+     1/3: $0\mac_az[22:0]
+     2/3: $0\mac_ay[12:0]
+     3/3: $0\use_boundary_value[0:0]
+Creating decoders for process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:166$3'.
+     1/2: $0\selected_b[12:0]
+     2/2: $0\selected_k[12:0]
+Creating decoders for process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\fp_rounding_unit_1_32_11.\rounded_result' from process `\fp_rounding_unit_1_32_11.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:446$52'.
+No latch inferred for signal `\abs_unit_18.\abs_result' from process `\abs_unit_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:362$44'.
+No latch inferred for signal `\sigmoid_core_18_18_10_32_1.\enable' from process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:319$39'.
+No latch inferred for signal `\sigmoid_core_18_18_10_32_1.\y_compute' from process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:319$39'.
+No latch inferred for signal `\sigmoid_core_18_18_10_32_1.\use_boundary_value' from process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:268$36'.
+No latch inferred for signal `\sigmoid_core_18_18_10_32_1.\mac_ay' from process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:268$36'.
+No latch inferred for signal `\sigmoid_core_18_18_10_32_1.\mac_az' from process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:268$36'.
+No latch inferred for signal `\sigmoid_core_18_18_10_32_1.\selected_k' from process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:166$3'.
+No latch inferred for signal `\sigmoid_core_18_18_10_32_1.\selected_b' from process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:166$3'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\shift_register_unit_1_3.\shift_registers_0' using process `\shift_register_unit_1_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:491$57'.
+  created $dff cell `$procdff$378' with positive edge clock.
+Creating register for signal `\shift_register_unit_1_3.\shift_registers_1' using process `\shift_register_unit_1_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:491$57'.
+  created $dff cell `$procdff$379' with positive edge clock.
+Creating register for signal `\shift_register_unit_1_3.\shift_registers_2' using process `\shift_register_unit_1_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:491$57'.
+  created $dff cell `$procdff$380' with positive edge clock.
+Creating register for signal `\fp_rounding_unit_1_32_11.\valid_reg' using process `\fp_rounding_unit_1_32_11.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:456$53'.
+  created $dff cell `$procdff$381' with positive edge clock.
+Creating register for signal `\fp_rounding_unit_1_32_11.\out_reg' using process `\fp_rounding_unit_1_32_11.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:456$53'.
+  created $dff cell `$procdff$382' with positive edge clock.
+Creating register for signal `\fp_rounding_unit_1_32_11.\floor' using process `\fp_rounding_unit_1_32_11.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:456$53'.
+  created $dff cell `$procdff$383' with positive edge clock.
+Creating register for signal `\fp_rounding_unit_1_32_11.\ceil' using process `\fp_rounding_unit_1_32_11.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:456$53'.
+  created $dff cell `$procdff$384' with positive edge clock.
+Creating register for signal `\fp_rounding_unit_1_32_11.\is_ceil' using process `\fp_rounding_unit_1_32_11.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:456$53'.
+  created $dff cell `$procdff$385' with positive edge clock.
+Creating register for signal `\fp_rounding_unit_1_32_11.\floor_ceil_valid' using process `\fp_rounding_unit_1_32_11.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:456$53'.
+  created $dff cell `$procdff$386' with positive edge clock.
+Creating register for signal `\dsp_signed_mac_18_13_23_32.\input_valid' using process `\dsp_signed_mac_18_13_23_32.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:416$51'.
+  created $dff cell `$procdff$387' with positive edge clock.
+Creating register for signal `\dsp_signed_mac_18_13_23_32.\result_valid' using process `\dsp_signed_mac_18_13_23_32.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:416$51'.
+  created $dff cell `$procdff$388' with positive edge clock.
+Creating register for signal `\dsp_signed_mac_18_13_23_32.\output_valid' using process `\dsp_signed_mac_18_13_23_32.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:416$51'.
+  created $dff cell `$procdff$389' with positive edge clock.
+Creating register for signal `\dsp_signed_mac_18_13_23_32.\reg_ax' using process `\dsp_signed_mac_18_13_23_32.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:400$48'.
+  created $dff cell `$procdff$390' with positive edge clock.
+Creating register for signal `\dsp_signed_mac_18_13_23_32.\reg_ay' using process `\dsp_signed_mac_18_13_23_32.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:400$48'.
+  created $dff cell `$procdff$391' with positive edge clock.
+Creating register for signal `\dsp_signed_mac_18_13_23_32.\reg_az' using process `\dsp_signed_mac_18_13_23_32.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:400$48'.
+  created $dff cell `$procdff$392' with positive edge clock.
+Creating register for signal `\dsp_signed_mac_18_13_23_32.\reg_res' using process `\dsp_signed_mac_18_13_23_32.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:400$48'.
+  created $dff cell `$procdff$393' with positive edge clock.
+Creating register for signal `\abs_unit_18.\valid_reg' using process `\abs_unit_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:371$47'.
+  created $dff cell `$procdff$394' with positive edge clock.
+Creating register for signal `\abs_unit_18.\out_reg' using process `\abs_unit_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:371$47'.
+  created $dff cell `$procdff$395' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\x' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:326$41'.
+  created $dff cell `$procdff$396' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\y' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:326$41'.
+  created $dff cell `$procdff$397' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\valid_x' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:326$41'.
+  created $dff cell `$procdff$398' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\valid_y' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:326$41'.
+  created $dff cell `$procdff$399' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\is_x_negative' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:326$41'.
+  created $dff cell `$procdff$400' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_0' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$401' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_0' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$402' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_1' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$403' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_1' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$404' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_2' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$405' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_2' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$406' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_3' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$407' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_3' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$408' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_4' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$409' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_4' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$410' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_5' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$411' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_5' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$412' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_6' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$413' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_6' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$414' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_7' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$415' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_7' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$416' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_8' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$417' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_8' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$418' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_9' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$419' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_9' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$420' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_10' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$421' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_10' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$422' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_11' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$423' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_11' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$424' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_12' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$425' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_12' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$426' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_13' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$427' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_13' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$428' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_14' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$429' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_14' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$430' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_15' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$431' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_15' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$432' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_16' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$433' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_16' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$434' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_17' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$435' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_17' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$436' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_18' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$437' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_18' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$438' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_19' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$439' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_19' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$440' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_20' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$441' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_20' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$442' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_21' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$443' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_21' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$444' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_22' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$445' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_22' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$446' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_23' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$447' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_23' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$448' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_24' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$449' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_24' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$450' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_25' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$451' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_25' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$452' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_26' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$453' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_26' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$454' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_27' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$455' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_27' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$456' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_28' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$457' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_28' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$458' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_29' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$459' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_29' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$460' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_30' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$461' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_30' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$462' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\k_list_31' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$463' with positive edge clock.
+Creating register for signal `\sigmoid_core_18_18_10_32_1.\b_list_31' using process `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+  created $dff cell `$procdff$464' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\shift_register_unit_1_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:491$57'.
+Removing empty process `shift_register_unit_1_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:491$57'.
+Found and cleaned up 2 empty switches in `\fp_rounding_unit_1_32_11.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:456$53'.
+Removing empty process `fp_rounding_unit_1_32_11.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:456$53'.
+Found and cleaned up 1 empty switch in `\fp_rounding_unit_1_32_11.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:446$52'.
+Removing empty process `fp_rounding_unit_1_32_11.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:446$52'.
+Found and cleaned up 2 empty switches in `\dsp_signed_mac_18_13_23_32.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:416$51'.
+Removing empty process `dsp_signed_mac_18_13_23_32.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:416$51'.
+Found and cleaned up 1 empty switch in `\dsp_signed_mac_18_13_23_32.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:400$48'.
+Removing empty process `dsp_signed_mac_18_13_23_32.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:400$48'.
+Found and cleaned up 2 empty switches in `\abs_unit_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:371$47'.
+Removing empty process `abs_unit_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:371$47'.
+Found and cleaned up 1 empty switch in `\abs_unit_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:362$44'.
+Removing empty process `abs_unit_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:362$44'.
+Found and cleaned up 3 empty switches in `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:326$41'.
+Removing empty process `sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:326$41'.
+Found and cleaned up 1 empty switch in `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:319$39'.
+Removing empty process `sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:319$39'.
+Found and cleaned up 1 empty switch in `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:268$36'.
+Removing empty process `sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:268$36'.
+Found and cleaned up 32 empty switches in `\sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:166$3'.
+Removing empty process `sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:166$3'.
+Removing empty process `sigmoid_core_18_18_10_32_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:79$1'.
+Cleaned up 48 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module shift_register_unit_1_3.
+Optimizing module fp_rounding_unit_1_32_11.
+<suppressed ~2 debug messages>
+Optimizing module dsp_signed_mac_18_13_23_32.
+Optimizing module abs_unit_18.
+<suppressed ~1 debug messages>
+Optimizing module sigmoid_core_18_18_10_32_1.
+<suppressed ~4 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module shift_register_unit_1_3.
+Optimizing module fp_rounding_unit_1_32_11.
+Optimizing module dsp_signed_mac_18_13_23_32.
+Optimizing module abs_unit_18.
+Optimizing module sigmoid_core_18_18_10_32_1.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\shift_register_unit_1_3'.
+Finding identical cells in module `\fp_rounding_unit_1_32_11'.
+Finding identical cells in module `\dsp_signed_mac_18_13_23_32'.
+Finding identical cells in module `\abs_unit_18'.
+Finding identical cells in module `\sigmoid_core_18_18_10_32_1'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \shift_register_unit_1_3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fp_rounding_unit_1_32_11..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dsp_signed_mac_18_13_23_32..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \abs_unit_18..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$144: \in -> { 1'0 \in [16:0] }
+  Analyzing evaluation results.
+Running muxtree optimizer on module \sigmoid_core_18_18_10_32_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$184.
+    dead port 2/2 on $mux $procmux$184.
+Removed 2 multiplexer ports.
+<suppressed ~26 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \shift_register_unit_1_3.
+  Optimizing cells in module \fp_rounding_unit_1_32_11.
+  Optimizing cells in module \dsp_signed_mac_18_13_23_32.
+  Optimizing cells in module \abs_unit_18.
+  Optimizing cells in module \sigmoid_core_18_18_10_32_1.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\shift_register_unit_1_3'.
+Finding identical cells in module `\fp_rounding_unit_1_32_11'.
+Finding identical cells in module `\dsp_signed_mac_18_13_23_32'.
+Finding identical cells in module `\abs_unit_18'.
+Finding identical cells in module `\sigmoid_core_18_18_10_32_1'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$378 ($dff) from module shift_register_unit_1_3 (D = $procmux$68_Y, Q = \shift_registers_0, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$465 ($sdff) from module shift_register_unit_1_3 (D = \in, Q = \shift_registers_0).
+Adding SRST signal on $procdff$379 ($dff) from module shift_register_unit_1_3 (D = $procmux$63_Y, Q = \shift_registers_1, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$467 ($sdff) from module shift_register_unit_1_3 (D = \shift_registers_0, Q = \shift_registers_1).
+Adding SRST signal on $procdff$380 ($dff) from module shift_register_unit_1_3 (D = $procmux$58_Y, Q = \shift_registers_2, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$469 ($sdff) from module shift_register_unit_1_3 (D = \shift_registers_1, Q = \shift_registers_2).
+Adding SRST signal on $procdff$386 ($dff) from module fp_rounding_unit_1_32_11 (D = $procmux$73_Y, Q = \floor_ceil_valid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$471 ($sdff) from module fp_rounding_unit_1_32_11 (D = \i_valid, Q = \floor_ceil_valid).
+Adding SRST signal on $procdff$385 ($dff) from module fp_rounding_unit_1_32_11 (D = $procmux$78_Y, Q = \is_ceil, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$473 ($sdff) from module fp_rounding_unit_1_32_11 (D = \in [10], Q = \is_ceil).
+Adding SRST signal on $procdff$381 ($dff) from module fp_rounding_unit_1_32_11 (D = $procmux$98_Y, Q = \valid_reg, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$475 ($sdff) from module fp_rounding_unit_1_32_11 (D = \floor_ceil_valid, Q = \valid_reg).
+Adding SRST signal on $procdff$382 ($dff) from module fp_rounding_unit_1_32_11 (D = $procmux$93_Y, Q = \out_reg, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$477 ($sdff) from module fp_rounding_unit_1_32_11 (D = $procmux$104_Y, Q = \out_reg).
+Adding SRST signal on $procdff$383 ($dff) from module fp_rounding_unit_1_32_11 (D = $procmux$88_Y, Q = \floor, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$479 ($sdff) from module fp_rounding_unit_1_32_11 (D = { 11'00000000000 \in [31:11] }, Q = \floor).
+Setting constant 0-bit at position 21 on $auto$ff.cc:262:slice$480 ($sdffe) from module fp_rounding_unit_1_32_11.
+Setting constant 0-bit at position 22 on $auto$ff.cc:262:slice$480 ($sdffe) from module fp_rounding_unit_1_32_11.
+Setting constant 0-bit at position 23 on $auto$ff.cc:262:slice$480 ($sdffe) from module fp_rounding_unit_1_32_11.
+Setting constant 0-bit at position 24 on $auto$ff.cc:262:slice$480 ($sdffe) from module fp_rounding_unit_1_32_11.
+Setting constant 0-bit at position 25 on $auto$ff.cc:262:slice$480 ($sdffe) from module fp_rounding_unit_1_32_11.
+Setting constant 0-bit at position 26 on $auto$ff.cc:262:slice$480 ($sdffe) from module fp_rounding_unit_1_32_11.
+Setting constant 0-bit at position 27 on $auto$ff.cc:262:slice$480 ($sdffe) from module fp_rounding_unit_1_32_11.
+Setting constant 0-bit at position 28 on $auto$ff.cc:262:slice$480 ($sdffe) from module fp_rounding_unit_1_32_11.
+Setting constant 0-bit at position 29 on $auto$ff.cc:262:slice$480 ($sdffe) from module fp_rounding_unit_1_32_11.
+Setting constant 0-bit at position 30 on $auto$ff.cc:262:slice$480 ($sdffe) from module fp_rounding_unit_1_32_11.
+Setting constant 0-bit at position 31 on $auto$ff.cc:262:slice$480 ($sdffe) from module fp_rounding_unit_1_32_11.
+Adding SRST signal on $procdff$384 ($dff) from module fp_rounding_unit_1_32_11 (D = $procmux$83_Y, Q = \ceil, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$482 ($sdff) from module fp_rounding_unit_1_32_11 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:467$56_Y, Q = \ceil).
+Adding SRST signal on $procdff$387 ($dff) from module dsp_signed_mac_18_13_23_32 (D = $procmux$116_Y, Q = \input_valid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$484 ($sdff) from module dsp_signed_mac_18_13_23_32 (D = \i_valid, Q = \input_valid).
+Adding SRST signal on $procdff$388 ($dff) from module dsp_signed_mac_18_13_23_32 (D = $procmux$111_Y, Q = \result_valid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$486 ($sdff) from module dsp_signed_mac_18_13_23_32 (D = \input_valid, Q = \result_valid).
+Adding SRST signal on $procdff$389 ($dff) from module dsp_signed_mac_18_13_23_32 (D = $procmux$106_Y, Q = \output_valid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$488 ($sdff) from module dsp_signed_mac_18_13_23_32 (D = \result_valid, Q = \output_valid).
+Adding SRST signal on $procdff$390 ($dff) from module dsp_signed_mac_18_13_23_32 (D = \ax, Q = \reg_ax, rval = 18'000000000000000000).
+Adding SRST signal on $procdff$391 ($dff) from module dsp_signed_mac_18_13_23_32 (D = \ay, Q = \reg_ay, rval = 13'0000000000000).
+Adding SRST signal on $procdff$392 ($dff) from module dsp_signed_mac_18_13_23_32 (D = \az, Q = \reg_az, rval = 23'00000000000000000000000).
+Adding SRST signal on $procdff$393 ($dff) from module dsp_signed_mac_18_13_23_32 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/sigmoid_core_18_18_10_32_1.v:410$50_Y, Q = \reg_res, rval = 0).
+Adding SRST signal on $procdff$395 ($dff) from module abs_unit_18 (D = $procmux$133_Y, Q = \out_reg, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$494 ($sdff) from module abs_unit_18 (D = $procmux$144_Y, Q = \out_reg).
+Adding SRST signal on $procdff$394 ($dff) from module abs_unit_18 (D = $procmux$138_Y, Q = \valid_reg, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$496 ($sdff) from module abs_unit_18 (D = \i_valid, Q = \valid_reg).
+Setting constant 1-bit at position 0 on $procdff$464 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$464 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$464 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$464 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$464 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$464 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$464 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$464 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$464 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$464 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$464 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$464 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$464 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$458 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$458 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$458 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$458 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$458 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$458 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$458 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$458 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$458 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$458 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$458 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$458 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$458 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$462 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$462 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$462 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$462 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$462 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$462 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$462 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$462 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$462 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$462 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$462 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$462 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$462 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$457 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$457 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$457 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$457 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$457 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$457 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$457 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$457 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$457 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$457 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$457 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$457 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$457 ($dff) from module sigmoid_core_18_18_10_32_1.
+Adding SRST signal on $procdff$396 ($dff) from module sigmoid_core_18_18_10_32_1 (D = $procmux$169_Y, Q = \x, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$498 ($sdff) from module sigmoid_core_18_18_10_32_1 (D = \i_x, Q = \x).
+Adding SRST signal on $procdff$397 ($dff) from module sigmoid_core_18_18_10_32_1 (D = $procmux$164_Y, Q = \y, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$500 ($sdff) from module sigmoid_core_18_18_10_32_1 (D = \y_rounded [17:0], Q = \y).
+Adding SRST signal on $procdff$398 ($dff) from module sigmoid_core_18_18_10_32_1 (D = $procmux$159_Y, Q = \valid_x, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$502 ($sdff) from module sigmoid_core_18_18_10_32_1 (D = \i_valid, Q = \valid_x).
+Adding SRST signal on $procdff$399 ($dff) from module sigmoid_core_18_18_10_32_1 (D = $procmux$154_Y, Q = \valid_y, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$504 ($sdff) from module sigmoid_core_18_18_10_32_1 (D = \round_valid, Q = \valid_y).
+Adding EN signal on $procdff$400 ($dff) from module sigmoid_core_18_18_10_32_1 (D = $procmux$147_Y, Q = \is_x_negative).
+Setting constant 1-bit at position 0 on $procdff$401 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$401 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$401 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$401 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$401 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$401 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$401 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$401 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$401 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$401 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$401 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$401 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$401 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$402 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$402 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$402 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$402 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$402 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$402 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$402 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$402 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$402 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$402 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$402 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$402 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$402 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$403 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$403 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$403 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$403 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$403 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$403 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$403 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$403 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$403 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$403 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$403 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$403 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$403 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$404 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$404 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$404 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$404 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$404 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$404 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$404 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$404 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$404 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$404 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$404 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$404 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$404 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$405 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$405 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$405 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$405 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$405 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$405 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$405 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$405 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$405 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$405 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$405 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$405 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$405 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$406 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$406 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$406 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$406 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$406 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$406 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$406 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$406 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$406 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$406 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$406 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$406 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$406 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$407 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$407 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$407 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$407 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$407 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$407 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$407 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$407 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$407 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$407 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$407 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$407 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$407 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$408 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$408 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$408 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$408 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$408 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$408 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$408 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$408 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$408 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$408 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$408 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$408 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$408 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$409 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$409 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$409 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$409 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$409 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$409 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$409 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$409 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$409 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$409 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$409 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$409 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$409 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$410 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$410 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$410 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$410 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$410 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$410 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$410 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$410 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$410 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$410 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$410 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$410 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$410 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$411 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$411 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$411 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$411 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$411 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$411 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$411 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$411 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$411 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$411 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$411 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$411 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$411 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$412 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$412 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$412 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$412 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$412 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$412 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$412 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$412 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$412 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$412 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$412 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$412 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$412 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$413 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$413 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$413 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$413 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$413 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$413 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$413 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$413 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$413 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$413 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$413 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$413 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$413 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$414 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$414 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$414 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$414 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$414 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$414 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$414 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$414 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$414 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$414 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$414 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$414 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$414 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$415 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$415 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$415 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$415 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$415 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$415 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$415 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$415 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$415 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$415 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$415 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$415 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$415 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$416 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$416 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$416 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$416 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$416 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$416 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$416 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$416 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$416 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$416 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$416 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$416 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$416 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$417 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$417 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$417 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$417 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$417 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$417 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$417 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$417 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$417 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$417 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$417 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$417 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$417 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$418 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$418 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$418 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$418 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$418 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$418 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$418 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$418 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$418 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$418 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$418 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$418 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$418 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$419 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$419 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$419 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$419 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$419 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$419 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$419 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$419 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$419 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$419 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$419 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$419 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$419 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$420 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$420 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$420 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$420 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$420 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$420 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$420 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$420 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$420 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$420 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$420 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$420 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$420 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$421 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$421 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$421 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$421 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$421 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$421 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$421 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$421 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$421 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$421 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$421 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$421 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$421 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$422 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$422 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$422 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$422 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$422 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$422 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$422 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$422 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$422 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$422 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$422 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$422 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$422 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$423 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$423 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$423 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$423 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$423 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$423 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$423 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$423 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$423 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$423 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$423 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$423 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$423 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$424 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$424 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$424 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$424 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$424 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$424 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$424 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$424 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$424 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$424 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$424 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$424 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$424 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$425 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$425 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$425 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$425 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$425 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$425 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$425 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$425 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$425 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$425 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$425 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$425 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$425 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$426 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$426 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$426 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$426 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$426 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$426 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$426 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$426 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$426 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$426 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$426 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$426 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$426 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$427 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$427 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$427 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$427 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$427 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$427 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$427 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$427 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$427 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$427 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$427 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$427 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$427 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$428 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$428 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$428 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$428 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$428 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$428 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$428 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$428 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$428 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$428 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$428 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$428 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$428 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$429 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$429 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$429 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$429 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$429 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$429 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$429 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$429 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$429 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$429 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$429 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$429 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$429 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$430 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$430 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$430 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$430 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$430 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$430 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$430 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$430 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$430 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$430 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$430 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$430 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$430 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$431 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$431 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$431 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$431 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$431 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$431 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$431 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$431 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$431 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$431 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$431 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$431 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$431 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$432 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$432 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$432 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$432 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$432 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$432 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$432 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$432 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$432 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$432 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$432 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$432 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$432 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$433 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$433 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$433 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$433 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$433 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$433 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$433 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$433 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$433 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$433 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$433 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$433 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$433 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$434 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$434 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$434 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$434 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$434 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$434 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$434 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$434 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$434 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$434 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$434 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$434 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$434 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$435 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$435 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$435 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$435 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$435 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$435 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$435 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$435 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$435 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$435 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$435 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$435 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$435 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$436 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$436 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$436 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$436 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$436 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$436 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$436 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$436 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$436 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$436 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$436 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$436 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$436 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$437 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$437 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$437 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$437 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$437 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$437 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$437 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$437 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$437 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$437 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$437 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$437 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$437 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$438 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$438 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$438 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$438 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$438 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$438 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$438 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$438 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$438 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$438 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$438 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$438 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$438 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$439 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$439 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$439 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$439 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$439 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$439 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$439 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$439 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$439 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$439 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$439 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$439 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$439 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$440 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$440 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$440 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$440 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$440 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$440 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$440 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$440 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$440 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$440 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$440 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$440 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$440 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$441 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$441 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$441 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$441 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$441 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$441 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$441 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$441 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$441 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$441 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$441 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$441 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$441 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$442 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$442 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$442 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$442 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$442 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$442 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$442 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$442 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$442 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$442 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$442 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$442 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$442 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$443 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$443 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$443 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$443 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$443 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$443 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$443 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$443 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$443 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$443 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$443 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$443 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$443 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$444 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$444 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$444 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$444 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$444 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$444 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$444 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$444 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$444 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$444 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$444 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$444 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$444 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$445 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$445 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$445 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$445 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$445 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$445 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$445 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$445 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$445 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$445 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$445 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$445 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$445 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$446 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$446 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$446 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$446 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$446 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$446 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$446 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$446 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$446 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$446 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$446 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$446 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$446 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$447 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$447 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$447 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$447 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$447 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$447 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$447 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$447 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$447 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$447 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$447 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$447 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$447 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$448 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$448 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$448 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$448 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$448 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$448 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$448 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$448 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$448 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$448 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$448 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$448 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$448 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$449 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$449 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$449 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$449 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$449 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$449 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$449 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$449 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$449 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$449 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$449 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$449 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$449 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$450 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$450 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$450 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$450 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$450 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$450 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$450 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$450 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$450 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$450 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$450 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$450 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$450 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$461 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$461 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$461 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$461 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$461 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$461 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$461 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$461 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$461 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$461 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$461 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$461 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$461 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 0 on $procdff$452 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$452 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$452 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$452 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$452 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$452 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$452 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$452 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$452 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$452 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$452 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$452 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$452 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$453 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$453 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$453 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$453 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$453 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 5 on $procdff$453 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 6 on $procdff$453 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 7 on $procdff$453 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 8 on $procdff$453 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 9 on $procdff$453 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 10 on $procdff$453 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$453 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$453 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$454 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$454 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 2 on $procdff$454 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$454 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$454 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$454 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$454 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$454 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$454 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$454 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$454 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$454 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$454 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$460 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 1 on $procdff$460 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$460 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 3 on $procdff$460 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 4 on $procdff$460 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$460 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$460 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$460 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$460 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$460 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$460 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$460 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$460 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 0 on $procdff$456 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 1 on $procdff$456 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 2 on $procdff$456 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 3 on $procdff$456 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 4 on $procdff$456 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 5 on $procdff$456 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 6 on $procdff$456 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 7 on $procdff$456 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 8 on $procdff$456 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 9 on $procdff$456 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 1-bit at position 10 on $procdff$456 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 11 on $procdff$456 ($dff) from module sigmoid_core_18_18_10_32_1.
+Setting constant 0-bit at position 12 on $procdff$456 ($dff) from module sigmoid_core_18_18_10_32_1.
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \shift_register_unit_1_3..
+Finding unused cells or wires in module \fp_rounding_unit_1_32_11..
+Finding unused cells or wires in module \dsp_signed_mac_18_13_23_32..
+Finding unused cells or wires in module \abs_unit_18..
+Finding unused cells or wires in module \sigmoid_core_18_18_10_32_1..
+Removed 42 unused cells and 271 unused wires.
+<suppressed ~49 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module abs_unit_18.
+Optimizing module dsp_signed_mac_18_13_23_32.
+Optimizing module fp_rounding_unit_1_32_11.
+Optimizing module shift_register_unit_1_3.
+Optimizing module sigmoid_core_18_18_10_32_1.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \abs_unit_18..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dsp_signed_mac_18_13_23_32..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fp_rounding_unit_1_32_11..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \shift_register_unit_1_3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \sigmoid_core_18_18_10_32_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \abs_unit_18.
+  Optimizing cells in module \dsp_signed_mac_18_13_23_32.
+  Optimizing cells in module \fp_rounding_unit_1_32_11.
+  Optimizing cells in module \shift_register_unit_1_3.
+  Optimizing cells in module \sigmoid_core_18_18_10_32_1.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\abs_unit_18'.
+Finding identical cells in module `\dsp_signed_mac_18_13_23_32'.
+Finding identical cells in module `\fp_rounding_unit_1_32_11'.
+Finding identical cells in module `\shift_register_unit_1_3'.
+Finding identical cells in module `\sigmoid_core_18_18_10_32_1'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \abs_unit_18..
+Finding unused cells or wires in module \dsp_signed_mac_18_13_23_32..
+Finding unused cells or wires in module \fp_rounding_unit_1_32_11..
+Finding unused cells or wires in module \shift_register_unit_1_3..
+Finding unused cells or wires in module \sigmoid_core_18_18_10_32_1..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module abs_unit_18.
+Optimizing module dsp_signed_mac_18_13_23_32.
+Optimizing module fp_rounding_unit_1_32_11.
+Optimizing module shift_register_unit_1_3.
+Optimizing module sigmoid_core_18_18_10_32_1.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== abs_unit_18 ===
+
+   Number of wires:                 11
+   Number of wire bits:             96
+   Number of public wires:          10
+   Number of public wire bits:      78
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $mux                           18
+     $neg                           18
+     $sdffe                         19
+
+=== dsp_signed_mac_18_13_23_32 ===
+
+   Number of wires:                 18
+   Number of wire bits:            244
+   Number of public wires:          16
+   Number of public wire bits:     180
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  9
+     $add                           32
+     $mul                           32
+     $sdff                          86
+     $sdffe                          3
+
+=== fp_rounding_unit_1_32_11 ===
+
+   Number of wires:                 15
+   Number of wire bits:            232
+   Number of public wires:          14
+   Number of public wire bits:     200
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  8
+     $add                           32
+     $mux                           32
+     $sdffe                         88
+
+=== shift_register_unit_1_3 ===
+
+   Number of wires:                  8
+   Number of wire bits:              8
+   Number of public wires:           8
+   Number of public wire bits:       8
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $sdffe                          3
+
+=== sigmoid_core_18_18_10_32_1 ===
+
+   Number of wires:                191
+   Number of wire bits:           1991
+   Number of public wires:          92
+   Number of public wire bits:    1117
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                114
+     $and                            1
+     $dffe                           1
+     $eq                           155
+     $ge                            32
+     $logic_not                      5
+     $mux                          901
+     $not                            1
+     $reduce_and                     2
+     $sdffe                         38
+     $sub                           32
+
+=== design hierarchy ===
+
+   sigmoid_core_18_18_10_32_1        1
+     abs_unit_18                     0
+     dsp_signed_mac_18_13_23_32      0
+     fp_rounding_unit_1_32_11        0
+     shift_register_unit_1_3         0
+
+   Number of wires:                191
+   Number of wire bits:           1991
+   Number of public wires:          92
+   Number of public wire bits:    1117
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                114
+     $and                            1
+     $dffe                           1
+     $eq                           155
+     $ge                            32
+     $logic_not                      5
+     $mux                          901
+     $not                            1
+     $reduce_and                     2
+     $sdffe                         38
+     $sub                           32
+
+End of script. Logfile hash: cfd29dffdc, CPU: user 0.19s system 0.01s, MEM: 15.14 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 33% 2x read_verilog (0 sec), 18% 4x opt_expr (0 sec), ...

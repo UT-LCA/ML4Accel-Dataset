@@ -1,0 +1,552 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v' to AST representation.
+Generating RTLIL representation for module `\stream_buffer_5_1'.
+Generating RTLIL representation for module `\buffer_16_12100_buffer_init_15'.
+Generating RTLIL representation for module `\dual_port_ram'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: dual_port_ram       
+root of   1 design levels: buffer_16_12100_buffer_init_15
+root of   2 design levels: stream_buffer_5_1   
+Automatically selected stream_buffer_5_1 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \stream_buffer_5_1
+Used module:     \buffer_16_12100_buffer_init_15
+Used module:         \dual_port_ram
+
+2.3. Analyzing design hierarchy..
+Top module:  \stream_buffer_5_1
+Used module:     \buffer_16_12100_buffer_init_15
+Used module:         \dual_port_ram
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:230$60 in module dual_port_ram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:221$52 in module dual_port_ram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:135$46 in module stream_buffer_5_1.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:97$35 in module stream_buffer_5_1.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:65$18 in module stream_buffer_5_1.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:33$1 in module stream_buffer_5_1.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 7 redundant assignments.
+Promoted 12 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:230$60'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:232$51_EN[15:0]$66
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:232$51_DATA[15:0]$65
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:232$51_ADDR[13:0]$64
+     4/4: $0\out2[15:0]
+Creating decoders for process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:221$52'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:223$50_EN[15:0]$58
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:223$50_DATA[15:0]$57
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:223$50_ADDR[13:0]$56
+     4/4: $0\out1[15:0]
+Creating decoders for process `\buffer_16_12100_buffer_init_15.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:174$49'.
+Creating decoders for process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:135$46'.
+     1/1: $0\B1_wdata[15:0]
+Creating decoders for process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:120$42'.
+Creating decoders for process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:97$35'.
+     1/7: $0\valid_2[0:0]
+     2/7: $0\valid_1[0:0]
+     3/7: $0\valid[0:0]
+     4/7: $0\done_3[0:0]
+     5/7: $0\done_2[0:0]
+     6/7: $0\done_1[0:0]
+     7/7: $0\done[0:0]
+Creating decoders for process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:65$18'.
+     1/5: $0\W_counter_b1[1:0]
+     2/5: $0\C_counter_b1[1:0]
+     3/5: $0\L_counter_b1[1:0]
+     4/5: $0\offset_b1[13:0]
+     5/5: $0\base_addr_b1[13:0]
+Creating decoders for process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:33$1'.
+     1/5: $0\W_counter[1:0]
+     2/5: $0\C_counter[1:0]
+     3/5: $0\L_counter[1:0]
+     4/5: $0\offset[13:0]
+     5/5: $0\base_addr[13:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\stream_buffer_5_1.\B1_wdata' from process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:135$46'.
+No latch inferred for signal `\stream_buffer_5_1.\b0_waddr' from process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:120$42'.
+No latch inferred for signal `\stream_buffer_5_1.\b0_raddr' from process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:120$42'.
+No latch inferred for signal `\stream_buffer_5_1.\b1_raddr' from process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:120$42'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\dual_port_ram.\out2' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:230$60'.
+  created $dff cell `$procdff$252' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:232$51_ADDR' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:230$60'.
+  created $dff cell `$procdff$253' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:232$51_DATA' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:230$60'.
+  created $dff cell `$procdff$254' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:232$51_EN' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:230$60'.
+  created $dff cell `$procdff$255' with positive edge clock.
+Creating register for signal `\dual_port_ram.\out1' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:221$52'.
+  created $dff cell `$procdff$256' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:223$50_ADDR' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:221$52'.
+  created $dff cell `$procdff$257' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:223$50_DATA' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:221$52'.
+  created $dff cell `$procdff$258' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:223$50_EN' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:221$52'.
+  created $dff cell `$procdff$259' with positive edge clock.
+Creating register for signal `\buffer_16_12100_buffer_init_15.\raddr_reg' using process `\buffer_16_12100_buffer_init_15.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:174$49'.
+  created $dff cell `$procdff$260' with positive edge clock.
+Creating register for signal `\buffer_16_12100_buffer_init_15.\rdata_reg' using process `\buffer_16_12100_buffer_init_15.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:174$49'.
+  created $dff cell `$procdff$261' with positive edge clock.
+Creating register for signal `\buffer_16_12100_buffer_init_15.\pipeline_reg_0' using process `\buffer_16_12100_buffer_init_15.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:174$49'.
+  created $dff cell `$procdff$262' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\done' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:97$35'.
+  created $dff cell `$procdff$263' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\done_1' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:97$35'.
+  created $dff cell `$procdff$264' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\done_2' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:97$35'.
+  created $dff cell `$procdff$265' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\done_3' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:97$35'.
+  created $dff cell `$procdff$266' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\valid' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:97$35'.
+  created $dff cell `$procdff$267' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\valid_1' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:97$35'.
+  created $dff cell `$procdff$268' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\valid_2' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:97$35'.
+  created $dff cell `$procdff$269' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\base_addr_b1' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:65$18'.
+  created $dff cell `$procdff$270' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\offset_b1' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:65$18'.
+  created $dff cell `$procdff$271' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\L_counter_b1' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:65$18'.
+  created $dff cell `$procdff$272' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\C_counter_b1' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:65$18'.
+  created $dff cell `$procdff$273' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\W_counter_b1' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:65$18'.
+  created $dff cell `$procdff$274' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\base_addr' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:33$1'.
+  created $dff cell `$procdff$275' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\offset' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:33$1'.
+  created $dff cell `$procdff$276' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\L_counter' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:33$1'.
+  created $dff cell `$procdff$277' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\C_counter' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:33$1'.
+  created $dff cell `$procdff$278' with positive edge clock.
+Creating register for signal `\stream_buffer_5_1.\W_counter' using process `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:33$1'.
+  created $dff cell `$procdff$279' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:230$60'.
+Removing empty process `dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:230$60'.
+Found and cleaned up 1 empty switch in `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:221$52'.
+Removing empty process `dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:221$52'.
+Removing empty process `buffer_16_12100_buffer_init_15.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:174$49'.
+Found and cleaned up 1 empty switch in `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:135$46'.
+Removing empty process `stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:135$46'.
+Removing empty process `stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:120$42'.
+Found and cleaned up 2 empty switches in `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:97$35'.
+Removing empty process `stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:97$35'.
+Found and cleaned up 5 empty switches in `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:65$18'.
+Removing empty process `stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:65$18'.
+Found and cleaned up 5 empty switches in `\stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:33$1'.
+Removing empty process `stream_buffer_5_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:33$1'.
+Cleaned up 15 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dual_port_ram.
+Optimizing module buffer_16_12100_buffer_init_15.
+Optimizing module stream_buffer_5_1.
+<suppressed ~38 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dual_port_ram.
+Optimizing module buffer_16_12100_buffer_init_15.
+Optimizing module stream_buffer_5_1.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dual_port_ram'.
+Finding identical cells in module `\buffer_16_12100_buffer_init_15'.
+Finding identical cells in module `\stream_buffer_5_1'.
+<suppressed ~30 debug messages>
+Removed a total of 10 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \buffer_16_12100_buffer_init_15..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \stream_buffer_5_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dual_port_ram.
+    Consolidated identical input bits for $mux cell $procmux$81:
+      Old ports: A=16'0000000000000000, B=16'1111111111111111, Y=$procmux$81_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$81_Y [0]
+      New connections: $procmux$81_Y [15:1] = { $procmux$81_Y [0] $procmux$81_Y [0] $procmux$81_Y [0] $procmux$81_Y [0] $procmux$81_Y [0] $procmux$81_Y [0] $procmux$81_Y [0] $procmux$81_Y [0] $procmux$81_Y [0] $procmux$81_Y [0] $procmux$81_Y [0] $procmux$81_Y [0] $procmux$81_Y [0] $procmux$81_Y [0] $procmux$81_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$69:
+      Old ports: A=16'0000000000000000, B=16'1111111111111111, Y=$procmux$69_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$69_Y [0]
+      New connections: $procmux$69_Y [15:1] = { $procmux$69_Y [0] $procmux$69_Y [0] $procmux$69_Y [0] $procmux$69_Y [0] $procmux$69_Y [0] $procmux$69_Y [0] $procmux$69_Y [0] $procmux$69_Y [0] $procmux$69_Y [0] $procmux$69_Y [0] $procmux$69_Y [0] $procmux$69_Y [0] $procmux$69_Y [0] $procmux$69_Y [0] $procmux$69_Y [0] }
+  Optimizing cells in module \dual_port_ram.
+  Optimizing cells in module \buffer_16_12100_buffer_init_15.
+  Optimizing cells in module \stream_buffer_5_1.
+Performed a total of 2 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dual_port_ram'.
+Finding identical cells in module `\buffer_16_12100_buffer_init_15'.
+Finding identical cells in module `\stream_buffer_5_1'.
+<suppressed ~21 debug messages>
+Removed a total of 7 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$252 ($dff) from module dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:235$67_DATA, Q = \out2).
+Adding EN signal on $procdff$256 ($dff) from module dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:226$59_DATA, Q = \out1).
+Adding SRST signal on $procdff$279 ($dff) from module stream_buffer_5_1 (D = $procmux$191_Y, Q = \W_counter, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$284 ($sdff) from module stream_buffer_5_1 (D = $procmux$189_Y, Q = \W_counter).
+Adding SRST signal on $procdff$278 ($dff) from module stream_buffer_5_1 (D = $procmux$205_Y, Q = \C_counter, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$286 ($sdff) from module stream_buffer_5_1 (D = $procmux$203_Y, Q = \C_counter).
+Adding SRST signal on $procdff$277 ($dff) from module stream_buffer_5_1 (D = $procmux$219_Y, Q = \L_counter, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$288 ($sdff) from module stream_buffer_5_1 (D = $procmux$217_Y, Q = \L_counter).
+Adding SRST signal on $procdff$276 ($dff) from module stream_buffer_5_1 (D = $procmux$233_Y, Q = \offset, rval = 14'00000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$290 ($sdff) from module stream_buffer_5_1 (D = $procmux$231_Y, Q = \offset).
+Adding SRST signal on $procdff$275 ($dff) from module stream_buffer_5_1 (D = $procmux$247_Y, Q = \base_addr, rval = 14'00000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$292 ($sdff) from module stream_buffer_5_1 (D = $procmux$245_Y, Q = \base_addr).
+Adding SRST signal on $procdff$274 ($dff) from module stream_buffer_5_1 (D = $procmux$124_Y, Q = \W_counter_b1, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$294 ($sdff) from module stream_buffer_5_1 (D = $procmux$122_Y, Q = \W_counter_b1).
+Adding SRST signal on $procdff$273 ($dff) from module stream_buffer_5_1 (D = $procmux$138_Y, Q = \C_counter_b1, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$296 ($sdff) from module stream_buffer_5_1 (D = $procmux$136_Y, Q = \C_counter_b1).
+Adding SRST signal on $procdff$272 ($dff) from module stream_buffer_5_1 (D = $procmux$152_Y, Q = \L_counter_b1, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$298 ($sdff) from module stream_buffer_5_1 (D = $procmux$150_Y, Q = \L_counter_b1).
+Adding SRST signal on $procdff$271 ($dff) from module stream_buffer_5_1 (D = $procmux$166_Y, Q = \offset_b1, rval = 14'00000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$300 ($sdff) from module stream_buffer_5_1 (D = $procmux$164_Y, Q = \offset_b1).
+Adding SRST signal on $procdff$270 ($dff) from module stream_buffer_5_1 (D = $procmux$180_Y, Q = \base_addr_b1, rval = 14'00000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$302 ($sdff) from module stream_buffer_5_1 (D = $procmux$178_Y, Q = \base_addr_b1).
+Adding SRST signal on $procdff$269 ($dff) from module stream_buffer_5_1 (D = \valid_1, Q = \valid_2, rval = 1'0).
+Adding SRST signal on $procdff$268 ($dff) from module stream_buffer_5_1 (D = \valid, Q = \valid_1, rval = 1'0).
+Adding SRST signal on $procdff$263 ($dff) from module stream_buffer_5_1 (D = $procmux$113_Y, Q = \done, rval = 1'0).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dual_port_ram..
+Finding unused cells or wires in module \buffer_16_12100_buffer_init_15..
+Finding unused cells or wires in module \stream_buffer_5_1..
+Removed 37 unused cells and 179 unused wires.
+<suppressed ~42 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buffer_16_12100_buffer_init_15.
+Optimizing module dual_port_ram.
+Optimizing module stream_buffer_5_1.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buffer_16_12100_buffer_init_15..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \stream_buffer_5_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buffer_16_12100_buffer_init_15.
+  Optimizing cells in module \dual_port_ram.
+  Optimizing cells in module \stream_buffer_5_1.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buffer_16_12100_buffer_init_15'.
+Finding identical cells in module `\dual_port_ram'.
+Finding identical cells in module `\stream_buffer_5_1'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+Handling D = Q on $auto$ff.cc:262:slice$306 ($sdff) from module stream_buffer_5_1 (conecting SRST instead).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$306 ($sdff) from module stream_buffer_5_1.
+Adding EN signal on $auto$ff.cc:262:slice$303 ($sdffe) from module stream_buffer_5_1 (D = $procmux$175_Y, Q = \base_addr_b1).
+Adding EN signal on $auto$ff.cc:262:slice$297 ($sdffe) from module stream_buffer_5_1 (D = $procmux$133_Y, Q = \C_counter_b1).
+Adding EN signal on $auto$ff.cc:262:slice$293 ($sdffe) from module stream_buffer_5_1 (D = $procmux$242_Y, Q = \base_addr).
+Adding EN signal on $auto$ff.cc:262:slice$287 ($sdffe) from module stream_buffer_5_1 (D = $procmux$200_Y, Q = \C_counter).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buffer_16_12100_buffer_init_15..
+Finding unused cells or wires in module \dual_port_ram..
+Finding unused cells or wires in module \stream_buffer_5_1..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buffer_16_12100_buffer_init_15.
+Optimizing module dual_port_ram.
+Optimizing module stream_buffer_5_1.
+<suppressed ~14 debug messages>
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buffer_16_12100_buffer_init_15..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \stream_buffer_5_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buffer_16_12100_buffer_init_15.
+  Optimizing cells in module \dual_port_ram.
+  Optimizing cells in module \stream_buffer_5_1.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buffer_16_12100_buffer_init_15'.
+Finding identical cells in module `\dual_port_ram'.
+Finding identical cells in module `\stream_buffer_5_1'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+Removing always-active EN on $auto$ff.cc:262:slice$301 ($sdffe) from module stream_buffer_5_1.
+Adding SRST signal on $auto$ff.cc:262:slice$301 ($sdffe) from module stream_buffer_5_1 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:91$33_Y [13:0], Q = \offset_b1, rval = 14'00000000000000).
+Removing always-active EN on $auto$ff.cc:262:slice$299 ($sdffe) from module stream_buffer_5_1.
+Adding SRST signal on $auto$ff.cc:262:slice$299 ($sdffe) from module stream_buffer_5_1 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:92$34_Y, Q = \L_counter_b1, rval = 2'00).
+Removing always-active EN on $auto$ff.cc:262:slice$291 ($sdffe) from module stream_buffer_5_1.
+Adding SRST signal on $auto$ff.cc:262:slice$291 ($sdffe) from module stream_buffer_5_1 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:59$16_Y [13:0], Q = \offset, rval = 14'00000000000000).
+Removing always-active EN on $auto$ff.cc:262:slice$289 ($sdffe) from module stream_buffer_5_1.
+Adding SRST signal on $auto$ff.cc:262:slice$289 ($sdffe) from module stream_buffer_5_1 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/stream_buffer_5_1.v:60$17_Y, Q = \L_counter, rval = 2'00).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buffer_16_12100_buffer_init_15..
+Finding unused cells or wires in module \dual_port_ram..
+Finding unused cells or wires in module \stream_buffer_5_1..
+Removed 8 unused cells and 19 unused wires.
+<suppressed ~9 debug messages>
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buffer_16_12100_buffer_init_15.
+Optimizing module dual_port_ram.
+Optimizing module stream_buffer_5_1.
+
+4.23. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.24. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buffer_16_12100_buffer_init_15..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \stream_buffer_5_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+4.25. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buffer_16_12100_buffer_init_15.
+  Optimizing cells in module \dual_port_ram.
+  Optimizing cells in module \stream_buffer_5_1.
+Performed a total of 0 changes.
+
+4.26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buffer_16_12100_buffer_init_15'.
+Finding identical cells in module `\dual_port_ram'.
+Finding identical cells in module `\stream_buffer_5_1'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+4.27. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buffer_16_12100_buffer_init_15..
+Finding unused cells or wires in module \dual_port_ram..
+Finding unused cells or wires in module \stream_buffer_5_1..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+4.29. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buffer_16_12100_buffer_init_15.
+Optimizing module dual_port_ram.
+Optimizing module stream_buffer_5_1.
+
+4.30. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.31. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buffer_16_12100_buffer_init_15..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \stream_buffer_5_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+4.32. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buffer_16_12100_buffer_init_15.
+  Optimizing cells in module \dual_port_ram.
+  Optimizing cells in module \stream_buffer_5_1.
+Performed a total of 0 changes.
+
+4.33. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buffer_16_12100_buffer_init_15'.
+Finding identical cells in module `\dual_port_ram'.
+Finding identical cells in module `\stream_buffer_5_1'.
+Removed a total of 0 cells.
+
+4.34. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.35. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buffer_16_12100_buffer_init_15..
+Finding unused cells or wires in module \dual_port_ram..
+Finding unused cells or wires in module \stream_buffer_5_1..
+
+4.36. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buffer_16_12100_buffer_init_15.
+Optimizing module dual_port_ram.
+Optimizing module stream_buffer_5_1.
+
+4.37. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== buffer_16_12100_buffer_init_15 ===
+
+   Number of wires:                 12
+   Number of wire bits:            156
+   Number of public wires:          12
+   Number of public wire bits:     156
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $dff                           46
+
+=== dual_port_ram ===
+
+   Number of wires:                 17
+   Number of wire bits:            219
+   Number of public wires:           9
+   Number of public wire bits:      95
+   Number of memories:               1
+   Number of memory bits:          224
+   Number of processes:              0
+   Number of cells:                 12
+     $dffe                          32
+     $mux                           62
+
+=== stream_buffer_5_1 ===
+
+   Number of wires:                 62
+   Number of wire bits:            500
+   Number of public wires:          33
+   Number of public wire bits:     261
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 45
+     $add                          192
+     $dff                            1
+     $eq                             4
+     $logic_and                      2
+     $logic_not                      4
+     $mux                           81
+     $reduce_bool                    4
+     $reduce_or                      6
+     $sdff                          34
+     $sdffe                         32
+
+=== design hierarchy ===
+
+   stream_buffer_5_1                 1
+     buffer_16_12100_buffer_init_15      0
+       dual_port_ram                 0
+
+   Number of wires:                 62
+   Number of wire bits:            500
+   Number of public wires:          33
+   Number of public wire bits:     261
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 45
+     $add                          192
+     $dff                            1
+     $eq                             4
+     $logic_and                      2
+     $logic_not                      4
+     $mux                           81
+     $reduce_bool                    4
+     $reduce_or                      6
+     $sdff                          34
+     $sdffe                         32
+
+End of script. Logfile hash: 969031a707, CPU: user 0.17s system 0.00s, MEM: 12.83 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 28% 7x opt_expr (0 sec), 16% 5x opt_clean (0 sec), ...

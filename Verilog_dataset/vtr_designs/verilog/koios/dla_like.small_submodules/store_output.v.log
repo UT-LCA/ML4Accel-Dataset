@@ -1,0 +1,298 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v' to AST representation.
+Generating RTLIL representation for module `\store_output'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: store_output        
+Automatically selected store_output as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \store_output
+
+2.3. Analyzing design hierarchy..
+Top module:  \store_output
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 15 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2 in module store_output.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 14 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+     1/12: $0\count_y[5:0]
+     2/12: $0\count_x[5:0]
+     3/12: $0\count_to_wvec[5:0]
+     4/12: $0\count[5:0]
+     5/12: $0\offset[14:0]
+     6/12: $0\base_addr[14:0]
+     7/12: $0\wen_5[0:0]
+     8/12: $0\wen_4[0:0]
+     9/12: $0\wen_3[0:0]
+    10/12: $0\wen_2[0:0]
+    11/12: $0\wen_1[0:0]
+    12/12: $0\wen_0[0:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\store_output.\wen_0' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$234' with positive edge clock.
+Creating register for signal `\store_output.\wen_1' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$235' with positive edge clock.
+Creating register for signal `\store_output.\wen_2' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$236' with positive edge clock.
+Creating register for signal `\store_output.\wen_3' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$237' with positive edge clock.
+Creating register for signal `\store_output.\wen_4' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$238' with positive edge clock.
+Creating register for signal `\store_output.\wen_5' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$239' with positive edge clock.
+Creating register for signal `\store_output.\base_addr' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$240' with positive edge clock.
+Creating register for signal `\store_output.\offset' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$241' with positive edge clock.
+Creating register for signal `\store_output.\count' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$242' with positive edge clock.
+Creating register for signal `\store_output.\count_to_wvec' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$243' with positive edge clock.
+Creating register for signal `\store_output.\count_x' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$244' with positive edge clock.
+Creating register for signal `\store_output.\count_y' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$245' with positive edge clock.
+Creating register for signal `\store_output.\valid' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$246' with positive edge clock.
+Creating register for signal `\store_output.\buffer_reg_0' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$247' with positive edge clock.
+Creating register for signal `\store_output.\buffer_reg_1' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$248' with positive edge clock.
+Creating register for signal `\store_output.\buffer_reg_2' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$249' with positive edge clock.
+Creating register for signal `\store_output.\buffer_reg_3' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$250' with positive edge clock.
+Creating register for signal `\store_output.\buffer_reg_4' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$251' with positive edge clock.
+Creating register for signal `\store_output.\buffer_reg_5' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$252' with positive edge clock.
+Creating register for signal `\store_output.\buffer_reg_6' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$253' with positive edge clock.
+Creating register for signal `\store_output.\buffer_reg_7' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$254' with positive edge clock.
+Creating register for signal `\store_output.\buffer_reg_8' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$255' with positive edge clock.
+Creating register for signal `\store_output.\buffer_reg_9' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$256' with positive edge clock.
+Creating register for signal `\store_output.\buffer_reg_10' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$257' with positive edge clock.
+Creating register for signal `\store_output.\buffer_reg_11' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$258' with positive edge clock.
+Creating register for signal `\store_output.\addr_reg' using process `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+  created $dff cell `$procdff$259' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 19 empty switches in `\store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+Removing empty process `store_output.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/store_output.v:69$2'.
+Cleaned up 19 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module store_output.
+<suppressed ~23 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module store_output.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\store_output'.
+<suppressed ~36 debug messages>
+Removed a total of 12 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \store_output..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$122: \count -> { \count [5:2] 2'01 }
+      Replacing known input bits on port A of cell $procmux$116: \count -> { \count [5:1] 1'0 }
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$137.
+    dead port 2/2 on $mux $procmux$116.
+    dead port 2/2 on $mux $procmux$86.
+    dead port 2/2 on $mux $procmux$62.
+Removed 4 multiplexer ports.
+<suppressed ~12 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \store_output.
+    New ctrl vector for $mux cell $procmux$119: { }
+  Optimizing cells in module \store_output.
+Performed a total of 1 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\store_output'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$238 ($dff) from module store_output (D = $procmux$189_Y, Q = \wen_4, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$260 ($sdff) from module store_output (D = $procmux$185_Y, Q = \wen_4).
+Adding SRST signal on $procdff$239 ($dff) from module store_output (D = $procmux$179_Y, Q = \wen_5, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$264 ($sdff) from module store_output (D = $procmux$175_Y, Q = \wen_5).
+Adding SRST signal on $procdff$240 ($dff) from module store_output (D = $procmux$169_Y, Q = \base_addr, rval = 15'000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$268 ($sdff) from module store_output (D = $procmux$165_Y, Q = \base_addr).
+Adding SRST signal on $procdff$241 ($dff) from module store_output (D = $procmux$153_Y, Q = \offset, rval = 15'000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$276 ($sdff) from module store_output (D = $procmux$151_Y, Q = \offset).
+Adding SRST signal on $procdff$242 ($dff) from module store_output (D = $procmux$132_Y, Q = \count, rval = 6'000000).
+Adding EN signal on $auto$ff.cc:262:slice$282 ($sdff) from module store_output (D = $procmux$130_Y [5:2], Q = \count [5:2]).
+Adding EN signal on $auto$ff.cc:262:slice$282 ($sdff) from module store_output (D = $procmux$130_Y [1:0], Q = \count [1:0]).
+Adding SRST signal on $procdff$243 ($dff) from module store_output (D = $procmux$111_Y, Q = \count_to_wvec, rval = 6'000000).
+Adding EN signal on $auto$ff.cc:262:slice$295 ($sdff) from module store_output (D = $procmux$109_Y, Q = \count_to_wvec).
+Adding SRST signal on $procdff$244 ($dff) from module store_output (D = $procmux$78_Y, Q = \count_x, rval = 6'000000).
+Adding EN signal on $auto$ff.cc:262:slice$303 ($sdff) from module store_output (D = $procmux$76_Y, Q = \count_x).
+Adding SRST signal on $procdff$245 ($dff) from module store_output (D = $procmux$57_Y, Q = \count_y, rval = 6'000000).
+Adding EN signal on $auto$ff.cc:262:slice$313 ($sdff) from module store_output (D = $procmux$53_Y, Q = \count_y).
+Adding SRST signal on $procdff$234 ($dff) from module store_output (D = $procmux$229_Y, Q = \wen_0, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$321 ($sdff) from module store_output (D = $procmux$225_Y, Q = \wen_0).
+Adding SRST signal on $procdff$235 ($dff) from module store_output (D = $procmux$219_Y, Q = \wen_1, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$325 ($sdff) from module store_output (D = $procmux$215_Y, Q = \wen_1).
+Adding SRST signal on $procdff$236 ($dff) from module store_output (D = $procmux$209_Y, Q = \wen_2, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$329 ($sdff) from module store_output (D = $procmux$205_Y, Q = \wen_2).
+Adding SRST signal on $procdff$237 ($dff) from module store_output (D = $procmux$199_Y, Q = \wen_3, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$333 ($sdff) from module store_output (D = $procmux$195_Y, Q = \wen_3).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \store_output..
+Removed 33 unused cells and 161 unused wires.
+<suppressed ~34 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module store_output.
+<suppressed ~4 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \store_output..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~13 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \store_output.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\store_output'.
+<suppressed ~42 debug messages>
+Removed a total of 14 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \store_output..
+Removed 0 unused cells and 15 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module store_output.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \store_output..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~13 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \store_output.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\store_output'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \store_output..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module store_output.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== store_output ===
+
+   Number of wires:                125
+   Number of wire bits:           1034
+   Number of public wires:          61
+   Number of public wire bits:     682
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 91
+     $add                           97
+     $dff                          208
+     $eq                            42
+     $logic_and                      6
+     $logic_not                      6
+     $logic_or                       1
+     $mux                          228
+     $ne                            12
+     $reduce_and                    17
+     $reduce_bool                    4
+     $sdffe                         60
+
+End of script. Logfile hash: 4beb61f10f, CPU: user 0.12s system 0.01s, MEM: 12.66 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 28% 5x opt_expr (0 sec), 15% 3x opt_clean (0 sec), ...

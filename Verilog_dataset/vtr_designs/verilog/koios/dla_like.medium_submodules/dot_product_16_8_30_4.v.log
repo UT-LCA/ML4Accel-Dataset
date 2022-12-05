@@ -1,0 +1,365 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v' to AST representation.
+Generating RTLIL representation for module `\dot_product_16_8_30_4'.
+Generating RTLIL representation for module `\dsp_block_16_8_true'.
+Generating RTLIL representation for module `\dsp_block_16_8_false'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: dsp_block_16_8_false
+root of   0 design levels: dsp_block_16_8_true 
+root of   1 design levels: dot_product_16_8_30_4
+Automatically selected dot_product_16_8_30_4 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \dot_product_16_8_30_4
+Used module:     \dsp_block_16_8_true
+Used module:     \dsp_block_16_8_false
+
+2.3. Analyzing design hierarchy..
+Top module:  \dot_product_16_8_30_4
+Used module:     \dsp_block_16_8_true
+Used module:     \dsp_block_16_8_false
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:201$8 in module dsp_block_16_8_false.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:145$3 in module dsp_block_16_8_true.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1 in module dot_product_16_8_30_4.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 27 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:201$8'.
+     1/5: $0\by_reg[7:0]
+     2/5: $0\bx_reg[15:0]
+     3/5: $0\ay_reg[7:0]
+     4/5: $0\ax_reg[15:0]
+     5/5: $0\resulta[23:0]
+Creating decoders for process `\dsp_block_16_8_true.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:145$3'.
+     1/5: $0\by_reg[7:0]
+     2/5: $0\bx_reg[15:0]
+     3/5: $0\ay_reg[7:0]
+     4/5: $0\ax_reg[15:0]
+     5/5: $0\resulta[23:0]
+Creating decoders for process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+     1/17: $0\r_pipeline_1[0:0]
+     2/17: $0\w_pipeline_3_1[7:0]
+     3/17: $0\f_pipeline_3_1[15:0]
+     4/17: $0\w_pipeline_2_1[7:0]
+     5/17: $0\f_pipeline_2_1[15:0]
+     6/17: $0\w_pipeline_1_1[7:0]
+     7/17: $0\f_pipeline_1_1[15:0]
+     8/17: $0\w_pipeline_0_1[7:0]
+     9/17: $0\f_pipeline_0_1[15:0]
+    10/17: $0\w_pipeline_3_0[7:0]
+    11/17: $0\f_pipeline_3_0[15:0]
+    12/17: $0\w_pipeline_2_0[7:0]
+    13/17: $0\f_pipeline_2_0[15:0]
+    14/17: $0\w_pipeline_1_0[7:0]
+    15/17: $0\f_pipeline_1_0[15:0]
+    16/17: $0\w_pipeline_0_0[7:0]
+    17/17: $0\f_pipeline_0_0[15:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\dsp_block_16_8_false.\resulta' using process `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:201$8'.
+  created $dff cell `$procdff$94' with positive edge clock.
+Creating register for signal `\dsp_block_16_8_false.\ax_reg' using process `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:201$8'.
+  created $dff cell `$procdff$95' with positive edge clock.
+Creating register for signal `\dsp_block_16_8_false.\ay_reg' using process `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:201$8'.
+  created $dff cell `$procdff$96' with positive edge clock.
+Creating register for signal `\dsp_block_16_8_false.\bx_reg' using process `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:201$8'.
+  created $dff cell `$procdff$97' with positive edge clock.
+Creating register for signal `\dsp_block_16_8_false.\by_reg' using process `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:201$8'.
+  created $dff cell `$procdff$98' with positive edge clock.
+Creating register for signal `\dsp_block_16_8_true.\resulta' using process `\dsp_block_16_8_true.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:145$3'.
+  created $dff cell `$procdff$99' with positive edge clock.
+Creating register for signal `\dsp_block_16_8_true.\ax_reg' using process `\dsp_block_16_8_true.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:145$3'.
+  created $dff cell `$procdff$100' with positive edge clock.
+Creating register for signal `\dsp_block_16_8_true.\ay_reg' using process `\dsp_block_16_8_true.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:145$3'.
+  created $dff cell `$procdff$101' with positive edge clock.
+Creating register for signal `\dsp_block_16_8_true.\bx_reg' using process `\dsp_block_16_8_true.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:145$3'.
+  created $dff cell `$procdff$102' with positive edge clock.
+Creating register for signal `\dsp_block_16_8_true.\by_reg' using process `\dsp_block_16_8_true.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:145$3'.
+  created $dff cell `$procdff$103' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\f_pipeline_0_0' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$104' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\w_pipeline_0_0' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$105' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\f_pipeline_0_1' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$106' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\w_pipeline_0_1' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$107' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\f_pipeline_1_0' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$108' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\w_pipeline_1_0' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$109' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\f_pipeline_1_1' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$110' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\w_pipeline_1_1' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$111' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\f_pipeline_2_0' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$112' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\w_pipeline_2_0' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$113' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\f_pipeline_2_1' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$114' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\w_pipeline_2_1' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$115' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\f_pipeline_3_0' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$116' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\w_pipeline_3_0' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$117' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\f_pipeline_3_1' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$118' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\w_pipeline_3_1' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$119' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\r_pipeline_0' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$120' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_4.\r_pipeline_1' using process `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+  created $dff cell `$procdff$121' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:201$8'.
+Removing empty process `dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:201$8'.
+Found and cleaned up 1 empty switch in `\dsp_block_16_8_true.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:145$3'.
+Removing empty process `dsp_block_16_8_true.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:145$3'.
+Found and cleaned up 1 empty switch in `\dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+Removing empty process `dot_product_16_8_30_4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:39$1'.
+Cleaned up 3 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp_block_16_8_false.
+Optimizing module dsp_block_16_8_true.
+Optimizing module dot_product_16_8_30_4.
+<suppressed ~1 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp_block_16_8_false.
+Optimizing module dsp_block_16_8_true.
+Optimizing module dot_product_16_8_30_4.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp_block_16_8_false'.
+Finding identical cells in module `\dsp_block_16_8_true'.
+Finding identical cells in module `\dot_product_16_8_30_4'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp_block_16_8_false..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dsp_block_16_8_true..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dot_product_16_8_30_4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~27 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp_block_16_8_false.
+  Optimizing cells in module \dsp_block_16_8_true.
+  Optimizing cells in module \dot_product_16_8_30_4.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp_block_16_8_false'.
+Finding identical cells in module `\dsp_block_16_8_true'.
+Finding identical cells in module `\dot_product_16_8_30_4'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$94 ($dff) from module dsp_block_16_8_false (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:214$12_Y [23:0], Q = \resulta, rval = 24'000000000000000000000000).
+Adding SRST signal on $procdff$95 ($dff) from module dsp_block_16_8_false (D = \ax, Q = \ax_reg, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$96 ($dff) from module dsp_block_16_8_false (D = \ay, Q = \ay_reg, rval = 8'00000000).
+Adding SRST signal on $procdff$97 ($dff) from module dsp_block_16_8_false (D = \bx, Q = \bx_reg, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$98 ($dff) from module dsp_block_16_8_false (D = \by, Q = \by_reg, rval = 8'00000000).
+Adding SRST signal on $procdff$99 ($dff) from module dsp_block_16_8_true (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/dot_product_16_8_30_4.v:158$7_Y [23:0], Q = \resulta, rval = 24'000000000000000000000000).
+Adding SRST signal on $procdff$100 ($dff) from module dsp_block_16_8_true (D = \ax, Q = \ax_reg, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$101 ($dff) from module dsp_block_16_8_true (D = \ay, Q = \ay_reg, rval = 8'00000000).
+Adding SRST signal on $procdff$102 ($dff) from module dsp_block_16_8_true (D = \bx, Q = \bx_reg, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$103 ($dff) from module dsp_block_16_8_true (D = \by, Q = \by_reg, rval = 8'00000000).
+Adding SRST signal on $procdff$121 ($dff) from module dot_product_16_8_30_4 (D = \r_pipeline_0, Q = \r_pipeline_1, rval = 1'1).
+Adding SRST signal on $procdff$104 ($dff) from module dot_product_16_8_30_4 (D = \i_features_0, Q = \f_pipeline_0_0, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$105 ($dff) from module dot_product_16_8_30_4 (D = \i_weights_0, Q = \w_pipeline_0_0, rval = 8'00000000).
+Adding SRST signal on $procdff$106 ($dff) from module dot_product_16_8_30_4 (D = \f_pipeline_0_0, Q = \f_pipeline_0_1, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$107 ($dff) from module dot_product_16_8_30_4 (D = \w_pipeline_0_0, Q = \w_pipeline_0_1, rval = 8'00000000).
+Adding SRST signal on $procdff$108 ($dff) from module dot_product_16_8_30_4 (D = \i_features_1, Q = \f_pipeline_1_0, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$109 ($dff) from module dot_product_16_8_30_4 (D = \i_weights_1, Q = \w_pipeline_1_0, rval = 8'00000000).
+Adding SRST signal on $procdff$110 ($dff) from module dot_product_16_8_30_4 (D = \f_pipeline_1_0, Q = \f_pipeline_1_1, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$111 ($dff) from module dot_product_16_8_30_4 (D = \w_pipeline_1_0, Q = \w_pipeline_1_1, rval = 8'00000000).
+Adding SRST signal on $procdff$112 ($dff) from module dot_product_16_8_30_4 (D = \i_features_2, Q = \f_pipeline_2_0, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$113 ($dff) from module dot_product_16_8_30_4 (D = \i_weights_2, Q = \w_pipeline_2_0, rval = 8'00000000).
+Adding SRST signal on $procdff$114 ($dff) from module dot_product_16_8_30_4 (D = \f_pipeline_2_0, Q = \f_pipeline_2_1, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$115 ($dff) from module dot_product_16_8_30_4 (D = \w_pipeline_2_0, Q = \w_pipeline_2_1, rval = 8'00000000).
+Adding SRST signal on $procdff$116 ($dff) from module dot_product_16_8_30_4 (D = \i_features_3, Q = \f_pipeline_3_0, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$117 ($dff) from module dot_product_16_8_30_4 (D = \i_weights_3, Q = \w_pipeline_3_0, rval = 8'00000000).
+Adding SRST signal on $procdff$118 ($dff) from module dot_product_16_8_30_4 (D = \f_pipeline_3_0, Q = \f_pipeline_3_1, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$119 ($dff) from module dot_product_16_8_30_4 (D = \w_pipeline_3_0, Q = \w_pipeline_3_1, rval = 8'00000000).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp_block_16_8_false..
+Finding unused cells or wires in module \dsp_block_16_8_true..
+Finding unused cells or wires in module \dot_product_16_8_30_4..
+Removed 31 unused cells and 87 unused wires.
+<suppressed ~38 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dot_product_16_8_30_4.
+Optimizing module dsp_block_16_8_false.
+Optimizing module dsp_block_16_8_true.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dot_product_16_8_30_4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dsp_block_16_8_false..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dsp_block_16_8_true..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dot_product_16_8_30_4.
+  Optimizing cells in module \dsp_block_16_8_false.
+  Optimizing cells in module \dsp_block_16_8_true.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dot_product_16_8_30_4'.
+Finding identical cells in module `\dsp_block_16_8_false'.
+Finding identical cells in module `\dsp_block_16_8_true'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dot_product_16_8_30_4..
+Finding unused cells or wires in module \dsp_block_16_8_false..
+Finding unused cells or wires in module \dsp_block_16_8_true..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dot_product_16_8_30_4.
+Optimizing module dsp_block_16_8_false.
+Optimizing module dsp_block_16_8_true.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== dot_product_16_8_30_4 ===
+
+   Number of wires:                 29
+   Number of wire bits:            444
+   Number of public wires:          29
+   Number of public wire bits:     444
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 16
+     $dff                            1
+     $sdff                         145
+
+=== dsp_block_16_8_false ===
+
+   Number of wires:                 19
+   Number of wire bits:            518
+   Number of public wires:          15
+   Number of public wire bits:     262
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  9
+     $add                          128
+     $mul                          128
+     $sdff                          72
+
+=== dsp_block_16_8_true ===
+
+   Number of wires:                 19
+   Number of wire bits:            518
+   Number of public wires:          15
+   Number of public wire bits:     262
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  9
+     $add                          128
+     $mul                          128
+     $sdff                          72
+
+=== design hierarchy ===
+
+   dot_product_16_8_30_4             1
+     dsp_block_16_8_false            0
+     dsp_block_16_8_true             0
+
+   Number of wires:                 29
+   Number of wire bits:            444
+   Number of public wires:          29
+   Number of public wire bits:     444
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 16
+     $dff                            1
+     $sdff                         145
+
+End of script. Logfile hash: a3b79a849d, CPU: user 0.10s system 0.00s, MEM: 11.99 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 24% 4x opt_expr (0 sec), 20% 2x opt_dff (0 sec), ...

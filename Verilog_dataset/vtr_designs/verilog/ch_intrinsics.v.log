@@ -1,0 +1,470 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v' to AST representation.
+Generating RTLIL representation for module `\single_port_ram'.
+Generating RTLIL representation for module `\dual_port_ram'.
+Generating RTLIL representation for module `\memory_controller'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:129.1-147.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\memset'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:358.1-369.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   2 design levels: memset              
+root of   1 design levels: memory_controller   
+root of   0 design levels: dual_port_ram       
+root of   0 design levels: single_port_ram     
+Automatically selected memset as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \memset
+Used module:     \memory_controller
+Used module:         \single_port_ram
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 5
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\single_port_ram'.
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 5
+Generating RTLIL representation for module `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \memset
+Used module:     \memory_controller
+Used module:         $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram
+
+2.5. Analyzing design hierarchy..
+Top module:  \memset
+Used module:     \memory_controller
+Used module:         $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram
+Removing unused module `\dual_port_ram'.
+Removing unused module `\single_port_ram'.
+Removed 2 unused modules.
+Mapping positional arguments of cell memset.memtroll (memory_controller).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:129$34 in module memory_controller.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:29$45 in module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:358$43 in module memset.
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35 in module memset.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 11 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\memory_controller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:129$34'.
+     1/4: $1\memory_controller_out[31:0]
+     2/4: $1\str_in[7:0]
+     3/4: $1\str_write_enable[0:0]
+     4/4: $1\str_address[4:0]
+Creating decoders for process `\memory_controller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:127$33'.
+Creating decoders for process `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:29$45'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:31$44_EN[7:0]$51
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:31$44_DATA[7:0]$50
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:31$44_ADDR[4:0]$49
+     4/4: $0\out[7:0]
+Creating decoders for process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:358$43'.
+     1/3: $1\memory_controller_in[31:0]
+     2/3: $1\memory_controller_write_enable[0:0]
+     3/3: $1\memory_controller_address[31:0]
+Creating decoders for process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+     1/13: $0\exitcond[0:0]
+     2/13: $0\indvar_next[31:0]
+     3/13: $0\s_07[31:0]
+     4/13: $0\scevgep[31:0]
+     5/13: $0\var0[31:0]
+     6/13: $0\var2[0:0]
+     7/13: $0\tmp8[31:0]
+     8/13: $0\tmp[31:0]
+     9/13: $0\var1[0:0]
+    10/13: $0\indvar[31:0]
+    11/13: $0\cur_state[3:0]
+    12/13: $0\finish[0:0]
+    13/13: $0\return_val[31:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\memory_controller.\memory_controller_out' from process `\memory_controller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:129$34': $auto$proc_dlatch.cc:427:proc_dlatch$248
+Latch inferred for signal `\memory_controller.\str_address' from process `\memory_controller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:129$34': $auto$proc_dlatch.cc:427:proc_dlatch$259
+Latch inferred for signal `\memory_controller.\str_write_enable' from process `\memory_controller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:129$34': $auto$proc_dlatch.cc:427:proc_dlatch$270
+Latch inferred for signal `\memory_controller.\str_in' from process `\memory_controller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:129$34': $auto$proc_dlatch.cc:427:proc_dlatch$281
+Latch inferred for signal `\memset.\memory_controller_address' from process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:358$43': $auto$proc_dlatch.cc:427:proc_dlatch$292
+Latch inferred for signal `\memset.\memory_controller_write_enable' from process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:358$43': $auto$proc_dlatch.cc:427:proc_dlatch$303
+Latch inferred for signal `\memset.\memory_controller_in' from process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:358$43': $auto$proc_dlatch.cc:427:proc_dlatch$314
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\memory_controller.\prevTag' using process `\memory_controller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:127$33'.
+  created $dff cell `$procdff$315' with positive edge clock.
+Creating register for signal `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.\out' using process `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:29$45'.
+  created $dff cell `$procdff$316' with positive edge clock.
+Creating register for signal `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:31$44_ADDR' using process `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:29$45'.
+  created $dff cell `$procdff$317' with positive edge clock.
+Creating register for signal `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:31$44_DATA' using process `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:29$45'.
+  created $dff cell `$procdff$318' with positive edge clock.
+Creating register for signal `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:31$44_EN' using process `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:29$45'.
+  created $dff cell `$procdff$319' with positive edge clock.
+Creating register for signal `\memset.\return_val' using process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+  created $dff cell `$procdff$320' with positive edge clock.
+Creating register for signal `\memset.\finish' using process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+  created $dff cell `$procdff$321' with positive edge clock.
+Creating register for signal `\memset.\cur_state' using process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+  created $dff cell `$procdff$322' with positive edge clock.
+Creating register for signal `\memset.\indvar' using process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+  created $dff cell `$procdff$323' with positive edge clock.
+Creating register for signal `\memset.\var1' using process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+  created $dff cell `$procdff$324' with positive edge clock.
+Creating register for signal `\memset.\tmp' using process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+  created $dff cell `$procdff$325' with positive edge clock.
+Creating register for signal `\memset.\tmp8' using process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+  created $dff cell `$procdff$326' with positive edge clock.
+Creating register for signal `\memset.\var2' using process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+  created $dff cell `$procdff$327' with positive edge clock.
+Creating register for signal `\memset.\var0' using process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+  created $dff cell `$procdff$328' with positive edge clock.
+Creating register for signal `\memset.\scevgep' using process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+  created $dff cell `$procdff$329' with positive edge clock.
+Creating register for signal `\memset.\s_07' using process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+  created $dff cell `$procdff$330' with positive edge clock.
+Creating register for signal `\memset.\indvar_next' using process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+  created $dff cell `$procdff$331' with positive edge clock.
+Creating register for signal `\memset.\exitcond' using process `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+  created $dff cell `$procdff$332' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\memory_controller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:129$34'.
+Removing empty process `memory_controller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:129$34'.
+Removing empty process `memory_controller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:127$33'.
+Found and cleaned up 1 empty switch in `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:29$45'.
+Removing empty process `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:29$45'.
+Found and cleaned up 1 empty switch in `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:358$43'.
+Removing empty process `memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:358$43'.
+Found and cleaned up 6 empty switches in `\memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+Removing empty process `memset.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:226$35'.
+Cleaned up 10 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module memory_controller.
+<suppressed ~32 debug messages>
+Optimizing module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.
+Optimizing module memset.
+<suppressed ~20 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module memory_controller.
+Optimizing module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.
+Optimizing module memset.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\memory_controller'.
+<suppressed ~9 debug messages>
+Finding identical cells in module `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram'.
+Finding identical cells in module `\memset'.
+<suppressed ~60 debug messages>
+Removed a total of 23 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \memory_controller..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \memset..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \memory_controller.
+  Optimizing cells in module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.
+    Consolidated identical input bits for $mux cell $procmux$66:
+      Old ports: A=8'00000000, B=8'11111111, Y=$procmux$66_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$66_Y [0]
+      New connections: $procmux$66_Y [7:1] = { $procmux$66_Y [0] $procmux$66_Y [0] $procmux$66_Y [0] $procmux$66_Y [0] $procmux$66_Y [0] $procmux$66_Y [0] $procmux$66_Y [0] }
+  Optimizing cells in module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.
+  Optimizing cells in module \memset.
+Performed a total of 1 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\memory_controller'.
+Finding identical cells in module `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram'.
+Finding identical cells in module `\memset'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$316 ($dff) from module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:34$52_DATA, Q = \out).
+Adding EN signal on $procdff$329 ($dff) from module memset (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:319$41_Y, Q = \scevgep).
+Adding EN signal on $procdff$328 ($dff) from module memset (D = $procmux$130_Y, Q = \var0).
+Adding EN signal on $procdff$327 ($dff) from module memset (D = $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:281$39_Y, Q = \var2).
+Adding EN signal on $procdff$330 ($dff) from module memset (D = \scevgep, Q = \s_07).
+Adding EN signal on $procdff$331 ($dff) from module memset (D = \indvar, Q = \indvar_next).
+Adding EN signal on $procdff$332 ($dff) from module memset (D = $eq$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/ch_intrinsics.v:321$42_Y, Q = \exitcond).
+Adding EN signal on $procdff$326 ($dff) from module memset (D = \indvar, Q = \tmp8).
+Adding EN signal on $procdff$325 ($dff) from module memset (D = \n, Q = \tmp).
+Adding EN signal on $procdff$324 ($dff) from module memset (D = 1'0, Q = \var1).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$377 ($dffe) from module memset.
+Adding EN signal on $procdff$323 ($dff) from module memset (D = $procmux$190_Y, Q = \indvar).
+Adding SRST signal on $procdff$322 ($dff) from module memset (D = $procmux$196_Y, Q = \cur_state, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:262:slice$391 ($sdff) from module memset (D = $procmux$196_Y, Q = \cur_state).
+Adding EN signal on $procdff$321 ($dff) from module memset (D = $procmux$227_Y, Q = \finish).
+Adding EN signal on $procdff$320 ($dff) from module memset (D = \m, Q = \return_val).
+Setting constant 1-bit at position 0 on $auto$proc_dlatch.cc:427:proc_dlatch$303 ($dlatch) from module memset.
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \memory_controller..
+Finding unused cells or wires in module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram..
+Finding unused cells or wires in module \memset..
+Removed 37 unused cells and 160 unused wires.
+<suppressed ~41 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.
+Optimizing module memory_controller.
+<suppressed ~1 debug messages>
+Optimizing module memset.
+<suppressed ~4 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \memory_controller..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \memset..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.
+  Optimizing cells in module \memory_controller.
+  Optimizing cells in module \memset.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram'.
+Finding identical cells in module `\memory_controller'.
+Finding identical cells in module `\memset'.
+<suppressed ~36 debug messages>
+Removed a total of 12 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 8 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 9 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 10 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 11 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 12 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 13 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 14 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 15 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 16 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 17 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 18 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 19 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 20 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 21 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 22 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 23 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 24 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 25 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 26 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 27 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 28 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 29 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 30 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+Setting constant 0-bit at position 31 on $auto$proc_dlatch.cc:427:proc_dlatch$248 ($dlatch) from module memory_controller.
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram..
+Finding unused cells or wires in module \memory_controller..
+Finding unused cells or wires in module \memset..
+Removed 0 unused cells and 13 unused wires.
+<suppressed ~2 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.
+Optimizing module memory_controller.
+Optimizing module memset.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \memory_controller..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \memset..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.
+  Optimizing cells in module \memory_controller.
+  Optimizing cells in module \memset.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram'.
+Finding identical cells in module `\memory_controller'.
+Finding identical cells in module `\memset'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram..
+Finding unused cells or wires in module \memory_controller..
+Finding unused cells or wires in module \memset..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram.
+Optimizing module memory_controller.
+Optimizing module memset.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram ===
+
+   Number of wires:                  9
+   Number of wire bits:             52
+   Number of public wires:           5
+   Number of public wire bits:      23
+   Number of memories:               1
+   Number of memory bits:           40
+   Number of processes:              0
+   Number of cells:                  6
+     $dffe                           8
+     $mux                           14
+
+=== memory_controller ===
+
+   Number of wires:                 13
+   Number of wire bits:            124
+   Number of public wires:          11
+   Number of public wire bits:     122
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  9
+     $and                            1
+     $dff                            1
+     $dlatch                        22
+     $reduce_or                     64
+
+=== memset ===
+
+   Number of wires:                 60
+   Number of wire bits:            571
+   Number of public wires:          22
+   Number of public wire bits:     428
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 51
+     $and                           32
+     $dffe                         195
+     $dlatch                        64
+     $eq                            88
+     $logic_not                      4
+     $mux                           44
+     $ne                             2
+     $not                            1
+     $pmux                          37
+     $reduce_and                    17
+     $reduce_bool                   19
+     $reduce_or                     28
+     $sdffe                          4
+
+=== design hierarchy ===
+
+   memset                            1
+     memory_controller               0
+       $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram      0
+
+   Number of wires:                 60
+   Number of wire bits:            571
+   Number of public wires:          22
+   Number of public wire bits:     428
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 51
+     $and                           32
+     $dffe                         195
+     $dlatch                        64
+     $eq                            88
+     $logic_not                      4
+     $mux                           44
+     $ne                             2
+     $not                            1
+     $pmux                          37
+     $reduce_and                    17
+     $reduce_bool                   19
+     $reduce_or                     28
+     $sdffe                          4
+
+End of script. Logfile hash: df77511bde, CPU: user 0.13s system 0.01s, MEM: 12.93 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 24% 5x opt_expr (0 sec), 18% 2x read_verilog (0 sec), ...

@@ -1,0 +1,911 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v' to AST representation.
+Warning: Encountered `full_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `full_case' attribute or the SystemVerilog `unique' or `unique0' keywords is recommended!
+Warning: Encountered `parallel_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `parallel_case' attribute or the SystemVerilog `unique' or `priority' keywords is recommended!
+Generating RTLIL representation for module `\usb_phy'.
+Generating RTLIL representation for module `\usb_rx_phy'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:387.1-406.7 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:439.1-516.7 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\usb_tx_phy'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1042.1-1086.7 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: usb_tx_phy          
+root of   0 design levels: usb_rx_phy          
+root of   1 design levels: usb_phy             
+Automatically selected usb_phy as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \usb_phy
+Used module:     \usb_rx_phy
+Used module:     \usb_tx_phy
+
+2.3. Analyzing design hierarchy..
+Top module:  \usb_phy
+Used module:     \usb_rx_phy
+Used module:     \usb_tx_phy
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 7 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1042$213 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1037$211 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1021$205 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1010$200 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:996$196 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:987$194 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:978$192 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:962$190 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:952$185 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:943$183 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:934$181 in module usb_tx_phy.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:923$179 in module usb_tx_phy.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:907$172 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:893$167 in module usb_tx_phy.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:876$160 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:861$158 in module usb_tx_phy.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:838$149 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:838$149 in module usb_tx_phy.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:828$143 in module usb_tx_phy.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:812$138 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:799$136 in module usb_tx_phy.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:788$134 in module usb_tx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:773$130 in module usb_tx_phy.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:613$110 in module usb_rx_phy.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:602$104 in module usb_rx_phy.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:566$85 in module usb_rx_phy.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:550$79 in module usb_rx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:534$77 in module usb_rx_phy.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:526$73 in module usb_rx_phy.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:439$58 in module usb_rx_phy.
+Marked 10 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:439$58 in module usb_rx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:434$56 in module usb_rx_phy.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:387$48 in module usb_rx_phy.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:387$48 in module usb_rx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:382$46 in module usb_rx_phy.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:335$17 in module usb_rx_phy.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:168$1 in module usb_phy.
+Removed a total of 3 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 5 redundant assignments.
+Promoted 35 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1042$213'.
+     1/17: $7\next_state[2:0]
+     2/17: $6\next_state[2:0]
+     3/17: $5\next_state[2:0]
+     4/17: $3\ld_data_d[0:0]
+     5/17: $3\tx_ready_d[0:0]
+     6/17: $4\next_state[2:0]
+     7/17: $2\ld_eop_d[0:0]
+     8/17: $3\next_state[2:0]
+     9/17: $2\ld_data_d[0:0]
+    10/17: $2\tx_ready_d[0:0]
+    11/17: $2\next_state[2:0]
+    12/17: $2\ld_sop_d[0:0]
+    13/17: $1\ld_sop_d[0:0]
+    14/17: $1\next_state[2:0]
+    15/17: $1\ld_eop_d[0:0]
+    16/17: $1\ld_data_d[0:0]
+    17/17: $1\tx_ready_d[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1037$211'.
+     1/1: $0\state[2:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1021$205'.
+     1/1: $0\txdn[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1010$200'.
+     1/1: $0\txdp[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:996$196'.
+     1/1: $0\txoe[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:987$194'.
+     1/1: $0\txoe_r2[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:978$192'.
+     1/1: $0\txoe_r1[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:962$190'.
+     1/1: $0\append_eop_sync4[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:952$185'.
+     1/1: $0\append_eop_sync3[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:943$183'.
+     1/1: $0\append_eop_sync2[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:934$181'.
+     1/1: $0\append_eop_sync1[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:923$179'.
+     1/1: $0\append_eop[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:907$172'.
+     1/1: $0\sd_nrzi_o[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:893$167'.
+     1/1: $0\sd_bs_o[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:876$160'.
+     1/1: $0\one_cnt[2:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:866$159'.
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:861$158'.
+     1/1: $0\hold_reg[7:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:855$155'.
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:852$151'.
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:838$149'.
+     1/1: $0\sd_raw_o[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:828$143'.
+     1/1: $0\bit_cnt[2:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:812$138'.
+     1/1: $0\data_done[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:799$136'.
+     1/1: $0\tx_ip_sync[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:788$134'.
+     1/1: $0\tx_ip[0:0]
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:778$133'.
+Creating decoders for process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:773$130'.
+     1/1: $0\TxReady_o[0:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:625$124'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:623$123'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:621$119'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:613$110'.
+     1/1: $0\rx_valid1[0:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:602$104'.
+     1/1: $0\bit_cnt[2:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:590$100'.
+     1/1: $0\hold_reg[7:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:587$98'.
+     1/1: $0\shift_en[0:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:580$92'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:566$85'.
+     1/1: $0\one_cnt[2:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:550$79'.
+     1/1: $0\sd_nrzi[0:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:544$78'.
+     1/1: $0\sd_r[0:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:534$77'.
+     1/1: $0\rx_valid_r[0:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:526$73'.
+     1/1: $0\rx_active[0:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:439$58'.
+     1/24: $5\synced_d[0:0]
+     2/24: $10\fs_next_state[2:0]
+     3/24: $9\sync_err_d[0:0]
+     4/24: $4\synced_d[0:0]
+     5/24: $9\fs_next_state[2:0]
+     6/24: $8\sync_err_d[0:0]
+     7/24: $8\fs_next_state[2:0]
+     8/24: $7\sync_err_d[0:0]
+     9/24: $3\synced_d[0:0]
+    10/24: $7\fs_next_state[2:0]
+    11/24: $6\sync_err_d[0:0]
+    12/24: $6\fs_next_state[2:0]
+    13/24: $5\sync_err_d[0:0]
+    14/24: $5\fs_next_state[2:0]
+    15/24: $4\sync_err_d[0:0]
+    16/24: $4\fs_next_state[2:0]
+    17/24: $3\sync_err_d[0:0]
+    18/24: $3\fs_next_state[2:0]
+    19/24: $2\fs_next_state[2:0]
+    20/24: $2\sync_err_d[0:0]
+    21/24: $2\synced_d[0:0]
+    22/24: $1\sync_err_d[0:0]
+    23/24: $1\fs_next_state[2:0]
+    24/24: $1\synced_d[0:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:434$56'.
+     1/1: $0\fs_state[2:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:414$55'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:413$54'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:412$53'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:387$48'.
+     1/6: $5\dpll_next_state[1:0]
+     2/6: $4\dpll_next_state[1:0]
+     3/6: $3\dpll_next_state[1:0]
+     4/6: $2\dpll_next_state[1:0]
+     5/6: $1\dpll_next_state[1:0]
+     6/6: $1\fs_ce_d[0:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:382$46'.
+     1/1: $0\dpll_state[1:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:373$44'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:354$43'.
+     1/1: $0\se0_s[0:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:348$33'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:347$31'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:346$30'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:345$29'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:343$26'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:342$24'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:341$23'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:340$22'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:335$17'.
+     1/1: $0\rxd_s[0:0]
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:334$16'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:333$15'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:321$12'.
+Creating decoders for process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:320$11'.
+Creating decoders for process `\usb_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:176$7'.
+Creating decoders for process `\usb_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:168$1'.
+     1/1: $0\rst_cnt[4:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\usb_tx_phy.\next_state' from process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1042$213'.
+No latch inferred for signal `\usb_tx_phy.\tx_ready_d' from process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1042$213'.
+No latch inferred for signal `\usb_tx_phy.\ld_sop_d' from process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1042$213'.
+No latch inferred for signal `\usb_tx_phy.\ld_data_d' from process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1042$213'.
+No latch inferred for signal `\usb_tx_phy.\ld_eop_d' from process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1042$213'.
+No latch inferred for signal `\usb_rx_phy.\synced_d' from process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:439$58'.
+No latch inferred for signal `\usb_rx_phy.\fs_next_state' from process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:439$58'.
+No latch inferred for signal `\usb_rx_phy.\sync_err_d' from process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:439$58'.
+No latch inferred for signal `\usb_rx_phy.\dpll_next_state' from process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:387$48'.
+No latch inferred for signal `\usb_rx_phy.\fs_ce_d' from process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:387$48'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\usb_tx_phy.\state' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1037$211'.
+  created $dff cell `$procdff$861' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\txdn' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1021$205'.
+  created $dff cell `$procdff$862' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\txdp' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1010$200'.
+  created $dff cell `$procdff$863' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\txoe' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:996$196'.
+  created $dff cell `$procdff$864' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\txoe_r2' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:987$194'.
+  created $dff cell `$procdff$865' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\txoe_r1' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:978$192'.
+  created $dff cell `$procdff$866' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\append_eop_sync4' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:962$190'.
+  created $dff cell `$procdff$867' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\append_eop_sync3' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:952$185'.
+  created $dff cell `$procdff$868' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\append_eop_sync2' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:943$183'.
+  created $dff cell `$procdff$869' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\append_eop_sync1' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:934$181'.
+  created $dff cell `$procdff$870' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\append_eop' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:923$179'.
+  created $dff cell `$procdff$871' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\sd_nrzi_o' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:907$172'.
+  created $dff cell `$procdff$872' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\sd_bs_o' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:893$167'.
+  created $dff cell `$procdff$873' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\one_cnt' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:876$160'.
+  created $dff cell `$procdff$874' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\hold_reg_d' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:866$159'.
+  created $dff cell `$procdff$875' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\hold_reg' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:861$158'.
+  created $dff cell `$procdff$876' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\sft_done_r' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:855$155'.
+  created $dff cell `$procdff$877' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\sft_done' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:852$151'.
+  created $dff cell `$procdff$878' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\sd_raw_o' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:838$149'.
+  created $dff cell `$procdff$879' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\bit_cnt' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:828$143'.
+  created $dff cell `$procdff$880' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\data_done' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:812$138'.
+  created $dff cell `$procdff$881' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\tx_ip_sync' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:799$136'.
+  created $dff cell `$procdff$882' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\tx_ip' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:788$134'.
+  created $dff cell `$procdff$883' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\ld_data' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:778$133'.
+  created $dff cell `$procdff$884' with positive edge clock.
+Creating register for signal `\usb_tx_phy.\TxReady_o' using process `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:773$130'.
+  created $dff cell `$procdff$885' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\byte_err' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:625$124'.
+  created $dff cell `$procdff$886' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\se0_r' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:623$123'.
+  created $dff cell `$procdff$887' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rx_valid' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:621$119'.
+  created $dff cell `$procdff$888' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rx_valid1' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:613$110'.
+  created $dff cell `$procdff$889' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\bit_cnt' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:602$104'.
+  created $dff cell `$procdff$890' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\hold_reg' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:590$100'.
+  created $dff cell `$procdff$891' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\shift_en' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:587$98'.
+  created $dff cell `$procdff$892' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\bit_stuff_err' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:580$92'.
+  created $dff cell `$procdff$893' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\one_cnt' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:566$85'.
+  created $dff cell `$procdff$894' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\sd_nrzi' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:550$79'.
+  created $dff cell `$procdff$895' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\sd_r' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:544$78'.
+  created $dff cell `$procdff$896' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rx_valid_r' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:534$77'.
+  created $dff cell `$procdff$897' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rx_active' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:526$73'.
+  created $dff cell `$procdff$898' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\fs_state' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:434$56'.
+  created $dff cell `$procdff$899' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\fs_ce' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:414$55'.
+  created $dff cell `$procdff$900' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\fs_ce_r2' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:413$54'.
+  created $dff cell `$procdff$901' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\fs_ce_r1' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:412$53'.
+  created $dff cell `$procdff$902' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\dpll_state' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:382$46'.
+  created $dff cell `$procdff$903' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rxd_r' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:373$44'.
+  created $dff cell `$procdff$904' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\se0_s' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:354$43'.
+  created $dff cell `$procdff$905' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rxdn_s' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:348$33'.
+  created $dff cell `$procdff$906' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rxdn_s_r' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:347$31'.
+  created $dff cell `$procdff$907' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rxdn_s1' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:346$30'.
+  created $dff cell `$procdff$908' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rxdn_s0' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:345$29'.
+  created $dff cell `$procdff$909' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rxdp_s' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:343$26'.
+  created $dff cell `$procdff$910' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rxdp_s_r' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:342$24'.
+  created $dff cell `$procdff$911' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rxdp_s1' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:341$23'.
+  created $dff cell `$procdff$912' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rxdp_s0' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:340$22'.
+  created $dff cell `$procdff$913' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rxd_s' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:335$17'.
+  created $dff cell `$procdff$914' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rxd_s1' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:334$16'.
+  created $dff cell `$procdff$915' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rxd_s0' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:333$15'.
+  created $dff cell `$procdff$916' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\sync_err' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:321$12'.
+  created $dff cell `$procdff$917' with positive edge clock.
+Creating register for signal `\usb_rx_phy.\rx_en' using process `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:320$11'.
+  created $dff cell `$procdff$918' with positive edge clock.
+Creating register for signal `\usb_phy.\usb_rst' using process `\usb_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:176$7'.
+  created $dff cell `$procdff$919' with positive edge clock.
+Creating register for signal `\usb_phy.\rst_cnt' using process `\usb_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:168$1'.
+  created $dff cell `$procdff$920' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 8 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1042$213'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1042$213'.
+Found and cleaned up 1 empty switch in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1037$211'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1037$211'.
+Found and cleaned up 2 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1021$205'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1021$205'.
+Found and cleaned up 2 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1010$200'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1010$200'.
+Found and cleaned up 2 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:996$196'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:996$196'.
+Found and cleaned up 2 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:987$194'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:987$194'.
+Found and cleaned up 2 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:978$192'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:978$192'.
+Found and cleaned up 2 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:962$190'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:962$190'.
+Found and cleaned up 2 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:952$185'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:952$185'.
+Found and cleaned up 2 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:943$183'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:943$183'.
+Found and cleaned up 2 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:934$181'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:934$181'.
+Found and cleaned up 3 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:923$179'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:923$179'.
+Found and cleaned up 3 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:907$172'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:907$172'.
+Found and cleaned up 2 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:893$167'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:893$167'.
+Found and cleaned up 4 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:876$160'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:876$160'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:866$159'.
+Found and cleaned up 2 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:861$158'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:861$158'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:855$155'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:852$151'.
+Found and cleaned up 2 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:838$149'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:838$149'.
+Found and cleaned up 3 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:828$143'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:828$143'.
+Found and cleaned up 3 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:812$138'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:812$138'.
+Found and cleaned up 2 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:799$136'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:799$136'.
+Found and cleaned up 3 empty switches in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:788$134'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:788$134'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:778$133'.
+Found and cleaned up 1 empty switch in `\usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:773$130'.
+Removing empty process `usb_tx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:773$130'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:625$124'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:623$123'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:621$119'.
+Found and cleaned up 3 empty switches in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:613$110'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:613$110'.
+Found and cleaned up 3 empty switches in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:602$104'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:602$104'.
+Found and cleaned up 1 empty switch in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:590$100'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:590$100'.
+Found and cleaned up 1 empty switch in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:587$98'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:587$98'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:580$92'.
+Found and cleaned up 4 empty switches in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:566$85'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:566$85'.
+Found and cleaned up 3 empty switches in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:550$79'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:550$79'.
+Found and cleaned up 1 empty switch in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:544$78'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:544$78'.
+Found and cleaned up 2 empty switches in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:534$77'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:534$77'.
+Found and cleaned up 3 empty switches in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:526$73'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:526$73'.
+Found and cleaned up 11 empty switches in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:439$58'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:439$58'.
+Found and cleaned up 1 empty switch in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:434$56'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:434$56'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:414$55'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:413$54'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:412$53'.
+Found and cleaned up 5 empty switches in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:387$48'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:387$48'.
+Found and cleaned up 1 empty switch in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:382$46'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:382$46'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:373$44'.
+Found and cleaned up 1 empty switch in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:354$43'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:354$43'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:348$33'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:347$31'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:346$30'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:345$29'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:343$26'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:342$24'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:341$23'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:340$22'.
+Found and cleaned up 2 empty switches in `\usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:335$17'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:335$17'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:334$16'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:333$15'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:321$12'.
+Removing empty process `usb_rx_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:320$11'.
+Removing empty process `usb_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:176$7'.
+Found and cleaned up 3 empty switches in `\usb_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:168$1'.
+Removing empty process `usb_phy.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:168$1'.
+Cleaned up 100 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module usb_tx_phy.
+<suppressed ~32 debug messages>
+Optimizing module usb_rx_phy.
+<suppressed ~17 debug messages>
+Optimizing module usb_phy.
+<suppressed ~2 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module usb_tx_phy.
+Optimizing module usb_rx_phy.
+Optimizing module usb_phy.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\usb_tx_phy'.
+<suppressed ~189 debug messages>
+Finding identical cells in module `\usb_rx_phy'.
+<suppressed ~210 debug messages>
+Finding identical cells in module `\usb_phy'.
+Removed a total of 133 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \usb_tx_phy..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$326.
+    dead port 2/2 on $mux $procmux$315.
+    dead port 2/2 on $mux $procmux$304.
+    dead port 2/2 on $mux $procmux$294.
+    dead port 2/2 on $mux $procmux$284.
+    dead port 2/2 on $mux $procmux$274.
+    dead port 2/2 on $mux $procmux$265.
+    dead port 2/2 on $mux $procmux$256.
+    dead port 2/2 on $mux $procmux$247.
+    dead port 2/2 on $mux $procmux$238.
+    dead port 2/2 on $mux $procmux$230.
+    dead port 2/2 on $mux $procmux$223.
+Running muxtree optimizer on module \usb_rx_phy..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$782.
+    dead port 2/2 on $mux $procmux$770.
+    dead port 2/2 on $mux $procmux$758.
+    dead port 2/2 on $mux $procmux$756.
+    dead port 2/2 on $mux $procmux$743.
+    dead port 2/2 on $mux $procmux$741.
+    dead port 2/2 on $mux $procmux$729.
+    dead port 2/2 on $mux $procmux$727.
+    dead port 2/2 on $mux $procmux$715.
+    dead port 2/2 on $mux $procmux$713.
+    dead port 2/2 on $mux $procmux$702.
+    dead port 2/2 on $mux $procmux$700.
+    dead port 2/2 on $mux $procmux$689.
+    dead port 2/2 on $mux $procmux$687.
+    dead port 2/2 on $mux $procmux$677.
+    dead port 2/2 on $mux $procmux$675.
+    dead port 2/2 on $mux $procmux$665.
+    dead port 2/2 on $mux $procmux$663.
+    dead port 2/2 on $mux $procmux$654.
+    dead port 2/2 on $mux $procmux$652.
+    dead port 2/2 on $mux $procmux$643.
+    dead port 2/2 on $mux $procmux$641.
+    dead port 2/2 on $mux $procmux$633.
+    dead port 2/2 on $mux $procmux$631.
+    dead port 2/2 on $mux $procmux$623.
+    dead port 2/2 on $mux $procmux$621.
+    dead port 2/2 on $mux $procmux$613.
+    dead port 2/2 on $mux $procmux$611.
+    dead port 1/2 on $mux $procmux$609.
+    dead port 2/2 on $mux $procmux$600.
+    dead port 2/2 on $mux $procmux$598.
+    dead port 1/2 on $mux $procmux$596.
+    dead port 2/2 on $mux $procmux$588.
+    dead port 2/2 on $mux $procmux$586.
+    dead port 1/2 on $mux $procmux$584.
+    dead port 2/2 on $mux $procmux$575.
+    dead port 2/2 on $mux $procmux$573.
+    dead port 2/2 on $mux $procmux$566.
+    dead port 2/2 on $mux $procmux$564.
+    dead port 2/2 on $mux $procmux$557.
+    dead port 2/2 on $mux $procmux$555.
+    dead port 2/2 on $mux $procmux$831.
+    dead port 2/2 on $mux $procmux$823.
+    dead port 2/2 on $mux $procmux$816.
+    dead port 2/2 on $mux $procmux$810.
+    dead port 2/2 on $mux $procmux$794.
+Running muxtree optimizer on module \usb_phy..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 58 multiplexer ports.
+<suppressed ~42 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \usb_tx_phy.
+    New ctrl vector for $pmux cell $procmux$361: { $procmux$366_CMP $procmux$365_CMP $auto$opt_reduce.cc:134:opt_mux$922 }
+    New ctrl vector for $pmux cell $procmux$353: { $procmux$366_CMP $procmux$365_CMP $auto$opt_reduce.cc:134:opt_mux$924 }
+    New ctrl vector for $pmux cell $procmux$345: { $procmux$365_CMP $auto$opt_reduce.cc:134:opt_mux$926 }
+    New ctrl vector for $pmux cell $procmux$329: { $procmux$367_CMP $auto$opt_reduce.cc:134:opt_mux$928 }
+  Optimizing cells in module \usb_tx_phy.
+  Optimizing cells in module \usb_rx_phy.
+    New ctrl vector for $pmux cell $procmux$785: { $procmux$788_CMP $auto$opt_reduce.cc:134:opt_mux$930 $procmux$786_CMP }
+    New ctrl vector for $pmux cell $procmux$773: { $procmux$792_CMP $procmux$791_CMP $procmux$790_CMP $procmux$789_CMP $procmux$788_CMP $procmux$787_CMP $auto$opt_reduce.cc:134:opt_mux$932 }
+    New ctrl vector for $pmux cell $procmux$838: { $procmux$841_CMP $auto$opt_reduce.cc:134:opt_mux$934 }
+  Optimizing cells in module \usb_rx_phy.
+  Optimizing cells in module \usb_phy.
+Performed a total of 7 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\usb_tx_phy'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\usb_rx_phy'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\usb_phy'.
+Removed a total of 8 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$861 ($dff) from module usb_tx_phy (D = $procmux$337_Y, Q = \state, rval = 3'000).
+Adding EN signal on $auto$ff.cc:262:slice$935 ($sdff) from module usb_tx_phy (D = $procmux$337_Y, Q = \state).
+Adding SRST signal on $procdff$862 ($dff) from module usb_tx_phy (D = $procmux$371_Y, Q = \txdn, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$951 ($sdff) from module usb_tx_phy (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1025$210_Y, Q = \txdn).
+Adding SRST signal on $procdff$863 ($dff) from module usb_tx_phy (D = $procmux$376_Y, Q = \txdp, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$953 ($sdff) from module usb_tx_phy (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1014$204_Y, Q = \txdp).
+Adding SRST signal on $procdff$864 ($dff) from module usb_tx_phy (D = $procmux$381_Y, Q = \txoe, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$955 ($sdff) from module usb_tx_phy (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:1000$199_Y, Q = \txoe).
+Adding SRST signal on $procdff$865 ($dff) from module usb_tx_phy (D = $procmux$386_Y, Q = \txoe_r2, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$957 ($sdff) from module usb_tx_phy (D = \txoe_r1, Q = \txoe_r2).
+Adding SRST signal on $procdff$866 ($dff) from module usb_tx_phy (D = $procmux$391_Y, Q = \txoe_r1, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$959 ($sdff) from module usb_tx_phy (D = \tx_ip_sync, Q = \txoe_r1).
+Adding SRST signal on $procdff$867 ($dff) from module usb_tx_phy (D = $procmux$396_Y, Q = \append_eop_sync4, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$961 ($sdff) from module usb_tx_phy (D = \append_eop_sync3, Q = \append_eop_sync4).
+Adding SRST signal on $procdff$868 ($dff) from module usb_tx_phy (D = $procmux$401_Y, Q = \append_eop_sync3, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$963 ($sdff) from module usb_tx_phy (D = $or$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:956$189_Y, Q = \append_eop_sync3).
+Adding SRST signal on $procdff$869 ($dff) from module usb_tx_phy (D = $procmux$406_Y, Q = \append_eop_sync2, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$965 ($sdff) from module usb_tx_phy (D = \append_eop_sync1, Q = \append_eop_sync2).
+Adding SRST signal on $procdff$870 ($dff) from module usb_tx_phy (D = $procmux$411_Y, Q = \append_eop_sync1, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$967 ($sdff) from module usb_tx_phy (D = \append_eop, Q = \append_eop_sync1).
+Adding SRST signal on $procdff$871 ($dff) from module usb_tx_phy (D = $procmux$419_Y, Q = \append_eop, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$969 ($sdff) from module usb_tx_phy (D = $procmux$419_Y, Q = \append_eop).
+Adding SRST signal on $procdff$872 ($dff) from module usb_tx_phy (D = $procmux$424_Y, Q = \sd_nrzi_o, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$973 ($sdff) from module usb_tx_phy (D = $not$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:913$177_Y, Q = \sd_nrzi_o).
+Adding SRST signal on $procdff$873 ($dff) from module usb_tx_phy (D = $procmux$432_Y, Q = \sd_bs_o, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$983 ($sdff) from module usb_tx_phy (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:897$171_Y, Q = \sd_bs_o).
+Adding SRST signal on $procdff$874 ($dff) from module usb_tx_phy (D = $procmux$440_Y, Q = \one_cnt, rval = 3'000).
+Adding EN signal on $auto$ff.cc:262:slice$985 ($sdff) from module usb_tx_phy (D = $procmux$438_Y, Q = \one_cnt).
+Adding SRST signal on $procdff$876 ($dff) from module usb_tx_phy (D = $procmux$448_Y, Q = \hold_reg, rval = 8'10000000).
+Adding EN signal on $auto$ff.cc:262:slice$989 ($sdff) from module usb_tx_phy (D = \DataOut_i, Q = \hold_reg).
+Adding SRST signal on $procdff$879 ($dff) from module usb_tx_phy (D = $procmux$453_Y, Q = \sd_raw_o, rval = 1'0).
+Adding SRST signal on $procdff$880 ($dff) from module usb_tx_phy (D = $procmux$465_Y, Q = \bit_cnt, rval = 3'000).
+Adding EN signal on $auto$ff.cc:262:slice$992 ($sdff) from module usb_tx_phy (D = $add$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:834$148_Y, Q = \bit_cnt).
+Adding SRST signal on $procdff$881 ($dff) from module usb_tx_phy (D = $procmux$476_Y, Q = \data_done, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$996 ($sdff) from module usb_tx_phy (D = $procmux$476_Y, Q = \data_done).
+Adding SRST signal on $procdff$882 ($dff) from module usb_tx_phy (D = $procmux$481_Y, Q = \tx_ip_sync, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1000 ($sdff) from module usb_tx_phy (D = \tx_ip, Q = \tx_ip_sync).
+Adding SRST signal on $procdff$883 ($dff) from module usb_tx_phy (D = $procmux$489_Y, Q = \tx_ip, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1002 ($sdff) from module usb_tx_phy (D = $procmux$489_Y, Q = \tx_ip).
+Adding SRST signal on $procdff$885 ($dff) from module usb_tx_phy (D = $and$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:776$132_Y, Q = \TxReady_o, rval = 1'0).
+Adding SRST signal on $procdff$889 ($dff) from module usb_rx_phy (D = $procmux$500_Y, Q = \rx_valid1, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1007 ($sdff) from module usb_rx_phy (D = $procmux$500_Y, Q = \rx_valid1).
+Adding SRST signal on $procdff$914 ($dff) from module usb_rx_phy (D = $procmux$848_Y, Q = \rxd_s, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$1011 ($sdff) from module usb_rx_phy (D = 1'0, Q = \rxd_s).
+Adding SRST signal on $procdff$890 ($dff) from module usb_rx_phy (D = $procmux$505_Y, Q = \bit_cnt, rval = 3'000).
+Adding EN signal on $auto$ff.cc:262:slice$1013 ($sdff) from module usb_rx_phy (D = $add$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:608$109_Y, Q = \bit_cnt).
+Adding SRST signal on $procdff$903 ($dff) from module usb_rx_phy (D = $procmux$833_Y, Q = \dpll_state, rval = 2'01).
+Adding EN signal on $procdff$891 ($dff) from module usb_rx_phy (D = { \sd_nrzi \hold_reg [7:1] }, Q = \hold_reg).
+Adding EN signal on $procdff$905 ($dff) from module usb_rx_phy (D = $and$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:352$42_Y, Q = \se0_s).
+Adding EN signal on $procdff$892 ($dff) from module usb_rx_phy (D = $or$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:588$99_Y, Q = \shift_en).
+Adding SRST signal on $procdff$894 ($dff) from module usb_rx_phy (D = $procmux$520_Y, Q = \one_cnt, rval = 3'000).
+Adding EN signal on $auto$ff.cc:262:slice$1021 ($sdff) from module usb_rx_phy (D = $procmux$518_Y, Q = \one_cnt).
+Adding SRST signal on $procdff$895 ($dff) from module usb_rx_phy (D = $procmux$531_Y, Q = \sd_nrzi, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1025 ($sdff) from module usb_rx_phy (D = $procmux$531_Y, Q = \sd_nrzi).
+Adding EN signal on $procdff$896 ($dff) from module usb_rx_phy (D = \rxd_s, Q = \sd_r).
+Adding SRST signal on $procdff$897 ($dff) from module usb_rx_phy (D = $procmux$538_Y, Q = \rx_valid_r, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$1030 ($sdff) from module usb_rx_phy (D = 1'0, Q = \rx_valid_r).
+Adding SRST signal on $procdff$898 ($dff) from module usb_rx_phy (D = $procmux$546_Y, Q = \rx_active, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1032 ($sdff) from module usb_rx_phy (D = $procmux$546_Y, Q = \rx_active).
+Adding SRST signal on $procdff$899 ($dff) from module usb_rx_phy (D = $procmux$800_Y, Q = \fs_state, rval = 3'000).
+Adding EN signal on $auto$ff.cc:262:slice$1036 ($sdff) from module usb_rx_phy (D = $procmux$761_Y, Q = \fs_state).
+Adding SRST signal on $procdff$920 ($dff) from module usb_phy (D = $procmux$853_Y, Q = \rst_cnt, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:262:slice$1042 ($sdff) from module usb_phy (D = $add$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/usb_phy.v:174$6_Y, Q = \rst_cnt).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \usb_tx_phy..
+Finding unused cells or wires in module \usb_rx_phy..
+Finding unused cells or wires in module \usb_phy..
+Removed 68 unused cells and 535 unused wires.
+<suppressed ~72 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module usb_phy.
+Optimizing module usb_rx_phy.
+<suppressed ~2 debug messages>
+Optimizing module usb_tx_phy.
+<suppressed ~2 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \usb_phy..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \usb_rx_phy..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \usb_tx_phy..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~22 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \usb_phy.
+  Optimizing cells in module \usb_rx_phy.
+    New ctrl vector for $pmux cell $procmux$773: { $auto$opt_reduce.cc:134:opt_mux$1051 $procmux$587_CMP $auto$opt_reduce.cc:134:opt_mux$1049 $auto$opt_reduce.cc:134:opt_mux$932 }
+  Optimizing cells in module \usb_rx_phy.
+  Optimizing cells in module \usb_tx_phy.
+Performed a total of 1 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\usb_phy'.
+Finding identical cells in module `\usb_rx_phy'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\usb_tx_phy'.
+<suppressed ~3 debug messages>
+Removed a total of 2 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \usb_phy..
+Finding unused cells or wires in module \usb_rx_phy..
+Finding unused cells or wires in module \usb_tx_phy..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module usb_phy.
+Optimizing module usb_rx_phy.
+Optimizing module usb_tx_phy.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \usb_phy..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \usb_rx_phy..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \usb_tx_phy..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~22 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \usb_phy.
+  Optimizing cells in module \usb_rx_phy.
+  Optimizing cells in module \usb_tx_phy.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\usb_phy'.
+Finding identical cells in module `\usb_rx_phy'.
+Finding identical cells in module `\usb_tx_phy'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \usb_phy..
+Finding unused cells or wires in module \usb_rx_phy..
+Finding unused cells or wires in module \usb_tx_phy..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module usb_phy.
+Optimizing module usb_rx_phy.
+Optimizing module usb_tx_phy.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== usb_phy ===
+
+   Number of wires:                 27
+   Number of wire bits:             50
+   Number of public wires:          20
+   Number of public wire bits:      39
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 11
+     $add                            1
+     $dff                            1
+     $eq                             1
+     $logic_and                      1
+     $logic_not                      1
+     $not                            1
+     $reduce_bool                    1
+     $reduce_or                      1
+     $sdffe                          1
+     usb_rx_phy                      1
+     usb_tx_phy                      1
+
+=== usb_rx_phy ===
+
+   Number of wires:                153
+   Number of wire bits:            201
+   Number of public wires:          54
+   Number of public wire bits:      77
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                142
+     $add                            2
+     $and                           15
+     $dff                           20
+     $dffe                           4
+     $eq                            12
+     $logic_and                     17
+     $logic_not                     13
+     $logic_or                       1
+     $mux                           25
+     $ne                             3
+     $or                             5
+     $pmux                           5
+     $reduce_and                     2
+     $reduce_bool                    2
+     $reduce_or                      6
+     $sdff                           1
+     $sdffe                          8
+     $xor                            1
+
+=== usb_tx_phy ===
+
+   Number of wires:                121
+   Number of wire bits:            168
+   Number of public wires:          40
+   Number of public wire bits:      69
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                112
+     $add                            2
+     $and                            6
+     $dff                            4
+     $eq                            13
+     $logic_and                      5
+     $logic_not                     12
+     $logic_or                       2
+     $mux                           21
+     $ne                             7
+     $not                            3
+     $or                             2
+     $pmux                           5
+     $reduce_and                     3
+     $reduce_bool                    2
+     $reduce_or                      4
+     $sdff                           2
+     $sdffe                         19
+
+=== design hierarchy ===
+
+   usb_phy                           1
+     usb_rx_phy                      1
+     usb_tx_phy                      1
+
+   Number of wires:                301
+   Number of wire bits:            419
+   Number of public wires:         114
+   Number of public wire bits:     185
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                263
+     $add                            5
+     $and                           21
+     $dff                           25
+     $dffe                           4
+     $eq                            26
+     $logic_and                     23
+     $logic_not                     26
+     $logic_or                       3
+     $mux                           46
+     $ne                            10
+     $not                            4
+     $or                             7
+     $pmux                          10
+     $reduce_and                     5
+     $reduce_bool                    5
+     $reduce_or                     11
+     $sdff                           3
+     $sdffe                         28
+     $xor                            1
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 7dc589298c, CPU: user 0.17s system 0.01s, MEM: 14.30 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 31% 5x opt_expr (0 sec), 15% 4x opt_merge (0 sec), ...

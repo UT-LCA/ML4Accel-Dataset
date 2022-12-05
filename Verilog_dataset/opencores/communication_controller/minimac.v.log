@@ -1,0 +1,1018 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v' to AST representation.
+Warning: Yosys has only limited support for tri-state logic at the moment. (/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:54)
+Generating RTLIL representation for module `\minimac_ctlif'.
+Generating RTLIL representation for module `\minimac_rxfifo'.
+Generating RTLIL representation for module `\minimac_rx'.
+Generating RTLIL representation for module `\minimac_txfifo'.
+Generating RTLIL representation for module `\minimac_tx'.
+Generating RTLIL representation for module `\minimac'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   2 design levels: minimac             
+root of   1 design levels: minimac_tx          
+root of   0 design levels: minimac_txfifo      
+root of   1 design levels: minimac_rx          
+root of   0 design levels: minimac_rxfifo      
+root of   0 design levels: minimac_ctlif       
+Automatically selected minimac as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \minimac
+Used module:     \minimac_tx
+Used module:         \minimac_txfifo
+Used module:     \minimac_rx
+Used module:         \minimac_rxfifo
+Used module:     \minimac_ctlif
+Parameter \csr_addr = 4'0000
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\minimac_ctlif'.
+Parameter \csr_addr = 4'0000
+Generating RTLIL representation for module `$paramod\minimac_ctlif\csr_addr=4'0000'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \minimac
+Used module:     \minimac_tx
+Used module:         \minimac_txfifo
+Used module:     \minimac_rx
+Used module:         \minimac_rxfifo
+Used module:     $paramod\minimac_ctlif\csr_addr=4'0000
+
+2.5. Analyzing design hierarchy..
+Top module:  \minimac
+Used module:     \minimac_tx
+Used module:         \minimac_txfifo
+Used module:     \minimac_rx
+Used module:         \minimac_rxfifo
+Used module:     $paramod\minimac_ctlif\csr_addr=4'0000
+Removing unused module `\minimac_ctlif'.
+Removed 1 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:925$101 in module minimac_tx.
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:925$101 in module minimac_tx.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:918$100 in module minimac_tx.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:895$98 in module minimac_tx.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:856$93 in module minimac_tx.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:849$92 in module minimac_tx.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:827$90 in module minimac_tx.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:827$90 in module minimac_tx.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:731$87 in module minimac_txfifo.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:717$81 in module minimac_txfifo.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66 in module minimac_rx.
+Marked 11 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66 in module minimac_rx.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:551$65 in module minimac_rx.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:530$63 in module minimac_rx.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:514$59 in module minimac_rx.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:490$54 in module minimac_rx.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:477$52 in module minimac_rx.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:350$45 in module minimac_rxfifo.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:250$138 in module $paramod\minimac_ctlif\csr_addr=4'0000.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129 in module $paramod\minimac_ctlif\csr_addr=4'0000.
+Removed a total of 3 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 12 redundant assignments.
+Promoted 32 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:925$101'.
+     1/9: $5\next_fstate[1:0]
+     2/9: $4\next_fstate[1:0]
+     3/9: $2\purge[0:0]
+     4/9: $3\next_fstate[1:0]
+     5/9: $2\next_fstate[1:0]
+     6/9: $1\next_fstate[1:0]
+     7/9: $1\reset_byte_counter[0:0]
+     8/9: $1\purge[0:0]
+     9/9: $1\can_tx[0:0]
+Creating decoders for process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:918$100'.
+     1/1: $0\fstate[1:0]
+Creating decoders for process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:895$98'.
+     1/1: $0\byte_counter[6:0]
+Creating decoders for process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:856$93'.
+     1/12: $4\next_state[1:0]
+     2/12: $3\next_state[1:0]
+     3/12: $3\stb[0:0]
+     4/12: $3\tx_next[0:0]
+     5/12: $2\stb[0:0]
+     6/12: $2\next_state[1:0]
+     7/12: $2\tx_next[0:0]
+     8/12: $1\stb[0:0]
+     9/12: $1\next_state[1:0]
+    10/12: $1\tx_next[0:0]
+    11/12: $1\load_input[0:0]
+    12/12: $1\bus_stb[0:0]
+Creating decoders for process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:849$92'.
+     1/1: $0\state[1:0]
+Creating decoders for process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:827$90'.
+     1/1: $1\data[7:0]
+Creating decoders for process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:823$89'.
+     1/1: $0\input_reg[31:0]
+Creating decoders for process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:731$87'.
+     1/4: $0\phy_tx_en[0:0]
+     2/4: $0\hi_nibble[0:0]
+     3/4: $0\fifo_read[0:0]
+     4/4: $0\phy_tx_data[3:0]
+Creating decoders for process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:717$81'.
+     1/1: $0\interframe_counter[4:0]
+Creating decoders for process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:713$80'.
+Creating decoders for process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:704$75'.
+Creating decoders for process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:697$74'.
+Creating decoders for process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:673$73'.
+Creating decoders for process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66'.
+     1/37: $10\next_state[2:0]
+     2/37: $7\rx_endframe_r[0:0]
+     3/37: $9\next_state[2:0]
+     4/37: $2\next_wb_adr[0:0]
+     5/37: $8\next_state[2:0]
+     6/37: $7\next_state[2:0]
+     7/37: $4\start_of_frame[0:0]
+     8/37: $6\rx_endframe_r[0:0]
+     9/37: $6\next_state[2:0]
+    10/37: $5\rx_resetcount_r[0:0]
+    11/37: $5\next_state[2:0]
+    12/37: $5\rx_endframe_r[0:0]
+    13/37: $4\end_of_frame[0:0]
+    14/37: $4\next_state[2:0]
+    15/37: $4\rx_endframe_r[0:0]
+    16/37: $4\rx_resetcount_r[0:0]
+    17/37: $3\next_state[2:0]
+    18/37: $3\end_of_frame[0:0]
+    19/37: $3\rx_endframe_r[0:0]
+    20/37: $3\rx_resetcount_r[0:0]
+    21/37: $3\fifo_ack[0:0]
+    22/37: $3\start_of_frame[0:0]
+    23/37: $2\next_state[2:0]
+    24/37: $2\end_of_frame[0:0]
+    25/37: $2\start_of_frame[0:0]
+    26/37: $2\fifo_ack[0:0]
+    27/37: $2\rx_endframe_r[0:0]
+    28/37: $2\rx_resetcount_r[0:0]
+    29/37: $1\next_state[2:0]
+    30/37: $1\end_of_frame[0:0]
+    31/37: $1\start_of_frame[0:0]
+    32/37: $1\fifo_ack[0:0]
+    33/37: $1\rx_endframe_r[0:0]
+    34/37: $1\rx_resetcount_r[0:0]
+    35/37: $1\next_wb_adr[0:0]
+    36/37: $1\loadbyte_en[0:0]
+    37/37: $1\bus_stb[0:0]
+Creating decoders for process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:551$65'.
+     1/1: $0\state[2:0]
+Creating decoders for process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:530$63'.
+     1/1: $0\adr[29:0]
+Creating decoders for process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:514$59'.
+     1/1: $0\maxcount[10:0]
+Creating decoders for process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:490$54'.
+     1/5: $0\wbm_dat_o[31:0] [15:8]
+     2/5: $0\wbm_dat_o[31:0] [7:0]
+     3/5: $0\wbm_dat_o[31:0] [23:16]
+     4/5: $0\wbm_dat_o[31:0] [31:24]
+     5/5: $0\loadbyte_counter[1:0]
+Creating decoders for process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:477$52'.
+     1/1: $0\in_frame[0:0]
+Creating decoders for process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:350$45'.
+     1/7: $0\phy_dv_r[0:0]
+     2/7: $0\fifo_eof[0:0]
+     3/7: $0\fifo_we[0:0]
+     4/7: $0\abort[0:0]
+     5/7: $0\hi_nibble[0:0]
+     6/7: $0\fifo_lo[3:0]
+     7/7: $0\fifo_hi[3:0]
+Creating decoders for process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:341$44'.
+Creating decoders for process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:333$43'.
+Creating decoders for process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:250$138'.
+     1/3: $0\irq_tx[0:0]
+     2/3: $0\tx_valid_r[0:0]
+     3/3: $0\irq_rx[0:0]
+Creating decoders for process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+     1/21: $0\csr_do[31:0]
+     2/21: $0\tx_remaining[10:0]
+     3/21: $0\slot3_count[10:0]
+     4/21: $0\slot3_adr[29:0]
+     5/21: $0\slot3_state[1:0]
+     6/21: $0\slot2_count[10:0]
+     7/21: $0\slot2_adr[29:0]
+     8/21: $0\slot2_state[1:0]
+     9/21: $0\slot1_count[10:0]
+    10/21: $0\slot1_adr[29:0]
+    11/21: $0\slot1_state[1:0]
+    12/21: $0\slot0_count[10:0]
+    13/21: $0\slot0_adr[29:0]
+    14/21: $0\slot0_state[1:0]
+    15/21: $0\mii_data_do[0:0]
+    16/21: $0\mii_data_oe[0:0]
+    17/21: $0\phy_mii_clk[0:0]
+    18/21: $0\tx_bytecount[1:0]
+    19/21: $0\tx_adr[29:0]
+    20/21: $0\tx_rst[0:0]
+    21/21: $0\rx_rst[0:0]
+Creating decoders for process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:59$104'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\minimac_tx.\can_tx' from process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:925$101'.
+No latch inferred for signal `\minimac_tx.\purge' from process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:925$101'.
+No latch inferred for signal `\minimac_tx.\reset_byte_counter' from process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:925$101'.
+No latch inferred for signal `\minimac_tx.\next_fstate' from process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:925$101'.
+No latch inferred for signal `\minimac_tx.\tx_next' from process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:856$93'.
+No latch inferred for signal `\minimac_tx.\bus_stb' from process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:856$93'.
+No latch inferred for signal `\minimac_tx.\next_state' from process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:856$93'.
+No latch inferred for signal `\minimac_tx.\stb' from process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:856$93'.
+No latch inferred for signal `\minimac_tx.\load_input' from process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:856$93'.
+No latch inferred for signal `\minimac_tx.\data' from process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:827$90'.
+No latch inferred for signal `\minimac_rx.\rx_resetcount_r' from process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66'.
+No latch inferred for signal `\minimac_rx.\rx_endframe_r' from process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66'.
+No latch inferred for signal `\minimac_rx.\bus_stb' from process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66'.
+No latch inferred for signal `\minimac_rx.\fifo_ack' from process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66'.
+No latch inferred for signal `\minimac_rx.\start_of_frame' from process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66'.
+No latch inferred for signal `\minimac_rx.\end_of_frame' from process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66'.
+No latch inferred for signal `\minimac_rx.\loadbyte_en' from process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66'.
+No latch inferred for signal `\minimac_rx.\next_wb_adr' from process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66'.
+No latch inferred for signal `\minimac_rx.\next_state' from process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\minimac_tx.\fstate' using process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:918$100'.
+  created $dff cell `$procdff$1260' with positive edge clock.
+Creating register for signal `\minimac_tx.\byte_counter' using process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:895$98'.
+  created $dff cell `$procdff$1261' with positive edge clock.
+Creating register for signal `\minimac_tx.\state' using process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:849$92'.
+  created $dff cell `$procdff$1262' with positive edge clock.
+Creating register for signal `\minimac_tx.\input_reg' using process `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:823$89'.
+  created $dff cell `$procdff$1263' with positive edge clock.
+Creating register for signal `\minimac_txfifo.\hi_nibble' using process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:731$87'.
+  created $dff cell `$procdff$1264' with positive edge clock.
+Creating register for signal `\minimac_txfifo.\phy_tx_en' using process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:731$87'.
+  created $dff cell `$procdff$1265' with positive edge clock.
+Creating register for signal `\minimac_txfifo.\phy_tx_data' using process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:731$87'.
+  created $dff cell `$procdff$1266' with positive edge clock.
+Creating register for signal `\minimac_txfifo.\fifo_read' using process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:731$87'.
+  created $dff cell `$procdff$1267' with positive edge clock.
+Creating register for signal `\minimac_txfifo.\interframe_counter' using process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:717$81'.
+  created $dff cell `$procdff$1268' with positive edge clock.
+Creating register for signal `\minimac_txfifo.\transmitting_r' using process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:713$80'.
+  created $dff cell `$procdff$1269' with positive edge clock.
+Creating register for signal `\minimac_txfifo.\tx_rst1' using process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:704$75'.
+  created $dff cell `$procdff$1270' with positive edge clock.
+Creating register for signal `\minimac_txfifo.\tx_rst2' using process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:704$75'.
+  created $dff cell `$procdff$1271' with positive edge clock.
+Creating register for signal `\minimac_txfifo.\can_tx1' using process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:697$74'.
+  created $dff cell `$procdff$1272' with positive edge clock.
+Creating register for signal `\minimac_txfifo.\can_tx2' using process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:697$74'.
+  created $dff cell `$procdff$1273' with positive edge clock.
+Creating register for signal `\minimac_txfifo.\empty' using process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:673$73'.
+  created $dff cell `$procdff$1274' with positive edge clock.
+Creating register for signal `\minimac_txfifo.\empty2' using process `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:673$73'.
+  created $dff cell `$procdff$1275' with positive edge clock.
+Creating register for signal `\minimac_rx.\state' using process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:551$65'.
+  created $dff cell `$procdff$1276' with positive edge clock.
+Creating register for signal `\minimac_rx.\adr' using process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:530$63'.
+  created $dff cell `$procdff$1277' with positive edge clock.
+Creating register for signal `\minimac_rx.\maxcount' using process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:514$59'.
+  created $dff cell `$procdff$1278' with positive edge clock.
+Creating register for signal `\minimac_rx.\wbm_dat_o' using process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:490$54'.
+  created $dff cell `$procdff$1279' with positive edge clock.
+Creating register for signal `\minimac_rx.\loadbyte_counter' using process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:490$54'.
+  created $dff cell `$procdff$1280' with positive edge clock.
+Creating register for signal `\minimac_rx.\in_frame' using process `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:477$52'.
+  created $dff cell `$procdff$1281' with positive edge clock.
+Creating register for signal `\minimac_rxfifo.\fifo_eof' using process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:350$45'.
+  created $dff cell `$procdff$1282' with positive edge clock.
+Creating register for signal `\minimac_rxfifo.\fifo_hi' using process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:350$45'.
+  created $dff cell `$procdff$1283' with positive edge clock.
+Creating register for signal `\minimac_rxfifo.\fifo_lo' using process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:350$45'.
+  created $dff cell `$procdff$1284' with positive edge clock.
+Creating register for signal `\minimac_rxfifo.\fifo_we' using process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:350$45'.
+  created $dff cell `$procdff$1285' with positive edge clock.
+Creating register for signal `\minimac_rxfifo.\hi_nibble' using process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:350$45'.
+  created $dff cell `$procdff$1286' with positive edge clock.
+Creating register for signal `\minimac_rxfifo.\abort' using process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:350$45'.
+  created $dff cell `$procdff$1287' with positive edge clock.
+Creating register for signal `\minimac_rxfifo.\phy_dv_r' using process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:350$45'.
+  created $dff cell `$procdff$1288' with positive edge clock.
+Creating register for signal `\minimac_rxfifo.\rx_rst1' using process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:341$44'.
+  created $dff cell `$procdff$1289' with positive edge clock.
+Creating register for signal `\minimac_rxfifo.\rx_rst2' using process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:341$44'.
+  created $dff cell `$procdff$1290' with positive edge clock.
+Creating register for signal `\minimac_rxfifo.\fifo_full' using process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:333$43'.
+  created $dff cell `$procdff$1291' with positive edge clock.
+Creating register for signal `\minimac_rxfifo.\fifo_full1' using process `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:333$43'.
+  created $dff cell `$procdff$1292' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\irq_rx' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:250$138'.
+  created $dff cell `$procdff$1293' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\irq_tx' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:250$138'.
+  created $dff cell `$procdff$1294' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\tx_valid_r' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:250$138'.
+  created $dff cell `$procdff$1295' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\csr_do' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1296' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\rx_rst' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1297' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\tx_rst' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1298' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\tx_adr' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1299' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\tx_bytecount' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1300' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\phy_mii_clk' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1301' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\mii_data_oe' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1302' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\mii_data_do' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1303' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\slot0_state' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1304' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\slot0_adr' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1305' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\slot0_count' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1306' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\slot1_state' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1307' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\slot1_adr' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1308' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\slot1_count' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1309' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\slot2_state' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1310' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\slot2_adr' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1311' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\slot2_count' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1312' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\slot3_state' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1313' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\slot3_adr' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1314' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\slot3_count' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1315' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\tx_remaining' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+  created $dff cell `$procdff$1316' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\mii_data_di1' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:59$104'.
+  created $dff cell `$procdff$1317' with positive edge clock.
+Creating register for signal `$paramod\minimac_ctlif\csr_addr=4'0000.\mii_data_di' using process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:59$104'.
+  created $dff cell `$procdff$1318' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 5 empty switches in `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:925$101'.
+Removing empty process `minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:925$101'.
+Found and cleaned up 1 empty switch in `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:918$100'.
+Removing empty process `minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:918$100'.
+Found and cleaned up 3 empty switches in `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:895$98'.
+Removing empty process `minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:895$98'.
+Found and cleaned up 4 empty switches in `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:856$93'.
+Removing empty process `minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:856$93'.
+Found and cleaned up 1 empty switch in `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:849$92'.
+Removing empty process `minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:849$92'.
+Found and cleaned up 1 empty switch in `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:827$90'.
+Removing empty process `minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:827$90'.
+Found and cleaned up 1 empty switch in `\minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:823$89'.
+Removing empty process `minimac_tx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:823$89'.
+Found and cleaned up 3 empty switches in `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:731$87'.
+Removing empty process `minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:731$87'.
+Found and cleaned up 3 empty switches in `\minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:717$81'.
+Removing empty process `minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:717$81'.
+Removing empty process `minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:713$80'.
+Removing empty process `minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:704$75'.
+Removing empty process `minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:697$74'.
+Removing empty process `minimac_txfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:673$73'.
+Found and cleaned up 11 empty switches in `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66'.
+Removing empty process `minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:558$66'.
+Found and cleaned up 1 empty switch in `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:551$65'.
+Removing empty process `minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:551$65'.
+Found and cleaned up 3 empty switches in `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:530$63'.
+Removing empty process `minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:530$63'.
+Found and cleaned up 3 empty switches in `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:514$59'.
+Removing empty process `minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:514$59'.
+Found and cleaned up 5 empty switches in `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:490$54'.
+Removing empty process `minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:490$54'.
+Found and cleaned up 3 empty switches in `\minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:477$52'.
+Removing empty process `minimac_rx.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:477$52'.
+Found and cleaned up 7 empty switches in `\minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:350$45'.
+Removing empty process `minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:350$45'.
+Removing empty process `minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:341$44'.
+Removing empty process `minimac_rxfifo.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:333$43'.
+Found and cleaned up 1 empty switch in `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:250$138'.
+Removing empty process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:250$138'.
+Found and cleaned up 23 empty switches in `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+Removing empty process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:105$129'.
+Removing empty process `$paramod\minimac_ctlif\csr_addr=4'0000.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:59$104'.
+Cleaned up 79 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module minimac.
+Optimizing module minimac_tx.
+<suppressed ~18 debug messages>
+Optimizing module minimac_txfifo.
+<suppressed ~4 debug messages>
+Optimizing module minimac_rx.
+<suppressed ~31 debug messages>
+Optimizing module minimac_rxfifo.
+<suppressed ~12 debug messages>
+Optimizing module $paramod\minimac_ctlif\csr_addr=4'0000.
+<suppressed ~4 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module minimac.
+Optimizing module minimac_tx.
+Optimizing module minimac_txfifo.
+Optimizing module minimac_rx.
+Optimizing module minimac_rxfifo.
+Optimizing module $paramod\minimac_ctlif\csr_addr=4'0000.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\minimac'.
+Finding identical cells in module `\minimac_tx'.
+<suppressed ~93 debug messages>
+Finding identical cells in module `\minimac_txfifo'.
+Finding identical cells in module `\minimac_rx'.
+<suppressed ~132 debug messages>
+Finding identical cells in module `\minimac_rxfifo'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `$paramod\minimac_ctlif\csr_addr=4'0000'.
+<suppressed ~69 debug messages>
+Removed a total of 99 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \minimac..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \minimac_tx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$254.
+    dead port 2/2 on $mux $procmux$246.
+    dead port 2/2 on $mux $procmux$244.
+    dead port 2/2 on $mux $procmux$235.
+    dead port 2/2 on $mux $procmux$233.
+    dead port 2/2 on $mux $procmux$224.
+    dead port 2/2 on $mux $procmux$222.
+    dead port 2/2 on $mux $procmux$213.
+    dead port 2/2 on $mux $procmux$175.
+    dead port 2/2 on $mux $procmux$270.
+    dead port 2/2 on $mux $procmux$167.
+    dead port 2/2 on $mux $procmux$160.
+    dead port 2/2 on $mux $procmux$154.
+    dead port 2/2 on $mux $procmux$262.
+    dead port 2/2 on $mux $procmux$148.
+Running muxtree optimizer on module \minimac_txfifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \minimac_rx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$679.
+    dead port 2/2 on $mux $procmux$670.
+    dead port 2/2 on $mux $procmux$661.
+    dead port 2/2 on $mux $procmux$652.
+    dead port 2/2 on $mux $procmux$643.
+    dead port 2/2 on $mux $procmux$634.
+    dead port 2/2 on $mux $procmux$625.
+    dead port 2/2 on $mux $procmux$623.
+    dead port 2/2 on $mux $procmux$613.
+    dead port 2/2 on $mux $procmux$611.
+    dead port 2/2 on $mux $procmux$601.
+    dead port 2/2 on $mux $procmux$599.
+    dead port 2/2 on $mux $procmux$589.
+    dead port 2/2 on $mux $procmux$587.
+    dead port 2/2 on $mux $procmux$577.
+    dead port 2/2 on $mux $procmux$575.
+    dead port 2/2 on $mux $procmux$565.
+    dead port 2/2 on $mux $procmux$563.
+    dead port 2/2 on $mux $procmux$553.
+    dead port 2/2 on $mux $procmux$551.
+    dead port 2/2 on $mux $procmux$549.
+    dead port 2/2 on $mux $procmux$538.
+    dead port 2/2 on $mux $procmux$536.
+    dead port 2/2 on $mux $procmux$534.
+    dead port 2/2 on $mux $procmux$523.
+    dead port 2/2 on $mux $procmux$521.
+    dead port 2/2 on $mux $procmux$519.
+    dead port 2/2 on $mux $procmux$508.
+    dead port 2/2 on $mux $procmux$506.
+    dead port 2/2 on $mux $procmux$504.
+    dead port 2/2 on $mux $procmux$493.
+    dead port 2/2 on $mux $procmux$491.
+    dead port 2/2 on $mux $procmux$489.
+    dead port 2/2 on $mux $procmux$487.
+    dead port 2/2 on $mux $procmux$475.
+    dead port 2/2 on $mux $procmux$473.
+    dead port 2/2 on $mux $procmux$471.
+    dead port 2/2 on $mux $procmux$469.
+    dead port 2/2 on $mux $procmux$457.
+    dead port 2/2 on $mux $procmux$455.
+    dead port 2/2 on $mux $procmux$453.
+    dead port 2/2 on $mux $procmux$451.
+    dead port 2/2 on $mux $procmux$439.
+    dead port 2/2 on $mux $procmux$437.
+    dead port 2/2 on $mux $procmux$435.
+    dead port 2/2 on $mux $procmux$433.
+    dead port 1/2 on $mux $procmux$431.
+    dead port 2/2 on $mux $procmux$418.
+    dead port 2/2 on $mux $procmux$416.
+    dead port 2/2 on $mux $procmux$414.
+    dead port 2/2 on $mux $procmux$412.
+    dead port 1/2 on $mux $procmux$410.
+    dead port 2/2 on $mux $procmux$397.
+    dead port 2/2 on $mux $procmux$395.
+    dead port 1/2 on $mux $procmux$393.
+    dead port 2/2 on $mux $procmux$382.
+    dead port 2/2 on $mux $procmux$374.
+    dead port 2/2 on $mux $procmux$367.
+    dead port 2/2 on $mux $procmux$360.
+    dead port 2/2 on $mux $procmux$358.
+    dead port 2/2 on $mux $procmux$350.
+    dead port 2/2 on $mux $procmux$344.
+Running muxtree optimizer on module \minimac_rxfifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$829: \hi_nibble -> 1'0
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\minimac_ctlif\csr_addr=4'0000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 77 multiplexer ports.
+<suppressed ~83 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \minimac.
+  Optimizing cells in module \minimac_tx.
+    New ctrl vector for $pmux cell $procmux$192: { $auto$opt_reduce.cc:134:opt_mux$1322 $auto$opt_reduce.cc:134:opt_mux$1320 }
+    New ctrl vector for $pmux cell $procmux$187: { $auto$opt_reduce.cc:134:opt_mux$1324 $procmux$194_CMP $procmux$193_CMP }
+    New ctrl vector for $pmux cell $procmux$182: { $procmux$195_CMP $auto$opt_reduce.cc:134:opt_mux$1326 }
+  Optimizing cells in module \minimac_tx.
+  Optimizing cells in module \minimac_txfifo.
+  Optimizing cells in module \minimac_rx.
+    New ctrl vector for $pmux cell $procmux$725: $auto$opt_reduce.cc:134:opt_mux$1328
+  Optimizing cells in module \minimac_rx.
+  Optimizing cells in module \minimac_rxfifo.
+  Optimizing cells in module $paramod\minimac_ctlif\csr_addr=4'0000.
+Performed a total of 4 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\minimac'.
+Finding identical cells in module `\minimac_tx'.
+<suppressed ~15 debug messages>
+Finding identical cells in module `\minimac_txfifo'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\minimac_rx'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\minimac_rxfifo'.
+Finding identical cells in module `$paramod\minimac_ctlif\csr_addr=4'0000'.
+Removed a total of 8 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$1260 ($dff) from module minimac_tx (D = \next_fstate, Q = \fstate, rval = 2'00).
+Adding SRST signal on $procdff$1261 ($dff) from module minimac_tx (D = $procmux$200_Y, Q = \byte_counter, rval = 7'0000000).
+Adding EN signal on $auto$ff.cc:262:slice$1330 ($sdff) from module minimac_tx (D = $add$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:902$99_Y, Q = \byte_counter).
+Adding SRST signal on $procdff$1262 ($dff) from module minimac_tx (D = \next_state, Q = \state, rval = 2'00).
+Adding EN signal on $procdff$1263 ($dff) from module minimac_tx (D = \wbtx_dat_i, Q = \input_reg).
+Adding SRST signal on $procdff$1264 ($dff) from module minimac_txfifo (D = $procmux$311_Y, Q = \hi_nibble, rval = 1'0).
+Adding SRST signal on $procdff$1265 ($dff) from module minimac_txfifo (D = $procmux$303_Y, Q = \phy_tx_en, rval = 1'0).
+Adding EN signal on $procdff$1266 ($dff) from module minimac_txfifo (D = $procmux$325_Y, Q = \phy_tx_data).
+Adding EN signal on $procdff$1267 ($dff) from module minimac_txfifo (D = $procmux$319_Y, Q = \fifo_read).
+Adding SRST signal on $procdff$1268 ($dff) from module minimac_txfifo (D = $procmux$335_Y [4:3], Q = \interframe_counter [4:3], rval = 2'00).
+Adding SRST signal on $procdff$1268 ($dff) from module minimac_txfifo (D = $procmux$332_Y [2:0], Q = \interframe_counter [2:0], rval = 3'000).
+Adding EN signal on $auto$ff.cc:262:slice$1345 ($sdff) from module minimac_txfifo (D = $sub$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:724$85_Y [2:0], Q = \interframe_counter [2:0]).
+Adding EN signal on $auto$ff.cc:262:slice$1344 ($sdff) from module minimac_txfifo (D = $procmux$335_Y [4:3], Q = \interframe_counter [4:3]).
+Adding SRST signal on $procdff$1281 ($dff) from module minimac_rx (D = $procmux$788_Y, Q = \in_frame, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1352 ($sdff) from module minimac_rx (D = 1'1, Q = \in_frame).
+Adding SRST signal on $procdff$1280 ($dff) from module minimac_rx (D = $procmux$780_Y, Q = \loadbyte_counter, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$1356 ($sdff) from module minimac_rx (D = $add$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:497$56_Y, Q = \loadbyte_counter).
+Adding SRST signal on $procdff$1276 ($dff) from module minimac_rx (D = \next_state, Q = \state, rval = 3'000).
+Adding SRST signal on $procdff$1277 ($dff) from module minimac_rx (D = $procmux$733_Y, Q = \adr, rval = 30'000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1361 ($sdff) from module minimac_rx (D = $procmux$733_Y, Q = \adr).
+Adding SRST signal on $procdff$1278 ($dff) from module minimac_rx (D = $procmux$738_Y, Q = \maxcount, rval = 11'10111111010).
+Adding EN signal on $auto$ff.cc:262:slice$1365 ($sdff) from module minimac_rx (D = $sub$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:521$61_Y, Q = \maxcount).
+Adding EN signal on $procdff$1279 ($dff) from module minimac_rx (D = \fifo_data, Q = \wbm_dat_o [15:8]).
+Adding EN signal on $procdff$1279 ($dff) from module minimac_rx (D = \fifo_data, Q = \wbm_dat_o [7:0]).
+Adding EN signal on $procdff$1279 ($dff) from module minimac_rx (D = \fifo_data, Q = \wbm_dat_o [23:16]).
+Adding EN signal on $procdff$1279 ($dff) from module minimac_rx (D = \fifo_data, Q = \wbm_dat_o [31:24]).
+Adding SRST signal on $procdff$1282 ($dff) from module minimac_rxfifo (D = $procmux$802_Y, Q = \fifo_eof, rval = 1'0).
+Adding SRST signal on $procdff$1283 ($dff) from module minimac_rxfifo (D = $procmux$865_Y, Q = \fifo_hi, rval = 4'0000).
+Adding SRST signal on $procdff$1284 ($dff) from module minimac_rxfifo (D = $procmux$851_Y, Q = \fifo_lo, rval = 4'0000).
+Adding SRST signal on $procdff$1285 ($dff) from module minimac_rxfifo (D = $procmux$816_Y, Q = \fifo_we, rval = 1'0).
+Adding SRST signal on $procdff$1286 ($dff) from module minimac_rxfifo (D = $procmux$833_Y, Q = \hi_nibble, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1393 ($sdff) from module minimac_rxfifo (D = $procmux$831_Y, Q = \hi_nibble).
+Adding SRST signal on $procdff$1287 ($dff) from module minimac_rxfifo (D = $procmux$821_Y, Q = \abort, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1397 ($sdff) from module minimac_rxfifo (D = 1'1, Q = \abort).
+Adding SRST signal on $procdff$1288 ($dff) from module minimac_rxfifo (D = \phy_dv, Q = \phy_dv_r, rval = 1'0).
+Adding SRST signal on $procdff$1296 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$879_Y, Q = \csr_do, rval = 0).
+Adding SRST signal on $procdff$1297 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1253_Y, Q = \rx_rst, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$1407 ($sdff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = \csr_di [0], Q = \rx_rst).
+Adding SRST signal on $procdff$1298 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1233_Y, Q = \tx_rst, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$1413 ($sdff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = \csr_di [1], Q = \tx_rst).
+Adding SRST signal on $procdff$1299 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1213_Y, Q = \tx_adr, rval = 30'000000000000000000000000000000).
+Adding SRST signal on $procdff$1300 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1199_Y, Q = \tx_bytecount, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$1418 ($sdff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1199_Y, Q = \tx_bytecount).
+Adding SRST signal on $procdff$1301 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1188_Y, Q = \phy_mii_clk, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1428 ($sdff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = \csr_di [3], Q = \phy_mii_clk).
+Adding SRST signal on $procdff$1302 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1169_Y, Q = \mii_data_oe, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1432 ($sdff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = \csr_di [2], Q = \mii_data_oe).
+Adding SRST signal on $procdff$1303 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1150_Y, Q = \mii_data_do, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1436 ($sdff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = \csr_di [0], Q = \mii_data_do).
+Adding SRST signal on $procdff$1304 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1131_Y, Q = \slot0_state, rval = 2'00).
+Adding SRST signal on $procdff$1305 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1109_Y, Q = \slot0_adr, rval = 30'000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1441 ($sdff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = \csr_di [31:2], Q = \slot0_adr).
+Adding SRST signal on $procdff$1306 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1092_Y, Q = \slot0_count, rval = 11'00000000000).
+Adding SRST signal on $procdff$1307 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1066_Y, Q = \slot1_state, rval = 2'00).
+Adding SRST signal on $procdff$1308 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1046_Y, Q = \slot1_adr, rval = 30'000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1447 ($sdff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = \csr_di [31:2], Q = \slot1_adr).
+Adding SRST signal on $procdff$1309 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1031_Y, Q = \slot1_count, rval = 11'00000000000).
+Adding SRST signal on $procdff$1310 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$1007_Y, Q = \slot2_state, rval = 2'00).
+Adding SRST signal on $procdff$1311 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$989_Y, Q = \slot2_adr, rval = 30'000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1453 ($sdff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = \csr_di [31:2], Q = \slot2_adr).
+Adding SRST signal on $procdff$1312 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$976_Y, Q = \slot2_count, rval = 11'00000000000).
+Adding SRST signal on $procdff$1313 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$954_Y, Q = \slot3_state, rval = 2'00).
+Adding SRST signal on $procdff$1314 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$938_Y, Q = \slot3_adr, rval = 30'000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1459 ($sdff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = \csr_di [31:2], Q = \slot3_adr).
+Adding SRST signal on $procdff$1315 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$927_Y, Q = \slot3_count, rval = 11'00000000000).
+Adding SRST signal on $procdff$1316 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$907_Y, Q = \tx_remaining, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1464 ($sdff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $procmux$907_Y, Q = \tx_remaining).
+Adding SRST signal on $procdff$1293 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $or$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:256$142_Y, Q = \irq_rx, rval = 1'0).
+Adding SRST signal on $procdff$1294 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $and$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:258$144_Y, Q = \irq_tx, rval = 1'0).
+Adding SRST signal on $procdff$1295 ($dff) from module $paramod\minimac_ctlif\csr_addr=4'0000 (D = $reduce_or$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/minimac.v:101$127_Y, Q = \tx_valid_r, rval = 1'0).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \minimac..
+Finding unused cells or wires in module \minimac_tx..
+Finding unused cells or wires in module \minimac_txfifo..
+Finding unused cells or wires in module \minimac_rx..
+Finding unused cells or wires in module \minimac_rxfifo..
+Finding unused cells or wires in module $paramod\minimac_ctlif\csr_addr=4'0000..
+Removed 105 unused cells and 707 unused wires.
+<suppressed ~110 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\minimac_ctlif\csr_addr=4'0000.
+<suppressed ~2 debug messages>
+Optimizing module minimac.
+Optimizing module minimac_rx.
+<suppressed ~1 debug messages>
+Optimizing module minimac_rxfifo.
+Optimizing module minimac_tx.
+Optimizing module minimac_txfifo.
+<suppressed ~1 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\minimac_ctlif\csr_addr=4'0000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \minimac..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \minimac_rx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \minimac_rxfifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \minimac_tx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \minimac_txfifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~58 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\minimac_ctlif\csr_addr=4'0000.
+  Optimizing cells in module \minimac.
+  Optimizing cells in module \minimac_rx.
+  Optimizing cells in module \minimac_rxfifo.
+  Optimizing cells in module \minimac_tx.
+  Optimizing cells in module \minimac_txfifo.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\minimac_ctlif\csr_addr=4'0000'.
+<suppressed ~21 debug messages>
+Finding identical cells in module `\minimac'.
+Finding identical cells in module `\minimac_rx'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\minimac_rxfifo'.
+Finding identical cells in module `\minimac_tx'.
+Finding identical cells in module `\minimac_txfifo'.
+Removed a total of 11 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$ff.cc:262:slice$1360 ($sdff) from module minimac_rx (D = \next_state, Q = \state).
+Adding EN signal on $auto$ff.cc:262:slice$1334 ($sdff) from module minimac_tx (D = \next_state, Q = \state).
+Adding EN signal on $auto$ff.cc:262:slice$1329 ($sdff) from module minimac_tx (D = \next_fstate, Q = \fstate).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\minimac_ctlif\csr_addr=4'0000..
+Finding unused cells or wires in module \minimac..
+Finding unused cells or wires in module \minimac_rx..
+Finding unused cells or wires in module \minimac_rxfifo..
+Finding unused cells or wires in module \minimac_tx..
+Finding unused cells or wires in module \minimac_txfifo..
+Removed 0 unused cells and 11 unused wires.
+<suppressed ~2 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\minimac_ctlif\csr_addr=4'0000.
+Optimizing module minimac.
+Optimizing module minimac_rx.
+<suppressed ~1 debug messages>
+Optimizing module minimac_rxfifo.
+Optimizing module minimac_tx.
+<suppressed ~1 debug messages>
+Optimizing module minimac_txfifo.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\minimac_ctlif\csr_addr=4'0000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \minimac..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \minimac_rx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \minimac_rxfifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \minimac_tx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \minimac_txfifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~58 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\minimac_ctlif\csr_addr=4'0000.
+  Optimizing cells in module \minimac.
+  Optimizing cells in module \minimac_rx.
+  Optimizing cells in module \minimac_rxfifo.
+  Optimizing cells in module \minimac_tx.
+  Optimizing cells in module \minimac_txfifo.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\minimac_ctlif\csr_addr=4'0000'.
+Finding identical cells in module `\minimac'.
+Finding identical cells in module `\minimac_rx'.
+Finding identical cells in module `\minimac_rxfifo'.
+Finding identical cells in module `\minimac_tx'.
+Finding identical cells in module `\minimac_txfifo'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\minimac_ctlif\csr_addr=4'0000..
+Finding unused cells or wires in module \minimac..
+Finding unused cells or wires in module \minimac_rx..
+Finding unused cells or wires in module \minimac_rxfifo..
+Finding unused cells or wires in module \minimac_tx..
+Finding unused cells or wires in module \minimac_txfifo..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\minimac_ctlif\csr_addr=4'0000.
+Optimizing module minimac.
+Optimizing module minimac_rx.
+Optimizing module minimac_rxfifo.
+Optimizing module minimac_tx.
+Optimizing module minimac_txfifo.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod\minimac_ctlif\csr_addr=4'0000 ===
+
+   Number of wires:                164
+   Number of wire bits:           1242
+   Number of public wires:          45
+   Number of public wire bits:     349
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                153
+     $add                            6
+     $and                           11
+     $dff                            2
+     $eq                            16
+     $logic_not                      2
+     $mux                           62
+     $ne                             2
+     $not                            5
+     $or                            10
+     $pmux                           1
+     $reduce_and                     7
+     $reduce_bool                    1
+     $reduce_or                      3
+     $sdff                          13
+     $sdffe                         11
+     $sub                            1
+
+=== minimac ===
+
+   Number of wires:                 44
+   Number of wire bits:            312
+   Number of public wires:          44
+   Number of public wire bits:     312
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $paramod\minimac_ctlif\csr_addr=4'0000      1
+     minimac_rx                      1
+     minimac_tx                      1
+
+=== minimac_rx ===
+
+   Number of wires:                 98
+   Number of wire bits:            359
+   Number of public wires:          38
+   Number of public wire bits:     183
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 82
+     $add                            2
+     $and                            2
+     $dffe                           4
+     $eq                             6
+     $logic_not                      2
+     $mux                           35
+     $ne                             6
+     $not                            2
+     $or                             1
+     $pmux                           3
+     $reduce_and                     6
+     $reduce_bool                    2
+     $reduce_or                      4
+     $sdffe                          5
+     $sub                            1
+     minimac_rxfifo                  1
+
+=== minimac_rxfifo ===
+
+   Number of wires:                 49
+   Number of wire bits:            111
+   Number of public wires:          24
+   Number of public wire bits:      56
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 37
+     $and                            2
+     $dff                            4
+     $mux                           20
+     $not                            1
+     $reduce_or                      2
+     $sdff                           5
+     $sdffe                          2
+     asfifo                          1
+
+=== minimac_tx ===
+
+   Number of wires:                 71
+   Number of wire bits:            227
+   Number of public wires:          32
+   Number of public wire bits:     175
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 53
+     $add                            1
+     $and                            2
+     $dffe                           1
+     $eq                             8
+     $logic_not                      3
+     $mux                           11
+     $ne                             7
+     $not                            2
+     $pmux                           7
+     $reduce_and                     2
+     $reduce_bool                    1
+     $reduce_or                      4
+     $sdffe                          3
+     minimac_txfifo                  1
+
+=== minimac_txfifo ===
+
+   Number of wires:                 40
+   Number of wire bits:             76
+   Number of public wires:          23
+   Number of public wire bits:      44
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 33
+     $and                            3
+     $dff                            7
+     $dffe                           2
+     $mux                            6
+     $not                            4
+     $reduce_and                     1
+     $reduce_bool                    2
+     $reduce_or                      2
+     $sdff                           2
+     $sdffe                          2
+     $sub                            1
+     asfifo                          1
+
+=== design hierarchy ===
+
+   minimac                           1
+     $paramod\minimac_ctlif\csr_addr=4'0000      1
+     minimac_rx                      1
+       minimac_rxfifo                1
+     minimac_tx                      1
+       minimac_txfifo                1
+
+   Number of wires:                466
+   Number of wire bits:           2327
+   Number of public wires:         206
+   Number of public wire bits:    1119
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                356
+     $add                            9
+     $and                           20
+     $dff                           13
+     $dffe                           7
+     $eq                            30
+     $logic_not                      7
+     $mux                          134
+     $ne                            15
+     $not                           14
+     $or                            11
+     $pmux                          11
+     $reduce_and                    16
+     $reduce_bool                    6
+     $reduce_or                     15
+     $sdff                          20
+     $sdffe                         23
+     $sub                            3
+     asfifo                          2
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 8c4721cc2e, CPU: user 0.33s system 0.00s, MEM: 15.78 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 26% 5x opt_expr (0 sec), 14% 2x read_verilog (0 sec), ...

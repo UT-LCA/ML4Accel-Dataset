@@ -1,0 +1,292 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v' to AST representation.
+Generating RTLIL representation for module `\weight_buffer_18_9_1_64_2048_Wym_real_half_0'.
+Generating RTLIL representation for module `\single_port_ram'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: single_port_ram     
+root of   1 design levels: weight_buffer_18_9_1_64_2048_Wym_real_half_0
+Automatically selected weight_buffer_18_9_1_64_2048_Wym_real_half_0 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \weight_buffer_18_9_1_64_2048_Wym_real_half_0
+Used module:     \single_port_ram
+Parameter \DATA_WIDTH = 162
+Parameter \ADDR_WIDTH = 12
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\single_port_ram'.
+Parameter \DATA_WIDTH = 162
+Parameter \ADDR_WIDTH = 12
+Generating RTLIL representation for module `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \weight_buffer_18_9_1_64_2048_Wym_real_half_0
+Used module:     $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram
+
+2.5. Analyzing design hierarchy..
+Top module:  \weight_buffer_18_9_1_64_2048_Wym_real_half_0
+Used module:     $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram
+Removing unused module `\single_port_ram'.
+Removed 1 unused modules.
+Warning: Resizing cell port weight_buffer_18_9_1_64_2048_Wym_real_half_0.ram_inst_0.addr from 11 bits to 12 bits.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:72$13 in module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 5 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:72$13'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:74$12_EN[161:0]$19
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:74$12_DATA[161:0]$18
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:74$12_ADDR[11:0]$17
+     4/4: $0\out[161:0]
+Creating decoders for process `\weight_buffer_18_9_1_64_2048_Wym_real_half_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:21$1'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.\out' using process `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:72$13'.
+  created $dff cell `$procdff$33' with positive edge clock.
+Creating register for signal `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:74$12_ADDR' using process `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:72$13'.
+  created $dff cell `$procdff$34' with positive edge clock.
+Creating register for signal `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:74$12_DATA' using process `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:72$13'.
+  created $dff cell `$procdff$35' with positive edge clock.
+Creating register for signal `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:74$12_EN' using process `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:72$13'.
+  created $dff cell `$procdff$36' with positive edge clock.
+Creating register for signal `\weight_buffer_18_9_1_64_2048_Wym_real_half_0.\addrs_0' using process `\weight_buffer_18_9_1_64_2048_Wym_real_half_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:21$1'.
+  created $dff cell `$procdff$37' with positive edge clock.
+Creating register for signal `\weight_buffer_18_9_1_64_2048_Wym_real_half_0.\addrs_base_0' using process `\weight_buffer_18_9_1_64_2048_Wym_real_half_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:21$1'.
+  created $dff cell `$procdff$38' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:72$13'.
+Removing empty process `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:72$13'.
+Removing empty process `weight_buffer_18_9_1_64_2048_Wym_real_half_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:21$1'.
+Cleaned up 1 empty switch.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.
+Optimizing module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.
+Optimizing module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram'.
+Finding identical cells in module `\weight_buffer_18_9_1_64_2048_Wym_real_half_0'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \weight_buffer_18_9_1_64_2048_Wym_real_half_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.
+    Consolidated identical input bits for $mux cell $procmux$22:
+      Old ports: A=162'000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, B=162'111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111, Y=$procmux$22_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$22_Y [0]
+      New connections: $procmux$22_Y [161:1] = { $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] $procmux$22_Y [0] }
+  Optimizing cells in module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.
+  Optimizing cells in module \weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+Performed a total of 1 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram'.
+Finding identical cells in module `\weight_buffer_18_9_1_64_2048_Wym_real_half_0'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$33 ($dff) from module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/weight_buffer_18_9_1_64_2048_Wym_real_half_0.v:77$20_DATA, Q = \out).
+Setting constant 0-bit at position 0 on $procdff$38 ($dff) from module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+Setting constant 0-bit at position 1 on $procdff$38 ($dff) from module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+Setting constant 0-bit at position 2 on $procdff$38 ($dff) from module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+Setting constant 0-bit at position 3 on $procdff$38 ($dff) from module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+Setting constant 0-bit at position 4 on $procdff$38 ($dff) from module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+Setting constant 0-bit at position 5 on $procdff$38 ($dff) from module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+Setting constant 0-bit at position 6 on $procdff$38 ($dff) from module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+Setting constant 0-bit at position 7 on $procdff$38 ($dff) from module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+Setting constant 0-bit at position 8 on $procdff$38 ($dff) from module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+Setting constant 0-bit at position 9 on $procdff$38 ($dff) from module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+Setting constant 0-bit at position 10 on $procdff$38 ($dff) from module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram..
+Finding unused cells or wires in module \weight_buffer_18_9_1_64_2048_Wym_real_half_0..
+Removed 4 unused cells and 17 unused wires.
+<suppressed ~6 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.
+Optimizing module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+<suppressed ~1 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \weight_buffer_18_9_1_64_2048_Wym_real_half_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.
+  Optimizing cells in module \weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram'.
+Finding identical cells in module `\weight_buffer_18_9_1_64_2048_Wym_real_half_0'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram..
+Finding unused cells or wires in module \weight_buffer_18_9_1_64_2048_Wym_real_half_0..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.
+Optimizing module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \weight_buffer_18_9_1_64_2048_Wym_real_half_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.
+  Optimizing cells in module \weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram'.
+Finding identical cells in module `\weight_buffer_18_9_1_64_2048_Wym_real_half_0'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram..
+Finding unused cells or wires in module \weight_buffer_18_9_1_64_2048_Wym_real_half_0..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram.
+Optimizing module weight_buffer_18_9_1_64_2048_Wym_real_half_0.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram ===
+
+   Number of wires:                  9
+   Number of wire bits:            836
+   Number of public wires:           5
+   Number of public wire bits:     338
+   Number of memories:               1
+   Number of memory bits:         1944
+   Number of processes:              0
+   Number of cells:                  6
+     $dffe                         162
+     $mux                          175
+
+=== weight_buffer_18_9_1_64_2048_Wym_real_half_0 ===
+
+   Number of wires:                 15
+   Number of wire bits:            359
+   Number of public wires:          15
+   Number of public wire bits:     359
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $dff                           11
+
+=== design hierarchy ===
+
+   weight_buffer_18_9_1_64_2048_Wym_real_half_0      1
+     $paramod$d00916e4dfc2c0e171972116a153dab27e988efb\single_port_ram      0
+
+   Number of wires:                 15
+   Number of wire bits:            359
+   Number of public wires:          15
+   Number of public wire bits:     359
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $dff                           11
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 86635151f9, CPU: user 0.05s system 0.00s, MEM: 12.09 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 33% 5x opt_expr (0 sec), 24% 3x opt_dff (0 sec), ...

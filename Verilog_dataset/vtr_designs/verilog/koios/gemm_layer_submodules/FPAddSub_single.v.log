@@ -1,0 +1,532 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v' to AST representation.
+Generating RTLIL representation for module `\FPAddSub_single'.
+Generating RTLIL representation for module `\FPAddSub_d'.
+Generating RTLIL representation for module `\FPAddSub_c'.
+Generating RTLIL representation for module `\FpAddSub_b'.
+Generating RTLIL representation for module `\FPAddSub_a'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: FPAddSub_a          
+root of   0 design levels: FpAddSub_b          
+root of   0 design levels: FPAddSub_c          
+root of   0 design levels: FPAddSub_d          
+root of   1 design levels: FPAddSub_single     
+Automatically selected FPAddSub_single as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \FPAddSub_single
+Used module:     \FPAddSub_d
+Used module:     \FPAddSub_c
+Used module:     \FpAddSub_b
+Used module:     \FPAddSub_a
+
+2.3. Analyzing design hierarchy..
+Top module:  \FPAddSub_single
+Used module:     \FPAddSub_d
+Used module:     \FPAddSub_c
+Used module:     \FpAddSub_b
+Used module:     \FPAddSub_a
+Removed 0 unused modules.
+Mapping positional arguments of cell FPAddSub_single.M4 (FPAddSub_d).
+Mapping positional arguments of cell FPAddSub_single.M3 (FPAddSub_c).
+Mapping positional arguments of cell FPAddSub_single.M2 (FpAddSub_b).
+Mapping positional arguments of cell FPAddSub_single.M1 (FPAddSub_a).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:565$131 in module FPAddSub_a.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:565$131 in module FPAddSub_a.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:537$130 in module FPAddSub_a.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:537$130 in module FPAddSub_a.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:307$54 in module FPAddSub_c.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:307$54 in module FPAddSub_c.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:292$53 in module FPAddSub_c.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:292$53 in module FPAddSub_c.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:81$13 in module FPAddSub_single.
+Removed a total of 4 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 7 redundant assignments.
+Promoted 6 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\FPAddSub_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:565$131'.
+     1/25: $0\Lvl3[23:0] [23]
+     2/25: $0\Lvl3[23:0] [21]
+     3/25: $0\Lvl3[23:0] [22]
+     4/25: $0\Lvl3[23:0] [20]
+     5/25: $0\Lvl3[23:0] [19]
+     6/25: $0\Lvl3[23:0] [18]
+     7/25: $0\Lvl3[23:0] [17]
+     8/25: $0\Lvl3[23:0] [16]
+     9/25: $0\Lvl3[23:0] [15]
+    10/25: $0\Lvl3[23:0] [14]
+    11/25: $0\Lvl3[23:0] [13]
+    12/25: $0\Lvl3[23:0] [12]
+    13/25: $0\Lvl3[23:0] [11]
+    14/25: $0\Lvl3[23:0] [10]
+    15/25: $0\Lvl3[23:0] [9]
+    16/25: $0\Lvl3[23:0] [8]
+    17/25: $0\Lvl3[23:0] [7]
+    18/25: $0\Lvl3[23:0] [6]
+    19/25: $0\Lvl3[23:0] [5]
+    20/25: $0\Lvl3[23:0] [4]
+    21/25: $0\Lvl3[23:0] [3]
+    22/25: $0\Lvl3[23:0] [2]
+    23/25: $0\Lvl3[23:0] [1]
+    24/25: $0\Lvl3[23:0] [0]
+    25/25: $1\j[31:0]
+Creating decoders for process `\FPAddSub_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:537$130'.
+     1/21: $0\Lvl2[23:0] [23:19]
+     2/21: $0\Lvl2[23:0] [16]
+     3/21: $0\Lvl2[23:0] [15]
+     4/21: $0\Lvl2[23:0] [14]
+     5/21: $0\Lvl2[23:0] [17]
+     6/21: $0\Lvl2[23:0] [13]
+     7/21: $0\Lvl2[23:0] [12]
+     8/21: $0\Lvl2[23:0] [11]
+     9/21: $0\Lvl2[23:0] [18]
+    10/21: $0\Lvl2[23:0] [10]
+    11/21: $0\Lvl2[23:0] [9]
+    12/21: $0\Lvl2[23:0] [8]
+    13/21: $0\Lvl2[23:0] [7]
+    14/21: $0\Lvl2[23:0] [6]
+    15/21: $0\Lvl2[23:0] [5]
+    16/21: $0\Lvl2[23:0] [4]
+    17/21: $0\Lvl2[23:0] [3]
+    18/21: $0\Lvl2[23:0] [2]
+    19/21: $0\Lvl2[23:0] [1]
+    20/21: $0\Lvl2[23:0] [0]
+    21/21: $1\i[31:0]
+Creating decoders for process `\FPAddSub_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:530$128'.
+Creating decoders for process `\FpAddSub_b.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:414$96'.
+Creating decoders for process `\FPAddSub_c.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:307$54'.
+     1/34: $0\Lvl3[32:0] [2]
+     2/34: $0\Lvl3[32:0] [0]
+     3/34: $0\Lvl3[32:0] [1]
+     4/34: $0\Lvl3[32:0] [3]
+     5/34: $0\Lvl3[32:0] [4]
+     6/34: $0\Lvl3[32:0] [5]
+     7/34: $0\Lvl3[32:0] [6]
+     8/34: $0\Lvl3[32:0] [7]
+     9/34: $0\Lvl3[32:0] [8]
+    10/34: $0\Lvl3[32:0] [9]
+    11/34: $0\Lvl3[32:0] [10]
+    12/34: $0\Lvl3[32:0] [11]
+    13/34: $0\Lvl3[32:0] [12]
+    14/34: $0\Lvl3[32:0] [13]
+    15/34: $0\Lvl3[32:0] [14]
+    16/34: $0\Lvl3[32:0] [15]
+    17/34: $0\Lvl3[32:0] [16]
+    18/34: $0\Lvl3[32:0] [17]
+    19/34: $0\Lvl3[32:0] [18]
+    20/34: $0\Lvl3[32:0] [19]
+    21/34: $0\Lvl3[32:0] [20]
+    22/34: $0\Lvl3[32:0] [21]
+    23/34: $0\Lvl3[32:0] [22]
+    24/34: $0\Lvl3[32:0] [23]
+    25/34: $0\Lvl3[32:0] [24]
+    26/34: $0\Lvl3[32:0] [25]
+    27/34: $0\Lvl3[32:0] [26]
+    28/34: $0\Lvl3[32:0] [27]
+    29/34: $0\Lvl3[32:0] [28]
+    30/34: $0\Lvl3[32:0] [29]
+    31/34: $0\Lvl3[32:0] [30]
+    32/34: $0\Lvl3[32:0] [31]
+    33/34: $0\Lvl3[32:0] [32]
+    34/34: $3\i[31:0]
+Creating decoders for process `\FPAddSub_c.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:292$53'.
+     1/31: $0\Lvl2[32:0] [11]
+     2/31: $0\Lvl2[32:0] [6]
+     3/31: $0\Lvl2[32:0] [3:0]
+     4/31: $0\Lvl2[32:0] [4]
+     5/31: $0\Lvl2[32:0] [5]
+     6/31: $0\Lvl2[32:0] [7]
+     7/31: $0\Lvl2[32:0] [8]
+     8/31: $0\Lvl2[32:0] [9]
+     9/31: $0\Lvl2[32:0] [10]
+    10/31: $0\Lvl2[32:0] [12]
+    11/31: $0\Lvl2[32:0] [13]
+    12/31: $0\Lvl2[32:0] [14]
+    13/31: $0\Lvl2[32:0] [15]
+    14/31: $0\Lvl2[32:0] [16]
+    15/31: $0\Lvl2[32:0] [17]
+    16/31: $0\Lvl2[32:0] [18]
+    17/31: $0\Lvl2[32:0] [19]
+    18/31: $0\Lvl2[32:0] [20]
+    19/31: $0\Lvl2[32:0] [21]
+    20/31: $0\Lvl2[32:0] [22]
+    21/31: $0\Lvl2[32:0] [23]
+    22/31: $0\Lvl2[32:0] [24]
+    23/31: $0\Lvl2[32:0] [25]
+    24/31: $0\Lvl2[32:0] [26]
+    25/31: $0\Lvl2[32:0] [27]
+    26/31: $0\Lvl2[32:0] [28]
+    27/31: $0\Lvl2[32:0] [29]
+    28/31: $0\Lvl2[32:0] [30]
+    29/31: $0\Lvl2[32:0] [31]
+    30/31: $0\Lvl2[32:0] [32]
+    31/31: $1\i[31:0]
+Creating decoders for process `\FPAddSub_single.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:81$13'.
+     1/3: $0\pipe_3[45:0]
+     2/3: $0\pipe_2[54:0]
+     3/3: $0\pipe_1[68:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\FPAddSub_a.\Lvl3' from process `\FPAddSub_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:565$131'.
+Latch inferred for signal `\FPAddSub_a.\j' from process `\FPAddSub_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:565$131': $auto$proc_dlatch.cc:427:proc_dlatch$704
+No latch inferred for signal `\FPAddSub_a.\Lvl2' from process `\FPAddSub_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:537$130'.
+Latch inferred for signal `\FPAddSub_a.\i' from process `\FPAddSub_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:537$130': $auto$proc_dlatch.cc:427:proc_dlatch$713
+No latch inferred for signal `\FPAddSub_a.\Lvl1' from process `\FPAddSub_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:530$128'.
+No latch inferred for signal `\FpAddSub_b.\Lvl1' from process `\FpAddSub_b.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:414$96'.
+No latch inferred for signal `\FPAddSub_c.\Lvl3' from process `\FPAddSub_c.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:307$54'.
+Latch inferred for signal `\FPAddSub_c.\i' from process `\FPAddSub_c.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:307$54': $auto$proc_dlatch.cc:427:proc_dlatch$722
+No latch inferred for signal `\FPAddSub_c.\Lvl2' from process `\FPAddSub_c.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:292$53'.
+Latch inferred for signal `\FPAddSub_c.\i' from process `\FPAddSub_c.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:292$53': $auto$proc_dlatch.cc:427:proc_dlatch$731
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\FPAddSub_single.\pipe_1' using process `\FPAddSub_single.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:81$13'.
+  created $dff cell `$procdff$732' with positive edge clock.
+Creating register for signal `\FPAddSub_single.\pipe_2' using process `\FPAddSub_single.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:81$13'.
+  created $dff cell `$procdff$733' with positive edge clock.
+Creating register for signal `\FPAddSub_single.\pipe_3' using process `\FPAddSub_single.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:81$13'.
+  created $dff cell `$procdff$734' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\FPAddSub_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:565$131'.
+Removing empty process `FPAddSub_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:565$131'.
+Found and cleaned up 1 empty switch in `\FPAddSub_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:537$130'.
+Removing empty process `FPAddSub_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:537$130'.
+Removing empty process `FPAddSub_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:530$128'.
+Removing empty process `FpAddSub_b.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:414$96'.
+Found and cleaned up 1 empty switch in `\FPAddSub_c.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:307$54'.
+Removing empty process `FPAddSub_c.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:307$54'.
+Found and cleaned up 1 empty switch in `\FPAddSub_c.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:292$53'.
+Removing empty process `FPAddSub_c.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:292$53'.
+Found and cleaned up 1 empty switch in `\FPAddSub_single.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:81$13'.
+Removing empty process `FPAddSub_single.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/gemm_layer_submodules/FPAddSub_single.v:81$13'.
+Cleaned up 5 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FPAddSub_a.
+<suppressed ~54 debug messages>
+Optimizing module FpAddSub_b.
+Optimizing module FPAddSub_c.
+<suppressed ~73 debug messages>
+Optimizing module FPAddSub_d.
+<suppressed ~1 debug messages>
+Optimizing module FPAddSub_single.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FPAddSub_a.
+Optimizing module FpAddSub_b.
+Optimizing module FPAddSub_c.
+Optimizing module FPAddSub_d.
+Optimizing module FPAddSub_single.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\FPAddSub_a'.
+<suppressed ~540 debug messages>
+Finding identical cells in module `\FpAddSub_b'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\FPAddSub_c'.
+<suppressed ~759 debug messages>
+Finding identical cells in module `\FPAddSub_d'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\FPAddSub_single'.
+Removed a total of 437 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \FPAddSub_a..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \FpAddSub_b..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \FPAddSub_c..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \FPAddSub_d..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \FPAddSub_single..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~125 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \FPAddSub_a.
+    New ctrl vector for $pmux cell $procmux$357: { }
+    New ctrl vector for $pmux cell $procmux$267: { $procmux$361_CMP $procmux$360_CMP $auto$opt_reduce.cc:134:opt_mux$736 }
+    New ctrl vector for $pmux cell $procmux$262: { $procmux$361_CMP $procmux$360_CMP $auto$opt_reduce.cc:134:opt_mux$738 }
+    New ctrl vector for $pmux cell $procmux$257: { $procmux$361_CMP $auto$opt_reduce.cc:134:opt_mux$740 }
+    New ctrl vector for $pmux cell $procmux$252: { }
+    New ctrl vector for $pmux cell $procmux$142: { $procmux$256_CMP $procmux$255_CMP $auto$opt_reduce.cc:134:opt_mux$742 }
+    New ctrl vector for $pmux cell $procmux$277: { $procmux$361_CMP $procmux$360_CMP $auto$opt_reduce.cc:134:opt_mux$744 }
+    New ctrl vector for $pmux cell $procmux$132: { $procmux$256_CMP $auto$opt_reduce.cc:134:opt_mux$746 }
+    New ctrl vector for $pmux cell $procmux$297: { $procmux$361_CMP $procmux$360_CMP $auto$opt_reduce.cc:134:opt_mux$748 }
+  Optimizing cells in module \FPAddSub_a.
+  Optimizing cells in module \FpAddSub_b.
+  Optimizing cells in module \FPAddSub_c.
+    New ctrl vector for $pmux cell $procmux$547: { $procmux$686_CMP $procmux$685_CMP $auto$opt_reduce.cc:134:opt_mux$750 }
+    New ctrl vector for $pmux cell $procmux$542: { $procmux$686_CMP $auto$opt_reduce.cc:134:opt_mux$752 }
+    New ctrl vector for $pmux cell $procmux$537: { $procmux$686_CMP $procmux$685_CMP $auto$opt_reduce.cc:134:opt_mux$754 }
+    New ctrl vector for $pmux cell $procmux$527: { }
+    New ctrl vector for $pmux cell $procmux$682: { }
+    New ctrl vector for $pmux cell $procmux$557: { $procmux$686_CMP $procmux$685_CMP $auto$opt_reduce.cc:134:opt_mux$756 }
+    New ctrl vector for $pmux cell $procmux$372: { $procmux$531_CMP $procmux$530_CMP $auto$opt_reduce.cc:134:opt_mux$758 }
+    New ctrl vector for $pmux cell $procmux$552: { $procmux$686_CMP $procmux$685_CMP $auto$opt_reduce.cc:134:opt_mux$760 }
+    New ctrl vector for $pmux cell $procmux$367: { $procmux$531_CMP $auto$opt_reduce.cc:134:opt_mux$762 }
+  Optimizing cells in module \FPAddSub_c.
+  Optimizing cells in module \FPAddSub_d.
+  Optimizing cells in module \FPAddSub_single.
+Performed a total of 18 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\FPAddSub_a'.
+<suppressed ~9 debug messages>
+Finding identical cells in module `\FpAddSub_b'.
+Finding identical cells in module `\FPAddSub_c'.
+<suppressed ~9 debug messages>
+Finding identical cells in module `\FPAddSub_d'.
+Finding identical cells in module `\FPAddSub_single'.
+Removed a total of 6 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$732 ($dff) from module FPAddSub_single (D = { \Opout \Sa \Sb \MaxAB \CExp \Shift \Mmax \InputExc \Mmin_3 }, Q = \pipe_1, rval = 69'000000000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$733 ($dff) from module FPAddSub_single (D = { \SumS_5 \Shift_1 \pipe_1 [64:57] \pipe_1 [67:66] \pipe_1 [68] \pipe_1 [65] \pipe_1 [28:24] }, Q = \pipe_2, rval = 55'0000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$734 ($dff) from module FPAddSub_single (D = { \NormM \NormE \ZeroSum \NegE \R \S \FG \pipe_2 [8:0] }, Q = \pipe_3, rval = 46'0000000000000000000000000000000000000000000000).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \FPAddSub_a..
+Finding unused cells or wires in module \FpAddSub_b..
+Finding unused cells or wires in module \FPAddSub_c..
+Finding unused cells or wires in module \FPAddSub_d..
+Finding unused cells or wires in module \FPAddSub_single..
+Removed 11 unused cells and 631 unused wires.
+<suppressed ~21 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FPAddSub_a.
+Optimizing module FPAddSub_c.
+Optimizing module FPAddSub_d.
+Optimizing module FPAddSub_single.
+Optimizing module FpAddSub_b.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \FPAddSub_a..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \FPAddSub_c..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \FPAddSub_d..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \FPAddSub_single..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \FpAddSub_b..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~118 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \FPAddSub_a.
+  Optimizing cells in module \FPAddSub_c.
+  Optimizing cells in module \FPAddSub_d.
+  Optimizing cells in module \FPAddSub_single.
+  Optimizing cells in module \FpAddSub_b.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\FPAddSub_a'.
+Finding identical cells in module `\FPAddSub_c'.
+Finding identical cells in module `\FPAddSub_d'.
+Finding identical cells in module `\FPAddSub_single'.
+Finding identical cells in module `\FpAddSub_b'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \FPAddSub_a..
+Finding unused cells or wires in module \FPAddSub_c..
+Finding unused cells or wires in module \FPAddSub_d..
+Finding unused cells or wires in module \FPAddSub_single..
+Finding unused cells or wires in module \FpAddSub_b..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FPAddSub_a.
+Optimizing module FPAddSub_c.
+Optimizing module FPAddSub_d.
+Optimizing module FPAddSub_single.
+Optimizing module FpAddSub_b.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== FPAddSub_a ===
+
+   Number of wires:                 56
+   Number of wire bits:            658
+   Number of public wires:          30
+   Number of public wire bits:     446
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 81
+     $add                          128
+     $and                            4
+     $eq                            12
+     $logic_not                      6
+     $lt                            31
+     $mux                           83
+     $not                           64
+     $or                             3
+     $pmux                          48
+     $reduce_and                    16
+     $reduce_or                     56
+
+=== FPAddSub_c ===
+
+   Number of wires:                 32
+   Number of wire bits:            350
+   Number of public wires:          19
+   Number of public wire bits:     337
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 81
+     $add                            9
+     $eq                            12
+     $logic_not                      5
+     $mux                            9
+     $pmux                          66
+     $reduce_or                     50
+     $sub                            9
+
+=== FPAddSub_d ===
+
+   Number of wires:                 53
+   Number of wire bits:            245
+   Number of public wires:          28
+   Number of public wire bits:     181
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 36
+     $add                           41
+     $and                           11
+     $logic_not                      1
+     $mux                           34
+     $not                            4
+     $or                             9
+     $reduce_and                     8
+     $reduce_or                     11
+     $xor                            2
+
+=== FPAddSub_single ===
+
+   Number of wires:                 30
+   Number of wire bits:            420
+   Number of public wires:          30
+   Number of public wire bits:     420
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  7
+     $sdff                         170
+
+=== FpAddSub_b ===
+
+   Number of wires:                 40
+   Number of wire bits:            349
+   Number of public wires:          12
+   Number of public wire bits:     157
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 33
+     $add                           33
+     $mux                          197
+     $sub                           33
+     $xor                            2
+
+=== design hierarchy ===
+
+   FPAddSub_single                   1
+     FPAddSub_a                      0
+     FPAddSub_c                      0
+     FPAddSub_d                      0
+     FpAddSub_b                      0
+
+   Number of wires:                 30
+   Number of wire bits:            420
+   Number of public wires:          30
+   Number of public wire bits:     420
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  7
+     $sdff                         170
+
+End of script. Logfile hash: 6e634481d6, CPU: user 0.25s system 0.01s, MEM: 15.68 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 30% 2x read_verilog (0 sec), 22% 4x opt_expr (0 sec), ...

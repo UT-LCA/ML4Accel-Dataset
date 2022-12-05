@@ -1,0 +1,297 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v' to AST representation.
+Generating RTLIL representation for module `\fNToRecFN'.
+Generating RTLIL representation for module `\countLeadingZerosfp16'.
+Generating RTLIL representation for module `\reverseFp16'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: reverseFp16         
+root of   1 design levels: countLeadingZerosfp16
+root of   2 design levels: fNToRecFN           
+Automatically selected fNToRecFN as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \fNToRecFN
+Used module:     \countLeadingZerosfp16
+Used module:         \reverseFp16
+Parameter 1 (\inWidth) = 2
+Parameter 2 (\countWidth) = 4
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\countLeadingZerosfp16'.
+Parameter 1 (\inWidth) = 2
+Parameter 2 (\countWidth) = 4
+Generating RTLIL representation for module `$paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16'.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v:97: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v:101: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v:105: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v:109: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v:113: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v:117: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v:121: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v:125: Warning: Range select out of bounds on signal `\oneLeastReverseIn': Setting result bit to undef.
+
+2.4. Analyzing design hierarchy..
+Top module:  \fNToRecFN
+Used module:     $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16
+Used module:         \reverseFp16
+
+2.5. Analyzing design hierarchy..
+Top module:  \fNToRecFN
+Used module:     $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16
+Used module:         \reverseFp16
+Removing unused module `\countLeadingZerosfp16'.
+Removed 1 unused modules.
+Mapping positional arguments of cell $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.reverse_in (reverseFp16).
+Warning: Resizing cell port $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.reverse_in.in from 2 bits to 10 bits.
+Warning: Resizing cell port $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.reverse_in.out from 2 bits to 10 bits.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 10 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v:95$34 in module $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v:95$34'.
+     1/10: $10\count[3:0]
+     2/10: $9\count[3:0]
+     3/10: $8\count[3:0]
+     4/10: $7\count[3:0]
+     5/10: $6\count[3:0]
+     6/10: $5\count[3:0]
+     7/10: $4\count[3:0]
+     8/10: $3\count[3:0]
+     9/10: $2\count[3:0]
+    10/10: $1\count[3:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.\count' from process `$paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v:95$34'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 10 empty switches in `$paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v:95$34'.
+Removing empty process `$paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/softmax_submodules/fNToRecFN.v:95$34'.
+Cleaned up 10 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module reverseFp16.
+Optimizing module $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.
+<suppressed ~62 debug messages>
+Optimizing module fNToRecFN.
+<suppressed ~3 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module reverseFp16.
+Optimizing module $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.
+Optimizing module fNToRecFN.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\reverseFp16'.
+Finding identical cells in module `$paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16'.
+Finding identical cells in module `\fNToRecFN'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \reverseFp16..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$50.
+Running muxtree optimizer on module \fNToRecFN..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 1 multiplexer ports.
+<suppressed ~5 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \reverseFp16.
+  Optimizing cells in module $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.
+  Optimizing cells in module \fNToRecFN.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\reverseFp16'.
+Finding identical cells in module `$paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16'.
+Finding identical cells in module `\fNToRecFN'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \reverseFp16..
+Finding unused cells or wires in module $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16..
+Finding unused cells or wires in module \fNToRecFN..
+Removed 0 unused cells and 138 unused wires.
+<suppressed ~3 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.
+Optimizing module fNToRecFN.
+Optimizing module reverseFp16.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fNToRecFN..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reverseFp16..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.
+  Optimizing cells in module \fNToRecFN.
+  Optimizing cells in module \reverseFp16.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16'.
+Finding identical cells in module `\fNToRecFN'.
+Finding identical cells in module `\reverseFp16'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16..
+Finding unused cells or wires in module \fNToRecFN..
+Finding unused cells or wires in module \reverseFp16..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16.
+Optimizing module fNToRecFN.
+Optimizing module reverseFp16.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16 ===
+
+   Number of wires:                  9
+   Number of wire bits:             89
+   Number of public wires:           4
+   Number of public wire bits:      11
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $add                           32
+     $and                           32
+     $mux                            8
+     $not                            2
+
+=== fNToRecFN ===
+
+   Number of wires:                 21
+   Number of wire bits:            203
+   Number of public wires:          13
+   Number of public wire bits:      37
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 15
+     $add                           32
+     $eq                             2
+     $logic_and                      1
+     $logic_not                      6
+     $mux                           72
+     $or                            32
+     $shl                            4
+     $xor                           32
+
+=== reverseFp16 ===
+
+   Number of wires:                  2
+   Number of wire bits:             20
+   Number of public wires:           2
+   Number of public wire bits:      20
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  0
+
+=== design hierarchy ===
+
+   fNToRecFN                         1
+     $paramod$9a454871f8f7227f8b3fac7a444c215dbee82edb\countLeadingZerosfp16      0
+       reverseFp16                   0
+
+   Number of wires:                 21
+   Number of wire bits:            203
+   Number of public wires:          13
+   Number of public wire bits:      37
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 15
+     $add                           32
+     $eq                             2
+     $logic_and                      1
+     $logic_not                      6
+     $mux                           72
+     $or                            32
+     $shl                            4
+     $xor                           32
+
+Warnings: 3 unique messages, 10 total
+End of script. Logfile hash: 4738626f3b, CPU: user 0.07s system 0.00s, MEM: 11.50 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 29% 4x opt_expr (0 sec), 17% 3x opt_merge (0 sec), ...

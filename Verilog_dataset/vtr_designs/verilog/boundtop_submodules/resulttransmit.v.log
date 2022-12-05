@@ -1,0 +1,281 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v' to AST representation.
+Generating RTLIL representation for module `\resulttransmit'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:104.5-185.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: resulttransmit      
+Automatically selected resulttransmit as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \resulttransmit
+
+2.3. Analyzing design hierarchy..
+Top module:  \resulttransmit
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:104$7 in module resulttransmit.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1 in module resulttransmit.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:104$7'.
+     1/6: $3\next_state[3:0]
+     2/6: $2\next_state[3:0]
+     3/6: $1\next_state[3:0]
+     4/6: $1\temp_rgResultSource[1:0]
+     5/6: $1\temp_rgResultReady[0:0]
+     6/6: $1\temp_rgResultData[31:0]
+Creating decoders for process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+     1/14: $0\rgResultReady[0:0]
+     2/14: $0\rgResultSource[1:0]
+     3/14: $0\rgResultData[31:0]
+     4/14: $0\state[3:0]
+     5/14: $0\valid10d[0:0]
+     6/14: $0\valid01d[0:0]
+     7/14: $0\pending10[0:0]
+     8/14: $0\pending01[0:0]
+     9/14: $0\hit10cl[0:0]
+    10/14: $0\hit10bl[0:0]
+    11/14: $0\hit10al[0:0]
+    12/14: $0\hit01cl[0:0]
+    13/14: $0\hit01bl[0:0]
+    14/14: $0\hit01al[0:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\resulttransmit.\next_state' from process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:104$7': $auto$proc_dlatch.cc:427:proc_dlatch$210
+Latch inferred for signal `\resulttransmit.\temp_rgResultData' from process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:104$7': $auto$proc_dlatch.cc:427:proc_dlatch$263
+Latch inferred for signal `\resulttransmit.\temp_rgResultReady' from process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:104$7': $auto$proc_dlatch.cc:427:proc_dlatch$272
+Latch inferred for signal `\resulttransmit.\temp_rgResultSource' from process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:104$7': $auto$proc_dlatch.cc:427:proc_dlatch$325
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\resulttransmit.\rgResultData' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$326' with positive edge clock.
+Creating register for signal `\resulttransmit.\rgResultReady' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$327' with positive edge clock.
+Creating register for signal `\resulttransmit.\rgResultSource' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$328' with positive edge clock.
+Creating register for signal `\resulttransmit.\state' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$329' with positive edge clock.
+Creating register for signal `\resulttransmit.\hit01al' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$330' with positive edge clock.
+Creating register for signal `\resulttransmit.\hit01bl' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$331' with positive edge clock.
+Creating register for signal `\resulttransmit.\hit01cl' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$332' with positive edge clock.
+Creating register for signal `\resulttransmit.\hit10al' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$333' with positive edge clock.
+Creating register for signal `\resulttransmit.\hit10bl' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$334' with positive edge clock.
+Creating register for signal `\resulttransmit.\hit10cl' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$335' with positive edge clock.
+Creating register for signal `\resulttransmit.\pending01' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$336' with positive edge clock.
+Creating register for signal `\resulttransmit.\pending10' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$337' with positive edge clock.
+Creating register for signal `\resulttransmit.\valid01d' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$338' with positive edge clock.
+Creating register for signal `\resulttransmit.\valid10d' using process `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+  created $dff cell `$procdff$339' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:104$7'.
+Removing empty process `resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:104$7'.
+Found and cleaned up 5 empty switches in `\resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+Removing empty process `resulttransmit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resulttransmit.v:60$1'.
+Cleaned up 8 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module resulttransmit.
+<suppressed ~52 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module resulttransmit.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\resulttransmit'.
+<suppressed ~177 debug messages>
+Removed a total of 59 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \resulttransmit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \resulttransmit.
+    New ctrl vector for $pmux cell $procmux$85: { $procmux$92_CMP $procmux$91_CMP $procmux$90_CMP $procmux$89_CMP $procmux$88_CMP $procmux$87_CMP $procmux$86_CMP }
+    New ctrl vector for $pmux cell $procmux$74: { $auto$opt_reduce.cc:134:opt_mux$343 $auto$opt_reduce.cc:134:opt_mux$341 }
+    New ctrl vector for $pmux cell $procmux$64: $auto$opt_reduce.cc:134:opt_mux$345
+    New ctrl vector for $pmux cell $procmux$53: { $procmux$93_CMP $procmux$92_CMP $procmux$91_CMP $procmux$89_CMP $procmux$88_CMP $procmux$87_CMP $auto$opt_reduce.cc:134:opt_mux$347 }
+  Optimizing cells in module \resulttransmit.
+Performed a total of 4 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\resulttransmit'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$339 ($dff) from module resulttransmit (D = \valid10, Q = \valid10d).
+Adding EN signal on $procdff$338 ($dff) from module resulttransmit (D = \valid01, Q = \valid01d).
+Adding SRST signal on $procdff$337 ($dff) from module resulttransmit (D = $procmux$112_Y, Q = \pending10, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$350 ($sdff) from module resulttransmit (D = 1'1, Q = \pending10).
+Adding SRST signal on $procdff$336 ($dff) from module resulttransmit (D = $procmux$117_Y, Q = \pending01, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$352 ($sdff) from module resulttransmit (D = 1'1, Q = \pending01).
+Adding EN signal on $procdff$335 ($dff) from module resulttransmit (D = \hit10c, Q = \hit10cl).
+Adding EN signal on $procdff$334 ($dff) from module resulttransmit (D = \hit10b, Q = \hit10bl).
+Adding EN signal on $procdff$333 ($dff) from module resulttransmit (D = \hit10a, Q = \hit10al).
+Adding EN signal on $procdff$332 ($dff) from module resulttransmit (D = \hit01c, Q = \hit01cl).
+Adding EN signal on $procdff$331 ($dff) from module resulttransmit (D = \hit01b, Q = \hit01bl).
+Adding SRST signal on $procdff$327 ($dff) from module resulttransmit (D = \temp_rgResultReady, Q = \rgResultReady, rval = 1'0).
+Adding EN signal on $procdff$330 ($dff) from module resulttransmit (D = \hit01a, Q = \hit01al).
+Adding SRST signal on $procdff$329 ($dff) from module resulttransmit (D = \next_state, Q = \state, rval = 4'0000).
+Adding SRST signal on $procdff$328 ($dff) from module resulttransmit (D = \temp_rgResultSource, Q = \rgResultSource, rval = 2'00).
+Adding SRST signal on $procdff$326 ($dff) from module resulttransmit (D = \temp_rgResultData, Q = \rgResultData, rval = 0).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \resulttransmit..
+Removed 24 unused cells and 176 unused wires.
+<suppressed ~25 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module resulttransmit.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \resulttransmit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \resulttransmit.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\resulttransmit'.
+<suppressed ~27 debug messages>
+Removed a total of 9 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \resulttransmit..
+Removed 0 unused cells and 9 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module resulttransmit.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \resulttransmit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \resulttransmit.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\resulttransmit'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \resulttransmit..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module resulttransmit.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== resulttransmit ===
+
+   Number of wires:                 96
+   Number of wire bits:            477
+   Number of public wires:          46
+   Number of public wire bits:     386
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 68
+     $and                            8
+     $dffe                           8
+     $dlatch                        39
+     $eq                            32
+     $logic_not                      4
+     $logic_or                     176
+     $mux                           10
+     $not                           10
+     $pmux                          37
+     $reduce_and                     4
+     $reduce_or                     14
+     $sdff                          39
+     $sdffe                          2
+
+End of script. Logfile hash: 345f99026e, CPU: user 0.07s system 0.00s, MEM: 12.15 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 23% 5x opt_expr (0 sec), 17% 3x opt_clean (0 sec), ...

@@ -1,0 +1,608 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v' to AST representation.
+Generating RTLIL representation for module `\fpmul'.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:244: Warning: Identifier `\sign' is implicitly declared.
+Generating RTLIL representation for module `\assemble'.
+Generating RTLIL representation for module `\flag'.
+Generating RTLIL representation for module `\round'.
+Generating RTLIL representation for module `\shift'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:516.3-646.5 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\normalize'.
+Generating RTLIL representation for module `\exponent'.
+Generating RTLIL representation for module `\multiply_a'.
+Generating RTLIL representation for module `\prenorm'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:801.2-899.5 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:904.2-1002.5 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\special'.
+Generating RTLIL representation for module `\preprocess'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: preprocess          
+root of   0 design levels: special             
+root of   0 design levels: prenorm             
+root of   0 design levels: multiply_a          
+root of   0 design levels: exponent            
+root of   0 design levels: normalize           
+root of   0 design levels: shift               
+root of   0 design levels: round               
+root of   0 design levels: flag                
+root of   0 design levels: assemble            
+root of   1 design levels: fpmul               
+Automatically selected fpmul as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \fpmul
+Used module:     \assemble
+Used module:     \flag
+Used module:     \round
+Used module:     \shift
+Used module:     \normalize
+Used module:     \exponent
+Used module:     \multiply_a
+Used module:     \prenorm
+Used module:     \special
+Used module:     \preprocess
+
+2.3. Analyzing design hierarchy..
+Top module:  \fpmul
+Used module:     \assemble
+Used module:     \flag
+Used module:     \round
+Used module:     \shift
+Used module:     \normalize
+Used module:     \exponent
+Used module:     \multiply_a
+Used module:     \prenorm
+Used module:     \special
+Used module:     \preprocess
+Removed 0 unused modules.
+Mapping positional arguments of cell fpmul.assembler (assemble).
+Mapping positional arguments of cell fpmul.flager (flag).
+Mapping positional arguments of cell fpmul.rounder (round).
+Mapping positional arguments of cell fpmul.shifter (shift).
+Mapping positional arguments of cell fpmul.normalizer (normalize).
+Mapping positional arguments of cell fpmul.exponenter (exponent).
+Mapping positional arguments of cell fpmul.multiplier (multiply_a).
+Mapping positional arguments of cell fpmul.prenormer (prenorm).
+Mapping positional arguments of cell fpmul.specialer (special).
+Mapping positional arguments of cell fpmul.preprocesser (preprocess).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:904$186 in module prenorm.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:801$161 in module prenorm.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:516$62 in module shift.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\prenorm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:904$186'.
+     1/1: $1\shiftedb[23:0]
+Creating decoders for process `\prenorm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:801$161'.
+     1/1: $1\shifteda[23:0]
+Creating decoders for process `\shift.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:516$62'.
+     1/1: $1\postshift[95:0]
+Creating decoders for process `\fpmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:296$5'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\prenorm.\shiftedb' from process `\prenorm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:904$186'.
+No latch inferred for signal `\prenorm.\shifteda' from process `\prenorm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:801$161'.
+No latch inferred for signal `\shift.\postshift' from process `\shift.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:516$62'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\fpmul.\y_out' using process `\fpmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:296$5'.
+  created $dff cell `$procdff$336' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\prenorm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:904$186'.
+Removing empty process `prenorm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:904$186'.
+Found and cleaned up 1 empty switch in `\prenorm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:801$161'.
+Removing empty process `prenorm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:801$161'.
+Found and cleaned up 1 empty switch in `\shift.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:516$62'.
+Removing empty process `shift.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:516$62'.
+Removing empty process `fpmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU64PEEng_submodules/fpmul.v:296$5'.
+Cleaned up 3 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module preprocess.
+<suppressed ~4 debug messages>
+Optimizing module special.
+Optimizing module prenorm.
+<suppressed ~46 debug messages>
+Optimizing module multiply_a.
+Optimizing module exponent.
+Optimizing module normalize.
+Optimizing module shift.
+<suppressed ~33 debug messages>
+Optimizing module round.
+Optimizing module flag.
+Optimizing module assemble.
+Optimizing module fpmul.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module preprocess.
+Optimizing module special.
+Optimizing module prenorm.
+Optimizing module multiply_a.
+Optimizing module exponent.
+Optimizing module normalize.
+Optimizing module shift.
+Optimizing module round.
+Optimizing module flag.
+Optimizing module assemble.
+Optimizing module fpmul.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\preprocess'.
+Finding identical cells in module `\special'.
+Finding identical cells in module `\prenorm'.
+Finding identical cells in module `\multiply_a'.
+Finding identical cells in module `\exponent'.
+Finding identical cells in module `\normalize'.
+Finding identical cells in module `\shift'.
+Finding identical cells in module `\round'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\flag'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\assemble'.
+Finding identical cells in module `\fpmul'.
+<suppressed ~3 debug messages>
+Removed a total of 3 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \preprocess..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \special..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \prenorm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \multiply_a..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \exponent..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \normalize..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \shift..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \round..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \flag..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \assemble..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpmul..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \preprocess.
+  Optimizing cells in module \special.
+  Optimizing cells in module \prenorm.
+  Optimizing cells in module \multiply_a.
+  Optimizing cells in module \exponent.
+  Optimizing cells in module \normalize.
+  Optimizing cells in module \shift.
+  Optimizing cells in module \round.
+  Optimizing cells in module \flag.
+  Optimizing cells in module \assemble.
+  Optimizing cells in module \fpmul.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\preprocess'.
+Finding identical cells in module `\special'.
+Finding identical cells in module `\prenorm'.
+Finding identical cells in module `\multiply_a'.
+Finding identical cells in module `\exponent'.
+Finding identical cells in module `\normalize'.
+Finding identical cells in module `\shift'.
+Finding identical cells in module `\round'.
+Finding identical cells in module `\flag'.
+Finding identical cells in module `\assemble'.
+Finding identical cells in module `\fpmul'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \preprocess..
+Finding unused cells or wires in module \special..
+Finding unused cells or wires in module \prenorm..
+Finding unused cells or wires in module \multiply_a..
+Finding unused cells or wires in module \exponent..
+Finding unused cells or wires in module \normalize..
+Finding unused cells or wires in module \shift..
+Finding unused cells or wires in module \round..
+Finding unused cells or wires in module \flag..
+Finding unused cells or wires in module \assemble..
+Finding unused cells or wires in module \fpmul..
+Removed 0 unused cells and 152 unused wires.
+<suppressed ~21 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module assemble.
+Optimizing module exponent.
+Optimizing module flag.
+Optimizing module fpmul.
+Optimizing module multiply_a.
+Optimizing module normalize.
+Optimizing module prenorm.
+Optimizing module preprocess.
+Optimizing module round.
+Optimizing module shift.
+Optimizing module special.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \assemble..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \exponent..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \flag..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fpmul..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \multiply_a..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \normalize..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \prenorm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \preprocess..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \round..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \shift..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \special..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \assemble.
+  Optimizing cells in module \exponent.
+  Optimizing cells in module \flag.
+  Optimizing cells in module \fpmul.
+  Optimizing cells in module \multiply_a.
+  Optimizing cells in module \normalize.
+  Optimizing cells in module \prenorm.
+  Optimizing cells in module \preprocess.
+  Optimizing cells in module \round.
+  Optimizing cells in module \shift.
+  Optimizing cells in module \special.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\assemble'.
+Finding identical cells in module `\exponent'.
+Finding identical cells in module `\flag'.
+Finding identical cells in module `\fpmul'.
+Finding identical cells in module `\multiply_a'.
+Finding identical cells in module `\normalize'.
+Finding identical cells in module `\prenorm'.
+Finding identical cells in module `\preprocess'.
+Finding identical cells in module `\round'.
+Finding identical cells in module `\shift'.
+Finding identical cells in module `\special'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \assemble..
+Finding unused cells or wires in module \exponent..
+Finding unused cells or wires in module \flag..
+Finding unused cells or wires in module \fpmul..
+Finding unused cells or wires in module \multiply_a..
+Finding unused cells or wires in module \normalize..
+Finding unused cells or wires in module \prenorm..
+Finding unused cells or wires in module \preprocess..
+Finding unused cells or wires in module \round..
+Finding unused cells or wires in module \shift..
+Finding unused cells or wires in module \special..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module assemble.
+Optimizing module exponent.
+Optimizing module flag.
+Optimizing module fpmul.
+Optimizing module multiply_a.
+Optimizing module normalize.
+Optimizing module prenorm.
+Optimizing module preprocess.
+Optimizing module round.
+Optimizing module shift.
+Optimizing module special.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== assemble ===
+
+   Number of wires:                 16
+   Number of wire bits:            257
+   Number of public wires:          12
+   Number of public wire bits:     163
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  7
+     $mux                          156
+     $xor                            1
+
+=== exponent ===
+
+   Number of wires:                 10
+   Number of wire bits:            130
+   Number of public wires:           5
+   Number of public wire bits:      32
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $add                           64
+     $logic_not                      1
+     $or                             1
+     $reduce_or                      9
+     $sub                           32
+
+=== flag ===
+
+   Number of wires:                 10
+   Number of wire bits:             14
+   Number of public wires:           7
+   Number of public wire bits:      11
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $and                            2
+     $not                            1
+     $or                             2
+
+=== fpmul ===
+
+   Number of wires:                 42
+   Number of wire bits:            502
+   Number of public wires:          41
+   Number of public wire bits:     501
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 14
+     $and                            1
+     $dff                           32
+     $or                             2
+
+=== multiply_a ===
+
+   Number of wires:                  4
+   Number of wire bits:             97
+   Number of public wires:           4
+   Number of public wire bits:      97
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $mul                           48
+
+=== normalize ===
+
+   Number of wires:                  7
+   Number of wire bits:            148
+   Number of public wires:           4
+   Number of public wire bits:      98
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $and                            1
+     $mux                           96
+     $xor                            1
+
+=== prenorm ===
+
+   Number of wires:                108
+   Number of wire bits:           1792
+   Number of public wires:          14
+   Number of public wire bits:     210
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 98
+     $eq                           230
+     $mux                         1520
+     $pmux                          48
+     $sub                           64
+
+=== preprocess ===
+
+   Number of wires:                 31
+   Number of wire bits:            153
+   Number of public wires:          23
+   Number of public wire bits:     145
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 21
+     $and                            8
+     $logic_not                      4
+     $or                             2
+     $reduce_and                    16
+     $reduce_or                     62
+     $xor                            1
+
+=== round ===
+
+   Number of wires:                 45
+   Number of wire bits:            327
+   Number of public wires:          22
+   Number of public wire bits:     211
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 34
+     $add                           42
+     $and                           10
+     $logic_not                      1
+     $mux                           64
+     $not                            4
+     $or                             9
+     $reduce_and                     8
+     $reduce_or                    153
+     $xor                            1
+
+=== shift ===
+
+   Number of wires:                 47
+   Number of wire bits:            472
+   Number of public wires:          11
+   Number of public wire bits:     374
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 42
+     $and                            2
+     $eq                           155
+     $gt                            32
+     $mux                          160
+     $neg                           10
+     $not                            1
+     $or                             1
+     $pmux                          96
+     $reduce_or                     48
+
+=== special ===
+
+   Number of wires:                 24
+   Number of wire bits:            206
+   Number of public wires:          14
+   Number of public wire bits:     136
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 17
+     $and                            2
+     $ge                            23
+     $mux                          126
+     $not                            1
+     $or                             7
+
+=== design hierarchy ===
+
+   fpmul                             1
+     assemble                        0
+     exponent                        0
+     flag                            0
+     multiply_a                      0
+     normalize                       0
+     prenorm                         0
+     preprocess                      0
+     round                           0
+     shift                           0
+     special                         0
+
+   Number of wires:                 42
+   Number of wire bits:            502
+   Number of public wires:          41
+   Number of public wire bits:     501
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 14
+     $and                            1
+     $dff                           32
+     $or                             2
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 75bfa293b9, CPU: user 0.22s system 0.00s, MEM: 15.40 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 27% 4x opt_expr (0 sec), 16% 2x opt_clean (0 sec), ...

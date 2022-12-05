@@ -1,0 +1,352 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v' to AST representation.
+Warning: Encountered `full_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `full_case' attribute or the SystemVerilog `unique' or `unique0' keywords is recommended!
+Warning: Encountered `parallel_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `parallel_case' attribute or the SystemVerilog `unique' or `priority' keywords is recommended!
+Generating RTLIL representation for module `\pre_norm'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:123.1-153.11 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:178.1-192.11 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:231.1-245.11 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\b_right_shifter_new'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:262.1-294.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: b_right_shifter_new 
+root of   1 design levels: pre_norm            
+Automatically selected pre_norm as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \pre_norm
+Used module:     \b_right_shifter_new
+
+2.3. Analyzing design hierarchy..
+Top module:  \pre_norm
+Used module:     \b_right_shifter_new
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:262$102 in module b_right_shifter_new.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:231$100 in module pre_norm.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:178$63 in module pre_norm.
+Removed a total of 2 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 16 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\b_right_shifter_new.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:262$102'.
+     1/1: $1\shift_out[26:0]
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:247$101'.
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:231$100'.
+     1/1: $1\add_d[0:0]
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:222$96'.
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:217$91'.
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:214$89'.
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:207$70'.
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:204$69'.
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:201$68'.
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:198$67'.
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:194$66'.
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:178$63'.
+     1/1: $1\sign_d[0:0]
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:171$62'.
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:168$61'.
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:123$27'.
+     1/1: $1\sticky[0:0]
+Creating decoders for process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:89$14'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\b_right_shifter_new.\shift_out' from process `\b_right_shifter_new.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:262$102': $auto$proc_dlatch.cc:427:proc_dlatch$380
+No latch inferred for signal `\pre_norm.\add_d' from process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:231$100'.
+No latch inferred for signal `\pre_norm.\sign_d' from process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:178$63'.
+No latch inferred for signal `\pre_norm.\sticky' from process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:123$27'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\pre_norm.\fasu_op' using process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:247$101'.
+  created $dff cell `$procdff$381' with positive edge clock.
+Creating register for signal `\pre_norm.\nan_sign' using process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:222$96'.
+  created $dff cell `$procdff$382' with positive edge clock.
+Creating register for signal `\pre_norm.\fracta_eq_fractb' using process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:217$91'.
+  created $dff cell `$procdff$383' with positive edge clock.
+Creating register for signal `\pre_norm.\fracta_lt_fractb' using process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:214$89'.
+  created $dff cell `$procdff$384' with positive edge clock.
+Creating register for signal `\pre_norm.\result_zero_sign' using process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:207$70'.
+  created $dff cell `$procdff$385' with positive edge clock.
+Creating register for signal `\pre_norm.\add_r' using process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:204$69'.
+  created $dff cell `$procdff$386' with positive edge clock.
+Creating register for signal `\pre_norm.\signb_r' using process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:201$68'.
+  created $dff cell `$procdff$387' with positive edge clock.
+Creating register for signal `\pre_norm.\signa_r' using process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:198$67'.
+  created $dff cell `$procdff$388' with positive edge clock.
+Creating register for signal `\pre_norm.\sign' using process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:194$66'.
+  created $dff cell `$procdff$389' with positive edge clock.
+Creating register for signal `\pre_norm.\fractb_out' using process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:171$62'.
+  created $dff cell `$procdff$390' with positive edge clock.
+Creating register for signal `\pre_norm.\fracta_out' using process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:168$61'.
+  created $dff cell `$procdff$391' with positive edge clock.
+Creating register for signal `\pre_norm.\exp_dn_out' using process `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:89$14'.
+  created $dff cell `$procdff$392' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\b_right_shifter_new.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:262$102'.
+Removing empty process `b_right_shifter_new.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:262$102'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:247$101'.
+Found and cleaned up 1 empty switch in `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:231$100'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:231$100'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:222$96'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:217$91'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:214$89'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:207$70'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:204$69'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:201$68'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:198$67'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:194$66'.
+Found and cleaned up 1 empty switch in `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:178$63'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:178$63'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:171$62'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:168$61'.
+Found and cleaned up 1 empty switch in `\pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:123$27'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:123$27'.
+Removing empty process `pre_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:89$14'.
+Cleaned up 4 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module b_right_shifter_new.
+<suppressed ~59 debug messages>
+Optimizing module pre_norm.
+<suppressed ~8 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module b_right_shifter_new.
+Optimizing module pre_norm.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\b_right_shifter_new'.
+Finding identical cells in module `\pre_norm'.
+<suppressed ~36 debug messages>
+Removed a total of 12 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \b_right_shifter_new..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pre_norm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \b_right_shifter_new.
+    New ctrl vector for $pmux cell $procmux$131: { $procmux$158_CMP $procmux$157_CMP $procmux$156_CMP $procmux$155_CMP $procmux$154_CMP $procmux$153_CMP $procmux$152_CMP $procmux$151_CMP $procmux$150_CMP $procmux$149_CMP $procmux$148_CMP $procmux$147_CMP $procmux$146_CMP $procmux$145_CMP $procmux$144_CMP $procmux$143_CMP $procmux$142_CMP $procmux$141_CMP $procmux$140_CMP $procmux$139_CMP $procmux$138_CMP $procmux$137_CMP $procmux$136_CMP $procmux$135_CMP $procmux$134_CMP $procmux$133_CMP $procmux$132_CMP }
+  Optimizing cells in module \b_right_shifter_new.
+  Optimizing cells in module \pre_norm.
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:130$31: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [1:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:131$32: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [2:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:132$33: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [3:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:133$34: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [4:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:134$35: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [5:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:135$36: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [6:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:136$37: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [7:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:137$38: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [8:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:138$39: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [9:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:139$40: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [10:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:140$41: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [11:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:141$42: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [12:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:142$43: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [13:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:143$44: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [14:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:144$45: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [15:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:145$46: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [16:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:146$47: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [17:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:147$48: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [18:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:148$49: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [19:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:149$50: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [20:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:150$51: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y [21:0]
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:151$52: $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y
+    New input vector for $reduce_or cell $reduce_or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:152$53: { $not$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:99$23_Y $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/pre_norm.v:97$22_Y }
+    New ctrl vector for $pmux cell $procmux$179: { $auto$opt_reduce.cc:134:opt_mux$394 $procmux$203_CMP $procmux$202_CMP $procmux$201_CMP $procmux$200_CMP $procmux$199_CMP $procmux$198_CMP $procmux$197_CMP $procmux$196_CMP $procmux$195_CMP $procmux$194_CMP $procmux$193_CMP $procmux$192_CMP $procmux$191_CMP $procmux$190_CMP $procmux$189_CMP $procmux$188_CMP $procmux$187_CMP $procmux$186_CMP $procmux$185_CMP $procmux$184_CMP $procmux$183_CMP $procmux$182_CMP $procmux$181_CMP $procmux$180_CMP }
+    New ctrl vector for $pmux cell $procmux$169: { $auto$opt_reduce.cc:134:opt_mux$402 $auto$opt_reduce.cc:134:opt_mux$400 $auto$opt_reduce.cc:134:opt_mux$398 $auto$opt_reduce.cc:134:opt_mux$396 }
+    New ctrl vector for $pmux cell $procmux$160: { $auto$opt_reduce.cc:134:opt_mux$406 $auto$opt_reduce.cc:134:opt_mux$404 }
+  Optimizing cells in module \pre_norm.
+Performed a total of 27 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\b_right_shifter_new'.
+Finding identical cells in module `\pre_norm'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$392 ($dff) from module pre_norm (D = \exp_large, Q = \exp_dn_out, rval = 8'00000000).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \b_right_shifter_new..
+Finding unused cells or wires in module \pre_norm..
+Removed 2 unused cells and 120 unused wires.
+<suppressed ~4 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module b_right_shifter_new.
+Optimizing module pre_norm.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \b_right_shifter_new..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pre_norm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \b_right_shifter_new.
+  Optimizing cells in module \pre_norm.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\b_right_shifter_new'.
+Finding identical cells in module `\pre_norm'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \b_right_shifter_new..
+Finding unused cells or wires in module \pre_norm..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module b_right_shifter_new.
+Optimizing module pre_norm.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== b_right_shifter_new ===
+
+   Number of wires:                 87
+   Number of wire bits:            169
+   Number of public wires:           3
+   Number of public wire bits:      59
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 85
+     $and                           27
+     $dlatch                        27
+     $eq                           135
+     $logic_not                      5
+     $not                           28
+     $pmux                          27
+
+=== pre_norm ===
+
+   Number of wires:                150
+   Number of wire bits:            580
+   Number of public wires:          52
+   Number of public wire bits:     482
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                135
+     $and                           13
+     $dff                           63
+     $eq                           190
+     $gt                            43
+     $logic_not                     14
+     $lt                            23
+     $mux                          173
+     $not                            1
+     $or                             6
+     $pmux                           3
+     $reduce_or                    335
+     $sdff                           8
+     $sub                           16
+
+=== design hierarchy ===
+
+   pre_norm                          1
+     b_right_shifter_new             0
+
+   Number of wires:                150
+   Number of wire bits:            580
+   Number of public wires:          52
+   Number of public wire bits:     482
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                135
+     $and                           13
+     $dff                           63
+     $eq                           190
+     $gt                            43
+     $logic_not                     14
+     $lt                            23
+     $mux                          173
+     $not                            1
+     $or                             6
+     $pmux                           3
+     $reduce_or                    335
+     $sdff                           8
+     $sub                           16
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 026396d4ab, CPU: user 0.17s system 0.01s, MEM: 12.95 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 32% 4x opt_expr (0 sec), 16% 2x opt_clean (0 sec), ...

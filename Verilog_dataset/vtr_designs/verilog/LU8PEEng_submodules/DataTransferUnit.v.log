@@ -1,0 +1,1119 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v' to AST representation.
+Generating RTLIL representation for module `\DataTransferUnit'.
+Generating RTLIL representation for module `\rfifo'.
+Generating RTLIL representation for module `\dual_port_ram'.
+Generating RTLIL representation for module `\addr_fifo'.
+Generating RTLIL representation for module `\wfifo'.
+Generating RTLIL representation for module `\memcmd_fifo'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   1 design levels: memcmd_fifo         
+root of   1 design levels: wfifo               
+root of   1 design levels: addr_fifo           
+root of   0 design levels: dual_port_ram       
+root of   1 design levels: rfifo               
+root of   2 design levels: DataTransferUnit    
+Automatically selected DataTransferUnit as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \DataTransferUnit
+Used module:     \rfifo
+Used module:         \dual_port_ram
+Used module:     \addr_fifo
+Used module:     \wfifo
+Used module:     \memcmd_fifo
+Parameter \DATA_WIDTH = 6'011100
+Parameter \ADDR_WIDTH = 4
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\dual_port_ram'.
+Parameter \DATA_WIDTH = 6'011100
+Parameter \ADDR_WIDTH = 4
+Generating RTLIL representation for module `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram'.
+Parameter \DATA_WIDTH = 10'0100000000
+Parameter \ADDR_WIDTH = 4'0100
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\dual_port_ram'.
+Parameter \DATA_WIDTH = 10'0100000000
+Parameter \ADDR_WIDTH = 4'0100
+Generating RTLIL representation for module `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100'.
+Parameter \DATA_WIDTH = 4'0101
+Parameter \ADDR_WIDTH = 4'0100
+
+2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\dual_port_ram'.
+Parameter \DATA_WIDTH = 4'0101
+Parameter \ADDR_WIDTH = 4'0100
+Generating RTLIL representation for module `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100'.
+Parameter \DATA_WIDTH = 8'01000000
+Parameter \ADDR_WIDTH = 4
+
+2.6. Executing AST frontend in derive mode using pre-parsed AST for module `\dual_port_ram'.
+Parameter \DATA_WIDTH = 8'01000000
+Parameter \ADDR_WIDTH = 4
+Generating RTLIL representation for module `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram'.
+
+2.7. Analyzing design hierarchy..
+Top module:  \DataTransferUnit
+Used module:     \rfifo
+Used module:         $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram
+Used module:     \addr_fifo
+Used module:         $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100
+Used module:     \wfifo
+Used module:         $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100
+Used module:     \memcmd_fifo
+Used module:         $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram
+
+2.8. Analyzing design hierarchy..
+Top module:  \DataTransferUnit
+Used module:     \rfifo
+Used module:         $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram
+Used module:     \addr_fifo
+Used module:         $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100
+Used module:     \wfifo
+Used module:         $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100
+Used module:     \memcmd_fifo
+Used module:         $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram
+Removing unused module `\dual_port_ram'.
+Removed 1 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$211 in module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$203 in module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$193 in module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$185 in module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$175 in module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$167 in module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:856$154 in module memcmd_fifo.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:782$136 in module wfifo.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:767$130 in module wfifo.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:700$114 in module addr_fifo.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$229 in module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$221 in module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:582$78 in module rfifo.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:567$72 in module rfifo.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64 in module DataTransferUnit.
+Marked 6 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:387$35 in module DataTransferUnit.
+Marked 6 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:347$25 in module DataTransferUnit.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 5 redundant assignments.
+Promoted 25 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$211'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$202_EN[4:0]$217
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$202_DATA[4:0]$216
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$202_ADDR[3:0]$215
+     4/4: $0\out2[4:0]
+Creating decoders for process `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$203'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$201_EN[4:0]$209
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$201_DATA[4:0]$208
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$201_ADDR[3:0]$207
+     4/4: $0\out1[4:0]
+Creating decoders for process `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$193'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$184_EN[255:0]$199
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$184_DATA[255:0]$198
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$184_ADDR[3:0]$197
+     4/4: $0\out2[255:0]
+Creating decoders for process `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$185'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$183_EN[255:0]$191
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$183_DATA[255:0]$190
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$183_ADDR[3:0]$189
+     4/4: $0\out1[255:0]
+Creating decoders for process `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$175'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$166_EN[27:0]$181
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$166_DATA[27:0]$180
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$166_ADDR[3:0]$179
+     4/4: $0\out2[27:0]
+Creating decoders for process `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$167'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$165_EN[27:0]$173
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$165_DATA[27:0]$172
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$165_ADDR[3:0]$171
+     4/4: $0\out1[27:0]
+Creating decoders for process `\memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:856$154'.
+     1/1: $0\status_cnt[4:0]
+Creating decoders for process `\memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:850$153'.
+     1/1: $0\q[27:0]
+Creating decoders for process `\memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:843$151'.
+     1/1: $0\rd_pointer[3:0]
+Creating decoders for process `\memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:836$149'.
+     1/1: $0\wr_pointer[3:0]
+Creating decoders for process `\wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:782$136'.
+     1/1: $0\status_cnt[4:0]
+Creating decoders for process `\wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:767$130'.
+     1/2: $0\counter[1:0]
+     2/2: $0\q[63:0]
+Creating decoders for process `\wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:760$128'.
+     1/1: $0\rd_pointer[3:0]
+Creating decoders for process `\wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:753$126'.
+     1/1: $0\wr_pointer[3:0]
+Creating decoders for process `\addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:700$114'.
+     1/1: $0\status_cnt[4:0]
+Creating decoders for process `\addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:694$113'.
+     1/1: $0\q[4:0]
+Creating decoders for process `\addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:687$111'.
+     1/1: $0\rd_pointer[3:0]
+Creating decoders for process `\addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:680$109'.
+     1/1: $0\wr_pointer[3:0]
+Creating decoders for process `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$229'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$220_EN[63:0]$235
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$220_DATA[63:0]$234
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$220_ADDR[3:0]$233
+     4/4: $0\out2[63:0]
+Creating decoders for process `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$221'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$219_EN[63:0]$227
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$219_DATA[63:0]$226
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$219_ADDR[3:0]$225
+     4/4: $0\out1[63:0]
+Creating decoders for process `\rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:582$78'.
+     1/1: $0\status_cnt[4:0]
+Creating decoders for process `\rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:567$72'.
+     1/5: $0\q[255:0] [255:192]
+     2/5: $0\q[255:0] [191:128]
+     3/5: $0\q[255:0] [127:64]
+     4/5: $0\q[255:0] [63:0]
+     5/5: $0\counter[1:0]
+Creating decoders for process `\rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:560$70'.
+     1/1: $0\rd_pointer[3:0]
+Creating decoders for process `\rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:553$68'.
+     1/1: $0\wr_pointer[3:0]
+Creating decoders for process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+     1/25: $0\read_req_reg[3:0] [3]
+     2/25: $0\read_req_reg[3:0] [2]
+     3/25: $0\write_req_reg[3:0] [2]
+     4/25: $0\read_req_reg[3:0] [1]
+     5/25: $0\write_req_reg[3:0] [1]
+     6/25: $0\read_req_reg[3:0] [0]
+     7/25: $0\write_req_reg[3:0] [0]
+     8/25: $0\fifo_write_reg[3:0] [2]
+     9/25: $0\fifo_write_reg[3:0] [1]
+    10/25: $0\fifo_write_reg[3:0] [0]
+    11/25: $0\ram_addr3[4:0]
+    12/25: $0\ram_addr2[4:0]
+    13/25: $0\ram_addr1[4:0]
+    14/25: $0\ram_addr0[4:0]
+    15/25: $0\size_count3[1:0]
+    16/25: $0\size_count2[1:0]
+    17/25: $0\size_count1[1:0]
+    18/25: $0\size_count0[1:0]
+    19/25: $0\write_req_reg[3:0] [3]
+    20/25: $0\fifo_write_reg[3:0] [3]
+    21/25: $0\mem_addr4[23:0]
+    22/25: $0\mem_addr3[23:0]
+    23/25: $0\mem_addr2[23:0]
+    24/25: $0\mem_addr1[23:0]
+    25/25: $0\mem_addr0[23:0]
+Creating decoders for process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:387$35'.
+     1/9: $0\fifo_write_reg[4:4]
+     2/9: $0\data_count[2:0]
+     3/9: $0\ram_addr4[4:0]
+     4/9: $0\size[4:0]
+     5/9: $0\size_count4[1:0]
+     6/9: $0\fifo_read_reg[0:0]
+     7/9: $0\read_req_reg[4:4]
+     8/9: $0\write_req_reg[4:4]
+     9/9: $0\mem_addr5[23:0]
+Creating decoders for process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:347$25'.
+     1/1: $0\state[1:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.\out2' using process `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$211'.
+  created $dff cell `$procdff$715' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$202_ADDR' using process `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$211'.
+  created $dff cell `$procdff$716' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$202_DATA' using process `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$211'.
+  created $dff cell `$procdff$717' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$202_EN' using process `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$211'.
+  created $dff cell `$procdff$718' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.\out1' using process `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$203'.
+  created $dff cell `$procdff$719' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$201_ADDR' using process `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$203'.
+  created $dff cell `$procdff$720' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$201_DATA' using process `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$203'.
+  created $dff cell `$procdff$721' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$201_EN' using process `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$203'.
+  created $dff cell `$procdff$722' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.\out2' using process `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$193'.
+  created $dff cell `$procdff$723' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$184_ADDR' using process `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$193'.
+  created $dff cell `$procdff$724' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$184_DATA' using process `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$193'.
+  created $dff cell `$procdff$725' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$184_EN' using process `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$193'.
+  created $dff cell `$procdff$726' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.\out1' using process `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$185'.
+  created $dff cell `$procdff$727' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$183_ADDR' using process `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$185'.
+  created $dff cell `$procdff$728' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$183_DATA' using process `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$185'.
+  created $dff cell `$procdff$729' with positive edge clock.
+Creating register for signal `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$183_EN' using process `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$185'.
+  created $dff cell `$procdff$730' with positive edge clock.
+Creating register for signal `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.\out2' using process `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$175'.
+  created $dff cell `$procdff$731' with positive edge clock.
+Creating register for signal `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$166_ADDR' using process `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$175'.
+  created $dff cell `$procdff$732' with positive edge clock.
+Creating register for signal `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$166_DATA' using process `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$175'.
+  created $dff cell `$procdff$733' with positive edge clock.
+Creating register for signal `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$166_EN' using process `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$175'.
+  created $dff cell `$procdff$734' with positive edge clock.
+Creating register for signal `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.\out1' using process `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$167'.
+  created $dff cell `$procdff$735' with positive edge clock.
+Creating register for signal `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$165_ADDR' using process `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$167'.
+  created $dff cell `$procdff$736' with positive edge clock.
+Creating register for signal `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$165_DATA' using process `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$167'.
+  created $dff cell `$procdff$737' with positive edge clock.
+Creating register for signal `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$165_EN' using process `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$167'.
+  created $dff cell `$procdff$738' with positive edge clock.
+Creating register for signal `\memcmd_fifo.\status_cnt' using process `\memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:856$154'.
+  created $dff cell `$procdff$739' with positive edge clock.
+Creating register for signal `\memcmd_fifo.\q' using process `\memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:850$153'.
+  created $dff cell `$procdff$740' with positive edge clock.
+Creating register for signal `\memcmd_fifo.\rd_pointer' using process `\memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:843$151'.
+  created $dff cell `$procdff$741' with positive edge clock.
+Creating register for signal `\memcmd_fifo.\wr_pointer' using process `\memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:836$149'.
+  created $dff cell `$procdff$742' with positive edge clock.
+Creating register for signal `\wfifo.\status_cnt' using process `\wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:782$136'.
+  created $dff cell `$procdff$743' with positive edge clock.
+Creating register for signal `\wfifo.\q' using process `\wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:767$130'.
+  created $dff cell `$procdff$744' with positive edge clock.
+Creating register for signal `\wfifo.\counter' using process `\wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:767$130'.
+  created $dff cell `$procdff$745' with positive edge clock.
+Creating register for signal `\wfifo.\rd_pointer' using process `\wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:760$128'.
+  created $dff cell `$procdff$746' with positive edge clock.
+Creating register for signal `\wfifo.\wr_pointer' using process `\wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:753$126'.
+  created $dff cell `$procdff$747' with positive edge clock.
+Creating register for signal `\addr_fifo.\status_cnt' using process `\addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:700$114'.
+  created $dff cell `$procdff$748' with positive edge clock.
+Creating register for signal `\addr_fifo.\q' using process `\addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:694$113'.
+  created $dff cell `$procdff$749' with positive edge clock.
+Creating register for signal `\addr_fifo.\rd_pointer' using process `\addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:687$111'.
+  created $dff cell `$procdff$750' with positive edge clock.
+Creating register for signal `\addr_fifo.\wr_pointer' using process `\addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:680$109'.
+  created $dff cell `$procdff$751' with positive edge clock.
+Creating register for signal `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.\out2' using process `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$229'.
+  created $dff cell `$procdff$752' with positive edge clock.
+Creating register for signal `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$220_ADDR' using process `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$229'.
+  created $dff cell `$procdff$753' with positive edge clock.
+Creating register for signal `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$220_DATA' using process `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$229'.
+  created $dff cell `$procdff$754' with positive edge clock.
+Creating register for signal `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:644$220_EN' using process `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$229'.
+  created $dff cell `$procdff$755' with positive edge clock.
+Creating register for signal `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.\out1' using process `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$221'.
+  created $dff cell `$procdff$756' with positive edge clock.
+Creating register for signal `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$219_ADDR' using process `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$221'.
+  created $dff cell `$procdff$757' with positive edge clock.
+Creating register for signal `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$219_DATA' using process `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$221'.
+  created $dff cell `$procdff$758' with positive edge clock.
+Creating register for signal `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:635$219_EN' using process `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$221'.
+  created $dff cell `$procdff$759' with positive edge clock.
+Creating register for signal `\rfifo.\status_cnt' using process `\rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:582$78'.
+  created $dff cell `$procdff$760' with positive edge clock.
+Creating register for signal `\rfifo.\q' using process `\rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:567$72'.
+  created $dff cell `$procdff$761' with positive edge clock.
+Creating register for signal `\rfifo.\counter' using process `\rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:567$72'.
+  created $dff cell `$procdff$762' with positive edge clock.
+Creating register for signal `\rfifo.\rd_pointer' using process `\rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:560$70'.
+  created $dff cell `$procdff$763' with positive edge clock.
+Creating register for signal `\rfifo.\wr_pointer' using process `\rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:553$68'.
+  created $dff cell `$procdff$764' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\mem_addr0' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$765' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\mem_addr1' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$766' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\mem_addr2' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$767' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\mem_addr3' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$768' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\mem_addr4' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$769' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\fifo_write_reg [3:0]' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$770' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\write_req_reg [3:0]' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$771' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\read_req_reg [3:0]' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$772' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\size_count0' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$773' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\size_count1' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$774' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\size_count2' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$775' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\size_count3' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$776' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\ram_addr0' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$777' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\ram_addr1' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$778' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\ram_addr2' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$779' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\ram_addr3' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$780' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\ram_write_en_reg' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+  created $dff cell `$procdff$781' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\mem_addr5' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:387$35'.
+  created $dff cell `$procdff$782' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\fifo_write_reg [4]' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:387$35'.
+  created $dff cell `$procdff$783' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\write_req_reg [4]' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:387$35'.
+  created $dff cell `$procdff$784' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\read_req_reg [4]' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:387$35'.
+  created $dff cell `$procdff$785' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\fifo_read_reg' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:387$35'.
+  created $dff cell `$procdff$786' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\size_count4' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:387$35'.
+  created $dff cell `$procdff$787' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\size' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:387$35'.
+  created $dff cell `$procdff$788' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\ram_addr4' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:387$35'.
+  created $dff cell `$procdff$789' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\data_count' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:387$35'.
+  created $dff cell `$procdff$790' with positive edge clock.
+Creating register for signal `\DataTransferUnit.\state' using process `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:347$25'.
+  created $dff cell `$procdff$791' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$211'.
+Removing empty process `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$211'.
+Found and cleaned up 1 empty switch in `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$203'.
+Removing empty process `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$203'.
+Found and cleaned up 1 empty switch in `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$193'.
+Removing empty process `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$193'.
+Found and cleaned up 1 empty switch in `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$185'.
+Removing empty process `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$185'.
+Found and cleaned up 1 empty switch in `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$175'.
+Removing empty process `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$175'.
+Found and cleaned up 1 empty switch in `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$167'.
+Removing empty process `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$167'.
+Found and cleaned up 2 empty switches in `\memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:856$154'.
+Removing empty process `memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:856$154'.
+Found and cleaned up 1 empty switch in `\memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:850$153'.
+Removing empty process `memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:850$153'.
+Found and cleaned up 1 empty switch in `\memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:843$151'.
+Removing empty process `memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:843$151'.
+Found and cleaned up 1 empty switch in `\memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:836$149'.
+Removing empty process `memcmd_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:836$149'.
+Found and cleaned up 2 empty switches in `\wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:782$136'.
+Removing empty process `wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:782$136'.
+Found and cleaned up 5 empty switches in `\wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:767$130'.
+Removing empty process `wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:767$130'.
+Found and cleaned up 1 empty switch in `\wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:760$128'.
+Removing empty process `wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:760$128'.
+Found and cleaned up 1 empty switch in `\wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:753$126'.
+Removing empty process `wfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:753$126'.
+Found and cleaned up 2 empty switches in `\addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:700$114'.
+Removing empty process `addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:700$114'.
+Found and cleaned up 1 empty switch in `\addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:694$113'.
+Removing empty process `addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:694$113'.
+Found and cleaned up 1 empty switch in `\addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:687$111'.
+Removing empty process `addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:687$111'.
+Found and cleaned up 1 empty switch in `\addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:680$109'.
+Removing empty process `addr_fifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:680$109'.
+Found and cleaned up 1 empty switch in `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$229'.
+Removing empty process `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:642$229'.
+Found and cleaned up 1 empty switch in `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$221'.
+Removing empty process `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:633$221'.
+Found and cleaned up 2 empty switches in `\rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:582$78'.
+Removing empty process `rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:582$78'.
+Found and cleaned up 5 empty switches in `\rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:567$72'.
+Removing empty process `rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:567$72'.
+Found and cleaned up 1 empty switch in `\rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:560$70'.
+Removing empty process `rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:560$70'.
+Found and cleaned up 1 empty switch in `\rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:553$68'.
+Removing empty process `rfifo.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:553$68'.
+Found and cleaned up 3 empty switches in `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+Removing empty process `DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:456$64'.
+Found and cleaned up 6 empty switches in `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:387$35'.
+Removing empty process `DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:387$35'.
+Found and cleaned up 6 empty switches in `\DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:347$25'.
+Removing empty process `DataTransferUnit.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:347$25'.
+Cleaned up 51 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.
+Optimizing module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.
+Optimizing module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.
+Optimizing module memcmd_fifo.
+<suppressed ~2 debug messages>
+Optimizing module wfifo.
+<suppressed ~3 debug messages>
+Optimizing module addr_fifo.
+<suppressed ~2 debug messages>
+Optimizing module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.
+Optimizing module rfifo.
+<suppressed ~5 debug messages>
+Optimizing module DataTransferUnit.
+<suppressed ~58 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.
+Optimizing module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.
+Optimizing module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.
+Optimizing module memcmd_fifo.
+Optimizing module wfifo.
+Optimizing module addr_fifo.
+Optimizing module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.
+Optimizing module rfifo.
+Optimizing module DataTransferUnit.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100'.
+Finding identical cells in module `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100'.
+Finding identical cells in module `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram'.
+Finding identical cells in module `\memcmd_fifo'.
+Finding identical cells in module `\wfifo'.
+Finding identical cells in module `\addr_fifo'.
+Finding identical cells in module `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram'.
+Finding identical cells in module `\rfifo'.
+Finding identical cells in module `\DataTransferUnit'.
+<suppressed ~69 debug messages>
+Removed a total of 23 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \memcmd_fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \wfifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \addr_fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \rfifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \DataTransferUnit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~91 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.
+    Consolidated identical input bits for $mux cell $procmux$250:
+      Old ports: A=5'00000, B=5'11111, Y=$procmux$250_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$250_Y [0]
+      New connections: $procmux$250_Y [4:1] = { $procmux$250_Y [0] $procmux$250_Y [0] $procmux$250_Y [0] $procmux$250_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$238:
+      Old ports: A=5'00000, B=5'11111, Y=$procmux$238_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$238_Y [0]
+      New connections: $procmux$238_Y [4:1] = { $procmux$238_Y [0] $procmux$238_Y [0] $procmux$238_Y [0] $procmux$238_Y [0] }
+  Optimizing cells in module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.
+  Optimizing cells in module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.
+    Consolidated identical input bits for $mux cell $procmux$274:
+      Old ports: A=256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, B=256'1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111, Y=$procmux$274_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$274_Y [0]
+      New connections: $procmux$274_Y [255:1] = { $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$262:
+      Old ports: A=256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, B=256'1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111, Y=$procmux$262_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$262_Y [0]
+      New connections: $procmux$262_Y [255:1] = { $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] }
+  Optimizing cells in module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.
+  Optimizing cells in module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.
+    Consolidated identical input bits for $mux cell $procmux$298:
+      Old ports: A=28'0000000000000000000000000000, B=28'1111111111111111111111111111, Y=$procmux$298_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$298_Y [0]
+      New connections: $procmux$298_Y [27:1] = { $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] $procmux$298_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$286:
+      Old ports: A=28'0000000000000000000000000000, B=28'1111111111111111111111111111, Y=$procmux$286_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$286_Y [0]
+      New connections: $procmux$286_Y [27:1] = { $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] $procmux$286_Y [0] }
+  Optimizing cells in module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.
+  Optimizing cells in module \memcmd_fifo.
+  Optimizing cells in module \wfifo.
+  Optimizing cells in module \addr_fifo.
+  Optimizing cells in module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.
+    Consolidated identical input bits for $mux cell $procmux$367:
+      Old ports: A=64'0000000000000000000000000000000000000000000000000000000000000000, B=64'1111111111111111111111111111111111111111111111111111111111111111, Y=$procmux$367_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$367_Y [0]
+      New connections: $procmux$367_Y [63:1] = { $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] $procmux$367_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$355:
+      Old ports: A=64'0000000000000000000000000000000000000000000000000000000000000000, B=64'1111111111111111111111111111111111111111111111111111111111111111, Y=$procmux$355_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$355_Y [0]
+      New connections: $procmux$355_Y [63:1] = { $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] $procmux$355_Y [0] }
+  Optimizing cells in module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.
+  Optimizing cells in module \rfifo.
+  Optimizing cells in module \DataTransferUnit.
+Performed a total of 8 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100'.
+Finding identical cells in module `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100'.
+Finding identical cells in module `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram'.
+Finding identical cells in module `\memcmd_fifo'.
+Finding identical cells in module `\wfifo'.
+Finding identical cells in module `\addr_fifo'.
+Finding identical cells in module `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram'.
+Finding identical cells in module `\rfifo'.
+Finding identical cells in module `\DataTransferUnit'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$715 ($dff) from module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100 (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:647$218_DATA, Q = \out2).
+Adding EN signal on $procdff$719 ($dff) from module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100 (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:638$210_DATA, Q = \out1).
+Adding EN signal on $procdff$723 ($dff) from module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100 (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:647$200_DATA, Q = \out2).
+Adding EN signal on $procdff$727 ($dff) from module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100 (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:638$192_DATA, Q = \out1).
+Adding EN signal on $procdff$731 ($dff) from module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:647$182_DATA, Q = \out2).
+Adding EN signal on $procdff$735 ($dff) from module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:638$174_DATA, Q = \out1).
+Adding EN signal on $procdff$739 ($dff) from module memcmd_fifo (D = $procmux$312_Y, Q = \status_cnt).
+Adding EN signal on $procdff$740 ($dff) from module memcmd_fifo (D = \data_ram, Q = \q).
+Adding EN signal on $procdff$741 ($dff) from module memcmd_fifo (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:847$152_Y, Q = \rd_pointer).
+Adding EN signal on $procdff$742 ($dff) from module memcmd_fifo (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:840$150_Y, Q = \wr_pointer).
+Adding EN signal on $procdff$743 ($dff) from module wfifo (D = $procmux$323_Y, Q = \status_cnt).
+Adding EN signal on $procdff$744 ($dff) from module wfifo (D = $procmux$337_Y, Q = \q).
+Adding SRST signal on $procdff$745 ($dff) from module wfifo (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:772$131_Y, Q = \counter, rval = 2'00).
+Adding EN signal on $procdff$746 ($dff) from module wfifo (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:764$129_Y, Q = \rd_pointer).
+Adding EN signal on $procdff$747 ($dff) from module wfifo (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:757$127_Y, Q = \wr_pointer).
+Adding EN signal on $procdff$748 ($dff) from module addr_fifo (D = $procmux$346_Y, Q = \status_cnt).
+Adding EN signal on $procdff$749 ($dff) from module addr_fifo (D = \data_ram, Q = \q).
+Adding EN signal on $procdff$750 ($dff) from module addr_fifo (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:691$112_Y, Q = \rd_pointer).
+Adding EN signal on $procdff$751 ($dff) from module addr_fifo (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:684$110_Y, Q = \wr_pointer).
+Adding EN signal on $procdff$752 ($dff) from module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:647$236_DATA, Q = \out2).
+Adding EN signal on $procdff$756 ($dff) from module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:638$228_DATA, Q = \out1).
+Adding EN signal on $procdff$764 ($dff) from module rfifo (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:557$69_Y, Q = \wr_pointer).
+Adding EN signal on $procdff$763 ($dff) from module rfifo (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:564$71_Y, Q = \rd_pointer).
+Adding EN signal on $procdff$760 ($dff) from module rfifo (D = $procmux$381_Y, Q = \status_cnt).
+Adding EN signal on $procdff$761 ($dff) from module rfifo (D = \data_ram, Q = \q [255:192]).
+Adding EN signal on $procdff$761 ($dff) from module rfifo (D = \data_ram, Q = \q [191:128]).
+Adding EN signal on $procdff$761 ($dff) from module rfifo (D = \data_ram, Q = \q [127:64]).
+Adding EN signal on $procdff$761 ($dff) from module rfifo (D = \data_ram, Q = \q [63:0]).
+Adding SRST signal on $procdff$762 ($dff) from module rfifo (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/LU8PEEng_submodules/DataTransferUnit.v:572$73_Y, Q = \counter, rval = 2'00).
+Adding SRST signal on $procdff$791 ($dff) from module DataTransferUnit (D = $procmux$699_Y, Q = \state, rval = 2'00).
+Adding SRST signal on $procdff$765 ($dff) from module DataTransferUnit (D = $procmux$531_Y, Q = \mem_addr0, rval = 24'000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$858 ($sdff) from module DataTransferUnit (D = \mem_addr1, Q = \mem_addr0).
+Adding SRST signal on $procdff$790 ($dff) from module DataTransferUnit (D = $procmux$564_Y, Q = \data_count, rval = 3'000).
+Adding EN signal on $auto$ff.cc:262:slice$860 ($sdff) from module DataTransferUnit (D = $procmux$564_Y, Q = \data_count).
+Adding SRST signal on $procdff$789 ($dff) from module DataTransferUnit (D = $procmux$585_Y, Q = \ram_addr4, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:262:slice$874 ($sdff) from module DataTransferUnit (D = $procmux$585_Y, Q = \ram_addr4).
+Adding SRST signal on $procdff$788 ($dff) from module DataTransferUnit (D = $procmux$603_Y, Q = \size, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:262:slice$886 ($sdff) from module DataTransferUnit (D = $procmux$603_Y, Q = \size).
+Adding SRST signal on $procdff$766 ($dff) from module DataTransferUnit (D = $procmux$526_Y, Q = \mem_addr1, rval = 24'000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$898 ($sdff) from module DataTransferUnit (D = \mem_addr2, Q = \mem_addr1).
+Adding SRST signal on $procdff$767 ($dff) from module DataTransferUnit (D = $procmux$521_Y, Q = \mem_addr2, rval = 24'000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$900 ($sdff) from module DataTransferUnit (D = \mem_addr3, Q = \mem_addr2).
+Adding SRST signal on $procdff$768 ($dff) from module DataTransferUnit (D = $procmux$516_Y, Q = \mem_addr3, rval = 24'000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$902 ($sdff) from module DataTransferUnit (D = \mem_addr4, Q = \mem_addr3).
+Adding SRST signal on $procdff$769 ($dff) from module DataTransferUnit (D = $procmux$511_Y, Q = \mem_addr4, rval = 24'000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$904 ($sdff) from module DataTransferUnit (D = \mem_addr5, Q = \mem_addr4).
+Adding SRST signal on $procdff$770 ($dff) from module DataTransferUnit (D = \fifo_write_reg [4:1], Q = \fifo_write_reg [3:0], rval = 4'0000).
+Adding SRST signal on $procdff$771 ($dff) from module DataTransferUnit (D = { $procmux$503_Y $procmux$429_Y $procmux$439_Y $procmux$449_Y }, Q = \write_req_reg [3:0], rval = 4'0000).
+Adding EN signal on $auto$ff.cc:262:slice$907 ($sdff) from module DataTransferUnit (D = \write_req_reg [4:1], Q = \write_req_reg [3:0]).
+Adding SRST signal on $procdff$772 ($dff) from module DataTransferUnit (D = { $procmux$419_Y $procmux$424_Y $procmux$434_Y $procmux$444_Y }, Q = \read_req_reg [3:0], rval = 4'0000).
+Adding EN signal on $auto$ff.cc:262:slice$909 ($sdff) from module DataTransferUnit (D = \read_req_reg [4:1], Q = \read_req_reg [3:0]).
+Adding SRST signal on $procdff$773 ($dff) from module DataTransferUnit (D = $procmux$498_Y, Q = \size_count0, rval = 2'01).
+Adding EN signal on $auto$ff.cc:262:slice$911 ($sdff) from module DataTransferUnit (D = \size_count1, Q = \size_count0).
+Adding SRST signal on $procdff$774 ($dff) from module DataTransferUnit (D = $procmux$493_Y, Q = \size_count1, rval = 2'01).
+Adding EN signal on $auto$ff.cc:262:slice$913 ($sdff) from module DataTransferUnit (D = \size_count2, Q = \size_count1).
+Adding SRST signal on $procdff$775 ($dff) from module DataTransferUnit (D = $procmux$488_Y, Q = \size_count2, rval = 2'01).
+Adding EN signal on $auto$ff.cc:262:slice$915 ($sdff) from module DataTransferUnit (D = \size_count3, Q = \size_count2).
+Adding SRST signal on $procdff$776 ($dff) from module DataTransferUnit (D = $procmux$483_Y, Q = \size_count3, rval = 2'01).
+Adding EN signal on $auto$ff.cc:262:slice$917 ($sdff) from module DataTransferUnit (D = \size_count4, Q = \size_count3).
+Adding SRST signal on $procdff$777 ($dff) from module DataTransferUnit (D = $procmux$478_Y, Q = \ram_addr0, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:262:slice$919 ($sdff) from module DataTransferUnit (D = \ram_addr1, Q = \ram_addr0).
+Adding SRST signal on $procdff$787 ($dff) from module DataTransferUnit (D = $procmux$618_Y, Q = \size_count4, rval = 2'01).
+Adding EN signal on $auto$ff.cc:262:slice$921 ($sdff) from module DataTransferUnit (D = $procmux$618_Y, Q = \size_count4).
+Adding SRST signal on $procdff$786 ($dff) from module DataTransferUnit (D = $procmux$624_Y, Q = \fifo_read_reg, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$931 ($sdff) from module DataTransferUnit (D = $procmux$700_CMP, Q = \fifo_read_reg).
+Adding SRST signal on $procdff$778 ($dff) from module DataTransferUnit (D = $procmux$473_Y, Q = \ram_addr1, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:262:slice$937 ($sdff) from module DataTransferUnit (D = \ram_addr2, Q = \ram_addr1).
+Adding SRST signal on $procdff$779 ($dff) from module DataTransferUnit (D = $procmux$468_Y, Q = \ram_addr2, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:262:slice$939 ($sdff) from module DataTransferUnit (D = \ram_addr3, Q = \ram_addr2).
+Adding SRST signal on $procdff$785 ($dff) from module DataTransferUnit (D = $procmux$651_Y, Q = \read_req_reg [4], rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$941 ($sdff) from module DataTransferUnit (D = $procmux$651_Y, Q = \read_req_reg [4]).
+Adding SRST signal on $procdff$780 ($dff) from module DataTransferUnit (D = $procmux$463_Y, Q = \ram_addr3, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:262:slice$949 ($sdff) from module DataTransferUnit (D = \ram_addr4, Q = \ram_addr3).
+Adding SRST signal on $procdff$782 ($dff) from module DataTransferUnit (D = $procmux$690_Y, Q = \mem_addr5, rval = 24'000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$951 ($sdff) from module DataTransferUnit (D = $procmux$690_Y, Q = \mem_addr5).
+Adding SRST signal on $procdff$783 ($dff) from module DataTransferUnit (D = $procmux$704_CMP, Q = \fifo_write_reg [4], rval = 1'0).
+Adding SRST signal on $procdff$784 ($dff) from module DataTransferUnit (D = $procmux$669_Y, Q = \write_req_reg [4], rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$968 ($sdff) from module DataTransferUnit (D = $procmux$669_Y, Q = \write_req_reg [4]).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100..
+Finding unused cells or wires in module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100..
+Finding unused cells or wires in module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram..
+Finding unused cells or wires in module \memcmd_fifo..
+Finding unused cells or wires in module \wfifo..
+Finding unused cells or wires in module \addr_fifo..
+Finding unused cells or wires in module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram..
+Finding unused cells or wires in module \rfifo..
+Finding unused cells or wires in module \DataTransferUnit..
+Removed 127 unused cells and 447 unused wires.
+<suppressed ~145 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.
+Optimizing module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.
+Optimizing module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.
+Optimizing module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.
+Optimizing module DataTransferUnit.
+<suppressed ~7 debug messages>
+Optimizing module addr_fifo.
+<suppressed ~1 debug messages>
+Optimizing module memcmd_fifo.
+<suppressed ~1 debug messages>
+Optimizing module rfifo.
+<suppressed ~1 debug messages>
+Optimizing module wfifo.
+<suppressed ~2 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \DataTransferUnit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \addr_fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \memcmd_fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \rfifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \wfifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~40 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.
+  Optimizing cells in module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.
+  Optimizing cells in module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.
+  Optimizing cells in module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.
+  Optimizing cells in module \DataTransferUnit.
+  Optimizing cells in module \addr_fifo.
+  Optimizing cells in module \memcmd_fifo.
+  Optimizing cells in module \rfifo.
+  Optimizing cells in module \wfifo.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram'.
+Finding identical cells in module `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram'.
+Finding identical cells in module `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100'.
+Finding identical cells in module `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100'.
+Finding identical cells in module `\DataTransferUnit'.
+<suppressed ~54 debug messages>
+Finding identical cells in module `\addr_fifo'.
+Finding identical cells in module `\memcmd_fifo'.
+Finding identical cells in module `\rfifo'.
+<suppressed ~9 debug messages>
+Finding identical cells in module `\wfifo'.
+Removed a total of 21 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram..
+Finding unused cells or wires in module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram..
+Finding unused cells or wires in module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100..
+Finding unused cells or wires in module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100..
+Finding unused cells or wires in module \DataTransferUnit..
+Finding unused cells or wires in module \addr_fifo..
+Finding unused cells or wires in module \memcmd_fifo..
+Finding unused cells or wires in module \rfifo..
+Finding unused cells or wires in module \wfifo..
+Removed 0 unused cells and 21 unused wires.
+<suppressed ~2 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.
+Optimizing module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.
+Optimizing module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.
+Optimizing module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.
+Optimizing module DataTransferUnit.
+Optimizing module addr_fifo.
+Optimizing module memcmd_fifo.
+Optimizing module rfifo.
+Optimizing module wfifo.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \DataTransferUnit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \addr_fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \memcmd_fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \rfifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \wfifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~40 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.
+  Optimizing cells in module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.
+  Optimizing cells in module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.
+  Optimizing cells in module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.
+  Optimizing cells in module \DataTransferUnit.
+  Optimizing cells in module \addr_fifo.
+  Optimizing cells in module \memcmd_fifo.
+  Optimizing cells in module \rfifo.
+  Optimizing cells in module \wfifo.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram'.
+Finding identical cells in module `$paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram'.
+Finding identical cells in module `$paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100'.
+Finding identical cells in module `$paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100'.
+Finding identical cells in module `\DataTransferUnit'.
+Finding identical cells in module `\addr_fifo'.
+Finding identical cells in module `\memcmd_fifo'.
+Finding identical cells in module `\rfifo'.
+Finding identical cells in module `\wfifo'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram..
+Finding unused cells or wires in module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram..
+Finding unused cells or wires in module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100..
+Finding unused cells or wires in module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100..
+Finding unused cells or wires in module \DataTransferUnit..
+Finding unused cells or wires in module \addr_fifo..
+Finding unused cells or wires in module \memcmd_fifo..
+Finding unused cells or wires in module \rfifo..
+Finding unused cells or wires in module \wfifo..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram.
+Optimizing module $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram.
+Optimizing module $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100.
+Optimizing module $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100.
+Optimizing module DataTransferUnit.
+Optimizing module addr_fifo.
+Optimizing module memcmd_fifo.
+Optimizing module rfifo.
+Optimizing module wfifo.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram ===
+
+   Number of wires:                 17
+   Number of wire bits:            299
+   Number of public wires:           9
+   Number of public wire bits:     123
+   Number of memories:               1
+   Number of memory bits:          112
+   Number of processes:              0
+   Number of cells:                 12
+     $dffe                          56
+     $mux                           66
+
+=== $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram ===
+
+   Number of wires:                 17
+   Number of wire bits:            659
+   Number of public wires:           9
+   Number of public wire bits:     267
+   Number of memories:               1
+   Number of memory bits:          256
+   Number of processes:              0
+   Number of cells:                 12
+     $dffe                         128
+     $mux                          138
+
+=== $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100 ===
+
+   Number of wires:                 17
+   Number of wire bits:           2579
+   Number of public wires:           9
+   Number of public wire bits:    1035
+   Number of memories:               1
+   Number of memory bits:         1024
+   Number of processes:              0
+   Number of cells:                 12
+     $dffe                         512
+     $mux                          522
+
+=== $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100 ===
+
+   Number of wires:                 17
+   Number of wire bits:             69
+   Number of public wires:           9
+   Number of public wire bits:      31
+   Number of memories:               1
+   Number of memory bits:           20
+   Number of processes:              0
+   Number of cells:                 12
+     $dffe                          10
+     $mux                           20
+
+=== DataTransferUnit ===
+
+   Number of wires:                149
+   Number of wire bits:           2495
+   Number of public wires:          69
+   Number of public wire bits:    2057
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                113
+     $add                           60
+     $dff                            1
+     $eq                             4
+     $ge                             3
+     $logic_and                     10
+     $logic_not                     11
+     $logic_or                       2
+     $lt                            35
+     $mux                          302
+     $ne                            14
+     $not                            4
+     $pmux                           2
+     $reduce_and                    13
+     $reduce_bool                   13
+     $reduce_or                     13
+     $sdff                           7
+     $sdffe                        183
+     $sub                           39
+
+=== addr_fifo ===
+
+   Number of wires:                 28
+   Number of wire bits:            107
+   Number of public wires:          13
+   Number of public wire bits:      43
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 22
+     $add                           40
+     $dffe                          18
+     $eq                             5
+     $logic_and                      4
+     $logic_not                      7
+     $mux                           10
+     $ne                             5
+     $reduce_bool                    7
+     $sub                            5
+
+=== memcmd_fifo ===
+
+   Number of wires:                 28
+   Number of wire bits:            195
+   Number of public wires:          13
+   Number of public wire bits:     158
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 22
+     $add                           13
+     $dffe                          41
+     $eq                             5
+     $logic_and                      4
+     $logic_not                      7
+     $mux                           10
+     $ne                             5
+     $reduce_bool                    7
+     $sub                            5
+
+=== rfifo ===
+
+   Number of wires:                 37
+   Number of wire bits:            578
+   Number of public wires:          13
+   Number of public wire bits:     531
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 34
+     $add                           15
+     $dffe                         269
+     $eq                             6
+     $logic_and                      3
+     $logic_not                      9
+     $mux                           10
+     $not                            3
+     $reduce_and                     9
+     $reduce_bool                    7
+     $sdff                           2
+     $sub                            5
+
+=== wfifo ===
+
+   Number of wires:                 39
+   Number of wire bits:           1411
+   Number of public wires:          14
+   Number of public wire bits:    1111
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 32
+     $add                           15
+     $dffe                          77
+     $eq                             6
+     $logic_and                      4
+     $logic_not                      9
+     $mux                          266
+     $ne                             5
+     $reduce_bool                   11
+     $sdff                           2
+     $sub                            5
+
+=== design hierarchy ===
+
+   DataTransferUnit                  1
+     addr_fifo                       0
+       $paramod\dual_port_ram\DATA_WIDTH=4'0101\ADDR_WIDTH=4'0100      0
+     memcmd_fifo                     0
+       $paramod$4fd442b091a108698966967405a6589cbf6b5b5d\dual_port_ram      0
+     rfifo                           0
+       $paramod$ef0515f863cb1da1c6fa3654d4ff4adbb9145d5b\dual_port_ram      0
+     wfifo                           0
+       $paramod\dual_port_ram\DATA_WIDTH=10'0100000000\ADDR_WIDTH=4'0100      0
+
+   Number of wires:                149
+   Number of wire bits:           2495
+   Number of public wires:          69
+   Number of public wire bits:    2057
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                113
+     $add                           60
+     $dff                            1
+     $eq                             4
+     $ge                             3
+     $logic_and                     10
+     $logic_not                     11
+     $logic_or                       2
+     $lt                            35
+     $mux                          302
+     $ne                            14
+     $not                            4
+     $pmux                           2
+     $reduce_and                    13
+     $reduce_bool                   13
+     $reduce_or                     13
+     $sdff                           7
+     $sdffe                        183
+     $sub                           39
+
+End of script. Logfile hash: 6f161efaa9, CPU: user 0.43s system 0.00s, MEM: 16.89 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 19% 5x opt_expr (0 sec), 19% 3x opt_clean (0 sec), ...

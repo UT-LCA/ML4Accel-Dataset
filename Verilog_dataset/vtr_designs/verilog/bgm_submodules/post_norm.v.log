@@ -1,0 +1,483 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v' to AST representation.
+Warning: Encountered `full_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `full_case' attribute or the SystemVerilog `unique' or `unique0' keywords is recommended!
+Warning: Encountered `parallel_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `parallel_case' attribute or the SystemVerilog `unique' or `priority' keywords is recommended!
+Generating RTLIL representation for module `\post_norm'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:347.2-353.10 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:355.2-361.10 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\b_left_shifter_new'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:505.1-566.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\b_left_shifter'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:580.1-634.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\b_right_shifter'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:648.1-702.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\pri_encoder'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:715.1-815.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: pri_encoder         
+root of   0 design levels: b_right_shifter     
+root of   0 design levels: b_left_shifter      
+root of   0 design levels: b_left_shifter_new  
+root of   1 design levels: post_norm           
+Automatically selected post_norm as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \post_norm
+Used module:     \b_left_shifter_new
+Used module:     \b_left_shifter
+Used module:     \b_right_shifter
+Used module:     \pri_encoder
+
+2.3. Analyzing design hierarchy..
+Top module:  \post_norm
+Used module:     \b_left_shifter_new
+Used module:     \b_left_shifter
+Used module:     \b_right_shifter
+Used module:     \pri_encoder
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 49 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:715$722 in module pri_encoder.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:648$673 in module b_right_shifter.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:580$624 in module b_left_shifter.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:505$567 in module b_left_shifter_new.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:355$318 in module post_norm.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:347$317 in module post_norm.
+Removed a total of 2 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 6 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\pri_encoder.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:715$722'.
+     1/49: $49\fi_ldz_r0[5:0]
+     2/49: $48\fi_ldz_r0[5:0]
+     3/49: $47\fi_ldz_r0[5:0]
+     4/49: $46\fi_ldz_r0[5:0]
+     5/49: $45\fi_ldz_r0[5:0]
+     6/49: $44\fi_ldz_r0[5:0]
+     7/49: $43\fi_ldz_r0[5:0]
+     8/49: $42\fi_ldz_r0[5:0]
+     9/49: $41\fi_ldz_r0[5:0]
+    10/49: $40\fi_ldz_r0[5:0]
+    11/49: $39\fi_ldz_r0[5:0]
+    12/49: $38\fi_ldz_r0[5:0]
+    13/49: $37\fi_ldz_r0[5:0]
+    14/49: $36\fi_ldz_r0[5:0]
+    15/49: $35\fi_ldz_r0[5:0]
+    16/49: $34\fi_ldz_r0[5:0]
+    17/49: $33\fi_ldz_r0[5:0]
+    18/49: $32\fi_ldz_r0[5:0]
+    19/49: $31\fi_ldz_r0[5:0]
+    20/49: $30\fi_ldz_r0[5:0]
+    21/49: $29\fi_ldz_r0[5:0]
+    22/49: $28\fi_ldz_r0[5:0]
+    23/49: $27\fi_ldz_r0[5:0]
+    24/49: $26\fi_ldz_r0[5:0]
+    25/49: $25\fi_ldz_r0[5:0]
+    26/49: $24\fi_ldz_r0[5:0]
+    27/49: $23\fi_ldz_r0[5:0]
+    28/49: $22\fi_ldz_r0[5:0]
+    29/49: $21\fi_ldz_r0[5:0]
+    30/49: $20\fi_ldz_r0[5:0]
+    31/49: $19\fi_ldz_r0[5:0]
+    32/49: $18\fi_ldz_r0[5:0]
+    33/49: $17\fi_ldz_r0[5:0]
+    34/49: $16\fi_ldz_r0[5:0]
+    35/49: $15\fi_ldz_r0[5:0]
+    36/49: $14\fi_ldz_r0[5:0]
+    37/49: $13\fi_ldz_r0[5:0]
+    38/49: $12\fi_ldz_r0[5:0]
+    39/49: $11\fi_ldz_r0[5:0]
+    40/49: $10\fi_ldz_r0[5:0]
+    41/49: $9\fi_ldz_r0[5:0]
+    42/49: $8\fi_ldz_r0[5:0]
+    43/49: $7\fi_ldz_r0[5:0]
+    44/49: $6\fi_ldz_r0[5:0]
+    45/49: $5\fi_ldz_r0[5:0]
+    46/49: $4\fi_ldz_r0[5:0]
+    47/49: $3\fi_ldz_r0[5:0]
+    48/49: $2\fi_ldz_r0[5:0]
+    49/49: $1\fi_ldz_r0[5:0]
+Creating decoders for process `\b_right_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:648$673'.
+     1/1: $1\shift_out[47:0]
+Creating decoders for process `\b_left_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:580$624'.
+     1/1: $1\shift_out[47:0]
+Creating decoders for process `\b_left_shifter_new.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:505$567'.
+     1/1: $1\shift_out[55:0]
+Creating decoders for process `\post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:355$318'.
+     1/1: $1\fract_out_rnd[22:0]
+Creating decoders for process `\post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:347$317'.
+     1/1: $1\exp_out_rnd[7:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\pri_encoder.\fi_ldz_r0' from process `\pri_encoder.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:715$722': $auto$proc_dlatch.cc:427:proc_dlatch$14420
+Latch inferred for signal `\b_right_shifter.\shift_out' from process `\b_right_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:648$673': $auto$proc_dlatch.cc:427:proc_dlatch$14719
+Latch inferred for signal `\b_left_shifter.\shift_out' from process `\b_left_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:580$624': $auto$proc_dlatch.cc:427:proc_dlatch$15018
+Latch inferred for signal `\b_left_shifter_new.\shift_out' from process `\b_left_shifter_new.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:505$567': $auto$proc_dlatch.cc:427:proc_dlatch$15365
+No latch inferred for signal `\post_norm.\fract_out_rnd' from process `\post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:355$318'.
+No latch inferred for signal `\post_norm.\exp_out_rnd' from process `\post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:347$317'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 49 empty switches in `\pri_encoder.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:715$722'.
+Removing empty process `pri_encoder.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:715$722'.
+Found and cleaned up 1 empty switch in `\b_right_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:648$673'.
+Removing empty process `b_right_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:648$673'.
+Found and cleaned up 1 empty switch in `\b_left_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:580$624'.
+Removing empty process `b_left_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:580$624'.
+Found and cleaned up 1 empty switch in `\b_left_shifter_new.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:505$567'.
+Removing empty process `b_left_shifter_new.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:505$567'.
+Found and cleaned up 1 empty switch in `\post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:355$318'.
+Removing empty process `post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:355$318'.
+Found and cleaned up 1 empty switch in `\post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:347$317'.
+Removing empty process `post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:347$317'.
+Cleaned up 54 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pri_encoder.
+<suppressed ~3632 debug messages>
+Optimizing module b_right_shifter.
+<suppressed ~101 debug messages>
+Optimizing module b_left_shifter.
+<suppressed ~101 debug messages>
+Optimizing module b_left_shifter_new.
+<suppressed ~117 debug messages>
+Optimizing module post_norm.
+<suppressed ~16 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pri_encoder.
+Optimizing module b_right_shifter.
+Optimizing module b_left_shifter.
+Optimizing module b_left_shifter_new.
+Optimizing module post_norm.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pri_encoder'.
+<suppressed ~3528 debug messages>
+Finding identical cells in module `\b_right_shifter'.
+Finding identical cells in module `\b_left_shifter'.
+Finding identical cells in module `\b_left_shifter_new'.
+Finding identical cells in module `\post_norm'.
+<suppressed ~396 debug messages>
+Removed a total of 1308 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pri_encoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_right_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_left_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_left_shifter_new..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \post_norm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:257$168: \opas -> 1'1
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:256$164: \opas -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pri_encoder.
+  Optimizing cells in module \b_right_shifter.
+    New ctrl vector for $pmux cell $procmux$4448: { $procmux$4496_CMP $procmux$4495_CMP $procmux$4494_CMP $procmux$4493_CMP $procmux$4492_CMP $procmux$4491_CMP $procmux$4490_CMP $procmux$4489_CMP $procmux$4488_CMP $procmux$4487_CMP $procmux$4486_CMP $procmux$4485_CMP $procmux$4484_CMP $procmux$4483_CMP $procmux$4482_CMP $procmux$4481_CMP $procmux$4480_CMP $procmux$4479_CMP $procmux$4478_CMP $procmux$4477_CMP $procmux$4476_CMP $procmux$4475_CMP $procmux$4474_CMP $procmux$4473_CMP $procmux$4472_CMP $procmux$4471_CMP $procmux$4470_CMP $procmux$4469_CMP $procmux$4468_CMP $procmux$4467_CMP $procmux$4466_CMP $procmux$4465_CMP $procmux$4464_CMP $procmux$4463_CMP $procmux$4462_CMP $procmux$4461_CMP $procmux$4460_CMP $procmux$4459_CMP $procmux$4458_CMP $procmux$4457_CMP $procmux$4456_CMP $procmux$4455_CMP $procmux$4454_CMP $procmux$4453_CMP $procmux$4452_CMP $procmux$4451_CMP $procmux$4450_CMP $procmux$4449_CMP }
+  Optimizing cells in module \b_right_shifter.
+  Optimizing cells in module \b_left_shifter.
+    New ctrl vector for $pmux cell $procmux$4499: { $procmux$4547_CMP $procmux$4546_CMP $procmux$4545_CMP $procmux$4544_CMP $procmux$4543_CMP $procmux$4542_CMP $procmux$4541_CMP $procmux$4540_CMP $procmux$4539_CMP $procmux$4538_CMP $procmux$4537_CMP $procmux$4536_CMP $procmux$4535_CMP $procmux$4534_CMP $procmux$4533_CMP $procmux$4532_CMP $procmux$4531_CMP $procmux$4530_CMP $procmux$4529_CMP $procmux$4528_CMP $procmux$4527_CMP $procmux$4526_CMP $procmux$4525_CMP $procmux$4524_CMP $procmux$4523_CMP $procmux$4522_CMP $procmux$4521_CMP $procmux$4520_CMP $procmux$4519_CMP $procmux$4518_CMP $procmux$4517_CMP $procmux$4516_CMP $procmux$4515_CMP $procmux$4514_CMP $procmux$4513_CMP $procmux$4512_CMP $procmux$4511_CMP $procmux$4510_CMP $procmux$4509_CMP $procmux$4508_CMP $procmux$4507_CMP $procmux$4506_CMP $procmux$4505_CMP $procmux$4504_CMP $procmux$4503_CMP $procmux$4502_CMP $procmux$4501_CMP $procmux$4500_CMP }
+  Optimizing cells in module \b_left_shifter.
+  Optimizing cells in module \b_left_shifter_new.
+    New ctrl vector for $pmux cell $procmux$4550: { $procmux$4606_CMP $procmux$4605_CMP $procmux$4604_CMP $procmux$4603_CMP $procmux$4602_CMP $procmux$4601_CMP $procmux$4600_CMP $procmux$4599_CMP $procmux$4598_CMP $procmux$4597_CMP $procmux$4596_CMP $procmux$4595_CMP $procmux$4594_CMP $procmux$4593_CMP $procmux$4592_CMP $procmux$4591_CMP $procmux$4590_CMP $procmux$4589_CMP $procmux$4588_CMP $procmux$4587_CMP $procmux$4586_CMP $procmux$4585_CMP $procmux$4584_CMP $procmux$4583_CMP $procmux$4582_CMP $procmux$4581_CMP $procmux$4580_CMP $procmux$4579_CMP $procmux$4578_CMP $procmux$4577_CMP $procmux$4576_CMP $procmux$4575_CMP $procmux$4574_CMP $procmux$4573_CMP $procmux$4572_CMP $procmux$4571_CMP $procmux$4570_CMP $procmux$4569_CMP $procmux$4568_CMP $procmux$4567_CMP $procmux$4566_CMP $procmux$4565_CMP $procmux$4564_CMP $procmux$4563_CMP $procmux$4562_CMP $procmux$4561_CMP $procmux$4560_CMP $procmux$4559_CMP $procmux$4558_CMP $procmux$4557_CMP $procmux$4556_CMP $procmux$4555_CMP $procmux$4554_CMP $procmux$4553_CMP $procmux$4552_CMP $procmux$4551_CMP }
+  Optimizing cells in module \b_left_shifter_new.
+  Optimizing cells in module \post_norm.
+    New ctrl vector for $pmux cell $procmux$4608: { $procmux$4612_CMP $procmux$4611_CMP $auto$opt_reduce.cc:134:opt_mux$15367 }
+    New ctrl vector for $pmux cell $procmux$4613: { $procmux$4612_CMP $procmux$4611_CMP $auto$opt_reduce.cc:134:opt_mux$15369 }
+    New ctrl vector for $mux cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:257$168: { }
+    New ctrl vector for $mux cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:256$164: { }
+    New ctrl vector for $mux cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/post_norm.v:256$165: { }
+  Optimizing cells in module \post_norm.
+Performed a total of 8 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pri_encoder'.
+Finding identical cells in module `\b_right_shifter'.
+Finding identical cells in module `\b_left_shifter'.
+Finding identical cells in module `\b_left_shifter_new'.
+Finding identical cells in module `\post_norm'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pri_encoder..
+Finding unused cells or wires in module \b_right_shifter..
+Finding unused cells or wires in module \b_left_shifter..
+Finding unused cells or wires in module \b_left_shifter_new..
+Finding unused cells or wires in module \post_norm..
+Removed 4 unused cells and 6662 unused wires.
+<suppressed ~12 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module b_left_shifter.
+Optimizing module b_left_shifter_new.
+Optimizing module b_right_shifter.
+Optimizing module post_norm.
+Optimizing module pri_encoder.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \b_left_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_left_shifter_new..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_right_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \post_norm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pri_encoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \b_left_shifter.
+  Optimizing cells in module \b_left_shifter_new.
+  Optimizing cells in module \b_right_shifter.
+  Optimizing cells in module \post_norm.
+  Optimizing cells in module \pri_encoder.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\b_left_shifter'.
+Finding identical cells in module `\b_left_shifter_new'.
+Finding identical cells in module `\b_right_shifter'.
+Finding identical cells in module `\post_norm'.
+Finding identical cells in module `\pri_encoder'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \b_left_shifter..
+Finding unused cells or wires in module \b_left_shifter_new..
+Finding unused cells or wires in module \b_right_shifter..
+Finding unused cells or wires in module \post_norm..
+Finding unused cells or wires in module \pri_encoder..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module b_left_shifter.
+Optimizing module b_left_shifter_new.
+Optimizing module b_right_shifter.
+Optimizing module post_norm.
+Optimizing module pri_encoder.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== b_left_shifter ===
+
+   Number of wires:                150
+   Number of wire bits:            296
+   Number of public wires:           3
+   Number of public wire bits:     102
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                148
+     $and                           48
+     $dlatch                        48
+     $eq                           288
+     $logic_not                      6
+     $not                           49
+     $pmux                          48
+
+=== b_left_shifter_new ===
+
+   Number of wires:                174
+   Number of wire bits:            344
+   Number of public wires:           3
+   Number of public wire bits:     118
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                172
+     $and                           56
+     $dlatch                        56
+     $eq                           336
+     $logic_not                      6
+     $not                           57
+     $pmux                          56
+
+=== b_right_shifter ===
+
+   Number of wires:                150
+   Number of wire bits:            296
+   Number of public wires:           3
+   Number of public wire bits:     102
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                148
+     $and                           48
+     $dlatch                        48
+     $eq                           288
+     $logic_not                      6
+     $not                           49
+     $pmux                          48
+
+=== post_norm ===
+
+   Number of wires:                458
+   Number of wire bits:           1475
+   Number of public wires:         133
+   Number of public wire bits:     995
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                435
+     $add                           81
+     $and                          169
+     $eq                            34
+     $gt                            55
+     $logic_not                     38
+     $lt                            66
+     $mux                          628
+     $ne                            32
+     $or                            83
+     $pmux                          31
+     $reduce_and                    54
+     $reduce_or                    197
+     $sub                          118
+
+=== pri_encoder ===
+
+   Number of wires:               1371
+   Number of wire bits:           1663
+   Number of public wires:           3
+   Number of public wire bits:      60
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1369
+     $and                         1224
+     $dlatch                         6
+     $eq                          1175
+     $logic_not                     48
+     $mux                          282
+     $not                           49
+
+=== design hierarchy ===
+
+   post_norm                         1
+     b_left_shifter                  0
+     b_left_shifter_new              0
+     b_right_shifter                 0
+     pri_encoder                     0
+
+   Number of wires:                458
+   Number of wire bits:           1475
+   Number of public wires:         133
+   Number of public wire bits:     995
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                435
+     $add                           81
+     $and                          169
+     $eq                            34
+     $gt                            55
+     $logic_not                     38
+     $lt                            66
+     $mux                          628
+     $ne                            32
+     $or                            83
+     $pmux                          31
+     $reduce_and                    54
+     $reduce_or                    197
+     $sub                          118
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: b217fba7a0, CPU: user 1.30s system 0.01s, MEM: 41.96 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 31% 4x opt_expr (0 sec), 21% 1x proc_dlatch (0 sec), ...

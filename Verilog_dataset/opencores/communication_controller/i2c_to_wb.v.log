@@ -1,0 +1,557 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v' to AST representation.
+Generating RTLIL representation for module `\glitch_filter'.
+Generating RTLIL representation for module `\i2c_to_wb_config'.
+Generating RTLIL representation for module `\i2c_to_wb_fsm'.
+Generating RTLIL representation for module `\i2c_to_wb_if'.
+Generating RTLIL representation for module `\i2c_to_wb_top'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   1 design levels: i2c_to_wb_top       
+root of   0 design levels: i2c_to_wb_if        
+root of   0 design levels: i2c_to_wb_fsm       
+root of   0 design levels: i2c_to_wb_config    
+root of   0 design levels: glitch_filter       
+Automatically selected i2c_to_wb_top as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \i2c_to_wb_top
+Used module:     \i2c_to_wb_if
+Used module:     \i2c_to_wb_config
+Used module:     \i2c_to_wb_fsm
+Used module:     \glitch_filter
+Parameter \DW = 32
+Parameter \AW = 8
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\i2c_to_wb_if'.
+Parameter \DW = 32
+Parameter \AW = 8
+Generating RTLIL representation for module `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \i2c_to_wb_top
+Used module:     $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if
+Used module:     \i2c_to_wb_config
+Used module:     \i2c_to_wb_fsm
+Used module:     \glitch_filter
+
+2.5. Analyzing design hierarchy..
+Top module:  \i2c_to_wb_top
+Used module:     $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if
+Used module:     \i2c_to_wb_config
+Used module:     \i2c_to_wb_fsm
+Used module:     \glitch_filter
+Removing unused module `\i2c_to_wb_if'.
+Removed 1 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:716$64 in module i2c_to_wb_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:630$60 in module i2c_to_wb_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:489$76 in module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:481$75 in module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:481$75 in module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:468$73 in module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.
+Marked 10 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:421$69 in module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:415$68 in module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:308$27 in module i2c_to_wb_fsm.
+Marked 19 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:232$19 in module i2c_to_wb_fsm.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:226$18 in module i2c_to_wb_fsm.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:124$14 in module i2c_to_wb_config.
+Removed a total of 1 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 7 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \wb_rst_i in `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:415$68'.
+Found async reset \wb_rst_i in `\i2c_to_wb_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:226$18'.
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\i2c_to_wb_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:723$66'.
+     1/1: $0\i2c_data_mux_select_r[0:0]
+Creating decoders for process `\i2c_to_wb_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:716$64'.
+     1/1: $0\i2c_data_oe_r[0:0]
+Creating decoders for process `\i2c_to_wb_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:630$60'.
+     1/2: $0\i2c_data_in_r[8:0] [8]
+     2/2: $0\i2c_data_in_r[8:0] [7:0]
+Creating decoders for process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:489$76'.
+     1/1: $1\i2c_byte_out[7:0]
+Creating decoders for process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:481$75'.
+     1/1: $1\wb_sel_o[3:0]
+Creating decoders for process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:468$73'.
+     1/1: $0\i2c_offset_r[7:0]
+Creating decoders for process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:421$69'.
+     1/10: $10\next_state[4:0]
+     2/10: $9\next_state[4:0]
+     3/10: $8\next_state[4:0]
+     4/10: $7\next_state[4:0]
+     5/10: $6\next_state[4:0]
+     6/10: $5\next_state[4:0]
+     7/10: $4\next_state[4:0]
+     8/10: $3\next_state[4:0]
+     9/10: $2\next_state[4:0]
+    10/10: $1\next_state[4:0]
+Creating decoders for process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:415$68'.
+     1/1: $0\state[4:0]
+Creating decoders for process `\i2c_to_wb_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:308$27'.
+     1/1: $0\bit_count[3:0]
+Creating decoders for process `\i2c_to_wb_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:232$19'.
+     1/19: $19\next_state[7:0]
+     2/19: $18\next_state[7:0]
+     3/19: $17\next_state[7:0]
+     4/19: $16\next_state[7:0]
+     5/19: $15\next_state[7:0]
+     6/19: $14\next_state[7:0]
+     7/19: $13\next_state[7:0]
+     8/19: $12\next_state[7:0]
+     9/19: $11\next_state[7:0]
+    10/19: $10\next_state[7:0]
+    11/19: $9\next_state[7:0]
+    12/19: $8\next_state[7:0]
+    13/19: $7\next_state[7:0]
+    14/19: $6\next_state[7:0]
+    15/19: $5\next_state[7:0]
+    16/19: $4\next_state[7:0]
+    17/19: $3\next_state[7:0]
+    18/19: $2\next_state[7:0]
+    19/19: $1\next_state[7:0]
+Creating decoders for process `\i2c_to_wb_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:226$18'.
+     1/1: $0\state[7:0]
+Creating decoders for process `\i2c_to_wb_config.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:124$14'.
+     1/1: $1\i2c_addr_ack_out_r[0:0]
+Creating decoders for process `\glitch_filter.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:66$10'.
+     1/1: $0\out[0:0]
+Creating decoders for process `\glitch_filter.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:58$2'.
+Creating decoders for process `\glitch_filter.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:51$1'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.\i2c_byte_out' from process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:489$76'.
+No latch inferred for signal `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.\wb_sel_o' from process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:481$75'.
+No latch inferred for signal `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.\next_state' from process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:421$69'.
+No latch inferred for signal `\i2c_to_wb_fsm.\next_state' from process `\i2c_to_wb_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:232$19'.
+No latch inferred for signal `\i2c_to_wb_config.\i2c_addr_ack_out_r' from process `\i2c_to_wb_config.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:124$14'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\i2c_to_wb_top.\i2c_data_mux_select_r' using process `\i2c_to_wb_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:723$66'.
+  created $dff cell `$procdff$451' with positive edge clock.
+Creating register for signal `\i2c_to_wb_top.\i2c_data_oe_r' using process `\i2c_to_wb_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:716$64'.
+  created $dff cell `$procdff$452' with positive edge clock.
+Creating register for signal `\i2c_to_wb_top.\i2c_data_in_r' using process `\i2c_to_wb_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:630$60'.
+  created $dff cell `$procdff$453' with positive edge clock.
+Creating register for signal `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.\i2c_offset_r' using process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:468$73'.
+  created $dff cell `$procdff$454' with positive edge clock.
+Creating register for signal `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.\state' using process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:415$68'.
+  created $adff cell `$procdff$455' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_to_wb_fsm.\bit_count' using process `\i2c_to_wb_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:308$27'.
+  created $dff cell `$procdff$456' with positive edge clock.
+Creating register for signal `\i2c_to_wb_fsm.\state' using process `\i2c_to_wb_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:226$18'.
+  created $adff cell `$procdff$457' with positive edge clock and positive level reset.
+Creating register for signal `\glitch_filter.\out' using process `\glitch_filter.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:66$10'.
+  created $dff cell `$procdff$458' with positive edge clock.
+Creating register for signal `\glitch_filter.\buffer' using process `\glitch_filter.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:58$2'.
+  created $dff cell `$procdff$459' with positive edge clock.
+Creating register for signal `\glitch_filter.\in_reg' using process `\glitch_filter.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:51$1'.
+  created $dff cell `$procdff$460' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\i2c_to_wb_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:723$66'.
+Removing empty process `i2c_to_wb_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:723$66'.
+Found and cleaned up 2 empty switches in `\i2c_to_wb_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:716$64'.
+Removing empty process `i2c_to_wb_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:716$64'.
+Found and cleaned up 2 empty switches in `\i2c_to_wb_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:630$60'.
+Removing empty process `i2c_to_wb_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:630$60'.
+Found and cleaned up 1 empty switch in `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:489$76'.
+Removing empty process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:489$76'.
+Found and cleaned up 1 empty switch in `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:481$75'.
+Removing empty process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:481$75'.
+Found and cleaned up 3 empty switches in `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:468$73'.
+Removing empty process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:468$73'.
+Found and cleaned up 10 empty switches in `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:421$69'.
+Removing empty process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:421$69'.
+Removing empty process `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:415$68'.
+Found and cleaned up 2 empty switches in `\i2c_to_wb_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:308$27'.
+Removing empty process `i2c_to_wb_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:308$27'.
+Found and cleaned up 19 empty switches in `\i2c_to_wb_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:232$19'.
+Removing empty process `i2c_to_wb_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:232$19'.
+Removing empty process `i2c_to_wb_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:226$18'.
+Found and cleaned up 1 empty switch in `\i2c_to_wb_config.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:124$14'.
+Removing empty process `i2c_to_wb_config.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:124$14'.
+Found and cleaned up 1 empty switch in `\glitch_filter.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:66$10'.
+Removing empty process `glitch_filter.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:66$10'.
+Removing empty process `glitch_filter.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:58$2'.
+Removing empty process `glitch_filter.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:51$1'.
+Cleaned up 43 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i2c_to_wb_top.
+Optimizing module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.
+<suppressed ~1 debug messages>
+Optimizing module i2c_to_wb_fsm.
+Optimizing module i2c_to_wb_config.
+Optimizing module glitch_filter.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i2c_to_wb_top.
+Optimizing module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.
+Optimizing module i2c_to_wb_fsm.
+Optimizing module i2c_to_wb_config.
+Optimizing module glitch_filter.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i2c_to_wb_top'.
+Finding identical cells in module `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if'.
+<suppressed ~48 debug messages>
+Finding identical cells in module `\i2c_to_wb_fsm'.
+<suppressed ~84 debug messages>
+Finding identical cells in module `\i2c_to_wb_config'.
+Finding identical cells in module `\glitch_filter'.
+Removed a total of 44 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \i2c_to_wb_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$171.
+    dead port 2/2 on $mux $procmux$163.
+    dead port 1/2 on $mux $procmux$161.
+    dead port 2/2 on $mux $procmux$152.
+    dead port 2/2 on $mux $procmux$145.
+    dead port 2/2 on $mux $procmux$139.
+    dead port 1/2 on $mux $procmux$137.
+    dead port 2/2 on $mux $procmux$130.
+    dead port 2/2 on $mux $procmux$203.
+    dead port 1/2 on $mux $procmux$128.
+    dead port 2/2 on $mux $procmux$125.
+    dead port 2/2 on $mux $procmux$193.
+    dead port 2/2 on $mux $procmux$180.
+    dead port 2/2 on $mux $procmux$191.
+Running muxtree optimizer on module \i2c_to_wb_fsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$369.
+    dead port 1/2 on $mux $procmux$367.
+    dead port 2/2 on $mux $procmux$364.
+    dead port 2/2 on $mux $procmux$352.
+    dead port 1/2 on $mux $procmux$350.
+    dead port 1/2 on $mux $procmux$347.
+    dead port 2/2 on $mux $procmux$335.
+    dead port 2/2 on $mux $procmux$325.
+    dead port 1/2 on $mux $procmux$323.
+    dead port 2/2 on $mux $procmux$312.
+    dead port 1/2 on $mux $procmux$310.
+    dead port 1/2 on $mux $procmux$307.
+    dead port 2/2 on $mux $procmux$296.
+    dead port 2/2 on $mux $procmux$287.
+    dead port 2/2 on $mux $procmux$434.
+    dead port 1/2 on $mux $procmux$285.
+    dead port 2/2 on $mux $procmux$275.
+    dead port 2/2 on $mux $procmux$267.
+    dead port 1/2 on $mux $procmux$265.
+    dead port 2/2 on $mux $procmux$256.
+    dead port 2/2 on $mux $procmux$421.
+    dead port 1/2 on $mux $procmux$254.
+    dead port 1/2 on $mux $procmux$251.
+    dead port 2/2 on $mux $procmux$242.
+    dead port 2/2 on $mux $procmux$235.
+    dead port 2/2 on $mux $procmux$233.
+    dead port 2/2 on $mux $procmux$225.
+    dead port 2/2 on $mux $procmux$409.
+    dead port 1/2 on $mux $procmux$223.
+    dead port 1/2 on $mux $procmux$407.
+    dead port 2/2 on $mux $procmux$394.
+    dead port 2/2 on $mux $procmux$383.
+    dead port 1/2 on $mux $procmux$381.
+Running muxtree optimizer on module \i2c_to_wb_config..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \glitch_filter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 47 multiplexer ports.
+<suppressed ~13 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \i2c_to_wb_top.
+  Optimizing cells in module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.
+  Optimizing cells in module \i2c_to_wb_fsm.
+  Optimizing cells in module \i2c_to_wb_config.
+  Optimizing cells in module \glitch_filter.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i2c_to_wb_top'.
+Finding identical cells in module `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if'.
+Finding identical cells in module `\i2c_to_wb_fsm'.
+Finding identical cells in module `\i2c_to_wb_config'.
+Finding identical cells in module `\glitch_filter'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$451 ($dff) from module i2c_to_wb_top (D = \tip_wr_ack, Q = \i2c_data_mux_select_r).
+Adding SRST signal on $procdff$452 ($dff) from module i2c_to_wb_top (D = $procmux$87_Y, Q = \i2c_data_oe_r, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$462 ($sdff) from module i2c_to_wb_top (D = $or$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:720$65_Y, Q = \i2c_data_oe_r).
+Adding EN signal on $procdff$453 ($dff) from module i2c_to_wb_top (D = \i2c_data_in_r [7], Q = \i2c_data_in_r [8]).
+Adding EN signal on $procdff$453 ($dff) from module i2c_to_wb_top (D = $procmux$100_Y, Q = \i2c_data_in_r [7:0]).
+Adding EN signal on $procdff$454 ($dff) from module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if (D = $procmux$118_Y, Q = \i2c_offset_r).
+Adding SRST signal on $procdff$456 ($dff) from module i2c_to_wb_fsm (D = $procmux$212_Y, Q = \bit_count, rval = 4'1111).
+Adding EN signal on $auto$ff.cc:262:slice$475 ($sdff) from module i2c_to_wb_fsm (D = $add$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2c_to_wb.v:312$30_Y [3:0], Q = \bit_count).
+Adding EN signal on $procdff$458 ($dff) from module glitch_filter (D = \buffer [2], Q = \out).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i2c_to_wb_top..
+Finding unused cells or wires in module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if..
+Finding unused cells or wires in module \i2c_to_wb_fsm..
+Finding unused cells or wires in module \i2c_to_wb_config..
+Finding unused cells or wires in module \glitch_filter..
+Removed 8 unused cells and 234 unused wires.
+<suppressed ~13 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.
+<suppressed ~1 debug messages>
+Optimizing module glitch_filter.
+Optimizing module i2c_to_wb_config.
+Optimizing module i2c_to_wb_fsm.
+Optimizing module i2c_to_wb_top.
+<suppressed ~1 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \glitch_filter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \i2c_to_wb_config..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \i2c_to_wb_fsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \i2c_to_wb_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.
+  Optimizing cells in module \glitch_filter.
+  Optimizing cells in module \i2c_to_wb_config.
+  Optimizing cells in module \i2c_to_wb_fsm.
+  Optimizing cells in module \i2c_to_wb_top.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if'.
+Finding identical cells in module `\glitch_filter'.
+Finding identical cells in module `\i2c_to_wb_config'.
+Finding identical cells in module `\i2c_to_wb_fsm'.
+Finding identical cells in module `\i2c_to_wb_top'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if..
+Finding unused cells or wires in module \glitch_filter..
+Finding unused cells or wires in module \i2c_to_wb_config..
+Finding unused cells or wires in module \i2c_to_wb_fsm..
+Finding unused cells or wires in module \i2c_to_wb_top..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if.
+Optimizing module glitch_filter.
+Optimizing module i2c_to_wb_config.
+Optimizing module i2c_to_wb_fsm.
+Optimizing module i2c_to_wb_top.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if ===
+
+   Number of wires:                 51
+   Number of wire bits:            240
+   Number of public wires:          24
+   Number of public wire bits:     125
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 35
+     $add                            1
+     $adff                           1
+     $and                            3
+     $dffe                           1
+     $eq                            11
+     $logic_not                      1
+     $mux                           12
+     $or                             1
+     $pmux                           3
+     $reduce_bool                    1
+
+=== glitch_filter ===
+
+   Number of wires:                 16
+   Number of wire bits:             18
+   Number of public wires:          11
+   Number of public wire bits:      13
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 13
+     $and                            4
+     $dff                            2
+     $dffe                           1
+     $logic_not                      1
+     $not                            2
+     $or                             1
+     $reduce_and                     1
+     $reduce_or                      1
+
+=== i2c_to_wb_config ===
+
+   Number of wires:                  7
+   Number of wire bits:             14
+   Number of public wires:           6
+   Number of public wire bits:      13
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $eq                             1
+     $mux                            2
+
+=== i2c_to_wb_fsm ===
+
+   Number of wires:                 54
+   Number of wire bits:            235
+   Number of public wires:          27
+   Number of public wire bits:      51
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 43
+     $add                            1
+     $adff                           1
+     $and                            5
+     $eq                            10
+     $mux                           18
+     $or                             6
+     $pmux                           1
+     $sdffe                          1
+
+=== i2c_to_wb_top ===
+
+   Number of wires:                 47
+   Number of wire bits:            149
+   Number of public wires:          38
+   Number of public wire bits:     125
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 19
+     $and                            2
+     $dffe                           3
+     $mux                            3
+     $not                            1
+     $or                             2
+     $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if      1
+     $reduce_and                     1
+     $reduce_bool                    1
+     $sdffe                          1
+     glitch_filter                   2
+     i2c_to_wb_config                1
+     i2c_to_wb_fsm                   1
+
+=== design hierarchy ===
+
+   i2c_to_wb_top                     1
+     $paramod$743f77da168b24638a3c1eb152eb206572cabb74\i2c_to_wb_if      1
+     glitch_filter                   2
+     i2c_to_wb_config                1
+     i2c_to_wb_fsm                   1
+
+   Number of wires:                191
+   Number of wire bits:            674
+   Number of public wires:         117
+   Number of public wire bits:     340
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                121
+     $add                            2
+     $adff                           2
+     $and                           18
+     $dff                            4
+     $dffe                           6
+     $eq                            22
+     $logic_not                      3
+     $mux                           35
+     $not                            5
+     $or                            11
+     $pmux                           4
+     $reduce_and                     3
+     $reduce_bool                    2
+     $reduce_or                      2
+     $sdffe                          2
+
+End of script. Logfile hash: e3942aa566, CPU: user 0.12s system 0.00s, MEM: 12.63 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 28% 4x opt_expr (0 sec), 17% 2x read_verilog (0 sec), ...

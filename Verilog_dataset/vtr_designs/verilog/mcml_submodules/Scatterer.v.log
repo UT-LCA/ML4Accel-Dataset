@@ -1,0 +1,495 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v' to AST representation.
+Generating RTLIL representation for module `\Scatterer'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4423.1-4440.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4476.1-4483.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\sub_32b'.
+Generating RTLIL representation for module `\add_32b'.
+Generating RTLIL representation for module `\InternalsBlock'.
+Generating RTLIL representation for module `\sub_64b'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: sub_64b             
+root of   0 design levels: InternalsBlock      
+root of   0 design levels: add_32b             
+root of   0 design levels: sub_32b             
+root of   1 design levels: Scatterer           
+Automatically selected Scatterer as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \Scatterer
+Used module:     \sub_32b
+Used module:     \add_32b
+Used module:     \sub_64b
+Used module:     \InternalsBlock
+
+2.3. Analyzing design hierarchy..
+Top module:  \Scatterer
+Used module:     \sub_32b
+Used module:     \add_32b
+Used module:     \sub_64b
+Used module:     \InternalsBlock
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219 in module InternalsBlock.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4476$190 in module Scatterer.
+Removed 2 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4423$189 in module Scatterer.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4423$189 in module Scatterer.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4210$68 in module Scatterer.
+Removed a total of 2 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 3 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+     1/24: $0\o_uyQuotient[31:0]
+     2/24: $0\o_uxQuotient[31:0]
+     3/24: $0\o_uyCost[31:0]
+     4/24: $0\o_uyNumerator[31:0]
+     5/24: $0\o_uxNumerator[31:0]
+     6/24: $0\o_sqrtOneMinusUz2_inv[31:0]
+     7/24: $0\o_uzCost[31:0]
+     8/24: $0\o_uxCost[31:0]
+     9/24: $0\o_sintCospSqrtOneMinusUz2[31:0]
+    10/24: $0\o_sqrtOneMinusUz2[31:0]
+    11/24: $0\o_uxSintSinp[31:0]
+    12/24: $0\o_uxUzSintCosp[31:0]
+    13/24: $0\o_uyUzSintCosp[31:0]
+    14/24: $0\o_oneMinusUz2[63:0]
+    15/24: $0\o_uySintSinp[31:0]
+    16/24: $0\o_uyUz[31:0]
+    17/24: $0\o_uxUz[31:0]
+    18/24: $0\o_uz2[63:0]
+    19/24: $0\o_sintSinp[31:0]
+    20/24: $0\o_sintCosp[31:0]
+    21/24: $0\o_cosp[31:0]
+    22/24: $0\o_sinp[31:0]
+    23/24: $0\o_cost[31:0]
+    24/24: $0\o_sint[31:0]
+Creating decoders for process `\Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4476$190'.
+     1/1: $1\normalIncident[0:0]
+Creating decoders for process `\Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4423$189'.
+     1/2: $1\new_uyQuotient[31:0]
+     2/2: $1\new_uxQuotient[31:0]
+Creating decoders for process `\Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4210$68'.
+     1/3: $0\uz_scatterer[31:0]
+     2/3: $0\uy_scatterer[31:0]
+     3/3: $0\ux_scatterer[31:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\Scatterer.\normalIncident' from process `\Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4476$190'.
+No latch inferred for signal `\Scatterer.\new_uxQuotient' from process `\Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4423$189'.
+No latch inferred for signal `\Scatterer.\new_uyQuotient' from process `\Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4423$189'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\InternalsBlock.\o_sint' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$369' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_cost' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$370' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_sinp' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$371' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_cosp' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$372' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_sintCosp' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$373' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_sintSinp' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$374' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uz2' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$375' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uxUz' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$376' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uyUz' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$377' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uySintSinp' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$378' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_oneMinusUz2' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$379' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uyUzSintCosp' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$380' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uxUzSintCosp' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$381' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uxSintSinp' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$382' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_sqrtOneMinusUz2' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$383' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_sintCospSqrtOneMinusUz2' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$384' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uxCost' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$385' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uzCost' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$386' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_sqrtOneMinusUz2_inv' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$387' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uxNumerator' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$388' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uyNumerator' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$389' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uyCost' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$390' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uxQuotient' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$391' with positive edge clock.
+Creating register for signal `\InternalsBlock.\o_uyQuotient' using process `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+  created $dff cell `$procdff$392' with positive edge clock.
+Creating register for signal `\Scatterer.\ux_scatterer' using process `\Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4210$68'.
+  created $dff cell `$procdff$393' with positive edge clock.
+Creating register for signal `\Scatterer.\uy_scatterer' using process `\Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4210$68'.
+  created $dff cell `$procdff$394' with positive edge clock.
+Creating register for signal `\Scatterer.\uz_scatterer' using process `\Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4210$68'.
+  created $dff cell `$procdff$395' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+Removing empty process `InternalsBlock.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4727$219'.
+Found and cleaned up 1 empty switch in `\Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4476$190'.
+Removing empty process `Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4476$190'.
+Found and cleaned up 2 empty switches in `\Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4423$189'.
+Removing empty process `Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4423$189'.
+Found and cleaned up 2 empty switches in `\Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4210$68'.
+Removing empty process `Scatterer.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Scatterer.v:4210$68'.
+Cleaned up 7 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sub_64b.
+Optimizing module InternalsBlock.
+Optimizing module add_32b.
+Optimizing module sub_32b.
+Optimizing module Scatterer.
+<suppressed ~2 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sub_64b.
+Optimizing module InternalsBlock.
+Optimizing module add_32b.
+Optimizing module sub_32b.
+Optimizing module Scatterer.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sub_64b'.
+Finding identical cells in module `\InternalsBlock'.
+Finding identical cells in module `\add_32b'.
+Finding identical cells in module `\sub_32b'.
+Finding identical cells in module `\Scatterer'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sub_64b..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \InternalsBlock..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \add_32b..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \sub_32b..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \Scatterer..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~37 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sub_64b.
+  Optimizing cells in module \InternalsBlock.
+  Optimizing cells in module \add_32b.
+  Optimizing cells in module \sub_32b.
+  Optimizing cells in module \Scatterer.
+    New ctrl vector for $pmux cell $procmux$349: { $procmux$352_CMP $procmux$351_CMP $auto$opt_reduce.cc:134:opt_mux$397 }
+    New ctrl vector for $pmux cell $procmux$344: { $procmux$347_CMP $procmux$346_CMP $auto$opt_reduce.cc:134:opt_mux$399 }
+  Optimizing cells in module \Scatterer.
+Performed a total of 2 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sub_64b'.
+Finding identical cells in module `\InternalsBlock'.
+Finding identical cells in module `\add_32b'.
+Finding identical cells in module `\sub_32b'.
+Finding identical cells in module `\Scatterer'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$369 ($dff) from module InternalsBlock (D = $procmux$336_Y, Q = \o_sint, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$400 ($sdff) from module InternalsBlock (D = \i_sint, Q = \o_sint).
+Adding SRST signal on $procdff$370 ($dff) from module InternalsBlock (D = $procmux$331_Y, Q = \o_cost, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$402 ($sdff) from module InternalsBlock (D = \i_cost, Q = \o_cost).
+Adding SRST signal on $procdff$371 ($dff) from module InternalsBlock (D = $procmux$326_Y, Q = \o_sinp, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$404 ($sdff) from module InternalsBlock (D = \i_sinp, Q = \o_sinp).
+Adding SRST signal on $procdff$372 ($dff) from module InternalsBlock (D = $procmux$321_Y, Q = \o_cosp, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$406 ($sdff) from module InternalsBlock (D = \i_cosp, Q = \o_cosp).
+Adding SRST signal on $procdff$373 ($dff) from module InternalsBlock (D = $procmux$316_Y, Q = \o_sintCosp, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$408 ($sdff) from module InternalsBlock (D = \i_sintCosp, Q = \o_sintCosp).
+Adding SRST signal on $procdff$374 ($dff) from module InternalsBlock (D = $procmux$311_Y, Q = \o_sintSinp, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$410 ($sdff) from module InternalsBlock (D = \i_sintSinp, Q = \o_sintSinp).
+Adding SRST signal on $procdff$375 ($dff) from module InternalsBlock (D = $procmux$306_Y, Q = \o_uz2, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$412 ($sdff) from module InternalsBlock (D = \i_uz2, Q = \o_uz2).
+Adding SRST signal on $procdff$376 ($dff) from module InternalsBlock (D = $procmux$301_Y, Q = \o_uxUz, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$414 ($sdff) from module InternalsBlock (D = \i_uxUz, Q = \o_uxUz).
+Adding SRST signal on $procdff$377 ($dff) from module InternalsBlock (D = $procmux$296_Y, Q = \o_uyUz, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$416 ($sdff) from module InternalsBlock (D = \i_uyUz, Q = \o_uyUz).
+Adding SRST signal on $procdff$378 ($dff) from module InternalsBlock (D = $procmux$291_Y, Q = \o_uySintSinp, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$418 ($sdff) from module InternalsBlock (D = \i_uySintSinp, Q = \o_uySintSinp).
+Adding SRST signal on $procdff$379 ($dff) from module InternalsBlock (D = $procmux$286_Y, Q = \o_oneMinusUz2, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$420 ($sdff) from module InternalsBlock (D = \i_oneMinusUz2, Q = \o_oneMinusUz2).
+Adding SRST signal on $procdff$380 ($dff) from module InternalsBlock (D = $procmux$281_Y, Q = \o_uyUzSintCosp, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$422 ($sdff) from module InternalsBlock (D = \i_uyUzSintCosp, Q = \o_uyUzSintCosp).
+Adding SRST signal on $procdff$381 ($dff) from module InternalsBlock (D = $procmux$276_Y, Q = \o_uxUzSintCosp, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$424 ($sdff) from module InternalsBlock (D = \i_uxUzSintCosp, Q = \o_uxUzSintCosp).
+Adding SRST signal on $procdff$382 ($dff) from module InternalsBlock (D = $procmux$271_Y, Q = \o_uxSintSinp, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$426 ($sdff) from module InternalsBlock (D = \i_uxSintSinp, Q = \o_uxSintSinp).
+Adding SRST signal on $procdff$383 ($dff) from module InternalsBlock (D = $procmux$266_Y, Q = \o_sqrtOneMinusUz2, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$428 ($sdff) from module InternalsBlock (D = \i_sqrtOneMinusUz2, Q = \o_sqrtOneMinusUz2).
+Adding SRST signal on $procdff$384 ($dff) from module InternalsBlock (D = $procmux$261_Y, Q = \o_sintCospSqrtOneMinusUz2, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$430 ($sdff) from module InternalsBlock (D = \i_sintCospSqrtOneMinusUz2, Q = \o_sintCospSqrtOneMinusUz2).
+Adding SRST signal on $procdff$385 ($dff) from module InternalsBlock (D = $procmux$256_Y, Q = \o_uxCost, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$432 ($sdff) from module InternalsBlock (D = \i_uxCost, Q = \o_uxCost).
+Adding SRST signal on $procdff$386 ($dff) from module InternalsBlock (D = $procmux$251_Y, Q = \o_uzCost, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$434 ($sdff) from module InternalsBlock (D = \i_uzCost, Q = \o_uzCost).
+Adding SRST signal on $procdff$387 ($dff) from module InternalsBlock (D = $procmux$246_Y, Q = \o_sqrtOneMinusUz2_inv, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$436 ($sdff) from module InternalsBlock (D = \i_sqrtOneMinusUz2_inv, Q = \o_sqrtOneMinusUz2_inv).
+Adding SRST signal on $procdff$388 ($dff) from module InternalsBlock (D = $procmux$241_Y, Q = \o_uxNumerator, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$438 ($sdff) from module InternalsBlock (D = \i_uxNumerator, Q = \o_uxNumerator).
+Adding SRST signal on $procdff$389 ($dff) from module InternalsBlock (D = $procmux$236_Y, Q = \o_uyNumerator, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$440 ($sdff) from module InternalsBlock (D = \i_uyNumerator, Q = \o_uyNumerator).
+Adding SRST signal on $procdff$390 ($dff) from module InternalsBlock (D = $procmux$231_Y, Q = \o_uyCost, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$442 ($sdff) from module InternalsBlock (D = \i_uyCost, Q = \o_uyCost).
+Adding SRST signal on $procdff$391 ($dff) from module InternalsBlock (D = $procmux$226_Y, Q = \o_uxQuotient, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$444 ($sdff) from module InternalsBlock (D = \i_uxQuotient, Q = \o_uxQuotient).
+Adding SRST signal on $procdff$392 ($dff) from module InternalsBlock (D = $procmux$221_Y, Q = \o_uyQuotient, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$446 ($sdff) from module InternalsBlock (D = \i_uyQuotient, Q = \o_uyQuotient).
+Adding SRST signal on $procdff$393 ($dff) from module Scatterer (D = $procmux$364_Y, Q = \ux_scatterer, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$448 ($sdff) from module Scatterer (D = \new_ux, Q = \ux_scatterer).
+Adding SRST signal on $procdff$394 ($dff) from module Scatterer (D = $procmux$359_Y, Q = \uy_scatterer, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$450 ($sdff) from module Scatterer (D = \new_uy, Q = \uy_scatterer).
+Adding SRST signal on $procdff$395 ($dff) from module Scatterer (D = $procmux$354_Y, Q = \uz_scatterer, rval = 2147483647).
+Adding EN signal on $auto$ff.cc:262:slice$452 ($sdff) from module Scatterer (D = \new_uz, Q = \uz_scatterer).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sub_64b..
+Finding unused cells or wires in module \InternalsBlock..
+Finding unused cells or wires in module \add_32b..
+Finding unused cells or wires in module \sub_32b..
+Finding unused cells or wires in module \Scatterer..
+Removed 55 unused cells and 191 unused wires.
+<suppressed ~84 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module InternalsBlock.
+Optimizing module Scatterer.
+Optimizing module add_32b.
+Optimizing module sub_32b.
+Optimizing module sub_64b.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \InternalsBlock..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \Scatterer..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \add_32b..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \sub_32b..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \sub_64b..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~10 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \InternalsBlock.
+  Optimizing cells in module \Scatterer.
+  Optimizing cells in module \add_32b.
+  Optimizing cells in module \sub_32b.
+  Optimizing cells in module \sub_64b.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\InternalsBlock'.
+Finding identical cells in module `\Scatterer'.
+Finding identical cells in module `\add_32b'.
+Finding identical cells in module `\sub_32b'.
+Finding identical cells in module `\sub_64b'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \InternalsBlock..
+Finding unused cells or wires in module \Scatterer..
+Finding unused cells or wires in module \add_32b..
+Finding unused cells or wires in module \sub_32b..
+Finding unused cells or wires in module \sub_64b..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module InternalsBlock.
+Optimizing module Scatterer.
+Optimizing module add_32b.
+Optimizing module sub_32b.
+Optimizing module sub_64b.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== InternalsBlock ===
+
+   Number of wires:                 51
+   Number of wire bits:           1667
+   Number of public wires:          51
+   Number of public wire bits:    1667
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 24
+     $sdffe                        832
+
+=== Scatterer ===
+
+   Number of wires:               1214
+   Number of wire bits:          34748
+   Number of public wires:        1010
+   Number of public wire bits:   34387
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                271
+     $and                           64
+     $eq                           300
+     $ge                            32
+     $logic_not                      4
+     $logic_or                       8
+     $mux                          257
+     $neg                           32
+     $not                           36
+     $or                           275
+     $pmux                          64
+     $reduce_or                      4
+     $sdffe                         96
+
+=== add_32b ===
+
+   Number of wires:                  5
+   Number of wire bits:            130
+   Number of public wires:           5
+   Number of public wire bits:     130
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $add                           33
+
+=== sub_32b ===
+
+   Number of wires:                  5
+   Number of wire bits:            130
+   Number of public wires:           5
+   Number of public wire bits:     130
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $sub                           33
+
+=== sub_64b ===
+
+   Number of wires:                  3
+   Number of wire bits:            192
+   Number of public wires:           3
+   Number of public wire bits:     192
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $sub                           64
+
+=== design hierarchy ===
+
+   Scatterer                         1
+     InternalsBlock                  0
+     add_32b                         0
+     sub_32b                         0
+     sub_64b                         0
+
+   Number of wires:               1214
+   Number of wire bits:          34748
+   Number of public wires:        1010
+   Number of public wire bits:   34387
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                271
+     $and                           64
+     $eq                           300
+     $ge                            32
+     $logic_not                      4
+     $logic_or                       8
+     $mux                          257
+     $neg                           32
+     $not                           36
+     $or                           275
+     $pmux                          64
+     $reduce_or                      4
+     $sdffe                         96
+
+End of script. Logfile hash: 69565a067c, CPU: user 0.82s system 0.02s, MEM: 40.18 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 35% 2x opt_clean (0 sec), 21% 2x read_verilog (0 sec), ...

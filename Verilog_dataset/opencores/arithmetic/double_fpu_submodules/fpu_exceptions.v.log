@@ -1,0 +1,492 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v' to AST representation.
+Generating RTLIL representation for module `\fpu_exceptions'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: fpu_exceptions      
+Automatically selected fpu_exceptions as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \fpu_exceptions
+
+2.3. Analyzing design hierarchy..
+Top module:  \fpu_exceptions
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:222$158 in module fpu_exceptions.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1 in module fpu_exceptions.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:222$158'.
+     1/7: $0\invalid[0:0]
+     2/7: $0\exception[0:0]
+     3/7: $0\inexact[0:0]
+     4/7: $0\overflow[0:0]
+     5/7: $0\underflow[0:0]
+     6/7: $0\ex_enable[0:0]
+     7/7: $0\out[63:0]
+Creating decoders for process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+     1/57: $0\out_2[63:0]
+     2/57: $0\out_1[63:0]
+     3/57: $0\out_0[63:0]
+     4/57: $0\out_inf[62:0]
+     5/57: $0\inf_round_down[62:0]
+     6/57: $0\NaN_output[62:0]
+     7/57: $0\NaN_output_0[62:0]
+     8/57: $0\SNaN_trigger[0:0]
+     9/57: $0\NaN_out_trigger[0:0]
+    10/57: $0\enable_trigger[0:0]
+    11/57: $0\except_trigger[0:0]
+    12/57: $0\inexact_trigger[0:0]
+    13/57: $0\overflow_trigger[0:0]
+    14/57: $0\invalid_trigger[0:0]
+    15/57: $0\underflow_trigger[0:0]
+    16/57: $0\div_uf[0:0]
+    17/57: $0\mul_uf[0:0]
+    18/57: $0\inf_round_down_trigger[0:0]
+    19/57: $0\round_to_neg_inf[0:0]
+    20/57: $0\round_to_pos_inf[0:0]
+    21/57: $0\round_to_zero[0:0]
+    22/57: $0\round_nearest[0:0]
+    23/57: $0\out_neg_inf[0:0]
+    24/57: $0\out_pos_inf[0:0]
+    25/57: $0\out_inf_trigger[0:0]
+    26/57: $0\addsub_inf[0:0]
+    27/57: $0\addsub_inf_invalid[0:0]
+    28/57: $0\sub_inf[0:0]
+    29/57: $0\add_inf[0:0]
+    30/57: $0\div_inf[0:0]
+    31/57: $0\mul_inf[0:0]
+    32/57: $0\mul_0_by_inf[0:0]
+    33/57: $0\div_by_inf[0:0]
+    34/57: $0\div_inf_by_inf[0:0]
+    35/57: $0\div_0_by_0[0:0]
+    36/57: $0\div_by_0[0:0]
+    37/57: $0\a_NaN[0:0]
+    38/57: $0\SNaN_input[0:0]
+    39/57: $0\NaN_input[0:0]
+    40/57: $0\opb_inf[0:0]
+    41/57: $0\opa_inf[0:0]
+    42/57: $0\opb_neg_inf[0:0]
+    43/57: $0\opa_neg_inf[0:0]
+    44/57: $0\opb_pos_inf[0:0]
+    45/57: $0\opa_pos_inf[0:0]
+    46/57: $0\opb_SNaN[0:0]
+    47/57: $0\opa_SNaN[0:0]
+    48/57: $0\opb_QNaN[0:0]
+    49/57: $0\opa_QNaN[0:0]
+    50/57: $0\divide[0:0]
+    51/57: $0\multiply[0:0]
+    52/57: $0\subtract[0:0]
+    53/57: $0\add[0:0]
+    54/57: $0\input_et_zero[0:0]
+    55/57: $0\opb_et_zero[0:0]
+    56/57: $0\opa_et_zero[0:0]
+    57/57: $0\in_et_zero[0:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\fpu_exceptions.\out' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:222$158'.
+  created $dff cell `$procdff$479' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\ex_enable' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:222$158'.
+  created $dff cell `$procdff$480' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\underflow' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:222$158'.
+  created $dff cell `$procdff$481' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\overflow' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:222$158'.
+  created $dff cell `$procdff$482' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\inexact' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:222$158'.
+  created $dff cell `$procdff$483' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\exception' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:222$158'.
+  created $dff cell `$procdff$484' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\invalid' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:222$158'.
+  created $dff cell `$procdff$485' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\in_et_zero' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$486' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opa_et_zero' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$487' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opb_et_zero' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$488' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\input_et_zero' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$489' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\add' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$490' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\subtract' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$491' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\multiply' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$492' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\divide' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$493' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opa_QNaN' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$494' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opb_QNaN' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$495' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opa_SNaN' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$496' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opb_SNaN' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$497' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opa_pos_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$498' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opb_pos_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$499' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opa_neg_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$500' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opb_neg_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$501' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opa_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$502' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opb_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$503' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\NaN_input' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$504' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\SNaN_input' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$505' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\a_NaN' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$506' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\div_by_0' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$507' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\div_0_by_0' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$508' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\div_inf_by_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$509' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\div_by_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$510' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\mul_0_by_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$511' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\mul_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$512' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\div_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$513' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\add_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$514' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\sub_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$515' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\addsub_inf_invalid' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$516' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\addsub_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$517' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_inf_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$518' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_pos_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$519' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_neg_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$520' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\round_nearest' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$521' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\round_to_zero' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$522' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\round_to_pos_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$523' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\round_to_neg_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$524' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\inf_round_down_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$525' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\mul_uf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$526' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\div_uf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$527' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\underflow_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$528' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\invalid_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$529' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\overflow_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$530' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\inexact_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$531' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\except_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$532' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\enable_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$533' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\NaN_out_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$534' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\SNaN_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$535' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\NaN_output_0' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$536' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\NaN_output' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$537' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\inf_round_down' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$538' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$539' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_0' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$540' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_1' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$541' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_2' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+  created $dff cell `$procdff$542' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:222$158'.
+Removing empty process `fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:222$158'.
+Found and cleaned up 2 empty switches in `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+Removing empty process `fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:94$1'.
+Cleaned up 4 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fpu_exceptions.
+<suppressed ~2 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fpu_exceptions.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fpu_exceptions'.
+<suppressed ~93 debug messages>
+Removed a total of 31 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fpu_exceptions..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~64 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fpu_exceptions.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fpu_exceptions'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$519 ($dff) from module fpu_exceptions (D = $procmux$309_Y, Q = \out_pos_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$543 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:190$112_Y, Q = \out_pos_inf).
+Adding SRST signal on $procdff$512 ($dff) from module fpu_exceptions (D = $procmux$344_Y, Q = \mul_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$545 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:182$84_Y, Q = \mul_inf).
+Adding SRST signal on $procdff$520 ($dff) from module fpu_exceptions (D = $procmux$304_Y, Q = \out_neg_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$547 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:191$113_Y, Q = \out_neg_inf).
+Adding SRST signal on $procdff$521 ($dff) from module fpu_exceptions (D = $procmux$299_Y, Q = \round_nearest, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$549 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:192$114_Y, Q = \round_nearest).
+Adding SRST signal on $procdff$513 ($dff) from module fpu_exceptions (D = $procmux$339_Y, Q = \div_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$551 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:183$87_Y, Q = \div_inf).
+Adding SRST signal on $procdff$522 ($dff) from module fpu_exceptions (D = $procmux$294_Y, Q = \round_to_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$553 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:193$115_Y, Q = \round_to_zero).
+Adding SRST signal on $procdff$523 ($dff) from module fpu_exceptions (D = $procmux$289_Y, Q = \round_to_pos_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$555 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:194$116_Y, Q = \round_to_pos_inf).
+Adding SRST signal on $procdff$514 ($dff) from module fpu_exceptions (D = $procmux$334_Y, Q = \add_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$557 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:184$89_Y, Q = \add_inf).
+Adding SRST signal on $procdff$524 ($dff) from module fpu_exceptions (D = $procmux$284_Y, Q = \round_to_neg_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$559 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:195$117_Y, Q = \round_to_neg_inf).
+Adding SRST signal on $procdff$525 ($dff) from module fpu_exceptions (D = $procmux$279_Y, Q = \inf_round_down_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$561 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:196$122_Y, Q = \inf_round_down_trigger).
+Adding SRST signal on $procdff$526 ($dff) from module fpu_exceptions (D = $procmux$274_Y, Q = \mul_uf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$563 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:199$127_Y, Q = \mul_uf).
+Adding SRST signal on $procdff$527 ($dff) from module fpu_exceptions (D = $procmux$269_Y, Q = \div_uf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$565 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:200$130_Y, Q = \div_uf).
+Adding SRST signal on $procdff$528 ($dff) from module fpu_exceptions (D = $procmux$264_Y, Q = \underflow_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$567 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:201$132_Y, Q = \underflow_trigger).
+Adding SRST signal on $procdff$529 ($dff) from module fpu_exceptions (D = $procmux$259_Y, Q = \invalid_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$569 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:202$136_Y, Q = \invalid_trigger).
+Adding SRST signal on $procdff$515 ($dff) from module fpu_exceptions (D = $procmux$329_Y, Q = \sub_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$571 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:185$91_Y, Q = \sub_inf).
+Adding SRST signal on $procdff$530 ($dff) from module fpu_exceptions (D = $procmux$254_Y, Q = \overflow_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$573 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:204$138_Y, Q = \overflow_trigger).
+Adding SRST signal on $procdff$531 ($dff) from module fpu_exceptions (D = $procmux$249_Y, Q = \inexact_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$575 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:205$143_Y, Q = \inexact_trigger).
+Adding SRST signal on $procdff$516 ($dff) from module fpu_exceptions (D = $procmux$324_Y, Q = \addsub_inf_invalid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$577 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:186$102_Y, Q = \addsub_inf_invalid).
+Adding SRST signal on $procdff$532 ($dff) from module fpu_exceptions (D = $procmux$244_Y, Q = \except_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$579 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:207$146_Y, Q = \except_trigger).
+Adding SRST signal on $procdff$533 ($dff) from module fpu_exceptions (D = $procmux$239_Y, Q = \enable_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$581 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:209$148_Y, Q = \enable_trigger).
+Adding SRST signal on $procdff$517 ($dff) from module fpu_exceptions (D = $procmux$319_Y, Q = \addsub_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$583 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:188$105_Y, Q = \addsub_inf).
+Adding SRST signal on $procdff$534 ($dff) from module fpu_exceptions (D = $procmux$234_Y, Q = \NaN_out_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$585 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:210$149_Y, Q = \NaN_out_trigger).
+Adding SRST signal on $procdff$535 ($dff) from module fpu_exceptions (D = $procmux$229_Y, Q = \SNaN_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$587 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:211$151_Y, Q = \SNaN_trigger).
+Adding SRST signal on $procdff$518 ($dff) from module fpu_exceptions (D = $procmux$314_Y, Q = \out_inf_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$589 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:189$110_Y, Q = \out_inf_trigger).
+Adding SRST signal on $procdff$536 ($dff) from module fpu_exceptions (D = $procmux$224_Y, Q = \NaN_output_0, rval = 63'000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$591 ($sdff) from module fpu_exceptions (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:212$152_Y, Q = \NaN_output_0).
+Adding SRST signal on $procdff$537 ($dff) from module fpu_exceptions (D = $procmux$219_Y, Q = \NaN_output, rval = 63'000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$593 ($sdff) from module fpu_exceptions (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:213$153_Y, Q = \NaN_output).
+Adding SRST signal on $procdff$538 ($dff) from module fpu_exceptions (D = $procmux$214_Y, Q = \inf_round_down, rval = 63'000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$595 ($sdff) from module fpu_exceptions (D = 63'111111111101111111111111111111111111111111111111111111111111111, Q = \inf_round_down).
+Setting constant 0-bit at position 52 on $auto$ff.cc:262:slice$596 ($sdffe) from module fpu_exceptions.
+Adding SRST signal on $procdff$539 ($dff) from module fpu_exceptions (D = $procmux$209_Y, Q = \out_inf, rval = 63'000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$598 ($sdff) from module fpu_exceptions (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:215$154_Y, Q = \out_inf).
+Adding SRST signal on $procdff$540 ($dff) from module fpu_exceptions (D = $procmux$204_Y, Q = \out_0, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$600 ($sdff) from module fpu_exceptions (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:216$155_Y, Q = \out_0).
+Adding SRST signal on $procdff$541 ($dff) from module fpu_exceptions (D = $procmux$199_Y, Q = \out_1, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$602 ($sdff) from module fpu_exceptions (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:217$156_Y, Q = \out_1).
+Adding SRST signal on $procdff$542 ($dff) from module fpu_exceptions (D = $procmux$194_Y, Q = \out_2, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$604 ($sdff) from module fpu_exceptions (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:218$157_Y, Q = \out_2).
+Adding SRST signal on $procdff$479 ($dff) from module fpu_exceptions (D = $procmux$189_Y, Q = \out, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$606 ($sdff) from module fpu_exceptions (D = \out_2, Q = \out).
+Adding SRST signal on $procdff$480 ($dff) from module fpu_exceptions (D = $procmux$184_Y, Q = \ex_enable, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$608 ($sdff) from module fpu_exceptions (D = \enable_trigger, Q = \ex_enable).
+Adding SRST signal on $procdff$481 ($dff) from module fpu_exceptions (D = $procmux$179_Y, Q = \underflow, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$610 ($sdff) from module fpu_exceptions (D = \underflow_trigger, Q = \underflow).
+Adding SRST signal on $procdff$482 ($dff) from module fpu_exceptions (D = $procmux$174_Y, Q = \overflow, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$612 ($sdff) from module fpu_exceptions (D = \overflow_trigger, Q = \overflow).
+Adding SRST signal on $procdff$483 ($dff) from module fpu_exceptions (D = $procmux$169_Y, Q = \inexact, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$614 ($sdff) from module fpu_exceptions (D = \inexact_trigger, Q = \inexact).
+Adding SRST signal on $procdff$484 ($dff) from module fpu_exceptions (D = $procmux$164_Y, Q = \exception, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$616 ($sdff) from module fpu_exceptions (D = \except_trigger, Q = \exception).
+Adding SRST signal on $procdff$485 ($dff) from module fpu_exceptions (D = $procmux$159_Y, Q = \invalid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$618 ($sdff) from module fpu_exceptions (D = \invalid_trigger, Q = \invalid).
+Adding SRST signal on $procdff$486 ($dff) from module fpu_exceptions (D = $procmux$474_Y, Q = \in_et_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$620 ($sdff) from module fpu_exceptions (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:159$9_Y, Q = \in_et_zero).
+Adding SRST signal on $procdff$487 ($dff) from module fpu_exceptions (D = $procmux$469_Y, Q = \opa_et_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$622 ($sdff) from module fpu_exceptions (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:157$5_Y, Q = \opa_et_zero).
+Adding SRST signal on $procdff$488 ($dff) from module fpu_exceptions (D = $procmux$464_Y, Q = \opb_et_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$624 ($sdff) from module fpu_exceptions (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:158$7_Y, Q = \opb_et_zero).
+Adding SRST signal on $procdff$489 ($dff) from module fpu_exceptions (D = $procmux$459_Y, Q = \input_et_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$626 ($sdff) from module fpu_exceptions (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:159$9_Y, Q = \input_et_zero).
+Adding SRST signal on $procdff$490 ($dff) from module fpu_exceptions (D = $procmux$454_Y, Q = \add, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$628 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:160$10_Y, Q = \add).
+Adding SRST signal on $procdff$491 ($dff) from module fpu_exceptions (D = $procmux$449_Y, Q = \subtract, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$630 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:161$11_Y, Q = \subtract).
+Adding SRST signal on $procdff$492 ($dff) from module fpu_exceptions (D = $procmux$444_Y, Q = \multiply, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$632 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:162$12_Y, Q = \multiply).
+Adding SRST signal on $procdff$493 ($dff) from module fpu_exceptions (D = $procmux$439_Y, Q = \divide, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$634 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:163$13_Y, Q = \divide).
+Adding SRST signal on $procdff$494 ($dff) from module fpu_exceptions (D = $procmux$434_Y, Q = \opa_QNaN, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$636 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:164$17_Y, Q = \opa_QNaN).
+Adding SRST signal on $procdff$495 ($dff) from module fpu_exceptions (D = $procmux$429_Y, Q = \opb_QNaN, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$638 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:165$21_Y, Q = \opb_QNaN).
+Adding SRST signal on $procdff$496 ($dff) from module fpu_exceptions (D = $procmux$424_Y, Q = \opa_SNaN, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$640 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:166$26_Y, Q = \opa_SNaN).
+Adding SRST signal on $procdff$497 ($dff) from module fpu_exceptions (D = $procmux$419_Y, Q = \opb_SNaN, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$642 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:167$31_Y, Q = \opb_SNaN).
+Adding SRST signal on $procdff$498 ($dff) from module fpu_exceptions (D = $procmux$414_Y, Q = \opa_pos_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$644 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:168$37_Y, Q = \opa_pos_inf).
+Adding SRST signal on $procdff$499 ($dff) from module fpu_exceptions (D = $procmux$409_Y, Q = \opb_pos_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$646 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:169$43_Y, Q = \opb_pos_inf).
+Adding SRST signal on $procdff$500 ($dff) from module fpu_exceptions (D = $procmux$404_Y, Q = \opa_neg_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$648 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:170$48_Y, Q = \opa_neg_inf).
+Adding SRST signal on $procdff$501 ($dff) from module fpu_exceptions (D = $procmux$399_Y, Q = \opb_neg_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$650 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:171$53_Y, Q = \opb_neg_inf).
+Adding SRST signal on $procdff$502 ($dff) from module fpu_exceptions (D = $procmux$394_Y, Q = \opa_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$652 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:172$57_Y, Q = \opa_inf).
+Adding SRST signal on $procdff$503 ($dff) from module fpu_exceptions (D = $procmux$389_Y, Q = \opb_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$654 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:173$61_Y, Q = \opb_inf).
+Adding SRST signal on $procdff$504 ($dff) from module fpu_exceptions (D = $procmux$384_Y, Q = \NaN_input, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$656 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:174$64_Y, Q = \NaN_input).
+Adding SRST signal on $procdff$505 ($dff) from module fpu_exceptions (D = $procmux$379_Y, Q = \SNaN_input, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$658 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:175$65_Y, Q = \SNaN_input).
+Adding SRST signal on $procdff$506 ($dff) from module fpu_exceptions (D = $procmux$374_Y, Q = \a_NaN, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$660 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:176$66_Y, Q = \a_NaN).
+Adding SRST signal on $procdff$507 ($dff) from module fpu_exceptions (D = $procmux$369_Y, Q = \div_by_0, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$662 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:177$69_Y, Q = \div_by_0).
+Adding SRST signal on $procdff$508 ($dff) from module fpu_exceptions (D = $procmux$364_Y, Q = \div_0_by_0, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$664 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:178$71_Y, Q = \div_0_by_0).
+Adding SRST signal on $procdff$509 ($dff) from module fpu_exceptions (D = $procmux$359_Y, Q = \div_inf_by_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$666 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:179$73_Y, Q = \div_inf_by_inf).
+Adding SRST signal on $procdff$510 ($dff) from module fpu_exceptions (D = $procmux$354_Y, Q = \div_by_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$668 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:180$76_Y, Q = \div_by_inf).
+Adding SRST signal on $procdff$511 ($dff) from module fpu_exceptions (D = $procmux$349_Y, Q = \mul_0_by_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$670 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu_submodules/fpu_exceptions.v:181$80_Y, Q = \mul_0_by_inf).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fpu_exceptions..
+Removed 131 unused cells and 354 unused wires.
+<suppressed ~134 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fpu_exceptions.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fpu_exceptions..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fpu_exceptions.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fpu_exceptions'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fpu_exceptions..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fpu_exceptions.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== fpu_exceptions ===
+
+   Number of wires:                199
+   Number of wire bits:           1349
+   Number of public wires:          75
+   Number of public wire bits:     850
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                186
+     $and                           53
+     $eq                            37
+     $gt                            32
+     $logic_not                     21
+     $mux                          381
+     $or                            31
+     $reduce_or                    295
+     $sdffe                        561
+
+End of script. Logfile hash: ecd6f96f81, CPU: user 0.17s system 0.01s, MEM: 15.15 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 24% 4x opt_expr (0 sec), 20% 2x read_verilog (0 sec), ...

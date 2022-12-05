@@ -1,0 +1,720 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v' to AST representation.
+Generating RTLIL representation for module `\resultwriter'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217.5-732.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\fifo3'.
+Generating RTLIL representation for module `\bilinearintrp'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:877.9-917.12 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\linearmap'.
+Generating RTLIL representation for module `\col16to21'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:1030.5-1050.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: col16to21           
+root of   0 design levels: linearmap           
+root of   0 design levels: bilinearintrp       
+root of   0 design levels: fifo3               
+root of   1 design levels: resultwriter        
+Automatically selected resultwriter as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \resultwriter
+Used module:     \fifo3
+Used module:     \bilinearintrp
+Used module:     \linearmap
+Used module:     \col16to21
+
+2.3. Analyzing design hierarchy..
+Top module:  \resultwriter
+Used module:     \fifo3
+Used module:     \bilinearintrp
+Used module:     \linearmap
+Used module:     \col16to21
+Removed 0 unused modules.
+Mapping positional arguments of cell resultwriter.fifo3instb (fifo3).
+Mapping positional arguments of cell resultwriter.fifo3insta (fifo3).
+Mapping positional arguments of cell resultwriter.bilinearimp (bilinearintrp).
+Mapping positional arguments of cell resultwriter.linearmapinst (linearmap).
+Mapping positional arguments of cell resultwriter.col16to21inst (col16to21).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:1030$148 in module col16to21.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:1030$148 in module col16to21.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:966$130 in module linearmap.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:877$111 in module bilinearintrp.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:752$102 in module fifo3.
+Marked 50 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17 in module resultwriter.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13 in module resultwriter.
+Removed a total of 1 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 12 redundant assignments.
+Promoted 41 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\col16to21.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:1030$148'.
+     1/1: $1\col16[15:0]
+Creating decoders for process `\linearmap.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:966$130'.
+     1/3: $0\addr[17:0]
+     2/3: $0\vl[6:0]
+     3/3: $0\ul[6:0]
+Creating decoders for process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+Creating decoders for process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:877$111'.
+     1/2: $1\v[7:0]
+     2/2: $1\u[7:0]
+Creating decoders for process `\fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:752$102'.
+     1/4: $0\pos[1:0]
+     2/4: $0\data2[17:0]
+     3/4: $0\data1[17:0]
+     4/4: $0\data0[17:0]
+Creating decoders for process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17'.
+     1/78: $1\temp_shadedatac[20:0] [20:14]
+     2/78: $2\temp_shiften01[0:0]
+     3/78: $16\temp_pending10[0:0]
+     4/78: $15\temp_pending01[0:0]
+     5/78: $15\temp_pending10[0:0]
+     6/78: $15\next_state[3:0]
+     7/78: $1\selectuv[2:0] [1:0]
+     8/78: $2\temp_shadedatac[20:0]
+     9/78: $14\temp_pending10[0:0]
+    10/78: $14\temp_pending01[0:0]
+    11/78: $14\next_state[3:0]
+    12/78: $13\next_state[3:0]
+    13/78: $4\triID[15:0]
+    14/78: $1\temp_shadedatac[20:0] [6:0]
+    15/78: $2\temp_shadedatab[20:0]
+    16/78: $13\temp_pending10[0:0]
+    17/78: $13\temp_pending01[0:0]
+    18/78: $12\next_state[3:0]
+    19/78: $11\next_state[3:0]
+    20/78: $3\triID[15:0]
+    21/78: $1\temp_shadedataa[20:0] [20:14]
+    22/78: $12\temp_pending01[0:0]
+    23/78: $10\next_state[3:0]
+    24/78: $1\temp_shadedataa[20:0] [13:7]
+    25/78: $11\temp_pending01[0:0]
+    26/78: $1\temp_shadedatab[20:0] [13:7]
+    27/78: $10\temp_pending01[0:0]
+    28/78: $9\next_state[3:0]
+    29/78: $1\temp_shadedatab[20:0] [6:0]
+    30/78: $9\temp_pending01[0:0]
+    31/78: $1\selectuv[2:0] [2]
+    32/78: $8\temp_pending01[0:0]
+    33/78: $8\next_state[3:0]
+    34/78: $1\temp_shadedataa[20:0] [6:0]
+    35/78: $12\temp_pending10[0:0]
+    36/78: $1\temp_shadedatab[20:0] [20:14]
+    37/78: $7\temp_pending01[0:0]
+    38/78: $7\next_state[3:0]
+    39/78: $3\temp_texmap[0:0]
+    40/78: $11\temp_pending10[0:0]
+    41/78: $10\temp_pending10[0:0]
+    42/78: $6\temp_pending01[0:0]
+    43/78: $6\next_state[3:0]
+    44/78: $4\temp_texmap[0:0]
+    45/78: $5\temp_pending01[0:0]
+    46/78: $5\next_state[3:0]
+    47/78: $8\temp_pending10[0:0]
+    48/78: $7\temp_pending10[0:0]
+    49/78: $6\temp_pending10[0:0]
+    50/78: $4\temp_pending01[0:0]
+    51/78: $2\temp_texmap[0:0]
+    52/78: $2\temp_shadedataa[20:0]
+    53/78: $3\temp_pending10[0:0]
+    54/78: $3\temp_pending01[0:0]
+    55/78: $4\next_state[3:0]
+    56/78: $3\next_state[3:0]
+    57/78: $2\triID[15:0]
+    58/78: $9\temp_pending10[0:0]
+    59/78: $5\temp_pending10[0:0]
+    60/78: $2\temp_pending01[0:0]
+    61/78: $2\next_state[3:0]
+    62/78: $1\temp_write[0:0]
+    63/78: $1\temp_shiften10[0:0]
+    64/78: $1\temp_shiften01[0:0]
+    65/78: $1\temp_process01[0:0]
+    66/78: $1\temp_pending10[0:0]
+    67/78: $1\temp_pending01[0:0]
+    68/78: $1\next_state[3:0]
+    69/78: $1\wanttexel[0:0]
+    70/78: $1\lmenable[0:0]
+    71/78: $2\temp_pending10[0:0]
+    72/78: $1\triID[15:0]
+    73/78: $1\wantshadedata[0:0]
+    74/78: $2\temp_shiften10[0:0]
+    75/78: $1\temp_shadedatac[20:0] [13:7]
+    76/78: $4\temp_pending10[0:0]
+    77/78: $1\temp_texinfol[20:0]
+    78/78: $1\temp_texmap[0:0]
+Creating decoders for process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13'.
+     1/10: $0\texinfol[20:0]
+     2/10: $0\texmap[0:0]
+     3/10: $0\process01[0:0]
+     4/10: $0\shadedatac[20:0]
+     5/10: $0\shadedatab[20:0]
+     6/10: $0\shadedataa[20:0]
+     7/10: $0\pending10[0:0]
+     8/10: $0\pending01[0:0]
+     9/10: $0\state[3:0]
+    10/10: $0\dataout[63:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\col16to21.\col16' from process `\col16to21.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:1030$148'.
+No latch inferred for signal `\bilinearintrp.\u' from process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:877$111'.
+No latch inferred for signal `\bilinearintrp.\v' from process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:877$111'.
+Latch inferred for signal `\resultwriter.\triID' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$1320
+Latch inferred for signal `\resultwriter.\wantshadedata' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$1409
+Latch inferred for signal `\resultwriter.\wanttexel' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$1498
+Latch inferred for signal `\resultwriter.\temp_write' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$1581
+Latch inferred for signal `\resultwriter.\next_state' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$1670
+Latch inferred for signal `\resultwriter.\temp_shiften01' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$1771
+Latch inferred for signal `\resultwriter.\temp_shiften10' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$1864
+Latch inferred for signal `\resultwriter.\selectuv [1:0]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$1953
+Latch inferred for signal `\resultwriter.\selectuv [2]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$2042
+Latch inferred for signal `\resultwriter.\lmenable' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$2131
+Latch inferred for signal `\resultwriter.\temp_pending01' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$2472
+Latch inferred for signal `\resultwriter.\temp_pending10' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$2839
+Latch inferred for signal `\resultwriter.\temp_process01' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$2850
+Latch inferred for signal `\resultwriter.\temp_texmap' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$2927
+Latch inferred for signal `\resultwriter.\temp_texinfol' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$2950
+Latch inferred for signal `\resultwriter.\temp_shadedataa [6:0]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$2973
+Latch inferred for signal `\resultwriter.\temp_shadedataa [13:7]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$2996
+Latch inferred for signal `\resultwriter.\temp_shadedataa [20:14]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$3019
+Latch inferred for signal `\resultwriter.\temp_shadedatab [6:0]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$3042
+Latch inferred for signal `\resultwriter.\temp_shadedatab [13:7]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$3065
+Latch inferred for signal `\resultwriter.\temp_shadedatab [20:14]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$3088
+Latch inferred for signal `\resultwriter.\temp_shadedatac [6:0]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$3111
+Latch inferred for signal `\resultwriter.\temp_shadedatac [13:7]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$3134
+Latch inferred for signal `\resultwriter.\temp_shadedatac [20:14]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17': $auto$proc_dlatch.cc:427:proc_dlatch$3157
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\linearmap.\addr' using process `\linearmap.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:966$130'.
+  created $dff cell `$procdff$3158' with positive edge clock.
+Creating register for signal `\linearmap.\ul' using process `\linearmap.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:966$130'.
+  created $dff cell `$procdff$3159' with positive edge clock.
+Creating register for signal `\linearmap.\vl' using process `\linearmap.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:966$130'.
+  created $dff cell `$procdff$3160' with positive edge clock.
+Creating register for signal `\bilinearintrp.\ul' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3161' with positive edge clock.
+Creating register for signal `\bilinearintrp.\vl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3162' with positive edge clock.
+Creating register for signal `\bilinearintrp.\wl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3163' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i1b' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3164' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i2b' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3165' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i3b' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3166' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i1g' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3167' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i2g' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3168' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i3g' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3169' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i1r' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3170' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i2r' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3171' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i3r' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3172' with positive edge clock.
+Creating register for signal `\bilinearintrp.\rul' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3173' with positive edge clock.
+Creating register for signal `\bilinearintrp.\rvl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3174' with positive edge clock.
+Creating register for signal `\bilinearintrp.\rwl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3175' with positive edge clock.
+Creating register for signal `\bilinearintrp.\gul' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3176' with positive edge clock.
+Creating register for signal `\bilinearintrp.\gvl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3177' with positive edge clock.
+Creating register for signal `\bilinearintrp.\gwl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3178' with positive edge clock.
+Creating register for signal `\bilinearintrp.\bul' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3179' with positive edge clock.
+Creating register for signal `\bilinearintrp.\bvl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3180' with positive edge clock.
+Creating register for signal `\bilinearintrp.\bwl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+  created $dff cell `$procdff$3181' with positive edge clock.
+Creating register for signal `\fifo3.\data0' using process `\fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:752$102'.
+  created $dff cell `$procdff$3182' with positive edge clock.
+Creating register for signal `\fifo3.\data1' using process `\fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:752$102'.
+  created $dff cell `$procdff$3183' with positive edge clock.
+Creating register for signal `\fifo3.\data2' using process `\fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:752$102'.
+  created $dff cell `$procdff$3184' with positive edge clock.
+Creating register for signal `\fifo3.\pos' using process `\fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:752$102'.
+  created $dff cell `$procdff$3185' with positive edge clock.
+Creating register for signal `\resultwriter.\dataout' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13'.
+  created $dff cell `$procdff$3186' with positive edge clock.
+Creating register for signal `\resultwriter.\state' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13'.
+  created $dff cell `$procdff$3187' with positive edge clock.
+Creating register for signal `\resultwriter.\pending01' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13'.
+  created $dff cell `$procdff$3188' with positive edge clock.
+Creating register for signal `\resultwriter.\pending10' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13'.
+  created $dff cell `$procdff$3189' with positive edge clock.
+Creating register for signal `\resultwriter.\process01' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13'.
+  created $dff cell `$procdff$3190' with positive edge clock.
+Creating register for signal `\resultwriter.\shadedataa' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13'.
+  created $dff cell `$procdff$3191' with positive edge clock.
+Creating register for signal `\resultwriter.\shadedatab' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13'.
+  created $dff cell `$procdff$3192' with positive edge clock.
+Creating register for signal `\resultwriter.\shadedatac' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13'.
+  created $dff cell `$procdff$3193' with positive edge clock.
+Creating register for signal `\resultwriter.\texmap' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13'.
+  created $dff cell `$procdff$3194' with positive edge clock.
+Creating register for signal `\resultwriter.\texinfol' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13'.
+  created $dff cell `$procdff$3195' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\col16to21.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:1030$148'.
+Removing empty process `col16to21.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:1030$148'.
+Found and cleaned up 2 empty switches in `\linearmap.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:966$130'.
+Removing empty process `linearmap.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:966$130'.
+Removing empty process `bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:919$112'.
+Found and cleaned up 1 empty switch in `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:877$111'.
+Removing empty process `bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:877$111'.
+Found and cleaned up 6 empty switches in `\fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:752$102'.
+Removing empty process `fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:752$102'.
+Found and cleaned up 50 empty switches in `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17'.
+Removing empty process `resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:217$17'.
+Found and cleaned up 1 empty switch in `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13'.
+Removing empty process `resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultwriter.v:119$13'.
+Cleaned up 61 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module col16to21.
+<suppressed ~1 debug messages>
+Optimizing module linearmap.
+<suppressed ~2 debug messages>
+Optimizing module bilinearintrp.
+<suppressed ~2 debug messages>
+Optimizing module fifo3.
+<suppressed ~9 debug messages>
+Optimizing module resultwriter.
+<suppressed ~635 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module col16to21.
+Optimizing module linearmap.
+Optimizing module bilinearintrp.
+Optimizing module fifo3.
+Optimizing module resultwriter.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\col16to21'.
+Finding identical cells in module `\linearmap'.
+<suppressed ~21 debug messages>
+Finding identical cells in module `\bilinearintrp'.
+<suppressed ~18 debug messages>
+Finding identical cells in module `\fifo3'.
+<suppressed ~33 debug messages>
+Finding identical cells in module `\resultwriter'.
+<suppressed ~1908 debug messages>
+Removed a total of 660 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \col16to21..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \linearmap..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \bilinearintrp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \resultwriter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~47 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \col16to21.
+  Optimizing cells in module \linearmap.
+  Optimizing cells in module \bilinearintrp.
+  Optimizing cells in module \fifo3.
+    New ctrl vector for $pmux cell $procmux$223: { $auto$opt_reduce.cc:134:opt_mux$3197 $procmux$245_CMP $procmux$244_CMP }
+    New ctrl vector for $pmux cell $procmux$243: { $procmux$247_CMP $procmux$246_CMP $auto$opt_reduce.cc:134:opt_mux$3199 }
+    New ctrl vector for $pmux cell $procmux$204: { $auto$opt_reduce.cc:134:opt_mux$3201 $procmux$244_CMP }
+  Optimizing cells in module \fifo3.
+  Optimizing cells in module \resultwriter.
+    New ctrl vector for $pmux cell $procmux$982: $procmux$1163_CMP
+    New ctrl vector for $pmux cell $procmux$582: { $procmux$1149_CMP $procmux$1200_CMP }
+    New ctrl vector for $pmux cell $procmux$1060: { $procmux$1201_CMP $procmux$1195_CMP $procmux$1154_CMP $procmux$1153_CMP $procmux$1152_CMP $procmux$1169_CMP $procmux$1194_CMP $procmux$1149_CMP $procmux$1193_CMP $procmux$1168_CMP $procmux$1200_CMP $procmux$1199_CMP $procmux$1163_CMP }
+    New ctrl vector for $pmux cell $procmux$566: { $procmux$1154_CMP $procmux$1153_CMP }
+    New ctrl vector for $pmux cell $procmux$1044: $procmux$1163_CMP
+    New ctrl vector for $pmux cell $procmux$515: $auto$opt_reduce.cc:134:opt_mux$3203
+    New ctrl vector for $pmux cell $procmux$1143: $auto$opt_reduce.cc:134:opt_mux$3205
+    New ctrl vector for $pmux cell $procmux$498: { $procmux$1149_CMP $procmux$1200_CMP }
+    New ctrl vector for $pmux cell $procmux$469: { $procmux$1149_CMP $procmux$1200_CMP }
+    New ctrl vector for $pmux cell $procmux$967: $procmux$1163_CMP
+    New ctrl vector for $pmux cell $procmux$452: { $procmux$1154_CMP $procmux$1153_CMP }
+    New ctrl vector for $pmux cell $procmux$420: { $procmux$1154_CMP $procmux$1153_CMP }
+    New ctrl vector for $pmux cell $procmux$355: { $procmux$1168_CMP $procmux$1199_CMP }
+    New ctrl vector for $pmux cell $procmux$1127: { $procmux$1201_CMP $procmux$1200_CMP $procmux$1199_CMP }
+    New ctrl vector for $pmux cell $procmux$1198: { }
+    New ctrl vector for $pmux cell $procmux$1028: $procmux$1163_CMP
+    New ctrl vector for $pmux cell $procmux$293: { $auto$opt_reduce.cc:134:opt_mux$3209 $auto$opt_reduce.cc:134:opt_mux$3207 }
+    New ctrl vector for $pmux cell $procmux$1192: { }
+    New ctrl vector for $pmux cell $procmux$255: { $procmux$1168_CMP $procmux$1199_CMP }
+    New ctrl vector for $pmux cell $procmux$1092: $auto$opt_reduce.cc:134:opt_mux$3211
+    New ctrl vector for $pmux cell $procmux$1166: { $procmux$1168_CMP $procmux$1199_CMP }
+    New ctrl vector for $pmux cell $procmux$1076: $auto$opt_reduce.cc:134:opt_mux$3213
+    New ctrl vector for $pmux cell $procmux$997: $procmux$1163_CMP
+  Optimizing cells in module \resultwriter.
+Performed a total of 26 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\col16to21'.
+Finding identical cells in module `\linearmap'.
+Finding identical cells in module `\bilinearintrp'.
+Finding identical cells in module `\fifo3'.
+Finding identical cells in module `\resultwriter'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$3160 ($dff) from module linearmap (D = \v, Q = \vl).
+Adding EN signal on $procdff$3159 ($dff) from module linearmap (D = \u, Q = \ul).
+Adding SRST signal on $procdff$3185 ($dff) from module fifo3 (D = $procmux$191_Y, Q = \pos, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$3216 ($sdff) from module fifo3 (D = $procmux$188_Y, Q = \pos).
+Adding SRST signal on $procdff$3184 ($dff) from module fifo3 (D = $procmux$209_Y, Q = \data2, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$3224 ($sdff) from module fifo3 (D = $procmux$209_Y, Q = \data2).
+Adding SRST signal on $procdff$3183 ($dff) from module fifo3 (D = $procmux$228_Y, Q = \data1, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$3234 ($sdff) from module fifo3 (D = $procmux$228_Y, Q = \data1).
+Adding SRST signal on $procdff$3182 ($dff) from module fifo3 (D = $procmux$248_Y, Q = \data0, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$3242 ($sdff) from module fifo3 (D = $procmux$248_Y, Q = \data0).
+Adding SRST signal on $procdff$3195 ($dff) from module resultwriter (D = \temp_texinfol, Q = \texinfol, rval = 21'000000000000000000000).
+Adding SRST signal on $procdff$3194 ($dff) from module resultwriter (D = \temp_texmap, Q = \texmap, rval = 1'0).
+Adding SRST signal on $procdff$3193 ($dff) from module resultwriter (D = \temp_shadedatac, Q = \shadedatac, rval = 21'000000000000000000000).
+Adding SRST signal on $procdff$3192 ($dff) from module resultwriter (D = \temp_shadedatab, Q = \shadedatab, rval = 21'000000000000000000000).
+Adding SRST signal on $procdff$3191 ($dff) from module resultwriter (D = \temp_shadedataa, Q = \shadedataa, rval = 21'000000000000000000000).
+Adding SRST signal on $procdff$3190 ($dff) from module resultwriter (D = \temp_process01, Q = \process01, rval = 1'0).
+Adding SRST signal on $procdff$3189 ($dff) from module resultwriter (D = \temp_pending10, Q = \pending10, rval = 1'0).
+Adding SRST signal on $procdff$3188 ($dff) from module resultwriter (D = \temp_pending01, Q = \pending01, rval = 1'0).
+Adding SRST signal on $procdff$3187 ($dff) from module resultwriter (D = \next_state, Q = \state, rval = 4'0000).
+Adding EN signal on $procdff$3186 ($dff) from module resultwriter (D = { 1'0 \shadedataa \shadedatab \shadedatac }, Q = \dataout).
+Setting constant 0-bit at position 63 on $auto$ff.cc:262:slice$3259 ($dffe) from module resultwriter.
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \col16to21..
+Finding unused cells or wires in module \linearmap..
+Finding unused cells or wires in module \bilinearintrp..
+Finding unused cells or wires in module \fifo3..
+Finding unused cells or wires in module \resultwriter..
+Removed 27 unused cells and 1525 unused wires.
+<suppressed ~32 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module bilinearintrp.
+Optimizing module col16to21.
+Optimizing module fifo3.
+<suppressed ~4 debug messages>
+Optimizing module linearmap.
+Optimizing module resultwriter.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \bilinearintrp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \col16to21..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \linearmap..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \resultwriter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~30 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \bilinearintrp.
+  Optimizing cells in module \col16to21.
+  Optimizing cells in module \fifo3.
+  Optimizing cells in module \linearmap.
+  Optimizing cells in module \resultwriter.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\bilinearintrp'.
+Finding identical cells in module `\col16to21'.
+Finding identical cells in module `\fifo3'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\linearmap'.
+Finding identical cells in module `\resultwriter'.
+Removed a total of 2 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \bilinearintrp..
+Finding unused cells or wires in module \col16to21..
+Finding unused cells or wires in module \fifo3..
+Finding unused cells or wires in module \linearmap..
+Finding unused cells or wires in module \resultwriter..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module bilinearintrp.
+Optimizing module col16to21.
+Optimizing module fifo3.
+Optimizing module linearmap.
+Optimizing module resultwriter.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \bilinearintrp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \col16to21..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \linearmap..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \resultwriter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~30 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \bilinearintrp.
+  Optimizing cells in module \col16to21.
+  Optimizing cells in module \fifo3.
+  Optimizing cells in module \linearmap.
+  Optimizing cells in module \resultwriter.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\bilinearintrp'.
+Finding identical cells in module `\col16to21'.
+Finding identical cells in module `\fifo3'.
+Finding identical cells in module `\linearmap'.
+Finding identical cells in module `\resultwriter'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \bilinearintrp..
+Finding unused cells or wires in module \col16to21..
+Finding unused cells or wires in module \fifo3..
+Finding unused cells or wires in module \linearmap..
+Finding unused cells or wires in module \resultwriter..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module bilinearintrp.
+Optimizing module col16to21.
+Optimizing module fifo3.
+Optimizing module linearmap.
+Optimizing module resultwriter.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== bilinearintrp ===
+
+   Number of wires:                 72
+   Number of wire bits:            669
+   Number of public wires:          49
+   Number of public wire bits:     422
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 46
+     $add                           90
+     $dff                          222
+     $eq                            15
+     $logic_not                      3
+     $mul                          135
+     $pmux                          16
+     $sub                           16
+
+=== col16to21 ===
+
+   Number of wires:                 10
+   Number of wire bits:            107
+   Number of public wires:           6
+   Number of public wire bits:     103
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $eq                             6
+     $logic_not                      2
+     $pmux                          16
+
+=== fifo3 ===
+
+   Number of wires:                 48
+   Number of wire bits:            453
+   Number of public wires:          10
+   Number of public wire bits:      96
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 42
+     $add                           32
+     $and                            1
+     $eq                             6
+     $logic_not                      2
+     $mux                          220
+     $ne                            14
+     $not                            1
+     $pmux                          54
+     $reduce_and                     9
+     $reduce_bool                    5
+     $reduce_or                      7
+     $sdffe                         56
+     $sub                           32
+
+=== linearmap ===
+
+   Number of wires:                 28
+   Number of wire bits:            259
+   Number of public wires:          10
+   Number of public wire bits:      71
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 21
+     $add                          162
+     $dff                           18
+     $dffe                          14
+     $eq                            21
+     $logic_not                      3
+     $pmux                          18
+
+=== resultwriter ===
+
+   Number of wires:                271
+   Number of wire bits:           1209
+   Number of public wires:          83
+   Number of public wire bits:     794
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                237
+     $and                          106
+     $dffe                          63
+     $dlatch                       116
+     $eq                            54
+     $logic_not                      4
+     $mux                          191
+     $not                           23
+     $or                             5
+     $pmux                          85
+     $reduce_or                     61
+     $sdff                          92
+
+=== design hierarchy ===
+
+   resultwriter                      1
+     bilinearintrp                   0
+     col16to21                       0
+     fifo3                           0
+     linearmap                       0
+
+   Number of wires:                271
+   Number of wire bits:           1209
+   Number of public wires:          83
+   Number of public wire bits:     794
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                237
+     $and                          106
+     $dffe                          63
+     $dlatch                       116
+     $eq                            54
+     $logic_not                      4
+     $mux                          191
+     $not                           23
+     $or                             5
+     $pmux                          85
+     $reduce_or                     61
+     $sdff                          92
+
+End of script. Logfile hash: 73b7f8e5da, CPU: user 0.44s system 0.00s, MEM: 19.71 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 25% 5x opt_expr (0 sec), 19% 4x opt_merge (0 sec), ...

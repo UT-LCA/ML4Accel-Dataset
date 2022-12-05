@@ -1,0 +1,350 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v' to AST representation.
+Generating RTLIL representation for module `\stage2_Ct_buffer_18_2_16_64'.
+Generating RTLIL representation for module `\counter_63_1'.
+Generating RTLIL representation for module `\ram_288_0_64'.
+Generating RTLIL representation for module `\dual_port_ram'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: dual_port_ram       
+root of   1 design levels: ram_288_0_64        
+root of   0 design levels: counter_63_1        
+root of   2 design levels: stage2_Ct_buffer_18_2_16_64
+Automatically selected stage2_Ct_buffer_18_2_16_64 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \stage2_Ct_buffer_18_2_16_64
+Used module:     \ram_288_0_64
+Used module:         \dual_port_ram
+Used module:     \counter_63_1
+
+2.3. Analyzing design hierarchy..
+Top module:  \stage2_Ct_buffer_18_2_16_64
+Used module:     \ram_288_0_64
+Used module:         \dual_port_ram
+Used module:     \counter_63_1
+Removed 0 unused modules.
+Warning: Resizing cell port stage2_Ct_buffer_18_2_16_64.ram_288_0_64_inst_1.waddr from 14 bits to 6 bits.
+Warning: Resizing cell port stage2_Ct_buffer_18_2_16_64.ram_288_0_64_inst_0.waddr from 14 bits to 6 bits.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:243$22 in module dual_port_ram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:234$14 in module dual_port_ram.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:168$8 in module counter_63_1.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:81$1 in module stage2_Ct_buffer_18_2_16_64.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 6 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:243$22'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:245$13_EN[287:0]$28
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:245$13_DATA[287:0]$27
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:245$13_ADDR[5:0]$26
+     4/4: $0\out2[287:0]
+Creating decoders for process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:234$14'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:236$12_EN[287:0]$20
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:236$12_DATA[287:0]$19
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:236$12_ADDR[5:0]$18
+     4/4: $0\out1[287:0]
+Creating decoders for process `\counter_63_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:168$8'.
+     1/1: $0\count[13:0]
+Creating decoders for process `\stage2_Ct_buffer_18_2_16_64.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:81$1'.
+     1/2: $0\raddrs_1[5:0]
+     2/2: $0\raddrs_0[5:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\dual_port_ram.\out2' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:243$22'.
+  created $dff cell `$procdff$68' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:245$13_ADDR' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:243$22'.
+  created $dff cell `$procdff$69' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:245$13_DATA' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:243$22'.
+  created $dff cell `$procdff$70' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:245$13_EN' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:243$22'.
+  created $dff cell `$procdff$71' with positive edge clock.
+Creating register for signal `\dual_port_ram.\out1' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:234$14'.
+  created $dff cell `$procdff$72' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:236$12_ADDR' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:234$14'.
+  created $dff cell `$procdff$73' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:236$12_DATA' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:234$14'.
+  created $dff cell `$procdff$74' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:236$12_EN' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:234$14'.
+  created $dff cell `$procdff$75' with positive edge clock.
+Creating register for signal `\counter_63_1.\count' using process `\counter_63_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:168$8'.
+  created $dff cell `$procdff$76' with positive edge clock.
+Creating register for signal `\stage2_Ct_buffer_18_2_16_64.\raddrs_0' using process `\stage2_Ct_buffer_18_2_16_64.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:81$1'.
+  created $dff cell `$procdff$77' with positive edge clock.
+Creating register for signal `\stage2_Ct_buffer_18_2_16_64.\raddrs_1' using process `\stage2_Ct_buffer_18_2_16_64.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:81$1'.
+  created $dff cell `$procdff$78' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:243$22'.
+Removing empty process `dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:243$22'.
+Found and cleaned up 1 empty switch in `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:234$14'.
+Removing empty process `dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:234$14'.
+Found and cleaned up 3 empty switches in `\counter_63_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:168$8'.
+Removing empty process `counter_63_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:168$8'.
+Found and cleaned up 2 empty switches in `\stage2_Ct_buffer_18_2_16_64.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:81$1'.
+Removing empty process `stage2_Ct_buffer_18_2_16_64.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:81$1'.
+Cleaned up 7 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dual_port_ram.
+Optimizing module ram_288_0_64.
+Optimizing module counter_63_1.
+Optimizing module stage2_Ct_buffer_18_2_16_64.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dual_port_ram.
+Optimizing module ram_288_0_64.
+Optimizing module counter_63_1.
+Optimizing module stage2_Ct_buffer_18_2_16_64.
+<suppressed ~2 debug messages>
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dual_port_ram'.
+Finding identical cells in module `\ram_288_0_64'.
+Finding identical cells in module `\counter_63_1'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\stage2_Ct_buffer_18_2_16_64'.
+<suppressed ~6 debug messages>
+Removed a total of 3 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ram_288_0_64..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \counter_63_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \stage2_Ct_buffer_18_2_16_64..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dual_port_ram.
+    Consolidated identical input bits for $mux cell $procmux$43:
+      Old ports: A=288'000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, B=288'111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111, Y=$procmux$43_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$43_Y [0]
+      New connections: $procmux$43_Y [287:1] = { $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] $procmux$43_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$31:
+      Old ports: A=288'000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, B=288'111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111, Y=$procmux$31_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$31_Y [0]
+      New connections: $procmux$31_Y [287:1] = { $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] $procmux$31_Y [0] }
+  Optimizing cells in module \dual_port_ram.
+  Optimizing cells in module \ram_288_0_64.
+  Optimizing cells in module \counter_63_1.
+  Optimizing cells in module \stage2_Ct_buffer_18_2_16_64.
+Performed a total of 2 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dual_port_ram'.
+Finding identical cells in module `\ram_288_0_64'.
+Finding identical cells in module `\counter_63_1'.
+Finding identical cells in module `\stage2_Ct_buffer_18_2_16_64'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$68 ($dff) from module dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:248$29_DATA, Q = \out2).
+Adding EN signal on $procdff$72 ($dff) from module dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:239$21_DATA, Q = \out1).
+Adding SRST signal on $procdff$76 ($dff) from module counter_63_1 (D = $procmux$57_Y, Q = \count, rval = 14'00000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$83 ($sdff) from module counter_63_1 (D = $procmux$55_Y, Q = \count).
+Adding SRST signal on $procdff$77 ($dff) from module stage2_Ct_buffer_18_2_16_64 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:83$4_Y [5:0], Q = \raddrs_0, rval = 6'000000).
+Adding SRST signal on $procdff$78 ($dff) from module stage2_Ct_buffer_18_2_16_64 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.medium_submodules/stage2_Ct_buffer_18_2_16_64.v:87$7_Y [5:0], Q = \raddrs_1, rval = 6'000000).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dual_port_ram..
+Finding unused cells or wires in module \ram_288_0_64..
+Finding unused cells or wires in module \counter_63_1..
+Finding unused cells or wires in module \stage2_Ct_buffer_18_2_16_64..
+Removed 13 unused cells and 47 unused wires.
+<suppressed ~18 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_63_1.
+Optimizing module dual_port_ram.
+Optimizing module ram_288_0_64.
+Optimizing module stage2_Ct_buffer_18_2_16_64.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_63_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ram_288_0_64..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \stage2_Ct_buffer_18_2_16_64..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~7 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_63_1.
+  Optimizing cells in module \dual_port_ram.
+  Optimizing cells in module \ram_288_0_64.
+  Optimizing cells in module \stage2_Ct_buffer_18_2_16_64.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_63_1'.
+Finding identical cells in module `\dual_port_ram'.
+Finding identical cells in module `\ram_288_0_64'.
+Finding identical cells in module `\stage2_Ct_buffer_18_2_16_64'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_63_1..
+Finding unused cells or wires in module \dual_port_ram..
+Finding unused cells or wires in module \ram_288_0_64..
+Finding unused cells or wires in module \stage2_Ct_buffer_18_2_16_64..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_63_1.
+Optimizing module dual_port_ram.
+Optimizing module ram_288_0_64.
+Optimizing module stage2_Ct_buffer_18_2_16_64.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== counter_63_1 ===
+
+   Number of wires:                  7
+   Number of wire bits:             64
+   Number of public wires:           4
+   Number of public wire bits:      17
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $add                           32
+     $le                            32
+     $mux                           14
+     $sdffe                         14
+
+=== dual_port_ram ===
+
+   Number of wires:                 17
+   Number of wire bits:           2907
+   Number of public wires:           9
+   Number of public wire bits:    1167
+   Number of memories:               1
+   Number of memory bits:         1728
+   Number of processes:              0
+   Number of cells:                 12
+     $dffe                         576
+     $mux                          590
+
+=== ram_288_0_64 ===
+
+   Number of wires:                  8
+   Number of wire bits:           1166
+   Number of public wires:           8
+   Number of public wire bits:    1166
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+
+=== stage2_Ct_buffer_18_2_16_64 ===
+
+   Number of wires:                 62
+   Number of wire bits:           1793
+   Number of public wires:          59
+   Number of public wire bits:    1759
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  8
+     $add                           32
+     $lt                            64
+     $sdff                          12
+
+=== design hierarchy ===
+
+   stage2_Ct_buffer_18_2_16_64       1
+     counter_63_1                    0
+     ram_288_0_64                    0
+       dual_port_ram                 0
+
+   Number of wires:                 62
+   Number of wire bits:           1793
+   Number of public wires:          59
+   Number of public wire bits:    1759
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  8
+     $add                           32
+     $lt                            64
+     $sdff                          12
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 2a7490477a, CPU: user 0.14s system 0.01s, MEM: 14.92 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 24% 2x opt_clean (0 sec), 16% 4x opt_expr (0 sec), ...

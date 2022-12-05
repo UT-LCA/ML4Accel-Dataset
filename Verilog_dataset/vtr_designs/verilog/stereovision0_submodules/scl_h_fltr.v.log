@@ -1,0 +1,309 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v' to AST representation.
+Generating RTLIL representation for module `\scl_h_fltr'.
+Generating RTLIL representation for module `\sh_reg_1'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: sh_reg_1            
+root of   1 design levels: scl_h_fltr          
+Automatically selected scl_h_fltr as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \scl_h_fltr
+Used module:     \sh_reg_1
+
+2.3. Analyzing design hierarchy..
+Top module:  \scl_h_fltr
+Used module:     \sh_reg_1
+Removed 0 unused modules.
+Mapping positional arguments of cell scl_h_fltr.ints_sh_reg_4_6 (sh_reg_1).
+Mapping positional arguments of cell scl_h_fltr.ints_sh_reg_4_5 (sh_reg_1).
+Mapping positional arguments of cell scl_h_fltr.ints_sh_reg_4_4 (sh_reg_1).
+Mapping positional arguments of cell scl_h_fltr.ints_sh_reg_4_3 (sh_reg_1).
+Mapping positional arguments of cell scl_h_fltr.ints_sh_reg_4_2 (sh_reg_1).
+Mapping positional arguments of cell scl_h_fltr.ints_sh_reg_4_1 (sh_reg_1).
+Mapping positional arguments of cell scl_h_fltr.ints_sh_reg_4_0 (sh_reg_1).
+Mapping positional arguments of cell scl_h_fltr.ints_sh_reg_2_2 (sh_reg_1).
+Mapping positional arguments of cell scl_h_fltr.ints_sh_reg_2_1 (sh_reg_1).
+Mapping positional arguments of cell scl_h_fltr.ints_sh_reg_2_0 (sh_reg_1).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 12 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sh_reg_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:105$13'.
+     1/1: $0\dout_1[7:0]
+Creating decoders for process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+     1/13: $0\buff_out_reg_47[7:0]
+     2/13: $0\buff_out_reg_46[7:0]
+     3/13: $0\buff_out_reg_45[7:0]
+     4/13: $0\buff_out_reg_44[7:0]
+     5/13: $0\buff_out_reg_43[7:0]
+     6/13: $0\buff_out_reg_42[7:0]
+     7/13: $0\buff_out_reg_41[7:0]
+     8/13: $0\buff_out_reg_23[7:0]
+     9/13: $0\buff_out_reg_22[7:0]
+    10/13: $0\buff_out_reg_21[7:0]
+    11/13: $0\d_out_4[7:0]
+    12/13: $0\d_out_2[7:0]
+    13/13: $0\d_out_1[7:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\sh_reg_1.\dout_1' using process `\sh_reg_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:105$13'.
+  created $dff cell `$procdff$43' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\d_out_1' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$44' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\d_out_2' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$45' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\d_out_4' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$46' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\buff_out_reg_21' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$47' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\buff_out_reg_22' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$48' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\buff_out_reg_23' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$49' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\buff_out_reg_41' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$50' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\buff_out_reg_42' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$51' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\buff_out_reg_43' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$52' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\buff_out_reg_44' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$53' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\buff_out_reg_45' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$54' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\buff_out_reg_46' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$55' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\buff_out_reg_47' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$56' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\add_2_tmp_1' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$57' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\add_2_tmp_2' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$58' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\add_2_tmp' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$59' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\add_4_tmp_1' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$60' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\add_4_tmp_2' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$61' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\add_4_tmp_3' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$62' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\add_4_tmp_4' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$63' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\add_4_tmp_5' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$64' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\add_4_tmp_6' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$65' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\add_4_tmp_7' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$66' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\add_4_tmp_8' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$67' with positive edge clock.
+Creating register for signal `\scl_h_fltr.\add_4_tmp' using process `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+  created $dff cell `$procdff$68' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\sh_reg_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:105$13'.
+Removing empty process `sh_reg_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:105$13'.
+Found and cleaned up 1 empty switch in `\scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+Removing empty process `scl_h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_h_fltr.v:65$1'.
+Cleaned up 2 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sh_reg_1.
+<suppressed ~1 debug messages>
+Optimizing module scl_h_fltr.
+<suppressed ~1 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sh_reg_1.
+Optimizing module scl_h_fltr.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sh_reg_1'.
+Finding identical cells in module `\scl_h_fltr'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sh_reg_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \scl_h_fltr..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~14 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sh_reg_1.
+  Optimizing cells in module \scl_h_fltr.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sh_reg_1'.
+Finding identical cells in module `\scl_h_fltr'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$43 ($dff) from module sh_reg_1 (D = \din_1, Q = \dout_1).
+Adding EN signal on $procdff$44 ($dff) from module scl_h_fltr (D = \d_in_1, Q = \d_out_1).
+Adding EN signal on $procdff$45 ($dff) from module scl_h_fltr (D = \add_2_tmp [9:2], Q = \d_out_2).
+Adding EN signal on $procdff$46 ($dff) from module scl_h_fltr (D = \add_4_tmp [11:4], Q = \d_out_4).
+Adding EN signal on $procdff$47 ($dff) from module scl_h_fltr (D = \buff_out_21, Q = \buff_out_reg_21).
+Adding EN signal on $procdff$48 ($dff) from module scl_h_fltr (D = \buff_out_22, Q = \buff_out_reg_22).
+Adding EN signal on $procdff$49 ($dff) from module scl_h_fltr (D = \buff_out_23, Q = \buff_out_reg_23).
+Adding EN signal on $procdff$50 ($dff) from module scl_h_fltr (D = \buff_out_41, Q = \buff_out_reg_41).
+Adding EN signal on $procdff$51 ($dff) from module scl_h_fltr (D = \buff_out_42, Q = \buff_out_reg_42).
+Adding EN signal on $procdff$52 ($dff) from module scl_h_fltr (D = \buff_out_43, Q = \buff_out_reg_43).
+Adding EN signal on $procdff$53 ($dff) from module scl_h_fltr (D = \buff_out_44, Q = \buff_out_reg_44).
+Adding EN signal on $procdff$54 ($dff) from module scl_h_fltr (D = \buff_out_45, Q = \buff_out_reg_45).
+Adding EN signal on $procdff$55 ($dff) from module scl_h_fltr (D = \buff_out_46, Q = \buff_out_reg_46).
+Adding EN signal on $procdff$56 ($dff) from module scl_h_fltr (D = \buff_out_47, Q = \buff_out_reg_47).
+Setting constant 0-bit at position 0 on $procdff$58 ($dff) from module scl_h_fltr.
+Setting constant 0-bit at position 9 on $procdff$58 ($dff) from module scl_h_fltr.
+Setting constant 0-bit at position 0 on $procdff$64 ($dff) from module scl_h_fltr.
+Setting constant 0-bit at position 1 on $procdff$64 ($dff) from module scl_h_fltr.
+Setting constant 0-bit at position 10 on $procdff$64 ($dff) from module scl_h_fltr.
+Setting constant 0-bit at position 11 on $procdff$64 ($dff) from module scl_h_fltr.
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sh_reg_1..
+Finding unused cells or wires in module \scl_h_fltr..
+Removed 14 unused cells and 56 unused wires.
+<suppressed ~16 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module scl_h_fltr.
+Optimizing module sh_reg_1.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \scl_h_fltr..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \sh_reg_1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \scl_h_fltr.
+  Optimizing cells in module \sh_reg_1.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\scl_h_fltr'.
+Finding identical cells in module `\sh_reg_1'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \scl_h_fltr..
+Finding unused cells or wires in module \sh_reg_1..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module scl_h_fltr.
+Optimizing module sh_reg_1.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== scl_h_fltr ===
+
+   Number of wires:                 52
+   Number of wire bits:            480
+   Number of public wires:          42
+   Number of public wire bits:     364
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 45
+     $add                          116
+     $dff                          132
+     $dffe                         104
+
+=== sh_reg_1 ===
+
+   Number of wires:                  4
+   Number of wire bits:             18
+   Number of public wires:           4
+   Number of public wire bits:      18
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $dffe                           8
+
+=== design hierarchy ===
+
+   scl_h_fltr                        1
+     sh_reg_1                        0
+
+   Number of wires:                 52
+   Number of wire bits:            480
+   Number of public wires:          42
+   Number of public wire bits:     364
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 45
+     $add                          116
+     $dff                          132
+     $dffe                         104
+
+End of script. Logfile hash: 1eea937e65, CPU: user 0.04s system 0.00s, MEM: 12.16 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 22% 4x opt_expr (0 sec), 22% 3x opt_merge (0 sec), ...

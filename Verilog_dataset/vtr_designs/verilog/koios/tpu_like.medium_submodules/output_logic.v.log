@@ -1,0 +1,379 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v' to AST representation.
+Generating RTLIL representation for module `\output_logic'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: output_logic        
+Automatically selected output_logic as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \output_logic
+
+2.3. Analyzing design hierarchy..
+Top module:  \output_logic
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2 in module output_logic.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+     1/36: $0\c_data_out_31[255:0]
+     2/36: $0\c_data_out_30[255:0]
+     3/36: $0\c_data_out_29[255:0]
+     4/36: $0\c_data_out_28[255:0]
+     5/36: $0\c_data_out_27[255:0]
+     6/36: $0\c_data_out_26[255:0]
+     7/36: $0\c_data_out_25[255:0]
+     8/36: $0\c_data_out_24[255:0]
+     9/36: $0\c_data_out_23[255:0]
+    10/36: $0\c_data_out_22[255:0]
+    11/36: $0\c_data_out_21[255:0]
+    12/36: $0\c_data_out_20[255:0]
+    13/36: $0\c_data_out_19[255:0]
+    14/36: $0\c_data_out_18[255:0]
+    15/36: $0\c_data_out_17[255:0]
+    16/36: $0\c_data_out_16[255:0]
+    17/36: $0\c_data_out_15[255:0]
+    18/36: $0\c_data_out_14[255:0]
+    19/36: $0\c_data_out_13[255:0]
+    20/36: $0\c_data_out_12[255:0]
+    21/36: $0\c_data_out_11[255:0]
+    22/36: $0\c_data_out_10[255:0]
+    23/36: $0\c_data_out_9[255:0]
+    24/36: $0\c_data_out_8[255:0]
+    25/36: $0\c_data_out_7[255:0]
+    26/36: $0\c_data_out_6[255:0]
+    27/36: $0\c_data_out_5[255:0]
+    28/36: $0\c_data_out_4[255:0]
+    29/36: $0\c_data_out_3[255:0]
+    30/36: $0\c_data_out_2[255:0]
+    31/36: $0\c_data_out_1[255:0]
+    32/36: $0\counter[31:0]
+    33/36: $0\start_capturing_c_data[0:0]
+    34/36: $0\c_data_available[0:0]
+    35/36: $0\c_addr[9:0]
+    36/36: $0\c_data_out[255:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\output_logic.\c_data_out' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$512' with positive edge clock.
+Creating register for signal `\output_logic.\c_addr' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$513' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_available' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$514' with positive edge clock.
+Creating register for signal `\output_logic.\start_capturing_c_data' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$515' with positive edge clock.
+Creating register for signal `\output_logic.\counter' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$516' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_1' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$517' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_2' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$518' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_3' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$519' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_4' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$520' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_5' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$521' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_6' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$522' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_7' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$523' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_8' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$524' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_9' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$525' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_10' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$526' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_11' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$527' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_12' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$528' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_13' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$529' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_14' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$530' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_15' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$531' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_16' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$532' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_17' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$533' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_18' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$534' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_19' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$535' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_20' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$536' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_21' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$537' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_22' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$538' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_23' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$539' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_24' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$540' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_25' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$541' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_26' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$542' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_27' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$543' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_28' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$544' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_29' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$545' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_30' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$546' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_31' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+  created $dff cell `$procdff$547' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 5 empty switches in `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+Removing empty process `output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tpu_like.medium_submodules/output_logic.v:2183$2'.
+Cleaned up 5 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module output_logic.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module output_logic.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\output_logic'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \output_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \output_logic.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\output_logic'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$544 ($dff) from module output_logic (D = $procmux$64_Y, Q = \c_data_out_28, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$548 ($sdff) from module output_logic (D = $procmux$64_Y, Q = \c_data_out_28).
+Adding SRST signal on $procdff$545 ($dff) from module output_logic (D = $procmux$50_Y, Q = \c_data_out_29, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$552 ($sdff) from module output_logic (D = $procmux$50_Y, Q = \c_data_out_29).
+Adding SRST signal on $procdff$546 ($dff) from module output_logic (D = $procmux$36_Y, Q = \c_data_out_30, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$556 ($sdff) from module output_logic (D = $procmux$36_Y, Q = \c_data_out_30).
+Adding SRST signal on $procdff$547 ($dff) from module output_logic (D = $procmux$22_Y, Q = \c_data_out_31, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$560 ($sdff) from module output_logic (D = $procmux$22_Y, Q = \c_data_out_31).
+Adding SRST signal on $procdff$512 ($dff) from module output_logic (D = $procmux$507_Y, Q = \c_data_out, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$564 ($sdff) from module output_logic (D = $procmux$507_Y, Q = \c_data_out).
+Adding EN signal on $procdff$513 ($dff) from module output_logic (D = $procmux$496_Y, Q = \c_addr).
+Adding SRST signal on $procdff$514 ($dff) from module output_logic (D = $procmux$479_Y, Q = \c_data_available, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$571 ($sdff) from module output_logic (D = $procmux$479_Y, Q = \c_data_available).
+Adding SRST signal on $procdff$515 ($dff) from module output_logic (D = $procmux$465_Y, Q = \start_capturing_c_data, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$579 ($sdff) from module output_logic (D = $procmux$465_Y, Q = \start_capturing_c_data).
+Adding SRST signal on $procdff$516 ($dff) from module output_logic (D = $procmux$456_Y, Q = \counter, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$583 ($sdff) from module output_logic (D = $procmux$456_Y, Q = \counter).
+Adding SRST signal on $procdff$517 ($dff) from module output_logic (D = $procmux$442_Y, Q = \c_data_out_1, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$593 ($sdff) from module output_logic (D = $procmux$442_Y, Q = \c_data_out_1).
+Adding SRST signal on $procdff$518 ($dff) from module output_logic (D = $procmux$428_Y, Q = \c_data_out_2, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$597 ($sdff) from module output_logic (D = $procmux$428_Y, Q = \c_data_out_2).
+Adding SRST signal on $procdff$519 ($dff) from module output_logic (D = $procmux$414_Y, Q = \c_data_out_3, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$601 ($sdff) from module output_logic (D = $procmux$414_Y, Q = \c_data_out_3).
+Adding SRST signal on $procdff$520 ($dff) from module output_logic (D = $procmux$400_Y, Q = \c_data_out_4, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$605 ($sdff) from module output_logic (D = $procmux$400_Y, Q = \c_data_out_4).
+Adding SRST signal on $procdff$521 ($dff) from module output_logic (D = $procmux$386_Y, Q = \c_data_out_5, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$609 ($sdff) from module output_logic (D = $procmux$386_Y, Q = \c_data_out_5).
+Adding SRST signal on $procdff$522 ($dff) from module output_logic (D = $procmux$372_Y, Q = \c_data_out_6, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$613 ($sdff) from module output_logic (D = $procmux$372_Y, Q = \c_data_out_6).
+Adding SRST signal on $procdff$523 ($dff) from module output_logic (D = $procmux$358_Y, Q = \c_data_out_7, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$617 ($sdff) from module output_logic (D = $procmux$358_Y, Q = \c_data_out_7).
+Adding SRST signal on $procdff$524 ($dff) from module output_logic (D = $procmux$344_Y, Q = \c_data_out_8, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$621 ($sdff) from module output_logic (D = $procmux$344_Y, Q = \c_data_out_8).
+Adding SRST signal on $procdff$525 ($dff) from module output_logic (D = $procmux$330_Y, Q = \c_data_out_9, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$625 ($sdff) from module output_logic (D = $procmux$330_Y, Q = \c_data_out_9).
+Adding SRST signal on $procdff$526 ($dff) from module output_logic (D = $procmux$316_Y, Q = \c_data_out_10, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$629 ($sdff) from module output_logic (D = $procmux$316_Y, Q = \c_data_out_10).
+Adding SRST signal on $procdff$527 ($dff) from module output_logic (D = $procmux$302_Y, Q = \c_data_out_11, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$633 ($sdff) from module output_logic (D = $procmux$302_Y, Q = \c_data_out_11).
+Adding SRST signal on $procdff$528 ($dff) from module output_logic (D = $procmux$288_Y, Q = \c_data_out_12, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$637 ($sdff) from module output_logic (D = $procmux$288_Y, Q = \c_data_out_12).
+Adding SRST signal on $procdff$529 ($dff) from module output_logic (D = $procmux$274_Y, Q = \c_data_out_13, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$641 ($sdff) from module output_logic (D = $procmux$274_Y, Q = \c_data_out_13).
+Adding SRST signal on $procdff$530 ($dff) from module output_logic (D = $procmux$260_Y, Q = \c_data_out_14, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$645 ($sdff) from module output_logic (D = $procmux$260_Y, Q = \c_data_out_14).
+Adding SRST signal on $procdff$531 ($dff) from module output_logic (D = $procmux$246_Y, Q = \c_data_out_15, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$649 ($sdff) from module output_logic (D = $procmux$246_Y, Q = \c_data_out_15).
+Adding SRST signal on $procdff$532 ($dff) from module output_logic (D = $procmux$232_Y, Q = \c_data_out_16, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$653 ($sdff) from module output_logic (D = $procmux$232_Y, Q = \c_data_out_16).
+Adding SRST signal on $procdff$533 ($dff) from module output_logic (D = $procmux$218_Y, Q = \c_data_out_17, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$657 ($sdff) from module output_logic (D = $procmux$218_Y, Q = \c_data_out_17).
+Adding SRST signal on $procdff$534 ($dff) from module output_logic (D = $procmux$204_Y, Q = \c_data_out_18, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$661 ($sdff) from module output_logic (D = $procmux$204_Y, Q = \c_data_out_18).
+Adding SRST signal on $procdff$535 ($dff) from module output_logic (D = $procmux$190_Y, Q = \c_data_out_19, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$665 ($sdff) from module output_logic (D = $procmux$190_Y, Q = \c_data_out_19).
+Adding SRST signal on $procdff$536 ($dff) from module output_logic (D = $procmux$176_Y, Q = \c_data_out_20, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$669 ($sdff) from module output_logic (D = $procmux$176_Y, Q = \c_data_out_20).
+Adding SRST signal on $procdff$537 ($dff) from module output_logic (D = $procmux$162_Y, Q = \c_data_out_21, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$673 ($sdff) from module output_logic (D = $procmux$162_Y, Q = \c_data_out_21).
+Adding SRST signal on $procdff$538 ($dff) from module output_logic (D = $procmux$148_Y, Q = \c_data_out_22, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$677 ($sdff) from module output_logic (D = $procmux$148_Y, Q = \c_data_out_22).
+Adding SRST signal on $procdff$539 ($dff) from module output_logic (D = $procmux$134_Y, Q = \c_data_out_23, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$681 ($sdff) from module output_logic (D = $procmux$134_Y, Q = \c_data_out_23).
+Adding SRST signal on $procdff$540 ($dff) from module output_logic (D = $procmux$120_Y, Q = \c_data_out_24, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$685 ($sdff) from module output_logic (D = $procmux$120_Y, Q = \c_data_out_24).
+Adding SRST signal on $procdff$541 ($dff) from module output_logic (D = $procmux$106_Y, Q = \c_data_out_25, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$689 ($sdff) from module output_logic (D = $procmux$106_Y, Q = \c_data_out_25).
+Adding SRST signal on $procdff$542 ($dff) from module output_logic (D = $procmux$92_Y, Q = \c_data_out_26, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$693 ($sdff) from module output_logic (D = $procmux$92_Y, Q = \c_data_out_26).
+Adding SRST signal on $procdff$543 ($dff) from module output_logic (D = $procmux$78_Y, Q = \c_data_out_27, rval = 256'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$697 ($sdff) from module output_logic (D = $procmux$78_Y, Q = \c_data_out_27).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \output_logic..
+Removed 35 unused cells and 254 unused wires.
+<suppressed ~36 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module output_logic.
+<suppressed ~36 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \output_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \output_logic.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\output_logic'.
+<suppressed ~102 debug messages>
+Removed a total of 34 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \output_logic..
+Removed 0 unused cells and 34 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module output_logic.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \output_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \output_logic.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\output_logic'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \output_logic..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module output_logic.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== output_logic ===
+
+   Number of wires:               1227
+   Number of wire bits:          49758
+   Number of public wires:        1071
+   Number of public wire bits:   16732
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                193
+     $add                           48
+     $dffe                          10
+     $eq                             8
+     $ge                            32
+     $mux                        32952
+     $ne                             5
+     $not                            1
+     $or                             1
+     $reduce_and                     5
+     $reduce_bool                   11
+     $sdffe                       8226
+     $sub                           16
+
+End of script. Logfile hash: 5e2c667e5f, CPU: user 3.58s system 0.04s, MEM: 57.63 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 42% 3x opt_dff (1 sec), 19% 3x opt_clean (0 sec), ...

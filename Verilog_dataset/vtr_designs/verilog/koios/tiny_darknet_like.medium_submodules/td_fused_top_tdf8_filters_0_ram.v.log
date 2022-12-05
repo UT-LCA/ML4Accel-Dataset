@@ -1,0 +1,191 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v' to AST representation.
+Generating RTLIL representation for module `\td_fused_top_tdf8_filters_0_ram'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: td_fused_top_tdf8_filters_0_ram
+Automatically selected td_fused_top_tdf8_filters_0_ram as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \td_fused_top_tdf8_filters_0_ram
+
+2.3. Analyzing design hierarchy..
+Top module:  \td_fused_top_tdf8_filters_0_ram
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:43$4 in module td_fused_top_tdf8_filters_0_ram.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 3 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\td_fused_top_tdf8_filters_0_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:43$4'.
+     1/6: $2$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:47$1_EN[31:0]$13
+     2/6: $2$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:47$1_DATA[31:0]$12
+     3/6: $2$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:47$1_ADDR[13:0]$11
+     4/6: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:47$1_EN[31:0]$10
+     5/6: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:47$1_DATA[31:0]$9
+     6/6: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:47$1_ADDR[13:0]$8
+Creating decoders for process `\td_fused_top_tdf8_filters_0_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:35$2'.
+     1/1: $0\q0[31:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\td_fused_top_tdf8_filters_0_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:47$1_ADDR' using process `\td_fused_top_tdf8_filters_0_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:43$4'.
+  created $dff cell `$procdff$43' with positive edge clock.
+Creating register for signal `\td_fused_top_tdf8_filters_0_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:47$1_DATA' using process `\td_fused_top_tdf8_filters_0_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:43$4'.
+  created $dff cell `$procdff$44' with positive edge clock.
+Creating register for signal `\td_fused_top_tdf8_filters_0_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:47$1_EN' using process `\td_fused_top_tdf8_filters_0_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:43$4'.
+  created $dff cell `$procdff$45' with positive edge clock.
+Creating register for signal `\td_fused_top_tdf8_filters_0_ram.\q0' using process `\td_fused_top_tdf8_filters_0_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:35$2'.
+  created $dff cell `$procdff$46' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\td_fused_top_tdf8_filters_0_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:43$4'.
+Removing empty process `td_fused_top_tdf8_filters_0_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:43$4'.
+Found and cleaned up 1 empty switch in `\td_fused_top_tdf8_filters_0_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:35$2'.
+Removing empty process `td_fused_top_tdf8_filters_0_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:35$2'.
+Cleaned up 3 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module td_fused_top_tdf8_filters_0_ram.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module td_fused_top_tdf8_filters_0_ram.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\td_fused_top_tdf8_filters_0_ram'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \td_fused_top_tdf8_filters_0_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$30.
+    dead port 2/2 on $mux $procmux$24.
+    dead port 2/2 on $mux $procmux$18.
+Removed 3 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \td_fused_top_tdf8_filters_0_ram.
+    Consolidated identical input bits for $mux cell $procmux$16:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$procmux$16_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$16_Y [0]
+      New connections: $procmux$16_Y [31:1] = { $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] $procmux$16_Y [0] }
+  Optimizing cells in module \td_fused_top_tdf8_filters_0_ram.
+    Consolidated identical input bits for $mux cell $procmux$33:
+      Old ports: A=0, B=$procmux$16_Y, Y=$procmux$33_Y
+      New ports: A=1'0, B=$procmux$16_Y [0], Y=$procmux$33_Y [0]
+      New connections: $procmux$33_Y [31:1] = { $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] }
+  Optimizing cells in module \td_fused_top_tdf8_filters_0_ram.
+Performed a total of 2 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\td_fused_top_tdf8_filters_0_ram'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$46 ($dff) from module td_fused_top_tdf8_filters_0_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_tdf8_filters_0_ram.v:38$3_DATA, Q = \q0).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \td_fused_top_tdf8_filters_0_ram..
+Removed 4 unused cells and 27 unused wires.
+<suppressed ~5 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module td_fused_top_tdf8_filters_0_ram.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \td_fused_top_tdf8_filters_0_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \td_fused_top_tdf8_filters_0_ram.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\td_fused_top_tdf8_filters_0_ram'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \td_fused_top_tdf8_filters_0_ram..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module td_fused_top_tdf8_filters_0_ram.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== td_fused_top_tdf8_filters_0_ram ===
+
+   Number of wires:                 15
+   Number of wire bits:            284
+   Number of public wires:           8
+   Number of public wire bits:      96
+   Number of memories:               1
+   Number of memory bits:       294912
+   Number of processes:              0
+   Number of cells:                  9
+     $dffe                          32
+     $mux                           94
+
+End of script. Logfile hash: 46155e9aa5, CPU: user 0.04s system 0.00s, MEM: 11.41 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 24% 2x opt_clean (0 sec), 12% 4x opt_expr (0 sec), ...

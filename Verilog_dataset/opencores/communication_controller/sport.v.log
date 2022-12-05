@@ -1,0 +1,764 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v' to AST representation.
+Warning: Encountered `translate_off' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using a portable and standards-compliant construct such as `ifdef is recommended!
+Warning: Yosys has only limited support for tri-state logic at the moment. (/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:235)
+Warning: Yosys has only limited support for tri-state logic at the moment. (/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:946)
+Generating RTLIL representation for module `\fifo_sport'.
+Generating RTLIL representation for module `\custom_fifo_dp'.
+Generating RTLIL representation for module `\mem_byte'.
+Generating RTLIL representation for module `\sport_top'.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:651: Warning: Identifier `\wb_data_i' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:651: Warning: Identifier `\wb_wr_en' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:651: Warning: Identifier `\wei_rd_en' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:651: Warning: Identifier `\fullwrite' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:651: Warning: Identifier `\emptywrite' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:652: Warning: Identifier `\data_o' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:652: Warning: Identifier `\fullread' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:652: Warning: Identifier `\emptyread' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:730: Warning: Identifier `\wb_sel_i' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:731: Warning: Identifier `\wb_cti_i' is implicitly declared.
+Generating RTLIL representation for module `\wb_interface_sport'.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:881: Warning: Identifier `\rst_o' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:882: Warning: Identifier `\rst' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:884: Warning: Identifier `\ack_o' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:885: Warning: Identifier `\stb_o' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:886: Warning: Identifier `\cyc_o' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:887: Warning: Identifier `\we_o' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:910: Warning: Identifier `\clk_o' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:914: Warning: Identifier `\lock_cfg_rx' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:915: Warning: Identifier `\lock_cfg_tx' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:945: Warning: Identifier `\wb_dat_rdbk' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:951: Warning: Identifier `\wb_wr_en' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:952: Warning: Identifier `\wb_rd_en' is implicitly declared.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: wb_interface_sport  
+root of   3 design levels: sport_top           
+root of   0 design levels: mem_byte            
+root of   1 design levels: custom_fifo_dp      
+root of   2 design levels: fifo_sport          
+Automatically selected sport_top as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \sport_top
+Used module:     \wb_interface_sport
+Used module:     \fifo_sport
+Used module:         \custom_fifo_dp
+Used module:             \mem_byte
+
+2.3. Analyzing design hierarchy..
+Top module:  \sport_top
+Used module:     \wb_interface_sport
+Used module:     \fifo_sport
+Used module:         \custom_fifo_dp
+Used module:             \mem_byte
+Removed 0 unused modules.
+Mapping positional arguments of cell sport_top.wb_interface (wb_interface_sport).
+Mapping positional arguments of cell sport_top.datafiforead (fifo_sport).
+Mapping positional arguments of cell sport_top.datafifowrite (fifo_sport).
+Mapping positional arguments of cell custom_fifo_dp.mem[9].mem_byte (mem_byte).
+Mapping positional arguments of cell custom_fifo_dp.mem[8].mem_byte (mem_byte).
+Mapping positional arguments of cell custom_fifo_dp.mem[7].mem_byte (mem_byte).
+Mapping positional arguments of cell custom_fifo_dp.mem[6].mem_byte (mem_byte).
+Mapping positional arguments of cell custom_fifo_dp.mem[5].mem_byte (mem_byte).
+Mapping positional arguments of cell custom_fifo_dp.mem[4].mem_byte (mem_byte).
+Mapping positional arguments of cell custom_fifo_dp.mem[3].mem_byte (mem_byte).
+Mapping positional arguments of cell custom_fifo_dp.mem[2].mem_byte (mem_byte).
+Mapping positional arguments of cell custom_fifo_dp.mem[1].mem_byte (mem_byte).
+Mapping positional arguments of cell custom_fifo_dp.mem[0].mem_byte (mem_byte).
+Mapping positional arguments of cell fifo_sport.custom_fifo_dp8 (custom_fifo_dp).
+Mapping positional arguments of cell fifo_sport.custom_fifo_dp7 (custom_fifo_dp).
+Mapping positional arguments of cell fifo_sport.custom_fifo_dp6 (custom_fifo_dp).
+Mapping positional arguments of cell fifo_sport.custom_fifo_dp5 (custom_fifo_dp).
+Warning: Resizing cell port sport_top.wb_interface.wb_sel_i from 1 bits to 4 bits.
+Warning: Resizing cell port sport_top.wb_interface.wb_cti_i from 1 bits to 3 bits.
+Warning: Resizing cell port sport_top.datafiforead.d_i from 1 bits to 32 bits.
+Warning: Resizing cell port sport_top.datafiforead.d_o from 1 bits to 32 bits.
+Warning: Resizing cell port sport_top.datafifowrite.d_i from 1 bits to 32 bits.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:939$104 in module wb_interface_sport.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:932$97 in module wb_interface_sport.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:904$96 in module wb_interface_sport.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:897$89 in module wb_interface_sport.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:890$73 in module wb_interface_sport.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:725$72 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:720$71 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:715$70 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:710$69 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:705$68 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:700$67 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:695$66 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:689$65 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:683$64 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:678$63 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:673$62 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:668$61 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:663$60 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:658$59 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:644$57 in module sport_top.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:634$56 in module sport_top.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:627$55 in module sport_top.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:613$49 in module sport_top.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:604$46 in module sport_top.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:577$43 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:572$42 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:562$38 in module sport_top.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:552$35 in module sport_top.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:543$32 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:531$31 in module sport_top.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:504$28 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:499$27 in module sport_top.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:237$24 in module mem_byte.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:193$7 in module custom_fifo_dp.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:185$4 in module custom_fifo_dp.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:179$3 in module custom_fifo_dp.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 28 redundant assignments.
+Promoted 8 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:939$104'.
+Found async reset \rst in `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:932$97'.
+Found async reset \rst in `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:904$96'.
+Found async reset \rst in `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:897$89'.
+Found async reset \rst in `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:890$73'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:725$72'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:720$71'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:715$70'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:710$69'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:705$68'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:700$67'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:695$66'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:689$65'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:683$64'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:678$63'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:673$62'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:668$61'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:663$60'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:658$59'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:644$57'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:634$56'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:627$55'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:613$49'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:604$46'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:572$42'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:562$38'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:552$35'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:543$32'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:531$31'.
+Found async reset \rst in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:499$27'.
+Found async reset \rst in `\mem_byte.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:237$24'.
+Found async reset \rst in `\custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:193$7'.
+Found async reset \rst in `\custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:185$4'.
+Found async reset \rst in `\custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:179$3'.
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:939$104'.
+     1/1: $0\txreg[31:0]
+Creating decoders for process `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:932$97'.
+     1/1: $0\rxreg[31:0]
+Creating decoders for process `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:904$96'.
+     1/1: $0\rty[0:0]
+Creating decoders for process `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:897$89'.
+     1/1: $0\err[0:0]
+Creating decoders for process `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:890$73'.
+     1/1: $0\ack[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:725$72'.
+     1/1: $0\rx_start_rxint[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:720$71'.
+     1/1: $0\tx_start_txint[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:715$70'.
+     1/1: $0\msbFirst_txint[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:710$69'.
+     1/1: $0\rx_actHi_rxint[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:705$68'.
+     1/1: $0\tx_actHi_txint[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:700$67'.
+     1/1: $1\txlateFS_earlyFSn_txint[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:695$66'.
+     1/1: $0\txsecEn_txint[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:689$65'.
+     1/1: $0\txlateFS_earlyFSn_txint[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:683$64'.
+     1/1: $0\rxlateFS_earlyFSn_rxint[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:678$63'.
+     1/1: $0\rxsecEn_rxint[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:673$62'.
+     1/1: $0\txpacketCnt_txint[9:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:668$61'.
+     1/1: $0\txsampleCnt_txint[4:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:663$60'.
+     1/1: $0\rxpacketCnt_rxint[9:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:658$59'.
+     1/1: $0\rxsampleCnt_rxint[4:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:644$57'.
+     1/1: $0\txFS[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:634$56'.
+     1/1: $0\word_outL[31:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:627$55'.
+     1/1: $0\word_outM[31:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:613$49'.
+     1/1: $0\txpacketCnt_tx[9:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:604$46'.
+     1/1: $0\txsampleCnt_tx[4:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:577$43'.
+     1/7: $4\next_state[2:0]
+     2/7: $3\next_state[2:0]
+     3/7: $2\next_state[2:0]
+     4/7: $1\next_state[2:0]
+     5/7: $1\txfs[0:0]
+     6/7: $1\tx[0:0]
+     7/7: $1\txidle[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:572$42'.
+     1/1: $0\state[2:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:562$38'.
+     1/1: $0\rxFS[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:552$35'.
+     1/1: $0\rxpacketCnt_rx[9:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:543$32'.
+     1/1: $0\rxsampleCnt_rx[4:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:531$31'.
+     1/2: $0\rxSec[31:0]
+     2/2: $0\rxPri[31:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:504$28'.
+     1/7: $4\next_rxstate[2:0]
+     2/7: $3\next_rxstate[2:0]
+     3/7: $2\next_rxstate[2:0]
+     4/7: $1\next_rxstate[2:0]
+     5/7: $1\rxfs[0:0]
+     6/7: $1\rx[0:0]
+     7/7: $1\rxidle[0:0]
+Creating decoders for process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:499$27'.
+     1/1: $0\rxstate[2:0]
+Creating decoders for process `\mem_byte.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:237$24'.
+     1/1: $0\byte_reg[7:0]
+Creating decoders for process `\custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:193$7'.
+     1/2: $0\addr_rd[9:0] [9:1]
+     2/2: $0\addr_rd[9:0] [0]
+Creating decoders for process `\custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:185$4'.
+     1/2: $0\addr_wr[9:0] [9:1]
+     2/2: $0\addr_wr[9:0] [0]
+Creating decoders for process `\custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:179$3'.
+     1/1: $0\fifo_out[7:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\sport_top.\next_state' from process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:577$43'.
+No latch inferred for signal `\sport_top.\txidle' from process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:577$43'.
+No latch inferred for signal `\sport_top.\tx' from process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:577$43'.
+No latch inferred for signal `\sport_top.\txfs' from process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:577$43'.
+No latch inferred for signal `\sport_top.\next_rxstate' from process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:504$28'.
+No latch inferred for signal `\sport_top.\rxidle' from process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:504$28'.
+No latch inferred for signal `\sport_top.\rx' from process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:504$28'.
+No latch inferred for signal `\sport_top.\rxfs' from process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:504$28'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\wb_interface_sport.\txreg' using process `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:939$104'.
+  created $adff cell `$procdff$258' with negative edge clock and positive level reset.
+Creating register for signal `\wb_interface_sport.\rxreg' using process `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:932$97'.
+  created $adff cell `$procdff$259' with negative edge clock and positive level reset.
+Creating register for signal `\wb_interface_sport.\rty' using process `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:904$96'.
+  created $adff cell `$procdff$260' with positive edge clock and positive level reset.
+Creating register for signal `\wb_interface_sport.\err' using process `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:897$89'.
+  created $adff cell `$procdff$261' with positive edge clock and positive level reset.
+Creating register for signal `\wb_interface_sport.\ack' using process `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:890$73'.
+  created $adff cell `$procdff$262' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\rx_start_rxint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:725$72'.
+  created $adff cell `$procdff$263' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\tx_start_txint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:720$71'.
+  created $adff cell `$procdff$264' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\msbFirst_txint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:715$70'.
+  created $adff cell `$procdff$265' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\rx_actHi_rxint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:710$69'.
+  created $adff cell `$procdff$266' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\tx_actHi_txint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:705$68'.
+  created $adff cell `$procdff$267' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\txlateFS_earlyFSn_txint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:700$67'.
+  created $adff cell `$procdff$268' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\txsecEn_txint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:695$66'.
+  created $adff cell `$procdff$269' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\txlateFS_earlyFSn_txint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:689$65'.
+  created $adff cell `$procdff$270' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\rxlateFS_earlyFSn_rxint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:683$64'.
+  created $adff cell `$procdff$271' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\rxsecEn_rxint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:678$63'.
+  created $adff cell `$procdff$272' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\txpacketCnt_txint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:673$62'.
+  created $adff cell `$procdff$273' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\txsampleCnt_txint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:668$61'.
+  created $adff cell `$procdff$274' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\rxpacketCnt_rxint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:663$60'.
+  created $adff cell `$procdff$275' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\rxsampleCnt_rxint' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:658$59'.
+  created $adff cell `$procdff$276' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\txFS' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:644$57'.
+  created $adff cell `$procdff$277' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\word_outL' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:634$56'.
+  created $adff cell `$procdff$278' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\word_outM' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:627$55'.
+  created $adff cell `$procdff$279' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\txpacketCnt_tx' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:613$49'.
+  created $adff cell `$procdff$280' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\txsampleCnt_tx' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:604$46'.
+  created $adff cell `$procdff$281' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\state' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:572$42'.
+  created $adff cell `$procdff$282' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\rxFS' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:562$38'.
+  created $adff cell `$procdff$283' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\rxpacketCnt_rx' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:552$35'.
+  created $adff cell `$procdff$284' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\rxsampleCnt_rx' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:543$32'.
+  created $adff cell `$procdff$285' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\rxPri' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:531$31'.
+  created $adff cell `$procdff$286' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\rxSec' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:531$31'.
+  created $adff cell `$procdff$287' with positive edge clock and positive level reset.
+Creating register for signal `\sport_top.\rxstate' using process `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:499$27'.
+  created $adff cell `$procdff$288' with positive edge clock and positive level reset.
+Creating register for signal `\mem_byte.\byte_reg' using process `\mem_byte.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:237$24'.
+  created $adff cell `$procdff$289' with positive edge clock and positive level reset.
+Creating register for signal `\custom_fifo_dp.\addr_rd' using process `\custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:193$7'.
+  created $adff cell `$procdff$290' with positive edge clock and positive level reset.
+Creating register for signal `\custom_fifo_dp.\addr_wr' using process `\custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:185$4'.
+  created $adff cell `$procdff$291' with positive edge clock and positive level reset.
+Creating register for signal `\custom_fifo_dp.\fifo_out' using process `\custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:179$3'.
+  created $adff cell `$procdff$292' with positive edge clock and positive level reset.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:939$104'.
+Removing empty process `wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:939$104'.
+Found and cleaned up 1 empty switch in `\wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:932$97'.
+Removing empty process `wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:932$97'.
+Removing empty process `wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:904$96'.
+Removing empty process `wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:897$89'.
+Removing empty process `wb_interface_sport.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:890$73'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:725$72'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:720$71'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:715$70'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:710$69'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:705$68'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:700$67'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:695$66'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:689$65'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:683$64'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:678$63'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:673$62'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:668$61'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:663$60'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:658$59'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:644$57'.
+Found and cleaned up 2 empty switches in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:634$56'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:634$56'.
+Found and cleaned up 2 empty switches in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:627$55'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:627$55'.
+Found and cleaned up 2 empty switches in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:613$49'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:613$49'.
+Found and cleaned up 2 empty switches in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:604$46'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:604$46'.
+Found and cleaned up 4 empty switches in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:577$43'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:577$43'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:572$42'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:562$38'.
+Found and cleaned up 2 empty switches in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:552$35'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:552$35'.
+Found and cleaned up 2 empty switches in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:543$32'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:543$32'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:531$31'.
+Found and cleaned up 4 empty switches in `\sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:504$28'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:504$28'.
+Removing empty process `sport_top.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:499$27'.
+Found and cleaned up 1 empty switch in `\mem_byte.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:237$24'.
+Removing empty process `mem_byte.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:237$24'.
+Found and cleaned up 1 empty switch in `\custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:193$7'.
+Removing empty process `custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:193$7'.
+Found and cleaned up 1 empty switch in `\custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:185$4'.
+Removing empty process `custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:185$4'.
+Removing empty process `custom_fifo_dp.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/sport.v:179$3'.
+Cleaned up 25 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wb_interface_sport.
+Optimizing module sport_top.
+Optimizing module mem_byte.
+Optimizing module custom_fifo_dp.
+Optimizing module fifo_sport.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wb_interface_sport.
+Optimizing module sport_top.
+Optimizing module mem_byte.
+Optimizing module custom_fifo_dp.
+Optimizing module fifo_sport.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wb_interface_sport'.
+<suppressed ~45 debug messages>
+Finding identical cells in module `\sport_top'.
+<suppressed ~48 debug messages>
+Finding identical cells in module `\mem_byte'.
+Finding identical cells in module `\custom_fifo_dp'.
+Finding identical cells in module `\fifo_sport'.
+Removed a total of 31 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wb_interface_sport..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \sport_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$246.
+    dead port 2/2 on $mux $procmux$246.
+    dead port 2/2 on $mux $procmux$229.
+    dead port 2/2 on $mux $procmux$221.
+    dead port 2/2 on $mux $procmux$215.
+    dead port 1/2 on $mux $procmux$213.
+    dead port 1/2 on $mux $procmux$194.
+    dead port 2/2 on $mux $procmux$194.
+    dead port 2/2 on $mux $procmux$177.
+    dead port 2/2 on $mux $procmux$169.
+    dead port 2/2 on $mux $procmux$163.
+    dead port 1/2 on $mux $procmux$161.
+Running muxtree optimizer on module \mem_byte..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \custom_fifo_dp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo_sport..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 12 multiplexer ports.
+<suppressed ~28 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wb_interface_sport.
+  Optimizing cells in module \sport_top.
+  Optimizing cells in module \mem_byte.
+  Optimizing cells in module \custom_fifo_dp.
+  Optimizing cells in module \fifo_sport.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wb_interface_sport'.
+Finding identical cells in module `\sport_top'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\mem_byte'.
+Finding identical cells in module `\custom_fifo_dp'.
+Finding identical cells in module `\fifo_sport'.
+Removed a total of 2 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$258 ($adff) from module wb_interface_sport (D = \wb_dat_i, Q = \txreg).
+Adding EN signal on $procdff$259 ($adff) from module wb_interface_sport (D = \wb_dat_i, Q = \rxreg).
+Adding EN signal on $procdff$278 ($adff) from module sport_top (D = $procmux$137_Y, Q = \word_outL).
+Adding EN signal on $procdff$279 ($adff) from module sport_top (D = $procmux$142_Y, Q = \word_outM).
+Adding EN signal on $procdff$289 ($adff) from module mem_byte (D = \din, Q = \byte_reg).
+Adding EN signal on $procdff$290 ($adff) from module custom_fifo_dp (D = { \addr_rd [8:0] \addr_rd [9] }, Q = \addr_rd).
+Adding EN signal on $procdff$291 ($adff) from module custom_fifo_dp (D = { \addr_wr [8:0] \addr_wr [9] }, Q = \addr_wr).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wb_interface_sport..
+Finding unused cells or wires in module \sport_top..
+Finding unused cells or wires in module \mem_byte..
+Finding unused cells or wires in module \custom_fifo_dp..
+Finding unused cells or wires in module \fifo_sport..
+Removed 37 unused cells and 206 unused wires.
+<suppressed ~71 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module custom_fifo_dp.
+Optimizing module fifo_sport.
+Optimizing module mem_byte.
+Optimizing module sport_top.
+<suppressed ~2 debug messages>
+Optimizing module wb_interface_sport.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \custom_fifo_dp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo_sport..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \mem_byte..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \sport_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \wb_interface_sport..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \custom_fifo_dp.
+  Optimizing cells in module \fifo_sport.
+  Optimizing cells in module \mem_byte.
+  Optimizing cells in module \sport_top.
+  Optimizing cells in module \wb_interface_sport.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\custom_fifo_dp'.
+Finding identical cells in module `\fifo_sport'.
+Finding identical cells in module `\mem_byte'.
+Finding identical cells in module `\sport_top'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\wb_interface_sport'.
+Removed a total of 1 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \custom_fifo_dp..
+Finding unused cells or wires in module \fifo_sport..
+Finding unused cells or wires in module \mem_byte..
+Finding unused cells or wires in module \sport_top..
+Finding unused cells or wires in module \wb_interface_sport..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module custom_fifo_dp.
+Optimizing module fifo_sport.
+Optimizing module mem_byte.
+Optimizing module sport_top.
+Optimizing module wb_interface_sport.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \custom_fifo_dp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo_sport..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \mem_byte..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \sport_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \wb_interface_sport..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \custom_fifo_dp.
+  Optimizing cells in module \fifo_sport.
+  Optimizing cells in module \mem_byte.
+  Optimizing cells in module \sport_top.
+  Optimizing cells in module \wb_interface_sport.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\custom_fifo_dp'.
+Finding identical cells in module `\fifo_sport'.
+Finding identical cells in module `\mem_byte'.
+Finding identical cells in module `\sport_top'.
+Finding identical cells in module `\wb_interface_sport'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \custom_fifo_dp..
+Finding unused cells or wires in module \fifo_sport..
+Finding unused cells or wires in module \mem_byte..
+Finding unused cells or wires in module \sport_top..
+Finding unused cells or wires in module \wb_interface_sport..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module custom_fifo_dp.
+Optimizing module fifo_sport.
+Optimizing module mem_byte.
+Optimizing module sport_top.
+Optimizing module wb_interface_sport.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== custom_fifo_dp ===
+
+   Number of wires:                 19
+   Number of wire bits:             74
+   Number of public wires:          14
+   Number of public wire bits:      69
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 30
+     $adff                           1
+     $adffe                          2
+     $and                           12
+     $eq                             1
+     $mux                            1
+     $not                            2
+     $reduce_or                      1
+     mem_byte                       10
+
+=== fifo_sport ===
+
+   Number of wires:                 11
+   Number of wire bits:             79
+   Number of public wires:          11
+   Number of public wire bits:      79
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $reduce_or                      2
+     custom_fifo_dp                  4
+
+=== mem_byte ===
+
+   Number of wires:                  7
+   Number of wire bits:             28
+   Number of public wires:           7
+   Number of public wire bits:      28
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $adffe                          1
+     $mux                            1
+
+=== sport_top ===
+
+   Number of wires:                 94
+   Number of wire bits:            652
+   Number of public wires:          68
+   Number of public wire bits:     346
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 50
+     $add                            4
+     $adff                          13
+     $adffe                          2
+     $eq                             5
+     $mux                           20
+     $not                            2
+     $pmux                           1
+     $reduce_bool                    1
+     fifo_sport                      1
+     wb_interface_sport              1
+
+=== wb_interface_sport ===
+
+   Number of wires:                 75
+   Number of wire bits:            363
+   Number of public wires:          47
+   Number of public wire bits:     269
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 35
+     $adff                           3
+     $adffe                          2
+     $and                           15
+     $eq                             2
+     $logic_and                      2
+     $logic_not                      1
+     $mux                            2
+     $not                            6
+     $reduce_or                      1
+     $xor                            1
+
+=== design hierarchy ===
+
+   sport_top                         1
+     fifo_sport                      1
+       custom_fifo_dp                4
+         mem_byte                   10
+     wb_interface_sport              1
+
+   Number of wires:                536
+   Number of wire bits:           2510
+   Number of public wires:         462
+   Number of public wire bits:    2090
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                245
+     $add                            4
+     $adff                          20
+     $adffe                         52
+     $and                           63
+     $eq                            11
+     $logic_and                      2
+     $logic_not                      1
+     $mux                           66
+     $not                           16
+     $pmux                           1
+     $reduce_bool                    1
+     $reduce_or                      7
+     $xor                            1
+
+Warnings: 29 unique messages, 30 total
+End of script. Logfile hash: 78a49d04b9, CPU: user 0.13s system 0.00s, MEM: 13.62 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 21% 5x opt_expr (0 sec), 21% 2x read_verilog (0 sec), ...

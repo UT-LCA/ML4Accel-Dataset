@@ -1,0 +1,973 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v' to AST representation.
+Warning: Encountered `parallel_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `parallel_case' attribute or the SystemVerilog `unique' or `priority' keywords is recommended!
+Generating RTLIL representation for module `\cavlc_fsm'.
+Generating RTLIL representation for module `\cavlc_len_gen'.
+Generating RTLIL representation for module `\cavlc_read_levels'.
+Generating RTLIL representation for module `\cavlc_read_run_befores'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:839.1-925.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\cavlc_read_total_coeffs'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1182.1-1473.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1478.1-1777.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1782.1-2081.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2086.1-2097.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2102.1-2176.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\cavlc_read_total_zeros'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2381.1-2548.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2553.1-2916.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\cavlc_top'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   1 design levels: cavlc_top           
+root of   0 design levels: cavlc_read_total_zeros
+root of   0 design levels: cavlc_read_total_coeffs
+root of   0 design levels: cavlc_read_run_befores
+root of   0 design levels: cavlc_read_levels   
+root of   0 design levels: cavlc_len_gen       
+root of   0 design levels: cavlc_fsm           
+Automatically selected cavlc_top as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \cavlc_top
+Used module:     \cavlc_fsm
+Used module:     \cavlc_len_gen
+Used module:     \cavlc_read_run_befores
+Used module:     \cavlc_read_total_zeros
+Used module:     \cavlc_read_levels
+Used module:     \cavlc_read_total_coeffs
+
+2.3. Analyzing design hierarchy..
+Top module:  \cavlc_top
+Used module:     \cavlc_fsm
+Used module:     \cavlc_len_gen
+Used module:     \cavlc_read_run_befores
+Used module:     \cavlc_read_total_zeros
+Used module:     \cavlc_read_levels
+Used module:     \cavlc_read_total_coeffs
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2921$356 in module cavlc_read_total_zeros.
+Marked 43 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2553$355 in module cavlc_read_total_zeros.
+Marked 23 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2381$354 in module cavlc_read_total_zeros.
+Marked 8 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2339$341 in module cavlc_read_total_zeros.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2314$334 in module cavlc_read_total_zeros.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2214$331 in module cavlc_read_total_coeffs.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2182$328 in module cavlc_read_total_coeffs.
+Marked 7 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2102$321 in module cavlc_read_total_coeffs.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2086$318 in module cavlc_read_total_coeffs.
+Marked 15 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1782$310 in module cavlc_read_total_coeffs.
+Marked 50 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1478$260 in module cavlc_read_total_coeffs.
+Marked 48 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1182$212 in module cavlc_read_total_coeffs.
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1156$208 in module cavlc_read_total_coeffs.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184 in module cavlc_read_run_befores.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:953$182 in module cavlc_read_run_befores.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:940$176 in module cavlc_read_run_befores.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:930$174 in module cavlc_read_run_befores.
+Marked 11 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:839$161 in module cavlc_read_run_befores.
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:648$151 in module cavlc_read_levels.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88 in module cavlc_read_levels.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:503$84 in module cavlc_read_levels.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:487$72 in module cavlc_read_levels.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:470$58 in module cavlc_read_levels.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:457$50 in module cavlc_read_levels.
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:437$33 in module cavlc_read_levels.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:425$27 in module cavlc_read_levels.
+Marked 16 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:402$26 in module cavlc_read_levels.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:396$22 in module cavlc_read_levels.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:250$21 in module cavlc_len_gen.
+Marked 8 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:108$1 in module cavlc_fsm.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 38 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2214$331'.
+Found async reset \rst_n in `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1156$208'.
+Found async reset \rst_n in `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+Found async reset \rst_n in `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:940$176'.
+Found async reset \rst_n in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+Found async reset \rst_n in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:503$84'.
+Found async reset \rst_n in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:470$58'.
+Found async reset \rst_n in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:437$33'.
+Found async reset \rst_n in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:425$27'.
+Found async reset \rst_n in `\cavlc_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:108$1'.
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2921$356'.
+     1/2: $0\len_comb[3:0]
+     2/2: $0\TotalZeros_comb[3:0]
+Creating decoders for process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2553$355'.
+     1/2: $0\TotalZeros_G3[3:0]
+     2/2: $0\len_G3[2:0]
+Creating decoders for process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2381$354'.
+     1/2: $0\len_LE3[3:0]
+     2/2: $0\TotalZeros_LE3[3:0]
+Creating decoders for process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2339$341'.
+     1/2: $0\len_chroma_DC[1:0]
+     2/2: $0\TotalZeros_chroma_DC[1:0]
+Creating decoders for process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2314$334'.
+     1/3: $0\rbsp_G3[5:0]
+     2/3: $0\rbsp_LE3[8:0]
+     3/3: $0\rbsp_chroma_DC[2:0]
+Creating decoders for process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2214$331'.
+     1/2: $0\TrailingOnes[1:0]
+     2/2: $0\TotalCoeff[4:0]
+Creating decoders for process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2182$328'.
+     1/3: $0\len_comb[4:0]
+     2/3: $0\TotalCoeff_comb[4:0]
+     3/3: $0\TrailingOnes_comb[1:0]
+Creating decoders for process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2102$321'.
+     1/3: $0\len_5[4:0]
+     2/3: $0\TotalCoeff_5[4:0]
+     3/3: $0\TrailingOnes_5[1:0]
+Creating decoders for process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2086$318'.
+     1/2: $0\TotalCoeff_4[4:0]
+     2/2: $0\TrailingOnes_4[1:0]
+Creating decoders for process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1782$310'.
+     1/3: $0\TotalCoeff_3[4:0]
+     2/3: $0\TrailingOnes_3[1:0]
+     3/3: $0\len_3[4:0]
+Creating decoders for process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1478$260'.
+     1/3: $0\TotalCoeff_2[4:0]
+     2/3: $0\TrailingOnes_2[1:0]
+     3/3: $0\len_2[4:0]
+Creating decoders for process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1182$212'.
+     1/3: $0\len_1[4:0]
+     2/3: $0\TotalCoeff_1[4:0]
+     3/3: $0\TrailingOnes_1[1:0]
+Creating decoders for process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1156$208'.
+     1/5: $0\rbsp_5[7:0]
+     2/5: $0\rbsp_4[5:0]
+     3/5: $0\rbsp_3[9:0]
+     4/5: $0\rbsp_2[13:0]
+     5/5: $0\rbsp_1[15:0]
+Creating decoders for process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+     1/16: $0\coeff_15[8:0]
+     2/16: $0\coeff_14[8:0]
+     3/16: $0\coeff_13[8:0]
+     4/16: $0\coeff_12[8:0]
+     5/16: $0\coeff_11[8:0]
+     6/16: $0\coeff_10[8:0]
+     7/16: $0\coeff_9[8:0]
+     8/16: $0\coeff_8[8:0]
+     9/16: $0\coeff_7[8:0]
+    10/16: $0\coeff_6[8:0]
+    11/16: $0\coeff_5[8:0]
+    12/16: $0\coeff_4[8:0]
+    13/16: $0\coeff_3[8:0]
+    14/16: $0\coeff_2[8:0]
+    15/16: $0\coeff_1[8:0]
+    16/16: $0\coeff_0[8:0]
+Creating decoders for process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:953$182'.
+     1/1: $0\coeff[8:0]
+Creating decoders for process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:940$176'.
+     1/1: $0\ZeroLeft[3:0]
+Creating decoders for process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:930$174'.
+     1/1: $0\len_comb[3:0]
+Creating decoders for process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:839$161'.
+     1/2: $0\run[3:0]
+     2/2: $0\len[3:0]
+Creating decoders for process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:648$151'.
+     1/1: $0\len_comb[4:0]
+Creating decoders for process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+     1/16: $0\level_15[8:0]
+     2/16: $0\level_14[8:0]
+     3/16: $0\level_13[8:0]
+     4/16: $0\level_12[8:0]
+     5/16: $0\level_11[8:0]
+     6/16: $0\level_10[8:0]
+     7/16: $0\level_9[8:0]
+     8/16: $0\level_8[8:0]
+     9/16: $0\level_7[8:0]
+    10/16: $0\level_6[8:0]
+    11/16: $0\level_5[8:0]
+    12/16: $0\level_4[8:0]
+    13/16: $0\level_3[8:0]
+    14/16: $0\level_2[8:0]
+    15/16: $0\level_1[8:0]
+    16/16: $0\level_0[8:0]
+Creating decoders for process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:503$84'.
+     1/1: $0\level_abs[8:0]
+Creating decoders for process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:487$72'.
+     1/1: $0\level[8:0]
+Creating decoders for process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:470$58'.
+     1/1: $0\level_code_tmp[8:0]
+Creating decoders for process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:457$50'.
+     1/1: $0\level_suffix[8:0]
+Creating decoders for process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:437$33'.
+     1/1: $0\suffixLength[2:0]
+Creating decoders for process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:425$27'.
+     1/1: $0\level_prefix[3:0]
+Creating decoders for process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:402$26'.
+     1/1: $0\level_prefix_comb[3:0]
+Creating decoders for process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:396$22'.
+     1/1: $0\rbsp_internal[15:0]
+Creating decoders for process `\cavlc_len_gen.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:250$21'.
+     1/1: $0\len_comb[4:0]
+Creating decoders for process `\cavlc_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:108$1'.
+     1/3: $0\valid[0:0]
+     2/3: $0\i[3:0]
+     3/3: $0\state[7:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\cavlc_read_total_zeros.\len_comb' from process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2921$356'.
+No latch inferred for signal `\cavlc_read_total_zeros.\TotalZeros_comb' from process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2921$356'.
+No latch inferred for signal `\cavlc_read_total_zeros.\TotalZeros_G3' from process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2553$355'.
+No latch inferred for signal `\cavlc_read_total_zeros.\len_G3' from process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2553$355'.
+No latch inferred for signal `\cavlc_read_total_zeros.\TotalZeros_LE3' from process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2381$354'.
+No latch inferred for signal `\cavlc_read_total_zeros.\len_LE3' from process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2381$354'.
+No latch inferred for signal `\cavlc_read_total_zeros.\TotalZeros_chroma_DC' from process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2339$341'.
+No latch inferred for signal `\cavlc_read_total_zeros.\len_chroma_DC' from process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2339$341'.
+No latch inferred for signal `\cavlc_read_total_zeros.\rbsp_chroma_DC' from process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2314$334'.
+No latch inferred for signal `\cavlc_read_total_zeros.\rbsp_LE3' from process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2314$334'.
+No latch inferred for signal `\cavlc_read_total_zeros.\rbsp_G3' from process `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2314$334'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\TotalCoeff_comb' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2182$328'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\TrailingOnes_comb' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2182$328'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\len_comb' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2182$328'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\TotalCoeff_5' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2102$321'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\TrailingOnes_5' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2102$321'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\len_5' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2102$321'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\TotalCoeff_4' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2086$318'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\TrailingOnes_4' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2086$318'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\len_4' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2086$318'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\TotalCoeff_3' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1782$310'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\TrailingOnes_3' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1782$310'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\len_3' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1782$310'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\TotalCoeff_2' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1478$260'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\TrailingOnes_2' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1478$260'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\len_2' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1478$260'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\TotalCoeff_1' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1182$212'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\TrailingOnes_1' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1182$212'.
+No latch inferred for signal `\cavlc_read_total_coeffs.\len_1' from process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1182$212'.
+No latch inferred for signal `\cavlc_read_run_befores.\coeff' from process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:953$182'.
+No latch inferred for signal `\cavlc_read_run_befores.\len_comb' from process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:930$174'.
+No latch inferred for signal `\cavlc_read_run_befores.\run' from process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:839$161'.
+No latch inferred for signal `\cavlc_read_run_befores.\len' from process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:839$161'.
+No latch inferred for signal `\cavlc_read_levels.\len_comb' from process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:648$151'.
+No latch inferred for signal `\cavlc_read_levels.\level' from process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:487$72'.
+No latch inferred for signal `\cavlc_read_levels.\level_suffix' from process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:457$50'.
+No latch inferred for signal `\cavlc_read_levels.\level_prefix_comb' from process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:402$26'.
+No latch inferred for signal `\cavlc_read_levels.\rbsp_internal' from process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:396$22'.
+No latch inferred for signal `\cavlc_len_gen.\len_comb' from process `\cavlc_len_gen.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:250$21'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\cavlc_read_total_coeffs.\TotalCoeff' using process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2214$331'.
+  created $adff cell `$procdff$3155' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_total_coeffs.\TrailingOnes' using process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2214$331'.
+  created $adff cell `$procdff$3156' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_total_coeffs.\rbsp_1' using process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1156$208'.
+  created $adff cell `$procdff$3157' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_total_coeffs.\rbsp_2' using process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1156$208'.
+  created $adff cell `$procdff$3158' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_total_coeffs.\rbsp_3' using process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1156$208'.
+  created $adff cell `$procdff$3159' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_total_coeffs.\rbsp_4' using process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1156$208'.
+  created $adff cell `$procdff$3160' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_total_coeffs.\rbsp_5' using process `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1156$208'.
+  created $adff cell `$procdff$3161' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_0' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3162' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_1' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3163' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_2' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3164' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_3' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3165' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_4' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3166' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_5' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3167' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_6' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3168' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_7' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3169' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_8' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3170' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_9' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3171' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_10' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3172' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_11' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3173' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_12' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3174' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_13' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3175' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_14' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3176' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\coeff_15' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+  created $adff cell `$procdff$3177' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_run_befores.\ZeroLeft' using process `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:940$176'.
+  created $adff cell `$procdff$3178' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_0' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3179' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_1' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3180' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_2' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3181' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_3' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3182' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_4' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3183' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_5' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3184' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_6' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3185' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_7' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3186' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_8' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3187' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_9' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3188' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_10' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3189' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_11' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3190' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_12' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3191' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_13' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3192' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_14' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3193' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_15' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+  created $adff cell `$procdff$3194' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_abs' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:503$84'.
+  created $adff cell `$procdff$3195' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_code_tmp' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:470$58'.
+  created $adff cell `$procdff$3196' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\suffixLength' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:437$33'.
+  created $adff cell `$procdff$3197' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_read_levels.\level_prefix' using process `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:425$27'.
+  created $adff cell `$procdff$3198' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_fsm.\state' using process `\cavlc_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:108$1'.
+  created $adff cell `$procdff$3199' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_fsm.\i' using process `\cavlc_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:108$1'.
+  created $adff cell `$procdff$3200' with positive edge clock and negative level reset.
+Creating register for signal `\cavlc_fsm.\valid' using process `\cavlc_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:108$1'.
+  created $adff cell `$procdff$3201' with positive edge clock and negative level reset.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2921$356'.
+Removing empty process `cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2921$356'.
+Found and cleaned up 43 empty switches in `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2553$355'.
+Removing empty process `cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2553$355'.
+Found and cleaned up 23 empty switches in `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2381$354'.
+Removing empty process `cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2381$354'.
+Found and cleaned up 8 empty switches in `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2339$341'.
+Removing empty process `cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2339$341'.
+Found and cleaned up 3 empty switches in `\cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2314$334'.
+Removing empty process `cavlc_read_total_zeros.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2314$334'.
+Found and cleaned up 1 empty switch in `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2214$331'.
+Removing empty process `cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2214$331'.
+Found and cleaned up 4 empty switches in `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2182$328'.
+Removing empty process `cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2182$328'.
+Found and cleaned up 7 empty switches in `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2102$321'.
+Removing empty process `cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2102$321'.
+Found and cleaned up 1 empty switch in `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2086$318'.
+Removing empty process `cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:2086$318'.
+Found and cleaned up 15 empty switches in `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1782$310'.
+Removing empty process `cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1782$310'.
+Found and cleaned up 50 empty switches in `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1478$260'.
+Removing empty process `cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1478$260'.
+Found and cleaned up 48 empty switches in `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1182$212'.
+Removing empty process `cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1182$212'.
+Found and cleaned up 5 empty switches in `\cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1156$208'.
+Removing empty process `cavlc_read_total_coeffs.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:1156$208'.
+Found and cleaned up 20 empty switches in `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+Removing empty process `cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:979$184'.
+Found and cleaned up 2 empty switches in `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:953$182'.
+Removing empty process `cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:953$182'.
+Found and cleaned up 3 empty switches in `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:940$176'.
+Removing empty process `cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:940$176'.
+Found and cleaned up 1 empty switch in `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:930$174'.
+Removing empty process `cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:930$174'.
+Found and cleaned up 11 empty switches in `\cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:839$161'.
+Removing empty process `cavlc_read_run_befores.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:839$161'.
+Found and cleaned up 5 empty switches in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:648$151'.
+Removing empty process `cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:648$151'.
+Found and cleaned up 33 empty switches in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+Removing empty process `cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:514$88'.
+Found and cleaned up 1 empty switch in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:503$84'.
+Removing empty process `cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:503$84'.
+Found and cleaned up 1 empty switch in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:487$72'.
+Removing empty process `cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:487$72'.
+Found and cleaned up 1 empty switch in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:470$58'.
+Removing empty process `cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:470$58'.
+Found and cleaned up 3 empty switches in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:457$50'.
+Removing empty process `cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:457$50'.
+Found and cleaned up 6 empty switches in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:437$33'.
+Removing empty process `cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:437$33'.
+Found and cleaned up 1 empty switch in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:425$27'.
+Removing empty process `cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:425$27'.
+Found and cleaned up 16 empty switches in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:402$26'.
+Removing empty process `cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:402$26'.
+Found and cleaned up 1 empty switch in `\cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:396$22'.
+Removing empty process `cavlc_read_levels.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:396$22'.
+Found and cleaned up 1 empty switch in `\cavlc_len_gen.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:250$21'.
+Removing empty process `cavlc_len_gen.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:250$21'.
+Found and cleaned up 9 empty switches in `\cavlc_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:108$1'.
+Removing empty process `cavlc_fsm.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:108$1'.
+Cleaned up 326 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cavlc_top.
+Optimizing module cavlc_read_total_zeros.
+<suppressed ~116 debug messages>
+Optimizing module cavlc_read_total_coeffs.
+<suppressed ~153 debug messages>
+Optimizing module cavlc_read_run_befores.
+<suppressed ~22 debug messages>
+Optimizing module cavlc_read_levels.
+<suppressed ~9 debug messages>
+Optimizing module cavlc_len_gen.
+<suppressed ~8 debug messages>
+Optimizing module cavlc_fsm.
+<suppressed ~4 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cavlc_top.
+Optimizing module cavlc_read_total_zeros.
+Optimizing module cavlc_read_total_coeffs.
+Optimizing module cavlc_read_run_befores.
+Optimizing module cavlc_read_levels.
+<suppressed ~1 debug messages>
+Optimizing module cavlc_len_gen.
+Optimizing module cavlc_fsm.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cavlc_top'.
+Finding identical cells in module `\cavlc_read_total_zeros'.
+<suppressed ~120 debug messages>
+Finding identical cells in module `\cavlc_read_total_coeffs'.
+<suppressed ~174 debug messages>
+Finding identical cells in module `\cavlc_read_run_befores'.
+<suppressed ~87 debug messages>
+Finding identical cells in module `\cavlc_read_levels'.
+<suppressed ~216 debug messages>
+Finding identical cells in module `\cavlc_len_gen'.
+Finding identical cells in module `\cavlc_fsm'.
+<suppressed ~39 debug messages>
+Removed a total of 212 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cavlc_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \cavlc_read_total_zeros..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_read_total_coeffs..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_read_run_befores..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_read_levels..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:508$87: \level -> { 1'0 \level [7:0] }
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_len_gen..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_fsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~66 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cavlc_top.
+  Optimizing cells in module \cavlc_read_total_zeros.
+  Optimizing cells in module \cavlc_read_total_coeffs.
+    New ctrl vector for $pmux cell $procmux$1235: { $procmux$1243_CMP $procmux$1242_CMP $procmux$1241_CMP $auto$opt_reduce.cc:134:opt_mux$3203 }
+    New ctrl vector for $pmux cell $procmux$1224: { $auto$opt_reduce.cc:134:opt_mux$3207 $auto$opt_reduce.cc:134:opt_mux$3205 $procmux$1225_CMP }
+    New ctrl vector for $pmux cell $procmux$1213: { $auto$opt_reduce.cc:134:opt_mux$3213 $auto$opt_reduce.cc:134:opt_mux$3211 $auto$opt_reduce.cc:134:opt_mux$3209 $procmux$1214_CMP }
+    New ctrl vector for $pmux cell $procmux$1202: { $auto$opt_reduce.cc:134:opt_mux$3217 $procmux$1206_CMP $auto$opt_reduce.cc:134:opt_mux$3215 $procmux$1203_CMP }
+    New ctrl vector for $pmux cell $procmux$1191: { $auto$opt_reduce.cc:134:opt_mux$3225 $auto$opt_reduce.cc:134:opt_mux$3223 $auto$opt_reduce.cc:134:opt_mux$3221 $auto$opt_reduce.cc:134:opt_mux$3219 }
+    New ctrl vector for $pmux cell $procmux$1180: { $auto$opt_reduce.cc:134:opt_mux$3231 $auto$opt_reduce.cc:134:opt_mux$3229 $auto$opt_reduce.cc:134:opt_mux$3227 $procmux$1181_CMP }
+    New ctrl vector for $pmux cell $procmux$1125: { $procmux$1232_CMP $auto$opt_reduce.cc:134:opt_mux$3237 $auto$opt_reduce.cc:134:opt_mux$3235 $auto$opt_reduce.cc:134:opt_mux$3233 $procmux$1225_CMP }
+    New ctrl vector for $pmux cell $procmux$1114: { $procmux$1221_CMP $procmux$1220_CMP $procmux$1219_CMP $auto$opt_reduce.cc:134:opt_mux$3241 $auto$opt_reduce.cc:134:opt_mux$3239 $procmux$1214_CMP }
+    New ctrl vector for $pmux cell $procmux$1103: { $procmux$1210_CMP $procmux$1209_CMP $procmux$1208_CMP $procmux$1207_CMP $auto$opt_reduce.cc:134:opt_mux$3243 $procmux$1204_CMP $procmux$1203_CMP }
+    New ctrl vector for $pmux cell $procmux$1092: { $procmux$1199_CMP $auto$opt_reduce.cc:134:opt_mux$3249 $auto$opt_reduce.cc:134:opt_mux$3247 $auto$opt_reduce.cc:134:opt_mux$3245 $procmux$1192_CMP }
+    New ctrl vector for $pmux cell $procmux$1081: { $procmux$1188_CMP $auto$opt_reduce.cc:134:opt_mux$3255 $auto$opt_reduce.cc:134:opt_mux$3253 $auto$opt_reduce.cc:134:opt_mux$3251 }
+    New ctrl vector for $pmux cell $procmux$1054: { $auto$opt_reduce.cc:134:opt_mux$3257 $procmux$1154_CMP }
+  Optimizing cells in module \cavlc_read_total_coeffs.
+  Optimizing cells in module \cavlc_read_run_befores.
+    New ctrl vector for $pmux cell $procmux$2097: $auto$opt_reduce.cc:134:opt_mux$3259
+  Optimizing cells in module \cavlc_read_run_befores.
+  Optimizing cells in module \cavlc_read_levels.
+  Optimizing cells in module \cavlc_len_gen.
+  Optimizing cells in module \cavlc_fsm.
+Performed a total of 13 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cavlc_top'.
+Finding identical cells in module `\cavlc_read_total_zeros'.
+<suppressed ~69 debug messages>
+Finding identical cells in module `\cavlc_read_total_coeffs'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\cavlc_read_run_befores'.
+Finding identical cells in module `\cavlc_read_levels'.
+<suppressed ~126 debug messages>
+Finding identical cells in module `\cavlc_len_gen'.
+Finding identical cells in module `\cavlc_fsm'.
+Removed a total of 69 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$3161 ($adff) from module cavlc_read_total_coeffs (D = \rbsp [15:8], Q = \rbsp_5).
+Adding EN signal on $procdff$3160 ($adff) from module cavlc_read_total_coeffs (D = \rbsp [15:10], Q = \rbsp_4).
+Adding EN signal on $procdff$3159 ($adff) from module cavlc_read_total_coeffs (D = \rbsp [15:6], Q = \rbsp_3).
+Adding EN signal on $procdff$3158 ($adff) from module cavlc_read_total_coeffs (D = \rbsp [15:2], Q = \rbsp_2).
+Adding EN signal on $procdff$3157 ($adff) from module cavlc_read_total_coeffs (D = \rbsp, Q = \rbsp_1).
+Adding EN signal on $procdff$3156 ($adff) from module cavlc_read_total_coeffs (D = $procmux$965_Y, Q = \TrailingOnes).
+Adding EN signal on $procdff$3155 ($adff) from module cavlc_read_total_coeffs (D = $procmux$953_Y, Q = \TotalCoeff).
+Adding EN signal on $procdff$3169 ($adff) from module cavlc_read_run_befores (D = $procmux$2247_Y, Q = \coeff_7).
+Adding EN signal on $procdff$3168 ($adff) from module cavlc_read_run_befores (D = $procmux$2268_Y, Q = \coeff_6).
+Adding EN signal on $procdff$3167 ($adff) from module cavlc_read_run_befores (D = $procmux$2290_Y, Q = \coeff_5).
+Adding EN signal on $procdff$3166 ($adff) from module cavlc_read_run_befores (D = $procmux$2313_Y, Q = \coeff_4).
+Adding EN signal on $procdff$3165 ($adff) from module cavlc_read_run_befores (D = $procmux$2337_Y, Q = \coeff_3).
+Adding EN signal on $procdff$3164 ($adff) from module cavlc_read_run_befores (D = $procmux$2362_Y, Q = \coeff_2).
+Adding EN signal on $procdff$3163 ($adff) from module cavlc_read_run_befores (D = $procmux$2388_Y, Q = \coeff_1).
+Adding EN signal on $procdff$3178 ($adff) from module cavlc_read_run_befores (D = $procmux$2426_Y, Q = \ZeroLeft).
+Adding EN signal on $procdff$3177 ($adff) from module cavlc_read_run_befores (D = $procmux$2115_Y, Q = \coeff_15).
+Adding EN signal on $procdff$3176 ($adff) from module cavlc_read_run_befores (D = $procmux$2128_Y, Q = \coeff_14).
+Adding EN signal on $procdff$3175 ($adff) from module cavlc_read_run_befores (D = $procmux$2142_Y, Q = \coeff_13).
+Adding EN signal on $procdff$3174 ($adff) from module cavlc_read_run_befores (D = $procmux$2157_Y, Q = \coeff_12).
+Adding EN signal on $procdff$3173 ($adff) from module cavlc_read_run_befores (D = $procmux$2173_Y, Q = \coeff_11).
+Adding EN signal on $procdff$3172 ($adff) from module cavlc_read_run_befores (D = $procmux$2190_Y, Q = \coeff_10).
+Adding EN signal on $procdff$3171 ($adff) from module cavlc_read_run_befores (D = $procmux$2208_Y, Q = \coeff_9).
+Adding EN signal on $procdff$3162 ($adff) from module cavlc_read_run_befores (D = $procmux$2398_Y, Q = \coeff_0).
+Adding EN signal on $procdff$3170 ($adff) from module cavlc_read_run_befores (D = $procmux$2227_Y, Q = \coeff_8).
+Adding EN signal on $procdff$3190 ($adff) from module cavlc_read_levels (D = $procmux$2628_Y, Q = \level_11).
+Adding EN signal on $procdff$3191 ($adff) from module cavlc_read_levels (D = $procmux$2607_Y, Q = \level_12).
+Adding EN signal on $procdff$3192 ($adff) from module cavlc_read_levels (D = $procmux$2588_Y, Q = \level_13).
+Adding EN signal on $procdff$3198 ($adff) from module cavlc_read_levels (D = $procmux$3073_Y, Q = \level_prefix).
+Adding EN signal on $procdff$3197 ($adff) from module cavlc_read_levels (D = $procmux$3021_Y, Q = \suffixLength).
+Adding EN signal on $procdff$3196 ($adff) from module cavlc_read_levels (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:475$68_Y [8:0], Q = \level_code_tmp).
+Adding EN signal on $procdff$3193 ($adff) from module cavlc_read_levels (D = $procmux$2571_Y, Q = \level_14).
+Adding EN signal on $procdff$3194 ($adff) from module cavlc_read_levels (D = $procmux$2558_Y, Q = \level_15).
+Adding EN signal on $procdff$3179 ($adff) from module cavlc_read_levels (D = $procmux$2991_Y, Q = \level_0).
+Adding EN signal on $procdff$3180 ($adff) from module cavlc_read_levels (D = $procmux$2948_Y, Q = \level_1).
+Adding EN signal on $procdff$3195 ($adff) from module cavlc_read_levels (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/cavlc.v:508$87_Y, Q = \level_abs).
+Adding EN signal on $procdff$3181 ($adff) from module cavlc_read_levels (D = $procmux$2907_Y, Q = \level_2).
+Adding EN signal on $procdff$3182 ($adff) from module cavlc_read_levels (D = $procmux$2868_Y, Q = \level_3).
+Adding EN signal on $procdff$3183 ($adff) from module cavlc_read_levels (D = $procmux$2831_Y, Q = \level_4).
+Adding EN signal on $procdff$3184 ($adff) from module cavlc_read_levels (D = $procmux$2796_Y, Q = \level_5).
+Adding EN signal on $procdff$3185 ($adff) from module cavlc_read_levels (D = $procmux$2763_Y, Q = \level_6).
+Adding EN signal on $procdff$3186 ($adff) from module cavlc_read_levels (D = $procmux$2732_Y, Q = \level_7).
+Adding EN signal on $procdff$3187 ($adff) from module cavlc_read_levels (D = $procmux$2703_Y, Q = \level_8).
+Adding EN signal on $procdff$3188 ($adff) from module cavlc_read_levels (D = $procmux$2676_Y, Q = \level_9).
+Adding EN signal on $procdff$3189 ($adff) from module cavlc_read_levels (D = $procmux$2651_Y, Q = \level_10).
+Adding EN signal on $procdff$3199 ($adff) from module cavlc_fsm (D = $procmux$3126_Y, Q = \state).
+Adding EN signal on $procdff$3200 ($adff) from module cavlc_fsm (D = $procmux$3106_Y, Q = \i).
+Adding EN signal on $procdff$3201 ($adff) from module cavlc_fsm (D = $procmux$3088_Y, Q = \valid).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cavlc_top..
+Finding unused cells or wires in module \cavlc_read_total_zeros..
+Finding unused cells or wires in module \cavlc_read_total_coeffs..
+Finding unused cells or wires in module \cavlc_read_run_befores..
+Finding unused cells or wires in module \cavlc_read_levels..
+Finding unused cells or wires in module \cavlc_len_gen..
+Finding unused cells or wires in module \cavlc_fsm..
+Removed 32 unused cells and 1224 unused wires.
+<suppressed ~39 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cavlc_fsm.
+<suppressed ~3 debug messages>
+Optimizing module cavlc_len_gen.
+Optimizing module cavlc_read_levels.
+<suppressed ~17 debug messages>
+Optimizing module cavlc_read_run_befores.
+<suppressed ~17 debug messages>
+Optimizing module cavlc_read_total_coeffs.
+<suppressed ~1 debug messages>
+Optimizing module cavlc_read_total_zeros.
+Optimizing module cavlc_top.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cavlc_fsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_len_gen..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_read_levels..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_read_run_befores..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_read_total_coeffs..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_read_total_zeros..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~72 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cavlc_fsm.
+  Optimizing cells in module \cavlc_len_gen.
+  Optimizing cells in module \cavlc_read_levels.
+  Optimizing cells in module \cavlc_read_run_befores.
+  Optimizing cells in module \cavlc_read_total_coeffs.
+  Optimizing cells in module \cavlc_read_total_zeros.
+  Optimizing cells in module \cavlc_top.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cavlc_fsm'.
+Finding identical cells in module `\cavlc_len_gen'.
+Finding identical cells in module `\cavlc_read_levels'.
+<suppressed ~126 debug messages>
+Finding identical cells in module `\cavlc_read_run_befores'.
+<suppressed ~45 debug messages>
+Finding identical cells in module `\cavlc_read_total_coeffs'.
+<suppressed ~18 debug messages>
+Finding identical cells in module `\cavlc_read_total_zeros'.
+Finding identical cells in module `\cavlc_top'.
+Removed a total of 63 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cavlc_fsm..
+Finding unused cells or wires in module \cavlc_len_gen..
+Finding unused cells or wires in module \cavlc_read_levels..
+Finding unused cells or wires in module \cavlc_read_run_befores..
+Finding unused cells or wires in module \cavlc_read_total_coeffs..
+Finding unused cells or wires in module \cavlc_read_total_zeros..
+Finding unused cells or wires in module \cavlc_top..
+Removed 0 unused cells and 64 unused wires.
+<suppressed ~3 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cavlc_fsm.
+Optimizing module cavlc_len_gen.
+Optimizing module cavlc_read_levels.
+Optimizing module cavlc_read_run_befores.
+Optimizing module cavlc_read_total_coeffs.
+Optimizing module cavlc_read_total_zeros.
+Optimizing module cavlc_top.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cavlc_fsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_len_gen..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_read_levels..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_read_run_befores..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_read_total_coeffs..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_read_total_zeros..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \cavlc_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~72 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cavlc_fsm.
+  Optimizing cells in module \cavlc_len_gen.
+  Optimizing cells in module \cavlc_read_levels.
+  Optimizing cells in module \cavlc_read_run_befores.
+  Optimizing cells in module \cavlc_read_total_coeffs.
+  Optimizing cells in module \cavlc_read_total_zeros.
+  Optimizing cells in module \cavlc_top.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cavlc_fsm'.
+Finding identical cells in module `\cavlc_len_gen'.
+Finding identical cells in module `\cavlc_read_levels'.
+Finding identical cells in module `\cavlc_read_run_befores'.
+Finding identical cells in module `\cavlc_read_total_coeffs'.
+Finding identical cells in module `\cavlc_read_total_zeros'.
+Finding identical cells in module `\cavlc_top'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cavlc_fsm..
+Finding unused cells or wires in module \cavlc_len_gen..
+Finding unused cells or wires in module \cavlc_read_levels..
+Finding unused cells or wires in module \cavlc_read_run_befores..
+Finding unused cells or wires in module \cavlc_read_total_coeffs..
+Finding unused cells or wires in module \cavlc_read_total_zeros..
+Finding unused cells or wires in module \cavlc_top..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cavlc_fsm.
+Optimizing module cavlc_len_gen.
+Optimizing module cavlc_read_levels.
+Optimizing module cavlc_read_run_befores.
+Optimizing module cavlc_read_total_coeffs.
+Optimizing module cavlc_read_total_zeros.
+Optimizing module cavlc_top.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== cavlc_fsm ===
+
+   Number of wires:                 66
+   Number of wire bits:            260
+   Number of public wires:          14
+   Number of public wire bits:      41
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 55
+     $adffe                         13
+     $eq                            69
+     $gt                            64
+     $logic_and                      2
+     $logic_not                      8
+     $logic_or                       1
+     $lt                             5
+     $mux                           76
+     $ne                            15
+     $pmux                          13
+     $reduce_and                    13
+     $reduce_bool                   16
+     $sub                          100
+
+=== cavlc_len_gen ===
+
+   Number of wires:                  8
+   Number of wire bits:             33
+   Number of public wires:           6
+   Number of public wire bits:      31
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $pmux                           5
+     $reduce_or                      5
+
+=== cavlc_read_levels ===
+
+   Number of wires:                280
+   Number of wire bits:           1669
+   Number of public wires:          39
+   Number of public wire bits:     251
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                268
+     $add                          163
+     $adffe                        169
+     $and                           32
+     $eq                           102
+     $gt                            82
+     $le                            32
+     $logic_and                     16
+     $logic_not                     39
+     $logic_or                       2
+     $lt                            64
+     $mux                          754
+     $ne                           196
+     $neg                           41
+     $pmux                         135
+     $reduce_and                    79
+     $reduce_bool                    7
+     $shl                           41
+     $shr                            6
+     $sub                          134
+
+=== cavlc_read_run_befores ===
+
+   Number of wires:                286
+   Number of wire bits:           1571
+   Number of public wires:          46
+   Number of public wire bits:     338
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                261
+     $add                           32
+     $adffe                        148
+     $eq                           546
+     $ge                           480
+     $gt                            64
+     $logic_and                      4
+     $logic_not                     11
+     $mux                         1016
+     $ne                           111
+     $pmux                          21
+     $reduce_and                    48
+     $reduce_bool                   11
+     $reduce_or                     14
+     $sub                           68
+
+=== cavlc_read_total_coeffs ===
+
+   Number of wires:                557
+   Number of wire bits:           1592
+   Number of public wires:          32
+   Number of public wire bits:     160
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                549
+     $add                            5
+     $adffe                         61
+     $eq                           395
+     $logic_and                      2
+     $logic_not                     34
+     $logic_or                       1
+     $mux                         1257
+     $not                            4
+     $or                             1
+     $pmux                          49
+     $reduce_and                    19
+     $reduce_or                     68
+
+=== cavlc_read_total_zeros ===
+
+   Number of wires:                222
+   Number of wire bits:            715
+   Number of public wires:          16
+   Number of public wire bits:      61
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                217
+     $eq                            86
+     $logic_and                      8
+     $logic_not                     10
+     $mux                          614
+     $pmux                          43
+
+=== cavlc_top ===
+
+   Number of wires:                 54
+   Number of wire bits:            378
+   Number of public wires:          54
+   Number of public wire bits:     378
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+
+=== design hierarchy ===
+
+   cavlc_top                         1
+     cavlc_fsm                       0
+     cavlc_len_gen                   0
+     cavlc_read_levels               0
+     cavlc_read_run_befores          0
+     cavlc_read_total_coeffs         0
+     cavlc_read_total_zeros          0
+
+   Number of wires:                 54
+   Number of wire bits:            378
+   Number of public wires:          54
+   Number of public wire bits:     378
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 2f24fe73b7, CPU: user 0.80s system 0.02s, MEM: 24.57 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 32% 5x opt_expr (0 sec), 13% 3x opt_clean (0 sec), ...

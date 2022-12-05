@@ -1,0 +1,78 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/DATA/raw_designs/vtr_designs/verilog/ch_intrinsics.v
+Parsing SystemVerilog input from `/home/zhigang/DATA/raw_designs/vtr_designs/verilog/ch_intrinsics.v' to AST representation.
+Generating RTLIL representation for module `\single_port_ram'.
+Generating RTLIL representation for module `\dual_port_ram'.
+Generating RTLIL representation for module `\memory_controller'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/ch_intrinsics.v:129.1-147.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\memset'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/ch_intrinsics.v:358.1-369.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   2 design levels: memset              
+root of   1 design levels: memory_controller   
+root of   0 design levels: dual_port_ram       
+root of   0 design levels: single_port_ram     
+Automatically selected memset as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \memset
+Used module:     \memory_controller
+Used module:         \single_port_ram
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 5
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\single_port_ram'.
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 5
+Generating RTLIL representation for module `$paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \memset
+Used module:     \memory_controller
+Used module:         $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram
+
+2.5. Analyzing design hierarchy..
+Top module:  \memset
+Used module:     \memory_controller
+Used module:         $paramod$bd8b0969ac295d564193c3d912540151d67604d4\single_port_ram
+Removing unused module `\dual_port_ram'.
+Removing unused module `\single_port_ram'.
+Removed 2 unused modules.
+Mapping positional arguments of cell memset.memtroll (memory_controller).
+
+End of script. Logfile hash: e17907685c, CPU: user 0.02s system 0.00s, MEM: 11.74 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 79% 2x read_verilog (0 sec), 20% 1x hierarchy (0 sec)

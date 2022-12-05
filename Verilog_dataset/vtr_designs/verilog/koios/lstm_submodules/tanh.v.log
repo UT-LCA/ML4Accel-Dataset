@@ -1,0 +1,211 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v' to AST representation.
+Generating RTLIL representation for module `\tanh'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v:24.1-53.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v:55.1-140.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: tanh                
+Automatically selected tanh as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \tanh
+
+2.3. Analyzing design hierarchy..
+Top module:  \tanh
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 26 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v:55$8 in module tanh.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v:24$7 in module tanh.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v:55$8'.
+     1/26: $26\address[4:0]
+     2/26: $25\address[4:0]
+     3/26: $24\address[4:0]
+     4/26: $23\address[4:0]
+     5/26: $22\address[4:0]
+     6/26: $21\address[4:0]
+     7/26: $20\address[4:0]
+     8/26: $19\address[4:0]
+     9/26: $18\address[4:0]
+    10/26: $17\address[4:0]
+    11/26: $16\address[4:0]
+    12/26: $15\address[4:0]
+    13/26: $14\address[4:0]
+    14/26: $13\address[4:0]
+    15/26: $12\address[4:0]
+    16/26: $11\address[4:0]
+    17/26: $10\address[4:0]
+    18/26: $9\address[4:0]
+    19/26: $8\address[4:0]
+    20/26: $7\address[4:0]
+    21/26: $6\address[4:0]
+    22/26: $5\address[4:0]
+    23/26: $4\address[4:0]
+    24/26: $3\address[4:0]
+    25/26: $2\address[4:0]
+    26/26: $1\address[4:0]
+Creating decoders for process `\tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v:24$7'.
+     1/1: $1\lut[15:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\tanh.\address' from process `\tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v:55$8': $auto$proc_dlatch.cc:427:proc_dlatch$1696
+No latch inferred for signal `\tanh.\lut' from process `\tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v:24$7'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 26 empty switches in `\tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v:55$8'.
+Removing empty process `tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v:55$8'.
+Found and cleaned up 1 empty switch in `\tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v:24$7'.
+Removing empty process `tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v:24$7'.
+Cleaned up 27 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tanh.
+<suppressed ~441 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tanh.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tanh'.
+<suppressed ~444 debug messages>
+Removed a total of 148 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tanh..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/tanh.v:21$3: \x -> { 1'0 \x [14:0] }
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tanh.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tanh'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tanh..
+Removed 1 unused cells and 742 unused wires.
+<suppressed ~3 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tanh.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tanh..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tanh.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tanh'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tanh..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tanh.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== tanh ===
+
+   Number of wires:                254
+   Number of wire bits:            465
+   Number of public wires:           5
+   Number of public wire bits:      69
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                253
+     $add                           32
+     $and                          145
+     $dlatch                         5
+     $eq                           123
+     $ge                           208
+     $logic_and                     11
+     $logic_not                      9
+     $lt                           176
+     $mux                          137
+     $not                           45
+     $pmux                          21
+     $reduce_or                      5
+
+End of script. Logfile hash: a631a1f0f7, CPU: user 0.13s system 0.00s, MEM: 14.57 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 35% 4x opt_expr (0 sec), 16% 3x opt_merge (0 sec), ...

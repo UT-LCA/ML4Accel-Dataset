@@ -1,0 +1,79 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic//dpll-isdn.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic//dpll-isdn.v' to AST representation.
+Generating RTLIL representation for module `\dpll'.
+Generating RTLIL representation for module `\freqdivider'.
+Generating RTLIL representation for module `\phasecomparator'.
+Generating RTLIL representation for module `\randomwalkfilter'.
+Generating RTLIL representation for module `\variableresetrandomwalkfilter'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/arithmetic//dpll-isdn.v:192.1-204.5 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   1 design levels: variableresetrandomwalkfilter
+root of   0 design levels: randomwalkfilter    
+root of   0 design levels: phasecomparator     
+root of   0 design levels: freqdivider         
+root of   2 design levels: dpll                
+Automatically selected dpll as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \dpll
+Used module:     \freqdivider
+Used module:     \variableresetrandomwalkfilter
+Used module:         \randomwalkfilter
+Used module:     \phasecomparator
+Parameter \FilterResetValue = 32
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\randomwalkfilter'.
+Parameter \FilterResetValue = 32
+Generating RTLIL representation for module `$paramod\randomwalkfilter\FilterResetValue=s32'00000000000000000000000000100000'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \dpll
+Used module:     \freqdivider
+Used module:     \variableresetrandomwalkfilter
+Used module:         $paramod\randomwalkfilter\FilterResetValue=s32'00000000000000000000000000100000
+Used module:     \phasecomparator
+
+2.5. Analyzing design hierarchy..
+Top module:  \dpll
+Used module:     \freqdivider
+Used module:     \variableresetrandomwalkfilter
+Used module:         $paramod\randomwalkfilter\FilterResetValue=s32'00000000000000000000000000100000
+Used module:     \phasecomparator
+Removing unused module `\randomwalkfilter'.
+Removed 1 unused modules.
+
+End of script. Logfile hash: 227a7a2df4, CPU: user 0.02s system 0.00s, MEM: 11.15 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 99% 2x read_verilog (0 sec), 0% 1x hierarchy (0 sec)

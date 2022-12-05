@@ -1,0 +1,314 @@
+`define M     97          // M is the degree of the irreducible polynomial
+`define WIDTH (2*`M-1)    // width for a GF(3^M) element
+`define W2    (4*`M-1)    // width for a GF(3^{2*M}) element
+`define W3    (6*`M-1)    // width for a GF(3^{3*M}) element
+`define W6    (12*`M-1)   // width for a GF(3^{6*M}) element
+`define PX    196'h4000000000000000000000000000000000000000001000002 // PX is the irreducible polynomial
+`define ZERO {(2*`M){1'b0}}
+`define TWO {(2*`M-2){1'b0}},2'b10
+`define MOST 2*`M+1:2*`M
+
+module f32m_cubic(clk, a, c);
+    input clk;
+    input [`W2:0] a;
+    output reg [`W2:0] c;
+    wire [`WIDTH:0] a0,a1,c0,c1,v;
+    assign {a1,a0} = a;
+    f3m_cubic
+        ins1 (a0, c0), // c0 == a0^3
+        ins2 (a1, v);  // v == a1^3
+    f3m_neg
+        ins3 (v, c1);  // c1 == -v == - a1^3
+    always @ (posedge clk)
+        c <= {c1,c0};
+endmodule
+module f3m_cubic(input wire [193:0] in, output wire [193:0] out);
+wire [1:0] w0; f3_add a0(in[131:130], in[139:138], w0);
+wire [1:0] w1; f3_add a1(in[133:132], in[141:140], w1);
+wire [1:0] w2; f3_add a2(in[135:134], in[143:142], w2);
+wire [1:0] w3; f3_add a3(in[137:136], in[145:144], w3);
+wire [1:0] w4; f3_add a4(in[147:146], in[155:154], w4);
+wire [1:0] w5; f3_add a5(in[149:148], in[157:156], w5);
+wire [1:0] w6; f3_add a6(in[151:150], in[159:158], w6);
+wire [1:0] w7; f3_add a7(in[153:152], in[161:160], w7);
+wire [1:0] w8; f3_add a8(in[163:162], in[171:170], w8);
+wire [1:0] w9; f3_add a9(in[165:164], in[173:172], w9);
+wire [1:0] w10; f3_add a10(in[167:166], in[175:174], w10);
+wire [1:0] w11; f3_add a11(in[169:168], in[177:176], w11);
+wire [1:0] w12; f3_add a12(in[179:178], in[187:186], w12);
+wire [1:0] w13; f3_add a13(in[181:180], in[189:188], w13);
+wire [1:0] w14; f3_add a14(in[183:182], in[191:190], w14);
+wire [1:0] w15; f3_add a15(in[185:184], in[193:192], w15);
+wire [1:0] w16;
+f3_add a16(in[1:0], w12, w16);
+assign out[1:0] = w16;
+wire [1:0] w17;
+f3_add a17({in[122],in[123]}, in[131:130], w17);
+assign out[3:2] = w17;
+assign out[5:4] = in[67:66];
+wire [1:0] w18;
+f3_add a18(in[3:2], w13, w18);
+assign out[7:6] = w18;
+wire [1:0] w19;
+f3_add a19({in[124],in[125]}, in[133:132], w19);
+assign out[9:8] = w19;
+assign out[11:10] = in[69:68];
+wire [1:0] w20;
+f3_add a20(in[5:4], w14, w20);
+assign out[13:12] = w20;
+wire [1:0] w21;
+f3_add a21({in[126],in[127]}, in[135:134], w21);
+assign out[15:14] = w21;
+assign out[17:16] = in[71:70];
+wire [1:0] w22;
+f3_add a22(in[7:6], w15, w22);
+assign out[19:18] = w22;
+wire [1:0] w23;
+f3_add a23({in[128],in[129]}, in[137:136], w23);
+assign out[21:20] = w23;
+assign out[23:22] = in[73:72];
+wire [1:0] w24;
+f3_add a24(in[9:8], {in[178],in[179]}, w24);
+assign out[25:24] = w24;
+wire [1:0] w25;
+f3_add a25(in[123:122], w0, w25);
+assign out[27:26] = w25;
+wire [1:0] w26;
+f3_add a26({in[66],in[67]}, in[75:74], w26);
+assign out[29:28] = w26;
+wire [1:0] w27;
+f3_add a27(in[11:10], {in[180],in[181]}, w27);
+assign out[31:30] = w27;
+wire [1:0] w28;
+f3_add a28(in[125:124], w1, w28);
+assign out[33:32] = w28;
+wire [1:0] w29;
+f3_add a29({in[68],in[69]}, in[77:76], w29);
+assign out[35:34] = w29;
+wire [1:0] w30;
+f3_add a30(in[13:12], {in[182],in[183]}, w30);
+assign out[37:36] = w30;
+wire [1:0] w31;
+f3_add a31(in[127:126], w2, w31);
+assign out[39:38] = w31;
+wire [1:0] w32;
+f3_add a32({in[70],in[71]}, in[79:78], w32);
+assign out[41:40] = w32;
+wire [1:0] w33;
+f3_add a33(in[15:14], {in[184],in[185]}, w33);
+assign out[43:42] = w33;
+wire [1:0] w34;
+f3_add a34(in[129:128], w3, w34);
+assign out[45:44] = w34;
+wire [1:0] w35;
+f3_add a35({in[72],in[73]}, in[81:80], w35);
+assign out[47:46] = w35;
+wire [1:0] w36;
+f3_add a36(in[17:16], {in[186],in[187]}, w36);
+assign out[49:48] = w36;
+wire [1:0] w37;
+f3_add a37(in[147:146], w0, w37);
+assign out[51:50] = w37;
+wire [1:0] w38;
+f3_add a38({in[74],in[75]}, in[83:82], w38);
+assign out[53:52] = w38;
+wire [1:0] w39;
+f3_add a39(in[19:18], {in[188],in[189]}, w39);
+assign out[55:54] = w39;
+wire [1:0] w40;
+f3_add a40(in[149:148], w1, w40);
+assign out[57:56] = w40;
+wire [1:0] w41;
+f3_add a41({in[76],in[77]}, in[85:84], w41);
+assign out[59:58] = w41;
+wire [1:0] w42;
+f3_add a42(in[21:20], {in[190],in[191]}, w42);
+assign out[61:60] = w42;
+wire [1:0] w43;
+f3_add a43(in[151:150], w2, w43);
+assign out[63:62] = w43;
+wire [1:0] w44;
+f3_add a44({in[78],in[79]}, in[87:86], w44);
+assign out[65:64] = w44;
+wire [1:0] w45;
+f3_add a45(in[23:22], {in[192],in[193]}, w45);
+assign out[67:66] = w45;
+wire [1:0] w46;
+f3_add a46(in[153:152], w3, w46);
+assign out[69:68] = w46;
+wire [1:0] w47;
+f3_add a47({in[80],in[81]}, in[89:88], w47);
+assign out[71:70] = w47;
+assign out[73:72] = in[25:24];
+wire [1:0] w48;
+f3_add a48(in[139:138], w4, w48);
+assign out[75:74] = w48;
+wire [1:0] w49;
+f3_add a49({in[82],in[83]}, in[91:90], w49);
+assign out[77:76] = w49;
+assign out[79:78] = in[27:26];
+wire [1:0] w50;
+f3_add a50(in[141:140], w5, w50);
+assign out[81:80] = w50;
+wire [1:0] w51;
+f3_add a51({in[84],in[85]}, in[93:92], w51);
+assign out[83:82] = w51;
+assign out[85:84] = in[29:28];
+wire [1:0] w52;
+f3_add a52(in[143:142], w6, w52);
+assign out[87:86] = w52;
+wire [1:0] w53;
+f3_add a53({in[86],in[87]}, in[95:94], w53);
+assign out[89:88] = w53;
+assign out[91:90] = in[31:30];
+wire [1:0] w54;
+f3_add a54(in[145:144], w7, w54);
+assign out[93:92] = w54;
+wire [1:0] w55;
+f3_add a55({in[88],in[89]}, in[97:96], w55);
+assign out[95:94] = w55;
+assign out[97:96] = in[33:32];
+wire [1:0] w56;
+f3_add a56(in[163:162], w4, w56);
+assign out[99:98] = w56;
+wire [1:0] w57;
+f3_add a57({in[90],in[91]}, in[99:98], w57);
+assign out[101:100] = w57;
+assign out[103:102] = in[35:34];
+wire [1:0] w58;
+f3_add a58(in[165:164], w5, w58);
+assign out[105:104] = w58;
+wire [1:0] w59;
+f3_add a59({in[92],in[93]}, in[101:100], w59);
+assign out[107:106] = w59;
+assign out[109:108] = in[37:36];
+wire [1:0] w60;
+f3_add a60(in[167:166], w6, w60);
+assign out[111:110] = w60;
+wire [1:0] w61;
+f3_add a61({in[94],in[95]}, in[103:102], w61);
+assign out[113:112] = w61;
+assign out[115:114] = in[39:38];
+wire [1:0] w62;
+f3_add a62(in[169:168], w7, w62);
+assign out[117:116] = w62;
+wire [1:0] w63;
+f3_add a63({in[96],in[97]}, in[105:104], w63);
+assign out[119:118] = w63;
+assign out[121:120] = in[41:40];
+wire [1:0] w64;
+f3_add a64(in[155:154], w8, w64);
+assign out[123:122] = w64;
+wire [1:0] w65;
+f3_add a65({in[98],in[99]}, in[107:106], w65);
+assign out[125:124] = w65;
+assign out[127:126] = in[43:42];
+wire [1:0] w66;
+f3_add a66(in[157:156], w9, w66);
+assign out[129:128] = w66;
+wire [1:0] w67;
+f3_add a67({in[100],in[101]}, in[109:108], w67);
+assign out[131:130] = w67;
+assign out[133:132] = in[45:44];
+wire [1:0] w68;
+f3_add a68(in[159:158], w10, w68);
+assign out[135:134] = w68;
+wire [1:0] w69;
+f3_add a69({in[102],in[103]}, in[111:110], w69);
+assign out[137:136] = w69;
+assign out[139:138] = in[47:46];
+wire [1:0] w70;
+f3_add a70(in[161:160], w11, w70);
+assign out[141:140] = w70;
+wire [1:0] w71;
+f3_add a71({in[104],in[105]}, in[113:112], w71);
+assign out[143:142] = w71;
+assign out[145:144] = in[49:48];
+wire [1:0] w72;
+f3_add a72(in[179:178], w8, w72);
+assign out[147:146] = w72;
+wire [1:0] w73;
+f3_add a73({in[106],in[107]}, in[115:114], w73);
+assign out[149:148] = w73;
+assign out[151:150] = in[51:50];
+wire [1:0] w74;
+f3_add a74(in[181:180], w9, w74);
+assign out[153:152] = w74;
+wire [1:0] w75;
+f3_add a75({in[108],in[109]}, in[117:116], w75);
+assign out[155:154] = w75;
+assign out[157:156] = in[53:52];
+wire [1:0] w76;
+f3_add a76(in[183:182], w10, w76);
+assign out[159:158] = w76;
+wire [1:0] w77;
+f3_add a77({in[110],in[111]}, in[119:118], w77);
+assign out[161:160] = w77;
+assign out[163:162] = in[55:54];
+wire [1:0] w78;
+f3_add a78(in[185:184], w11, w78);
+assign out[165:164] = w78;
+wire [1:0] w79;
+f3_add a79({in[112],in[113]}, in[121:120], w79);
+assign out[167:166] = w79;
+assign out[169:168] = in[57:56];
+wire [1:0] w80;
+f3_add a80(in[171:170], w12, w80);
+assign out[171:170] = w80;
+wire [1:0] w81;
+f3_add a81({in[114],in[115]}, in[123:122], w81);
+assign out[173:172] = w81;
+assign out[175:174] = in[59:58];
+wire [1:0] w82;
+f3_add a82(in[173:172], w13, w82);
+assign out[177:176] = w82;
+wire [1:0] w83;
+f3_add a83({in[116],in[117]}, in[125:124], w83);
+assign out[179:178] = w83;
+assign out[181:180] = in[61:60];
+wire [1:0] w84;
+f3_add a84(in[175:174], w14, w84);
+assign out[183:182] = w84;
+wire [1:0] w85;
+f3_add a85({in[118],in[119]}, in[127:126], w85);
+assign out[185:184] = w85;
+assign out[187:186] = in[63:62];
+wire [1:0] w86;
+f3_add a86(in[177:176], w15, w86);
+assign out[189:188] = w86;
+wire [1:0] w87;
+f3_add a87({in[120],in[121]}, in[129:128], w87);
+assign out[191:190] = w87;
+assign out[193:192] = in[65:64];
+endmodule
+
+module f3_add(A, B, C);
+    input [1:0] A, B;
+    output [1:0] C;
+    wire a0, a1, b0, b1, c0, c1;
+    assign {a1, a0} = A;
+    assign {b1, b0} = B;
+    assign C = {c1, c0};
+    assign c0 = ( a0 & ~a1 & ~b0 & ~b1) |
+                (~a0 & ~a1 &  b0 & ~b1) |
+                (~a0 &  a1 & ~b0 &  b1) ;
+    assign c1 = (~a0 &  a1 & ~b0 & ~b1) |
+                ( a0 & ~a1 &  b0 & ~b1) |
+                (~a0 & ~a1 & ~b0 &  b1) ;
+endmodule
+
+module f3m_neg(a, c);
+    input [`WIDTH:0] a;
+    output [`WIDTH:0] c;
+    genvar i;
+    generate
+        for(i=0;i<=`WIDTH;i=i+2)
+          begin:label
+            assign c[i+1:i] = {a[i],a[i+1]};
+          end
+    endgenerate
+endmodule
+
+
+
+

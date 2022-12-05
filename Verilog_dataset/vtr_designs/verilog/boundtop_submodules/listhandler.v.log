@@ -1,0 +1,463 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v' to AST representation.
+Generating RTLIL representation for module `\listhandler'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:73.5-94.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125.5-333.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\spram'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: spram               
+root of   1 design levels: listhandler         
+Automatically selected listhandler as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \listhandler
+Used module:     \spram
+
+2.3. Analyzing design hierarchy..
+Top module:  \listhandler
+Used module:     \spram
+Removed 0 unused modules.
+Mapping positional arguments of cell listhandler.ram (spram).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 36 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33 in module listhandler.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:96$31 in module listhandler.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:73$27 in module listhandler.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 8 redundant assignments.
+Promoted 14 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\spram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:349$88'.
+     1/2: $0\mem2[12:0]
+     2/2: $0\mem1[12:0]
+Creating decoders for process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33'.
+     1/86: $10\temp_readlevel[1:0]
+     2/86: $9\temp_readlevel[1:0]
+     3/86: $13\temp_lvempty[2:2]
+     4/86: $14\temp_offset2[2:0]
+     5/86: $13\temp_offset2[2:0]
+     6/86: $8\temp_readlevel[1:0]
+     7/86: $12\temp_lvempty[2:2]
+     8/86: $7\temp_readlevel[1:0]
+     9/86: $11\temp_lvempty[1:1]
+    10/86: $11\temp_offset1[2:0]
+    11/86: $10\temp_offset1[2:0]
+    12/86: $6\temp_readlevel[1:0]
+    13/86: $10\temp_lvempty[2:1] [0]
+    14/86: $12\temp_offset2[2:0]
+    15/86: $10\temp_lvempty[2:1] [1]
+    16/86: $9\temp_lvempty[0:0]
+    17/86: $8\temp_offset0[2:0]
+    18/86: $7\temp_offset0[2:0]
+    19/86: $8\temp_lvempty[2:0] [0]
+    20/86: $11\temp_offset2[2:0]
+    21/86: $9\temp_offset1[2:0]
+    22/86: $5\temp_readlevel[1:0]
+    23/86: $8\temp_lvempty[2:0] [2:1]
+    24/86: $10\temp_offset2[2:0]
+    25/86: $8\temp_offset1[2:0]
+    26/86: $6\temp_offset0[2:0]
+    27/86: $4\temp_readlevel[1:0]
+    28/86: $7\temp_lvempty[2:0]
+    29/86: $6\next_state[1:0]
+    30/86: $6\temp_lvempty[2:2]
+    31/86: $5\temp_lvempty[2:1] [0]
+    32/86: $5\temp_lvempty[2:1] [1]
+    33/86: $4\temp_lvempty[2:0] [0]
+    34/86: $4\temp_lvempty[2:0] [2:1]
+    35/86: $3\temp_lvempty[2:0]
+    36/86: $5\temp_busy[0:0]
+    37/86: $9\temp_offset2[2:0]
+    38/86: $7\temp_offset1[2:0]
+    39/86: $8\temp_offset2[2:0]
+    40/86: $5\temp_offset0[2:0]
+    41/86: $7\temp_offset2[2:0]
+    42/86: $6\temp_offset1[2:0]
+    43/86: $5\next_state[1:0]
+    44/86: $9\datain[12:0]
+    45/86: $8\datain[12:0]
+    46/86: $7\datain[12:0]
+    47/86: $6\datain[12:0]
+    48/86: $5\datain[12:0]
+    49/86: $4\datain[12:0]
+    50/86: $3\datain[12:0]
+    51/86: $2\datain[12:0]
+    52/86: $4\temp_busy[0:0]
+    53/86: $4\temp_writelevel[1:0]
+    54/86: $6\temp_offset2[2:0]
+    55/86: $5\temp_offset1[2:0]
+    56/86: $5\temp_offset2[2:0]
+    57/86: $4\temp_offset0[2:0]
+    58/86: $4\temp_offset2[2:0]
+    59/86: $4\temp_offset1[2:0]
+    60/86: $3\temp_readlevel[1:0]
+    61/86: $3\temp_offset2[2:0]
+    62/86: $3\temp_offset1[2:0]
+    63/86: $3\temp_offset0[2:0]
+    64/86: $3\temp_busy[0:0]
+    65/86: $3\temp_writelevel[1:0]
+    66/86: $2\temp_offset2[2:0]
+    67/86: $2\temp_offset1[2:0]
+    68/86: $2\temp_offset0[2:0]
+    69/86: $2\temp_writelevel[1:0]
+    70/86: $2\temp_readlevel[1:0]
+    71/86: $2\temp_lvempty[2:0]
+    72/86: $2\temp_busy[0:0]
+    73/86: $4\next_state[1:0]
+    74/86: $3\next_state[1:0]
+    75/86: $2\next_state[1:0]
+    76/86: $1\temp_offset2[2:0]
+    77/86: $1\temp_offset1[2:0]
+    78/86: $1\temp_offset0[2:0]
+    79/86: $1\temp_writelevel[1:0]
+    80/86: $1\temp_readlevel[1:0]
+    81/86: $1\temp_lvempty[2:0]
+    82/86: $1\temp_busy[0:0]
+    83/86: $1\temp_peekstate[1:0]
+    84/86: $1\next_state[1:0]
+    85/86: $1\datain[12:0]
+    86/86: $1\we[0:0]
+Creating decoders for process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:96$31'.
+     1/9: $0\offset2[2:0]
+     2/9: $0\offset1[2:0]
+     3/9: $0\offset0[2:0]
+     4/9: $0\writelevel[1:0]
+     5/9: $0\readlevel[1:0]
+     6/9: $0\busy[0:0]
+     7/9: $0\lvempty[2:0]
+     8/9: $0\state[1:0]
+     9/9: $0\peekstate[1:0]
+Creating decoders for process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:73$27'.
+     1/3: $3\address[2:0]
+     2/3: $2\address[2:0]
+     3/3: $1\address[2:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\listhandler.\temp_peekstate' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33': $auto$proc_dlatch.cc:427:proc_dlatch$1111
+Latch inferred for signal `\listhandler.\next_state' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33': $auto$proc_dlatch.cc:427:proc_dlatch$1134
+Latch inferred for signal `\listhandler.\we' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33': $auto$proc_dlatch.cc:427:proc_dlatch$1151
+Latch inferred for signal `\listhandler.\datain' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33': $auto$proc_dlatch.cc:427:proc_dlatch$1508
+Latch inferred for signal `\listhandler.\temp_busy' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33': $auto$proc_dlatch.cc:427:proc_dlatch$1619
+Latch inferred for signal `\listhandler.\temp_lvempty [0]' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33': $auto$proc_dlatch.cc:427:proc_dlatch$1774
+Latch inferred for signal `\listhandler.\temp_lvempty [1]' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33': $auto$proc_dlatch.cc:427:proc_dlatch$1953
+Latch inferred for signal `\listhandler.\temp_lvempty [2]' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33': $auto$proc_dlatch.cc:427:proc_dlatch$2212
+Latch inferred for signal `\listhandler.\temp_readlevel' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33': $auto$proc_dlatch.cc:427:proc_dlatch$2383
+Latch inferred for signal `\listhandler.\temp_writelevel' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33': $auto$proc_dlatch.cc:427:proc_dlatch$2444
+Latch inferred for signal `\listhandler.\temp_offset0' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33': $auto$proc_dlatch.cc:427:proc_dlatch$2609
+Latch inferred for signal `\listhandler.\temp_offset1' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33': $auto$proc_dlatch.cc:427:proc_dlatch$2876
+Latch inferred for signal `\listhandler.\temp_offset2' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33': $auto$proc_dlatch.cc:427:proc_dlatch$3261
+No latch inferred for signal `\listhandler.\address' from process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:73$27'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\spram.\temp_reg' using process `\spram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:349$88'.
+  created $dff cell `$procdff$3262' with positive edge clock.
+Creating register for signal `\spram.\mem1' using process `\spram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:349$88'.
+  created $dff cell `$procdff$3263' with positive edge clock.
+Creating register for signal `\spram.\mem2' using process `\spram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:349$88'.
+  created $dff cell `$procdff$3264' with positive edge clock.
+Creating register for signal `\listhandler.\peekstate' using process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:96$31'.
+  created $dff cell `$procdff$3265' with positive edge clock.
+Creating register for signal `\listhandler.\state' using process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:96$31'.
+  created $dff cell `$procdff$3266' with positive edge clock.
+Creating register for signal `\listhandler.\readlevel' using process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:96$31'.
+  created $dff cell `$procdff$3267' with positive edge clock.
+Creating register for signal `\listhandler.\writelevel' using process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:96$31'.
+  created $dff cell `$procdff$3268' with positive edge clock.
+Creating register for signal `\listhandler.\offset0' using process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:96$31'.
+  created $dff cell `$procdff$3269' with positive edge clock.
+Creating register for signal `\listhandler.\offset1' using process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:96$31'.
+  created $dff cell `$procdff$3270' with positive edge clock.
+Creating register for signal `\listhandler.\offset2' using process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:96$31'.
+  created $dff cell `$procdff$3271' with positive edge clock.
+Creating register for signal `\listhandler.\lvempty' using process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:96$31'.
+  created $dff cell `$procdff$3272' with positive edge clock.
+Creating register for signal `\listhandler.\busy' using process `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:96$31'.
+  created $dff cell `$procdff$3273' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\spram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:349$88'.
+Removing empty process `spram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:349$88'.
+Found and cleaned up 36 empty switches in `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33'.
+Removing empty process `listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:125$33'.
+Found and cleaned up 1 empty switch in `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:96$31'.
+Removing empty process `listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:96$31'.
+Found and cleaned up 3 empty switches in `\listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:73$27'.
+Removing empty process `listhandler.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:73$27'.
+Cleaned up 41 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module spram.
+<suppressed ~1 debug messages>
+Optimizing module listhandler.
+<suppressed ~930 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module spram.
+Optimizing module listhandler.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\spram'.
+Finding identical cells in module `\listhandler'.
+<suppressed ~837 debug messages>
+Removed a total of 279 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \spram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \listhandler..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$1084.
+    dead port 1/2 on $mux $procmux$1078.
+    dead port 1/2 on $mux $procmux$1075.
+Removed 3 multiplexer ports.
+<suppressed ~27 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \spram.
+  Optimizing cells in module \listhandler.
+    New ctrl vector for $pmux cell $procmux$996: $auto$opt_reduce.cc:134:opt_mux$3275
+    New ctrl vector for $pmux cell $procmux$991: $auto$opt_reduce.cc:134:opt_mux$3277
+    New ctrl vector for $pmux cell $procmux$1025: { $procmux$1042_CMP $procmux$1031_CMP }
+    New ctrl vector for $pmux cell $procmux$1001: $auto$opt_reduce.cc:134:opt_mux$3279
+    New ctrl vector for $pmux cell $procmux$1011: $procmux$1031_CMP
+    New ctrl vector for $pmux cell $procmux$1020: $auto$opt_reduce.cc:134:opt_mux$3281
+    New ctrl vector for $pmux cell $procmux$1041: $procmux$1042_CMP
+    New ctrl vector for $pmux cell $procmux$1036: $procmux$1042_CMP
+    New ctrl vector for $pmux cell $procmux$1030: { $procmux$1042_CMP $procmux$1031_CMP }
+    New ctrl vector for $pmux cell $procmux$1015: { $procmux$1042_CMP $procmux$1031_CMP }
+  Optimizing cells in module \listhandler.
+Performed a total of 10 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\spram'.
+Finding identical cells in module `\listhandler'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$3264 ($dff) from module spram (D = \mem1, Q = \mem2).
+Setting constant 0-bit at position 0 on $procdff$3262 ($dff) from module spram.
+Setting constant 0-bit at position 1 on $procdff$3262 ($dff) from module spram.
+Setting constant 0-bit at position 2 on $procdff$3262 ($dff) from module spram.
+Setting constant 0-bit at position 3 on $procdff$3262 ($dff) from module spram.
+Setting constant 0-bit at position 4 on $procdff$3262 ($dff) from module spram.
+Setting constant 0-bit at position 5 on $procdff$3262 ($dff) from module spram.
+Setting constant 0-bit at position 6 on $procdff$3262 ($dff) from module spram.
+Setting constant 0-bit at position 7 on $procdff$3262 ($dff) from module spram.
+Setting constant 0-bit at position 8 on $procdff$3262 ($dff) from module spram.
+Setting constant 0-bit at position 9 on $procdff$3262 ($dff) from module spram.
+Setting constant 0-bit at position 10 on $procdff$3262 ($dff) from module spram.
+Setting constant 0-bit at position 11 on $procdff$3262 ($dff) from module spram.
+Setting constant 0-bit at position 12 on $procdff$3262 ($dff) from module spram.
+Adding EN signal on $procdff$3263 ($dff) from module spram (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/listhandler.v:354$90_Y, Q = \mem1).
+Adding SRST signal on $procdff$3273 ($dff) from module listhandler (D = \temp_busy, Q = \busy, rval = 1'0).
+Adding SRST signal on $procdff$3272 ($dff) from module listhandler (D = \temp_lvempty, Q = \lvempty, rval = 3'001).
+Adding SRST signal on $procdff$3271 ($dff) from module listhandler (D = \temp_offset2, Q = \offset2, rval = 3'000).
+Adding SRST signal on $procdff$3270 ($dff) from module listhandler (D = \temp_offset1, Q = \offset1, rval = 3'000).
+Adding SRST signal on $procdff$3269 ($dff) from module listhandler (D = \temp_offset0, Q = \offset0, rval = 3'000).
+Adding SRST signal on $procdff$3268 ($dff) from module listhandler (D = \temp_writelevel, Q = \writelevel, rval = 2'00).
+Adding SRST signal on $procdff$3267 ($dff) from module listhandler (D = \temp_readlevel, Q = \readlevel, rval = 2'00).
+Adding SRST signal on $procdff$3266 ($dff) from module listhandler (D = \next_state, Q = \state, rval = 2'00).
+Adding EN signal on $procdff$3265 ($dff) from module listhandler (D = \temp_peekstate, Q = \peekstate).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \spram..
+Finding unused cells or wires in module \listhandler..
+Removed 23 unused cells and 1502 unused wires.
+<suppressed ~25 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module listhandler.
+Optimizing module spram.
+<suppressed ~1 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \listhandler..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \spram..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \listhandler.
+  Optimizing cells in module \spram.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\listhandler'.
+Finding identical cells in module `\spram'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \listhandler..
+Finding unused cells or wires in module \spram..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module listhandler.
+Optimizing module spram.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \listhandler..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \spram..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \listhandler.
+  Optimizing cells in module \spram.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\listhandler'.
+Finding identical cells in module `\spram'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \listhandler..
+Finding unused cells or wires in module \spram..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module listhandler.
+Optimizing module spram.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== listhandler ===
+
+   Number of wires:                436
+   Number of wire bits:            872
+   Number of public wires:          37
+   Number of public wire bits:     210
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                422
+     $add                          128
+     $and                          257
+     $dffe                           2
+     $dlatch                        35
+     $eq                            45
+     $logic_not                      9
+     $mux                          161
+     $not                           28
+     $or                             7
+     $pmux                           7
+     $reduce_or                    110
+     $sdff                          19
+
+=== spram ===
+
+   Number of wires:                  7
+   Number of wire bits:             67
+   Number of public wires:           7
+   Number of public wire bits:      67
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $dffe                          26
+
+=== design hierarchy ===
+
+   listhandler                       1
+     spram                           0
+
+   Number of wires:                436
+   Number of wire bits:            872
+   Number of public wires:          37
+   Number of public wire bits:     210
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                422
+     $add                          128
+     $and                          257
+     $dffe                           2
+     $dlatch                        35
+     $eq                            45
+     $logic_not                      9
+     $mux                          161
+     $not                           28
+     $or                             7
+     $pmux                           7
+     $reduce_or                    110
+     $sdff                          19
+
+End of script. Logfile hash: a3df5b9801, CPU: user 0.28s system 0.00s, MEM: 17.97 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 31% 5x opt_expr (0 sec), 23% 4x opt_merge (0 sec), ...

@@ -1,0 +1,829 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v' to AST representation.
+Generating RTLIL representation for module `\Channel_Accumulator'.
+Generating RTLIL representation for module `\Accumulator'.
+Generating RTLIL representation for module `\generic_fifo_sc_a'.
+Generating RTLIL representation for module `\dpram'.
+Generating RTLIL representation for module `\Channel'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   2 design levels: Channel             
+root of   0 design levels: dpram               
+root of   1 design levels: generic_fifo_sc_a   
+root of   2 design levels: Accumulator         
+root of   3 design levels: Channel_Accumulator 
+Automatically selected Channel_Accumulator as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \Channel_Accumulator
+Used module:     \Accumulator
+Used module:         \generic_fifo_sc_a
+Used module:             \dpram
+Used module:     \Channel
+Parameter \dw = 16
+Parameter \aw = 3
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\generic_fifo_sc_a'.
+Parameter \dw = 16
+Parameter \aw = 3
+Generating RTLIL representation for module `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Generating RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 16
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a'.
+Parameter \DWIDTH = 8
+Parameter \AWIDTH = 8
+
+2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\dpram'.
+Parameter \DWIDTH = 8
+Parameter \AWIDTH = 8
+Generating RTLIL representation for module `$paramod$c6dd9bf41cc17f487c5cd45e80bf53901561430c\dpram'.
+
+2.6. Analyzing design hierarchy..
+Top module:  \Channel_Accumulator
+Used module:     \Accumulator
+Used module:         $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a
+Used module:             \dpram
+Used module:         $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a
+Used module:     \Channel
+Parameter \DWIDTH = 16
+Parameter \AWIDTH = 3
+
+2.7. Executing AST frontend in derive mode using pre-parsed AST for module `\dpram'.
+Parameter \DWIDTH = 16
+Parameter \AWIDTH = 3
+Generating RTLIL representation for module `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram'.
+Parameter \DWIDTH = 8
+Parameter \AWIDTH = 3
+
+2.8. Executing AST frontend in derive mode using pre-parsed AST for module `\dpram'.
+Parameter \DWIDTH = 8
+Parameter \AWIDTH = 3
+Generating RTLIL representation for module `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram'.
+
+2.9. Analyzing design hierarchy..
+Top module:  \Channel_Accumulator
+Used module:     \Accumulator
+Used module:         $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a
+Used module:             $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram
+Used module:         $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a
+Used module:             $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram
+Used module:     \Channel
+
+2.10. Analyzing design hierarchy..
+Top module:  \Channel_Accumulator
+Used module:     \Accumulator
+Used module:         $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a
+Used module:             $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram
+Used module:         $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a
+Used module:             $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram
+Used module:     \Channel
+Removing unused module `$paramod$c6dd9bf41cc17f487c5cd45e80bf53901561430c\dpram'.
+Removing unused module `\dpram'.
+Removing unused module `\generic_fifo_sc_a'.
+Removed 3 unused modules.
+Warning: Resizing cell port $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.u0.wren_a from 32 bits to 1 bits.
+Warning: Resizing cell port $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.u0.wren_a from 32 bits to 1 bits.
+Warning: Resizing cell port Channel.fifo_mult.clr from 32 bits to 1 bits.
+Warning: Resizing cell port Accumulator.fifo_addr_out.clr from 32 bits to 1 bits.
+Warning: Resizing cell port Accumulator.fifo_data_out.clr from 32 bits to 1 bits.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:291$93 in module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:273$86 in module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:264$84 in module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:291$80 in module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:273$73 in module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:264$71 in module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:420$67 in module Channel.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$124 in module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$116 in module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$142 in module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$134 in module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15 in module Accumulator.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 14 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:291$93'.
+Found async reset \rst in `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:273$86'.
+Found async reset \rst in `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:264$84'.
+Found async reset \rst in `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:291$80'.
+Found async reset \rst in `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:273$73'.
+Found async reset \rst in `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:264$71'.
+Found async reset \rst in `\Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:291$93'.
+     1/1: $0\gb[0:0]
+Creating decoders for process `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:273$86'.
+     1/1: $0\rp[2:0]
+Creating decoders for process `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:264$84'.
+     1/1: $0\wp[2:0]
+Creating decoders for process `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:291$80'.
+     1/1: $0\gb[0:0]
+Creating decoders for process `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:273$73'.
+     1/1: $0\rp[2:0]
+Creating decoders for process `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:264$71'.
+     1/1: $0\wp[2:0]
+Creating decoders for process `\Channel.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:420$67'.
+     1/2: $0\mult_wr_en[0:0]
+     2/2: $0\mult[15:0]
+Creating decoders for process `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$124'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:344$115_EN[15:0]$130
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:344$115_DATA[15:0]$129
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:344$115_ADDR[2:0]$128
+     4/4: $0\out_b[15:0]
+Creating decoders for process `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$116'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:335$114_EN[15:0]$122
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:335$114_DATA[15:0]$121
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:335$114_ADDR[2:0]$120
+     4/4: $0\out_a[15:0]
+Creating decoders for process `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$142'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:344$133_EN[7:0]$148
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:344$133_DATA[7:0]$147
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:344$133_ADDR[2:0]$146
+     4/4: $0\out_b[7:0]
+Creating decoders for process `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$134'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:335$132_EN[7:0]$140
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:335$132_DATA[7:0]$139
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:335$132_ADDR[2:0]$138
+     4/4: $0\out_a[7:0]
+Creating decoders for process `\Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+     1/10: $0\last[0:0]
+     2/10: $0\wr_addr_delay[7:0]
+     3/10: $0\wr_data_delay[15:0]
+     4/10: $0\wr_en[0:0]
+     5/10: $0\wr_addr[7:0]
+     6/10: $0\wr_data[15:0]
+     7/10: $0\mult_rd_en_reg[0:0]
+     8/10: $0\row_id_rd_en_reg[0:0]
+     9/10: $0\first_read[0:0]
+    10/10: $0\done[0:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.\gb' using process `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:291$93'.
+  created $adff cell `$procdff$302' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.\rp' using process `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:273$86'.
+  created $adff cell `$procdff$303' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.\wp' using process `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:264$84'.
+  created $adff cell `$procdff$304' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.\gb' using process `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:291$80'.
+  created $adff cell `$procdff$305' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.\rp' using process `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:273$73'.
+  created $adff cell `$procdff$306' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.\wp' using process `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:264$71'.
+  created $adff cell `$procdff$307' with positive edge clock and positive level reset.
+Creating register for signal `\Channel.\mult' using process `\Channel.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:420$67'.
+  created $dff cell `$procdff$308' with positive edge clock.
+Creating register for signal `\Channel.\mult_wr_en' using process `\Channel.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:420$67'.
+  created $dff cell `$procdff$309' with positive edge clock.
+Creating register for signal `\Channel.\vec_val_rd_en_reg' using process `\Channel.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:420$67'.
+  created $dff cell `$procdff$310' with positive edge clock.
+Creating register for signal `\Channel.\mat_val_rd_en_reg' using process `\Channel.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:420$67'.
+  created $dff cell `$procdff$311' with positive edge clock.
+Creating register for signal `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.\out_b' using process `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$124'.
+  created $dff cell `$procdff$312' with positive edge clock.
+Creating register for signal `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:344$115_ADDR' using process `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$124'.
+  created $dff cell `$procdff$313' with positive edge clock.
+Creating register for signal `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:344$115_DATA' using process `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$124'.
+  created $dff cell `$procdff$314' with positive edge clock.
+Creating register for signal `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:344$115_EN' using process `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$124'.
+  created $dff cell `$procdff$315' with positive edge clock.
+Creating register for signal `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.\out_a' using process `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$116'.
+  created $dff cell `$procdff$316' with positive edge clock.
+Creating register for signal `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:335$114_ADDR' using process `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$116'.
+  created $dff cell `$procdff$317' with positive edge clock.
+Creating register for signal `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:335$114_DATA' using process `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$116'.
+  created $dff cell `$procdff$318' with positive edge clock.
+Creating register for signal `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:335$114_EN' using process `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$116'.
+  created $dff cell `$procdff$319' with positive edge clock.
+Creating register for signal `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.\out_b' using process `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$142'.
+  created $dff cell `$procdff$320' with positive edge clock.
+Creating register for signal `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:344$133_ADDR' using process `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$142'.
+  created $dff cell `$procdff$321' with positive edge clock.
+Creating register for signal `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:344$133_DATA' using process `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$142'.
+  created $dff cell `$procdff$322' with positive edge clock.
+Creating register for signal `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:344$133_EN' using process `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$142'.
+  created $dff cell `$procdff$323' with positive edge clock.
+Creating register for signal `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.\out_a' using process `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$134'.
+  created $dff cell `$procdff$324' with positive edge clock.
+Creating register for signal `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:335$132_ADDR' using process `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$134'.
+  created $dff cell `$procdff$325' with positive edge clock.
+Creating register for signal `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:335$132_DATA' using process `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$134'.
+  created $dff cell `$procdff$326' with positive edge clock.
+Creating register for signal `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:335$132_EN' using process `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$134'.
+  created $dff cell `$procdff$327' with positive edge clock.
+Creating register for signal `\Accumulator.\done' using process `\Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+  created $adff cell `$procdff$328' with positive edge clock and positive level reset.
+Creating register for signal `\Accumulator.\first_read' using process `\Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+  created $adff cell `$procdff$329' with positive edge clock and positive level reset.
+Creating register for signal `\Accumulator.\row_id_rd_en_reg' using process `\Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+  created $dff cell `$procdff$332' with positive edge clock.
+Creating register for signal `\Accumulator.\mult_rd_en_reg' using process `\Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+  created $dff cell `$procdff$335' with positive edge clock.
+Creating register for signal `\Accumulator.\wr_data' using process `\Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+  created $adff cell `$procdff$336' with positive edge clock and positive level reset.
+Creating register for signal `\Accumulator.\wr_addr' using process `\Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+  created $dff cell `$procdff$339' with positive edge clock.
+Creating register for signal `\Accumulator.\wr_en' using process `\Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+  created $adff cell `$procdff$340' with positive edge clock and positive level reset.
+Creating register for signal `\Accumulator.\wr_data_delay' using process `\Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+  created $dff cell `$procdff$343' with positive edge clock.
+Creating register for signal `\Accumulator.\wr_addr_delay' using process `\Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+  created $dff cell `$procdff$346' with positive edge clock.
+Creating register for signal `\Accumulator.\last' using process `\Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+  created $dff cell `$procdff$349' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:291$93'.
+Removing empty process `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:291$93'.
+Found and cleaned up 2 empty switches in `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:273$86'.
+Removing empty process `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:273$86'.
+Found and cleaned up 2 empty switches in `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:264$84'.
+Removing empty process `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:264$84'.
+Found and cleaned up 3 empty switches in `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:291$80'.
+Removing empty process `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:291$80'.
+Found and cleaned up 2 empty switches in `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:273$73'.
+Removing empty process `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:273$73'.
+Found and cleaned up 2 empty switches in `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:264$71'.
+Removing empty process `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:264$71'.
+Found and cleaned up 1 empty switch in `\Channel.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:420$67'.
+Removing empty process `Channel.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:420$67'.
+Found and cleaned up 1 empty switch in `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$124'.
+Removing empty process `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$124'.
+Found and cleaned up 1 empty switch in `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$116'.
+Removing empty process `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$116'.
+Found and cleaned up 1 empty switch in `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$142'.
+Removing empty process `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:342$142'.
+Found and cleaned up 1 empty switch in `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$134'.
+Removing empty process `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:333$134'.
+Found and cleaned up 5 empty switches in `\Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+Removing empty process `Accumulator.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:172$15'.
+Cleaned up 24 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.
+Optimizing module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.
+Optimizing module Channel.
+Optimizing module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.
+Optimizing module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.
+Optimizing module Accumulator.
+<suppressed ~5 debug messages>
+Optimizing module Channel_Accumulator.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.
+Optimizing module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.
+Optimizing module Channel.
+Optimizing module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.
+Optimizing module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.
+Optimizing module Accumulator.
+Optimizing module Channel_Accumulator.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\Channel'.
+<suppressed ~21 debug messages>
+Finding identical cells in module `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram'.
+Finding identical cells in module `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram'.
+Finding identical cells in module `\Accumulator'.
+<suppressed ~18 debug messages>
+Finding identical cells in module `\Channel_Accumulator'.
+Removed a total of 15 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Channel..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Accumulator..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$287: \first_read -> 1'1
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Channel_Accumulator..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~34 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.
+  Optimizing cells in module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.
+  Optimizing cells in module \Channel.
+  Optimizing cells in module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.
+    Consolidated identical input bits for $mux cell $procmux$205:
+      Old ports: A=16'0000000000000000, B=16'1111111111111111, Y=$procmux$205_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$205_Y [0]
+      New connections: $procmux$205_Y [15:1] = { $procmux$205_Y [0] $procmux$205_Y [0] $procmux$205_Y [0] $procmux$205_Y [0] $procmux$205_Y [0] $procmux$205_Y [0] $procmux$205_Y [0] $procmux$205_Y [0] $procmux$205_Y [0] $procmux$205_Y [0] $procmux$205_Y [0] $procmux$205_Y [0] $procmux$205_Y [0] $procmux$205_Y [0] $procmux$205_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$193:
+      Old ports: A=16'0000000000000000, B=16'1111111111111111, Y=$procmux$193_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$193_Y [0]
+      New connections: $procmux$193_Y [15:1] = { $procmux$193_Y [0] $procmux$193_Y [0] $procmux$193_Y [0] $procmux$193_Y [0] $procmux$193_Y [0] $procmux$193_Y [0] $procmux$193_Y [0] $procmux$193_Y [0] $procmux$193_Y [0] $procmux$193_Y [0] $procmux$193_Y [0] $procmux$193_Y [0] $procmux$193_Y [0] $procmux$193_Y [0] $procmux$193_Y [0] }
+  Optimizing cells in module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.
+  Optimizing cells in module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.
+    Consolidated identical input bits for $mux cell $procmux$229:
+      Old ports: A=8'00000000, B=8'11111111, Y=$procmux$229_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$229_Y [0]
+      New connections: $procmux$229_Y [7:1] = { $procmux$229_Y [0] $procmux$229_Y [0] $procmux$229_Y [0] $procmux$229_Y [0] $procmux$229_Y [0] $procmux$229_Y [0] $procmux$229_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$217:
+      Old ports: A=8'00000000, B=8'11111111, Y=$procmux$217_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$217_Y [0]
+      New connections: $procmux$217_Y [7:1] = { $procmux$217_Y [0] $procmux$217_Y [0] $procmux$217_Y [0] $procmux$217_Y [0] $procmux$217_Y [0] $procmux$217_Y [0] $procmux$217_Y [0] }
+  Optimizing cells in module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.
+  Optimizing cells in module \Accumulator.
+    New ctrl vector for $mux cell $procmux$287: { }
+  Optimizing cells in module \Accumulator.
+  Optimizing cells in module \Channel_Accumulator.
+Performed a total of 5 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Finding identical cells in module `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a'.
+Finding identical cells in module `\Channel'.
+Finding identical cells in module `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram'.
+Finding identical cells in module `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram'.
+Finding identical cells in module `\Accumulator'.
+Finding identical cells in module `\Channel_Accumulator'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$304 ($adff) from module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a (D = $procmux$166_Y, Q = \wp).
+Adding EN signal on $procdff$302 ($adff) from module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a (D = $procmux$156_Y, Q = \gb).
+Adding EN signal on $procdff$303 ($adff) from module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a (D = $procmux$161_Y, Q = \rp).
+Adding EN signal on $procdff$307 ($adff) from module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a (D = $procmux$184_Y, Q = \wp).
+Adding EN signal on $procdff$305 ($adff) from module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a (D = $procmux$174_Y, Q = \gb).
+Adding EN signal on $procdff$306 ($adff) from module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a (D = $procmux$179_Y, Q = \rp).
+Adding EN signal on $procdff$308 ($dff) from module Channel (D = $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:425$69_Y, Q = \mult).
+Adding EN signal on $procdff$312 ($dff) from module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:347$131_DATA, Q = \out_b).
+Adding EN signal on $procdff$316 ($dff) from module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:338$123_DATA, Q = \out_a).
+Adding EN signal on $procdff$320 ($dff) from module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:347$149_DATA, Q = \out_b).
+Adding EN signal on $procdff$324 ($dff) from module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:338$141_DATA, Q = \out_a).
+Adding EN signal on $procdff$346 ($dff) from module Accumulator (D = \wr_addr, Q = \wr_addr_delay).
+Adding EN signal on $procdff$343 ($dff) from module Accumulator (D = \wr_data, Q = \wr_data_delay).
+Adding EN signal on $procdff$349 ($dff) from module Accumulator (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:180$16_Y, Q = \last).
+Adding EN signal on $procdff$340 ($adff) from module Accumulator (D = $procmux$253_Y, Q = \wr_en).
+Adding EN signal on $procdff$328 ($adff) from module Accumulator (D = 1'1, Q = \done).
+Adding EN signal on $procdff$329 ($adff) from module Accumulator (D = 1'1, Q = \first_read).
+Adding EN signal on $procdff$332 ($dff) from module Accumulator (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:170$14_Y, Q = \row_id_rd_en_reg).
+Adding EN signal on $procdff$335 ($dff) from module Accumulator (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/spmv_submodules/Channel_Accumulator.v:170$14_Y, Q = \mult_rd_en_reg).
+Adding EN signal on $procdff$336 ($adff) from module Accumulator (D = $procmux$273_Y, Q = \wr_data).
+Adding EN signal on $procdff$339 ($dff) from module Accumulator (D = $procmux$267_Y, Q = \wr_addr).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a..
+Finding unused cells or wires in module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a..
+Finding unused cells or wires in module \Channel..
+Finding unused cells or wires in module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram..
+Finding unused cells or wires in module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram..
+Finding unused cells or wires in module \Accumulator..
+Finding unused cells or wires in module \Channel_Accumulator..
+Removed 40 unused cells and 175 unused wires.
+<suppressed ~46 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.
+Optimizing module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.
+<suppressed ~3 debug messages>
+Optimizing module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.
+Optimizing module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.
+<suppressed ~3 debug messages>
+Optimizing module Accumulator.
+Optimizing module Channel.
+<suppressed ~1 debug messages>
+Optimizing module Channel_Accumulator.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Accumulator..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Channel..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Channel_Accumulator..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~22 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.
+  Optimizing cells in module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.
+  Optimizing cells in module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.
+  Optimizing cells in module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.
+  Optimizing cells in module \Accumulator.
+  Optimizing cells in module \Channel.
+  Optimizing cells in module \Channel_Accumulator.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram'.
+Finding identical cells in module `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a'.
+Finding identical cells in module `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram'.
+Finding identical cells in module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Finding identical cells in module `\Accumulator'.
+<suppressed ~30 debug messages>
+Finding identical cells in module `\Channel'.
+Finding identical cells in module `\Channel_Accumulator'.
+Removed a total of 10 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram..
+Finding unused cells or wires in module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a..
+Finding unused cells or wires in module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram..
+Finding unused cells or wires in module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a..
+Finding unused cells or wires in module \Accumulator..
+Finding unused cells or wires in module \Channel..
+Finding unused cells or wires in module \Channel_Accumulator..
+Removed 0 unused cells and 10 unused wires.
+<suppressed ~2 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.
+Optimizing module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.
+Optimizing module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.
+Optimizing module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.
+Optimizing module Accumulator.
+<suppressed ~1 debug messages>
+Optimizing module Channel.
+Optimizing module Channel_Accumulator.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Accumulator..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Channel..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Channel_Accumulator..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~22 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.
+  Optimizing cells in module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.
+  Optimizing cells in module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.
+  Optimizing cells in module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.
+  Optimizing cells in module \Accumulator.
+  Optimizing cells in module \Channel.
+  Optimizing cells in module \Channel_Accumulator.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram'.
+Finding identical cells in module `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a'.
+Finding identical cells in module `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram'.
+Finding identical cells in module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Finding identical cells in module `\Accumulator'.
+Finding identical cells in module `\Channel'.
+Finding identical cells in module `\Channel_Accumulator'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram..
+Finding unused cells or wires in module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a..
+Finding unused cells or wires in module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram..
+Finding unused cells or wires in module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a..
+Finding unused cells or wires in module \Accumulator..
+Finding unused cells or wires in module \Channel..
+Finding unused cells or wires in module \Channel_Accumulator..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.
+Optimizing module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.
+Optimizing module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.
+Optimizing module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.
+Optimizing module Accumulator.
+Optimizing module Channel.
+Optimizing module Channel_Accumulator.
+
+4.23. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.24. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Accumulator..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Channel..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Channel_Accumulator..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~22 debug messages>
+
+4.25. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.
+  Optimizing cells in module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.
+  Optimizing cells in module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.
+  Optimizing cells in module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.
+  Optimizing cells in module \Accumulator.
+  Optimizing cells in module \Channel.
+  Optimizing cells in module \Channel_Accumulator.
+Performed a total of 0 changes.
+
+4.26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram'.
+Finding identical cells in module `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a'.
+Finding identical cells in module `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram'.
+Finding identical cells in module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Finding identical cells in module `\Accumulator'.
+Finding identical cells in module `\Channel'.
+Finding identical cells in module `\Channel_Accumulator'.
+Removed a total of 0 cells.
+
+4.27. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram..
+Finding unused cells or wires in module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a..
+Finding unused cells or wires in module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram..
+Finding unused cells or wires in module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a..
+Finding unused cells or wires in module \Accumulator..
+Finding unused cells or wires in module \Channel..
+Finding unused cells or wires in module \Channel_Accumulator..
+
+4.29. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram.
+Optimizing module $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.
+Optimizing module $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram.
+Optimizing module $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.
+Optimizing module Accumulator.
+Optimizing module Channel.
+Optimizing module Channel_Accumulator.
+
+4.30. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram ===
+
+   Number of wires:                 17
+   Number of wire bits:            175
+   Number of public wires:           9
+   Number of public wire bits:      73
+   Number of memories:               1
+   Number of memory bits:          128
+   Number of processes:              0
+   Number of cells:                 12
+     $dffe                          32
+     $mux                           40
+
+=== $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a ===
+
+   Number of wires:                 30
+   Number of wire bits:            106
+   Number of public wires:          16
+   Number of public wire bits:      84
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 22
+     $add                            6
+     $adffe                          7
+     $and                            3
+     $eq                             6
+     $logic_not                      1
+     $mux                           15
+     $reduce_bool                    7
+
+=== $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram ===
+
+   Number of wires:                 17
+   Number of wire bits:             95
+   Number of public wires:           9
+   Number of public wire bits:      41
+   Number of memories:               1
+   Number of memory bits:           64
+   Number of processes:              0
+   Number of cells:                 12
+     $dffe                          16
+     $mux                           24
+
+=== $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a ===
+
+   Number of wires:                 30
+   Number of wire bits:             74
+   Number of public wires:          16
+   Number of public wire bits:      52
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 22
+     $add                            6
+     $adffe                          7
+     $and                            3
+     $eq                             6
+     $logic_not                      1
+     $mux                           15
+     $reduce_bool                    7
+
+=== Accumulator ===
+
+   Number of wires:                 51
+   Number of wire bits:            190
+   Number of public wires:          27
+   Number of public wire bits:     115
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 36
+     $add                           16
+     $adffe                         19
+     $and                            4
+     $dffe                          34
+     $mux                           43
+     $ne                            13
+     $not                            5
+     $reduce_and                    15
+
+=== Channel ===
+
+   Number of wires:                 27
+   Number of wire bits:             86
+   Number of public wires:          19
+   Number of public wire bits:      63
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 14
+     $and                            5
+     $dff                            2
+     $dffe                          16
+     $mul                           16
+     $mux                            1
+     $not                            3
+
+=== Channel_Accumulator ===
+
+   Number of wires:                 22
+   Number of wire bits:             80
+   Number of public wires:          22
+   Number of public wire bits:      80
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+
+=== design hierarchy ===
+
+   Channel_Accumulator               1
+     Accumulator                     0
+       $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a      0
+         $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram      0
+       $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a      0
+         $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram      0
+     Channel                         0
+       $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a      0
+         $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram      0
+
+   Number of wires:                 22
+   Number of wire bits:             80
+   Number of public wires:          22
+   Number of public wire bits:      80
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+
+Warnings: 5 unique messages, 5 total
+End of script. Logfile hash: 725bd186ac, CPU: user 0.20s system 0.00s, MEM: 12.54 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 22% 6x opt_expr (0 sec), 16% 5x opt_merge (0 sec), ...

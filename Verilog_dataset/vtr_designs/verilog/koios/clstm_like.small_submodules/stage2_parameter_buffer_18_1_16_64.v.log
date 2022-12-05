@@ -1,0 +1,707 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v' to AST representation.
+Generating RTLIL representation for module `\stage2_parameter_buffer_18_1_16_64'.
+Generating RTLIL representation for module `\weight_buffer_18_16_1_64_bc_0'.
+Generating RTLIL representation for module `\weight_buffer_18_16_1_64_bo_0'.
+Generating RTLIL representation for module `\weight_buffer_18_16_1_64_Woc_0'.
+Generating RTLIL representation for module `\weight_buffer_18_16_1_64_bf_0'.
+Generating RTLIL representation for module `\weight_buffer_18_16_1_64_Wfc_0'.
+Generating RTLIL representation for module `\weight_buffer_18_16_1_64_bi_0'.
+Generating RTLIL representation for module `\weight_buffer_18_16_1_64_Wic_0'.
+Generating RTLIL representation for module `\counter_63_1'.
+Generating RTLIL representation for module `\single_port_ram'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: single_port_ram     
+root of   0 design levels: counter_63_1        
+root of   1 design levels: weight_buffer_18_16_1_64_Wic_0
+root of   1 design levels: weight_buffer_18_16_1_64_bi_0
+root of   1 design levels: weight_buffer_18_16_1_64_Wfc_0
+root of   1 design levels: weight_buffer_18_16_1_64_bf_0
+root of   1 design levels: weight_buffer_18_16_1_64_Woc_0
+root of   1 design levels: weight_buffer_18_16_1_64_bo_0
+root of   1 design levels: weight_buffer_18_16_1_64_bc_0
+root of   2 design levels: stage2_parameter_buffer_18_1_16_64
+Automatically selected stage2_parameter_buffer_18_1_16_64 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \stage2_parameter_buffer_18_1_16_64
+Used module:     \weight_buffer_18_16_1_64_bc_0
+Used module:         \single_port_ram
+Used module:     \weight_buffer_18_16_1_64_bo_0
+Used module:     \weight_buffer_18_16_1_64_Woc_0
+Used module:     \weight_buffer_18_16_1_64_bf_0
+Used module:     \weight_buffer_18_16_1_64_Wfc_0
+Used module:     \weight_buffer_18_16_1_64_bi_0
+Used module:     \weight_buffer_18_16_1_64_Wic_0
+Used module:     \counter_63_1
+
+2.3. Analyzing design hierarchy..
+Top module:  \stage2_parameter_buffer_18_1_16_64
+Used module:     \weight_buffer_18_16_1_64_bc_0
+Used module:         \single_port_ram
+Used module:     \weight_buffer_18_16_1_64_bo_0
+Used module:     \weight_buffer_18_16_1_64_Woc_0
+Used module:     \weight_buffer_18_16_1_64_bf_0
+Used module:     \weight_buffer_18_16_1_64_Wfc_0
+Used module:     \weight_buffer_18_16_1_64_bi_0
+Used module:     \weight_buffer_18_16_1_64_Wic_0
+Used module:     \counter_63_1
+Removed 0 unused modules.
+Warning: Resizing cell port stage2_parameter_buffer_18_1_16_64.weight_buffer_18_16_1_64_bc_0_inst.index from 14 bits to 6 bits.
+Warning: Resizing cell port stage2_parameter_buffer_18_1_16_64.weight_buffer_18_16_1_64_bo_0_inst.index from 14 bits to 6 bits.
+Warning: Resizing cell port stage2_parameter_buffer_18_1_16_64.weight_buffer_18_16_1_64_Woc_0_inst.index from 14 bits to 6 bits.
+Warning: Resizing cell port stage2_parameter_buffer_18_1_16_64.weight_buffer_18_16_1_64_bf_0_inst.index from 14 bits to 6 bits.
+Warning: Resizing cell port stage2_parameter_buffer_18_1_16_64.weight_buffer_18_16_1_64_Wfc_0_inst.index from 14 bits to 6 bits.
+Warning: Resizing cell port stage2_parameter_buffer_18_1_16_64.weight_buffer_18_16_1_64_bi_0_inst.index from 14 bits to 6 bits.
+Warning: Resizing cell port stage2_parameter_buffer_18_1_16_64.weight_buffer_18_16_1_64_Wic_0_inst.index from 14 bits to 6 bits.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:963$20 in module single_port_ram.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:931$15 in module counter_63_1.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 17 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:963$20'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:965$19_EN[287:0]$26
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:965$19_DATA[287:0]$25
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:965$19_ADDR[5:0]$24
+     4/4: $0\out[287:0]
+Creating decoders for process `\counter_63_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:931$15'.
+     1/1: $0\count[13:0]
+Creating decoders for process `\weight_buffer_18_16_1_64_Wic_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:888$13'.
+Creating decoders for process `\weight_buffer_18_16_1_64_bi_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:828$11'.
+Creating decoders for process `\weight_buffer_18_16_1_64_Wfc_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:768$9'.
+Creating decoders for process `\weight_buffer_18_16_1_64_bf_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:708$7'.
+Creating decoders for process `\weight_buffer_18_16_1_64_Woc_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:648$5'.
+Creating decoders for process `\weight_buffer_18_16_1_64_bo_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:588$3'.
+Creating decoders for process `\weight_buffer_18_16_1_64_bc_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:528$1'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\single_port_ram.\out' using process `\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:963$20'.
+  created $dff cell `$procdff$48' with positive edge clock.
+Creating register for signal `\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:965$19_ADDR' using process `\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:963$20'.
+  created $dff cell `$procdff$49' with positive edge clock.
+Creating register for signal `\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:965$19_DATA' using process `\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:963$20'.
+  created $dff cell `$procdff$50' with positive edge clock.
+Creating register for signal `\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:965$19_EN' using process `\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:963$20'.
+  created $dff cell `$procdff$51' with positive edge clock.
+Creating register for signal `\counter_63_1.\count' using process `\counter_63_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:931$15'.
+  created $dff cell `$procdff$52' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_Wic_0.\addrs_0' using process `\weight_buffer_18_16_1_64_Wic_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:888$13'.
+  created $dff cell `$procdff$53' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_Wic_0.\addrs_base_0' using process `\weight_buffer_18_16_1_64_Wic_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:888$13'.
+  created $dff cell `$procdff$54' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_bi_0.\addrs_0' using process `\weight_buffer_18_16_1_64_bi_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:828$11'.
+  created $dff cell `$procdff$55' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_bi_0.\addrs_base_0' using process `\weight_buffer_18_16_1_64_bi_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:828$11'.
+  created $dff cell `$procdff$56' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_Wfc_0.\addrs_0' using process `\weight_buffer_18_16_1_64_Wfc_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:768$9'.
+  created $dff cell `$procdff$57' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_Wfc_0.\addrs_base_0' using process `\weight_buffer_18_16_1_64_Wfc_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:768$9'.
+  created $dff cell `$procdff$58' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_bf_0.\addrs_0' using process `\weight_buffer_18_16_1_64_bf_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:708$7'.
+  created $dff cell `$procdff$59' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_bf_0.\addrs_base_0' using process `\weight_buffer_18_16_1_64_bf_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:708$7'.
+  created $dff cell `$procdff$60' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_Woc_0.\addrs_0' using process `\weight_buffer_18_16_1_64_Woc_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:648$5'.
+  created $dff cell `$procdff$61' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_Woc_0.\addrs_base_0' using process `\weight_buffer_18_16_1_64_Woc_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:648$5'.
+  created $dff cell `$procdff$62' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_bo_0.\addrs_0' using process `\weight_buffer_18_16_1_64_bo_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:588$3'.
+  created $dff cell `$procdff$63' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_bo_0.\addrs_base_0' using process `\weight_buffer_18_16_1_64_bo_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:588$3'.
+  created $dff cell `$procdff$64' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_bc_0.\addrs_0' using process `\weight_buffer_18_16_1_64_bc_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:528$1'.
+  created $dff cell `$procdff$65' with positive edge clock.
+Creating register for signal `\weight_buffer_18_16_1_64_bc_0.\addrs_base_0' using process `\weight_buffer_18_16_1_64_bc_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:528$1'.
+  created $dff cell `$procdff$66' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:963$20'.
+Removing empty process `single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:963$20'.
+Found and cleaned up 3 empty switches in `\counter_63_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:931$15'.
+Removing empty process `counter_63_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:931$15'.
+Removing empty process `weight_buffer_18_16_1_64_Wic_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:888$13'.
+Removing empty process `weight_buffer_18_16_1_64_bi_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:828$11'.
+Removing empty process `weight_buffer_18_16_1_64_Wfc_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:768$9'.
+Removing empty process `weight_buffer_18_16_1_64_bf_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:708$7'.
+Removing empty process `weight_buffer_18_16_1_64_Woc_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:648$5'.
+Removing empty process `weight_buffer_18_16_1_64_bo_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:588$3'.
+Removing empty process `weight_buffer_18_16_1_64_bc_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:528$1'.
+Cleaned up 4 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module single_port_ram.
+Optimizing module counter_63_1.
+Optimizing module weight_buffer_18_16_1_64_Wic_0.
+Optimizing module weight_buffer_18_16_1_64_bi_0.
+Optimizing module weight_buffer_18_16_1_64_Wfc_0.
+Optimizing module weight_buffer_18_16_1_64_bf_0.
+Optimizing module weight_buffer_18_16_1_64_Woc_0.
+Optimizing module weight_buffer_18_16_1_64_bo_0.
+Optimizing module weight_buffer_18_16_1_64_bc_0.
+Optimizing module stage2_parameter_buffer_18_1_16_64.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module single_port_ram.
+Optimizing module counter_63_1.
+Optimizing module weight_buffer_18_16_1_64_Wic_0.
+Optimizing module weight_buffer_18_16_1_64_bi_0.
+Optimizing module weight_buffer_18_16_1_64_Wfc_0.
+Optimizing module weight_buffer_18_16_1_64_bf_0.
+Optimizing module weight_buffer_18_16_1_64_Woc_0.
+Optimizing module weight_buffer_18_16_1_64_bo_0.
+Optimizing module weight_buffer_18_16_1_64_bc_0.
+Optimizing module stage2_parameter_buffer_18_1_16_64.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\single_port_ram'.
+Finding identical cells in module `\counter_63_1'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\weight_buffer_18_16_1_64_Wic_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bi_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_Wfc_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bf_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_Woc_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bo_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bc_0'.
+Finding identical cells in module `\stage2_parameter_buffer_18_1_16_64'.
+Removed a total of 1 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \counter_63_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_Wic_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_bi_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_Wfc_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_bf_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_Woc_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_bo_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_bc_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \stage2_parameter_buffer_18_1_16_64..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \single_port_ram.
+    Consolidated identical input bits for $mux cell $procmux$29:
+      Old ports: A=288'000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, B=288'111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111, Y=$procmux$29_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$29_Y [0]
+      New connections: $procmux$29_Y [287:1] = { $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] $procmux$29_Y [0] }
+  Optimizing cells in module \single_port_ram.
+  Optimizing cells in module \counter_63_1.
+  Optimizing cells in module \weight_buffer_18_16_1_64_Wic_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_bi_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_Wfc_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_bf_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_Woc_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_bo_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_bc_0.
+  Optimizing cells in module \stage2_parameter_buffer_18_1_16_64.
+Performed a total of 1 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\single_port_ram'.
+Finding identical cells in module `\counter_63_1'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_Wic_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bi_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_Wfc_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bf_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_Woc_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bo_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bc_0'.
+Finding identical cells in module `\stage2_parameter_buffer_18_1_16_64'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$48 ($dff) from module single_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/stage2_parameter_buffer_18_1_16_64.v:968$27_DATA, Q = \out).
+Adding SRST signal on $procdff$52 ($dff) from module counter_63_1 (D = $procmux$43_Y, Q = \count, rval = 14'00000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$69 ($sdff) from module counter_63_1 (D = $procmux$41_Y, Q = \count).
+Setting constant 0-bit at position 0 on $procdff$54 ($dff) from module weight_buffer_18_16_1_64_Wic_0.
+Setting constant 0-bit at position 1 on $procdff$54 ($dff) from module weight_buffer_18_16_1_64_Wic_0.
+Setting constant 0-bit at position 2 on $procdff$54 ($dff) from module weight_buffer_18_16_1_64_Wic_0.
+Setting constant 0-bit at position 3 on $procdff$54 ($dff) from module weight_buffer_18_16_1_64_Wic_0.
+Setting constant 0-bit at position 4 on $procdff$54 ($dff) from module weight_buffer_18_16_1_64_Wic_0.
+Setting constant 0-bit at position 5 on $procdff$54 ($dff) from module weight_buffer_18_16_1_64_Wic_0.
+Setting constant 0-bit at position 0 on $procdff$56 ($dff) from module weight_buffer_18_16_1_64_bi_0.
+Setting constant 0-bit at position 1 on $procdff$56 ($dff) from module weight_buffer_18_16_1_64_bi_0.
+Setting constant 0-bit at position 2 on $procdff$56 ($dff) from module weight_buffer_18_16_1_64_bi_0.
+Setting constant 0-bit at position 3 on $procdff$56 ($dff) from module weight_buffer_18_16_1_64_bi_0.
+Setting constant 0-bit at position 4 on $procdff$56 ($dff) from module weight_buffer_18_16_1_64_bi_0.
+Setting constant 0-bit at position 5 on $procdff$56 ($dff) from module weight_buffer_18_16_1_64_bi_0.
+Setting constant 0-bit at position 0 on $procdff$58 ($dff) from module weight_buffer_18_16_1_64_Wfc_0.
+Setting constant 0-bit at position 1 on $procdff$58 ($dff) from module weight_buffer_18_16_1_64_Wfc_0.
+Setting constant 0-bit at position 2 on $procdff$58 ($dff) from module weight_buffer_18_16_1_64_Wfc_0.
+Setting constant 0-bit at position 3 on $procdff$58 ($dff) from module weight_buffer_18_16_1_64_Wfc_0.
+Setting constant 0-bit at position 4 on $procdff$58 ($dff) from module weight_buffer_18_16_1_64_Wfc_0.
+Setting constant 0-bit at position 5 on $procdff$58 ($dff) from module weight_buffer_18_16_1_64_Wfc_0.
+Setting constant 0-bit at position 0 on $procdff$60 ($dff) from module weight_buffer_18_16_1_64_bf_0.
+Setting constant 0-bit at position 1 on $procdff$60 ($dff) from module weight_buffer_18_16_1_64_bf_0.
+Setting constant 0-bit at position 2 on $procdff$60 ($dff) from module weight_buffer_18_16_1_64_bf_0.
+Setting constant 0-bit at position 3 on $procdff$60 ($dff) from module weight_buffer_18_16_1_64_bf_0.
+Setting constant 0-bit at position 4 on $procdff$60 ($dff) from module weight_buffer_18_16_1_64_bf_0.
+Setting constant 0-bit at position 5 on $procdff$60 ($dff) from module weight_buffer_18_16_1_64_bf_0.
+Setting constant 0-bit at position 0 on $procdff$62 ($dff) from module weight_buffer_18_16_1_64_Woc_0.
+Setting constant 0-bit at position 1 on $procdff$62 ($dff) from module weight_buffer_18_16_1_64_Woc_0.
+Setting constant 0-bit at position 2 on $procdff$62 ($dff) from module weight_buffer_18_16_1_64_Woc_0.
+Setting constant 0-bit at position 3 on $procdff$62 ($dff) from module weight_buffer_18_16_1_64_Woc_0.
+Setting constant 0-bit at position 4 on $procdff$62 ($dff) from module weight_buffer_18_16_1_64_Woc_0.
+Setting constant 0-bit at position 5 on $procdff$62 ($dff) from module weight_buffer_18_16_1_64_Woc_0.
+Setting constant 0-bit at position 0 on $procdff$64 ($dff) from module weight_buffer_18_16_1_64_bo_0.
+Setting constant 0-bit at position 1 on $procdff$64 ($dff) from module weight_buffer_18_16_1_64_bo_0.
+Setting constant 0-bit at position 2 on $procdff$64 ($dff) from module weight_buffer_18_16_1_64_bo_0.
+Setting constant 0-bit at position 3 on $procdff$64 ($dff) from module weight_buffer_18_16_1_64_bo_0.
+Setting constant 0-bit at position 4 on $procdff$64 ($dff) from module weight_buffer_18_16_1_64_bo_0.
+Setting constant 0-bit at position 5 on $procdff$64 ($dff) from module weight_buffer_18_16_1_64_bo_0.
+Setting constant 0-bit at position 0 on $procdff$66 ($dff) from module weight_buffer_18_16_1_64_bc_0.
+Setting constant 0-bit at position 1 on $procdff$66 ($dff) from module weight_buffer_18_16_1_64_bc_0.
+Setting constant 0-bit at position 2 on $procdff$66 ($dff) from module weight_buffer_18_16_1_64_bc_0.
+Setting constant 0-bit at position 3 on $procdff$66 ($dff) from module weight_buffer_18_16_1_64_bc_0.
+Setting constant 0-bit at position 4 on $procdff$66 ($dff) from module weight_buffer_18_16_1_64_bc_0.
+Setting constant 0-bit at position 5 on $procdff$66 ($dff) from module weight_buffer_18_16_1_64_bc_0.
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \single_port_ram..
+Finding unused cells or wires in module \counter_63_1..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_Wic_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_bi_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_Wfc_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_bf_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_Woc_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_bo_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_bc_0..
+Finding unused cells or wires in module \stage2_parameter_buffer_18_1_16_64..
+Removed 6 unused cells and 36 unused wires.
+<suppressed ~15 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_63_1.
+Optimizing module single_port_ram.
+Optimizing module stage2_parameter_buffer_18_1_16_64.
+Optimizing module weight_buffer_18_16_1_64_Wfc_0.
+<suppressed ~1 debug messages>
+Optimizing module weight_buffer_18_16_1_64_Wic_0.
+<suppressed ~1 debug messages>
+Optimizing module weight_buffer_18_16_1_64_Woc_0.
+<suppressed ~1 debug messages>
+Optimizing module weight_buffer_18_16_1_64_bc_0.
+<suppressed ~1 debug messages>
+Optimizing module weight_buffer_18_16_1_64_bf_0.
+<suppressed ~1 debug messages>
+Optimizing module weight_buffer_18_16_1_64_bi_0.
+<suppressed ~1 debug messages>
+Optimizing module weight_buffer_18_16_1_64_bo_0.
+<suppressed ~1 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_63_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \stage2_parameter_buffer_18_1_16_64..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_Wfc_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_Wic_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_Woc_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_bc_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_bf_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_bi_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_bo_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_63_1.
+  Optimizing cells in module \single_port_ram.
+  Optimizing cells in module \stage2_parameter_buffer_18_1_16_64.
+  Optimizing cells in module \weight_buffer_18_16_1_64_Wfc_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_Wic_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_Woc_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_bc_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_bf_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_bi_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_bo_0.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_63_1'.
+Finding identical cells in module `\single_port_ram'.
+Finding identical cells in module `\stage2_parameter_buffer_18_1_16_64'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_Wfc_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_Wic_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_Woc_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bc_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bf_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bi_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bo_0'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_63_1..
+Finding unused cells or wires in module \single_port_ram..
+Finding unused cells or wires in module \stage2_parameter_buffer_18_1_16_64..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_Wfc_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_Wic_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_Woc_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_bc_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_bf_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_bi_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_bo_0..
+Removed 0 unused cells and 7 unused wires.
+<suppressed ~14 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_63_1.
+Optimizing module single_port_ram.
+Optimizing module stage2_parameter_buffer_18_1_16_64.
+Optimizing module weight_buffer_18_16_1_64_Wfc_0.
+Optimizing module weight_buffer_18_16_1_64_Wic_0.
+Optimizing module weight_buffer_18_16_1_64_Woc_0.
+Optimizing module weight_buffer_18_16_1_64_bc_0.
+Optimizing module weight_buffer_18_16_1_64_bf_0.
+Optimizing module weight_buffer_18_16_1_64_bi_0.
+Optimizing module weight_buffer_18_16_1_64_bo_0.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_63_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \stage2_parameter_buffer_18_1_16_64..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_Wfc_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_Wic_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_Woc_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_bc_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_bf_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_bi_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_buffer_18_16_1_64_bo_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_63_1.
+  Optimizing cells in module \single_port_ram.
+  Optimizing cells in module \stage2_parameter_buffer_18_1_16_64.
+  Optimizing cells in module \weight_buffer_18_16_1_64_Wfc_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_Wic_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_Woc_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_bc_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_bf_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_bi_0.
+  Optimizing cells in module \weight_buffer_18_16_1_64_bo_0.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_63_1'.
+Finding identical cells in module `\single_port_ram'.
+Finding identical cells in module `\stage2_parameter_buffer_18_1_16_64'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_Wfc_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_Wic_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_Woc_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bc_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bf_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bi_0'.
+Finding identical cells in module `\weight_buffer_18_16_1_64_bo_0'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_63_1..
+Finding unused cells or wires in module \single_port_ram..
+Finding unused cells or wires in module \stage2_parameter_buffer_18_1_16_64..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_Wfc_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_Wic_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_Woc_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_bc_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_bf_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_bi_0..
+Finding unused cells or wires in module \weight_buffer_18_16_1_64_bo_0..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_63_1.
+Optimizing module single_port_ram.
+Optimizing module stage2_parameter_buffer_18_1_16_64.
+Optimizing module weight_buffer_18_16_1_64_Wfc_0.
+Optimizing module weight_buffer_18_16_1_64_Wic_0.
+Optimizing module weight_buffer_18_16_1_64_Woc_0.
+Optimizing module weight_buffer_18_16_1_64_bc_0.
+Optimizing module weight_buffer_18_16_1_64_bf_0.
+Optimizing module weight_buffer_18_16_1_64_bi_0.
+Optimizing module weight_buffer_18_16_1_64_bo_0.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== counter_63_1 ===
+
+   Number of wires:                  7
+   Number of wire bits:             64
+   Number of public wires:           4
+   Number of public wire bits:      17
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $add                           32
+     $le                            32
+     $mux                           14
+     $sdffe                         14
+
+=== single_port_ram ===
+
+   Number of wires:                  9
+   Number of wire bits:           1454
+   Number of public wires:           5
+   Number of public wire bits:     584
+   Number of memories:               1
+   Number of memory bits:         1728
+   Number of processes:              0
+   Number of cells:                  6
+     $dffe                         288
+     $mux                          295
+
+=== stage2_parameter_buffer_18_1_16_64 ===
+
+   Number of wires:                228
+   Number of wire bits:           4049
+   Number of public wires:         228
+   Number of public wire bits:    4049
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  8
+
+=== weight_buffer_18_16_1_64_Wfc_0 ===
+
+   Number of wires:                 22
+   Number of wire bits:            596
+   Number of public wires:          22
+   Number of public wire bits:     596
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $dff                            6
+
+=== weight_buffer_18_16_1_64_Wic_0 ===
+
+   Number of wires:                 22
+   Number of wire bits:            596
+   Number of public wires:          22
+   Number of public wire bits:     596
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $dff                            6
+
+=== weight_buffer_18_16_1_64_Woc_0 ===
+
+   Number of wires:                 22
+   Number of wire bits:            596
+   Number of public wires:          22
+   Number of public wire bits:     596
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $dff                            6
+
+=== weight_buffer_18_16_1_64_bc_0 ===
+
+   Number of wires:                 22
+   Number of wire bits:            596
+   Number of public wires:          22
+   Number of public wire bits:     596
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $dff                            6
+
+=== weight_buffer_18_16_1_64_bf_0 ===
+
+   Number of wires:                 22
+   Number of wire bits:            596
+   Number of public wires:          22
+   Number of public wire bits:     596
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $dff                            6
+
+=== weight_buffer_18_16_1_64_bi_0 ===
+
+   Number of wires:                 22
+   Number of wire bits:            596
+   Number of public wires:          22
+   Number of public wire bits:     596
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $dff                            6
+
+=== weight_buffer_18_16_1_64_bo_0 ===
+
+   Number of wires:                 22
+   Number of wire bits:            596
+   Number of public wires:          22
+   Number of public wire bits:     596
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $dff                            6
+
+=== design hierarchy ===
+
+   stage2_parameter_buffer_18_1_16_64      1
+     counter_63_1                    0
+     weight_buffer_18_16_1_64_Wfc_0      0
+       single_port_ram               0
+     weight_buffer_18_16_1_64_Wic_0      0
+       single_port_ram               0
+     weight_buffer_18_16_1_64_Woc_0      0
+       single_port_ram               0
+     weight_buffer_18_16_1_64_bc_0      0
+       single_port_ram               0
+     weight_buffer_18_16_1_64_bf_0      0
+       single_port_ram               0
+     weight_buffer_18_16_1_64_bi_0      0
+       single_port_ram               0
+     weight_buffer_18_16_1_64_bo_0      0
+       single_port_ram               0
+
+   Number of wires:                228
+   Number of wire bits:           4049
+   Number of public wires:         228
+   Number of public wire bits:    4049
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  8
+
+Warnings: 7 unique messages, 7 total
+End of script. Logfile hash: 3fdd186ca5, CPU: user 0.27s system 0.00s, MEM: 14.89 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 27% 3x opt_clean (0 sec), 16% 3x opt_dff (0 sec), ...

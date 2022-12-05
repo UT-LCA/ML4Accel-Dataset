@@ -1,0 +1,389 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v' to AST representation.
+Generating RTLIL representation for module `\td_fused_top_ap_hmul_2_max_dsp_16'.
+Generating RTLIL representation for module `\FPMult_16'.
+Generating RTLIL representation for module `\FPMult_RoundModule'.
+Generating RTLIL representation for module `\FPMult_NormalizeModule'.
+Generating RTLIL representation for module `\FPMult_ExecuteModule'.
+Generating RTLIL representation for module `\FPMult_PrepModule'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: FPMult_PrepModule   
+root of   0 design levels: FPMult_ExecuteModule
+root of   0 design levels: FPMult_NormalizeModule
+root of   0 design levels: FPMult_RoundModule  
+root of   1 design levels: FPMult_16           
+root of   2 design levels: td_fused_top_ap_hmul_2_max_dsp_16
+Automatically selected td_fused_top_ap_hmul_2_max_dsp_16 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \td_fused_top_ap_hmul_2_max_dsp_16
+Used module:     \FPMult_16
+Used module:         \FPMult_RoundModule
+Used module:         \FPMult_NormalizeModule
+Used module:         \FPMult_ExecuteModule
+Used module:         \FPMult_PrepModule
+
+2.3. Analyzing design hierarchy..
+Top module:  \td_fused_top_ap_hmul_2_max_dsp_16
+Used module:     \FPMult_16
+Used module:         \FPMult_RoundModule
+Used module:         \FPMult_NormalizeModule
+Used module:         \FPMult_ExecuteModule
+Used module:         \FPMult_PrepModule
+Removed 0 unused modules.
+Mapping positional arguments of cell FPMult_16.RoundModule (FPMult_RoundModule).
+Mapping positional arguments of cell FPMult_16.NormalizeModule (FPMult_NormalizeModule).
+Mapping positional arguments of cell FPMult_16.ExecuteModule (FPMult_ExecuteModule).
+Mapping positional arguments of cell FPMult_16.PrepModule (FPMult_PrepModule).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:117$2 in module FPMult_16.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 5 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\FPMult_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:117$2'.
+     1/5: $1\pipe_4[20:0]
+     2/5: $1\pipe_3[40:0]
+     3/5: $1\pipe_2[22:0]
+     4/5: $1\pipe_1[47:0]
+     5/5: $1\pipe_0[31:0]
+Creating decoders for process `\td_fused_top_ap_hmul_2_max_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:28$1'.
+     1/3: $0\res_reg[15:0]
+     2/3: $0\b_reg[15:0]
+     3/3: $0\a_reg[15:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\FPMult_16.\pipe_0' from process `\FPMult_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:117$2'.
+No latch inferred for signal `\FPMult_16.\pipe_1' from process `\FPMult_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:117$2'.
+No latch inferred for signal `\FPMult_16.\pipe_2' from process `\FPMult_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:117$2'.
+No latch inferred for signal `\FPMult_16.\pipe_3' from process `\FPMult_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:117$2'.
+No latch inferred for signal `\FPMult_16.\pipe_4' from process `\FPMult_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:117$2'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\td_fused_top_ap_hmul_2_max_dsp_16.\a_reg' using process `\td_fused_top_ap_hmul_2_max_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:28$1'.
+  created $dff cell `$procdff$54' with positive edge clock.
+Creating register for signal `\td_fused_top_ap_hmul_2_max_dsp_16.\b_reg' using process `\td_fused_top_ap_hmul_2_max_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:28$1'.
+  created $dff cell `$procdff$55' with positive edge clock.
+Creating register for signal `\td_fused_top_ap_hmul_2_max_dsp_16.\res_reg' using process `\td_fused_top_ap_hmul_2_max_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:28$1'.
+  created $dff cell `$procdff$56' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\FPMult_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:117$2'.
+Removing empty process `FPMult_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:117$2'.
+Found and cleaned up 1 empty switch in `\td_fused_top_ap_hmul_2_max_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:28$1'.
+Removing empty process `td_fused_top_ap_hmul_2_max_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:28$1'.
+Cleaned up 2 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FPMult_PrepModule.
+Optimizing module FPMult_ExecuteModule.
+Optimizing module FPMult_NormalizeModule.
+Optimizing module FPMult_RoundModule.
+Optimizing module FPMult_16.
+Optimizing module td_fused_top_ap_hmul_2_max_dsp_16.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FPMult_PrepModule.
+Optimizing module FPMult_ExecuteModule.
+Optimizing module FPMult_NormalizeModule.
+Optimizing module FPMult_RoundModule.
+Optimizing module FPMult_16.
+Optimizing module td_fused_top_ap_hmul_2_max_dsp_16.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\FPMult_PrepModule'.
+<suppressed ~9 debug messages>
+Finding identical cells in module `\FPMult_ExecuteModule'.
+Finding identical cells in module `\FPMult_NormalizeModule'.
+Finding identical cells in module `\FPMult_RoundModule'.
+Finding identical cells in module `\FPMult_16'.
+Finding identical cells in module `\td_fused_top_ap_hmul_2_max_dsp_16'.
+Removed a total of 3 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \FPMult_PrepModule..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \FPMult_ExecuteModule..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \FPMult_NormalizeModule..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \FPMult_RoundModule..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:202$4: \PreShiftM -> { 1'0 \PreShiftM [9:0] }
+      Replacing known input bits on port B of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.small_submodules/td_fused_top_ap_hmul_2_max_dsp_16.v:202$4: { 1'0 \PreShiftM [10:1] } -> { 2'01 \PreShiftM [9:1] }
+  Analyzing evaluation results.
+Running muxtree optimizer on module \FPMult_16..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \td_fused_top_ap_hmul_2_max_dsp_16..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \FPMult_PrepModule.
+  Optimizing cells in module \FPMult_ExecuteModule.
+  Optimizing cells in module \FPMult_NormalizeModule.
+  Optimizing cells in module \FPMult_RoundModule.
+  Optimizing cells in module \FPMult_16.
+  Optimizing cells in module \td_fused_top_ap_hmul_2_max_dsp_16.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\FPMult_PrepModule'.
+Finding identical cells in module `\FPMult_ExecuteModule'.
+Finding identical cells in module `\FPMult_NormalizeModule'.
+Finding identical cells in module `\FPMult_RoundModule'.
+Finding identical cells in module `\FPMult_16'.
+Finding identical cells in module `\td_fused_top_ap_hmul_2_max_dsp_16'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$54 ($dff) from module td_fused_top_ap_hmul_2_max_dsp_16 (D = \s_axis_a_tdata, Q = \a_reg).
+Adding EN signal on $procdff$55 ($dff) from module td_fused_top_ap_hmul_2_max_dsp_16 (D = \s_axis_b_tdata, Q = \b_reg).
+Adding EN signal on $procdff$56 ($dff) from module td_fused_top_ap_hmul_2_max_dsp_16 (D = \res, Q = \res_reg).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \FPMult_PrepModule..
+Finding unused cells or wires in module \FPMult_ExecuteModule..
+Finding unused cells or wires in module \FPMult_NormalizeModule..
+Finding unused cells or wires in module \FPMult_RoundModule..
+Finding unused cells or wires in module \FPMult_16..
+Finding unused cells or wires in module \td_fused_top_ap_hmul_2_max_dsp_16..
+Removed 3 unused cells and 47 unused wires.
+<suppressed ~10 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FPMult_16.
+Optimizing module FPMult_ExecuteModule.
+Optimizing module FPMult_NormalizeModule.
+Optimizing module FPMult_PrepModule.
+Optimizing module FPMult_RoundModule.
+Optimizing module td_fused_top_ap_hmul_2_max_dsp_16.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \FPMult_16..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \FPMult_ExecuteModule..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \FPMult_NormalizeModule..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \FPMult_PrepModule..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \FPMult_RoundModule..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \td_fused_top_ap_hmul_2_max_dsp_16..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \FPMult_16.
+  Optimizing cells in module \FPMult_ExecuteModule.
+  Optimizing cells in module \FPMult_NormalizeModule.
+  Optimizing cells in module \FPMult_PrepModule.
+  Optimizing cells in module \FPMult_RoundModule.
+  Optimizing cells in module \td_fused_top_ap_hmul_2_max_dsp_16.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\FPMult_16'.
+Finding identical cells in module `\FPMult_ExecuteModule'.
+Finding identical cells in module `\FPMult_NormalizeModule'.
+Finding identical cells in module `\FPMult_PrepModule'.
+Finding identical cells in module `\FPMult_RoundModule'.
+Finding identical cells in module `\td_fused_top_ap_hmul_2_max_dsp_16'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \FPMult_16..
+Finding unused cells or wires in module \FPMult_ExecuteModule..
+Finding unused cells or wires in module \FPMult_NormalizeModule..
+Finding unused cells or wires in module \FPMult_PrepModule..
+Finding unused cells or wires in module \FPMult_RoundModule..
+Finding unused cells or wires in module \td_fused_top_ap_hmul_2_max_dsp_16..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module FPMult_16.
+Optimizing module FPMult_ExecuteModule.
+Optimizing module FPMult_NormalizeModule.
+Optimizing module FPMult_PrepModule.
+Optimizing module FPMult_RoundModule.
+Optimizing module td_fused_top_ap_hmul_2_max_dsp_16.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== FPMult_16 ===
+
+   Number of wires:                 27
+   Number of wire bits:            348
+   Number of public wires:          27
+   Number of public wire bits:     348
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  9
+     $mux                          165
+
+=== FPMult_ExecuteModule ===
+
+   Number of wires:                 15
+   Number of wire bits:            103
+   Number of public wires:          12
+   Number of public wire bits:      95
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  7
+     $add                           12
+     $and                            1
+     $mux                           10
+     $or                             1
+     $reduce_or                     10
+     $xor                            1
+
+=== FPMult_NormalizeModule ===
+
+   Number of wires:                  8
+   Number of wire bits:            114
+   Number of public wires:           6
+   Number of public wire bits:      50
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $sub                           64
+
+=== FPMult_PrepModule ===
+
+   Number of wires:                 23
+   Number of wire bits:             86
+   Number of public wires:          14
+   Number of public wire bits:      77
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 15
+     $and                            4
+     $logic_not                      2
+     $mul                           22
+     $or                             3
+     $reduce_and                    10
+     $reduce_or                     20
+
+=== FPMult_RoundModule ===
+
+   Number of wires:                 12
+   Number of wire bits:             90
+   Number of public wires:          12
+   Number of public wire bits:      90
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $mux                           28
+
+=== td_fused_top_ap_hmul_2_max_dsp_16 ===
+
+   Number of wires:                 12
+   Number of wire bits:            117
+   Number of public wires:          12
+   Number of public wire bits:     117
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $dffe                          48
+
+=== design hierarchy ===
+
+   td_fused_top_ap_hmul_2_max_dsp_16      1
+     FPMult_16                       0
+       FPMult_ExecuteModule          0
+       FPMult_NormalizeModule        0
+       FPMult_PrepModule             0
+       FPMult_RoundModule            0
+
+   Number of wires:                 12
+   Number of wire bits:            117
+   Number of public wires:          12
+   Number of public wire bits:     117
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $dffe                          48
+
+End of script. Logfile hash: e0e5c99a85, CPU: user 0.10s system 0.00s, MEM: 12.19 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 20% 2x read_verilog (0 sec), 16% 4x opt_expr (0 sec), ...

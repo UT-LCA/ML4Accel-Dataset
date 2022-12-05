@@ -1,0 +1,726 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v' to AST representation.
+Generating RTLIL representation for module `\matmul_4x4_systolic'.
+/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:312: Warning: Identifier `\row_latch_en' is implicitly declared.
+Generating RTLIL representation for module `\systolic_pe_matrix'.
+Generating RTLIL representation for module `\processing_element'.
+Generating RTLIL representation for module `\seq_mac'.
+Generating RTLIL representation for module `\qadd'.
+Generating RTLIL representation for module `\qmult'.
+Generating RTLIL representation for module `\output_logic'.
+Generating RTLIL representation for module `\systolic_data_setup'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: systolic_data_setup 
+root of   0 design levels: output_logic        
+root of   0 design levels: qmult               
+root of   0 design levels: qadd                
+root of   1 design levels: seq_mac             
+root of   2 design levels: processing_element  
+root of   3 design levels: systolic_pe_matrix  
+root of   4 design levels: matmul_4x4_systolic 
+Automatically selected matmul_4x4_systolic as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \matmul_4x4_systolic
+Used module:     \systolic_pe_matrix
+Used module:         \processing_element
+Used module:             \seq_mac
+Used module:                 \qadd
+Used module:     \output_logic
+Used module:     \systolic_data_setup
+
+2.3. Analyzing design hierarchy..
+Top module:  \matmul_4x4_systolic
+Used module:     \systolic_pe_matrix
+Used module:         \processing_element
+Used module:             \seq_mac
+Used module:                 \qadd
+Used module:     \output_logic
+Used module:     \systolic_data_setup
+Removing unused module `\qmult'.
+Removed 1 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:783$88 in module output_logic.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1049$197 in module systolic_data_setup.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1012$167 in module systolic_data_setup.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:993$152 in module systolic_data_setup.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:964$144 in module systolic_data_setup.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:927$114 in module systolic_data_setup.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:907$99 in module systolic_data_setup.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:651$77 in module seq_mac.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:623$69 in module seq_mac.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:598$68 in module seq_mac.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:567$63 in module processing_element.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:152$13 in module matmul_4x4_systolic.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 19 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:783$88'.
+     1/8: $0\c_data_out_3[63:0]
+     2/8: $0\c_data_out_2[63:0]
+     3/8: $0\c_data_out_1[63:0]
+     4/8: $0\counter[31:0]
+     5/8: $0\start_capturing_c_data[0:0]
+     6/8: $0\c_data_available[0:0]
+     7/8: $0\c_addr[9:0]
+     8/8: $0\c_data_out[63:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1049$197'.
+     1/6: $0\b3_data_delayed_3_temp[15:0]
+     2/6: $0\b3_data_delayed_2_temp[15:0]
+     3/6: $0\b3_data_delayed_1_temp[15:0]
+     4/6: $0\b2_data_delayed_2_temp[15:0]
+     5/6: $0\b2_data_delayed_1_temp[15:0]
+     6/6: $0\b1_data_delayed_1_temp[15:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1012$167'.
+     1/1: $0\b_mem_access_counter[7:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:993$152'.
+     1/2: $0\b_mem_access[0:0]
+     2/2: $0\b_addr[9:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:964$144'.
+     1/6: $0\a3_data_delayed_3_temp[15:0]
+     2/6: $0\a3_data_delayed_2_temp[15:0]
+     3/6: $0\a3_data_delayed_1_temp[15:0]
+     4/6: $0\a2_data_delayed_2_temp[15:0]
+     5/6: $0\a2_data_delayed_1_temp[15:0]
+     6/6: $0\a1_data_delayed_1_temp[15:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:927$114'.
+     1/1: $0\a_mem_access_counter[7:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:907$99'.
+     1/2: $0\a_mem_access[0:0]
+     2/2: $0\a_addr[9:0]
+Creating decoders for process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:651$77'.
+     1/1: $0\out[15:0]
+Creating decoders for process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:623$69'.
+     1/1: $0\add_out_reg[31:0]
+Creating decoders for process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:598$68'.
+     1/2: $0\b_flopped[15:0]
+     2/2: $0\a_flopped[15:0]
+Creating decoders for process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:567$63'.
+     1/2: $0\out_b[15:0]
+     2/2: $0\out_a[15:0]
+Creating decoders for process `\matmul_4x4_systolic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:152$13'.
+     1/2: $0\clk_cnt[7:0]
+     2/2: $0\done_mat_mul[0:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\output_logic.\c_data_out' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:783$88'.
+  created $dff cell `$procdff$423' with positive edge clock.
+Creating register for signal `\output_logic.\c_addr' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:783$88'.
+  created $dff cell `$procdff$424' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_available' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:783$88'.
+  created $dff cell `$procdff$425' with positive edge clock.
+Creating register for signal `\output_logic.\start_capturing_c_data' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:783$88'.
+  created $dff cell `$procdff$426' with positive edge clock.
+Creating register for signal `\output_logic.\counter' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:783$88'.
+  created $dff cell `$procdff$427' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_1' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:783$88'.
+  created $dff cell `$procdff$428' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_2' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:783$88'.
+  created $dff cell `$procdff$429' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_3' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:783$88'.
+  created $dff cell `$procdff$430' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b1_data_delayed_1_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1049$197'.
+  created $dff cell `$procdff$431' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b2_data_delayed_1_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1049$197'.
+  created $dff cell `$procdff$432' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b2_data_delayed_2_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1049$197'.
+  created $dff cell `$procdff$433' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b3_data_delayed_1_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1049$197'.
+  created $dff cell `$procdff$434' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b3_data_delayed_2_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1049$197'.
+  created $dff cell `$procdff$435' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b3_data_delayed_3_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1049$197'.
+  created $dff cell `$procdff$436' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b_mem_access_counter' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1012$167'.
+  created $dff cell `$procdff$437' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b_addr' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:993$152'.
+  created $dff cell `$procdff$438' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b_mem_access' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:993$152'.
+  created $dff cell `$procdff$439' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a1_data_delayed_1_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:964$144'.
+  created $dff cell `$procdff$440' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a2_data_delayed_1_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:964$144'.
+  created $dff cell `$procdff$441' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a2_data_delayed_2_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:964$144'.
+  created $dff cell `$procdff$442' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a3_data_delayed_1_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:964$144'.
+  created $dff cell `$procdff$443' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a3_data_delayed_2_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:964$144'.
+  created $dff cell `$procdff$444' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a3_data_delayed_3_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:964$144'.
+  created $dff cell `$procdff$445' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a_mem_access_counter' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:927$114'.
+  created $dff cell `$procdff$446' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a_addr' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:907$99'.
+  created $dff cell `$procdff$447' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a_mem_access' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:907$99'.
+  created $dff cell `$procdff$448' with positive edge clock.
+Creating register for signal `\seq_mac.\out' using process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:651$77'.
+  created $dff cell `$procdff$449' with positive edge clock.
+Creating register for signal `\seq_mac.\add_out_reg' using process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:623$69'.
+  created $dff cell `$procdff$450' with positive edge clock.
+Creating register for signal `\seq_mac.\a_flopped' using process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:598$68'.
+  created $dff cell `$procdff$451' with positive edge clock.
+Creating register for signal `\seq_mac.\b_flopped' using process `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:598$68'.
+  created $dff cell `$procdff$452' with positive edge clock.
+Creating register for signal `\processing_element.\out_a' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:567$63'.
+  created $dff cell `$procdff$453' with positive edge clock.
+Creating register for signal `\processing_element.\out_b' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:567$63'.
+  created $dff cell `$procdff$454' with positive edge clock.
+Creating register for signal `\matmul_4x4_systolic.\done_mat_mul' using process `\matmul_4x4_systolic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:152$13'.
+  created $dff cell `$procdff$455' with positive edge clock.
+Creating register for signal `\matmul_4x4_systolic.\clk_cnt' using process `\matmul_4x4_systolic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:152$13'.
+  created $dff cell `$procdff$456' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 5 empty switches in `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:783$88'.
+Removing empty process `output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:783$88'.
+Found and cleaned up 1 empty switch in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1049$197'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1049$197'.
+Found and cleaned up 2 empty switches in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1012$167'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1012$167'.
+Found and cleaned up 2 empty switches in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:993$152'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:993$152'.
+Found and cleaned up 1 empty switch in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:964$144'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:964$144'.
+Found and cleaned up 2 empty switches in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:927$114'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:927$114'.
+Found and cleaned up 2 empty switches in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:907$99'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:907$99'.
+Found and cleaned up 1 empty switch in `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:651$77'.
+Removing empty process `seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:651$77'.
+Found and cleaned up 2 empty switches in `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:623$69'.
+Removing empty process `seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:623$69'.
+Found and cleaned up 1 empty switch in `\seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:598$68'.
+Removing empty process `seq_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:598$68'.
+Found and cleaned up 2 empty switches in `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:567$63'.
+Removing empty process `processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:567$63'.
+Found and cleaned up 3 empty switches in `\matmul_4x4_systolic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:152$13'.
+Removing empty process `matmul_4x4_systolic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:152$13'.
+Cleaned up 24 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module output_logic.
+<suppressed ~1 debug messages>
+Optimizing module systolic_data_setup.
+<suppressed ~18 debug messages>
+Optimizing module qadd.
+Optimizing module seq_mac.
+<suppressed ~2 debug messages>
+Optimizing module processing_element.
+Optimizing module systolic_pe_matrix.
+Optimizing module matmul_4x4_systolic.
+<suppressed ~13 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module output_logic.
+Optimizing module systolic_data_setup.
+Optimizing module qadd.
+Optimizing module seq_mac.
+Optimizing module processing_element.
+Optimizing module systolic_pe_matrix.
+<suppressed ~4 debug messages>
+Optimizing module matmul_4x4_systolic.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\output_logic'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\systolic_data_setup'.
+<suppressed ~42 debug messages>
+Finding identical cells in module `\qadd'.
+Finding identical cells in module `\seq_mac'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\processing_element'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\systolic_pe_matrix'.
+Finding identical cells in module `\matmul_4x4_systolic'.
+<suppressed ~24 debug messages>
+Removed a total of 28 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \output_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \systolic_data_setup..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \qadd..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \seq_mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:645$75: { \add_out_reg [31] 15'000000000000000 } -> 16'1000000000000000
+      Replacing known input bits on port B of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:645$75: { \add_out_reg [31] \add_out_reg [14:0] } -> { 1'1 \add_out_reg [14:0] }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:639$73: { \add_out_reg [31] \add_out_reg [14:0] } -> { 1'0 \add_out_reg [14:0] }
+      Replacing known input bits on port B of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:639$73: { \add_out_reg [31] 15'111111111111111 } -> 16'0111111111111111
+  Analyzing evaluation results.
+Running muxtree optimizer on module \processing_element..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \systolic_pe_matrix..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \matmul_4x4_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$415: \done_mat_mul -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~52 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \output_logic.
+  Optimizing cells in module \systolic_data_setup.
+  Optimizing cells in module \qadd.
+  Optimizing cells in module \seq_mac.
+  Optimizing cells in module \processing_element.
+  Optimizing cells in module \systolic_pe_matrix.
+  Optimizing cells in module \matmul_4x4_systolic.
+    New ctrl vector for $mux cell $procmux$415: { }
+    New ctrl vector for $mux cell $procmux$406: { }
+    New ctrl vector for $mux cell $procmux$409: { }
+  Optimizing cells in module \matmul_4x4_systolic.
+Performed a total of 3 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\output_logic'.
+Finding identical cells in module `\systolic_data_setup'.
+Finding identical cells in module `\qadd'.
+Finding identical cells in module `\seq_mac'.
+Finding identical cells in module `\processing_element'.
+Finding identical cells in module `\systolic_pe_matrix'.
+Finding identical cells in module `\matmul_4x4_systolic'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$430 ($dff) from module output_logic (D = $procmux$214_Y, Q = \c_data_out_3, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$457 ($sdff) from module output_logic (D = $procmux$214_Y, Q = \c_data_out_3).
+Adding SRST signal on $procdff$426 ($dff) from module output_logic (D = $procmux$265_Y, Q = \start_capturing_c_data, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$461 ($sdff) from module output_logic (D = $procmux$265_Y, Q = \start_capturing_c_data).
+Adding SRST signal on $procdff$427 ($dff) from module output_logic (D = $procmux$256_Y, Q = \counter, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$465 ($sdff) from module output_logic (D = $procmux$256_Y, Q = \counter).
+Adding SRST signal on $procdff$428 ($dff) from module output_logic (D = $procmux$242_Y, Q = \c_data_out_1, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$475 ($sdff) from module output_logic (D = $procmux$242_Y, Q = \c_data_out_1).
+Adding SRST signal on $procdff$429 ($dff) from module output_logic (D = $procmux$228_Y, Q = \c_data_out_2, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$479 ($sdff) from module output_logic (D = $procmux$228_Y, Q = \c_data_out_2).
+Adding SRST signal on $procdff$423 ($dff) from module output_logic (D = $procmux$307_Y, Q = \c_data_out, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$483 ($sdff) from module output_logic (D = $procmux$307_Y, Q = \c_data_out).
+Adding EN signal on $procdff$424 ($dff) from module output_logic (D = $procmux$296_Y, Q = \c_addr).
+Adding SRST signal on $procdff$425 ($dff) from module output_logic (D = $procmux$279_Y, Q = \c_data_available, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$490 ($sdff) from module output_logic (D = $procmux$279_Y, Q = \c_data_available).
+Adding SRST signal on $procdff$433 ($dff) from module systolic_data_setup (D = \b2_data_delayed_1_temp, Q = \b2_data_delayed_2_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$448 ($dff) from module systolic_data_setup (D = $procmux$370_Y, Q = \a_mem_access, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$499 ($sdff) from module systolic_data_setup (D = 1'1, Q = \a_mem_access).
+Adding SRST signal on $procdff$434 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1040$196_Y, Q = \b3_data_delayed_1_temp, rval = 16'0000000000000000).
+Adding EN signal on $procdff$447 ($dff) from module systolic_data_setup (D = $procmux$378_Y, Q = \a_addr).
+Adding SRST signal on $procdff$446 ($dff) from module systolic_data_setup (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:932$118_Y [7:0], Q = \a_mem_access_counter, rval = 8'00000000).
+Adding SRST signal on $procdff$435 ($dff) from module systolic_data_setup (D = \b3_data_delayed_1_temp, Q = \b3_data_delayed_2_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$445 ($dff) from module systolic_data_setup (D = \a3_data_delayed_2_temp, Q = \a3_data_delayed_3_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$436 ($dff) from module systolic_data_setup (D = \b3_data_delayed_2_temp, Q = \b3_data_delayed_3_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$437 ($dff) from module systolic_data_setup (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1017$171_Y [7:0], Q = \b_mem_access_counter, rval = 8'00000000).
+Adding EN signal on $procdff$438 ($dff) from module systolic_data_setup (D = $procmux$344_Y, Q = \b_addr).
+Adding SRST signal on $procdff$431 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1038$192_Y, Q = \b1_data_delayed_1_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$444 ($dff) from module systolic_data_setup (D = \a3_data_delayed_1_temp, Q = \a3_data_delayed_2_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$439 ($dff) from module systolic_data_setup (D = $procmux$336_Y, Q = \b_mem_access, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$523 ($sdff) from module systolic_data_setup (D = 1'1, Q = \b_mem_access).
+Adding SRST signal on $procdff$443 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:955$143_Y, Q = \a3_data_delayed_1_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$442 ($dff) from module systolic_data_setup (D = \a2_data_delayed_1_temp, Q = \a2_data_delayed_2_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$440 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:953$139_Y, Q = \a1_data_delayed_1_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$432 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:1039$194_Y, Q = \b2_data_delayed_1_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$441 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:954$141_Y, Q = \a2_data_delayed_1_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$452 ($dff) from module seq_mac (D = \b, Q = \b_flopped, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$449 ($dff) from module seq_mac (D = $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/matmul_4x4_systolic.v:637$76_Y, Q = \out, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$450 ($dff) from module seq_mac (D = $procmux$384_Y, Q = \add_out_reg, rval = 0).
+Adding SRST signal on $procdff$451 ($dff) from module seq_mac (D = \a, Q = \a_flopped, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$454 ($dff) from module processing_element (D = $procmux$395_Y, Q = \out_b, rval = 16'0000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$534 ($sdff) from module processing_element (D = \in_b, Q = \out_b).
+Adding SRST signal on $procdff$453 ($dff) from module processing_element (D = $procmux$400_Y, Q = \out_a, rval = 16'0000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$536 ($sdff) from module processing_element (D = \in_a, Q = \out_a).
+Adding SRST signal on $procdff$456 ($dff) from module matmul_4x4_systolic (D = $procmux$409_Y, Q = \clk_cnt, rval = 8'00000000).
+Adding SRST signal on $procdff$455 ($dff) from module matmul_4x4_systolic (D = $procmux$418_Y, Q = \done_mat_mul, rval = 1'0).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \output_logic..
+Finding unused cells or wires in module \systolic_data_setup..
+Finding unused cells or wires in module \qadd..
+Finding unused cells or wires in module \seq_mac..
+Finding unused cells or wires in module \processing_element..
+Finding unused cells or wires in module \systolic_pe_matrix..
+Finding unused cells or wires in module \matmul_4x4_systolic..
+Removed 47 unused cells and 258 unused wires.
+<suppressed ~78 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_4x4_systolic.
+Optimizing module output_logic.
+<suppressed ~8 debug messages>
+Optimizing module processing_element.
+Optimizing module qadd.
+Optimizing module seq_mac.
+Optimizing module systolic_data_setup.
+<suppressed ~2 debug messages>
+Optimizing module systolic_pe_matrix.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_4x4_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \output_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \processing_element..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \qadd..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \seq_mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \systolic_data_setup..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \systolic_pe_matrix..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~31 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_4x4_systolic.
+  Optimizing cells in module \output_logic.
+  Optimizing cells in module \processing_element.
+  Optimizing cells in module \qadd.
+  Optimizing cells in module \seq_mac.
+  Optimizing cells in module \systolic_data_setup.
+  Optimizing cells in module \systolic_pe_matrix.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_4x4_systolic'.
+Finding identical cells in module `\output_logic'.
+<suppressed ~18 debug messages>
+Finding identical cells in module `\processing_element'.
+Finding identical cells in module `\qadd'.
+Finding identical cells in module `\seq_mac'.
+Finding identical cells in module `\systolic_data_setup'.
+Finding identical cells in module `\systolic_pe_matrix'.
+Removed a total of 6 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_4x4_systolic..
+Finding unused cells or wires in module \output_logic..
+Finding unused cells or wires in module \processing_element..
+Finding unused cells or wires in module \qadd..
+Finding unused cells or wires in module \seq_mac..
+Finding unused cells or wires in module \systolic_data_setup..
+Finding unused cells or wires in module \systolic_pe_matrix..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_4x4_systolic.
+Optimizing module output_logic.
+Optimizing module processing_element.
+Optimizing module qadd.
+Optimizing module seq_mac.
+Optimizing module systolic_data_setup.
+Optimizing module systolic_pe_matrix.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_4x4_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \output_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \processing_element..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \qadd..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \seq_mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \systolic_data_setup..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \systolic_pe_matrix..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~31 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_4x4_systolic.
+  Optimizing cells in module \output_logic.
+  Optimizing cells in module \processing_element.
+  Optimizing cells in module \qadd.
+  Optimizing cells in module \seq_mac.
+  Optimizing cells in module \systolic_data_setup.
+  Optimizing cells in module \systolic_pe_matrix.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_4x4_systolic'.
+Finding identical cells in module `\output_logic'.
+Finding identical cells in module `\processing_element'.
+Finding identical cells in module `\qadd'.
+Finding identical cells in module `\seq_mac'.
+Finding identical cells in module `\systolic_data_setup'.
+Finding identical cells in module `\systolic_pe_matrix'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_4x4_systolic..
+Finding unused cells or wires in module \output_logic..
+Finding unused cells or wires in module \processing_element..
+Finding unused cells or wires in module \qadd..
+Finding unused cells or wires in module \seq_mac..
+Finding unused cells or wires in module \systolic_data_setup..
+Finding unused cells or wires in module \systolic_pe_matrix..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_4x4_systolic.
+Optimizing module output_logic.
+Optimizing module processing_element.
+Optimizing module qadd.
+Optimizing module seq_mac.
+Optimizing module systolic_data_setup.
+Optimizing module systolic_pe_matrix.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== matmul_4x4_systolic ===
+
+   Number of wires:                 94
+   Number of wire bits:           1503
+   Number of public wires:          83
+   Number of public wire bits:    1337
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 26
+     $add                           96
+     $eq                             8
+     $gt                             8
+     $logic_not                     16
+     $logic_or                       1
+     $mux                          161
+     $not                            1
+     $or                             1
+     $sdff                           9
+     $sub                           32
+
+=== output_logic ===
+
+   Number of wires:                 90
+   Number of wire bits:           2337
+   Number of public wires:          40
+   Number of public wire bits:     925
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 59
+     $add                          112
+     $dffe                          10
+     $eq                            64
+     $ge                            32
+     $mux                         1209
+     $ne                             5
+     $not                            1
+     $or                             1
+     $reduce_and                     5
+     $reduce_bool                   11
+     $sdffe                        290
+     $sub                           80
+
+=== processing_element ===
+
+   Number of wires:                 20
+   Number of wire bits:            114
+   Number of public wires:          14
+   Number of public wire bits:     108
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 12
+     $and                            2
+     $logic_and                      1
+     $logic_or                       2
+     $not                            3
+     $or                             1
+     $sdffe                         32
+
+=== qadd ===
+
+   Number of wires:                  3
+   Number of wire bits:             96
+   Number of public wires:           3
+   Number of public wire bits:      96
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $add                           32
+
+=== seq_mac ===
+
+   Number of wires:                 23
+   Number of wire bits:            400
+   Number of public wires:          18
+   Number of public wire bits:     334
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 12
+     $and                            1
+     $mux                           80
+     $reduce_or                     16
+     $sdff                          80
+
+=== systolic_data_setup ===
+
+   Number of wires:                124
+   Number of wire bits:           1052
+   Number of public wires:          52
+   Number of public wire bits:     688
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                106
+     $add                          112
+     $and                          256
+     $dffe                          20
+     $eq                            64
+     $ge                            96
+     $logic_and                     10
+     $logic_not                      8
+     $logic_or                      10
+     $lt                            16
+     $mux                          138
+     $not                           11
+     $reduce_bool                    4
+     $reduce_or                      4
+     $sdff                         208
+     $sdffe                          2
+     $sub                           32
+
+=== systolic_pe_matrix ===
+
+   Number of wires:                 89
+   Number of wire bits:           1092
+   Number of public wires:          79
+   Number of public wire bits:    1052
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 24
+     $or                            45
+
+=== design hierarchy ===
+
+   matmul_4x4_systolic               1
+     output_logic                    0
+     systolic_data_setup             0
+     systolic_pe_matrix              0
+       processing_element            0
+         seq_mac                     0
+           qadd                      0
+
+   Number of wires:                 94
+   Number of wire bits:           1503
+   Number of public wires:          83
+   Number of public wire bits:    1337
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 26
+     $add                           96
+     $eq                             8
+     $gt                             8
+     $logic_not                     16
+     $logic_or                       1
+     $mux                          161
+     $not                            1
+     $or                             1
+     $sdff                           9
+     $sub                           32
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 1620dcbf96, CPU: user 0.33s system 0.01s, MEM: 16.44 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 21% 5x opt_expr (0 sec), 18% 3x opt_dff (0 sec), ...

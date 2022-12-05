@@ -1,0 +1,516 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v' to AST representation.
+Generating RTLIL representation for module `\elementwise_mult_core_18_18_10_16_1'.
+Generating RTLIL representation for module `\dsp_signed_mult_18x18_unit_18_18_1'.
+Generating RTLIL representation for module `\fp_rounding_unit_1_37_10'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: fp_rounding_unit_1_37_10
+root of   0 design levels: dsp_signed_mult_18x18_unit_18_18_1
+root of   1 design levels: elementwise_mult_core_18_18_10_16_1
+Automatically selected elementwise_mult_core_18_18_10_16_1 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \elementwise_mult_core_18_18_10_16_1
+Used module:     \fp_rounding_unit_1_37_10
+Used module:     \dsp_signed_mult_18x18_unit_18_18_1
+
+2.3. Analyzing design hierarchy..
+Top module:  \elementwise_mult_core_18_18_10_16_1
+Used module:     \fp_rounding_unit_1_37_10
+Used module:     \dsp_signed_mult_18x18_unit_18_18_1
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:624$8 in module fp_rounding_unit_1_37_10.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:614$7 in module fp_rounding_unit_1_37_10.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:583$6 in module dsp_signed_mult_18x18_unit_18_18_1.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:562$3 in module dsp_signed_mult_18x18_unit_18_18_1.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1 in module elementwise_mult_core_18_18_10_16_1.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fp_rounding_unit_1_37_10.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:624$8'.
+     1/6: $0\out_reg[36:0]
+     2/6: $0\valid_reg[0:0]
+     3/6: $0\floor_ceil_valid[0:0]
+     4/6: $0\is_ceil[0:0]
+     5/6: $0\ceil[36:0]
+     6/6: $0\floor[36:0]
+Creating decoders for process `\fp_rounding_unit_1_37_10.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:614$7'.
+     1/1: $1\rounded_result[36:0]
+Creating decoders for process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:583$6'.
+     1/3: $0\output_valid[0:0]
+     2/3: $0\result_valid[0:0]
+     3/3: $0\input_valid[0:0]
+Creating decoders for process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:562$3'.
+     1/6: $0\reg_resb[36:0]
+     2/6: $0\reg_resa[36:0]
+     3/6: $0\reg_by[17:0]
+     4/6: $0\reg_bx[17:0]
+     5/6: $0\reg_ay[17:0]
+     6/6: $0\reg_ax[17:0]
+Creating decoders for process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+     1/33: $0\valid_A_B[0:0]
+     2/33: $0\reg_B_15[17:0]
+     3/33: $0\reg_A_15[17:0]
+     4/33: $0\reg_B_14[17:0]
+     5/33: $0\reg_A_14[17:0]
+     6/33: $0\reg_B_13[17:0]
+     7/33: $0\reg_A_13[17:0]
+     8/33: $0\reg_B_12[17:0]
+     9/33: $0\reg_A_12[17:0]
+    10/33: $0\reg_B_11[17:0]
+    11/33: $0\reg_A_11[17:0]
+    12/33: $0\reg_B_10[17:0]
+    13/33: $0\reg_A_10[17:0]
+    14/33: $0\reg_B_9[17:0]
+    15/33: $0\reg_A_9[17:0]
+    16/33: $0\reg_B_8[17:0]
+    17/33: $0\reg_A_8[17:0]
+    18/33: $0\reg_B_7[17:0]
+    19/33: $0\reg_A_7[17:0]
+    20/33: $0\reg_B_6[17:0]
+    21/33: $0\reg_A_6[17:0]
+    22/33: $0\reg_B_5[17:0]
+    23/33: $0\reg_A_5[17:0]
+    24/33: $0\reg_B_4[17:0]
+    25/33: $0\reg_A_4[17:0]
+    26/33: $0\reg_B_3[17:0]
+    27/33: $0\reg_A_3[17:0]
+    28/33: $0\reg_B_2[17:0]
+    29/33: $0\reg_A_2[17:0]
+    30/33: $0\reg_B_1[17:0]
+    31/33: $0\reg_A_1[17:0]
+    32/33: $0\reg_B_0[17:0]
+    33/33: $0\reg_A_0[17:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\fp_rounding_unit_1_37_10.\rounded_result' from process `\fp_rounding_unit_1_37_10.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:614$7'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\fp_rounding_unit_1_37_10.\floor' using process `\fp_rounding_unit_1_37_10.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:624$8'.
+  created $dff cell `$procdff$255' with positive edge clock.
+Creating register for signal `\fp_rounding_unit_1_37_10.\ceil' using process `\fp_rounding_unit_1_37_10.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:624$8'.
+  created $dff cell `$procdff$256' with positive edge clock.
+Creating register for signal `\fp_rounding_unit_1_37_10.\is_ceil' using process `\fp_rounding_unit_1_37_10.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:624$8'.
+  created $dff cell `$procdff$257' with positive edge clock.
+Creating register for signal `\fp_rounding_unit_1_37_10.\floor_ceil_valid' using process `\fp_rounding_unit_1_37_10.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:624$8'.
+  created $dff cell `$procdff$258' with positive edge clock.
+Creating register for signal `\fp_rounding_unit_1_37_10.\valid_reg' using process `\fp_rounding_unit_1_37_10.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:624$8'.
+  created $dff cell `$procdff$259' with positive edge clock.
+Creating register for signal `\fp_rounding_unit_1_37_10.\out_reg' using process `\fp_rounding_unit_1_37_10.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:624$8'.
+  created $dff cell `$procdff$260' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\input_valid' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:583$6'.
+  created $dff cell `$procdff$261' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\result_valid' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:583$6'.
+  created $dff cell `$procdff$262' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\output_valid' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:583$6'.
+  created $dff cell `$procdff$263' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\reg_ax' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:562$3'.
+  created $dff cell `$procdff$264' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\reg_ay' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:562$3'.
+  created $dff cell `$procdff$265' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\reg_bx' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:562$3'.
+  created $dff cell `$procdff$266' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\reg_by' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:562$3'.
+  created $dff cell `$procdff$267' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\reg_resa' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:562$3'.
+  created $dff cell `$procdff$268' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\reg_resb' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:562$3'.
+  created $dff cell `$procdff$269' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_0' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$270' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_0' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$271' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_1' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$272' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_1' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$273' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_2' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$274' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_2' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$275' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_3' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$276' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_3' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$277' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_4' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$278' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_4' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$279' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_5' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$280' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_5' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$281' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_6' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$282' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_6' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$283' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_7' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$284' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_7' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$285' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_8' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$286' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_8' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$287' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_9' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$288' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_9' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$289' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_10' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$290' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_10' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$291' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_11' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$292' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_11' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$293' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_12' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$294' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_12' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$295' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_13' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$296' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_13' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$297' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_14' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$298' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_14' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$299' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_A_15' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$300' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\reg_B_15' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$301' with positive edge clock.
+Creating register for signal `\elementwise_mult_core_18_18_10_16_1.\valid_A_B' using process `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+  created $dff cell `$procdff$302' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\fp_rounding_unit_1_37_10.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:624$8'.
+Removing empty process `fp_rounding_unit_1_37_10.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:624$8'.
+Found and cleaned up 1 empty switch in `\fp_rounding_unit_1_37_10.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:614$7'.
+Removing empty process `fp_rounding_unit_1_37_10.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:614$7'.
+Found and cleaned up 2 empty switches in `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:583$6'.
+Removing empty process `dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:583$6'.
+Found and cleaned up 2 empty switches in `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:562$3'.
+Removing empty process `dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:562$3'.
+Found and cleaned up 2 empty switches in `\elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+Removing empty process `elementwise_mult_core_18_18_10_16_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:452$1'.
+Cleaned up 9 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp_rounding_unit_1_37_10.
+<suppressed ~2 debug messages>
+Optimizing module dsp_signed_mult_18x18_unit_18_18_1.
+Optimizing module elementwise_mult_core_18_18_10_16_1.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fp_rounding_unit_1_37_10.
+Optimizing module dsp_signed_mult_18x18_unit_18_18_1.
+Optimizing module elementwise_mult_core_18_18_10_16_1.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp_rounding_unit_1_37_10'.
+Finding identical cells in module `\dsp_signed_mult_18x18_unit_18_18_1'.
+Finding identical cells in module `\elementwise_mult_core_18_18_10_16_1'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fp_rounding_unit_1_37_10..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dsp_signed_mult_18x18_unit_18_18_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \elementwise_mult_core_18_18_10_16_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~48 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fp_rounding_unit_1_37_10.
+  Optimizing cells in module \dsp_signed_mult_18x18_unit_18_18_1.
+  Optimizing cells in module \elementwise_mult_core_18_18_10_16_1.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fp_rounding_unit_1_37_10'.
+Finding identical cells in module `\dsp_signed_mult_18x18_unit_18_18_1'.
+Finding identical cells in module `\elementwise_mult_core_18_18_10_16_1'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$260 ($dff) from module fp_rounding_unit_1_37_10 (D = $procmux$12_Y, Q = \out_reg, rval = 37'0000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$303 ($sdff) from module fp_rounding_unit_1_37_10 (D = $procmux$43_Y, Q = \out_reg).
+Adding SRST signal on $procdff$259 ($dff) from module fp_rounding_unit_1_37_10 (D = $procmux$17_Y, Q = \valid_reg, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$305 ($sdff) from module fp_rounding_unit_1_37_10 (D = \floor_ceil_valid, Q = \valid_reg).
+Adding SRST signal on $procdff$255 ($dff) from module fp_rounding_unit_1_37_10 (D = $procmux$37_Y, Q = \floor, rval = 37'0000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$307 ($sdff) from module fp_rounding_unit_1_37_10 (D = { 10'0000000000 \in [36:10] }, Q = \floor).
+Setting constant 0-bit at position 27 on $auto$ff.cc:262:slice$308 ($sdffe) from module fp_rounding_unit_1_37_10.
+Setting constant 0-bit at position 28 on $auto$ff.cc:262:slice$308 ($sdffe) from module fp_rounding_unit_1_37_10.
+Setting constant 0-bit at position 29 on $auto$ff.cc:262:slice$308 ($sdffe) from module fp_rounding_unit_1_37_10.
+Setting constant 0-bit at position 30 on $auto$ff.cc:262:slice$308 ($sdffe) from module fp_rounding_unit_1_37_10.
+Setting constant 0-bit at position 31 on $auto$ff.cc:262:slice$308 ($sdffe) from module fp_rounding_unit_1_37_10.
+Setting constant 0-bit at position 32 on $auto$ff.cc:262:slice$308 ($sdffe) from module fp_rounding_unit_1_37_10.
+Setting constant 0-bit at position 33 on $auto$ff.cc:262:slice$308 ($sdffe) from module fp_rounding_unit_1_37_10.
+Setting constant 0-bit at position 34 on $auto$ff.cc:262:slice$308 ($sdffe) from module fp_rounding_unit_1_37_10.
+Setting constant 0-bit at position 35 on $auto$ff.cc:262:slice$308 ($sdffe) from module fp_rounding_unit_1_37_10.
+Setting constant 0-bit at position 36 on $auto$ff.cc:262:slice$308 ($sdffe) from module fp_rounding_unit_1_37_10.
+Adding SRST signal on $procdff$256 ($dff) from module fp_rounding_unit_1_37_10 (D = $procmux$32_Y, Q = \ceil, rval = 37'0000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$310 ($sdff) from module fp_rounding_unit_1_37_10 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:635$11_Y, Q = \ceil).
+Adding SRST signal on $procdff$257 ($dff) from module fp_rounding_unit_1_37_10 (D = $procmux$27_Y, Q = \is_ceil, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$312 ($sdff) from module fp_rounding_unit_1_37_10 (D = \in [9], Q = \is_ceil).
+Adding SRST signal on $procdff$258 ($dff) from module fp_rounding_unit_1_37_10 (D = $procmux$22_Y, Q = \floor_ceil_valid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$314 ($sdff) from module fp_rounding_unit_1_37_10 (D = \i_valid, Q = \floor_ceil_valid).
+Adding SRST signal on $procdff$261 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$55_Y, Q = \input_valid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$316 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \i_valid, Q = \input_valid).
+Adding SRST signal on $procdff$262 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$50_Y, Q = \result_valid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$318 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \input_valid, Q = \result_valid).
+Adding SRST signal on $procdff$263 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$45_Y, Q = \output_valid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$320 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \result_valid, Q = \output_valid).
+Adding SRST signal on $procdff$264 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$85_Y, Q = \reg_ax, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$322 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \ax, Q = \reg_ax).
+Adding SRST signal on $procdff$265 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$80_Y, Q = \reg_ay, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$324 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \ay, Q = \reg_ay).
+Adding SRST signal on $procdff$266 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$75_Y, Q = \reg_bx, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$326 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \bx, Q = \reg_bx).
+Adding SRST signal on $procdff$267 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$70_Y, Q = \reg_by, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$328 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \by, Q = \reg_by).
+Adding SRST signal on $procdff$268 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$65_Y, Q = \reg_resa, rval = 37'0000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$330 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:575$4_Y, Q = \reg_resa).
+Adding SRST signal on $procdff$269 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$60_Y, Q = \reg_resb, rval = 37'0000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$332 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.small_submodules/elementwise_mult_core_18_18_10_16_1.v:576$5_Y, Q = \reg_resb).
+Adding SRST signal on $procdff$270 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$250_Y, Q = \reg_A_0, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$334 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_0, Q = \reg_A_0).
+Adding SRST signal on $procdff$271 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$245_Y, Q = \reg_B_0, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$336 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_0, Q = \reg_B_0).
+Adding SRST signal on $procdff$272 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$240_Y, Q = \reg_A_1, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$338 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_1, Q = \reg_A_1).
+Adding SRST signal on $procdff$273 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$235_Y, Q = \reg_B_1, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$340 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_1, Q = \reg_B_1).
+Adding SRST signal on $procdff$274 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$230_Y, Q = \reg_A_2, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$342 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_2, Q = \reg_A_2).
+Adding SRST signal on $procdff$275 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$225_Y, Q = \reg_B_2, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$344 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_2, Q = \reg_B_2).
+Adding SRST signal on $procdff$276 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$220_Y, Q = \reg_A_3, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$346 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_3, Q = \reg_A_3).
+Adding SRST signal on $procdff$277 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$215_Y, Q = \reg_B_3, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$348 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_3, Q = \reg_B_3).
+Adding SRST signal on $procdff$278 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$210_Y, Q = \reg_A_4, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$350 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_4, Q = \reg_A_4).
+Adding SRST signal on $procdff$279 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$205_Y, Q = \reg_B_4, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$352 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_4, Q = \reg_B_4).
+Adding SRST signal on $procdff$280 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$200_Y, Q = \reg_A_5, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$354 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_5, Q = \reg_A_5).
+Adding SRST signal on $procdff$281 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$195_Y, Q = \reg_B_5, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$356 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_5, Q = \reg_B_5).
+Adding SRST signal on $procdff$282 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$190_Y, Q = \reg_A_6, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$358 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_6, Q = \reg_A_6).
+Adding SRST signal on $procdff$283 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$185_Y, Q = \reg_B_6, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$360 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_6, Q = \reg_B_6).
+Adding SRST signal on $procdff$284 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$180_Y, Q = \reg_A_7, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$362 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_7, Q = \reg_A_7).
+Adding SRST signal on $procdff$285 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$175_Y, Q = \reg_B_7, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$364 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_7, Q = \reg_B_7).
+Adding SRST signal on $procdff$286 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$170_Y, Q = \reg_A_8, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$366 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_8, Q = \reg_A_8).
+Adding SRST signal on $procdff$287 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$165_Y, Q = \reg_B_8, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$368 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_8, Q = \reg_B_8).
+Adding SRST signal on $procdff$288 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$160_Y, Q = \reg_A_9, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$370 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_9, Q = \reg_A_9).
+Adding SRST signal on $procdff$289 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$155_Y, Q = \reg_B_9, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$372 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_9, Q = \reg_B_9).
+Adding SRST signal on $procdff$290 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$150_Y, Q = \reg_A_10, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$374 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_10, Q = \reg_A_10).
+Adding SRST signal on $procdff$291 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$145_Y, Q = \reg_B_10, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$376 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_10, Q = \reg_B_10).
+Adding SRST signal on $procdff$292 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$140_Y, Q = \reg_A_11, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$378 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_11, Q = \reg_A_11).
+Adding SRST signal on $procdff$293 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$135_Y, Q = \reg_B_11, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$380 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_11, Q = \reg_B_11).
+Adding SRST signal on $procdff$294 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$130_Y, Q = \reg_A_12, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$382 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_12, Q = \reg_A_12).
+Adding SRST signal on $procdff$295 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$125_Y, Q = \reg_B_12, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$384 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_12, Q = \reg_B_12).
+Adding SRST signal on $procdff$296 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$120_Y, Q = \reg_A_13, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$386 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_13, Q = \reg_A_13).
+Adding SRST signal on $procdff$297 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$115_Y, Q = \reg_B_13, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$388 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_13, Q = \reg_B_13).
+Adding SRST signal on $procdff$298 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$110_Y, Q = \reg_A_14, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$390 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_14, Q = \reg_A_14).
+Adding SRST signal on $procdff$299 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$105_Y, Q = \reg_B_14, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$392 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_14, Q = \reg_B_14).
+Adding SRST signal on $procdff$300 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$100_Y, Q = \reg_A_15, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$394 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_A_15, Q = \reg_A_15).
+Adding SRST signal on $procdff$301 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$95_Y, Q = \reg_B_15, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$396 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_B_15, Q = \reg_B_15).
+Adding SRST signal on $procdff$302 ($dff) from module elementwise_mult_core_18_18_10_16_1 (D = $procmux$90_Y, Q = \valid_A_B, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$398 ($sdff) from module elementwise_mult_core_18_18_10_16_1 (D = \i_valid, Q = \valid_A_B).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fp_rounding_unit_1_37_10..
+Finding unused cells or wires in module \dsp_signed_mult_18x18_unit_18_18_1..
+Finding unused cells or wires in module \elementwise_mult_core_18_18_10_16_1..
+Removed 96 unused cells and 247 unused wires.
+<suppressed ~99 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp_signed_mult_18x18_unit_18_18_1.
+Optimizing module elementwise_mult_core_18_18_10_16_1.
+Optimizing module fp_rounding_unit_1_37_10.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp_signed_mult_18x18_unit_18_18_1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \elementwise_mult_core_18_18_10_16_1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fp_rounding_unit_1_37_10..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp_signed_mult_18x18_unit_18_18_1.
+  Optimizing cells in module \elementwise_mult_core_18_18_10_16_1.
+  Optimizing cells in module \fp_rounding_unit_1_37_10.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp_signed_mult_18x18_unit_18_18_1'.
+Finding identical cells in module `\elementwise_mult_core_18_18_10_16_1'.
+Finding identical cells in module `\fp_rounding_unit_1_37_10'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp_signed_mult_18x18_unit_18_18_1..
+Finding unused cells or wires in module \elementwise_mult_core_18_18_10_16_1..
+Finding unused cells or wires in module \fp_rounding_unit_1_37_10..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp_signed_mult_18x18_unit_18_18_1.
+Optimizing module elementwise_mult_core_18_18_10_16_1.
+Optimizing module fp_rounding_unit_1_37_10.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== dsp_signed_mult_18x18_unit_18_18_1 ===
+
+   Number of wires:                 22
+   Number of wire bits:            374
+   Number of public wires:          20
+   Number of public wire bits:     300
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 11
+     $mul                           74
+     $sdffe                        149
+
+=== elementwise_mult_core_18_18_10_16_1 ===
+
+   Number of wires:                169
+   Number of wire bits:           2953
+   Number of public wires:         169
+   Number of public wire bits:    2953
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 58
+     $and                            1
+     $sdffe                        577
+
+=== fp_rounding_unit_1_37_10 ===
+
+   Number of wires:                 15
+   Number of wire bits:            267
+   Number of public wires:          14
+   Number of public wire bits:     230
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  8
+     $add                           37
+     $mux                           37
+     $sdffe                        104
+
+=== design hierarchy ===
+
+   elementwise_mult_core_18_18_10_16_1      1
+     dsp_signed_mult_18x18_unit_18_18_1      0
+     fp_rounding_unit_1_37_10        0
+
+   Number of wires:                169
+   Number of wire bits:           2953
+   Number of public wires:         169
+   Number of public wire bits:    2953
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 58
+     $and                            1
+     $sdffe                        577
+
+End of script. Logfile hash: a7a6408bad, CPU: user 0.12s system 0.01s, MEM: 15.59 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 21% 2x read_verilog (0 sec), 21% 2x opt_clean (0 sec), ...

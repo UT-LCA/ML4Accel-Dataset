@@ -1,0 +1,208 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/DATA/raw_designs/vtr_designs/verilog/stereovision1.v
+Parsing SystemVerilog input from `/home/zhigang/DATA/raw_designs/vtr_designs/verilog/stereovision1.v' to AST representation.
+Generating RTLIL representation for module `\sv_chip1_hierarchy_no_mem'.
+Generating RTLIL representation for module `\port_bus_2to1_1'.
+Generating RTLIL representation for module `\wrapper_norm_corr_20'.
+Generating RTLIL representation for module `\wrapper_corr_20'.
+Generating RTLIL representation for module `\sh_reg'.
+Generating RTLIL representation for module `\corr'.
+Generating RTLIL representation for module `\wrapper_norm'.
+Generating RTLIL representation for module `\wrapper_norm_corr_10'.
+Generating RTLIL representation for module `\wrapper_corr_10'.
+Generating RTLIL representation for module `\wrapper_norm_corr_5_seq'.
+Generating RTLIL representation for module `\wrapper_corr_5_seq'.
+Generating RTLIL representation for module `\wrapper_norm_seq'.
+Generating RTLIL representation for module `\corr_seq'.
+Generating RTLIL representation for module `\port_bus_1to0'.
+Generating RTLIL representation for module `\my_wrapper_divider'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/stereovision1.v:2297.2-2336.5 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\my_divider'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/stereovision1.v:2373.2-2402.5 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/stereovision1.v:2412.2-2475.5 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: my_divider          
+root of   1 design levels: my_wrapper_divider  
+root of   0 design levels: port_bus_1to0       
+root of   0 design levels: corr_seq            
+root of   2 design levels: wrapper_norm_seq    
+root of   1 design levels: wrapper_corr_5_seq  
+root of   3 design levels: wrapper_norm_corr_5_seq
+root of   1 design levels: wrapper_corr_10     
+root of   3 design levels: wrapper_norm_corr_10
+root of   2 design levels: wrapper_norm        
+root of   0 design levels: corr                
+root of   0 design levels: sh_reg              
+root of   1 design levels: wrapper_corr_20     
+root of   3 design levels: wrapper_norm_corr_20
+root of   0 design levels: port_bus_2to1_1     
+root of   4 design levels: sv_chip1_hierarchy_no_mem
+Automatically selected sv_chip1_hierarchy_no_mem as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \sv_chip1_hierarchy_no_mem
+Used module:     \port_bus_1to0
+Used module:     \wrapper_norm_corr_5_seq
+Used module:         \wrapper_corr_5_seq
+Used module:             \corr_seq
+Used module:             \sh_reg
+Used module:         \wrapper_norm_seq
+Used module:             \my_wrapper_divider
+Used module:                 \my_divider
+Used module:     \wrapper_norm_corr_10
+Used module:         \wrapper_corr_10
+Used module:             \corr
+Used module:         \wrapper_norm
+Used module:     \wrapper_norm_corr_20
+Used module:         \wrapper_corr_20
+Used module:     \port_bus_2to1_1
+
+2.3. Analyzing design hierarchy..
+Top module:  \sv_chip1_hierarchy_no_mem
+Used module:     \port_bus_1to0
+Used module:     \wrapper_norm_corr_5_seq
+Used module:         \wrapper_corr_5_seq
+Used module:             \corr_seq
+Used module:             \sh_reg
+Used module:         \wrapper_norm_seq
+Used module:             \my_wrapper_divider
+Used module:                 \my_divider
+Used module:     \wrapper_norm_corr_10
+Used module:         \wrapper_corr_10
+Used module:             \corr
+Used module:         \wrapper_norm
+Used module:     \wrapper_norm_corr_20
+Used module:         \wrapper_corr_20
+Used module:     \port_bus_2to1_1
+Removed 0 unused modules.
+Mapping positional arguments of cell my_wrapper_divider.my_divider_inst (my_divider).
+Mapping positional arguments of cell wrapper_norm_seq.my_div_inst_2 (my_wrapper_divider).
+Mapping positional arguments of cell wrapper_norm_seq.my_div_inst_1 (my_wrapper_divider).
+Mapping positional arguments of cell wrapper_corr_5_seq.inst_corr_5 (corr_seq).
+Mapping positional arguments of cell wrapper_corr_5_seq.inst_corr_4 (corr_seq).
+Mapping positional arguments of cell wrapper_corr_5_seq.inst_corr_3 (corr_seq).
+Mapping positional arguments of cell wrapper_corr_5_seq.inst_corr_2 (corr_seq).
+Mapping positional arguments of cell wrapper_corr_5_seq.inst_corr_1 (corr_seq).
+Mapping positional arguments of cell wrapper_corr_5_seq.inst_corr_0 (corr_seq).
+Mapping positional arguments of cell wrapper_corr_5_seq.inst_sh_reg_5 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_5_seq.inst_sh_reg_4 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_5_seq.inst_sh_reg_3 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_5_seq.inst_sh_reg_2 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_5_seq.inst_sh_reg_1 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_5_seq.inst_sh_reg_0 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_5_seq.inst_sh_reg_r_1 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_10.inst_corr_10 (corr).
+Mapping positional arguments of cell wrapper_corr_10.inst_corr_9 (corr).
+Mapping positional arguments of cell wrapper_corr_10.inst_corr_8 (corr).
+Mapping positional arguments of cell wrapper_corr_10.inst_corr_7 (corr).
+Mapping positional arguments of cell wrapper_corr_10.inst_corr_6 (corr).
+Mapping positional arguments of cell wrapper_corr_10.inst_corr_5 (corr).
+Mapping positional arguments of cell wrapper_corr_10.inst_corr_4 (corr).
+Mapping positional arguments of cell wrapper_corr_10.inst_corr_3 (corr).
+Mapping positional arguments of cell wrapper_corr_10.inst_corr_2 (corr).
+Mapping positional arguments of cell wrapper_corr_10.inst_corr_1 (corr).
+Mapping positional arguments of cell wrapper_corr_10.inst_corr_0 (corr).
+Mapping positional arguments of cell wrapper_corr_10.inst_sh_reg_10 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_10.inst_sh_reg_9 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_10.inst_sh_reg_8 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_10.inst_sh_reg_7 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_10.inst_sh_reg_6 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_10.inst_sh_reg_5 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_10.inst_sh_reg_4 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_10.inst_sh_reg_3 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_10.inst_sh_reg_2 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_10.inst_sh_reg_1 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_10.inst_sh_reg_0 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_10.inst_sh_reg_r_1 (sh_reg).
+Mapping positional arguments of cell wrapper_norm.my_div_inst_2 (my_wrapper_divider).
+Mapping positional arguments of cell wrapper_norm.my_div_inst_1 (my_wrapper_divider).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_20 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_19 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_18 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_17 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_16 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_15 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_14 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_13 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_12 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_11 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_10 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_9 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_8 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_7 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_6 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_5 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_4 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_3 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_2 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_1 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_corr_0 (corr).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_20 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_19 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_18 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_17 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_16 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_15 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_14 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_13 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_12 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_11 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_10 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_9 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_8 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_7 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_6 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_5 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_4 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_3 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_2 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_1 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_0 (sh_reg).
+Mapping positional arguments of cell wrapper_corr_20.inst_sh_reg_r_1 (sh_reg).
+Mapping positional arguments of cell sv_chip1_hierarchy_no_mem.port_bus_1to0_inst (port_bus_1to0).
+Mapping positional arguments of cell sv_chip1_hierarchy_no_mem.wrapper_norm_corr_5_inst_n (wrapper_norm_corr_5_seq).
+Mapping positional arguments of cell sv_chip1_hierarchy_no_mem.wrapper_norm_corr_5_inst_p (wrapper_norm_corr_5_seq).
+Mapping positional arguments of cell sv_chip1_hierarchy_no_mem.wrapper_norm_corr_10_inst_n (wrapper_norm_corr_10).
+Mapping positional arguments of cell sv_chip1_hierarchy_no_mem.wrapper_norm_corr_10_inst_p (wrapper_norm_corr_10).
+Mapping positional arguments of cell sv_chip1_hierarchy_no_mem.wrapper_norm_corr_20_inst_n (wrapper_norm_corr_20).
+Mapping positional arguments of cell sv_chip1_hierarchy_no_mem.wrapper_norm_corr_20_inst_p (wrapper_norm_corr_20).
+Mapping positional arguments of cell sv_chip1_hierarchy_no_mem.port_bus_2to1_1_inst (port_bus_2to1_1).
+
+End of script. Logfile hash: f55a772dc2, CPU: user 0.11s system 0.01s, MEM: 21.92 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 99% 2x read_verilog (0 sec), 0% 1x hierarchy (0 sec)

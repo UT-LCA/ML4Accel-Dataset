@@ -1,0 +1,607 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v' to AST representation.
+Warning: Yosys has only limited support for tri-state logic at the moment. (/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:262)
+Warning: Encountered `parallel_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `parallel_case' attribute or the SystemVerilog `unique' or `priority' keywords is recommended!
+Warning: Encountered `full_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `full_case' attribute or the SystemVerilog `unique' or `unique0' keywords is recommended!
+Generating RTLIL representation for module `\i2cSlaveTop'.
+Generating RTLIL representation for module `\i2cSlave'.
+Generating RTLIL representation for module `\registerInterface'.
+Generating RTLIL representation for module `\serialInterface'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586.1-794.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: serialInterface     
+root of   0 design levels: registerInterface   
+root of   1 design levels: i2cSlave            
+root of   2 design levels: i2cSlaveTop         
+Automatically selected i2cSlaveTop as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \i2cSlaveTop
+Used module:     \i2cSlave
+Used module:         \serialInterface
+Used module:         \registerInterface
+
+2.3. Analyzing design hierarchy..
+Top module:  \i2cSlaveTop
+Used module:     \i2cSlave
+Used module:         \serialInterface
+Used module:         \registerInterface
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:806$71 in module serialInterface.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:797$69 in module serialInterface.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36 in module serialInterface.
+Marked 7 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36 in module serialInterface.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:458$33 in module registerInterface.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:316$17 in module i2cSlave.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:304$15 in module i2cSlave.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:276$5 in module i2cSlave.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:266$3 in module i2cSlave.
+Removed a total of 1 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 16 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:806$71'.
+     1/9: $0\bitCnt[2:0]
+     2/9: $0\rxData[7:0]
+     3/9: $0\txData[7:0]
+     4/9: $0\streamSt[1:0]
+     5/9: $0\clearStartStopDet[0:0]
+     6/9: $0\dataOut[7:0]
+     7/9: $0\writeEn[0:0]
+     8/9: $0\sdaOut[0:0]
+     9/9: $0\regAddr[7:0]
+Creating decoders for process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:797$69'.
+     1/1: $0\CurrState_SISt[3:0]
+Creating decoders for process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36'.
+     1/10: $0\next_regAddr[7:0]
+     2/10: $0\next_clearStartStopDet[0:0]
+     3/10: $0\next_bitCnt[2:0]
+     4/10: $0\next_dataOut[7:0]
+     5/10: $0\next_writeEn[0:0]
+     6/10: $0\next_sdaOut[0:0]
+     7/10: $0\next_rxData[7:0]
+     8/10: $0\next_txData[7:0]
+     9/10: $0\next_streamSt[1:0]
+    10/10: $0\NextState_SISt[3:0]
+Creating decoders for process `\registerInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:473$34'.
+     1/4: $0\myReg3[7:0]
+     2/4: $0\myReg2[7:0]
+     3/4: $0\myReg1[7:0]
+     4/4: $0\myReg0[7:0]
+Creating decoders for process `\registerInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:458$33'.
+     1/1: $0\dataOut[7:0]
+Creating decoders for process `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:316$17'.
+     1/2: $0\startEdgeDet[0:0]
+     2/2: $0\startStopDetState[1:0]
+Creating decoders for process `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:304$15'.
+     1/2: $0\sdaDelayed[3:0]
+     2/2: $0\sclDelayed[9:0]
+Creating decoders for process `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:276$5'.
+     1/4: $0\sclPipe[9:0]
+     2/4: $0\sdaPipe[9:0]
+     3/4: $0\sclDeb[0:0]
+     4/4: $0\sdaDeb[0:0]
+Creating decoders for process `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:266$3'.
+     1/1: $0\rstPipe[1:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\serialInterface.\next_clearStartStopDet' from process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36'.
+No latch inferred for signal `\serialInterface.\next_dataOut' from process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36'.
+No latch inferred for signal `\serialInterface.\next_regAddr' from process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36'.
+No latch inferred for signal `\serialInterface.\next_sdaOut' from process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36'.
+No latch inferred for signal `\serialInterface.\next_writeEn' from process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36'.
+No latch inferred for signal `\serialInterface.\next_bitCnt' from process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36'.
+No latch inferred for signal `\serialInterface.\next_rxData' from process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36'.
+No latch inferred for signal `\serialInterface.\next_streamSt' from process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36'.
+No latch inferred for signal `\serialInterface.\next_txData' from process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36'.
+No latch inferred for signal `\serialInterface.\NextState_SISt' from process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\serialInterface.\clearStartStopDet' using process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:806$71'.
+  created $dff cell `$procdff$431' with positive edge clock.
+Creating register for signal `\serialInterface.\sdaOut' using process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:806$71'.
+  created $dff cell `$procdff$432' with positive edge clock.
+Creating register for signal `\serialInterface.\regAddr' using process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:806$71'.
+  created $dff cell `$procdff$433' with positive edge clock.
+Creating register for signal `\serialInterface.\writeEn' using process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:806$71'.
+  created $dff cell `$procdff$434' with positive edge clock.
+Creating register for signal `\serialInterface.\dataOut' using process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:806$71'.
+  created $dff cell `$procdff$435' with positive edge clock.
+Creating register for signal `\serialInterface.\bitCnt' using process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:806$71'.
+  created $dff cell `$procdff$436' with positive edge clock.
+Creating register for signal `\serialInterface.\rxData' using process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:806$71'.
+  created $dff cell `$procdff$437' with positive edge clock.
+Creating register for signal `\serialInterface.\streamSt' using process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:806$71'.
+  created $dff cell `$procdff$438' with positive edge clock.
+Creating register for signal `\serialInterface.\txData' using process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:806$71'.
+  created $dff cell `$procdff$439' with positive edge clock.
+Creating register for signal `\serialInterface.\CurrState_SISt' using process `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:797$69'.
+  created $dff cell `$procdff$440' with positive edge clock.
+Creating register for signal `\registerInterface.\myReg0' using process `\registerInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:473$34'.
+  created $dff cell `$procdff$441' with positive edge clock.
+Creating register for signal `\registerInterface.\myReg1' using process `\registerInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:473$34'.
+  created $dff cell `$procdff$442' with positive edge clock.
+Creating register for signal `\registerInterface.\myReg2' using process `\registerInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:473$34'.
+  created $dff cell `$procdff$443' with positive edge clock.
+Creating register for signal `\registerInterface.\myReg3' using process `\registerInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:473$34'.
+  created $dff cell `$procdff$444' with positive edge clock.
+Creating register for signal `\registerInterface.\dataOut' using process `\registerInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:458$33'.
+  created $dff cell `$procdff$445' with positive edge clock.
+Creating register for signal `\i2cSlave.\startStopDetState' using process `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:316$17'.
+  created $dff cell `$procdff$446' with positive edge clock.
+Creating register for signal `\i2cSlave.\startEdgeDet' using process `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:316$17'.
+  created $dff cell `$procdff$447' with positive edge clock.
+Creating register for signal `\i2cSlave.\sclDelayed' using process `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:304$15'.
+  created $dff cell `$procdff$448' with positive edge clock.
+Creating register for signal `\i2cSlave.\sdaDelayed' using process `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:304$15'.
+  created $dff cell `$procdff$449' with positive edge clock.
+Creating register for signal `\i2cSlave.\sdaDeb' using process `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:276$5'.
+  created $dff cell `$procdff$450' with positive edge clock.
+Creating register for signal `\i2cSlave.\sclDeb' using process `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:276$5'.
+  created $dff cell `$procdff$451' with positive edge clock.
+Creating register for signal `\i2cSlave.\sdaPipe' using process `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:276$5'.
+  created $dff cell `$procdff$452' with positive edge clock.
+Creating register for signal `\i2cSlave.\sclPipe' using process `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:276$5'.
+  created $dff cell `$procdff$453' with positive edge clock.
+Creating register for signal `\i2cSlave.\rstPipe' using process `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:266$3'.
+  created $dff cell `$procdff$454' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:806$71'.
+Removing empty process `serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:806$71'.
+Found and cleaned up 1 empty switch in `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:797$69'.
+Removing empty process `serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:797$69'.
+Found and cleaned up 22 empty switches in `\serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36'.
+Removing empty process `serialInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:586$36'.
+Found and cleaned up 2 empty switches in `\registerInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:473$34'.
+Removing empty process `registerInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:473$34'.
+Found and cleaned up 1 empty switch in `\registerInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:458$33'.
+Removing empty process `registerInterface.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:458$33'.
+Found and cleaned up 6 empty switches in `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:316$17'.
+Removing empty process `i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:316$17'.
+Found and cleaned up 1 empty switch in `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:304$15'.
+Removing empty process `i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:304$15'.
+Found and cleaned up 5 empty switches in `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:276$5'.
+Removing empty process `i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:276$5'.
+Found and cleaned up 1 empty switch in `\i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:266$3'.
+Removing empty process `i2cSlave.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:266$3'.
+Cleaned up 40 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module serialInterface.
+<suppressed ~44 debug messages>
+Optimizing module registerInterface.
+<suppressed ~3 debug messages>
+Optimizing module i2cSlave.
+<suppressed ~21 debug messages>
+Optimizing module i2cSlaveTop.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module serialInterface.
+Optimizing module registerInterface.
+Optimizing module i2cSlave.
+Optimizing module i2cSlaveTop.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\serialInterface'.
+<suppressed ~162 debug messages>
+Finding identical cells in module `\registerInterface'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\i2cSlave'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\i2cSlaveTop'.
+Removed a total of 59 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \serialInterface..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \registerInterface..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \i2cSlave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \i2cSlaveTop..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~25 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \serialInterface.
+    New ctrl vector for $pmux cell $procmux$180: { $procmux$318_CMP $auto$opt_reduce.cc:134:opt_mux$456 }
+    New ctrl vector for $pmux cell $procmux$300: { $procmux$347_CMP $procmux$343_CMP $procmux$340_CMP $procmux$337_CMP $procmux$333_CMP $procmux$330_CMP $procmux$327_CMP $procmux$321_CMP $procmux$318_CMP $procmux$314_CMP $procmux$311_CMP $procmux$308_CMP $procmux$305_CMP $procmux$302_CMP $auto$opt_reduce.cc:134:opt_mux$458 }
+    New ctrl vector for $pmux cell $procmux$120: { $procmux$327_CMP $procmux$302_CMP $auto$opt_reduce.cc:134:opt_mux$460 }
+  Optimizing cells in module \serialInterface.
+  Optimizing cells in module \registerInterface.
+  Optimizing cells in module \i2cSlave.
+  Optimizing cells in module \i2cSlaveTop.
+Performed a total of 3 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\serialInterface'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\registerInterface'.
+Finding identical cells in module `\i2cSlave'.
+Finding identical cells in module `\i2cSlaveTop'.
+Removed a total of 4 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$440 ($dff) from module serialInterface (D = \NextState_SISt, Q = \CurrState_SISt, rval = 4'0000).
+Adding SRST signal on $procdff$439 ($dff) from module serialInterface (D = \next_txData, Q = \txData, rval = 8'00000000).
+Adding SRST signal on $procdff$438 ($dff) from module serialInterface (D = \next_streamSt, Q = \streamSt, rval = 2'00).
+Adding SRST signal on $procdff$437 ($dff) from module serialInterface (D = \next_rxData, Q = \rxData, rval = 8'00000000).
+Adding SRST signal on $procdff$436 ($dff) from module serialInterface (D = \next_bitCnt, Q = \bitCnt, rval = 3'000).
+Adding SRST signal on $procdff$435 ($dff) from module serialInterface (D = \next_dataOut, Q = \dataOut, rval = 8'00000000).
+Adding SRST signal on $procdff$434 ($dff) from module serialInterface (D = \next_writeEn, Q = \writeEn, rval = 1'0).
+Adding EN signal on $procdff$433 ($dff) from module serialInterface (D = \next_regAddr, Q = \regAddr).
+Adding SRST signal on $procdff$432 ($dff) from module serialInterface (D = \next_sdaOut, Q = \sdaOut, rval = 1'1).
+Adding SRST signal on $procdff$431 ($dff) from module serialInterface (D = \next_clearStartStopDet, Q = \clearStartStopDet, rval = 1'0).
+Adding EN signal on $procdff$441 ($dff) from module registerInterface (D = \dataIn, Q = \myReg0).
+Adding EN signal on $procdff$442 ($dff) from module registerInterface (D = \dataIn, Q = \myReg1).
+Adding EN signal on $procdff$443 ($dff) from module registerInterface (D = \dataIn, Q = \myReg2).
+Adding EN signal on $procdff$444 ($dff) from module registerInterface (D = \dataIn, Q = \myReg3).
+Adding SRST signal on $procdff$454 ($dff) from module i2cSlave (D = \rstPipe [0], Q = \rstPipe [1], rval = 1'1).
+Adding SRST signal on $procdff$453 ($dff) from module i2cSlave (D = { \sclPipe [8:0] \scl }, Q = \sclPipe, rval = 10'1111111111).
+Adding SRST signal on $procdff$452 ($dff) from module i2cSlave (D = { \sdaPipe [8:0] $ternary$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/i2cslave.v:262$2_Y }, Q = \sdaPipe, rval = 10'1111111111).
+Adding SRST signal on $procdff$451 ($dff) from module i2cSlave (D = $procmux$412_Y, Q = \sclDeb, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$487 ($sdff) from module i2cSlave (D = 1'0, Q = \sclDeb).
+Adding SRST signal on $procdff$450 ($dff) from module i2cSlave (D = $procmux$420_Y, Q = \sdaDeb, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$491 ($sdff) from module i2cSlave (D = 1'0, Q = \sdaDeb).
+Adding SRST signal on $procdff$449 ($dff) from module i2cSlave (D = { \sdaDelayed [2:0] \sdaDeb }, Q = \sdaDelayed, rval = 4'1111).
+Adding SRST signal on $procdff$448 ($dff) from module i2cSlave (D = { \sclDelayed [8:0] \sclDeb }, Q = \sclDelayed, rval = 10'1111111111).
+Adding SRST signal on $procdff$447 ($dff) from module i2cSlave (D = $procmux$382_Y, Q = \startEdgeDet, rval = 1'0).
+Adding SRST signal on $procdff$446 ($dff) from module i2cSlave (D = $procmux$392_Y, Q = \startStopDetState, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$498 ($sdff) from module i2cSlave (D = $procmux$390_Y, Q = \startStopDetState).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \serialInterface..
+Finding unused cells or wires in module \registerInterface..
+Finding unused cells or wires in module \i2cSlave..
+Finding unused cells or wires in module \i2cSlaveTop..
+Removed 35 unused cells and 243 unused wires.
+<suppressed ~38 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i2cSlave.
+<suppressed ~1 debug messages>
+Optimizing module i2cSlaveTop.
+Optimizing module registerInterface.
+Optimizing module serialInterface.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \i2cSlave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \i2cSlaveTop..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \registerInterface..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \serialInterface..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \i2cSlave.
+  Optimizing cells in module \i2cSlaveTop.
+  Optimizing cells in module \registerInterface.
+  Optimizing cells in module \serialInterface.
+    New ctrl vector for $pmux cell $procmux$195: { $procmux$128_CMP $procmux$214_CMP $procmux$115_CMP $auto$opt_reduce.cc:134:opt_mux$507 }
+    New ctrl vector for $pmux cell $procmux$222: { $procmux$128_CMP $procmux$119_CMP $procmux$127_CMP $auto$opt_reduce.cc:134:opt_mux$509 }
+  Optimizing cells in module \serialInterface.
+Performed a total of 2 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i2cSlave'.
+Finding identical cells in module `\i2cSlaveTop'.
+Finding identical cells in module `\registerInterface'.
+Finding identical cells in module `\serialInterface'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$ff.cc:262:slice$470 ($sdff) from module serialInterface (D = \next_clearStartStopDet, Q = \clearStartStopDet).
+Adding EN signal on $auto$ff.cc:262:slice$469 ($sdff) from module serialInterface (D = \next_sdaOut, Q = \sdaOut).
+Adding EN signal on $auto$ff.cc:262:slice$468 ($dffe) from module serialInterface (D = \next_regAddr, Q = \regAddr).
+Adding EN signal on $auto$ff.cc:262:slice$467 ($sdff) from module serialInterface (D = \next_writeEn, Q = \writeEn).
+Adding EN signal on $auto$ff.cc:262:slice$466 ($sdff) from module serialInterface (D = \next_dataOut, Q = \dataOut).
+Adding EN signal on $auto$ff.cc:262:slice$465 ($sdff) from module serialInterface (D = \next_bitCnt, Q = \bitCnt).
+Adding EN signal on $auto$ff.cc:262:slice$464 ($sdff) from module serialInterface (D = \next_rxData, Q = \rxData).
+Adding EN signal on $auto$ff.cc:262:slice$463 ($sdff) from module serialInterface (D = \next_streamSt, Q = \streamSt).
+Adding EN signal on $auto$ff.cc:262:slice$462 ($sdff) from module serialInterface (D = \next_txData, Q = \txData).
+Adding EN signal on $auto$ff.cc:262:slice$461 ($sdff) from module serialInterface (D = \NextState_SISt, Q = \CurrState_SISt).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i2cSlave..
+Finding unused cells or wires in module \i2cSlaveTop..
+Finding unused cells or wires in module \registerInterface..
+Finding unused cells or wires in module \serialInterface..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i2cSlave.
+Optimizing module i2cSlaveTop.
+Optimizing module registerInterface.
+Optimizing module serialInterface.
+<suppressed ~10 debug messages>
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \i2cSlave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \i2cSlaveTop..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \registerInterface..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \serialInterface..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \i2cSlave.
+  Optimizing cells in module \i2cSlaveTop.
+  Optimizing cells in module \registerInterface.
+  Optimizing cells in module \serialInterface.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i2cSlave'.
+Finding identical cells in module `\i2cSlaveTop'.
+Finding identical cells in module `\registerInterface'.
+Finding identical cells in module `\serialInterface'.
+<suppressed ~42 debug messages>
+Removed a total of 14 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i2cSlave..
+Finding unused cells or wires in module \i2cSlaveTop..
+Finding unused cells or wires in module \registerInterface..
+Finding unused cells or wires in module \serialInterface..
+Removed 0 unused cells and 14 unused wires.
+<suppressed ~1 debug messages>
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i2cSlave.
+Optimizing module i2cSlaveTop.
+Optimizing module registerInterface.
+Optimizing module serialInterface.
+
+4.23. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.24. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \i2cSlave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \i2cSlaveTop..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \registerInterface..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \serialInterface..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+4.25. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \i2cSlave.
+  Optimizing cells in module \i2cSlaveTop.
+  Optimizing cells in module \registerInterface.
+  Optimizing cells in module \serialInterface.
+Performed a total of 0 changes.
+
+4.26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i2cSlave'.
+Finding identical cells in module `\i2cSlaveTop'.
+Finding identical cells in module `\registerInterface'.
+Finding identical cells in module `\serialInterface'.
+Removed a total of 0 cells.
+
+4.27. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i2cSlave..
+Finding unused cells or wires in module \i2cSlaveTop..
+Finding unused cells or wires in module \registerInterface..
+Finding unused cells or wires in module \serialInterface..
+
+4.29. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i2cSlave.
+Optimizing module i2cSlaveTop.
+Optimizing module registerInterface.
+Optimizing module serialInterface.
+
+4.30. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== i2cSlave ===
+
+   Number of wires:                 49
+   Number of wire bits:            161
+   Number of public wires:          29
+   Number of public wire bits:     138
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 33
+     $dff                            1
+     $logic_and                      4
+     $mux                            5
+     $not                            2
+     $or                             1
+     $reduce_and                     3
+     $reduce_bool                    1
+     $reduce_or                      5
+     $sdff                           6
+     $sdffe                          3
+     registerInterface               1
+     serialInterface                 1
+
+=== i2cSlaveTop ===
+
+   Number of wires:                  5
+   Number of wire bits:             12
+   Number of public wires:           5
+   Number of public wire bits:      12
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     i2cSlave                        1
+
+=== registerInterface ===
+
+   Number of wires:                 26
+   Number of wire bits:            110
+   Number of public wires:          13
+   Number of public wire bits:      90
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 18
+     $dff                            1
+     $dffe                           4
+     $eq                             7
+     $logic_not                      1
+     $pmux                           1
+     $reduce_and                     4
+
+=== serialInterface ===
+
+   Number of wires:                161
+   Number of wire bits:            402
+   Number of public wires:          26
+   Number of public wire bits:     102
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                155
+     $add                            2
+     $dffe                           1
+     $eq                            22
+     $logic_and                      3
+     $logic_not                      4
+     $logic_or                       1
+     $mux                           50
+     $ne                            25
+     $not                            2
+     $pmux                          11
+     $reduce_and                    10
+     $reduce_bool                   10
+     $reduce_or                      5
+     $sdffe                          9
+
+=== design hierarchy ===
+
+   i2cSlaveTop                       1
+     i2cSlave                        1
+       registerInterface             1
+       serialInterface               1
+
+   Number of wires:                241
+   Number of wire bits:            685
+   Number of public wires:          73
+   Number of public wire bits:     342
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                204
+     $add                            2
+     $dff                            2
+     $dffe                           5
+     $eq                            29
+     $logic_and                      7
+     $logic_not                      5
+     $logic_or                       1
+     $mux                           55
+     $ne                            25
+     $not                            4
+     $or                             1
+     $pmux                          12
+     $reduce_and                    17
+     $reduce_bool                   11
+     $reduce_or                     10
+     $sdff                           6
+     $sdffe                         12
+
+Warnings: 3 unique messages, 3 total
+End of script. Logfile hash: 1a298013a5, CPU: user 0.15s system 0.01s, MEM: 13.36 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 29% 6x opt_expr (0 sec), 14% 5x opt_merge (0 sec), ...

@@ -1,0 +1,430 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v' to AST representation.
+Generating RTLIL representation for module `\codeBlock99168_18'.
+Generating RTLIL representation for module `\subfxp_18_1'.
+Generating RTLIL representation for module `\addfxp_18_1'.
+Generating RTLIL representation for module `\shiftRegFIFO_2_1'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: shiftRegFIFO_2_1    
+root of   0 design levels: addfxp_18_1         
+root of   0 design levels: subfxp_18_1         
+root of   1 design levels: codeBlock99168_18   
+Automatically selected codeBlock99168_18 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \codeBlock99168_18
+Used module:     \subfxp_18_1
+Used module:     \addfxp_18_1
+Used module:     \shiftRegFIFO_2_1
+
+2.3. Analyzing design hierarchy..
+Top module:  \codeBlock99168_18
+Used module:     \subfxp_18_1
+Used module:     \addfxp_18_1
+Used module:     \shiftRegFIFO_2_1
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:422$7 in module shiftRegFIFO_2_1.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1 in module codeBlock99168_18.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\shiftRegFIFO_2_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:422$7'.
+     1/2: $0\mem_1[0:0]
+     2/2: $0\mem_0[0:0]
+Creating decoders for process `\addfxp_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:406$5'.
+Creating decoders for process `\subfxp_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:391$3'.
+Creating decoders for process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+     1/33: $0\next[0:0]
+     2/33: $0\X31[17:0]
+     3/33: $0\X30[17:0]
+     4/33: $0\X29[17:0]
+     5/33: $0\X28[17:0]
+     6/33: $0\X27[17:0]
+     7/33: $0\X26[17:0]
+     8/33: $0\X25[17:0]
+     9/33: $0\X24[17:0]
+    10/33: $0\X23[17:0]
+    11/33: $0\X22[17:0]
+    12/33: $0\X21[17:0]
+    13/33: $0\X20[17:0]
+    14/33: $0\X19[17:0]
+    15/33: $0\X18[17:0]
+    16/33: $0\X17[17:0]
+    17/33: $0\X16[17:0]
+    18/33: $0\X15[17:0]
+    19/33: $0\X14[17:0]
+    20/33: $0\X13[17:0]
+    21/33: $0\X12[17:0]
+    22/33: $0\X11[17:0]
+    23/33: $0\X10[17:0]
+    24/33: $0\X9[17:0]
+    25/33: $0\X8[17:0]
+    26/33: $0\X7[17:0]
+    27/33: $0\X6[17:0]
+    28/33: $0\X5[17:0]
+    29/33: $0\X4[17:0]
+    30/33: $0\X3[17:0]
+    31/33: $0\X2[17:0]
+    32/33: $0\X1[17:0]
+    33/33: $0\X0[17:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\shiftRegFIFO_2_1.\mem_0' using process `\shiftRegFIFO_2_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:422$7'.
+  created $dff cell `$procdff$113' with positive edge clock.
+Creating register for signal `\shiftRegFIFO_2_1.\mem_1' using process `\shiftRegFIFO_2_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:422$7'.
+  created $dff cell `$procdff$114' with positive edge clock.
+Creating register for signal `\addfxp_18_1.\res_0' using process `\addfxp_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:406$5'.
+  created $dff cell `$procdff$115' with positive edge clock.
+Creating register for signal `\subfxp_18_1.\res_0' using process `\subfxp_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:391$3'.
+  created $dff cell `$procdff$116' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\next' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$117' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X0' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$118' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X1' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$119' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X2' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$120' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X3' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$121' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X4' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$122' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X5' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$123' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X6' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$124' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X7' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$125' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X8' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$126' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X9' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$127' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X10' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$128' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X11' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$129' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X12' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$130' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X13' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$131' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X14' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$132' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X15' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$133' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X16' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$134' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X17' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$135' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X18' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$136' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X19' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$137' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X20' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$138' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X21' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$139' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X22' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$140' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X23' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$141' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X24' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$142' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X25' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$143' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X26' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$144' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X27' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$145' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X28' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$146' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X29' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$147' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X30' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$148' with positive edge clock.
+Creating register for signal `\codeBlock99168_18.\X31' using process `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+  created $dff cell `$procdff$149' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\shiftRegFIFO_2_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:422$7'.
+Removing empty process `shiftRegFIFO_2_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:422$7'.
+Removing empty process `addfxp_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:406$5'.
+Removing empty process `subfxp_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:391$3'.
+Found and cleaned up 1 empty switch in `\codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+Removing empty process `codeBlock99168_18.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/codeBlock99168_18.v:340$1'.
+Cleaned up 2 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module shiftRegFIFO_2_1.
+Optimizing module addfxp_18_1.
+Optimizing module subfxp_18_1.
+Optimizing module codeBlock99168_18.
+<suppressed ~1 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module shiftRegFIFO_2_1.
+Optimizing module addfxp_18_1.
+Optimizing module subfxp_18_1.
+Optimizing module codeBlock99168_18.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\shiftRegFIFO_2_1'.
+Finding identical cells in module `\addfxp_18_1'.
+Finding identical cells in module `\subfxp_18_1'.
+Finding identical cells in module `\codeBlock99168_18'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \shiftRegFIFO_2_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \addfxp_18_1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \subfxp_18_1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \codeBlock99168_18..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \shiftRegFIFO_2_1.
+  Optimizing cells in module \addfxp_18_1.
+  Optimizing cells in module \subfxp_18_1.
+  Optimizing cells in module \codeBlock99168_18.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\shiftRegFIFO_2_1'.
+Finding identical cells in module `\addfxp_18_1'.
+Finding identical cells in module `\subfxp_18_1'.
+Finding identical cells in module `\codeBlock99168_18'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$113 ($dff) from module shiftRegFIFO_2_1 (D = \X, Q = \mem_0, rval = 1'0).
+Adding SRST signal on $procdff$114 ($dff) from module shiftRegFIFO_2_1 (D = \mem_0, Q = \mem_1, rval = 1'0).
+Adding EN signal on $procdff$149 ($dff) from module codeBlock99168_18 (D = \X31_in, Q = \X31).
+Adding SRST signal on $procdff$117 ($dff) from module codeBlock99168_18 (D = \next_in, Q = \next, rval = 1'0).
+Adding EN signal on $procdff$118 ($dff) from module codeBlock99168_18 (D = \X0_in, Q = \X0).
+Adding EN signal on $procdff$119 ($dff) from module codeBlock99168_18 (D = \X1_in, Q = \X1).
+Adding EN signal on $procdff$120 ($dff) from module codeBlock99168_18 (D = \X2_in, Q = \X2).
+Adding EN signal on $procdff$121 ($dff) from module codeBlock99168_18 (D = \X3_in, Q = \X3).
+Adding EN signal on $procdff$122 ($dff) from module codeBlock99168_18 (D = \X4_in, Q = \X4).
+Adding EN signal on $procdff$123 ($dff) from module codeBlock99168_18 (D = \X5_in, Q = \X5).
+Adding EN signal on $procdff$124 ($dff) from module codeBlock99168_18 (D = \X6_in, Q = \X6).
+Adding EN signal on $procdff$125 ($dff) from module codeBlock99168_18 (D = \X7_in, Q = \X7).
+Adding EN signal on $procdff$126 ($dff) from module codeBlock99168_18 (D = \X8_in, Q = \X8).
+Adding EN signal on $procdff$127 ($dff) from module codeBlock99168_18 (D = \X9_in, Q = \X9).
+Adding EN signal on $procdff$128 ($dff) from module codeBlock99168_18 (D = \X10_in, Q = \X10).
+Adding EN signal on $procdff$129 ($dff) from module codeBlock99168_18 (D = \X11_in, Q = \X11).
+Adding EN signal on $procdff$130 ($dff) from module codeBlock99168_18 (D = \X12_in, Q = \X12).
+Adding EN signal on $procdff$131 ($dff) from module codeBlock99168_18 (D = \X13_in, Q = \X13).
+Adding EN signal on $procdff$132 ($dff) from module codeBlock99168_18 (D = \X14_in, Q = \X14).
+Adding EN signal on $procdff$133 ($dff) from module codeBlock99168_18 (D = \X15_in, Q = \X15).
+Adding EN signal on $procdff$134 ($dff) from module codeBlock99168_18 (D = \X16_in, Q = \X16).
+Adding EN signal on $procdff$135 ($dff) from module codeBlock99168_18 (D = \X17_in, Q = \X17).
+Adding EN signal on $procdff$136 ($dff) from module codeBlock99168_18 (D = \X18_in, Q = \X18).
+Adding EN signal on $procdff$137 ($dff) from module codeBlock99168_18 (D = \X19_in, Q = \X19).
+Adding EN signal on $procdff$138 ($dff) from module codeBlock99168_18 (D = \X20_in, Q = \X20).
+Adding EN signal on $procdff$139 ($dff) from module codeBlock99168_18 (D = \X21_in, Q = \X21).
+Adding EN signal on $procdff$140 ($dff) from module codeBlock99168_18 (D = \X22_in, Q = \X22).
+Adding EN signal on $procdff$141 ($dff) from module codeBlock99168_18 (D = \X23_in, Q = \X23).
+Adding EN signal on $procdff$142 ($dff) from module codeBlock99168_18 (D = \X24_in, Q = \X24).
+Adding EN signal on $procdff$143 ($dff) from module codeBlock99168_18 (D = \X25_in, Q = \X25).
+Adding EN signal on $procdff$144 ($dff) from module codeBlock99168_18 (D = \X26_in, Q = \X26).
+Adding EN signal on $procdff$145 ($dff) from module codeBlock99168_18 (D = \X27_in, Q = \X27).
+Adding EN signal on $procdff$146 ($dff) from module codeBlock99168_18 (D = \X28_in, Q = \X28).
+Adding EN signal on $procdff$147 ($dff) from module codeBlock99168_18 (D = \X29_in, Q = \X29).
+Adding EN signal on $procdff$148 ($dff) from module codeBlock99168_18 (D = \X30_in, Q = \X30).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \shiftRegFIFO_2_1..
+Finding unused cells or wires in module \addfxp_18_1..
+Finding unused cells or wires in module \subfxp_18_1..
+Finding unused cells or wires in module \codeBlock99168_18..
+Removed 35 unused cells and 108 unused wires.
+<suppressed ~39 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module addfxp_18_1.
+Optimizing module codeBlock99168_18.
+Optimizing module shiftRegFIFO_2_1.
+Optimizing module subfxp_18_1.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \addfxp_18_1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \codeBlock99168_18..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \shiftRegFIFO_2_1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \subfxp_18_1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \addfxp_18_1.
+  Optimizing cells in module \codeBlock99168_18.
+  Optimizing cells in module \shiftRegFIFO_2_1.
+  Optimizing cells in module \subfxp_18_1.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\addfxp_18_1'.
+Finding identical cells in module `\codeBlock99168_18'.
+Finding identical cells in module `\shiftRegFIFO_2_1'.
+Finding identical cells in module `\subfxp_18_1'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \addfxp_18_1..
+Finding unused cells or wires in module \codeBlock99168_18..
+Finding unused cells or wires in module \shiftRegFIFO_2_1..
+Finding unused cells or wires in module \subfxp_18_1..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module addfxp_18_1.
+Optimizing module codeBlock99168_18.
+Optimizing module shiftRegFIFO_2_1.
+Optimizing module subfxp_18_1.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== addfxp_18_1 ===
+
+   Number of wires:                  6
+   Number of wire bits:             91
+   Number of public wires:           5
+   Number of public wire bits:      73
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $add                           18
+     $dff                           18
+
+=== codeBlock99168_18 ===
+
+   Number of wires:                197
+   Number of wire bits:           3461
+   Number of public wires:         197
+   Number of public wire bits:    3461
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 98
+     $dffe                         576
+     $sdff                           1
+
+=== shiftRegFIFO_2_1 ===
+
+   Number of wires:                  6
+   Number of wire bits:              6
+   Number of public wires:           6
+   Number of public wire bits:       6
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $sdff                           2
+
+=== subfxp_18_1 ===
+
+   Number of wires:                  6
+   Number of wire bits:             91
+   Number of public wires:           5
+   Number of public wire bits:      73
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $add                           18
+     $dff                           18
+
+=== design hierarchy ===
+
+   codeBlock99168_18                 1
+     addfxp_18_1                     0
+     shiftRegFIFO_2_1                0
+     subfxp_18_1                     0
+
+   Number of wires:                197
+   Number of wire bits:           3461
+   Number of public wires:         197
+   Number of public wire bits:    3461
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 98
+     $dffe                         576
+     $sdff                           1
+
+End of script. Logfile hash: b38b0c63db, CPU: user 0.16s system 0.00s, MEM: 15.10 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 23% 2x opt_clean (0 sec), 20% 2x read_verilog (0 sec), ...

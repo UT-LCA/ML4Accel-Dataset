@@ -1,0 +1,292 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/DATA/raw_designs/vtr_designs/verilog/spree.v
+Parsing SystemVerilog input from `/home/zhigang/DATA/raw_designs/vtr_designs/verilog/spree.v' to AST representation.
+Generating RTLIL representation for module `\single_port_ram'.
+Generating RTLIL representation for module `\dual_port_ram'.
+Generating RTLIL representation for module `\system'.
+Generating RTLIL representation for module `\addersub'.
+Generating RTLIL representation for module `\dummy_add_sub'.
+Generating RTLIL representation for module `\full_adder'.
+Generating RTLIL representation for module `\reg_file'.
+Generating RTLIL representation for module `\mul'.
+Generating RTLIL representation for module `\dummy_mult'.
+Generating RTLIL representation for module `\ifetch'.
+Generating RTLIL representation for module `\dummy_counter'.
+Generating RTLIL representation for module `\data_mem'.
+Generating RTLIL representation for module `\store_data_translator'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/spree.v:2283.1-2328.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\load_data_translator'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/spree.v:2357.1-2360.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\logic_unit'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/spree.v:2485.1-2495.9 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\pcadder'.
+Generating RTLIL representation for module `\signext16'.
+Generating RTLIL representation for module `\merge26lo'.
+Generating RTLIL representation for module `\lo_reg'.
+Generating RTLIL representation for module `\hi_reg'.
+Generating RTLIL representation for module `\register_1bit'.
+Generating RTLIL representation for module `\pipereg_w32'.
+Generating RTLIL representation for module `\pipereg_w26'.
+Generating RTLIL representation for module `\pipereg_w6'.
+Generating RTLIL representation for module `\pipereg_w5'.
+Generating RTLIL representation for module `\pipereg_w1'.
+Generating RTLIL representation for module `\onecyclestall'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/spree.v:2957.3-2963.6 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\fakedelay'.
+Generating RTLIL representation for module `\zeroer'.
+Generating RTLIL representation for module `\nop'.
+Generating RTLIL representation for module `\branchresolve'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: branchresolve       
+root of   0 design levels: nop                 
+root of   0 design levels: zeroer              
+root of   0 design levels: fakedelay           
+root of   0 design levels: onecyclestall       
+root of   0 design levels: pipereg_w1          
+root of   0 design levels: pipereg_w5          
+root of   0 design levels: pipereg_w6          
+root of   0 design levels: pipereg_w26         
+root of   0 design levels: pipereg_w32         
+root of   0 design levels: register_1bit       
+root of   0 design levels: hi_reg              
+root of   0 design levels: lo_reg              
+root of   0 design levels: merge26lo           
+root of   0 design levels: signext16           
+root of   0 design levels: pcadder             
+root of   0 design levels: logic_unit          
+root of   0 design levels: load_data_translator
+root of   0 design levels: store_data_translator
+root of   1 design levels: data_mem            
+root of   0 design levels: dummy_counter       
+root of   1 design levels: ifetch              
+root of   0 design levels: dummy_mult          
+root of   1 design levels: mul                 
+root of   1 design levels: reg_file            
+root of   0 design levels: full_adder          
+root of   1 design levels: dummy_add_sub       
+root of   2 design levels: addersub            
+root of   3 design levels: system              
+root of   0 design levels: dual_port_ram       
+root of   0 design levels: single_port_ram     
+Automatically selected system as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \system
+Used module:     \pipereg_w5
+Used module:     \pipereg_w6
+Used module:     \pipereg_w1
+Used module:     \fakedelay
+Used module:     \zeroer
+Used module:     \nop
+Used module:     \pipereg_w32
+Used module:     \pipereg_w26
+Used module:     \lo_reg
+Used module:     \branchresolve
+Used module:     \hi_reg
+Used module:     \merge26lo
+Used module:     \signext16
+Used module:     \pcadder
+Used module:     \logic_unit
+Used module:     \data_mem
+Used module:         \onecyclestall
+Used module:         \single_port_ram
+Used module:         \load_data_translator
+Used module:         \store_data_translator
+Used module:     \ifetch
+Used module:         \dummy_counter
+Used module:         \dual_port_ram
+Used module:         \register_1bit
+Used module:     \mul
+Used module:         \dummy_mult
+Used module:     \reg_file
+Used module:     \addersub
+Used module:         \dummy_add_sub
+Used module:             \full_adder
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 5
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\single_port_ram'.
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 5
+Generating RTLIL representation for module `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\single_port_ram'.
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 5
+Found cached RTLIL representation for module `$paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\single_port_ram'.
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 10
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\dual_port_ram'.
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 10
+Generating RTLIL representation for module `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\dual_port_ram'.
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 10
+
+2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\single_port_ram'.
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 10
+Generating RTLIL representation for module `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram'.
+
+2.6. Analyzing design hierarchy..
+Top module:  \system
+Used module:     \pipereg_w5
+Used module:     \pipereg_w6
+Used module:     \pipereg_w1
+Used module:     \fakedelay
+Used module:     \zeroer
+Used module:     \nop
+Used module:     \pipereg_w32
+Used module:     \pipereg_w26
+Used module:     \lo_reg
+Used module:     \branchresolve
+Used module:     \hi_reg
+Used module:     \merge26lo
+Used module:     \signext16
+Used module:     \pcadder
+Used module:     \logic_unit
+Used module:     \data_mem
+Used module:         \onecyclestall
+Used module:         $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram
+Used module:         \load_data_translator
+Used module:         \store_data_translator
+Used module:     \ifetch
+Used module:         \dummy_counter
+Used module:         $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\dual_port_ram
+Used module:         \register_1bit
+Used module:     \mul
+Used module:         \dummy_mult
+Used module:     \reg_file
+Used module:         $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\single_port_ram
+Used module:     \addersub
+Used module:         \dummy_add_sub
+Used module:             \full_adder
+
+2.7. Analyzing design hierarchy..
+Top module:  \system
+Used module:     \pipereg_w5
+Used module:     \pipereg_w6
+Used module:     \pipereg_w1
+Used module:     \fakedelay
+Used module:     \zeroer
+Used module:     \nop
+Used module:     \pipereg_w32
+Used module:     \pipereg_w26
+Used module:     \lo_reg
+Used module:     \branchresolve
+Used module:     \hi_reg
+Used module:     \merge26lo
+Used module:     \signext16
+Used module:     \pcadder
+Used module:     \logic_unit
+Used module:     \data_mem
+Used module:         \onecyclestall
+Used module:         $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram
+Used module:         \load_data_translator
+Used module:         \store_data_translator
+Used module:     \ifetch
+Used module:         \dummy_counter
+Used module:         $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\dual_port_ram
+Used module:         \register_1bit
+Used module:     \mul
+Used module:         \dummy_mult
+Used module:     \reg_file
+Used module:         $paramod$9b20c7c7990eeca2a248be4fd72c1393416d670c\single_port_ram
+Used module:     \addersub
+Used module:         \dummy_add_sub
+Used module:             \full_adder
+Removing unused module `\dual_port_ram'.
+Removing unused module `\single_port_ram'.
+Removed 2 unused modules.
+Mapping positional arguments of cell data_mem.staller (onecyclestall).
+Mapping positional arguments of cell ifetch.pc_reg (dummy_counter).
+Mapping positional arguments of cell ifetch.sync_pcs_up (register_1bit).
+Mapping positional arguments of cell mul.staller (onecyclestall).
+Mapping positional arguments of cell mul.fake_mult_one (dummy_mult).
+Mapping positional arguments of cell dummy_add_sub.bit31 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit30 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit29 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit28 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit27 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit26 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit25 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit24 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit23 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit22 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit21 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit20 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit19 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit18 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit17 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit16 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit15 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit14 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit13 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit12 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit11 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit10 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit9 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit8 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit7 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit6 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit5 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit4 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit3 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit2 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit1 (full_adder).
+Mapping positional arguments of cell dummy_add_sub.bit0 (full_adder).
+Mapping positional arguments of cell addersub.adder32bit (dummy_add_sub).
+Warning: Resizing cell port ifetch.pc_reg.data from 31 bits to 30 bits.
+Warning: Resizing cell port mul.fake_mult_one.opB_mux_out from 33 bits to 32 bits.
+Warning: Resizing cell port system.pipereg13.q from 5 bits to 32 bits.
+Warning: Resizing cell port system.pipereg13.d from 5 bits to 32 bits.
+Warning: Resizing cell port system.pipereg12.q from 6 bits to 32 bits.
+Warning: Resizing cell port system.pipereg12.d from 6 bits to 32 bits.
+Warning: Resizing cell port system.pipereg11.q from 6 bits to 32 bits.
+Warning: Resizing cell port system.pipereg11.d from 6 bits to 32 bits.
+Warning: Resizing cell port system.zeroer4.d from 32 bits to 5 bits.
+Warning: Resizing cell port system.pipereg2.q from 5 bits to 32 bits.
+Warning: Resizing cell port system.pipereg2.d from 5 bits to 32 bits.
+Warning: Resizing cell port system.ifetch.next_pc from 32 bits to 30 bits.
+Warning: Resizing cell port system.mul.dst from 32 bits to 5 bits.
+
+Warnings: 13 unique messages, 13 total
+End of script. Logfile hash: 84c6ea6e88, CPU: user 0.10s system 0.01s, MEM: 18.18 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 92% 2x read_verilog (0 sec), 7% 1x hierarchy (0 sec)

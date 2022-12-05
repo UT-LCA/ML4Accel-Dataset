@@ -1,0 +1,190 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v' to AST representation.
+Generating RTLIL representation for module `\winograd_dsp_16'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: winograd_dsp_16     
+Automatically selected winograd_dsp_16 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \winograd_dsp_16
+
+2.3. Analyzing design hierarchy..
+Top module:  \winograd_dsp_16
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 17 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v:19$1 in module winograd_dsp_16.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\winograd_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v:19$1'.
+     1/6: $0\resb_reg[15:0]
+     2/6: $0\resa_reg[15:0]
+     3/6: $0\by_reg[15:0]
+     4/6: $0\ay_reg[15:0]
+     5/6: $0\coefb[15:0]
+     6/6: $0\coefa[15:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\winograd_dsp_16.\coefa' using process `\winograd_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v:19$1'.
+  created $dff cell `$procdff$86' with positive edge clock.
+Creating register for signal `\winograd_dsp_16.\coefb' using process `\winograd_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v:19$1'.
+  created $dff cell `$procdff$87' with positive edge clock.
+Creating register for signal `\winograd_dsp_16.\ay_reg' using process `\winograd_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v:19$1'.
+  created $dff cell `$procdff$88' with positive edge clock.
+Creating register for signal `\winograd_dsp_16.\by_reg' using process `\winograd_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v:19$1'.
+  created $dff cell `$procdff$89' with positive edge clock.
+Creating register for signal `\winograd_dsp_16.\resa_reg' using process `\winograd_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v:19$1'.
+  created $dff cell `$procdff$90' with positive edge clock.
+Creating register for signal `\winograd_dsp_16.\resb_reg' using process `\winograd_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v:19$1'.
+  created $dff cell `$procdff$91' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 17 empty switches in `\winograd_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v:19$1'.
+Removing empty process `winograd_dsp_16.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v:19$1'.
+Cleaned up 17 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module winograd_dsp_16.
+<suppressed ~2 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module winograd_dsp_16.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\winograd_dsp_16'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \winograd_dsp_16..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \winograd_dsp_16.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\winograd_dsp_16'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$86 ($dff) from module winograd_dsp_16 (D = { $procmux$81_Y [2] $procmux$81_Y [0] }, Q = { \coefa [2] \coefa [0] }, rval = 2'00).
+Adding SRST signal on $procdff$86 ($dff) from module winograd_dsp_16 (D = { $procmux$78_Y [15:3] $procmux$78_Y [1] }, Q = { \coefa [15:3] \coefa [1] }, rval = 14'00000000000000).
+Adding SRST signal on $procdff$87 ($dff) from module winograd_dsp_16 (D = { $procmux$54_Y [2] $procmux$54_Y [0] }, Q = { \coefb [2] \coefb [0] }, rval = 2'00).
+Adding SRST signal on $procdff$87 ($dff) from module winograd_dsp_16 (D = { $procmux$51_Y [15:3] $procmux$51_Y [1] }, Q = { \coefb [15:3] \coefb [1] }, rval = 14'00000000000000).
+Adding SRST signal on $procdff$88 ($dff) from module winograd_dsp_16 (D = \ay, Q = \ay_reg, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$89 ($dff) from module winograd_dsp_16 (D = \by, Q = \by_reg, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$90 ($dff) from module winograd_dsp_16 (D = $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v:68$18_Y, Q = \resa_reg, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$91 ($dff) from module winograd_dsp_16 (D = $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/winograd_dsp_16.v:69$19_Y, Q = \resb_reg, rval = 16'0000000000000000).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \winograd_dsp_16..
+Removed 6 unused cells and 34 unused wires.
+<suppressed ~7 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module winograd_dsp_16.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \winograd_dsp_16..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \winograd_dsp_16.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\winograd_dsp_16'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \winograd_dsp_16..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module winograd_dsp_16.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== winograd_dsp_16 ===
+
+   Number of wires:                 51
+   Number of wire bits:            475
+   Number of public wires:          15
+   Number of public wire bits:     169
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 44
+     $eq                            42
+     $logic_not                      6
+     $mul                           32
+     $mux                          256
+     $reduce_or                      4
+     $sdff                          96
+
+End of script. Logfile hash: efd394ff78, CPU: user 0.04s system 0.00s, MEM: 11.90 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 37% 4x opt_expr (0 sec), 12% 2x read_verilog (0 sec), ...

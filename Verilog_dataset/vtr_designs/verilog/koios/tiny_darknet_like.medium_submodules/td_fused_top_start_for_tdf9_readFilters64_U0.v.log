@@ -1,0 +1,329 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v' to AST representation.
+Generating RTLIL representation for module `\td_fused_top_start_for_tdf9_readFilters64_U0'.
+Generating RTLIL representation for module `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg'.
+Warning: wire '\q' is assigned in a block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:128.13-128.21.
+Warning: wire '\q' is assigned in a block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:129.13-129.21.
+Warning: wire '\q' is assigned in a block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:130.16-130.24.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:126.1-132.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg
+root of   1 design levels: td_fused_top_start_for_tdf9_readFilters64_U0
+Automatically selected td_fused_top_start_for_tdf9_readFilters64_U0 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \td_fused_top_start_for_tdf9_readFilters64_U0
+Used module:     \td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg
+
+2.3. Analyzing design hierarchy..
+Top module:  \td_fused_top_start_for_tdf9_readFilters64_U0
+Used module:     \td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:126$33 in module td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:126$33 in module td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:55$1 in module td_fused_top_start_for_tdf9_readFilters64_U0.
+Removed a total of 1 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:48$31'.
+  Set init value: \internal_full_n = 1'1
+Found init rule in `\td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:47$30'.
+  Set init value: \internal_empty_n = 1'0
+Found init rule in `\td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:46$29'.
+  Set init value: \mOutPtr = 2'11
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:126$33'.
+     1/1: $1\q[0:0]
+Creating decoders for process `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:115$32'.
+     1/2: $0\sr_1[0:0]
+     2/2: $0\sr_0[0:0]
+Creating decoders for process `\td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:48$31'.
+Creating decoders for process `\td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:47$30'.
+Creating decoders for process `\td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:46$29'.
+Creating decoders for process `\td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:55$1'.
+     1/3: $0\internal_full_n[0:0]
+     2/3: $0\internal_empty_n[0:0]
+     3/3: $0\mOutPtr[1:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.\q' from process `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:126$33'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.\sr_0' using process `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:115$32'.
+  created $dff cell `$procdff$69' with positive edge clock.
+Creating register for signal `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.\sr_1' using process `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:115$32'.
+  created $dff cell `$procdff$70' with positive edge clock.
+Creating register for signal `\td_fused_top_start_for_tdf9_readFilters64_U0.\mOutPtr' using process `\td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:55$1'.
+  created $dff cell `$procdff$71' with positive edge clock.
+Creating register for signal `\td_fused_top_start_for_tdf9_readFilters64_U0.\internal_empty_n' using process `\td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:55$1'.
+  created $dff cell `$procdff$72' with positive edge clock.
+Creating register for signal `\td_fused_top_start_for_tdf9_readFilters64_U0.\internal_full_n' using process `\td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:55$1'.
+  created $dff cell `$procdff$73' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:126$33'.
+Removing empty process `td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:126$33'.
+Found and cleaned up 1 empty switch in `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:115$32'.
+Removing empty process `td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:115$32'.
+Removing empty process `td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:48$31'.
+Removing empty process `td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:47$30'.
+Removing empty process `td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:46$29'.
+Found and cleaned up 5 empty switches in `\td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:55$1'.
+Removing empty process `td_fused_top_start_for_tdf9_readFilters64_U0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/tiny_darknet_like.medium_submodules/td_fused_top_start_for_tdf9_readFilters64_U0.v:55$1'.
+Cleaned up 7 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.
+<suppressed ~1 debug messages>
+Optimizing module td_fused_top_start_for_tdf9_readFilters64_U0.
+<suppressed ~11 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.
+Optimizing module td_fused_top_start_for_tdf9_readFilters64_U0.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg'.
+Finding identical cells in module `\td_fused_top_start_for_tdf9_readFilters64_U0'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \td_fused_top_start_for_tdf9_readFilters64_U0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~7 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.
+  Optimizing cells in module \td_fused_top_start_for_tdf9_readFilters64_U0.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg'.
+Finding identical cells in module `\td_fused_top_start_for_tdf9_readFilters64_U0'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$69 ($dff) from module td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg (D = \data, Q = \sr_0).
+Adding EN signal on $procdff$70 ($dff) from module td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg (D = \sr_0, Q = \sr_1).
+Adding SRST signal on $procdff$73 ($dff) from module td_fused_top_start_for_tdf9_readFilters64_U0 (D = $procmux$43_Y, Q = \internal_full_n, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$76 ($sdff) from module td_fused_top_start_for_tdf9_readFilters64_U0 (D = 1'0, Q = \internal_full_n).
+Adding SRST signal on $procdff$72 ($dff) from module td_fused_top_start_for_tdf9_readFilters64_U0 (D = $procmux$56_Y, Q = \internal_empty_n, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$82 ($sdff) from module td_fused_top_start_for_tdf9_readFilters64_U0 (D = $procmux$56_Y, Q = \internal_empty_n).
+Adding SRST signal on $procdff$71 ($dff) from module td_fused_top_start_for_tdf9_readFilters64_U0 (D = $procmux$64_Y, Q = \mOutPtr, rval = 2'11).
+Adding EN signal on $auto$ff.cc:262:slice$90 ($sdff) from module td_fused_top_start_for_tdf9_readFilters64_U0 (D = $procmux$64_Y, Q = \mOutPtr).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg..
+Finding unused cells or wires in module \td_fused_top_start_for_tdf9_readFilters64_U0..
+Removed 9 unused cells and 43 unused wires.
+<suppressed ~12 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module td_fused_top_start_for_tdf9_readFilters64_U0.
+<suppressed ~2 debug messages>
+Optimizing module td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \td_fused_top_start_for_tdf9_readFilters64_U0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \td_fused_top_start_for_tdf9_readFilters64_U0.
+  Optimizing cells in module \td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\td_fused_top_start_for_tdf9_readFilters64_U0'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg'.
+Removed a total of 1 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \td_fused_top_start_for_tdf9_readFilters64_U0..
+Finding unused cells or wires in module \td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module td_fused_top_start_for_tdf9_readFilters64_U0.
+Optimizing module td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \td_fused_top_start_for_tdf9_readFilters64_U0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \td_fused_top_start_for_tdf9_readFilters64_U0.
+  Optimizing cells in module \td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\td_fused_top_start_for_tdf9_readFilters64_U0'.
+Finding identical cells in module `\td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \td_fused_top_start_for_tdf9_readFilters64_U0..
+Finding unused cells or wires in module \td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module td_fused_top_start_for_tdf9_readFilters64_U0.
+Optimizing module td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== td_fused_top_start_for_tdf9_readFilters64_U0 ===
+
+   Number of wires:                 45
+   Number of wire bits:            112
+   Number of public wires:          17
+   Number of public wire bits:      18
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 34
+     $add                            2
+     $and                           68
+     $eq                            64
+     $logic_and                      2
+     $logic_not                     66
+     $mux                            8
+     $ne                             2
+     $not                            2
+     $or                             2
+     $reduce_and                     4
+     $reduce_bool                    2
+     $reduce_or                      2
+     $sdffe                          4
+     $sub                            2
+
+=== td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg ===
+
+   Number of wires:                  8
+   Number of wire bits:              8
+   Number of public wires:           7
+   Number of public wire bits:       7
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $dffe                           2
+     $not                            1
+     $pmux                           1
+
+=== design hierarchy ===
+
+   td_fused_top_start_for_tdf9_readFilters64_U0      1
+     td_fused_top_start_for_tdf9_readFilters64_U0_shiftReg      0
+
+   Number of wires:                 45
+   Number of wire bits:            112
+   Number of public wires:          17
+   Number of public wire bits:      18
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 34
+     $add                            2
+     $and                           68
+     $eq                            64
+     $logic_and                      2
+     $logic_not                     66
+     $mux                            8
+     $ne                             2
+     $not                            2
+     $or                             2
+     $reduce_and                     4
+     $reduce_bool                    2
+     $reduce_or                      2
+     $sdffe                          4
+     $sub                            2
+
+Warnings: 3 unique messages, 3 total
+End of script. Logfile hash: 93f845064f, CPU: user 0.07s system 0.00s, MEM: 11.54 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 41% 5x opt_expr (0 sec), 17% 4x opt_merge (0 sec), ...

@@ -1,0 +1,288 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v' to AST representation.
+Generating RTLIL representation for module `\resultinterface'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116.5-195.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: resultinterface     
+Automatically selected resultinterface as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \resultinterface
+
+2.3. Analyzing design hierarchy..
+Top module:  \resultinterface
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3 in module resultinterface.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1 in module resultinterface.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 18 redundant assignments.
+Promoted 18 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3'.
+     1/20: $2\temp_t1b[31:0]
+     2/20: $2\next_state[3:0]
+     3/20: $1\temp_t1b[31:0]
+     4/20: $1\temp_newdata[0:0]
+     5/20: $1\next_state[3:0]
+     6/20: $1\temp_resultID[1:0]
+     7/20: $1\temp_hit3b[0:0]
+     8/20: $1\temp_hit2b[0:0]
+     9/20: $1\temp_hit1b[0:0]
+    10/20: $1\temp_id3b[15:0]
+    11/20: $1\temp_id2b[15:0]
+    12/20: $1\temp_id1b[15:0]
+    13/20: $1\temp_v3b[15:0]
+    14/20: $1\temp_v2b[15:0]
+    15/20: $1\temp_v1b[15:0]
+    16/20: $1\temp_u3b[15:0]
+    17/20: $1\temp_u2b[15:0]
+    18/20: $1\temp_u1b[15:0]
+    19/20: $1\temp_t3b[31:0]
+    20/20: $1\temp_t2b[31:0]
+Creating decoders for process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+     1/18: $0\newdata[0:0]
+     2/18: $0\resultID[1:0]
+     3/18: $0\hit3b[0:0]
+     4/18: $0\hit2b[0:0]
+     5/18: $0\hit1b[0:0]
+     6/18: $0\id3b[15:0]
+     7/18: $0\id2b[15:0]
+     8/18: $0\id1b[15:0]
+     9/18: $0\v3b[15:0]
+    10/18: $0\v2b[15:0]
+    11/18: $0\v1b[15:0]
+    12/18: $0\u3b[15:0]
+    13/18: $0\u2b[15:0]
+    14/18: $0\u1b[15:0]
+    15/18: $0\t3b[31:0]
+    16/18: $0\t2b[31:0]
+    17/18: $0\t1b[31:0]
+    18/18: $0\state[3:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\resultinterface.\temp_t1b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$249
+Latch inferred for signal `\resultinterface.\temp_t2b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$260
+Latch inferred for signal `\resultinterface.\temp_t3b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$271
+Latch inferred for signal `\resultinterface.\temp_u1b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$282
+Latch inferred for signal `\resultinterface.\temp_u2b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$293
+Latch inferred for signal `\resultinterface.\temp_u3b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$304
+Latch inferred for signal `\resultinterface.\temp_v1b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$315
+Latch inferred for signal `\resultinterface.\temp_v2b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$326
+Latch inferred for signal `\resultinterface.\temp_v3b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$337
+Latch inferred for signal `\resultinterface.\temp_id1b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$348
+Latch inferred for signal `\resultinterface.\temp_id2b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$359
+Latch inferred for signal `\resultinterface.\temp_id3b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$370
+Latch inferred for signal `\resultinterface.\temp_hit1b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$381
+Latch inferred for signal `\resultinterface.\temp_hit2b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$392
+Latch inferred for signal `\resultinterface.\temp_hit3b' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$403
+Latch inferred for signal `\resultinterface.\temp_resultID' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$414
+Latch inferred for signal `\resultinterface.\temp_newdata' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$473
+Latch inferred for signal `\resultinterface.\next_state' from process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3': $auto$proc_dlatch.cc:427:proc_dlatch$532
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\resultinterface.\t1b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$533' with positive edge clock.
+Creating register for signal `\resultinterface.\t2b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$534' with positive edge clock.
+Creating register for signal `\resultinterface.\t3b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$535' with positive edge clock.
+Creating register for signal `\resultinterface.\u1b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$536' with positive edge clock.
+Creating register for signal `\resultinterface.\u2b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$537' with positive edge clock.
+Creating register for signal `\resultinterface.\u3b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$538' with positive edge clock.
+Creating register for signal `\resultinterface.\v1b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$539' with positive edge clock.
+Creating register for signal `\resultinterface.\v2b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$540' with positive edge clock.
+Creating register for signal `\resultinterface.\v3b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$541' with positive edge clock.
+Creating register for signal `\resultinterface.\id1b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$542' with positive edge clock.
+Creating register for signal `\resultinterface.\id2b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$543' with positive edge clock.
+Creating register for signal `\resultinterface.\id3b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$544' with positive edge clock.
+Creating register for signal `\resultinterface.\hit1b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$545' with positive edge clock.
+Creating register for signal `\resultinterface.\hit2b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$546' with positive edge clock.
+Creating register for signal `\resultinterface.\hit3b' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$547' with positive edge clock.
+Creating register for signal `\resultinterface.\resultID' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$548' with positive edge clock.
+Creating register for signal `\resultinterface.\newdata' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$549' with positive edge clock.
+Creating register for signal `\resultinterface.\state' using process `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+  created $dff cell `$procdff$550' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3'.
+Removing empty process `resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:116$3'.
+Found and cleaned up 1 empty switch in `\resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+Removing empty process `resultinterface.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/resultinterface.v:68$1'.
+Cleaned up 4 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module resultinterface.
+<suppressed ~120 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module resultinterface.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\resultinterface'.
+<suppressed ~183 debug messages>
+Removed a total of 61 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \resultinterface..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~20 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \resultinterface.
+    New ctrl vector for $pmux cell $procmux$57: { $procmux$153_CMP $procmux$111_CMP $procmux$166_CMP $procmux$143_CMP $procmux$102_CMP $procmux$158_CMP $procmux$136_CMP $procmux$96_CMP }
+    New ctrl vector for $pmux cell $procmux$46: $procmux$96_CMP
+  Optimizing cells in module \resultinterface.
+Performed a total of 2 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\resultinterface'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$550 ($dff) from module resultinterface (D = \next_state, Q = \state, rval = 4'0000).
+Adding SRST signal on $procdff$549 ($dff) from module resultinterface (D = \temp_newdata, Q = \newdata, rval = 1'0).
+Adding SRST signal on $procdff$548 ($dff) from module resultinterface (D = \temp_resultID, Q = \resultID, rval = 2'00).
+Adding SRST signal on $procdff$547 ($dff) from module resultinterface (D = \temp_hit3b, Q = \hit3b, rval = 1'0).
+Adding SRST signal on $procdff$546 ($dff) from module resultinterface (D = \temp_hit2b, Q = \hit2b, rval = 1'0).
+Adding SRST signal on $procdff$545 ($dff) from module resultinterface (D = \temp_hit1b, Q = \hit1b, rval = 1'0).
+Adding SRST signal on $procdff$544 ($dff) from module resultinterface (D = \temp_id3b, Q = \id3b, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$543 ($dff) from module resultinterface (D = \temp_id2b, Q = \id2b, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$542 ($dff) from module resultinterface (D = \temp_id1b, Q = \id1b, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$541 ($dff) from module resultinterface (D = \temp_v3b, Q = \v3b, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$540 ($dff) from module resultinterface (D = \temp_v2b, Q = \v2b, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$539 ($dff) from module resultinterface (D = \temp_v1b, Q = \v1b, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$538 ($dff) from module resultinterface (D = \temp_u3b, Q = \u3b, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$537 ($dff) from module resultinterface (D = \temp_u2b, Q = \u2b, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$536 ($dff) from module resultinterface (D = \temp_u1b, Q = \u1b, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$535 ($dff) from module resultinterface (D = \temp_t3b, Q = \t3b, rval = 0).
+Adding SRST signal on $procdff$534 ($dff) from module resultinterface (D = \temp_t2b, Q = \t2b, rval = 0).
+Adding SRST signal on $procdff$533 ($dff) from module resultinterface (D = \temp_t1b, Q = \t1b, rval = 0).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \resultinterface..
+Removed 20 unused cells and 269 unused wires.
+<suppressed ~21 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module resultinterface.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \resultinterface..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \resultinterface.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\resultinterface'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \resultinterface..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module resultinterface.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== resultinterface ===
+
+   Number of wires:                 73
+   Number of wire bits:            574
+   Number of public wires:          40
+   Number of public wire bits:     535
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 69
+     $and                           10
+     $dlatch                       250
+     $eq                            32
+     $logic_not                      4
+     $mux                            5
+     $not                           10
+     $pmux                           4
+     $reduce_or                      2
+     $sdff                         250
+
+End of script. Logfile hash: 538b7ec89a, CPU: user 0.07s system 0.00s, MEM: 12.91 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 23% 4x opt_expr (0 sec), 11% 3x opt_merge (0 sec), ...

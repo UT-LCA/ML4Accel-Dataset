@@ -1,0 +1,463 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v' to AST representation.
+Generating RTLIL representation for module `\int_to_float_fp16'.
+Generating RTLIL representation for module `\final_out'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:58.3-67.6 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\exception'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:88.1-101.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\am_shift'.
+Generating RTLIL representation for module `\sub2'.
+Generating RTLIL representation for module `\sub'.
+Generating RTLIL representation for module `\lzc'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:144.1-152.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\align'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: align               
+root of   0 design levels: lzc                 
+root of   0 design levels: sub                 
+root of   0 design levels: sub2                
+root of   0 design levels: am_shift            
+root of   0 design levels: exception           
+root of   0 design levels: final_out           
+root of   1 design levels: int_to_float_fp16   
+Automatically selected int_to_float_fp16 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \int_to_float_fp16
+Used module:     \final_out
+Used module:     \exception
+Used module:     \am_shift
+Used module:     \sub2
+Used module:     \sub
+Used module:     \lzc
+Used module:     \align
+
+2.3. Analyzing design hierarchy..
+Top module:  \int_to_float_fp16
+Used module:     \final_out
+Used module:     \exception
+Used module:     \am_shift
+Used module:     \sub2
+Used module:     \sub
+Used module:     \lzc
+Used module:     \align
+Removed 0 unused modules.
+Mapping positional arguments of cell int_to_float_fp16.dut_final_out (final_out).
+Mapping positional arguments of cell int_to_float_fp16.dut_exception (exception).
+Mapping positional arguments of cell int_to_float_fp16.dut_am_shift (am_shift).
+Mapping positional arguments of cell int_to_float_fp16.dut_sub2 (sub2).
+Mapping positional arguments of cell int_to_float_fp16.dut_sub (sub).
+Mapping positional arguments of cell int_to_float_fp16.dut_lzc (lzc).
+Mapping positional arguments of cell int_to_float_fp16.dut_align (align).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:144$22 in module lzc.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:88$5 in module exception.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:58$1 in module final_out.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\lzc.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:144$22'.
+     1/1: $1\tmp_cnt_final[4:0]
+Creating decoders for process `\exception.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:88$5'.
+     1/3: $2\z_e_final[4:0]
+     2/3: $1\z_e_final[4:0]
+     3/3: $1\z_m_final[10:0]
+Creating decoders for process `\final_out.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:58$1'.
+     1/3: $1\output_z[15:0] [15]
+     2/3: $1\output_z[15:0] [14:10]
+     3/3: $1\output_z[15:0] [9:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\lzc.\tmp_cnt_final' from process `\lzc.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:144$22'.
+No latch inferred for signal `\exception.\z_m_final' from process `\exception.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:88$5'.
+No latch inferred for signal `\exception.\z_e_final' from process `\exception.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:88$5'.
+No latch inferred for signal `\final_out.\output_z' from process `\final_out.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:58$1'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\lzc.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:144$22'.
+Removing empty process `lzc.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:144$22'.
+Found and cleaned up 2 empty switches in `\exception.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:88$5'.
+Removing empty process `exception.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:88$5'.
+Found and cleaned up 1 empty switch in `\final_out.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:58$1'.
+Removing empty process `final_out.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:58$1'.
+Cleaned up 4 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module align.
+Optimizing module lzc.
+<suppressed ~4 debug messages>
+Optimizing module sub.
+Optimizing module sub2.
+Optimizing module am_shift.
+Optimizing module exception.
+<suppressed ~1 debug messages>
+Optimizing module final_out.
+<suppressed ~1 debug messages>
+Optimizing module int_to_float_fp16.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module align.
+Optimizing module lzc.
+Optimizing module sub.
+Optimizing module sub2.
+Optimizing module am_shift.
+Optimizing module exception.
+Optimizing module final_out.
+Optimizing module int_to_float_fp16.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\align'.
+Finding identical cells in module `\lzc'.
+Finding identical cells in module `\sub'.
+Finding identical cells in module `\sub2'.
+Finding identical cells in module `\am_shift'.
+Finding identical cells in module `\exception'.
+Finding identical cells in module `\final_out'.
+Finding identical cells in module `\int_to_float_fp16'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \align..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/int_to_float_fp16.v:160$25: \a -> { 1'0 \a [14:0] }
+  Analyzing evaluation results.
+Running muxtree optimizer on module \lzc..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \sub..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \sub2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \am_shift..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \exception..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$33.
+Running muxtree optimizer on module \final_out..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \int_to_float_fp16..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 1 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \align.
+  Optimizing cells in module \lzc.
+  Optimizing cells in module \sub.
+  Optimizing cells in module \sub2.
+  Optimizing cells in module \am_shift.
+  Optimizing cells in module \exception.
+  Optimizing cells in module \final_out.
+  Optimizing cells in module \int_to_float_fp16.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\align'.
+Finding identical cells in module `\lzc'.
+Finding identical cells in module `\sub'.
+Finding identical cells in module `\sub2'.
+Finding identical cells in module `\am_shift'.
+Finding identical cells in module `\exception'.
+Finding identical cells in module `\final_out'.
+Finding identical cells in module `\int_to_float_fp16'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \align..
+Finding unused cells or wires in module \lzc..
+Finding unused cells or wires in module \sub..
+Finding unused cells or wires in module \sub2..
+Finding unused cells or wires in module \am_shift..
+Finding unused cells or wires in module \exception..
+Finding unused cells or wires in module \final_out..
+Finding unused cells or wires in module \int_to_float_fp16..
+Removed 0 unused cells and 33 unused wires.
+<suppressed ~5 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module align.
+Optimizing module am_shift.
+Optimizing module exception.
+Optimizing module final_out.
+Optimizing module int_to_float_fp16.
+Optimizing module lzc.
+Optimizing module sub.
+Optimizing module sub2.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \align..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \am_shift..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \exception..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \final_out..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \int_to_float_fp16..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \lzc..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \sub..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \sub2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \align.
+  Optimizing cells in module \am_shift.
+  Optimizing cells in module \exception.
+  Optimizing cells in module \final_out.
+  Optimizing cells in module \int_to_float_fp16.
+  Optimizing cells in module \lzc.
+  Optimizing cells in module \sub.
+  Optimizing cells in module \sub2.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\align'.
+Finding identical cells in module `\am_shift'.
+Finding identical cells in module `\exception'.
+Finding identical cells in module `\final_out'.
+Finding identical cells in module `\int_to_float_fp16'.
+Finding identical cells in module `\lzc'.
+Finding identical cells in module `\sub'.
+Finding identical cells in module `\sub2'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \align..
+Finding unused cells or wires in module \am_shift..
+Finding unused cells or wires in module \exception..
+Finding unused cells or wires in module \final_out..
+Finding unused cells or wires in module \int_to_float_fp16..
+Finding unused cells or wires in module \lzc..
+Finding unused cells or wires in module \sub..
+Finding unused cells or wires in module \sub2..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module align.
+Optimizing module am_shift.
+Optimizing module exception.
+Optimizing module final_out.
+Optimizing module int_to_float_fp16.
+Optimizing module lzc.
+Optimizing module sub.
+Optimizing module sub2.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== align ===
+
+   Number of wires:                  4
+   Number of wire bits:             49
+   Number of public wires:           3
+   Number of public wire bits:      33
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $mux                           16
+     $neg                           16
+
+=== am_shift ===
+
+   Number of wires:                  3
+   Number of wire bits:             37
+   Number of public wires:           3
+   Number of public wire bits:      37
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $shl                           16
+
+=== exception ===
+
+   Number of wires:                 15
+   Number of wire bits:            124
+   Number of public wires:           8
+   Number of public wire bits:      51
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 10
+     $add                           64
+     $eq                            11
+     $logic_and                      1
+     $logic_or                       2
+     $mux                           21
+     $reduce_bool                    3
+
+=== final_out ===
+
+   Number of wires:                  7
+   Number of wire bits:             58
+   Number of public wires:           5
+   Number of public wire bits:      49
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $add                            8
+     $logic_not                     16
+     $mux                           16
+
+=== int_to_float_fp16 ===
+
+   Number of wires:                 10
+   Number of wire bits:             96
+   Number of public wires:          10
+   Number of public wire bits:      96
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  7
+
+=== lzc ===
+
+   Number of wires:                  9
+   Number of wire bits:             57
+   Number of public wires:           6
+   Number of public wire bits:      54
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 10
+     $logic_not                     30
+     $mux                           18
+     $not                            2
+
+=== sub ===
+
+   Number of wires:                  2
+   Number of wire bits:             10
+   Number of public wires:           2
+   Number of public wire bits:      10
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  0
+
+=== sub2 ===
+
+   Number of wires:                  3
+   Number of wire bits:             42
+   Number of public wires:           2
+   Number of public wire bits:      10
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $sub                           32
+
+=== design hierarchy ===
+
+   int_to_float_fp16                 1
+     align                           0
+     am_shift                        0
+     exception                       0
+     final_out                       0
+     lzc                             0
+     sub                             0
+     sub2                            0
+
+   Number of wires:                 10
+   Number of wire bits:             96
+   Number of public wires:          10
+   Number of public wire bits:      96
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  7
+
+End of script. Logfile hash: e3cf959384, CPU: user 0.07s system 0.00s, MEM: 11.27 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 27% 4x opt_expr (0 sec), 22% 3x opt_merge (0 sec), ...

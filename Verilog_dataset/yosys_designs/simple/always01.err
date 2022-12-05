@@ -1,0 +1,733 @@
++ body
++ cd always01.out
+++ basename always01.v
++ fn=always01.v
+++ basename always01
++ bn=always01
++ refext=v
++ rm -f always01_ref.fir
++ [[ v == \v ]]
++ egrep -v '^\s*`timescale' ../always01.v
++ '[' '!' -f ../always01_tb.v ']'
++ /home/zhigang/FeatEx/tests/tools/../../yosys -f 'verilog -noblackbox  -D_AUTOTB' -b 'test_autotb ' -o always01_tb.v always01_ref.v
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 4d87019, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Parsing `always01_ref.v' using frontend `verilog -noblackbox  -D_AUTOTB' --
+
+1. Executing Verilog-2005 frontend: always01_ref.v
+Parsing Verilog input from `always01_ref.v' to AST representation.
+Generating RTLIL representation for module `\uut_always01'.
+Successfully finished Verilog frontend.
+
+-- Writing to `always01_tb.v' using backend `test_autotb ' --
+
+2. Executing TEST_AUTOTB backend (auto-generate pseudo-random test benches).
+Generating test bench for module `\uut_always01'.
+
+End of script. Logfile hash: ca58d0ac08, CPU: user 0.00s system 0.00s, MEM: 10.21 MB peak
+Yosys 0.10+12 (git sha1 4d87019, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 50% 1x test_autotb (0 sec), 50% 1x read_verilog (0 sec)
++ false
++ compile_and_run always01_tb_ref always01_out_ref always01_tb.v always01_ref.v /home/zhigang/FeatEx/tests/tools/../../techlibs/common/simlib.v /home/zhigang/FeatEx/tests/tools/../../techlibs/common/simcells.v
++ exe=always01_tb_ref
++ output=always01_out_ref
++ shift 2
++ '[' v == sv ']'
++ language_gen=-g2005
++ false
++ false
++ iverilog -g2005 '-Doutfile="always01_out_ref"' -s testbench -o always01_tb_ref always01_tb.v always01_ref.v /home/zhigang/FeatEx/tests/tools/../../techlibs/common/simlib.v /home/zhigang/FeatEx/tests/tools/../../techlibs/common/simcells.v
++ vvp -n always01_tb_ref
++ false
++ test_count=0
++ '[' 'verilog -noblackbox' = verific -o 'verilog -noblackbox' = verific_gates ']'
++ '[' -n '' ']'
++ '[' -n '' ']'
++ '[' 'verilog -noblackbox' = verific ']'
++ '[' 'verilog -noblackbox' = verific_gates ']'
++ test_passes -f 'verilog -noblackbox ' -p 'hierarchy; proc; opt -nodffe -nosdff; fsm; opt; memory; opt -full -fine' always01_ref.v
++ /home/zhigang/FeatEx/tests/tools/../../yosys -b 'verilog -noattr -noexpr -siminit' -o always01_syn0.v -f 'verilog -noblackbox ' -p 'hierarchy; proc; opt -nodffe -nosdff; fsm; opt; memory; opt -full -fine' always01_ref.v
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 4d87019, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Parsing `always01_ref.v' using frontend `verilog -noblackbox ' --
+
+1. Executing Verilog-2005 frontend: always01_ref.v
+Parsing Verilog input from `always01_ref.v' to AST representation.
+Generating RTLIL representation for module `\uut_always01'.
+Successfully finished Verilog frontend.
+
+-- Running command `hierarchy; proc; opt -nodffe -nosdff; fsm; opt; memory; opt -full -fine' --
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\uut_always01.$proc$always01_ref.v:7$1'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\uut_always01.\count' using process `\uut_always01.$proc$always01_ref.v:7$1'.
+  created $dff cell `$procdff$4' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `uut_always01.$proc$always01_ref.v:7$1'.
+Cleaned up 0 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \uut_always01..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \uut_always01.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+4.9. Finished OPT passes. (There is nothing left to do.)
+
+5. Executing FSM pass (extract and optimize FSM).
+
+5.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+5.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+5.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+5.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+5.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+5.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+6. Executing OPT pass (performing simple optimizations).
+
+6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \uut_always01..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \uut_always01.
+Performed a total of 0 changes.
+
+6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$4 ($dff) from module uut_always01 (D = $add$always01_ref.v:8$2_Y [3:0], Q = \count, rval = 4'0000).
+
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+Removed 1 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
+
+6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \uut_always01..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \uut_always01.
+Performed a total of 0 changes.
+
+6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+6.16. Finished OPT passes. (There is nothing left to do.)
+
+7. Executing MEMORY pass.
+
+7.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+7.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+7.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+7.4. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+7.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+7.6. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+7.7. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+7.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+7.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+7.10. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT pass (performing simple optimizations).
+
+8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \uut_always01..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \uut_always01.
+Performed a total of 0 changes.
+
+8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+8.6. Executing OPT_SHARE pass.
+
+8.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+8.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+8.10. Finished OPT passes. (There is nothing left to do.)
+
+-- Writing to `always01_syn0.v' using backend `verilog -noattr -noexpr -siminit' --
+
+9. Executing Verilog backend.
+Dumping module `\uut_always01'.
+
+End of script. Logfile hash: 5134bb8f36, CPU: user 0.04s system 0.00s, MEM: 11.25 MB peak
+Yosys 0.10+12 (git sha1 4d87019, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 33% 8x opt_expr (0 sec), 33% 7x opt_clean (0 sec), ...
++ compile_and_run always01_tb_syn0 always01_out_syn0 always01_tb.v always01_syn0.v /home/zhigang/FeatEx/tests/tools/../../techlibs/common/simlib.v /home/zhigang/FeatEx/tests/tools/../../techlibs/common/simcells.v
++ exe=always01_tb_syn0
++ output=always01_out_syn0
++ shift 2
++ '[' v == sv ']'
++ language_gen=-g2005
++ false
++ false
++ iverilog -g2005 '-Doutfile="always01_out_syn0"' -s testbench -o always01_tb_syn0 always01_tb.v always01_syn0.v /home/zhigang/FeatEx/tests/tools/../../techlibs/common/simlib.v /home/zhigang/FeatEx/tests/tools/../../techlibs/common/simcells.v
++ vvp -n always01_tb_syn0
++ false
++ /home/zhigang/FeatEx/tests/tools/cmp_tbdata always01_out_ref always01_out_syn0
++ test_count=1
++ test_passes -f 'verilog -noblackbox ' -p 'hierarchy; synth -run coarse; techmap; opt; abc -dff' always01_ref.v
++ /home/zhigang/FeatEx/tests/tools/../../yosys -b 'verilog -noattr -noexpr -siminit' -o always01_syn1.v -f 'verilog -noblackbox ' -p 'hierarchy; synth -run coarse; techmap; opt; abc -dff' always01_ref.v
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 4d87019, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Parsing `always01_ref.v' using frontend `verilog -noblackbox ' --
+
+1. Executing Verilog-2005 frontend: always01_ref.v
+Parsing Verilog input from `always01_ref.v' to AST representation.
+Generating RTLIL representation for module `\uut_always01'.
+Successfully finished Verilog frontend.
+
+-- Running command `hierarchy; synth -run coarse; techmap; opt; abc -dff' --
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+3. Executing SYNTH pass.
+
+3.1. Executing PROC pass (convert processes to netlists).
+
+3.1.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.1.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.1.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.1.4. Executing PROC_INIT pass (extract init attributes).
+
+3.1.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.1.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\uut_always01.$proc$always01_ref.v:7$1'.
+
+3.1.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.1.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\uut_always01.\count' using process `\uut_always01.$proc$always01_ref.v:7$1'.
+  created $dff cell `$procdff$4' with positive edge clock.
+
+3.1.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.1.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `uut_always01.$proc$always01_ref.v:7$1'.
+Cleaned up 0 empty switches.
+
+3.1.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+3.2. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+3.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+3.4. Executing CHECK pass (checking for obvious problems).
+Checking module uut_always01...
+Found and reported 0 problems.
+
+3.5. Executing OPT pass (performing simple optimizations).
+
+3.5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+3.5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+3.5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \uut_always01..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+3.5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \uut_always01.
+Performed a total of 0 changes.
+
+3.5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+3.5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+3.5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+3.5.9. Finished OPT passes. (There is nothing left to do.)
+
+3.6. Executing FSM pass (extract and optimize FSM).
+
+3.6.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+3.6.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+3.6.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.6.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+3.6.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.6.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+3.6.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+3.6.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \uut_always01..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \uut_always01.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$4 ($dff) from module uut_always01 (D = $add$always01_ref.v:8$2_Y [3:0], Q = \count, rval = 4'0000).
+
+3.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+Removed 1 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
+
+3.7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+3.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \uut_always01..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \uut_always01.
+Performed a total of 0 changes.
+
+3.7.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+3.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+3.7.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+3.7.16. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port B of cell uut_always01.$add$always01_ref.v:8$2 ($add).
+Removed top 28 bits (of 32) from port Y of cell uut_always01.$add$always01_ref.v:8$2 ($add).
+Removed top 28 bits (of 32) from wire uut_always01.$add$always01_ref.v:8$2_Y.
+
+3.9. Executing PEEPOPT pass (run peephole optimizers).
+
+3.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.11. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module uut_always01:
+  creating $macc model for $add$always01_ref.v:8$2 ($add).
+  creating $alu model for $macc $add$always01_ref.v:8$2.
+  creating $alu cell for $add$always01_ref.v:8$2: $auto$alumacc.cc:485:replace_alu$7
+  created 1 $alu and 0 $macc cells.
+
+3.12. Executing SHARE pass (SAT-based resource sharing).
+
+3.13. Executing OPT pass (performing simple optimizations).
+
+3.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+3.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+3.13.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \uut_always01..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.13.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \uut_always01.
+Performed a total of 0 changes.
+
+3.13.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+3.13.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.13.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+3.13.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+3.13.9. Finished OPT passes. (There is nothing left to do.)
+
+3.14. Executing MEMORY pass.
+
+3.14.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+3.14.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+3.14.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+3.14.4. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+3.14.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+3.14.6. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+3.14.7. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+3.14.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+3.14.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.15. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+4. Executing TECHMAP pass (map to technology primitives).
+
+4.1. Executing Verilog-2005 frontend: /home/zhigang/FeatEx/share/techmap.v
+Parsing Verilog input from `/home/zhigang/FeatEx/share/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+4.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $sdff.
+Using template $paramod$32a7b7b86c07519b7537abc18e96f0331f97914d\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+No more expansions possible.
+<suppressed ~213 debug messages>
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+<suppressed ~21 debug messages>
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \uut_always01..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \uut_always01.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+Removed 5 unused cells and 33 unused wires.
+<suppressed ~6 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \uut_always01..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \uut_always01.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\uut_always01'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uut_always01..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uut_always01.
+
+5.16. Finished OPT passes. (There is nothing left to do.)
+
+6. Executing ABC pass (technology mapping using ABC).
+
+6.1. Summary of detected clock domains:
+  10 cells in clk={ }, en={ }
+
+6.2. Extracting gate netlist of module `\uut_always01' to `<abc-temp-dir>/input.blif'..
+No matching clock domain found. Not extracting any FF cells.
+Extracted 6 gates and 10 wires to a netlist network with 4 inputs and 4 outputs.
+
+6.2.1. Executing ABC.

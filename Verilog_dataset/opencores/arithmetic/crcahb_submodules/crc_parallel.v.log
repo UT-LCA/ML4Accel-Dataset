@@ -1,0 +1,262 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v' to AST representation.
+Generating RTLIL representation for module `\crc_parallel'.
+Generating RTLIL representation for module `\crc_comb'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: crc_comb            
+root of   1 design levels: crc_parallel        
+Automatically selected crc_parallel as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \crc_parallel
+Used module:     \crc_comb
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Generating RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \crc_parallel
+Used module:     $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb
+
+2.5. Analyzing design hierarchy..
+Top module:  \crc_parallel
+Used module:     $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb
+Removing unused module `\crc_comb'.
+Removed 1 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 24 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\crc_parallel.\crc_comb_out[0]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\poly_sel[1]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\poly_sel[2]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\poly_sel[3]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\poly_sel[4]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\poly_sel[5]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\poly_sel[6]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\poly_sel[7]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\sel_out[0]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\sel_out[1]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\sel_out[2]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\sel_out[3]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\sel_out[4]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\sel_out[5]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\sel_out[6]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\sel_out[7]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\crc_init_sel[0]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\crc_init_sel[1]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\crc_init_sel[2]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\crc_init_sel[3]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\crc_init_sel[4]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\crc_init_sel[5]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\crc_init_sel[6]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+No latch inferred for signal `\crc_parallel.\crc_init_sel[7]' from process `\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb_submodules/crc_parallel.v:0$47'.
+Cleaned up 0 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb.
+Optimizing module crc_parallel.
+<suppressed ~23 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb.
+Optimizing module crc_parallel.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Finding identical cells in module `\crc_parallel'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \crc_parallel..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb.
+  Optimizing cells in module \crc_parallel.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Finding identical cells in module `\crc_parallel'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb..
+Finding unused cells or wires in module \crc_parallel..
+Removed 0 unused cells and 74 unused wires.
+<suppressed ~3 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb.
+Optimizing module crc_parallel.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \crc_parallel..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb.
+  Optimizing cells in module \crc_parallel.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Finding identical cells in module `\crc_parallel'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb..
+Finding unused cells or wires in module \crc_parallel..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb.
+Optimizing module crc_parallel.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb ===
+
+   Number of wires:                 12
+   Number of wire bits:             76
+   Number of public wires:           9
+   Number of public wire bits:      61
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $and                           22
+     $not                            7
+     $xor                            8
+
+=== crc_parallel ===
+
+   Number of wires:                 63
+   Number of wire bits:            504
+   Number of public wires:          40
+   Number of public wire bits:     320
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 54
+     $and                          184
+     $reduce_or                    184
+
+=== design hierarchy ===
+
+   crc_parallel                      1
+     $paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb      0
+
+   Number of wires:                 63
+   Number of wire bits:            504
+   Number of public wires:          40
+   Number of public wire bits:     320
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 54
+     $and                          184
+     $reduce_or                    184
+
+End of script. Logfile hash: 485f54107e, CPU: user 0.04s system 0.00s, MEM: 12.34 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 39% 4x opt_expr (0 sec), 29% 2x read_verilog (0 sec), ...

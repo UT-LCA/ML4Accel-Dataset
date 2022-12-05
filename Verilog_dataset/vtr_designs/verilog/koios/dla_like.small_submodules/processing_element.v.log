@@ -1,0 +1,1077 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v' to AST representation.
+Generating RTLIL representation for module `\processing_element'.
+Generating RTLIL representation for module `\weight_cache_2048_8_0_weight_init_05'.
+Generating RTLIL representation for module `\dual_port_ram'.
+Generating RTLIL representation for module `\weight_cache_2048_8_0_weight_init_04'.
+Generating RTLIL representation for module `\weight_cache_2048_8_0_weight_init_03'.
+Generating RTLIL representation for module `\weight_cache_2048_8_0_weight_init_02'.
+Generating RTLIL representation for module `\weight_cache_2048_8_0_weight_init_01'.
+Generating RTLIL representation for module `\weight_cache_2048_8_0_weight_init_00'.
+Generating RTLIL representation for module `\accumulator_24_30_3'.
+Generating RTLIL representation for module `\dot_product_16_8_30_2'.
+Generating RTLIL representation for module `\dsp_block_16_8_false'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: dsp_block_16_8_false
+root of   1 design levels: dot_product_16_8_30_2
+root of   0 design levels: accumulator_24_30_3 
+root of   1 design levels: weight_cache_2048_8_0_weight_init_00
+root of   1 design levels: weight_cache_2048_8_0_weight_init_01
+root of   1 design levels: weight_cache_2048_8_0_weight_init_02
+root of   1 design levels: weight_cache_2048_8_0_weight_init_03
+root of   1 design levels: weight_cache_2048_8_0_weight_init_04
+root of   0 design levels: dual_port_ram       
+root of   1 design levels: weight_cache_2048_8_0_weight_init_05
+root of   2 design levels: processing_element  
+Automatically selected processing_element as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \processing_element
+Used module:     \weight_cache_2048_8_0_weight_init_05
+Used module:         \dual_port_ram
+Used module:     \weight_cache_2048_8_0_weight_init_04
+Used module:     \weight_cache_2048_8_0_weight_init_03
+Used module:     \weight_cache_2048_8_0_weight_init_02
+Used module:     \weight_cache_2048_8_0_weight_init_01
+Used module:     \weight_cache_2048_8_0_weight_init_00
+Used module:     \accumulator_24_30_3
+Used module:     \dot_product_16_8_30_2
+Used module:         \dsp_block_16_8_false
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 11
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\dual_port_ram'.
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 11
+Generating RTLIL representation for module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 11
+Found cached RTLIL representation for module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 11
+Found cached RTLIL representation for module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 11
+Found cached RTLIL representation for module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 11
+Found cached RTLIL representation for module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 11
+Found cached RTLIL representation for module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \processing_element
+Used module:     \weight_cache_2048_8_0_weight_init_05
+Used module:         $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram
+Used module:     \weight_cache_2048_8_0_weight_init_04
+Used module:     \weight_cache_2048_8_0_weight_init_03
+Used module:     \weight_cache_2048_8_0_weight_init_02
+Used module:     \weight_cache_2048_8_0_weight_init_01
+Used module:     \weight_cache_2048_8_0_weight_init_00
+Used module:     \accumulator_24_30_3
+Used module:     \dot_product_16_8_30_2
+Used module:         \dsp_block_16_8_false
+
+2.5. Analyzing design hierarchy..
+Top module:  \processing_element
+Used module:     \weight_cache_2048_8_0_weight_init_05
+Used module:         $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram
+Used module:     \weight_cache_2048_8_0_weight_init_04
+Used module:     \weight_cache_2048_8_0_weight_init_03
+Used module:     \weight_cache_2048_8_0_weight_init_02
+Used module:     \weight_cache_2048_8_0_weight_init_01
+Used module:     \weight_cache_2048_8_0_weight_init_00
+Used module:     \accumulator_24_30_3
+Used module:     \dot_product_16_8_30_2
+Used module:         \dsp_block_16_8_false
+Removing unused module `\dual_port_ram'.
+Removed 1 unused modules.
+Warning: Resizing cell port processing_element.weight_cache_2048_8_0_weight_init_05_inst_5_0.wdata1 from 32 bits to 8 bits.
+Warning: Resizing cell port processing_element.weight_cache_2048_8_0_weight_init_05_inst_5_0.wdata0 from 32 bits to 8 bits.
+Warning: Resizing cell port processing_element.weight_cache_2048_8_0_weight_init_04_inst_4_0.wdata1 from 32 bits to 8 bits.
+Warning: Resizing cell port processing_element.weight_cache_2048_8_0_weight_init_04_inst_4_0.wdata0 from 32 bits to 8 bits.
+Warning: Resizing cell port processing_element.weight_cache_2048_8_0_weight_init_03_inst_3_0.wdata1 from 32 bits to 8 bits.
+Warning: Resizing cell port processing_element.weight_cache_2048_8_0_weight_init_03_inst_3_0.wdata0 from 32 bits to 8 bits.
+Warning: Resizing cell port processing_element.weight_cache_2048_8_0_weight_init_02_inst_2_0.wdata1 from 32 bits to 8 bits.
+Warning: Resizing cell port processing_element.weight_cache_2048_8_0_weight_init_02_inst_2_0.wdata0 from 32 bits to 8 bits.
+Warning: Resizing cell port processing_element.weight_cache_2048_8_0_weight_init_01_inst_1_0.wdata1 from 32 bits to 8 bits.
+Warning: Resizing cell port processing_element.weight_cache_2048_8_0_weight_init_01_inst_1_0.wdata0 from 32 bits to 8 bits.
+Warning: Resizing cell port processing_element.weight_cache_2048_8_0_weight_init_00_inst_0_0.wdata1 from 32 bits to 8 bits.
+Warning: Resizing cell port processing_element.weight_cache_2048_8_0_weight_init_00_inst_0_0.wdata0 from 32 bits to 8 bits.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:854$66 in module dsp_block_16_8_false.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:787$64 in module dot_product_16_8_30_2.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:742$58 in module accumulator_24_30_3.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:493$81 in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:484$73 in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5 in module processing_element.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 13 redundant assignments.
+Promoted 38 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:854$66'.
+     1/5: $0\by_reg[7:0]
+     2/5: $0\bx_reg[15:0]
+     3/5: $0\ay_reg[7:0]
+     4/5: $0\ax_reg[15:0]
+     5/5: $0\resulta[23:0]
+Creating decoders for process `\dot_product_16_8_30_2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:787$64'.
+     1/4: $0\w_pipeline_1_0[7:0]
+     2/4: $0\f_pipeline_1_0[15:0]
+     3/4: $0\w_pipeline_0_0[7:0]
+     4/4: $0\f_pipeline_0_0[15:0]
+Creating decoders for process `\accumulator_24_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:742$58'.
+     1/5: $0\in_reg[29:0]
+     2/5: $0\cir_shift_reg_2[29:0]
+     3/5: $0\cir_shift_reg_1[29:0]
+     4/5: $0\cir_shift_reg_0[29:0]
+     5/5: $0\out_reg[29:0]
+Creating decoders for process `\weight_cache_2048_8_0_weight_init_00.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:701$57'.
+Creating decoders for process `\weight_cache_2048_8_0_weight_init_01.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:656$56'.
+Creating decoders for process `\weight_cache_2048_8_0_weight_init_02.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:611$55'.
+Creating decoders for process `\weight_cache_2048_8_0_weight_init_03.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:566$54'.
+Creating decoders for process `\weight_cache_2048_8_0_weight_init_04.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:521$53'.
+Creating decoders for process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:493$81'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:495$72_EN[7:0]$87
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:495$72_DATA[7:0]$86
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:495$72_ADDR[10:0]$85
+     4/4: $0\out2[7:0]
+Creating decoders for process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:484$73'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:486$71_EN[7:0]$79
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:486$71_DATA[7:0]$78
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:486$71_ADDR[10:0]$77
+     4/4: $0\out1[7:0]
+Creating decoders for process `\weight_cache_2048_8_0_weight_init_05.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:431$34'.
+Creating decoders for process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:308$20'.
+Creating decoders for process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+     1/24: $0\valid_11[0:0]
+     2/24: $0\valid_10[0:0]
+     3/24: $0\valid_9[0:0]
+     4/24: $0\valid_8[0:0]
+     5/24: $0\valid_7[0:0]
+     6/24: $0\valid_6[0:0]
+     7/24: $0\valid_5[0:0]
+     8/24: $0\valid_4[0:0]
+     9/24: $0\valid_3[0:0]
+    10/24: $0\valid_2[0:0]
+    11/24: $0\valid_1[0:0]
+    12/24: $0\valid_0[0:0]
+    13/24: $0\done_6[0:0]
+    14/24: $0\done_5[0:0]
+    15/24: $0\done_4[0:0]
+    16/24: $0\done_3[0:0]
+    17/24: $0\done_2[0:0]
+    18/24: $0\done_1[0:0]
+    19/24: $0\done[0:0]
+    20/24: $0\T_counter[15:0]
+    21/24: $0\C_counter[1:0]
+    22/24: $0\L_counter[1:0]
+    23/24: $0\offset[10:0]
+    24/24: $0\base_addr[10:0]
+Creating decoders for process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+     1/12: $0\if_reg_5_1[15:0]
+     2/12: $0\if_reg_5_0[15:0]
+     3/12: $0\if_reg_4_1[15:0]
+     4/12: $0\if_reg_4_0[15:0]
+     5/12: $0\if_reg_3_1[15:0]
+     6/12: $0\if_reg_3_0[15:0]
+     7/12: $0\if_reg_2_1[15:0]
+     8/12: $0\if_reg_2_0[15:0]
+     9/12: $0\if_reg_1_1[15:0]
+    10/12: $0\if_reg_1_0[15:0]
+    11/12: $0\if_reg_0_1[15:0]
+    12/12: $0\if_reg_0_0[15:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\processing_element.\weight_cache_addr' from process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:308$20'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\dsp_block_16_8_false.\resulta' using process `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:854$66'.
+  created $dff cell `$procdff$437' with positive edge clock.
+Creating register for signal `\dsp_block_16_8_false.\ax_reg' using process `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:854$66'.
+  created $dff cell `$procdff$438' with positive edge clock.
+Creating register for signal `\dsp_block_16_8_false.\ay_reg' using process `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:854$66'.
+  created $dff cell `$procdff$439' with positive edge clock.
+Creating register for signal `\dsp_block_16_8_false.\bx_reg' using process `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:854$66'.
+  created $dff cell `$procdff$440' with positive edge clock.
+Creating register for signal `\dsp_block_16_8_false.\by_reg' using process `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:854$66'.
+  created $dff cell `$procdff$441' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_2.\f_pipeline_0_0' using process `\dot_product_16_8_30_2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:787$64'.
+  created $dff cell `$procdff$442' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_2.\w_pipeline_0_0' using process `\dot_product_16_8_30_2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:787$64'.
+  created $dff cell `$procdff$443' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_2.\f_pipeline_1_0' using process `\dot_product_16_8_30_2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:787$64'.
+  created $dff cell `$procdff$444' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_2.\w_pipeline_1_0' using process `\dot_product_16_8_30_2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:787$64'.
+  created $dff cell `$procdff$445' with positive edge clock.
+Creating register for signal `\dot_product_16_8_30_2.\r_pipeline_0' using process `\dot_product_16_8_30_2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:787$64'.
+  created $dff cell `$procdff$446' with positive edge clock.
+Creating register for signal `\accumulator_24_30_3.\cir_shift_reg_0' using process `\accumulator_24_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:742$58'.
+  created $dff cell `$procdff$447' with positive edge clock.
+Creating register for signal `\accumulator_24_30_3.\cir_shift_reg_1' using process `\accumulator_24_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:742$58'.
+  created $dff cell `$procdff$448' with positive edge clock.
+Creating register for signal `\accumulator_24_30_3.\cir_shift_reg_2' using process `\accumulator_24_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:742$58'.
+  created $dff cell `$procdff$449' with positive edge clock.
+Creating register for signal `\accumulator_24_30_3.\out_reg' using process `\accumulator_24_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:742$58'.
+  created $dff cell `$procdff$450' with positive edge clock.
+Creating register for signal `\accumulator_24_30_3.\in_reg' using process `\accumulator_24_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:742$58'.
+  created $dff cell `$procdff$451' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_00.\addr0_reg' using process `\weight_cache_2048_8_0_weight_init_00.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:701$57'.
+  created $dff cell `$procdff$452' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_00.\addr1_reg' using process `\weight_cache_2048_8_0_weight_init_00.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:701$57'.
+  created $dff cell `$procdff$453' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_00.\pipeline0_reg_0' using process `\weight_cache_2048_8_0_weight_init_00.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:701$57'.
+  created $dff cell `$procdff$454' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_00.\pipeline1_reg_0' using process `\weight_cache_2048_8_0_weight_init_00.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:701$57'.
+  created $dff cell `$procdff$455' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_01.\addr0_reg' using process `\weight_cache_2048_8_0_weight_init_01.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:656$56'.
+  created $dff cell `$procdff$456' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_01.\addr1_reg' using process `\weight_cache_2048_8_0_weight_init_01.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:656$56'.
+  created $dff cell `$procdff$457' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_01.\pipeline0_reg_0' using process `\weight_cache_2048_8_0_weight_init_01.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:656$56'.
+  created $dff cell `$procdff$458' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_01.\pipeline1_reg_0' using process `\weight_cache_2048_8_0_weight_init_01.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:656$56'.
+  created $dff cell `$procdff$459' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_02.\addr0_reg' using process `\weight_cache_2048_8_0_weight_init_02.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:611$55'.
+  created $dff cell `$procdff$460' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_02.\addr1_reg' using process `\weight_cache_2048_8_0_weight_init_02.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:611$55'.
+  created $dff cell `$procdff$461' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_02.\pipeline0_reg_0' using process `\weight_cache_2048_8_0_weight_init_02.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:611$55'.
+  created $dff cell `$procdff$462' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_02.\pipeline1_reg_0' using process `\weight_cache_2048_8_0_weight_init_02.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:611$55'.
+  created $dff cell `$procdff$463' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_03.\addr0_reg' using process `\weight_cache_2048_8_0_weight_init_03.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:566$54'.
+  created $dff cell `$procdff$464' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_03.\addr1_reg' using process `\weight_cache_2048_8_0_weight_init_03.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:566$54'.
+  created $dff cell `$procdff$465' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_03.\pipeline0_reg_0' using process `\weight_cache_2048_8_0_weight_init_03.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:566$54'.
+  created $dff cell `$procdff$466' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_03.\pipeline1_reg_0' using process `\weight_cache_2048_8_0_weight_init_03.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:566$54'.
+  created $dff cell `$procdff$467' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_04.\addr0_reg' using process `\weight_cache_2048_8_0_weight_init_04.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:521$53'.
+  created $dff cell `$procdff$468' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_04.\addr1_reg' using process `\weight_cache_2048_8_0_weight_init_04.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:521$53'.
+  created $dff cell `$procdff$469' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_04.\pipeline0_reg_0' using process `\weight_cache_2048_8_0_weight_init_04.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:521$53'.
+  created $dff cell `$procdff$470' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_04.\pipeline1_reg_0' using process `\weight_cache_2048_8_0_weight_init_04.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:521$53'.
+  created $dff cell `$procdff$471' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.\out2' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:493$81'.
+  created $dff cell `$procdff$472' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:495$72_ADDR' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:493$81'.
+  created $dff cell `$procdff$473' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:495$72_DATA' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:493$81'.
+  created $dff cell `$procdff$474' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:495$72_EN' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:493$81'.
+  created $dff cell `$procdff$475' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.\out1' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:484$73'.
+  created $dff cell `$procdff$476' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:486$71_ADDR' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:484$73'.
+  created $dff cell `$procdff$477' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:486$71_DATA' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:484$73'.
+  created $dff cell `$procdff$478' with positive edge clock.
+Creating register for signal `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:486$71_EN' using process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:484$73'.
+  created $dff cell `$procdff$479' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_05.\addr0_reg' using process `\weight_cache_2048_8_0_weight_init_05.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:431$34'.
+  created $dff cell `$procdff$480' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_05.\addr1_reg' using process `\weight_cache_2048_8_0_weight_init_05.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:431$34'.
+  created $dff cell `$procdff$481' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_05.\pipeline0_reg_0' using process `\weight_cache_2048_8_0_weight_init_05.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:431$34'.
+  created $dff cell `$procdff$482' with positive edge clock.
+Creating register for signal `\weight_cache_2048_8_0_weight_init_05.\pipeline1_reg_0' using process `\weight_cache_2048_8_0_weight_init_05.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:431$34'.
+  created $dff cell `$procdff$483' with positive edge clock.
+Creating register for signal `\processing_element.\base_addr' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$484' with positive edge clock.
+Creating register for signal `\processing_element.\offset' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$485' with positive edge clock.
+Creating register for signal `\processing_element.\L_counter' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$486' with positive edge clock.
+Creating register for signal `\processing_element.\C_counter' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$487' with positive edge clock.
+Creating register for signal `\processing_element.\T_counter' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$488' with positive edge clock.
+Creating register for signal `\processing_element.\done' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$489' with positive edge clock.
+Creating register for signal `\processing_element.\done_1' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$490' with positive edge clock.
+Creating register for signal `\processing_element.\done_2' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$491' with positive edge clock.
+Creating register for signal `\processing_element.\done_3' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$492' with positive edge clock.
+Creating register for signal `\processing_element.\done_4' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$493' with positive edge clock.
+Creating register for signal `\processing_element.\done_5' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$494' with positive edge clock.
+Creating register for signal `\processing_element.\done_6' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$495' with positive edge clock.
+Creating register for signal `\processing_element.\valid_0' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$496' with positive edge clock.
+Creating register for signal `\processing_element.\valid_1' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$497' with positive edge clock.
+Creating register for signal `\processing_element.\valid_2' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$498' with positive edge clock.
+Creating register for signal `\processing_element.\valid_3' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$499' with positive edge clock.
+Creating register for signal `\processing_element.\valid_4' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$500' with positive edge clock.
+Creating register for signal `\processing_element.\valid_5' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$501' with positive edge clock.
+Creating register for signal `\processing_element.\valid_6' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$502' with positive edge clock.
+Creating register for signal `\processing_element.\valid_7' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$503' with positive edge clock.
+Creating register for signal `\processing_element.\valid_8' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$504' with positive edge clock.
+Creating register for signal `\processing_element.\valid_9' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$505' with positive edge clock.
+Creating register for signal `\processing_element.\valid_10' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$506' with positive edge clock.
+Creating register for signal `\processing_element.\valid_11' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$507' with positive edge clock.
+Creating register for signal `\processing_element.\next_valid' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+  created $dff cell `$procdff$508' with positive edge clock.
+Creating register for signal `\processing_element.\if_reg_0_0' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$509' with positive edge clock.
+Creating register for signal `\processing_element.\if_reg_0_1' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$510' with positive edge clock.
+Creating register for signal `\processing_element.\if_reg_1_0' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$511' with positive edge clock.
+Creating register for signal `\processing_element.\if_reg_1_1' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$512' with positive edge clock.
+Creating register for signal `\processing_element.\if_reg_2_0' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$513' with positive edge clock.
+Creating register for signal `\processing_element.\if_reg_2_1' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$514' with positive edge clock.
+Creating register for signal `\processing_element.\if_reg_3_0' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$515' with positive edge clock.
+Creating register for signal `\processing_element.\if_reg_3_1' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$516' with positive edge clock.
+Creating register for signal `\processing_element.\if_reg_4_0' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$517' with positive edge clock.
+Creating register for signal `\processing_element.\if_reg_4_1' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$518' with positive edge clock.
+Creating register for signal `\processing_element.\if_reg_5_0' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$519' with positive edge clock.
+Creating register for signal `\processing_element.\if_reg_5_1' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$520' with positive edge clock.
+Creating register for signal `\processing_element.\reset_1' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$521' with positive edge clock.
+Creating register for signal `\processing_element.\reset_2' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$522' with positive edge clock.
+Creating register for signal `\processing_element.\reset_3' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$523' with positive edge clock.
+Creating register for signal `\processing_element.\next_reset' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$524' with positive edge clock.
+Creating register for signal `\processing_element.\next_reset_2' using process `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+  created $dff cell `$procdff$525' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:854$66'.
+Removing empty process `dsp_block_16_8_false.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:854$66'.
+Found and cleaned up 1 empty switch in `\dot_product_16_8_30_2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:787$64'.
+Removing empty process `dot_product_16_8_30_2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:787$64'.
+Found and cleaned up 3 empty switches in `\accumulator_24_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:742$58'.
+Removing empty process `accumulator_24_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:742$58'.
+Removing empty process `weight_cache_2048_8_0_weight_init_00.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:701$57'.
+Removing empty process `weight_cache_2048_8_0_weight_init_01.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:656$56'.
+Removing empty process `weight_cache_2048_8_0_weight_init_02.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:611$55'.
+Removing empty process `weight_cache_2048_8_0_weight_init_03.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:566$54'.
+Removing empty process `weight_cache_2048_8_0_weight_init_04.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:521$53'.
+Found and cleaned up 1 empty switch in `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:493$81'.
+Removing empty process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:493$81'.
+Found and cleaned up 1 empty switch in `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:484$73'.
+Removing empty process `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:484$73'.
+Removing empty process `weight_cache_2048_8_0_weight_init_05.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:431$34'.
+Removing empty process `processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:308$20'.
+Found and cleaned up 6 empty switches in `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+Removing empty process `processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:130$5'.
+Found and cleaned up 1 empty switch in `\processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+Removing empty process `processing_element.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:108$1'.
+Cleaned up 14 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp_block_16_8_false.
+Optimizing module dot_product_16_8_30_2.
+<suppressed ~1 debug messages>
+Optimizing module accumulator_24_30_3.
+<suppressed ~4 debug messages>
+Optimizing module weight_cache_2048_8_0_weight_init_00.
+Optimizing module weight_cache_2048_8_0_weight_init_01.
+Optimizing module weight_cache_2048_8_0_weight_init_02.
+Optimizing module weight_cache_2048_8_0_weight_init_03.
+Optimizing module weight_cache_2048_8_0_weight_init_04.
+Optimizing module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+Optimizing module weight_cache_2048_8_0_weight_init_05.
+Optimizing module processing_element.
+<suppressed ~16 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp_block_16_8_false.
+Optimizing module dot_product_16_8_30_2.
+Optimizing module accumulator_24_30_3.
+Optimizing module weight_cache_2048_8_0_weight_init_00.
+Optimizing module weight_cache_2048_8_0_weight_init_01.
+Optimizing module weight_cache_2048_8_0_weight_init_02.
+Optimizing module weight_cache_2048_8_0_weight_init_03.
+Optimizing module weight_cache_2048_8_0_weight_init_04.
+Optimizing module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+Optimizing module weight_cache_2048_8_0_weight_init_05.
+Optimizing module processing_element.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp_block_16_8_false'.
+Finding identical cells in module `\dot_product_16_8_30_2'.
+Finding identical cells in module `\accumulator_24_30_3'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_00'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_01'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_02'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_03'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_04'.
+Finding identical cells in module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_05'.
+Finding identical cells in module `\processing_element'.
+<suppressed ~6 debug messages>
+Removed a total of 3 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp_block_16_8_false..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dot_product_16_8_30_2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \accumulator_24_30_3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$117: { 6'000000 \i_result } -> { 7'0000000 \i_result [22:0] }
+      Replacing known input bits on port B of cell $procmux$117: { 6'111111 \i_result } -> { 7'1111111 \i_result [22:0] }
+  Analyzing evaluation results.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_00..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_01..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_02..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_03..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_04..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_05..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \processing_element..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~58 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp_block_16_8_false.
+  Optimizing cells in module \dot_product_16_8_30_2.
+  Optimizing cells in module \accumulator_24_30_3.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_00.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_01.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_02.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_03.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_04.
+  Optimizing cells in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+    Consolidated identical input bits for $mux cell $procmux$153:
+      Old ports: A=8'00000000, B=8'11111111, Y=$procmux$153_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$153_Y [0]
+      New connections: $procmux$153_Y [7:1] = { $procmux$153_Y [0] $procmux$153_Y [0] $procmux$153_Y [0] $procmux$153_Y [0] $procmux$153_Y [0] $procmux$153_Y [0] $procmux$153_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$141:
+      Old ports: A=8'00000000, B=8'11111111, Y=$procmux$141_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$141_Y [0]
+      New connections: $procmux$141_Y [7:1] = { $procmux$141_Y [0] $procmux$141_Y [0] $procmux$141_Y [0] $procmux$141_Y [0] $procmux$141_Y [0] $procmux$141_Y [0] $procmux$141_Y [0] }
+  Optimizing cells in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_05.
+  Optimizing cells in module \processing_element.
+Performed a total of 2 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp_block_16_8_false'.
+Finding identical cells in module `\dot_product_16_8_30_2'.
+Finding identical cells in module `\accumulator_24_30_3'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_00'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_01'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_02'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_03'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_04'.
+Finding identical cells in module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_05'.
+Finding identical cells in module `\processing_element'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$437 ($dff) from module dsp_block_16_8_false (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:867$70_Y [23:0], Q = \resulta, rval = 24'000000000000000000000000).
+Adding SRST signal on $procdff$438 ($dff) from module dsp_block_16_8_false (D = \ax, Q = \ax_reg, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$439 ($dff) from module dsp_block_16_8_false (D = \ay, Q = \ay_reg, rval = 8'00000000).
+Adding SRST signal on $procdff$440 ($dff) from module dsp_block_16_8_false (D = \bx, Q = \bx_reg, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$441 ($dff) from module dsp_block_16_8_false (D = \by, Q = \by_reg, rval = 8'00000000).
+Adding SRST signal on $procdff$442 ($dff) from module dot_product_16_8_30_2 (D = \i_features_0, Q = \f_pipeline_0_0, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$443 ($dff) from module dot_product_16_8_30_2 (D = \i_weights_0, Q = \w_pipeline_0_0, rval = 8'00000000).
+Adding SRST signal on $procdff$444 ($dff) from module dot_product_16_8_30_2 (D = \i_features_1, Q = \f_pipeline_1_0, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$445 ($dff) from module dot_product_16_8_30_2 (D = \i_weights_1, Q = \w_pipeline_1_0, rval = 8'00000000).
+Adding SRST signal on $procdff$451 ($dff) from module accumulator_24_30_3 (D = $procmux$117_Y, Q = \in_reg, rval = 30'000000000000000000000000000000).
+Adding SRST signal on $procdff$450 ($dff) from module accumulator_24_30_3 (D = $procmux$135_Y, Q = \out_reg, rval = 30'000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$538 ($sdff) from module accumulator_24_30_3 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:759$63_Y, Q = \out_reg).
+Adding SRST signal on $procdff$449 ($dff) from module accumulator_24_30_3 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:759$63_Y, Q = \cir_shift_reg_2, rval = 30'000000000000000000000000000000).
+Adding SRST signal on $procdff$447 ($dff) from module accumulator_24_30_3 (D = \cir_shift_reg_1, Q = \cir_shift_reg_0, rval = 30'000000000000000000000000000000).
+Adding SRST signal on $procdff$448 ($dff) from module accumulator_24_30_3 (D = \cir_shift_reg_2, Q = \cir_shift_reg_1, rval = 30'000000000000000000000000000000).
+Adding EN signal on $procdff$472 ($dff) from module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:498$88_DATA, Q = \out2).
+Adding EN signal on $procdff$476 ($dff) from module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.small_submodules/processing_element.v:489$80_DATA, Q = \out1).
+Adding EN signal on $procdff$484 ($dff) from module processing_element (D = $procmux$408_Y, Q = \base_addr).
+Adding SRST signal on $auto$ff.cc:262:slice$547 ($dffe) from module processing_element (D = $procmux$405_Y, Q = \base_addr, rval = 11'00000000000).
+Adding EN signal on $procdff$485 ($dff) from module processing_element (D = $procmux$392_Y, Q = \offset).
+Adding SRST signal on $auto$ff.cc:262:slice$559 ($dffe) from module processing_element (D = $procmux$389_Y, Q = \offset, rval = 11'00000000000).
+Adding EN signal on $procdff$486 ($dff) from module processing_element (D = $procmux$376_Y, Q = \L_counter).
+Adding SRST signal on $auto$ff.cc:262:slice$569 ($dffe) from module processing_element (D = $procmux$373_Y, Q = \L_counter, rval = 2'00).
+Adding EN signal on $procdff$487 ($dff) from module processing_element (D = $procmux$360_Y, Q = \C_counter).
+Adding SRST signal on $auto$ff.cc:262:slice$579 ($dffe) from module processing_element (D = $procmux$357_Y, Q = \C_counter, rval = 2'00).
+Adding EN signal on $procdff$488 ($dff) from module processing_element (D = $procmux$344_Y, Q = \T_counter).
+Adding SRST signal on $auto$ff.cc:262:slice$591 ($dffe) from module processing_element (D = $procmux$341_Y, Q = \T_counter, rval = 16'0000000000000000).
+Adding EN signal on $procdff$489 ($dff) from module processing_element (D = $procmux$331_Y, Q = \done).
+Adding SRST signal on $auto$ff.cc:262:slice$603 ($dffe) from module processing_element (D = $procmux$328_Y, Q = \done, rval = 1'0).
+Adding EN signal on $procdff$490 ($dff) from module processing_element (D = $procmux$315_Y, Q = \done_1).
+Adding SRST signal on $auto$ff.cc:262:slice$615 ($dffe) from module processing_element (D = $procmux$312_Y, Q = \done_1, rval = 1'0).
+Adding EN signal on $procdff$491 ($dff) from module processing_element (D = $procmux$305_Y, Q = \done_2).
+Adding SRST signal on $auto$ff.cc:262:slice$625 ($dffe) from module processing_element (D = $procmux$302_Y, Q = \done_2, rval = 1'0).
+Adding EN signal on $procdff$492 ($dff) from module processing_element (D = $procmux$295_Y, Q = \done_3).
+Adding SRST signal on $auto$ff.cc:262:slice$635 ($dffe) from module processing_element (D = $procmux$292_Y, Q = \done_3, rval = 1'0).
+Adding EN signal on $procdff$493 ($dff) from module processing_element (D = $procmux$285_Y, Q = \done_4).
+Adding SRST signal on $auto$ff.cc:262:slice$645 ($dffe) from module processing_element (D = $procmux$282_Y, Q = \done_4, rval = 1'0).
+Adding EN signal on $procdff$494 ($dff) from module processing_element (D = $procmux$275_Y, Q = \done_5).
+Adding SRST signal on $auto$ff.cc:262:slice$655 ($dffe) from module processing_element (D = $procmux$272_Y, Q = \done_5, rval = 1'0).
+Adding EN signal on $procdff$495 ($dff) from module processing_element (D = $procmux$265_Y, Q = \done_6).
+Adding SRST signal on $auto$ff.cc:262:slice$665 ($dffe) from module processing_element (D = $procmux$262_Y, Q = \done_6, rval = 1'0).
+Adding SRST signal on $procdff$496 ($dff) from module processing_element (D = $procmux$255_Y, Q = \valid_0, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$675 ($sdff) from module processing_element (D = \i_valid, Q = \valid_0).
+Adding SRST signal on $procdff$497 ($dff) from module processing_element (D = $procmux$247_Y, Q = \valid_1, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$681 ($sdff) from module processing_element (D = \valid_0, Q = \valid_1).
+Adding SRST signal on $procdff$498 ($dff) from module processing_element (D = $procmux$239_Y, Q = \valid_2, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$687 ($sdff) from module processing_element (D = \valid_1, Q = \valid_2).
+Adding SRST signal on $procdff$499 ($dff) from module processing_element (D = $procmux$231_Y, Q = \valid_3, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$693 ($sdff) from module processing_element (D = \valid_2, Q = \valid_3).
+Adding SRST signal on $procdff$500 ($dff) from module processing_element (D = $procmux$223_Y, Q = \valid_4, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$699 ($sdff) from module processing_element (D = \valid_3, Q = \valid_4).
+Adding SRST signal on $procdff$501 ($dff) from module processing_element (D = $procmux$215_Y, Q = \valid_5, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$705 ($sdff) from module processing_element (D = \valid_4, Q = \valid_5).
+Adding SRST signal on $procdff$502 ($dff) from module processing_element (D = $procmux$207_Y, Q = \valid_6, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$711 ($sdff) from module processing_element (D = \valid_5, Q = \valid_6).
+Adding SRST signal on $procdff$503 ($dff) from module processing_element (D = $procmux$199_Y, Q = \valid_7, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$717 ($sdff) from module processing_element (D = \valid_6, Q = \valid_7).
+Adding SRST signal on $procdff$504 ($dff) from module processing_element (D = $procmux$191_Y, Q = \valid_8, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$723 ($sdff) from module processing_element (D = \valid_7, Q = \valid_8).
+Adding SRST signal on $procdff$505 ($dff) from module processing_element (D = $procmux$183_Y, Q = \valid_9, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$729 ($sdff) from module processing_element (D = \valid_8, Q = \valid_9).
+Adding SRST signal on $procdff$506 ($dff) from module processing_element (D = $procmux$175_Y, Q = \valid_10, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$735 ($sdff) from module processing_element (D = \valid_9, Q = \valid_10).
+Adding SRST signal on $procdff$507 ($dff) from module processing_element (D = $procmux$167_Y, Q = \valid_11, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$741 ($sdff) from module processing_element (D = \valid_10, Q = \valid_11).
+Adding EN signal on $procdff$509 ($dff) from module processing_element (D = \i_features_0_0, Q = \if_reg_0_0).
+Adding EN signal on $procdff$510 ($dff) from module processing_element (D = \i_features_1_0, Q = \if_reg_0_1).
+Adding EN signal on $procdff$511 ($dff) from module processing_element (D = \i_features_0_1, Q = \if_reg_1_0).
+Adding EN signal on $procdff$512 ($dff) from module processing_element (D = \i_features_1_1, Q = \if_reg_1_1).
+Adding EN signal on $procdff$513 ($dff) from module processing_element (D = \i_features_0_2, Q = \if_reg_2_0).
+Adding EN signal on $procdff$514 ($dff) from module processing_element (D = \i_features_1_2, Q = \if_reg_2_1).
+Adding EN signal on $procdff$515 ($dff) from module processing_element (D = \i_features_0_3, Q = \if_reg_3_0).
+Adding EN signal on $procdff$516 ($dff) from module processing_element (D = \i_features_1_3, Q = \if_reg_3_1).
+Adding EN signal on $procdff$517 ($dff) from module processing_element (D = \i_features_0_4, Q = \if_reg_4_0).
+Adding EN signal on $procdff$518 ($dff) from module processing_element (D = \i_features_1_4, Q = \if_reg_4_1).
+Adding EN signal on $procdff$519 ($dff) from module processing_element (D = \i_features_0_5, Q = \if_reg_5_0).
+Adding EN signal on $procdff$520 ($dff) from module processing_element (D = \i_features_1_5, Q = \if_reg_5_1).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp_block_16_8_false..
+Finding unused cells or wires in module \dot_product_16_8_30_2..
+Finding unused cells or wires in module \accumulator_24_30_3..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_00..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_01..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_02..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_03..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_04..
+Finding unused cells or wires in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_05..
+Finding unused cells or wires in module \processing_element..
+Removed 99 unused cells and 346 unused wires.
+<suppressed ~111 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+Optimizing module accumulator_24_30_3.
+Optimizing module dot_product_16_8_30_2.
+Optimizing module dsp_block_16_8_false.
+Optimizing module processing_element.
+<suppressed ~12 debug messages>
+Optimizing module weight_cache_2048_8_0_weight_init_00.
+Optimizing module weight_cache_2048_8_0_weight_init_01.
+Optimizing module weight_cache_2048_8_0_weight_init_02.
+Optimizing module weight_cache_2048_8_0_weight_init_03.
+Optimizing module weight_cache_2048_8_0_weight_init_04.
+Optimizing module weight_cache_2048_8_0_weight_init_05.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \accumulator_24_30_3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dot_product_16_8_30_2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dsp_block_16_8_false..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \processing_element..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_00..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_01..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_02..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_03..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_04..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_05..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~19 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+  Optimizing cells in module \accumulator_24_30_3.
+  Optimizing cells in module \dot_product_16_8_30_2.
+  Optimizing cells in module \dsp_block_16_8_false.
+  Optimizing cells in module \processing_element.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_00.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_01.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_02.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_03.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_04.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_05.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+Finding identical cells in module `\accumulator_24_30_3'.
+Finding identical cells in module `\dot_product_16_8_30_2'.
+Finding identical cells in module `\dsp_block_16_8_false'.
+Finding identical cells in module `\processing_element'.
+<suppressed ~198 debug messages>
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_00'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_01'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_02'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_03'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_04'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_05'.
+Removed a total of 66 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram..
+Finding unused cells or wires in module \accumulator_24_30_3..
+Finding unused cells or wires in module \dot_product_16_8_30_2..
+Finding unused cells or wires in module \dsp_block_16_8_false..
+Finding unused cells or wires in module \processing_element..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_00..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_01..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_02..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_03..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_04..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_05..
+Removed 0 unused cells and 66 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+Optimizing module accumulator_24_30_3.
+Optimizing module dot_product_16_8_30_2.
+Optimizing module dsp_block_16_8_false.
+Optimizing module processing_element.
+Optimizing module weight_cache_2048_8_0_weight_init_00.
+Optimizing module weight_cache_2048_8_0_weight_init_01.
+Optimizing module weight_cache_2048_8_0_weight_init_02.
+Optimizing module weight_cache_2048_8_0_weight_init_03.
+Optimizing module weight_cache_2048_8_0_weight_init_04.
+Optimizing module weight_cache_2048_8_0_weight_init_05.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \accumulator_24_30_3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \dot_product_16_8_30_2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dsp_block_16_8_false..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \processing_element..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_00..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_01..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_02..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_03..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_04..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \weight_cache_2048_8_0_weight_init_05..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~19 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+  Optimizing cells in module \accumulator_24_30_3.
+  Optimizing cells in module \dot_product_16_8_30_2.
+  Optimizing cells in module \dsp_block_16_8_false.
+  Optimizing cells in module \processing_element.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_00.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_01.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_02.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_03.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_04.
+  Optimizing cells in module \weight_cache_2048_8_0_weight_init_05.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram'.
+Finding identical cells in module `\accumulator_24_30_3'.
+Finding identical cells in module `\dot_product_16_8_30_2'.
+Finding identical cells in module `\dsp_block_16_8_false'.
+Finding identical cells in module `\processing_element'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_00'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_01'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_02'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_03'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_04'.
+Finding identical cells in module `\weight_cache_2048_8_0_weight_init_05'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram..
+Finding unused cells or wires in module \accumulator_24_30_3..
+Finding unused cells or wires in module \dot_product_16_8_30_2..
+Finding unused cells or wires in module \dsp_block_16_8_false..
+Finding unused cells or wires in module \processing_element..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_00..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_01..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_02..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_03..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_04..
+Finding unused cells or wires in module \weight_cache_2048_8_0_weight_init_05..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram.
+Optimizing module accumulator_24_30_3.
+Optimizing module dot_product_16_8_30_2.
+Optimizing module dsp_block_16_8_false.
+Optimizing module processing_element.
+Optimizing module weight_cache_2048_8_0_weight_init_00.
+Optimizing module weight_cache_2048_8_0_weight_init_01.
+Optimizing module weight_cache_2048_8_0_weight_init_02.
+Optimizing module weight_cache_2048_8_0_weight_init_03.
+Optimizing module weight_cache_2048_8_0_weight_init_04.
+Optimizing module weight_cache_2048_8_0_weight_init_05.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram ===
+
+   Number of wires:                 17
+   Number of wire bits:            127
+   Number of public wires:           9
+   Number of public wire bits:      57
+   Number of memories:               1
+   Number of memory bits:           88
+   Number of processes:              0
+   Number of cells:                 12
+     $dffe                          16
+     $mux                           40
+
+=== accumulator_24_30_3 ===
+
+   Number of wires:                 13
+   Number of wire bits:            268
+   Number of public wires:          10
+   Number of public wire bits:     207
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  8
+     $add                           30
+     $mux                           30
+     $reduce_or                      2
+     $sdff                         120
+     $sdffe                         30
+
+=== dot_product_16_8_30_2 ===
+
+   Number of wires:                 14
+   Number of wire bits:            211
+   Number of public wires:          14
+   Number of public wire bits:     211
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $dff                            1
+     $sdff                          48
+
+=== dsp_block_16_8_false ===
+
+   Number of wires:                 19
+   Number of wire bits:            518
+   Number of public wires:          15
+   Number of public wire bits:     262
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  9
+     $add                          128
+     $mul                          128
+     $sdff                          72
+
+=== processing_element ===
+
+   Number of wires:                167
+   Number of wire bits:           1521
+   Number of public wires:         108
+   Number of public wire bits:    1271
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                119
+     $add                           74
+     $dff                            5
+     $dffe                         192
+     $eq                             2
+     $le                            32
+     $logic_and                      2
+     $logic_not                      2
+     $logic_or                       1
+     $mux                          168
+     $ne                            12
+     $not                            5
+     $reduce_and                    13
+     $reduce_bool                    2
+     $sdffce                        49
+     $sdffe                         12
+
+=== weight_cache_2048_8_0_weight_init_00 ===
+
+   Number of wires:                 15
+   Number of wire bits:            111
+   Number of public wires:          15
+   Number of public wire bits:     111
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $dff                           38
+
+=== weight_cache_2048_8_0_weight_init_01 ===
+
+   Number of wires:                 15
+   Number of wire bits:            111
+   Number of public wires:          15
+   Number of public wire bits:     111
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $dff                           38
+
+=== weight_cache_2048_8_0_weight_init_02 ===
+
+   Number of wires:                 15
+   Number of wire bits:            111
+   Number of public wires:          15
+   Number of public wire bits:     111
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $dff                           38
+
+=== weight_cache_2048_8_0_weight_init_03 ===
+
+   Number of wires:                 15
+   Number of wire bits:            111
+   Number of public wires:          15
+   Number of public wire bits:     111
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $dff                           38
+
+=== weight_cache_2048_8_0_weight_init_04 ===
+
+   Number of wires:                 15
+   Number of wire bits:            111
+   Number of public wires:          15
+   Number of public wire bits:     111
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $dff                           38
+
+=== weight_cache_2048_8_0_weight_init_05 ===
+
+   Number of wires:                 15
+   Number of wire bits:            111
+   Number of public wires:          15
+   Number of public wire bits:     111
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $dff                           38
+
+=== design hierarchy ===
+
+   processing_element                1
+     accumulator_24_30_3             0
+     dot_product_16_8_30_2           0
+       dsp_block_16_8_false          0
+     weight_cache_2048_8_0_weight_init_00      0
+       $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram      0
+     weight_cache_2048_8_0_weight_init_01      0
+       $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram      0
+     weight_cache_2048_8_0_weight_init_02      0
+       $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram      0
+     weight_cache_2048_8_0_weight_init_03      0
+       $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram      0
+     weight_cache_2048_8_0_weight_init_04      0
+       $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram      0
+     weight_cache_2048_8_0_weight_init_05      0
+       $paramod$058c6f8c26a499fadb7bf4f0083f81a0616d373e\dual_port_ram      0
+
+   Number of wires:                167
+   Number of wire bits:           1521
+   Number of public wires:         108
+   Number of public wire bits:    1271
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                119
+     $add                           74
+     $dff                            5
+     $dffe                         192
+     $eq                             2
+     $le                            32
+     $logic_and                      2
+     $logic_not                      2
+     $logic_or                       1
+     $mux                          168
+     $ne                            12
+     $not                            5
+     $reduce_and                    13
+     $reduce_bool                    2
+     $sdffce                        49
+     $sdffe                         12
+
+Warnings: 12 unique messages, 12 total
+End of script. Logfile hash: fd0586d3d1, CPU: user 0.27s system 0.00s, MEM: 14.88 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 23% 5x opt_expr (0 sec), 19% 2x read_verilog (0 sec), ...

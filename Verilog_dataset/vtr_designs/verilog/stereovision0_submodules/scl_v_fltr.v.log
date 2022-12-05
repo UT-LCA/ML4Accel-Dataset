@@ -1,0 +1,302 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v' to AST representation.
+Generating RTLIL representation for module `\scl_v_fltr'.
+Generating RTLIL representation for module `\my_fifo_496'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: my_fifo_496         
+root of   1 design levels: scl_v_fltr          
+Automatically selected scl_v_fltr as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \scl_v_fltr
+Used module:     \my_fifo_496
+
+2.3. Analyzing design hierarchy..
+Top module:  \scl_v_fltr
+Used module:     \my_fifo_496
+Removed 0 unused modules.
+Mapping positional arguments of cell scl_v_fltr.ints_fifo_gen_6 (my_fifo_496).
+Mapping positional arguments of cell scl_v_fltr.ints_fifo_gen_5 (my_fifo_496).
+Mapping positional arguments of cell scl_v_fltr.ints_fifo_gen_4 (my_fifo_496).
+Mapping positional arguments of cell scl_v_fltr.ints_fifo_gen_3 (my_fifo_496).
+Mapping positional arguments of cell scl_v_fltr.ints_fifo_gen_2 (my_fifo_496).
+Mapping positional arguments of cell scl_v_fltr.ints_fifo_gen_1 (my_fifo_496).
+Mapping positional arguments of cell scl_v_fltr.ints_fifo_gen_0 (my_fifo_496).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 12 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\my_fifo_496.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:100$13'.
+     1/3: $0\buff2[7:0]
+     2/3: $0\buff1[7:0]
+     3/3: $0\dout[7:0]
+Creating decoders for process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+     1/10: $0\buff_out_reg7[7:0]
+     2/10: $0\buff_out_reg6[7:0]
+     3/10: $0\buff_out_reg5[7:0]
+     4/10: $0\buff_out_reg4[7:0]
+     5/10: $0\buff_out_reg3[7:0]
+     6/10: $0\buff_out_reg2[7:0]
+     7/10: $0\buff_out_reg1[7:0]
+     8/10: $0\d_out_4[7:0]
+     9/10: $0\d_out_2[7:0]
+    10/10: $0\d_out_1[7:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\my_fifo_496.\dout' using process `\my_fifo_496.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:100$13'.
+  created $dff cell `$procdff$41' with positive edge clock.
+Creating register for signal `\my_fifo_496.\buff1' using process `\my_fifo_496.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:100$13'.
+  created $dff cell `$procdff$42' with positive edge clock.
+Creating register for signal `\my_fifo_496.\buff2' using process `\my_fifo_496.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:100$13'.
+  created $dff cell `$procdff$43' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\d_out_1' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$44' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\d_out_2' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$45' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\d_out_4' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$46' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\buff_out_reg1' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$47' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\buff_out_reg2' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$48' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\buff_out_reg3' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$49' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\buff_out_reg4' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$50' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\buff_out_reg5' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$51' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\buff_out_reg6' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$52' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\buff_out_reg7' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$53' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\add_2_tmp_1' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$54' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\add_2_tmp_2' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$55' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\add_2_tmp' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$56' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\add_4_tmp_1' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$57' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\add_4_tmp_2' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$58' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\add_4_tmp_3' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$59' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\add_4_tmp_4' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$60' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\add_4_tmp_5' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$61' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\add_4_tmp_6' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$62' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\add_4_tmp_7' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$63' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\add_4_tmp_8' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$64' with positive edge clock.
+Creating register for signal `\scl_v_fltr.\add_4_tmp' using process `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+  created $dff cell `$procdff$65' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\my_fifo_496.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:100$13'.
+Removing empty process `my_fifo_496.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:100$13'.
+Found and cleaned up 1 empty switch in `\scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+Removing empty process `scl_v_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision0_submodules/scl_v_fltr.v:57$1'.
+Cleaned up 2 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module my_fifo_496.
+<suppressed ~1 debug messages>
+Optimizing module scl_v_fltr.
+<suppressed ~1 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module my_fifo_496.
+Optimizing module scl_v_fltr.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\my_fifo_496'.
+Finding identical cells in module `\scl_v_fltr'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \my_fifo_496..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \scl_v_fltr..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~13 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \my_fifo_496.
+  Optimizing cells in module \scl_v_fltr.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\my_fifo_496'.
+Finding identical cells in module `\scl_v_fltr'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$43 ($dff) from module my_fifo_496 (D = \buff1, Q = \buff2).
+Adding EN signal on $procdff$41 ($dff) from module my_fifo_496 (D = \buff2, Q = \dout).
+Adding EN signal on $procdff$42 ($dff) from module my_fifo_496 (D = \din, Q = \buff1).
+Adding EN signal on $procdff$44 ($dff) from module scl_v_fltr (D = \buff_out_reg1, Q = \d_out_1).
+Adding EN signal on $procdff$45 ($dff) from module scl_v_fltr (D = \add_2_tmp [9:2], Q = \d_out_2).
+Adding EN signal on $procdff$46 ($dff) from module scl_v_fltr (D = \add_4_tmp [11:4], Q = \d_out_4).
+Adding EN signal on $procdff$47 ($dff) from module scl_v_fltr (D = \buff_out1, Q = \buff_out_reg1).
+Adding EN signal on $procdff$48 ($dff) from module scl_v_fltr (D = \buff_out2, Q = \buff_out_reg2).
+Adding EN signal on $procdff$49 ($dff) from module scl_v_fltr (D = \buff_out3, Q = \buff_out_reg3).
+Adding EN signal on $procdff$50 ($dff) from module scl_v_fltr (D = \buff_out4, Q = \buff_out_reg4).
+Adding EN signal on $procdff$51 ($dff) from module scl_v_fltr (D = \buff_out5, Q = \buff_out_reg5).
+Adding EN signal on $procdff$52 ($dff) from module scl_v_fltr (D = \buff_out6, Q = \buff_out_reg6).
+Adding EN signal on $procdff$53 ($dff) from module scl_v_fltr (D = \buff_out7, Q = \buff_out_reg7).
+Setting constant 0-bit at position 0 on $procdff$55 ($dff) from module scl_v_fltr.
+Setting constant 0-bit at position 9 on $procdff$55 ($dff) from module scl_v_fltr.
+Setting constant 0-bit at position 0 on $procdff$61 ($dff) from module scl_v_fltr.
+Setting constant 0-bit at position 1 on $procdff$61 ($dff) from module scl_v_fltr.
+Setting constant 0-bit at position 10 on $procdff$61 ($dff) from module scl_v_fltr.
+Setting constant 0-bit at position 11 on $procdff$61 ($dff) from module scl_v_fltr.
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \my_fifo_496..
+Finding unused cells or wires in module \scl_v_fltr..
+Removed 13 unused cells and 54 unused wires.
+<suppressed ~16 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module my_fifo_496.
+Optimizing module scl_v_fltr.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \my_fifo_496..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \scl_v_fltr..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \my_fifo_496.
+  Optimizing cells in module \scl_v_fltr.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\my_fifo_496'.
+Finding identical cells in module `\scl_v_fltr'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \my_fifo_496..
+Finding unused cells or wires in module \scl_v_fltr..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module my_fifo_496.
+Optimizing module scl_v_fltr.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== my_fifo_496 ===
+
+   Number of wires:                  6
+   Number of wire bits:             34
+   Number of public wires:           6
+   Number of public wire bits:      34
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $dffe                          24
+
+=== scl_v_fltr ===
+
+   Number of wires:                 43
+   Number of wire bits:            408
+   Number of public wires:          33
+   Number of public wire bits:     292
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 39
+     $add                          116
+     $dff                          132
+     $dffe                          80
+
+=== design hierarchy ===
+
+   scl_v_fltr                        1
+     my_fifo_496                     0
+
+   Number of wires:                 43
+   Number of wire bits:            408
+   Number of public wires:          33
+   Number of public wire bits:     292
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 39
+     $add                          116
+     $dff                          132
+     $dffe                          80
+
+End of script. Logfile hash: 257a7b194e, CPU: user 0.05s system 0.01s, MEM: 12.13 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 21% 4x opt_expr (0 sec), 21% 2x opt_clean (0 sec), ...

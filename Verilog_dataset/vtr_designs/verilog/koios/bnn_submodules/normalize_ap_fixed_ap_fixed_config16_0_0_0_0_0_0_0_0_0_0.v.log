@@ -1,0 +1,426 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v' to AST representation.
+Generating RTLIL representation for module `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0'.
+Generating RTLIL representation for module `\myproject_mul_16s_9ns_25_2_0'.
+Generating RTLIL representation for module `\myproject_mul_16s_9ns_25_2_0_MulnS_3'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: myproject_mul_16s_9ns_25_2_0_MulnS_3
+root of   1 design levels: myproject_mul_16s_9ns_25_2_0
+root of   2 design levels: normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0
+Automatically selected normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0
+Used module:     \myproject_mul_16s_9ns_25_2_0
+Used module:         \myproject_mul_16s_9ns_25_2_0_MulnS_3
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Generating RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0
+Used module:     $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0
+Used module:         \myproject_mul_16s_9ns_25_2_0_MulnS_3
+
+2.5. Analyzing design hierarchy..
+Top module:  \normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0
+Used module:     $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0
+Used module:         \myproject_mul_16s_9ns_25_2_0_MulnS_3
+Removing unused module `\myproject_mul_16s_9ns_25_2_0'.
+Removed 1 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:244$37 in module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:236$33 in module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:228$29 in module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:220$25 in module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:212$22 in module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:204$19 in module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:196$16 in module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:188$13 in module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:180$10 in module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 10 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\myproject_mul_16s_9ns_25_2_0_MulnS_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:333$47'.
+     1/1: $0\p[24:0]
+Creating decoders for process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:244$37'.
+     1/1: $1\grp_fu_98_ce[0:0]
+Creating decoders for process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:236$33'.
+     1/1: $1\grp_fu_97_ce[0:0]
+Creating decoders for process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:228$29'.
+     1/1: $1\grp_fu_96_ce[0:0]
+Creating decoders for process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:220$25'.
+     1/1: $1\grp_fu_95_ce[0:0]
+Creating decoders for process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:212$22'.
+     1/2: $2\ap_return_4[15:0]
+     2/2: $1\ap_return_4[15:0]
+Creating decoders for process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:204$19'.
+     1/2: $2\ap_return_3[15:0]
+     2/2: $1\ap_return_3[15:0]
+Creating decoders for process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:196$16'.
+     1/2: $2\ap_return_2[15:0]
+     2/2: $1\ap_return_2[15:0]
+Creating decoders for process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:188$13'.
+     1/2: $2\ap_return_1[15:0]
+     2/2: $1\ap_return_1[15:0]
+Creating decoders for process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:180$10'.
+     1/2: $2\ap_return_0[15:0]
+     2/2: $1\ap_return_0[15:0]
+Creating decoders for process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:169$6'.
+     1/6: $0\trunc_ln708_3_reg_397[14:0]
+     2/6: $0\trunc_ln708_2_reg_392[14:0]
+     3/6: $0\trunc_ln708_1_reg_387[14:0]
+     4/6: $0\trunc_ln_reg_382[14:0]
+     5/6: $0\trunc_ln708_s_reg_362_pp0_iter1_reg[12:0]
+     6/6: $0\trunc_ln708_s_reg_362[12:0]
+Creating decoders for process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:159$4'.
+     1/5: $0\data_4_V_read_int_reg[15:0]
+     2/5: $0\data_3_V_read_int_reg[15:0]
+     3/5: $0\data_2_V_read_int_reg[15:0]
+     4/5: $0\data_1_V_read_int_reg[15:0]
+     5/5: $0\data_0_V_read_int_reg[15:0]
+Creating decoders for process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:149$2'.
+     1/5: $0\ap_return_4_int_reg[15:0]
+     2/5: $0\ap_return_3_int_reg[15:0]
+     3/5: $0\ap_return_2_int_reg[15:0]
+     4/5: $0\ap_return_1_int_reg[15:0]
+     5/5: $0\ap_return_0_int_reg[15:0]
+Creating decoders for process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:145$1'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\grp_fu_98_ce' from process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:244$37'.
+No latch inferred for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\grp_fu_97_ce' from process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:236$33'.
+No latch inferred for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\grp_fu_96_ce' from process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:228$29'.
+No latch inferred for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\grp_fu_95_ce' from process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:220$25'.
+Latch inferred for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\ap_return_4' from process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:212$22': $auto$proc_dlatch.cc:427:proc_dlatch$165
+Latch inferred for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\ap_return_3' from process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:204$19': $auto$proc_dlatch.cc:427:proc_dlatch$192
+Latch inferred for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\ap_return_2' from process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:196$16': $auto$proc_dlatch.cc:427:proc_dlatch$219
+Latch inferred for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\ap_return_1' from process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:188$13': $auto$proc_dlatch.cc:427:proc_dlatch$246
+Latch inferred for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\ap_return_0' from process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:180$10': $auto$proc_dlatch.cc:427:proc_dlatch$273
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\myproject_mul_16s_9ns_25_2_0_MulnS_3.\p' using process `\myproject_mul_16s_9ns_25_2_0_MulnS_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:333$47'.
+  created $dff cell `$procdff$274' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\trunc_ln708_s_reg_362' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:169$6'.
+  created $dff cell `$procdff$275' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\trunc_ln708_s_reg_362_pp0_iter1_reg' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:169$6'.
+  created $dff cell `$procdff$276' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\trunc_ln_reg_382' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:169$6'.
+  created $dff cell `$procdff$277' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\trunc_ln708_1_reg_387' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:169$6'.
+  created $dff cell `$procdff$278' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\trunc_ln708_2_reg_392' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:169$6'.
+  created $dff cell `$procdff$279' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\trunc_ln708_3_reg_397' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:169$6'.
+  created $dff cell `$procdff$280' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\data_0_V_read_int_reg' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:159$4'.
+  created $dff cell `$procdff$281' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\data_1_V_read_int_reg' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:159$4'.
+  created $dff cell `$procdff$282' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\data_2_V_read_int_reg' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:159$4'.
+  created $dff cell `$procdff$283' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\data_3_V_read_int_reg' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:159$4'.
+  created $dff cell `$procdff$284' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\data_4_V_read_int_reg' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:159$4'.
+  created $dff cell `$procdff$285' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\ap_return_0_int_reg' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:149$2'.
+  created $dff cell `$procdff$286' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\ap_return_1_int_reg' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:149$2'.
+  created $dff cell `$procdff$287' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\ap_return_2_int_reg' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:149$2'.
+  created $dff cell `$procdff$288' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\ap_return_3_int_reg' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:149$2'.
+  created $dff cell `$procdff$289' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\ap_return_4_int_reg' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:149$2'.
+  created $dff cell `$procdff$290' with positive edge clock.
+Creating register for signal `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.\ap_ce_reg' using process `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:145$1'.
+  created $dff cell `$procdff$291' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\myproject_mul_16s_9ns_25_2_0_MulnS_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:333$47'.
+Removing empty process `myproject_mul_16s_9ns_25_2_0_MulnS_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:333$47'.
+Found and cleaned up 1 empty switch in `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:244$37'.
+Removing empty process `normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:244$37'.
+Found and cleaned up 1 empty switch in `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:236$33'.
+Removing empty process `normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:236$33'.
+Found and cleaned up 1 empty switch in `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:228$29'.
+Removing empty process `normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:228$29'.
+Found and cleaned up 1 empty switch in `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:220$25'.
+Removing empty process `normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:220$25'.
+Found and cleaned up 2 empty switches in `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:212$22'.
+Removing empty process `normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:212$22'.
+Found and cleaned up 2 empty switches in `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:204$19'.
+Removing empty process `normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:204$19'.
+Found and cleaned up 2 empty switches in `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:196$16'.
+Removing empty process `normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:196$16'.
+Found and cleaned up 2 empty switches in `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:188$13'.
+Removing empty process `normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:188$13'.
+Found and cleaned up 2 empty switches in `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:180$10'.
+Removing empty process `normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:180$10'.
+Found and cleaned up 1 empty switch in `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:169$6'.
+Removing empty process `normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:169$6'.
+Found and cleaned up 1 empty switch in `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:159$4'.
+Removing empty process `normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:159$4'.
+Found and cleaned up 1 empty switch in `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:149$2'.
+Removing empty process `normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:149$2'.
+Removing empty process `normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:145$1'.
+Cleaned up 18 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module myproject_mul_16s_9ns_25_2_0_MulnS_3.
+Optimizing module $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0.
+Optimizing module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+<suppressed ~112 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module myproject_mul_16s_9ns_25_2_0_MulnS_3.
+Optimizing module $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0.
+Optimizing module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\myproject_mul_16s_9ns_25_2_0_MulnS_3'.
+Finding identical cells in module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Finding identical cells in module `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0'.
+<suppressed ~27 debug messages>
+Removed a total of 9 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \myproject_mul_16s_9ns_25_2_0_MulnS_3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \myproject_mul_16s_9ns_25_2_0_MulnS_3.
+  Optimizing cells in module $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0.
+  Optimizing cells in module \normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\myproject_mul_16s_9ns_25_2_0_MulnS_3'.
+Finding identical cells in module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Finding identical cells in module `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0'.
+<suppressed ~24 debug messages>
+Removed a total of 8 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$274 ($dff) from module myproject_mul_16s_9ns_25_2_0_MulnS_3 (D = $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/bnn_submodules/normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.v:332$46_Y, Q = \p).
+Adding EN signal on $procdff$285 ($dff) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (D = \data_4_V_read, Q = \data_4_V_read_int_reg).
+Adding EN signal on $procdff$284 ($dff) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (D = \data_3_V_read, Q = \data_3_V_read_int_reg).
+Handling always-active async load on $auto$proc_dlatch.cc:427:proc_dlatch$192 ($dlatch) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (changing to combinatorial circuit).
+Adding EN signal on $procdff$283 ($dff) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (D = \data_2_V_read, Q = \data_2_V_read_int_reg).
+Handling always-active async load on $auto$proc_dlatch.cc:427:proc_dlatch$219 ($dlatch) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (changing to combinatorial circuit).
+Adding EN signal on $procdff$282 ($dff) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (D = \data_1_V_read, Q = \data_1_V_read_int_reg).
+Adding EN signal on $procdff$281 ($dff) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (D = \data_0_V_read, Q = \data_0_V_read_int_reg).
+Handling always-active async load on $auto$proc_dlatch.cc:427:proc_dlatch$165 ($dlatch) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (changing to combinatorial circuit).
+Adding EN signal on $procdff$280 ($dff) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (D = \grp_fu_95_p2 [24:10], Q = \trunc_ln708_3_reg_397).
+Handling always-active async load on $auto$proc_dlatch.cc:427:proc_dlatch$246 ($dlatch) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (changing to combinatorial circuit).
+Adding EN signal on $procdff$279 ($dff) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (D = \grp_fu_97_p2 [24:10], Q = \trunc_ln708_2_reg_392).
+Adding EN signal on $procdff$278 ($dff) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (D = \grp_fu_96_p2 [24:10], Q = \trunc_ln708_1_reg_387).
+Adding EN signal on $procdff$277 ($dff) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (D = \grp_fu_98_p2 [24:10], Q = \trunc_ln_reg_382).
+Adding EN signal on $procdff$276 ($dff) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (D = \trunc_ln708_s_reg_362, Q = \trunc_ln708_s_reg_362_pp0_iter1_reg).
+Adding EN signal on $procdff$275 ($dff) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (D = \data_1_V_read_int_reg [15:3], Q = \trunc_ln708_s_reg_362).
+Handling always-active async load on $auto$proc_dlatch.cc:427:proc_dlatch$273 ($dlatch) from module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 (changing to combinatorial circuit).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \myproject_mul_16s_9ns_25_2_0_MulnS_3..
+Finding unused cells or wires in module $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0..
+Finding unused cells or wires in module \normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0..
+Removed 13 unused cells and 211 unused wires.
+<suppressed ~15 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0.
+Optimizing module myproject_mul_16s_9ns_25_2_0_MulnS_3.
+Optimizing module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \myproject_mul_16s_9ns_25_2_0_MulnS_3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0.
+  Optimizing cells in module \myproject_mul_16s_9ns_25_2_0_MulnS_3.
+  Optimizing cells in module \normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Finding identical cells in module `\myproject_mul_16s_9ns_25_2_0_MulnS_3'.
+Finding identical cells in module `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0..
+Finding unused cells or wires in module \myproject_mul_16s_9ns_25_2_0_MulnS_3..
+Finding unused cells or wires in module \normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0.
+Optimizing module myproject_mul_16s_9ns_25_2_0_MulnS_3.
+Optimizing module normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0 ===
+
+   Number of wires:                  6
+   Number of wire bits:             53
+   Number of public wires:           6
+   Number of public wire bits:      53
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+
+=== myproject_mul_16s_9ns_25_2_0_MulnS_3 ===
+
+   Number of wires:                  6
+   Number of wire bits:             77
+   Number of public wires:           6
+   Number of public wire bits:      77
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $dffe                          25
+     $mul                           25
+
+=== normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0 ===
+
+   Number of wires:                 58
+   Number of wire bits:            727
+   Number of public wires:          58
+   Number of public wire bits:     727
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 32
+     $add                           78
+     $dff                           81
+     $dffe                         166
+     $mux                           81
+
+=== design hierarchy ===
+
+   normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0      1
+     $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0      0
+       myproject_mul_16s_9ns_25_2_0_MulnS_3      0
+
+   Number of wires:                 58
+   Number of wire bits:            727
+   Number of public wires:          58
+   Number of public wire bits:     727
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 32
+     $add                           78
+     $dff                           81
+     $dffe                         166
+     $mux                           81
+
+End of script. Logfile hash: 91d1750170, CPU: user 0.11s system 0.00s, MEM: 12.52 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 24% 4x opt_expr (0 sec), 17% 2x read_verilog (0 sec), ...

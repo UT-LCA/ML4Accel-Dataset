@@ -1,0 +1,487 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v' to AST representation.
+Generating RTLIL representation for module `\a25_icache'.
+Warning: wire '\o_stall' is assigned in a block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:268.2-268.52.
+Warning: reg '\read_miss' is assigned in a continuous assignment at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:422.8-422.63.
+Generating RTLIL representation for module `\single_port_ram_128_8'.
+Generating RTLIL representation for module `\single_port_ram_21_8'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: single_port_ram_21_8
+root of   0 design levels: single_port_ram_128_8
+root of   1 design levels: a25_icache          
+Automatically selected a25_icache as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \a25_icache
+Used module:     \single_port_ram_128_8
+Used module:     \single_port_ram_21_8
+
+2.3. Analyzing design hierarchy..
+Top module:  \a25_icache
+Used module:     \single_port_ram_128_8
+Used module:     \single_port_ram_21_8
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:671$136 in module single_port_ram_21_8.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:641$127 in module single_port_ram_128_8.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:384$21 in module a25_icache.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:296$13 in module a25_icache.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:276$8 in module a25_icache.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 17 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:233$125'.
+  Set init value: \wb_address = 0
+Found init rule in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:231$124'.
+  Set init value: \address_r = 0
+Found init rule in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:222$123'.
+  Set init value: \miss_address = 0
+Found init rule in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:207$122'.
+  Set init value: \random_num = 4'1111
+Found init rule in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:205$121'.
+  Set init value: \valid_bits_r = 4'0000
+Found init rule in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:203$120'.
+  Set init value: \select_way = 4'0000
+Found init rule in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:190$119'.
+  Set init value: \init_count = 9'000000000
+Found init rule in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:189$118'.
+  Set init value: \source_sel = 4'0010
+Found init rule in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:188$117'.
+  Set init value: \c_state = 4'0001
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\single_port_ram_21_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:671$136'.
+     1/4: $1$memwr$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:675$135_EN[20:0]$142
+     2/4: $1$memwr$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:675$135_DATA[20:0]$141
+     3/4: $1$memwr$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:675$135_ADDR[7:0]$140
+     4/4: $0\out[20:0]
+Creating decoders for process `\single_port_ram_128_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:641$127'.
+     1/4: $1$memwr$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:645$126_EN[127:0]$133
+     2/4: $1$memwr$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:645$126_DATA[127:0]$132
+     3/4: $1$memwr$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:645$126_ADDR[7:0]$131
+     4/4: $0\out[127:0]
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:233$125'.
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:231$124'.
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:222$123'.
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:207$122'.
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:205$121'.
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:203$120'.
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:190$119'.
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:189$118'.
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:188$117'.
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:588$91'.
+     1/1: $0\valid_bits_r[3:0]
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:384$21'.
+     1/1: $0\wb_address[31:0]
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:378$19'.
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:373$17'.
+     1/1: $0\miss_address[31:0]
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:296$13'.
+     1/5: $0\random_num[3:0]
+     2/5: $0\select_way[3:0]
+     3/5: $0\init_count[8:0]
+     4/5: $0\source_sel[3:0]
+     5/5: $0\c_state[3:0]
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:276$8'.
+     1/3: $0\read_buf_valid_r[0:0]
+     2/3: $0\read_buf_addr_r[31:0]
+     3/3: $0\read_buf_data_r[127:0]
+Creating decoders for process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:267$4'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\single_port_ram_21_8.\out' using process `\single_port_ram_21_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:671$136'.
+  created $dff cell `$procdff$250' with positive edge clock.
+Creating register for signal `\single_port_ram_21_8.$memwr$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:675$135_ADDR' using process `\single_port_ram_21_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:671$136'.
+  created $dff cell `$procdff$251' with positive edge clock.
+Creating register for signal `\single_port_ram_21_8.$memwr$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:675$135_DATA' using process `\single_port_ram_21_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:671$136'.
+  created $dff cell `$procdff$252' with positive edge clock.
+Creating register for signal `\single_port_ram_21_8.$memwr$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:675$135_EN' using process `\single_port_ram_21_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:671$136'.
+  created $dff cell `$procdff$253' with positive edge clock.
+Creating register for signal `\single_port_ram_128_8.\out' using process `\single_port_ram_128_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:641$127'.
+  created $dff cell `$procdff$254' with positive edge clock.
+Creating register for signal `\single_port_ram_128_8.$memwr$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:645$126_ADDR' using process `\single_port_ram_128_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:641$127'.
+  created $dff cell `$procdff$255' with positive edge clock.
+Creating register for signal `\single_port_ram_128_8.$memwr$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:645$126_DATA' using process `\single_port_ram_128_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:641$127'.
+  created $dff cell `$procdff$256' with positive edge clock.
+Creating register for signal `\single_port_ram_128_8.$memwr$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:645$126_EN' using process `\single_port_ram_128_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:641$127'.
+  created $dff cell `$procdff$257' with positive edge clock.
+Creating register for signal `\a25_icache.\valid_bits_r' using process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:588$91'.
+  created $dff cell `$procdff$258' with positive edge clock.
+Creating register for signal `\a25_icache.\wb_address' using process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:384$21'.
+  created $dff cell `$procdff$259' with positive edge clock.
+Creating register for signal `\a25_icache.\address_r' using process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:378$19'.
+  created $dff cell `$procdff$260' with positive edge clock.
+Creating register for signal `\a25_icache.\miss_address' using process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:373$17'.
+  created $dff cell `$procdff$261' with positive edge clock.
+Creating register for signal `\a25_icache.\c_state' using process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:296$13'.
+  created $dff cell `$procdff$262' with positive edge clock.
+Creating register for signal `\a25_icache.\source_sel' using process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:296$13'.
+  created $dff cell `$procdff$263' with positive edge clock.
+Creating register for signal `\a25_icache.\init_count' using process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:296$13'.
+  created $dff cell `$procdff$264' with positive edge clock.
+Creating register for signal `\a25_icache.\select_way' using process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:296$13'.
+  created $dff cell `$procdff$265' with positive edge clock.
+Creating register for signal `\a25_icache.\random_num' using process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:296$13'.
+  created $dff cell `$procdff$266' with positive edge clock.
+Creating register for signal `\a25_icache.\read_buf_data_r' using process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:276$8'.
+  created $dff cell `$procdff$267' with positive edge clock.
+Creating register for signal `\a25_icache.\read_buf_addr_r' using process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:276$8'.
+  created $dff cell `$procdff$268' with positive edge clock.
+Creating register for signal `\a25_icache.\read_buf_valid_r' using process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:276$8'.
+  created $dff cell `$procdff$269' with positive edge clock.
+Creating register for signal `\a25_icache.\o_stall' using process `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:267$4'.
+  created $dff cell `$procdff$270' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\single_port_ram_21_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:671$136'.
+Removing empty process `single_port_ram_21_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:671$136'.
+Found and cleaned up 1 empty switch in `\single_port_ram_128_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:641$127'.
+Removing empty process `single_port_ram_128_8.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:641$127'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:233$125'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:231$124'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:222$123'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:207$122'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:205$121'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:203$120'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:190$119'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:189$118'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:188$117'.
+Found and cleaned up 1 empty switch in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:588$91'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:588$91'.
+Found and cleaned up 2 empty switches in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:384$21'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:384$21'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:378$19'.
+Found and cleaned up 1 empty switch in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:373$17'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:373$17'.
+Found and cleaned up 5 empty switches in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:296$13'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:296$13'.
+Found and cleaned up 3 empty switches in `\a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:276$8'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:276$8'.
+Removing empty process `a25_icache.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:267$4'.
+Cleaned up 14 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module single_port_ram_21_8.
+Optimizing module single_port_ram_128_8.
+Optimizing module a25_icache.
+<suppressed ~14 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module single_port_ram_21_8.
+Optimizing module single_port_ram_128_8.
+Optimizing module a25_icache.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\single_port_ram_21_8'.
+Finding identical cells in module `\single_port_ram_128_8'.
+Finding identical cells in module `\a25_icache'.
+<suppressed ~84 debug messages>
+Removed a total of 28 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \single_port_ram_21_8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \single_port_ram_128_8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \a25_icache..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~25 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \single_port_ram_21_8.
+    Consolidated identical input bits for $mux cell $procmux$145:
+      Old ports: A=21'000000000000000000000, B=21'111111111111111111111, Y=$procmux$145_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$145_Y [0]
+      New connections: $procmux$145_Y [20:1] = { $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] $procmux$145_Y [0] }
+  Optimizing cells in module \single_port_ram_21_8.
+  Optimizing cells in module \single_port_ram_128_8.
+    Consolidated identical input bits for $mux cell $procmux$157:
+      Old ports: A=128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, B=128'11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111, Y=$procmux$157_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$157_Y [0]
+      New connections: $procmux$157_Y [127:1] = { $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] $procmux$157_Y [0] }
+  Optimizing cells in module \single_port_ram_128_8.
+  Optimizing cells in module \a25_icache.
+    New ctrl vector for $pmux cell $procmux$204: { $procmux$226_CMP $auto$opt_reduce.cc:134:opt_mux$274 }
+  Optimizing cells in module \a25_icache.
+Performed a total of 3 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\single_port_ram_21_8'.
+Finding identical cells in module `\single_port_ram_128_8'.
+Finding identical cells in module `\a25_icache'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$250 ($dff) from module single_port_ram_21_8 (D = $memrd$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:676$143_DATA, Q = \out).
+Adding EN signal on $procdff$254 ($dff) from module single_port_ram_128_8 (D = $memrd$\RAM$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:646$134_DATA, Q = \out).
+Adding EN signal on $procdff$258 ($dff) from module a25_icache (D = { \tag_rdata_way3 [20] \tag_rdata_way2 [20] \tag_rdata_way1 [20] \tag_rdata_way0 [20] }, Q = \valid_bits_r).
+Adding EN signal on $procdff$259 ($dff) from module a25_icache (D = $procmux$173_Y [3:0], Q = \wb_address [3:0]).
+Adding EN signal on $procdff$259 ($dff) from module a25_icache (D = $procmux$173_Y [31:4], Q = \wb_address [31:4]).
+Adding EN signal on $procdff$261 ($dff) from module a25_icache (D = \i_address, Q = \miss_address).
+Adding SRST signal on $procdff$262 ($dff) from module a25_icache (D = $procmux$214_Y, Q = \c_state, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:262:slice$289 ($sdff) from module a25_icache (D = $procmux$214_Y, Q = \c_state).
+Adding SRST signal on $procdff$263 ($dff) from module a25_icache (D = $procmux$204_Y, Q = \source_sel, rval = 4'0001).
+Adding EN signal on $auto$ff.cc:262:slice$301 ($sdff) from module a25_icache (D = $procmux$204_Y, Q = \source_sel).
+Adding SRST signal on $procdff$264 ($dff) from module a25_icache (D = $procmux$198_Y, Q = \init_count, rval = 9'000000000).
+Adding EN signal on $auto$ff.cc:262:slice$305 ($sdff) from module a25_icache (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:312$15_Y, Q = \init_count).
+Adding EN signal on $procdff$265 ($dff) from module a25_icache (D = $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:605$116_Y, Q = \select_way).
+Adding SRST signal on $auto$ff.cc:262:slice$309 ($dffe) from module a25_icache (D = $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:606$115_Y [1:0], Q = \select_way [1:0], rval = 2'01).
+Adding SRST signal on $auto$ff.cc:262:slice$309 ($dffe) from module a25_icache (D = $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:607$114_Y [2], Q = \select_way [2], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:262:slice$309 ($dffe) from module a25_icache (D = $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:608$113_Y [3], Q = \select_way [3], rval = 1'0).
+Adding EN signal on $procdff$266 ($dff) from module a25_icache (D = { \random_num [2:0] $xor$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/arm_core_submodules/a25_icache.v:337$16_Y }, Q = \random_num).
+Adding EN signal on $procdff$267 ($dff) from module a25_icache (D = \i_wb_read_data, Q = \read_buf_data_r).
+Adding EN signal on $procdff$268 ($dff) from module a25_icache (D = \miss_address, Q = \read_buf_addr_r).
+Adding SRST signal on $procdff$269 ($dff) from module a25_icache (D = $procmux$233_Y, Q = \read_buf_valid_r, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$336 ($sdff) from module a25_icache (D = $procmux$233_Y, Q = \read_buf_valid_r).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \single_port_ram_21_8..
+Finding unused cells or wires in module \single_port_ram_128_8..
+Finding unused cells or wires in module \a25_icache..
+Removed 29 unused cells and 155 unused wires.
+<suppressed ~34 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module a25_icache.
+<suppressed ~5 debug messages>
+Optimizing module single_port_ram_128_8.
+Optimizing module single_port_ram_21_8.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \a25_icache..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \single_port_ram_128_8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \single_port_ram_21_8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~19 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \a25_icache.
+  Optimizing cells in module \single_port_ram_128_8.
+  Optimizing cells in module \single_port_ram_21_8.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\a25_icache'.
+<suppressed ~21 debug messages>
+Finding identical cells in module `\single_port_ram_128_8'.
+Finding identical cells in module `\single_port_ram_21_8'.
+Removed a total of 7 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \a25_icache..
+Finding unused cells or wires in module \single_port_ram_128_8..
+Finding unused cells or wires in module \single_port_ram_21_8..
+Removed 0 unused cells and 7 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module a25_icache.
+Optimizing module single_port_ram_128_8.
+Optimizing module single_port_ram_21_8.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \a25_icache..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \single_port_ram_128_8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \single_port_ram_21_8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~19 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \a25_icache.
+  Optimizing cells in module \single_port_ram_128_8.
+  Optimizing cells in module \single_port_ram_21_8.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\a25_icache'.
+Finding identical cells in module `\single_port_ram_128_8'.
+Finding identical cells in module `\single_port_ram_21_8'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \a25_icache..
+Finding unused cells or wires in module \single_port_ram_128_8..
+Finding unused cells or wires in module \single_port_ram_21_8..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module a25_icache.
+Optimizing module single_port_ram_128_8.
+Optimizing module single_port_ram_21_8.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== a25_icache ===
+
+   Number of wires:                134
+   Number of wire bits:           2151
+   Number of public wires:          52
+   Number of public wire bits:    1438
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                136
+     $add                           11
+     $dff                           33
+     $dffe                         232
+     $eq                           171
+     $logic_and                     28
+     $logic_not                     11
+     $logic_or                       7
+     $lt                            32
+     $mux                          967
+     $ne                            40
+     $not                            1
+     $pmux                           8
+     $reduce_and                    17
+     $reduce_bool                    9
+     $reduce_or                      6
+     $sdffce                         4
+     $sdffe                         18
+     $xor                            1
+
+=== single_port_ram_128_8 ===
+
+   Number of wires:                  9
+   Number of wire bits:            658
+   Number of public wires:           5
+   Number of public wire bits:     266
+   Number of memories:               1
+   Number of memory bits:        32768
+   Number of processes:              0
+   Number of cells:                  6
+     $dffe                         128
+     $mux                          137
+
+=== single_port_ram_21_8 ===
+
+   Number of wires:                  9
+   Number of wire bits:            123
+   Number of public wires:           5
+   Number of public wire bits:      52
+   Number of memories:               1
+   Number of memory bits:         5376
+   Number of processes:              0
+   Number of cells:                  6
+     $dffe                          21
+     $mux                           30
+
+=== design hierarchy ===
+
+   a25_icache                        1
+     single_port_ram_128_8           0
+     single_port_ram_21_8            0
+
+   Number of wires:                134
+   Number of wire bits:           2151
+   Number of public wires:          52
+   Number of public wire bits:    1438
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                136
+     $add                           11
+     $dff                           33
+     $dffe                         232
+     $eq                           171
+     $logic_and                     28
+     $logic_not                     11
+     $logic_or                       7
+     $lt                            32
+     $mux                          967
+     $ne                            40
+     $not                            1
+     $pmux                           8
+     $reduce_and                    17
+     $reduce_bool                    9
+     $reduce_or                      6
+     $sdffce                         4
+     $sdffe                         18
+     $xor                            1
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 3ea8185bda, CPU: user 0.22s system 0.01s, MEM: 14.80 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 24% 5x opt_expr (0 sec), 16% 3x opt_clean (0 sec), ...

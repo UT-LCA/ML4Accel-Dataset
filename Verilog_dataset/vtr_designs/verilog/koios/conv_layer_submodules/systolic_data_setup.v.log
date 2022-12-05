@@ -1,0 +1,270 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v' to AST representation.
+Generating RTLIL representation for module `\systolic_data_setup'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: systolic_data_setup 
+Automatically selected systolic_data_setup as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \systolic_data_setup
+
+2.3. Analyzing design hierarchy..
+Top module:  \systolic_data_setup
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:247$99 in module systolic_data_setup.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:210$69 in module systolic_data_setup.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:191$54 in module systolic_data_setup.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:162$46 in module systolic_data_setup.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:125$16 in module systolic_data_setup.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:105$1 in module systolic_data_setup.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 14 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:247$99'.
+     1/6: $0\b3_data_delayed_3_temp[15:0]
+     2/6: $0\b3_data_delayed_2_temp[15:0]
+     3/6: $0\b3_data_delayed_1_temp[15:0]
+     4/6: $0\b2_data_delayed_2_temp[15:0]
+     5/6: $0\b2_data_delayed_1_temp[15:0]
+     6/6: $0\b1_data_delayed_1_temp[15:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:210$69'.
+     1/1: $0\b_mem_access_counter[7:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:191$54'.
+     1/2: $0\b_mem_access[0:0]
+     2/2: $0\b_addr[9:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:162$46'.
+     1/6: $0\a3_data_delayed_3_temp[15:0]
+     2/6: $0\a3_data_delayed_2_temp[15:0]
+     3/6: $0\a3_data_delayed_1_temp[15:0]
+     4/6: $0\a2_data_delayed_2_temp[15:0]
+     5/6: $0\a2_data_delayed_1_temp[15:0]
+     6/6: $0\a1_data_delayed_1_temp[15:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:125$16'.
+     1/1: $0\a_mem_access_counter[7:0]
+Creating decoders for process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:105$1'.
+     1/2: $0\a_mem_access[0:0]
+     2/2: $0\a_addr[9:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\systolic_data_setup.\b1_data_delayed_1_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:247$99'.
+  created $dff cell `$procdff$175' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b2_data_delayed_1_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:247$99'.
+  created $dff cell `$procdff$176' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b2_data_delayed_2_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:247$99'.
+  created $dff cell `$procdff$177' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b3_data_delayed_1_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:247$99'.
+  created $dff cell `$procdff$178' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b3_data_delayed_2_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:247$99'.
+  created $dff cell `$procdff$179' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b3_data_delayed_3_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:247$99'.
+  created $dff cell `$procdff$180' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b_mem_access_counter' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:210$69'.
+  created $dff cell `$procdff$181' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b_addr' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:191$54'.
+  created $dff cell `$procdff$182' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\b_mem_access' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:191$54'.
+  created $dff cell `$procdff$183' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a1_data_delayed_1_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:162$46'.
+  created $dff cell `$procdff$184' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a2_data_delayed_1_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:162$46'.
+  created $dff cell `$procdff$185' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a2_data_delayed_2_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:162$46'.
+  created $dff cell `$procdff$186' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a3_data_delayed_1_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:162$46'.
+  created $dff cell `$procdff$187' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a3_data_delayed_2_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:162$46'.
+  created $dff cell `$procdff$188' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a3_data_delayed_3_temp' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:162$46'.
+  created $dff cell `$procdff$189' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a_mem_access_counter' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:125$16'.
+  created $dff cell `$procdff$190' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a_addr' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:105$1'.
+  created $dff cell `$procdff$191' with positive edge clock.
+Creating register for signal `\systolic_data_setup.\a_mem_access' using process `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:105$1'.
+  created $dff cell `$procdff$192' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:247$99'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:247$99'.
+Found and cleaned up 2 empty switches in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:210$69'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:210$69'.
+Found and cleaned up 2 empty switches in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:191$54'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:191$54'.
+Found and cleaned up 1 empty switch in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:162$46'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:162$46'.
+Found and cleaned up 2 empty switches in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:125$16'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:125$16'.
+Found and cleaned up 2 empty switches in `\systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:105$1'.
+Removing empty process `systolic_data_setup.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:105$1'.
+Cleaned up 10 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_data_setup.
+<suppressed ~18 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_data_setup.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_data_setup'.
+<suppressed ~42 debug messages>
+Removed a total of 14 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \systolic_data_setup..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \systolic_data_setup.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_data_setup'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$177 ($dff) from module systolic_data_setup (D = \b2_data_delayed_1_temp, Q = \b2_data_delayed_2_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$192 ($dff) from module systolic_data_setup (D = $procmux$165_Y, Q = \a_mem_access, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$194 ($sdff) from module systolic_data_setup (D = 1'1, Q = \a_mem_access).
+Adding SRST signal on $procdff$178 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:238$98_Y, Q = \b3_data_delayed_1_temp, rval = 16'0000000000000000).
+Adding EN signal on $procdff$191 ($dff) from module systolic_data_setup (D = $procmux$173_Y, Q = \a_addr).
+Adding SRST signal on $procdff$190 ($dff) from module systolic_data_setup (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:130$20_Y [7:0], Q = \a_mem_access_counter, rval = 8'00000000).
+Adding SRST signal on $procdff$179 ($dff) from module systolic_data_setup (D = \b3_data_delayed_1_temp, Q = \b3_data_delayed_2_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$189 ($dff) from module systolic_data_setup (D = \a3_data_delayed_2_temp, Q = \a3_data_delayed_3_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$180 ($dff) from module systolic_data_setup (D = \b3_data_delayed_2_temp, Q = \b3_data_delayed_3_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$181 ($dff) from module systolic_data_setup (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:215$73_Y [7:0], Q = \b_mem_access_counter, rval = 8'00000000).
+Adding EN signal on $procdff$182 ($dff) from module systolic_data_setup (D = $procmux$139_Y, Q = \b_addr).
+Adding SRST signal on $procdff$175 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:236$94_Y, Q = \b1_data_delayed_1_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$188 ($dff) from module systolic_data_setup (D = \a3_data_delayed_1_temp, Q = \a3_data_delayed_2_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$183 ($dff) from module systolic_data_setup (D = $procmux$131_Y, Q = \b_mem_access, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$218 ($sdff) from module systolic_data_setup (D = 1'1, Q = \b_mem_access).
+Adding SRST signal on $procdff$187 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:153$45_Y, Q = \a3_data_delayed_1_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$186 ($dff) from module systolic_data_setup (D = \a2_data_delayed_1_temp, Q = \a2_data_delayed_2_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$184 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:151$41_Y, Q = \a1_data_delayed_1_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$176 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:237$96_Y, Q = \b2_data_delayed_1_temp, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$185 ($dff) from module systolic_data_setup (D = $and$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/systolic_data_setup.v:152$43_Y, Q = \a2_data_delayed_1_temp, rval = 16'0000000000000000).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_data_setup..
+Removed 20 unused cells and 100 unused wires.
+<suppressed ~21 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_data_setup.
+<suppressed ~2 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \systolic_data_setup..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~10 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \systolic_data_setup.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_data_setup'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_data_setup..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_data_setup.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== systolic_data_setup ===
+
+   Number of wires:                124
+   Number of wire bits:           1052
+   Number of public wires:          52
+   Number of public wire bits:     688
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                106
+     $add                          112
+     $and                          256
+     $dffe                          20
+     $eq                            64
+     $ge                            96
+     $logic_and                     10
+     $logic_not                      8
+     $logic_or                      10
+     $lt                            16
+     $mux                          138
+     $not                           11
+     $reduce_bool                    4
+     $reduce_or                      4
+     $sdff                         208
+     $sdffe                          2
+     $sub                           32
+
+End of script. Logfile hash: aad027e703, CPU: user 0.07s system 0.00s, MEM: 13.23 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 29% 4x opt_expr (0 sec), 17% 2x read_verilog (0 sec), ...

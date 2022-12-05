@@ -1,0 +1,744 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/spmv.v
+Parsing SystemVerilog input from `/home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/spmv.v' to AST representation.
+Generating RTLIL representation for module `\spmv'.
+Generating RTLIL representation for module `\fetcher'.
+Generating RTLIL representation for module `\bvb'.
+Generating RTLIL representation for module `\Big_Channel'.
+Generating RTLIL representation for module `\Channel_Accumulator'.
+Generating RTLIL representation for module `\Channel'.
+Generating RTLIL representation for module `\Accumulator'.
+Generating RTLIL representation for module `\generic_fifo_sc_a'.
+Generating RTLIL representation for module `\dpram'.
+Generating RTLIL representation for module `\spram'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: spram               
+root of   0 design levels: dpram               
+root of   1 design levels: generic_fifo_sc_a   
+root of   2 design levels: Accumulator         
+root of   2 design levels: Channel             
+root of   3 design levels: Channel_Accumulator 
+root of   4 design levels: Big_Channel         
+root of   2 design levels: bvb                 
+root of   2 design levels: fetcher             
+root of   5 design levels: spmv                
+Automatically selected spmv as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \spmv
+Used module:     \Big_Channel
+Used module:         \Channel_Accumulator
+Used module:             \Accumulator
+Used module:                 \generic_fifo_sc_a
+Used module:                     \dpram
+Used module:             \Channel
+Used module:     \bvb
+Used module:         \spram
+Used module:     \fetcher
+Parameter \AWIDTH = 8
+Parameter \NUM_WORDS = 128
+Parameter \DWIDTH = 16
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\spram'.
+Parameter \AWIDTH = 8
+Parameter \NUM_WORDS = 128
+Parameter \DWIDTH = 16
+Generating RTLIL representation for module `$paramod$0aba6911693886ca7ec4df52454bbace0eeb3b4b\spram'.
+Parameter \dw = 8
+Parameter \aw = 3
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Generating RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \INIT = 352'0010111101101000011011110110110101100101001011110110000101100001011101000110110101100001011011100010111101000100011001010111001101101011011101000110111101110000001011110101001101110000010011010101011000101111011100110111001001100011001011110110001101101111011001010010111101110010011011110111011101011111011010010110010000101110011101000111100001110100
+Parameter \AWIDTH = 14
+Parameter \NUM_WORDS = 8864
+Parameter \DWIDTH = 8
+
+2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\spram'.
+Parameter \INIT = 352'0010111101101000011011110110110101100101001011110110000101100001011101000110110101100001011011100010111101000100011001010111001101101011011101000110111101110000001011110101001101110000010011010101011000101111011100110111001001100011001011110110001101101111011001010010111101110010011011110111011101011111011010010110010000101110011101000111100001110100
+Parameter \AWIDTH = 14
+Parameter \NUM_WORDS = 8864
+Parameter \DWIDTH = 8
+Generating RTLIL representation for module `$paramod$923ac07d8b3c251a850b4e4c66840dc210399d4b\spram'.
+Parameter \INIT = 352'0010111101101000011011110110110101100101001011110110000101100001011101000110110101100001011011100010111101000100011001010111001101101011011101000110111101110000001011110101001101110000010011010101011000101111011100110111001001100011001011110110001101101111011001010010111101100011011011110110110001011111011010010110010000101110011101000111100001110100
+Parameter \AWIDTH = 14
+Parameter \NUM_WORDS = 8864
+Parameter \DWIDTH = 8
+
+2.6. Executing AST frontend in derive mode using pre-parsed AST for module `\spram'.
+Parameter \INIT = 352'0010111101101000011011110110110101100101001011110110000101100001011101000110110101100001011011100010111101000100011001010111001101101011011101000110111101110000001011110101001101110000010011010101011000101111011100110111001001100011001011110110001101101111011001010010111101100011011011110110110001011111011010010110010000101110011101000111100001110100
+Parameter \AWIDTH = 14
+Parameter \NUM_WORDS = 8864
+Parameter \DWIDTH = 8
+Generating RTLIL representation for module `$paramod$4586d4375756b22e45a146b84f0ebaf0220cb438\spram'.
+Parameter \INIT = 360'001011110110100001101111011011010110010100101111011000010110000101110100011011010110000101101110001011110100010001100101011100110110101101110100011011110111000000101111010100110111000001001101010101100010111101110011011100100110001100101111011000110110111101100101001011110110110101100001011101000101111101110110011000010110110000101110011101000111100001110100
+Parameter \AWIDTH = 14
+Parameter \NUM_WORDS = 8864
+Parameter \DWIDTH = 8
+
+2.7. Executing AST frontend in derive mode using pre-parsed AST for module `\spram'.
+Parameter \INIT = 360'001011110110100001101111011011010110010100101111011000010110000101110100011011010110000101101110001011110100010001100101011100110110101101110100011011110111000000101111010100110111000001001101010101100010111101110011011100100110001100101111011000110110111101100101001011110110110101100001011101000101111101110110011000010110110000101110011101000111100001110100
+Parameter \AWIDTH = 14
+Parameter \NUM_WORDS = 8864
+Parameter \DWIDTH = 8
+Generating RTLIL representation for module `$paramod$0ee0f8a3f6e8feca374f9ca746b4c19a3b748c8a\spram'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \INIT = 360'001011110110100001101111011011010110010100101111011000010110000101110100011011010110000101101110001011110100010001100101011100110110101101110100011011110111000000101111010100110111000001001101010101100010111101110011011100100110001100101111011000110110111101100101001011110111011001100101011000110101111101110110011000010110110000101110011101000111100001110100
+Parameter \AWIDTH = 8
+Parameter \NUM_WORDS = 128
+Parameter \DWIDTH = 8
+
+2.8. Executing AST frontend in derive mode using pre-parsed AST for module `\spram'.
+Parameter \INIT = 360'001011110110100001101111011011010110010100101111011000010110000101110100011011010110000101101110001011110100010001100101011100110110101101110100011011110111000000101111010100110111000001001101010101100010111101110011011100100110001100101111011000110110111101100101001011110111011001100101011000110101111101110110011000010110110000101110011101000111100001110100
+Parameter \AWIDTH = 8
+Parameter \NUM_WORDS = 128
+Parameter \DWIDTH = 8
+Generating RTLIL representation for module `$paramod$c5846c4e06878c36e812a0746f90a79309de398c\spram'.
+Parameter \DWIDTH = 8
+Parameter \AWIDTH = 8
+
+2.9. Executing AST frontend in derive mode using pre-parsed AST for module `\dpram'.
+Parameter \DWIDTH = 8
+Parameter \AWIDTH = 8
+Generating RTLIL representation for module `$paramod$c6dd9bf41cc17f487c5cd45e80bf53901561430c\dpram'.
+Parameter \dw = 16
+Parameter \aw = 3
+
+2.10. Executing AST frontend in derive mode using pre-parsed AST for module `\generic_fifo_sc_a'.
+Parameter \dw = 16
+Parameter \aw = 3
+Generating RTLIL representation for module `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a'.
+Parameter \dw = 8
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a'.
+Parameter \dw = 16
+Parameter \aw = 3
+Found cached RTLIL representation for module `$paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a'.
+
+2.11. Analyzing design hierarchy..
+Top module:  \spmv
+Used module:     \Big_Channel
+Used module:         \Channel_Accumulator
+Used module:             \Accumulator
+Used module:                 $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a
+Used module:                     \dpram
+Used module:                 $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a
+Used module:             \Channel
+Used module:     \bvb
+Used module:         $paramod$c5846c4e06878c36e812a0746f90a79309de398c\spram
+Used module:     \fetcher
+Used module:         $paramod$923ac07d8b3c251a850b4e4c66840dc210399d4b\spram
+Used module:         $paramod$4586d4375756b22e45a146b84f0ebaf0220cb438\spram
+Used module:         $paramod$0ee0f8a3f6e8feca374f9ca746b4c19a3b748c8a\spram
+Used module:     $paramod$0aba6911693886ca7ec4df52454bbace0eeb3b4b\spram
+Parameter \DWIDTH = 8
+Parameter \AWIDTH = 3
+
+2.12. Executing AST frontend in derive mode using pre-parsed AST for module `\dpram'.
+Parameter \DWIDTH = 8
+Parameter \AWIDTH = 3
+Generating RTLIL representation for module `$paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram'.
+Parameter \DWIDTH = 16
+Parameter \AWIDTH = 3
+
+2.13. Executing AST frontend in derive mode using pre-parsed AST for module `\dpram'.
+Parameter \DWIDTH = 16
+Parameter \AWIDTH = 3
+Generating RTLIL representation for module `$paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram'.
+
+2.14. Analyzing design hierarchy..
+Top module:  \spmv
+Used module:     \Big_Channel
+Used module:         \Channel_Accumulator
+Used module:             \Accumulator
+Used module:                 $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a
+Used module:                     $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram
+Used module:                 $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a
+Used module:                     $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram
+Used module:             \Channel
+Used module:     \bvb
+Used module:         $paramod$c5846c4e06878c36e812a0746f90a79309de398c\spram
+Used module:     \fetcher
+Used module:         $paramod$923ac07d8b3c251a850b4e4c66840dc210399d4b\spram
+Used module:         $paramod$4586d4375756b22e45a146b84f0ebaf0220cb438\spram
+Used module:         $paramod$0ee0f8a3f6e8feca374f9ca746b4c19a3b748c8a\spram
+Used module:     $paramod$0aba6911693886ca7ec4df52454bbace0eeb3b4b\spram
+
+2.15. Analyzing design hierarchy..
+Top module:  \spmv
+Used module:     \Big_Channel
+Used module:         \Channel_Accumulator
+Used module:             \Accumulator
+Used module:                 $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a
+Used module:                     $paramod$77ff764a4267a648a0627d0b67f82ec67f8fdc0c\dpram
+Used module:                 $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a
+Used module:                     $paramod$5cd9b7e6fbb280c6ce9be4ee5d1fdcbc34edf95e\dpram
+Used module:             \Channel
+Used module:     \bvb
+Used module:         $paramod$c5846c4e06878c36e812a0746f90a79309de398c\spram
+Used module:     \fetcher
+Used module:         $paramod$923ac07d8b3c251a850b4e4c66840dc210399d4b\spram
+Used module:         $paramod$4586d4375756b22e45a146b84f0ebaf0220cb438\spram
+Used module:         $paramod$0ee0f8a3f6e8feca374f9ca746b4c19a3b748c8a\spram
+Used module:     $paramod$0aba6911693886ca7ec4df52454bbace0eeb3b4b\spram
+Removing unused module `$paramod$c6dd9bf41cc17f487c5cd45e80bf53901561430c\dpram'.
+Removing unused module `\spram'.
+Removing unused module `\dpram'.
+Removing unused module `\generic_fifo_sc_a'.
+Removed 4 unused modules.
+Warning: Resizing cell port $paramod$8f649395dea8fbb2ab37b257a4c27adb75bba46a\generic_fifo_sc_a.u0.wren_a from 32 bits to 1 bits.
+Warning: Resizing cell port $paramod$67063290d49aa5357df1233608c088390b70212f\generic_fifo_sc_a.u0.wren_a from 32 bits to 1 bits.
+Warning: Resizing cell port Accumulator.fifo_addr_out.clr from 32 bits to 1 bits.
+Warning: Resizing cell port Accumulator.fifo_data_out.clr from 32 bits to 1 bits.
+Warning: Resizing cell port Channel.fifo_mult.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_31.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_30.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_29.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_28.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_27.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_26.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_25.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_24.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_23.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_22.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_21.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_20.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_19.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_18.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_17.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_16.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_15.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_14.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_13.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_12.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_11.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_10.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_9.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_8.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_7.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_6.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_5.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_4.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_3.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_2.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_1.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.fifo_bvb_0.clr from 32 bits to 1 bits.
+Warning: Resizing cell port bvb.vector_ram.wren from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_31.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_31.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_31.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_30.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_30.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_30.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_29.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_29.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_29.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_28.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_28.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_28.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_27.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_27.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_27.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_26.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_26.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_26.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_25.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_25.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_25.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_24.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_24.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_24.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_23.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_23.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_23.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_22.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_22.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_22.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_21.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_21.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_21.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_20.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_20.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_20.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_19.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_19.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_19.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_18.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_18.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_18.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_17.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_17.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_17.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_16.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_16.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_16.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_15.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_15.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_15.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_14.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_14.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_14.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_13.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_13.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_13.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_12.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_12.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_12.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_11.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_11.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_11.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_10.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_10.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_10.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_9.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_9.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_9.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_8.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_8.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_8.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_7.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_7.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_7.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_6.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_6.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_6.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_5.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_5.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_5.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_4.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_4.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_4.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_3.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_3.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_3.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_2.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_2.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_2.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_1.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_1.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_1.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_row_id_0.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_col_id_0.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.fifo_mat_val_0.clr from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.row_id_rom.din from 32 bits to 8 bits.
+Warning: Resizing cell port fetcher.row_id_rom.wren from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.col_id_rom.din from 32 bits to 8 bits.
+Warning: Resizing cell port fetcher.col_id_rom.wren from 32 bits to 1 bits.
+Warning: Resizing cell port fetcher.mat_val_rom.din from 32 bits to 8 bits.
+Warning: Resizing cell port fetcher.mat_val_rom.wren from 32 bits to 1 bits.
+
+Warnings: 140 unique messages, 140 total
+End of script. Logfile hash: b4ac909717, CPU: user 0.09s system 0.00s, MEM: 20.92 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 78% 2x read_verilog (0 sec), 21% 1x hierarchy (0 sec)

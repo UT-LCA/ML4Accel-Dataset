@@ -1,0 +1,277 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v' to AST representation.
+Generating RTLIL representation for module `\Roulette'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:133.1-181.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: Roulette            
+Automatically selected Roulette as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \Roulette
+
+2.3. Analyzing design hierarchy..
+Top module:  \Roulette
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8 in module Roulette.
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:133$1 in module Roulette.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 3 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+     1/13: $0\dead_Roulette[0:0]
+     2/13: $0\weight_Roulette[31:0]
+     3/13: $0\layer_Roulette[2:0]
+     4/13: $0\sleftr_Roulette[31:0]
+     5/13: $0\sleftz_Roulette[31:0]
+     6/13: $0\sr_Roulette[31:0]
+     7/13: $0\sz_Roulette[31:0]
+     8/13: $0\uz_Roulette[31:0]
+     9/13: $0\uy_Roulette[31:0]
+    10/13: $0\ux_Roulette[31:0]
+    11/13: $0\z_Roulette[31:0]
+    12/13: $0\y_Roulette[31:0]
+    13/13: $0\x_Roulette[31:0]
+Creating decoders for process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:133$1'.
+     1/12: $5\weight_roulette[31:0]
+     2/12: $5\dead_roulette[0:0]
+     3/12: $4\weight_roulette[31:0]
+     4/12: $4\dead_roulette[0:0]
+     5/12: $3\weight_roulette[31:0]
+     6/12: $3\dead_roulette[0:0]
+     7/12: $2\weight_roulette[31:0]
+     8/12: $2\dead_roulette[0:0]
+     9/12: $2\randBits[31:0]
+    10/12: $1\randBits[31:0]
+    11/12: $1\dead_roulette[0:0]
+    12/12: $1\weight_roulette[31:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\Roulette.\dead_roulette' from process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:133$1'.
+No latch inferred for signal `\Roulette.\weight_roulette' from process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:133$1'.
+No latch inferred for signal `\Roulette.\randBits' from process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:133$1'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\Roulette.\x_Roulette' using process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+  created $dff cell `$procdff$173' with positive edge clock.
+Creating register for signal `\Roulette.\y_Roulette' using process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+  created $dff cell `$procdff$174' with positive edge clock.
+Creating register for signal `\Roulette.\z_Roulette' using process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+  created $dff cell `$procdff$175' with positive edge clock.
+Creating register for signal `\Roulette.\ux_Roulette' using process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+  created $dff cell `$procdff$176' with positive edge clock.
+Creating register for signal `\Roulette.\uy_Roulette' using process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+  created $dff cell `$procdff$177' with positive edge clock.
+Creating register for signal `\Roulette.\uz_Roulette' using process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+  created $dff cell `$procdff$178' with positive edge clock.
+Creating register for signal `\Roulette.\sz_Roulette' using process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+  created $dff cell `$procdff$179' with positive edge clock.
+Creating register for signal `\Roulette.\sr_Roulette' using process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+  created $dff cell `$procdff$180' with positive edge clock.
+Creating register for signal `\Roulette.\sleftz_Roulette' using process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+  created $dff cell `$procdff$181' with positive edge clock.
+Creating register for signal `\Roulette.\sleftr_Roulette' using process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+  created $dff cell `$procdff$182' with positive edge clock.
+Creating register for signal `\Roulette.\layer_Roulette' using process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+  created $dff cell `$procdff$183' with positive edge clock.
+Creating register for signal `\Roulette.\weight_Roulette' using process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+  created $dff cell `$procdff$184' with positive edge clock.
+Creating register for signal `\Roulette.\dead_Roulette' using process `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+  created $dff cell `$procdff$185' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+Removing empty process `Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:183$8'.
+Found and cleaned up 5 empty switches in `\Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:133$1'.
+Removing empty process `Roulette.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:133$1'.
+Cleaned up 7 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Roulette.
+<suppressed ~2 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Roulette.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Roulette'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Roulette..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$171.
+    dead port 1/2 on $mux $procmux$165.
+    dead port 2/2 on $mux $procmux$165.
+    dead port 1/2 on $mux $procmux$162.
+    dead port 2/2 on $mux $procmux$162.
+    dead port 1/2 on $mux $procmux$157.
+    dead port 1/2 on $mux $procmux$151.
+    dead port 2/2 on $mux $procmux$148.
+    dead port 1/2 on $mux $procmux$145.
+    dead port 2/2 on $mux $procmux$142.
+    dead port 1/2 on $mux $procmux$136.
+    dead port 2/2 on $mux $procmux$133.
+    dead port 1/2 on $mux $procmux$127.
+    dead port 2/2 on $mux $procmux$124.
+    dead port 2/2 on $mux $procmux$122.
+    dead port 1/2 on $mux $procmux$115.
+    dead port 2/2 on $mux $procmux$112.
+    dead port 2/2 on $mux $procmux$110.
+    dead port 1/2 on $mux $procmux$103.
+    dead port 2/2 on $mux $procmux$100.
+    dead port 2/2 on $mux $procmux$98.
+    dead port 1/2 on $mux $procmux$96.
+    dead port 1/2 on $mux $procmux$88.
+    dead port 2/2 on $mux $procmux$85.
+    dead port 2/2 on $mux $procmux$83.
+    dead port 1/2 on $mux $procmux$81.
+Removed 26 multiplexer ports.
+<suppressed ~14 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Roulette.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Roulette'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$185 ($dff) from module Roulette (D = $procmux$10_Y, Q = \dead_Roulette, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$186 ($sdff) from module Roulette (D = $or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/Roulette.v:202$9_Y, Q = \dead_Roulette).
+Adding SRST signal on $procdff$176 ($dff) from module Roulette (D = $procmux$55_Y, Q = \ux_Roulette, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$188 ($sdff) from module Roulette (D = \ux_RouletteMux, Q = \ux_Roulette).
+Adding SRST signal on $procdff$177 ($dff) from module Roulette (D = $procmux$50_Y, Q = \uy_Roulette, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$190 ($sdff) from module Roulette (D = \uy_RouletteMux, Q = \uy_Roulette).
+Adding SRST signal on $procdff$178 ($dff) from module Roulette (D = $procmux$45_Y, Q = \uz_Roulette, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$192 ($sdff) from module Roulette (D = \uz_RouletteMux, Q = \uz_Roulette).
+Adding SRST signal on $procdff$179 ($dff) from module Roulette (D = $procmux$40_Y, Q = \sz_Roulette, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$194 ($sdff) from module Roulette (D = \sz_RouletteMux, Q = \sz_Roulette).
+Adding SRST signal on $procdff$180 ($dff) from module Roulette (D = $procmux$35_Y, Q = \sr_Roulette, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$196 ($sdff) from module Roulette (D = \sr_RouletteMux, Q = \sr_Roulette).
+Adding SRST signal on $procdff$181 ($dff) from module Roulette (D = $procmux$30_Y, Q = \sleftz_Roulette, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$198 ($sdff) from module Roulette (D = \sleftz_RouletteMux, Q = \sleftz_Roulette).
+Adding SRST signal on $procdff$182 ($dff) from module Roulette (D = $procmux$25_Y, Q = \sleftr_Roulette, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$200 ($sdff) from module Roulette (D = \sleftr_RouletteMux, Q = \sleftr_Roulette).
+Adding SRST signal on $procdff$183 ($dff) from module Roulette (D = $procmux$20_Y, Q = \layer_Roulette, rval = 3'000).
+Adding EN signal on $auto$ff.cc:262:slice$202 ($sdff) from module Roulette (D = \layer_RouletteMux, Q = \layer_Roulette).
+Adding SRST signal on $procdff$184 ($dff) from module Roulette (D = $procmux$15_Y, Q = \weight_Roulette, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$204 ($sdff) from module Roulette (D = $procmux$131_Y, Q = \weight_Roulette).
+Adding SRST signal on $procdff$173 ($dff) from module Roulette (D = $procmux$70_Y, Q = \x_Roulette, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$206 ($sdff) from module Roulette (D = \x_RouletteMux, Q = \x_Roulette).
+Adding SRST signal on $procdff$174 ($dff) from module Roulette (D = $procmux$65_Y, Q = \y_Roulette, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$208 ($sdff) from module Roulette (D = \y_RouletteMux, Q = \y_Roulette).
+Adding SRST signal on $procdff$175 ($dff) from module Roulette (D = $procmux$60_Y, Q = \z_Roulette, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$210 ($sdff) from module Roulette (D = \z_RouletteMux, Q = \z_Roulette).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Roulette..
+Removed 26 unused cells and 140 unused wires.
+<suppressed ~28 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Roulette.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Roulette..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Roulette.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Roulette'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Roulette..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Roulette.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== Roulette ===
+
+   Number of wires:                 44
+   Number of wire bits:            854
+   Number of public wires:          32
+   Number of public wire bits:     780
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 27
+     $logic_and                      1
+     $logic_not                     33
+     $lt                            64
+     $mux                          101
+     $or                             1
+     $sdffe                        356
+
+End of script. Logfile hash: 4042dacfcf, CPU: user 0.08s system 0.00s, MEM: 12.80 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 19% 4x opt_expr (0 sec), 19% 2x opt_clean (0 sec), ...

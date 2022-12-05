@@ -1,0 +1,240 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v' to AST representation.
+Generating RTLIL representation for module `\output_logic'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: output_logic        
+Automatically selected output_logic as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \output_logic
+
+2.3. Analyzing design hierarchy..
+Top module:  \output_logic
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v:135$9 in module output_logic.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v:135$9'.
+     1/8: $0\c_data_out_3[63:0]
+     2/8: $0\c_data_out_2[63:0]
+     3/8: $0\c_data_out_1[63:0]
+     4/8: $0\counter[31:0]
+     5/8: $0\start_capturing_c_data[0:0]
+     6/8: $0\c_data_available[0:0]
+     7/8: $0\c_addr[9:0]
+     8/8: $0\c_data_out[63:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\output_logic.\c_data_out' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v:135$9'.
+  created $dff cell `$procdff$127' with positive edge clock.
+Creating register for signal `\output_logic.\c_addr' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v:135$9'.
+  created $dff cell `$procdff$128' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_available' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v:135$9'.
+  created $dff cell `$procdff$129' with positive edge clock.
+Creating register for signal `\output_logic.\start_capturing_c_data' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v:135$9'.
+  created $dff cell `$procdff$130' with positive edge clock.
+Creating register for signal `\output_logic.\counter' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v:135$9'.
+  created $dff cell `$procdff$131' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_1' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v:135$9'.
+  created $dff cell `$procdff$132' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_2' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v:135$9'.
+  created $dff cell `$procdff$133' with positive edge clock.
+Creating register for signal `\output_logic.\c_data_out_3' using process `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v:135$9'.
+  created $dff cell `$procdff$134' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 5 empty switches in `\output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v:135$9'.
+Removing empty process `output_logic.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/conv_layer_submodules/output_logic.v:135$9'.
+Cleaned up 5 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module output_logic.
+<suppressed ~1 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module output_logic.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\output_logic'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \output_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \output_logic.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\output_logic'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$134 ($dff) from module output_logic (D = $procmux$29_Y, Q = \c_data_out_3, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$135 ($sdff) from module output_logic (D = $procmux$29_Y, Q = \c_data_out_3).
+Adding SRST signal on $procdff$130 ($dff) from module output_logic (D = $procmux$80_Y, Q = \start_capturing_c_data, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$139 ($sdff) from module output_logic (D = $procmux$80_Y, Q = \start_capturing_c_data).
+Adding SRST signal on $procdff$131 ($dff) from module output_logic (D = $procmux$71_Y, Q = \counter, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$143 ($sdff) from module output_logic (D = $procmux$71_Y, Q = \counter).
+Adding SRST signal on $procdff$132 ($dff) from module output_logic (D = $procmux$57_Y, Q = \c_data_out_1, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$153 ($sdff) from module output_logic (D = $procmux$57_Y, Q = \c_data_out_1).
+Adding SRST signal on $procdff$133 ($dff) from module output_logic (D = $procmux$43_Y, Q = \c_data_out_2, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$157 ($sdff) from module output_logic (D = $procmux$43_Y, Q = \c_data_out_2).
+Adding SRST signal on $procdff$127 ($dff) from module output_logic (D = $procmux$122_Y, Q = \c_data_out, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$161 ($sdff) from module output_logic (D = $procmux$122_Y, Q = \c_data_out).
+Adding EN signal on $procdff$128 ($dff) from module output_logic (D = $procmux$111_Y, Q = \c_addr).
+Adding SRST signal on $procdff$129 ($dff) from module output_logic (D = $procmux$94_Y, Q = \c_data_available, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$168 ($sdff) from module output_logic (D = $procmux$94_Y, Q = \c_data_available).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \output_logic..
+Removed 7 unused cells and 59 unused wires.
+<suppressed ~8 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module output_logic.
+<suppressed ~8 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \output_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \output_logic.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\output_logic'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \output_logic..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module output_logic.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \output_logic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \output_logic.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\output_logic'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \output_logic..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module output_logic.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== output_logic ===
+
+   Number of wires:                 90
+   Number of wire bits:           2337
+   Number of public wires:          40
+   Number of public wire bits:     925
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 59
+     $add                          112
+     $dffe                          10
+     $eq                            64
+     $ge                            32
+     $mux                         1209
+     $ne                             5
+     $not                            1
+     $or                             1
+     $reduce_and                     5
+     $reduce_bool                   11
+     $sdffe                        290
+     $sub                           80
+
+End of script. Logfile hash: 348cf2c503, CPU: user 0.17s system 0.00s, MEM: 13.41 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 26% 3x opt_dff (0 sec), 24% 5x opt_expr (0 sec), ...

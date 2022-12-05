@@ -1,0 +1,399 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v' to AST representation.
+Generating RTLIL representation for module `\xspi_cfg'.
+Generating RTLIL representation for module `\xspi_core'.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:490: Warning: Identifier `\sck_pe' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:491: Warning: Identifier `\sck_int' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:492: Warning: Identifier `\cs_int_n' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:494: Warning: Identifier `\load_byte' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:496: Warning: Identifier `\shift_out' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:497: Warning: Identifier `\shift_in' is implicitly declared.
+/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:526: Warning: Identifier `\sck_ne' is implicitly declared.
+Generating RTLIL representation for module `\spi_ctl'.
+Generating RTLIL representation for module `\xspi_if'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: xspi_if             
+root of   0 design levels: spi_ctl             
+root of   1 design levels: xspi_core           
+root of   0 design levels: xspi_cfg            
+Automatically selected xspi_core as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \xspi_core
+Used module:     \spi_ctl
+
+2.3. Analyzing design hierarchy..
+Top module:  \xspi_core
+Used module:     \spi_ctl
+Removing unused module `\xspi_if'.
+Removing unused module `\xspi_cfg'.
+Removed 2 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 9 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102 in module spi_ctl.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:691$83 in module spi_ctl.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset_n in `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+Found async reset \reset_n in `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:691$83'.
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+     1/11: $0\byte_cnt[2:0]
+     2/11: $0\sck_out_en[0:0]
+     3/11: $0\clr_sck_cnt[0:0]
+     4/11: $0\shift_enb[0:0]
+     5/11: $0\spiif_cs[3:0]
+     6/11: $0\sck_cnt[5:0]
+     7/11: $0\op_done[0:0]
+     8/11: $0\shift_in[0:0]
+     9/11: $0\load_byte[0:0]
+    10/11: $0\cs_int_n[0:0]
+    11/11: $0\cfg_dataout[31:0]
+Creating decoders for process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:691$83'.
+     1/4: $0\clk_cnt[5:0]
+     2/4: $0\sck_pe[0:0]
+     3/4: $0\sck_ne[0:0]
+     4/4: $0\sck_int[0:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\spi_ctl.\cfg_dataout' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+  created $adff cell `$procdff$358' with positive edge clock and negative level reset.
+Creating register for signal `\spi_ctl.\cs_int_n' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+  created $adff cell `$procdff$359' with positive edge clock and negative level reset.
+Creating register for signal `\spi_ctl.\load_byte' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+  created $adff cell `$procdff$360' with positive edge clock and negative level reset.
+Creating register for signal `\spi_ctl.\shift_in' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+  created $adff cell `$procdff$361' with positive edge clock and negative level reset.
+Creating register for signal `\spi_ctl.\op_done' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+  created $dff cell `$procdff$364' with positive edge clock.
+Creating register for signal `\spi_ctl.\sck_cnt' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+  created $adff cell `$procdff$365' with positive edge clock and negative level reset.
+Creating register for signal `\spi_ctl.\spiif_cs' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+  created $adff cell `$procdff$366' with positive edge clock and negative level reset.
+Creating register for signal `\spi_ctl.\shift_enb' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+  created $adff cell `$procdff$367' with positive edge clock and negative level reset.
+Creating register for signal `\spi_ctl.\clr_sck_cnt' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+  created $adff cell `$procdff$368' with positive edge clock and negative level reset.
+Creating register for signal `\spi_ctl.\sck_out_en' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+  created $adff cell `$procdff$369' with positive edge clock and negative level reset.
+Creating register for signal `\spi_ctl.\byte_cnt' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+  created $adff cell `$procdff$370' with positive edge clock and negative level reset.
+Creating register for signal `\spi_ctl.\sck_pe' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:691$83'.
+  created $adff cell `$procdff$371' with positive edge clock and negative level reset.
+Creating register for signal `\spi_ctl.\sck_int' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:691$83'.
+  created $adff cell `$procdff$372' with positive edge clock and negative level reset.
+Creating register for signal `\spi_ctl.\sck_ne' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:691$83'.
+  created $adff cell `$procdff$373' with positive edge clock and negative level reset.
+Creating register for signal `\spi_ctl.\clk_cnt' using process `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:691$83'.
+  created $adff cell `$procdff$374' with positive edge clock and negative level reset.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 15 empty switches in `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+Removing empty process `spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:746$102'.
+Found and cleaned up 5 empty switches in `\spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:691$83'.
+Removing empty process `spi_ctl.$proc$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:691$83'.
+Cleaned up 20 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module xspi_core.
+Optimizing module spi_ctl.
+<suppressed ~12 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module xspi_core.
+Optimizing module spi_ctl.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\xspi_core'.
+Finding identical cells in module `\spi_ctl'.
+<suppressed ~87 debug messages>
+Removed a total of 29 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \xspi_core..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \spi_ctl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \xspi_core.
+  Optimizing cells in module \spi_ctl.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\xspi_core'.
+Finding identical cells in module `\spi_ctl'.
+<suppressed ~27 debug messages>
+Removed a total of 9 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$358 ($adff) from module spi_ctl (D = $procmux$313_Y [31:24], Q = \cfg_dataout [31:24]).
+Adding EN signal on $procdff$358 ($adff) from module spi_ctl (D = $procmux$313_Y [23:16], Q = \cfg_dataout [23:16]).
+Adding EN signal on $procdff$358 ($adff) from module spi_ctl (D = $procmux$313_Y [15:8], Q = \cfg_dataout [15:8]).
+Adding EN signal on $procdff$358 ($adff) from module spi_ctl (D = $procmux$313_Y [7:0], Q = \cfg_dataout [7:0]).
+Adding EN signal on $procdff$359 ($adff) from module spi_ctl (D = $procmux$300_Y, Q = \cs_int_n).
+Adding EN signal on $procdff$360 ($adff) from module spi_ctl (D = $procmux$286_Y, Q = \load_byte).
+Adding EN signal on $procdff$361 ($adff) from module spi_ctl (D = $procmux$272_Y, Q = \shift_in).
+Adding EN signal on $procdff$364 ($dff) from module spi_ctl (D = $procmux$262_Y, Q = \op_done).
+Adding EN signal on $procdff$365 ($adff) from module spi_ctl (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/communication_controller/xspi.v:761$106_Y [5:0], Q = \sck_cnt).
+Adding EN signal on $procdff$366 ($adff) from module spi_ctl (D = $procmux$214_Y, Q = \spiif_cs).
+Adding EN signal on $procdff$367 ($adff) from module spi_ctl (D = $procmux$200_Y, Q = \shift_enb).
+Adding EN signal on $procdff$368 ($adff) from module spi_ctl (D = $procmux$169_Y, Q = \clr_sck_cnt).
+Adding EN signal on $procdff$369 ($adff) from module spi_ctl (D = $procmux$153_Y, Q = \sck_out_en).
+Adding EN signal on $procdff$370 ($adff) from module spi_ctl (D = $procmux$138_Y, Q = \byte_cnt).
+Adding EN signal on $procdff$372 ($adff) from module spi_ctl (D = $procmux$354_Y, Q = \sck_int).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \xspi_core..
+Finding unused cells or wires in module \spi_ctl..
+Removed 8 unused cells and 128 unused wires.
+<suppressed ~9 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module spi_ctl.
+<suppressed ~13 debug messages>
+Optimizing module xspi_core.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \spi_ctl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \xspi_core..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \spi_ctl.
+    New ctrl vector for $pmux cell $procmux$153: { $procmux$162_CMP $auto$opt_reduce.cc:134:opt_mux$543 }
+    New ctrl vector for $pmux cell $procmux$169: { $procmux$162_CMP $auto$opt_reduce.cc:134:opt_mux$547 $auto$opt_reduce.cc:134:opt_mux$545 }
+    New ctrl vector for $pmux cell $procmux$214: { $procmux$162_CMP $procmux$189_CMP $auto$opt_reduce.cc:134:opt_mux$549 $procmux$145_CMP $procmux$215_CMP }
+  Optimizing cells in module \spi_ctl.
+  Optimizing cells in module \xspi_core.
+Performed a total of 3 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\spi_ctl'.
+<suppressed ~117 debug messages>
+Finding identical cells in module `\xspi_core'.
+Removed a total of 39 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$ff.cc:262:slice$527 ($adffe) from module spi_ctl (D = $0\sck_out_en[0:0], Q = \sck_out_en).
+Adding EN signal on $auto$ff.cc:262:slice$524 ($adffe) from module spi_ctl (D = $0\clr_sck_cnt[0:0], Q = \clr_sck_cnt).
+Adding EN signal on $auto$ff.cc:262:slice$498 ($adffe) from module spi_ctl (D = $0\spiif_cs[3:0], Q = \spiif_cs).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \spi_ctl..
+Finding unused cells or wires in module \xspi_core..
+Removed 0 unused cells and 39 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module spi_ctl.
+Optimizing module xspi_core.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \spi_ctl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \xspi_core..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \spi_ctl.
+    New input vector for $reduce_and cell $auto$opt_dff.cc:223:make_patterns_logic$568: { $auto$opt_dff.cc:197:make_patterns_logic$501 $auto$opt_dff.cc:197:make_patterns_logic$499 $auto$opt_dff.cc:197:make_patterns_logic$563 $auto$opt_dff.cc:197:make_patterns_logic$467 $auto$opt_dff.cc:197:make_patterns_logic$456 $auto$opt_dff.cc:197:make_patterns_logic$565 $auto$opt_dff.cc:197:make_patterns_logic$380 $auto$opt_dff.cc:197:make_patterns_logic$382 }
+  Optimizing cells in module \spi_ctl.
+  Optimizing cells in module \xspi_core.
+Performed a total of 1 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\spi_ctl'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\xspi_core'.
+Removed a total of 2 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \spi_ctl..
+Finding unused cells or wires in module \xspi_core..
+Removed 1 unused cells and 3 unused wires.
+<suppressed ~2 debug messages>
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module spi_ctl.
+Optimizing module xspi_core.
+
+4.23. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.24. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \spi_ctl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \xspi_core..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+4.25. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \spi_ctl.
+  Optimizing cells in module \xspi_core.
+Performed a total of 0 changes.
+
+4.26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\spi_ctl'.
+Finding identical cells in module `\xspi_core'.
+Removed a total of 0 cells.
+
+4.27. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \spi_ctl..
+Finding unused cells or wires in module \xspi_core..
+
+4.29. Executing OPT_EXPR pass (perform const folding).
+Optimizing module spi_ctl.
+Optimizing module xspi_core.
+
+4.30. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== spi_ctl ===
+
+   Number of wires:                164
+   Number of wire bits:            691
+   Number of public wires:          29
+   Number of public wire bits:     144
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                156
+     $add                            3
+     $adff                           3
+     $adffe                         14
+     $dffe                           1
+     $eq                            15
+     $logic_and                      1
+     $logic_not                      4
+     $mux                           60
+     $ne                            21
+     $pmux                           9
+     $reduce_and                    14
+     $reduce_bool                    9
+     $reduce_or                      2
+
+=== xspi_core ===
+
+   Number of wires:                 32
+   Number of wire bits:            198
+   Number of public wires:          32
+   Number of public wire bits:     198
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     spi_cfg                         1
+     spi_ctl                         1
+     spi_if                          1
+
+=== design hierarchy ===
+
+   xspi_core                         1
+     spi_ctl                         1
+
+   Number of wires:                196
+   Number of wire bits:            889
+   Number of public wires:          61
+   Number of public wire bits:     342
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                158
+     $add                            3
+     $adff                           3
+     $adffe                         14
+     $dffe                           1
+     $eq                            15
+     $logic_and                      1
+     $logic_not                      4
+     $mux                           60
+     $ne                            21
+     $pmux                           9
+     $reduce_and                    14
+     $reduce_bool                    9
+     $reduce_or                      2
+     spi_cfg                         1
+     spi_if                          1
+
+Warnings: 7 unique messages, 7 total
+End of script. Logfile hash: 21d9b9bf97, CPU: user 0.14s system 0.00s, MEM: 13.48 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 24% 6x opt_expr (0 sec), 16% 5x opt_merge (0 sec), ...

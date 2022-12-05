@@ -1,0 +1,780 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v' to AST representation.
+Generating RTLIL representation for module `\inverse_winograd_1'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:351.1-373.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\inverse_winograd_adder_30_3'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: inverse_winograd_adder_30_3
+root of   1 design levels: inverse_winograd_1  
+Automatically selected inverse_winograd_1 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \inverse_winograd_1
+Used module:     \inverse_winograd_adder_30_3
+
+2.3. Analyzing design hierarchy..
+Top module:  \inverse_winograd_1
+Used module:     \inverse_winograd_adder_30_3
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:581$27 in module inverse_winograd_1.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9 in module inverse_winograd_1.
+Marked 6 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:351$2 in module inverse_winograd_1.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 143 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\inverse_winograd_adder_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:630$32'.
+Creating decoders for process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:581$27'.
+     1/4: $0\result_wire_3[15:0]
+     2/4: $0\result_wire_2[15:0]
+     3/4: $0\result_wire_1[15:0]
+     4/4: $0\result_wire_0[15:0]
+Creating decoders for process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+     1/46: $0\serialize_count[1:0]
+     2/46: $0\out_valid_0[0:0]
+     3/46: $0\serialize_reg_3_5[29:0]
+     4/46: $0\adders_res_3_5[29:0]
+     5/46: $0\serialize_reg_3_4[29:0]
+     6/46: $0\adders_res_3_4[29:0]
+     7/46: $0\serialize_reg_3_3[29:0]
+     8/46: $0\adders_res_3_3[29:0]
+     9/46: $0\serialize_reg_3_2[29:0]
+    10/46: $0\adders_res_3_2[29:0]
+    11/46: $0\serialize_reg_3_1[29:0]
+    12/46: $0\adders_res_3_1[29:0]
+    13/46: $0\serialize_reg_3_0[29:0]
+    14/46: $0\serialize_reg_2_5[29:0]
+    15/46: $0\adders_res_2_5[29:0]
+    16/46: $0\serialize_reg_2_4[29:0]
+    17/46: $0\adders_res_2_4[29:0]
+    18/46: $0\serialize_reg_2_3[29:0]
+    19/46: $0\adders_res_2_3[29:0]
+    20/46: $0\serialize_reg_2_2[29:0]
+    21/46: $0\adders_res_2_2[29:0]
+    22/46: $0\serialize_reg_2_1[29:0]
+    23/46: $0\adders_res_2_1[29:0]
+    24/46: $0\serialize_reg_2_0[29:0]
+    25/46: $0\serialize_reg_1_5[29:0]
+    26/46: $0\adders_res_1_5[29:0]
+    27/46: $0\serialize_reg_1_4[29:0]
+    28/46: $0\adders_res_1_4[29:0]
+    29/46: $0\serialize_reg_1_3[29:0]
+    30/46: $0\adders_res_1_3[29:0]
+    31/46: $0\serialize_reg_1_2[29:0]
+    32/46: $0\adders_res_1_2[29:0]
+    33/46: $0\serialize_reg_1_1[29:0]
+    34/46: $0\adders_res_1_1[29:0]
+    35/46: $0\serialize_reg_1_0[29:0]
+    36/46: $0\serialize_reg_0_5[29:0]
+    37/46: $0\adders_res_0_5[29:0]
+    38/46: $0\serialize_reg_0_4[29:0]
+    39/46: $0\adders_res_0_4[29:0]
+    40/46: $0\serialize_reg_0_3[29:0]
+    41/46: $0\adders_res_0_3[29:0]
+    42/46: $0\serialize_reg_0_2[29:0]
+    43/46: $0\adders_res_0_2[29:0]
+    44/46: $0\serialize_reg_0_1[29:0]
+    45/46: $0\adders_res_0_1[29:0]
+    46/46: $0\serialize_reg_0_0[29:0]
+Creating decoders for process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:351$2'.
+     1/6: $6\next_state[2:0]
+     2/6: $5\next_state[2:0]
+     3/6: $4\next_state[2:0]
+     4/6: $3\next_state[2:0]
+     5/6: $2\next_state[2:0]
+     6/6: $1\next_state[2:0]
+Creating decoders for process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\inverse_winograd_1.\result_wire_0' from process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:581$27'.
+No latch inferred for signal `\inverse_winograd_1.\result_wire_1' from process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:581$27'.
+No latch inferred for signal `\inverse_winograd_1.\result_wire_2' from process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:581$27'.
+No latch inferred for signal `\inverse_winograd_1.\result_wire_3' from process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:581$27'.
+No latch inferred for signal `\inverse_winograd_1.\next_state' from process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:351$2'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\inverse_winograd_adder_30_3.\pipeline_0_0' using process `\inverse_winograd_adder_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:630$32'.
+  created $dff cell `$procdff$623' with positive edge clock.
+Creating register for signal `\inverse_winograd_adder_30_3.\pipeline_0_1' using process `\inverse_winograd_adder_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:630$32'.
+  created $dff cell `$procdff$624' with positive edge clock.
+Creating register for signal `\inverse_winograd_adder_30_3.\pipeline_0_2' using process `\inverse_winograd_adder_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:630$32'.
+  created $dff cell `$procdff$625' with positive edge clock.
+Creating register for signal `\inverse_winograd_adder_30_3.\pipeline_1_0' using process `\inverse_winograd_adder_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:630$32'.
+  created $dff cell `$procdff$626' with positive edge clock.
+Creating register for signal `\inverse_winograd_adder_30_3.\pipeline_1_1' using process `\inverse_winograd_adder_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:630$32'.
+  created $dff cell `$procdff$627' with positive edge clock.
+Creating register for signal `\inverse_winograd_adder_30_3.\pipeline_2_0' using process `\inverse_winograd_adder_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:630$32'.
+  created $dff cell `$procdff$628' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\state' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$629' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_0_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$630' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_0_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$631' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_0_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$632' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_0_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$633' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_0_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$634' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_0_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$635' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_0_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$636' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_0_4' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$637' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_0_4' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$638' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_0_5' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$639' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_0_5' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$640' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_1_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$641' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_1_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$642' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_1_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$643' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_1_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$644' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_1_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$645' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_1_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$646' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_1_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$647' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_1_4' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$648' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_1_4' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$649' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_1_5' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$650' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_1_5' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$651' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_2_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$652' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_2_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$653' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_2_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$654' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_2_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$655' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_2_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$656' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_2_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$657' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_2_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$658' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_2_4' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$659' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_2_4' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$660' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_2_5' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$661' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_2_5' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$662' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_3_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$663' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_3_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$664' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_3_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$665' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_3_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$666' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_3_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$667' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_3_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$668' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_3_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$669' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_3_4' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$670' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_3_4' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$671' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\adders_res_3_5' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$672' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_reg_3_5' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$673' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$674' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\serialize_count' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+  created $dff cell `$procdff$675' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_1_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$676' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_1_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$677' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_1_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$678' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_1_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$679' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_2_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$680' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_2_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$681' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_2_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$682' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_2_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$683' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_3_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$684' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_3_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$685' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_3_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$686' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_3_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$687' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_4_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$688' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_4_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$689' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_4_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$690' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_4_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$691' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_5_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$692' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_5_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$693' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_5_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$694' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_5_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$695' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_6_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$696' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_6_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$697' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_6_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$698' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_6_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$699' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_7_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$700' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_7_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$701' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_7_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$702' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_7_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$703' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_8_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$704' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_8_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$705' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_8_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$706' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_8_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$707' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_9_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$708' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_9_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$709' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_9_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$710' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_9_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$711' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_10_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$712' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_10_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$713' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_10_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$714' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_10_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$715' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_11_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$716' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_11_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$717' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_11_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$718' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_11_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$719' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_12_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$720' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_12_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$721' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_12_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$722' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_12_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$723' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_13_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$724' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_13_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$725' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_13_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$726' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_13_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$727' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_14_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$728' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_14_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$729' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_14_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$730' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_14_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$731' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_15_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$732' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_15_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$733' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_15_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$734' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_15_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$735' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_16_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$736' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_16_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$737' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_16_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$738' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_16_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$739' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_17_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$740' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_17_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$741' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_17_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$742' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_17_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$743' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_18_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$744' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_18_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$745' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_18_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$746' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_18_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$747' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_19_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$748' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_19_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$749' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_19_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$750' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_19_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$751' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_20_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$752' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_20_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$753' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_20_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$754' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_20_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$755' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_21_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$756' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_21_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$757' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_21_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$758' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_21_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$759' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_22_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$760' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_22_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$761' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_22_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$762' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_22_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$763' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_23_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$764' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_23_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$765' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_23_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$766' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_23_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$767' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_24_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$768' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_24_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$769' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_24_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$770' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_24_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$771' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_25_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$772' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_25_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$773' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_25_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$774' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_25_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$775' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_26_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$776' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_26_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$777' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_26_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$778' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_26_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$779' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_27_0' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$780' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_27_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$781' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_27_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$782' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\result_reg_27_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$783' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_1' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$784' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_2' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$785' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_3' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$786' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_4' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$787' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_5' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$788' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_6' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$789' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_7' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$790' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_8' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$791' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_9' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$792' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_10' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$793' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_11' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$794' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_12' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$795' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_13' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$796' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_14' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$797' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_15' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$798' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_16' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$799' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_17' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$800' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_18' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$801' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_19' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$802' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_20' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$803' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_21' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$804' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_22' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$805' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_23' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$806' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_24' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$807' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_25' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$808' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_26' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$809' with positive edge clock.
+Creating register for signal `\inverse_winograd_1.\out_valid_27' using process `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+  created $dff cell `$procdff$810' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `inverse_winograd_adder_30_3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:630$32'.
+Found and cleaned up 4 empty switches in `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:581$27'.
+Removing empty process `inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:581$27'.
+Found and cleaned up 6 empty switches in `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+Removing empty process `inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:376$9'.
+Found and cleaned up 6 empty switches in `\inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:351$2'.
+Removing empty process `inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:351$2'.
+Removing empty process `inverse_winograd_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:212$1'.
+Cleaned up 16 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module inverse_winograd_adder_30_3.
+Optimizing module inverse_winograd_1.
+<suppressed ~15 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module inverse_winograd_adder_30_3.
+Optimizing module inverse_winograd_1.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\inverse_winograd_adder_30_3'.
+Finding identical cells in module `\inverse_winograd_1'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \inverse_winograd_adder_30_3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \inverse_winograd_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$618.
+    dead port 1/2 on $mux $procmux$612.
+    dead port 1/2 on $mux $procmux$606.
+    dead port 2/2 on $mux $procmux$603.
+    dead port 1/2 on $mux $procmux$597.
+    dead port 1/2 on $mux $procmux$594.
+    dead port 1/2 on $mux $procmux$588.
+    dead port 1/2 on $mux $procmux$585.
+    dead port 2/2 on $mux $procmux$582.
+Removed 9 multiplexer ports.
+<suppressed ~51 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \inverse_winograd_adder_30_3.
+  Optimizing cells in module \inverse_winograd_1.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\inverse_winograd_adder_30_3'.
+Finding identical cells in module `\inverse_winograd_1'.
+<suppressed ~60 debug messages>
+Removed a total of 20 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$630 ($dff) from module inverse_winograd_1 (D = $procmux$573_Y, Q = \serialize_reg_0_0).
+Adding EN signal on $procdff$631 ($dff) from module inverse_winograd_1 (D = $procmux$563_Y, Q = \adders_res_0_1).
+Adding EN signal on $procdff$632 ($dff) from module inverse_winograd_1 (D = $procmux$549_Y, Q = \serialize_reg_0_1).
+Adding EN signal on $procdff$633 ($dff) from module inverse_winograd_1 (D = $procmux$539_Y, Q = \adders_res_0_2).
+Adding EN signal on $procdff$634 ($dff) from module inverse_winograd_1 (D = $procmux$525_Y, Q = \serialize_reg_0_2).
+Adding EN signal on $procdff$635 ($dff) from module inverse_winograd_1 (D = $procmux$515_Y, Q = \adders_res_0_3).
+Adding EN signal on $procdff$636 ($dff) from module inverse_winograd_1 (D = $procmux$501_Y, Q = \serialize_reg_0_3).
+Adding EN signal on $procdff$637 ($dff) from module inverse_winograd_1 (D = $procmux$491_Y, Q = \adders_res_0_4).
+Adding EN signal on $procdff$638 ($dff) from module inverse_winograd_1 (D = $procmux$477_Y, Q = \serialize_reg_0_4).
+Adding EN signal on $procdff$639 ($dff) from module inverse_winograd_1 (D = $procmux$467_Y, Q = \adders_res_0_5).
+Adding EN signal on $procdff$640 ($dff) from module inverse_winograd_1 (D = $procmux$453_Y, Q = \serialize_reg_0_5).
+Adding EN signal on $procdff$641 ($dff) from module inverse_winograd_1 (D = $procmux$440_Y, Q = \serialize_reg_1_0).
+Adding EN signal on $procdff$642 ($dff) from module inverse_winograd_1 (D = $procmux$430_Y, Q = \adders_res_1_1).
+Adding EN signal on $procdff$643 ($dff) from module inverse_winograd_1 (D = $procmux$416_Y, Q = \serialize_reg_1_1).
+Adding EN signal on $procdff$644 ($dff) from module inverse_winograd_1 (D = $procmux$406_Y, Q = \adders_res_1_2).
+Adding EN signal on $procdff$645 ($dff) from module inverse_winograd_1 (D = $procmux$392_Y, Q = \serialize_reg_1_2).
+Adding EN signal on $procdff$646 ($dff) from module inverse_winograd_1 (D = $procmux$382_Y, Q = \adders_res_1_3).
+Adding EN signal on $procdff$647 ($dff) from module inverse_winograd_1 (D = $procmux$368_Y, Q = \serialize_reg_1_3).
+Adding EN signal on $procdff$648 ($dff) from module inverse_winograd_1 (D = $procmux$358_Y, Q = \adders_res_1_4).
+Adding EN signal on $procdff$649 ($dff) from module inverse_winograd_1 (D = $procmux$344_Y, Q = \serialize_reg_1_4).
+Adding EN signal on $procdff$650 ($dff) from module inverse_winograd_1 (D = $procmux$334_Y, Q = \adders_res_1_5).
+Adding EN signal on $procdff$651 ($dff) from module inverse_winograd_1 (D = $procmux$320_Y, Q = \serialize_reg_1_5).
+Adding EN signal on $procdff$652 ($dff) from module inverse_winograd_1 (D = $procmux$307_Y, Q = \serialize_reg_2_0).
+Adding EN signal on $procdff$653 ($dff) from module inverse_winograd_1 (D = $procmux$297_Y, Q = \adders_res_2_1).
+Adding EN signal on $procdff$654 ($dff) from module inverse_winograd_1 (D = $procmux$283_Y, Q = \serialize_reg_2_1).
+Adding EN signal on $procdff$655 ($dff) from module inverse_winograd_1 (D = $procmux$273_Y, Q = \adders_res_2_2).
+Adding EN signal on $procdff$656 ($dff) from module inverse_winograd_1 (D = $procmux$259_Y, Q = \serialize_reg_2_2).
+Adding EN signal on $procdff$657 ($dff) from module inverse_winograd_1 (D = $procmux$249_Y, Q = \adders_res_2_3).
+Adding EN signal on $procdff$658 ($dff) from module inverse_winograd_1 (D = $procmux$235_Y, Q = \serialize_reg_2_3).
+Adding EN signal on $procdff$659 ($dff) from module inverse_winograd_1 (D = $procmux$225_Y, Q = \adders_res_2_4).
+Adding EN signal on $procdff$660 ($dff) from module inverse_winograd_1 (D = $procmux$211_Y, Q = \serialize_reg_2_4).
+Adding EN signal on $procdff$661 ($dff) from module inverse_winograd_1 (D = $procmux$201_Y, Q = \adders_res_2_5).
+Adding EN signal on $procdff$662 ($dff) from module inverse_winograd_1 (D = $procmux$187_Y, Q = \serialize_reg_2_5).
+Adding EN signal on $procdff$663 ($dff) from module inverse_winograd_1 (D = \adders_res_3_0, Q = \serialize_reg_3_0).
+Adding EN signal on $procdff$664 ($dff) from module inverse_winograd_1 (D = $procmux$168_Y, Q = \adders_res_3_1).
+Adding EN signal on $procdff$665 ($dff) from module inverse_winograd_1 (D = \adders_res_3_1, Q = \serialize_reg_3_1).
+Adding EN signal on $procdff$666 ($dff) from module inverse_winograd_1 (D = $procmux$148_Y, Q = \adders_res_3_2).
+Adding EN signal on $procdff$667 ($dff) from module inverse_winograd_1 (D = \adders_res_3_2, Q = \serialize_reg_3_2).
+Adding EN signal on $procdff$668 ($dff) from module inverse_winograd_1 (D = $procmux$128_Y, Q = \adders_res_3_3).
+Adding EN signal on $procdff$669 ($dff) from module inverse_winograd_1 (D = \adders_res_3_3, Q = \serialize_reg_3_3).
+Adding EN signal on $procdff$670 ($dff) from module inverse_winograd_1 (D = $procmux$108_Y, Q = \adders_res_3_4).
+Adding EN signal on $procdff$671 ($dff) from module inverse_winograd_1 (D = \adders_res_3_4, Q = \serialize_reg_3_4).
+Adding EN signal on $procdff$672 ($dff) from module inverse_winograd_1 (D = $procmux$88_Y, Q = \adders_res_3_5).
+Adding EN signal on $procdff$673 ($dff) from module inverse_winograd_1 (D = \adders_res_3_5, Q = \serialize_reg_3_5).
+Adding SRST signal on $procdff$674 ($dff) from module inverse_winograd_1 (D = $procmux$65_Y, Q = \out_valid_0, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$1111 ($sdff) from module inverse_winograd_1 (D = 1'1, Q = \out_valid_0).
+Adding SRST signal on $procdff$675 ($dff) from module inverse_winograd_1 (D = $procmux$55_Y, Q = \serialize_count, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$1117 ($sdff) from module inverse_winograd_1 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/inverse_winograd_1.v:470$16_Y, Q = \serialize_count).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \inverse_winograd_adder_30_3..
+Finding unused cells or wires in module \inverse_winograd_1..
+Removed 49 unused cells and 513 unused wires.
+<suppressed ~51 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module inverse_winograd_1.
+<suppressed ~38 debug messages>
+Optimizing module inverse_winograd_adder_30_3.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \inverse_winograd_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \inverse_winograd_adder_30_3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~63 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \inverse_winograd_1.
+  Optimizing cells in module \inverse_winograd_adder_30_3.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\inverse_winograd_1'.
+<suppressed ~366 debug messages>
+Finding identical cells in module `\inverse_winograd_adder_30_3'.
+Removed a total of 122 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \inverse_winograd_1..
+Finding unused cells or wires in module \inverse_winograd_adder_30_3..
+Removed 0 unused cells and 122 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module inverse_winograd_1.
+Optimizing module inverse_winograd_adder_30_3.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \inverse_winograd_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \inverse_winograd_adder_30_3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~63 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \inverse_winograd_1.
+  Optimizing cells in module \inverse_winograd_adder_30_3.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\inverse_winograd_1'.
+Finding identical cells in module `\inverse_winograd_adder_30_3'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \inverse_winograd_1..
+Finding unused cells or wires in module \inverse_winograd_adder_30_3..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module inverse_winograd_1.
+Optimizing module inverse_winograd_adder_30_3.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== inverse_winograd_1 ===
+
+   Number of wires:                371
+   Number of wire bits:           9439
+   Number of public wires:         218
+   Number of public wire bits:    5447
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                355
+     $add                            2
+     $dff                         3270
+     $dffe                        1320
+     $eq                             8
+     $logic_not                      3
+     $lt                            32
+     $mux                         4042
+     $ne                             5
+     $neg                          210
+     $not                            3
+     $reduce_and                    10
+     $reduce_bool                    4
+     $sdffe                          3
+
+=== inverse_winograd_adder_30_3 ===
+
+   Number of wires:                 19
+   Number of wire bits:            574
+   Number of public wires:          14
+   Number of public wire bits:     409
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 11
+     $add                          165
+     $dff                          198
+
+=== design hierarchy ===
+
+   inverse_winograd_1                1
+     inverse_winograd_adder_30_3      0
+
+   Number of wires:                371
+   Number of wire bits:           9439
+   Number of public wires:         218
+   Number of public wire bits:    5447
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                355
+     $add                            2
+     $dff                         3270
+     $dffe                        1320
+     $eq                             8
+     $logic_not                      3
+     $lt                            32
+     $mux                         4042
+     $ne                             5
+     $neg                          210
+     $not                            3
+     $reduce_and                    10
+     $reduce_bool                    4
+     $sdffe                          3
+
+End of script. Logfile hash: 76002dd17c, CPU: user 0.48s system 0.01s, MEM: 23.16 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 24% 3x opt_clean (0 sec), 21% 3x opt_dff (0 sec), ...

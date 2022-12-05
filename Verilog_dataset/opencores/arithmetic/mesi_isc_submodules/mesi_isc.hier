@@ -1,0 +1,217 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic//mesi_isc.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic//mesi_isc.v' to AST representation.
+Generating RTLIL representation for module `\mesi_isc_basic_fifo'.
+Warning: Replacing memory \entry with list of registers. See /home/zhigang/raw_data/raw_designs/opencores/arithmetic//mesi_isc.v:135
+Generating RTLIL representation for module `\mesi_isc_breq_fifos_cntl'.
+Generating RTLIL representation for module `\mesi_isc_breq_fifos'.
+Generating RTLIL representation for module `\mesi_isc_broad_cntl'.
+Generating RTLIL representation for module `\mesi_isc_broad'.
+Generating RTLIL representation for module `\mesi_isc'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   2 design levels: mesi_isc            
+root of   1 design levels: mesi_isc_broad      
+root of   0 design levels: mesi_isc_broad_cntl 
+root of   1 design levels: mesi_isc_breq_fifos 
+root of   0 design levels: mesi_isc_breq_fifos_cntl
+root of   0 design levels: mesi_isc_basic_fifo 
+Automatically selected mesi_isc as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \mesi_isc
+Used module:     \mesi_isc_breq_fifos
+Used module:         \mesi_isc_basic_fifo
+Used module:         \mesi_isc_breq_fifos_cntl
+Used module:     \mesi_isc_broad
+Used module:         \mesi_isc_broad_cntl
+Parameter 1 (\DATA_WIDTH) = 43
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\mesi_isc_basic_fifo'.
+Parameter 1 (\DATA_WIDTH) = 43
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+Generating RTLIL representation for module `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo'.
+Warning: Replacing memory \entry with list of registers. See /home/zhigang/raw_data/raw_designs/opencores/arithmetic//mesi_isc.v:135
+Parameter 1 (\DATA_WIDTH) = 43
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+Found cached RTLIL representation for module `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo'.
+Parameter 1 (\DATA_WIDTH) = 43
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+Found cached RTLIL representation for module `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo'.
+Parameter 1 (\DATA_WIDTH) = 43
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+Found cached RTLIL representation for module `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo'.
+Parameter 1 (\MBUS_CMD_WIDTH) = 3
+Parameter 2 (\ADDR_WIDTH) = 32
+Parameter 3 (\BROAD_TYPE_WIDTH) = 2
+Parameter 4 (\BROAD_ID_WIDTH) = 7
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\mesi_isc_breq_fifos_cntl'.
+Parameter 1 (\MBUS_CMD_WIDTH) = 3
+Parameter 2 (\ADDR_WIDTH) = 32
+Parameter 3 (\BROAD_TYPE_WIDTH) = 2
+Parameter 4 (\BROAD_ID_WIDTH) = 7
+Generating RTLIL representation for module `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl'.
+Parameter 1 (\DATA_WIDTH) = 41
+Parameter 2 (\FIFO_SIZE) = 4
+Parameter 3 (\FIFO_SIZE_LOG2) = 2
+
+2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\mesi_isc_basic_fifo'.
+Parameter 1 (\DATA_WIDTH) = 41
+Parameter 2 (\FIFO_SIZE) = 4
+Parameter 3 (\FIFO_SIZE_LOG2) = 2
+Generating RTLIL representation for module `$paramod$99bf206c2597982ef9448cb8fcf80a42902f18e5\mesi_isc_basic_fifo'.
+Warning: Replacing memory \entry with list of registers. See /home/zhigang/raw_data/raw_designs/opencores/arithmetic//mesi_isc.v:135
+Parameter 1 (\CBUS_CMD_WIDTH) = 3
+Parameter 2 (\BROAD_TYPE_WIDTH) = 2
+Parameter 3 (\BROAD_ID_WIDTH) = 5
+
+2.6. Executing AST frontend in derive mode using pre-parsed AST for module `\mesi_isc_broad_cntl'.
+Parameter 1 (\CBUS_CMD_WIDTH) = 3
+Parameter 2 (\BROAD_TYPE_WIDTH) = 2
+Parameter 3 (\BROAD_ID_WIDTH) = 5
+Generating RTLIL representation for module `$paramod$089939ac0423498be06deb29cd3b3826a64addfd\mesi_isc_broad_cntl'.
+Parameter 1 (\MBUS_CMD_WIDTH) = 3
+Parameter 2 (\ADDR_WIDTH) = 32
+Parameter 3 (\BROAD_TYPE_WIDTH) = 2
+Parameter 4 (\BROAD_ID_WIDTH) = 5
+Parameter 5 (\BREQ_FIFO_SIZE) = 2
+Parameter 6 (\BREQ_FIFO_SIZE_LOG2) = 1
+
+2.7. Executing AST frontend in derive mode using pre-parsed AST for module `\mesi_isc_breq_fifos'.
+Parameter 1 (\MBUS_CMD_WIDTH) = 3
+Parameter 2 (\ADDR_WIDTH) = 32
+Parameter 3 (\BROAD_TYPE_WIDTH) = 2
+Parameter 4 (\BROAD_ID_WIDTH) = 5
+Parameter 5 (\BREQ_FIFO_SIZE) = 2
+Parameter 6 (\BREQ_FIFO_SIZE_LOG2) = 1
+Generating RTLIL representation for module `$paramod$4e5c328ff2bdb2a4c6016eb98ccc18c59ee01246\mesi_isc_breq_fifos'.
+Parameter 1 (\CBUS_CMD_WIDTH) = 3
+Parameter 2 (\ADDR_WIDTH) = 32
+Parameter 3 (\BROAD_TYPE_WIDTH) = 2
+Parameter 4 (\BROAD_ID_WIDTH) = 5
+Parameter 5 (\BROAD_REQ_FIFO_SIZE) = 4
+Parameter 6 (\BROAD_REQ_FIFO_SIZE_LOG2) = 2
+
+2.8. Executing AST frontend in derive mode using pre-parsed AST for module `\mesi_isc_broad'.
+Parameter 1 (\CBUS_CMD_WIDTH) = 3
+Parameter 2 (\ADDR_WIDTH) = 32
+Parameter 3 (\BROAD_TYPE_WIDTH) = 2
+Parameter 4 (\BROAD_ID_WIDTH) = 5
+Parameter 5 (\BROAD_REQ_FIFO_SIZE) = 4
+Parameter 6 (\BROAD_REQ_FIFO_SIZE_LOG2) = 2
+Generating RTLIL representation for module `$paramod$b828cc30611bdce469c40d8785b1e3c45ce51919\mesi_isc_broad'.
+
+2.9. Analyzing design hierarchy..
+Top module:  \mesi_isc
+Used module:     $paramod$4e5c328ff2bdb2a4c6016eb98ccc18c59ee01246\mesi_isc_breq_fifos
+Used module:         \mesi_isc_basic_fifo
+Used module:         \mesi_isc_breq_fifos_cntl
+Used module:     $paramod$b828cc30611bdce469c40d8785b1e3c45ce51919\mesi_isc_broad
+Used module:         \mesi_isc_broad_cntl
+Parameter 1 (\DATA_WIDTH) = 41
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+
+2.10. Executing AST frontend in derive mode using pre-parsed AST for module `\mesi_isc_basic_fifo'.
+Parameter 1 (\DATA_WIDTH) = 41
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+Generating RTLIL representation for module `$paramod$d4ae6c2b4eeb60731e7c68a77cdcc338f295cc21\mesi_isc_basic_fifo'.
+Warning: Replacing memory \entry with list of registers. See /home/zhigang/raw_data/raw_designs/opencores/arithmetic//mesi_isc.v:135
+Parameter 1 (\DATA_WIDTH) = 41
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+Found cached RTLIL representation for module `$paramod$d4ae6c2b4eeb60731e7c68a77cdcc338f295cc21\mesi_isc_basic_fifo'.
+Parameter 1 (\DATA_WIDTH) = 41
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+Found cached RTLIL representation for module `$paramod$d4ae6c2b4eeb60731e7c68a77cdcc338f295cc21\mesi_isc_basic_fifo'.
+Parameter 1 (\DATA_WIDTH) = 41
+Parameter 2 (\FIFO_SIZE) = 2
+Parameter 3 (\FIFO_SIZE_LOG2) = 1
+Found cached RTLIL representation for module `$paramod$d4ae6c2b4eeb60731e7c68a77cdcc338f295cc21\mesi_isc_basic_fifo'.
+Parameter 1 (\MBUS_CMD_WIDTH) = 3
+Parameter 2 (\ADDR_WIDTH) = 32
+Parameter 3 (\BROAD_TYPE_WIDTH) = 2
+Parameter 4 (\BROAD_ID_WIDTH) = 5
+
+2.11. Executing AST frontend in derive mode using pre-parsed AST for module `\mesi_isc_breq_fifos_cntl'.
+Parameter 1 (\MBUS_CMD_WIDTH) = 3
+Parameter 2 (\ADDR_WIDTH) = 32
+Parameter 3 (\BROAD_TYPE_WIDTH) = 2
+Parameter 4 (\BROAD_ID_WIDTH) = 5
+Generating RTLIL representation for module `$paramod$fb80c288aca372e4a5e7798364fc4a720db0b97e\mesi_isc_breq_fifos_cntl'.
+Parameter 1 (\DATA_WIDTH) = 41
+Parameter 2 (\FIFO_SIZE) = 4
+Parameter 3 (\FIFO_SIZE_LOG2) = 2
+Found cached RTLIL representation for module `$paramod$99bf206c2597982ef9448cb8fcf80a42902f18e5\mesi_isc_basic_fifo'.
+Parameter 1 (\CBUS_CMD_WIDTH) = 3
+Parameter 2 (\BROAD_TYPE_WIDTH) = 2
+Parameter 3 (\BROAD_ID_WIDTH) = 5
+Found cached RTLIL representation for module `$paramod$089939ac0423498be06deb29cd3b3826a64addfd\mesi_isc_broad_cntl'.
+
+2.12. Analyzing design hierarchy..
+Top module:  \mesi_isc
+Used module:     $paramod$4e5c328ff2bdb2a4c6016eb98ccc18c59ee01246\mesi_isc_breq_fifos
+Used module:         $paramod$d4ae6c2b4eeb60731e7c68a77cdcc338f295cc21\mesi_isc_basic_fifo
+Used module:         $paramod$fb80c288aca372e4a5e7798364fc4a720db0b97e\mesi_isc_breq_fifos_cntl
+Used module:     $paramod$b828cc30611bdce469c40d8785b1e3c45ce51919\mesi_isc_broad
+Used module:         $paramod$99bf206c2597982ef9448cb8fcf80a42902f18e5\mesi_isc_basic_fifo
+Used module:         $paramod$089939ac0423498be06deb29cd3b3826a64addfd\mesi_isc_broad_cntl
+
+2.13. Analyzing design hierarchy..
+Top module:  \mesi_isc
+Used module:     $paramod$4e5c328ff2bdb2a4c6016eb98ccc18c59ee01246\mesi_isc_breq_fifos
+Used module:         $paramod$d4ae6c2b4eeb60731e7c68a77cdcc338f295cc21\mesi_isc_basic_fifo
+Used module:         $paramod$fb80c288aca372e4a5e7798364fc4a720db0b97e\mesi_isc_breq_fifos_cntl
+Used module:     $paramod$b828cc30611bdce469c40d8785b1e3c45ce51919\mesi_isc_broad
+Used module:         $paramod$99bf206c2597982ef9448cb8fcf80a42902f18e5\mesi_isc_basic_fifo
+Used module:         $paramod$089939ac0423498be06deb29cd3b3826a64addfd\mesi_isc_broad_cntl
+Removing unused module `$paramod$fa124f254fc07247d3616d7140cad4eee82db7a3\mesi_isc_breq_fifos_cntl'.
+Removing unused module `$paramod$30de7674ae1e9a06a594b326d7ae820eb84dc684\mesi_isc_basic_fifo'.
+Removing unused module `\mesi_isc_broad'.
+Removing unused module `\mesi_isc_broad_cntl'.
+Removing unused module `\mesi_isc_breq_fifos'.
+Removing unused module `\mesi_isc_breq_fifos_cntl'.
+Removing unused module `\mesi_isc_basic_fifo'.
+Removed 7 unused modules.
+
+Warnings: 1 unique messages, 4 total
+End of script. Logfile hash: bc664aa789, CPU: user 0.08s system 0.00s, MEM: 17.39 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 57% 1x hierarchy (0 sec), 42% 2x read_verilog (0 sec)

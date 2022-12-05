@@ -1,0 +1,298 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v' to AST representation.
+Generating RTLIL representation for module `\mode4_adder_tree'.
+Generating RTLIL representation for module `\fixed_point_addsub'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: fixed_point_addsub  
+root of   1 design levels: mode4_adder_tree    
+Automatically selected mode4_adder_tree as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \mode4_adder_tree
+Used module:     \fixed_point_addsub
+
+2.3. Analyzing design hierarchy..
+Top module:  \mode4_adder_tree
+Used module:     \fixed_point_addsub
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:168$17 in module fixed_point_addsub.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:158$13 in module fixed_point_addsub.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:101$7 in module mode4_adder_tree.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:92$4 in module mode4_adder_tree.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:80$1 in module mode4_adder_tree.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fixed_point_addsub.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:168$17'.
+     1/2: $2\result[15:0]
+     2/2: $1\result[15:0]
+Creating decoders for process `\fixed_point_addsub.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:158$13'.
+     1/1: $1\result_t[16:0]
+Creating decoders for process `\mode4_adder_tree.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:101$7'.
+     1/1: $0\outp[15:0]
+Creating decoders for process `\mode4_adder_tree.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:92$4'.
+     1/1: $0\add0_out_stage1_reg[15:0]
+Creating decoders for process `\mode4_adder_tree.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:80$1'.
+     1/2: $0\add1_out_stage2_reg[15:0]
+     2/2: $0\add0_out_stage2_reg[15:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\fixed_point_addsub.\result' from process `\fixed_point_addsub.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:168$17'.
+No latch inferred for signal `\fixed_point_addsub.\result_t' from process `\fixed_point_addsub.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:158$13'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\mode4_adder_tree.\outp' using process `\mode4_adder_tree.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:101$7'.
+  created $dff cell `$procdff$56' with positive edge clock.
+Creating register for signal `\mode4_adder_tree.\add0_out_stage1_reg' using process `\mode4_adder_tree.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:92$4'.
+  created $dff cell `$procdff$57' with positive edge clock.
+Creating register for signal `\mode4_adder_tree.\add0_out_stage2_reg' using process `\mode4_adder_tree.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:80$1'.
+  created $dff cell `$procdff$58' with positive edge clock.
+Creating register for signal `\mode4_adder_tree.\add1_out_stage2_reg' using process `\mode4_adder_tree.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:80$1'.
+  created $dff cell `$procdff$59' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\fixed_point_addsub.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:168$17'.
+Removing empty process `fixed_point_addsub.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:168$17'.
+Found and cleaned up 1 empty switch in `\fixed_point_addsub.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:158$13'.
+Removing empty process `fixed_point_addsub.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:158$13'.
+Found and cleaned up 2 empty switches in `\mode4_adder_tree.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:101$7'.
+Removing empty process `mode4_adder_tree.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:101$7'.
+Found and cleaned up 2 empty switches in `\mode4_adder_tree.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:92$4'.
+Removing empty process `mode4_adder_tree.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:92$4'.
+Found and cleaned up 2 empty switches in `\mode4_adder_tree.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:80$1'.
+Removing empty process `mode4_adder_tree.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/attention_layer_submodules/mode4_adder_tree.v:80$1'.
+Cleaned up 9 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fixed_point_addsub.
+<suppressed ~6 debug messages>
+Optimizing module mode4_adder_tree.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fixed_point_addsub.
+Optimizing module mode4_adder_tree.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fixed_point_addsub'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\mode4_adder_tree'.
+<suppressed ~6 debug messages>
+Removed a total of 3 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fixed_point_addsub..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$28.
+Running muxtree optimizer on module \mode4_adder_tree..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 1 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fixed_point_addsub.
+  Optimizing cells in module \mode4_adder_tree.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fixed_point_addsub'.
+Finding identical cells in module `\mode4_adder_tree'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$58 ($dff) from module mode4_adder_tree (D = $procmux$54_Y, Q = \add0_out_stage2_reg).
+Adding EN signal on $procdff$59 ($dff) from module mode4_adder_tree (D = $procmux$49_Y, Q = \add1_out_stage2_reg).
+Adding EN signal on $procdff$56 ($dff) from module mode4_adder_tree (D = $procmux$39_Y, Q = \outp).
+Adding EN signal on $procdff$57 ($dff) from module mode4_adder_tree (D = $procmux$44_Y, Q = \add0_out_stage1_reg).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fixed_point_addsub..
+Finding unused cells or wires in module \mode4_adder_tree..
+Removed 0 unused cells and 31 unused wires.
+<suppressed ~3 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fixed_point_addsub.
+Optimizing module mode4_adder_tree.
+<suppressed ~4 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fixed_point_addsub..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mode4_adder_tree..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fixed_point_addsub.
+  Optimizing cells in module \mode4_adder_tree.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fixed_point_addsub'.
+Finding identical cells in module `\mode4_adder_tree'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fixed_point_addsub..
+Finding unused cells or wires in module \mode4_adder_tree..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fixed_point_addsub.
+Optimizing module mode4_adder_tree.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fixed_point_addsub..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mode4_adder_tree..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~7 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fixed_point_addsub.
+  Optimizing cells in module \mode4_adder_tree.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fixed_point_addsub'.
+Finding identical cells in module `\mode4_adder_tree'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fixed_point_addsub..
+Finding unused cells or wires in module \mode4_adder_tree..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fixed_point_addsub.
+Optimizing module mode4_adder_tree.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== fixed_point_addsub ===
+
+   Number of wires:                 17
+   Number of wire bits:            206
+   Number of public wires:           9
+   Number of public wire bits:      89
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 10
+     $add                           66
+     $logic_and                      2
+     $mux                           49
+     $not                           33
+
+=== mode4_adder_tree ===
+
+   Number of wires:                 35
+   Number of wire bits:            306
+   Number of public wires:          23
+   Number of public wire bits:     219
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 20
+     $dffe                          64
+     $logic_and                      3
+     $mux                           80
+     $not                            1
+     $reduce_bool                    6
+
+=== design hierarchy ===
+
+   mode4_adder_tree                  1
+     fixed_point_addsub              0
+
+   Number of wires:                 35
+   Number of wire bits:            306
+   Number of public wires:          23
+   Number of public wire bits:     219
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 20
+     $dffe                          64
+     $logic_and                      3
+     $mux                           80
+     $not                            1
+     $reduce_bool                    6
+
+End of script. Logfile hash: 11808bff1e, CPU: user 0.07s system 0.00s, MEM: 11.88 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 23% 5x opt_expr (0 sec), 17% 4x opt_merge (0 sec), ...

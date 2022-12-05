@@ -1,0 +1,1412 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v' to AST representation.
+Warning: Encountered `full_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `full_case' attribute or the SystemVerilog `unique' or `unique0' keywords is recommended!
+Warning: Encountered `parallel_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `parallel_case' attribute or the SystemVerilog `unique' or `priority' keywords is recommended!
+Generating RTLIL representation for module `\fpu_mul'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:215.1-216.22 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\mul_r2'.
+Generating RTLIL representation for module `\pre_norm_fmul'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:532.1-538.11 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\except'.
+Generating RTLIL representation for module `\post_norm'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1006.2-1012.10 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1014.2-1020.10 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\b_left_shifter_new'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1164.1-1225.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\b_left_shifter'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1239.1-1293.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\b_right_shifter'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1307.1-1361.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\pri_encoder'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1374.1-1474.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: pri_encoder         
+root of   0 design levels: b_right_shifter     
+root of   0 design levels: b_left_shifter      
+root of   0 design levels: b_left_shifter_new  
+root of   1 design levels: post_norm           
+root of   0 design levels: except              
+root of   0 design levels: pre_norm_fmul       
+root of   0 design levels: mul_r2              
+root of   2 design levels: fpu_mul             
+Automatically selected fpu_mul as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \fpu_mul
+Used module:     \post_norm
+Used module:         \b_left_shifter_new
+Used module:         \b_left_shifter
+Used module:         \b_right_shifter
+Used module:         \pri_encoder
+Used module:     \mul_r2
+Used module:     \pre_norm_fmul
+Used module:     \except
+
+2.3. Analyzing design hierarchy..
+Top module:  \fpu_mul
+Used module:     \post_norm
+Used module:         \b_left_shifter_new
+Used module:         \b_left_shifter
+Used module:         \b_right_shifter
+Used module:         \pri_encoder
+Used module:     \mul_r2
+Used module:     \pre_norm_fmul
+Used module:     \except
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 49 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1374$1058 in module pri_encoder.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1307$1009 in module b_right_shifter.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1239$960 in module b_left_shifter.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1164$903 in module b_left_shifter_new.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1014$654 in module post_norm.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1006$653 in module post_norm.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:532$267 in module pre_norm_fmul.
+Removed a total of 3 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 80 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\pri_encoder.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1374$1058'.
+     1/49: $49\fi_ldz_r0[5:0]
+     2/49: $48\fi_ldz_r0[5:0]
+     3/49: $47\fi_ldz_r0[5:0]
+     4/49: $46\fi_ldz_r0[5:0]
+     5/49: $45\fi_ldz_r0[5:0]
+     6/49: $44\fi_ldz_r0[5:0]
+     7/49: $43\fi_ldz_r0[5:0]
+     8/49: $42\fi_ldz_r0[5:0]
+     9/49: $41\fi_ldz_r0[5:0]
+    10/49: $40\fi_ldz_r0[5:0]
+    11/49: $39\fi_ldz_r0[5:0]
+    12/49: $38\fi_ldz_r0[5:0]
+    13/49: $37\fi_ldz_r0[5:0]
+    14/49: $36\fi_ldz_r0[5:0]
+    15/49: $35\fi_ldz_r0[5:0]
+    16/49: $34\fi_ldz_r0[5:0]
+    17/49: $33\fi_ldz_r0[5:0]
+    18/49: $32\fi_ldz_r0[5:0]
+    19/49: $31\fi_ldz_r0[5:0]
+    20/49: $30\fi_ldz_r0[5:0]
+    21/49: $29\fi_ldz_r0[5:0]
+    22/49: $28\fi_ldz_r0[5:0]
+    23/49: $27\fi_ldz_r0[5:0]
+    24/49: $26\fi_ldz_r0[5:0]
+    25/49: $25\fi_ldz_r0[5:0]
+    26/49: $24\fi_ldz_r0[5:0]
+    27/49: $23\fi_ldz_r0[5:0]
+    28/49: $22\fi_ldz_r0[5:0]
+    29/49: $21\fi_ldz_r0[5:0]
+    30/49: $20\fi_ldz_r0[5:0]
+    31/49: $19\fi_ldz_r0[5:0]
+    32/49: $18\fi_ldz_r0[5:0]
+    33/49: $17\fi_ldz_r0[5:0]
+    34/49: $16\fi_ldz_r0[5:0]
+    35/49: $15\fi_ldz_r0[5:0]
+    36/49: $14\fi_ldz_r0[5:0]
+    37/49: $13\fi_ldz_r0[5:0]
+    38/49: $12\fi_ldz_r0[5:0]
+    39/49: $11\fi_ldz_r0[5:0]
+    40/49: $10\fi_ldz_r0[5:0]
+    41/49: $9\fi_ldz_r0[5:0]
+    42/49: $8\fi_ldz_r0[5:0]
+    43/49: $7\fi_ldz_r0[5:0]
+    44/49: $6\fi_ldz_r0[5:0]
+    45/49: $5\fi_ldz_r0[5:0]
+    46/49: $4\fi_ldz_r0[5:0]
+    47/49: $3\fi_ldz_r0[5:0]
+    48/49: $2\fi_ldz_r0[5:0]
+    49/49: $1\fi_ldz_r0[5:0]
+Creating decoders for process `\b_right_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1307$1009'.
+     1/1: $1\shift_out[47:0]
+Creating decoders for process `\b_left_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1239$960'.
+     1/1: $1\shift_out[47:0]
+Creating decoders for process `\b_left_shifter_new.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1164$903'.
+     1/1: $1\shift_out[55:0]
+Creating decoders for process `\post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1014$654'.
+     1/1: $1\fract_out_rnd[22:0]
+Creating decoders for process `\post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1006$653'.
+     1/1: $1\exp_out_rnd[7:0]
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:658$336'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:655$335'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:652$333'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:649$331'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:646$328'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:643$325'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:640$322'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:637$319'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:634$317'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:631$315'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:628$311'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:625$307'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:622$303'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:619$299'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:616$295'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:613$291'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:610$287'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:607$286'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:604$282'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:601$281'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:598$278'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:595$275'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:592$273'.
+Creating decoders for process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:589$271'.
+Creating decoders for process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:543$269'.
+Creating decoders for process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:540$268'.
+Creating decoders for process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:532$267'.
+     1/1: $1\sign_d[0:0]
+Creating decoders for process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:522$262'.
+Creating decoders for process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:519$261'.
+Creating decoders for process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:511$236'.
+Creating decoders for process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:502$214'.
+Creating decoders for process `\mul_r2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:426$187'.
+Creating decoders for process `\mul_r2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:423$185'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:402$184'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:397$178'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:394$174'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:391$173'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:376$143'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:367$123'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:363$122'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:360$121'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:323$103'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:320$102'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:314$94'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:303$66'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:294$46'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:277$24'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:226$19'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:221$18'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:218$17'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:215$16'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:211$15'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:208$14'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:181$13'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:178$12'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:175$11'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:172$10'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:114$9'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:111$8'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:108$7'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:105$6'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:102$5'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:99$4'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:96$3'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:93$2'.
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:89$1'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\pri_encoder.\fi_ldz_r0' from process `\pri_encoder.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1374$1058': $auto$proc_dlatch.cc:427:proc_dlatch$14761
+Latch inferred for signal `\b_right_shifter.\shift_out' from process `\b_right_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1307$1009': $auto$proc_dlatch.cc:427:proc_dlatch$15060
+Latch inferred for signal `\b_left_shifter.\shift_out' from process `\b_left_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1239$960': $auto$proc_dlatch.cc:427:proc_dlatch$15359
+Latch inferred for signal `\b_left_shifter_new.\shift_out' from process `\b_left_shifter_new.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1164$903': $auto$proc_dlatch.cc:427:proc_dlatch$15706
+No latch inferred for signal `\post_norm.\fract_out_rnd' from process `\post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1014$654'.
+No latch inferred for signal `\post_norm.\exp_out_rnd' from process `\post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1006$653'.
+No latch inferred for signal `\pre_norm_fmul.\sign_d' from process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:532$267'.
+No latch inferred for signal `\fpu_mul.\fract_denorm' from process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:215$16'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\except.\opb_dn' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:658$336'.
+  created $dff cell `$procdff$15707' with positive edge clock.
+Creating register for signal `\except.\opa_dn' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:655$335'.
+  created $dff cell `$procdff$15708' with positive edge clock.
+Creating register for signal `\except.\opb_00' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:652$333'.
+  created $dff cell `$procdff$15709' with positive edge clock.
+Creating register for signal `\except.\opa_00' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:649$331'.
+  created $dff cell `$procdff$15710' with positive edge clock.
+Creating register for signal `\except.\fractb_00' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:646$328'.
+  created $dff cell `$procdff$15711' with positive edge clock.
+Creating register for signal `\except.\fracta_00' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:643$325'.
+  created $dff cell `$procdff$15712' with positive edge clock.
+Creating register for signal `\except.\expb_00' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:640$322'.
+  created $dff cell `$procdff$15713' with positive edge clock.
+Creating register for signal `\except.\expa_00' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:637$319'.
+  created $dff cell `$procdff$15714' with positive edge clock.
+Creating register for signal `\except.\opb_inf' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:634$317'.
+  created $dff cell `$procdff$15715' with positive edge clock.
+Creating register for signal `\except.\opa_inf' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:631$315'.
+  created $dff cell `$procdff$15716' with positive edge clock.
+Creating register for signal `\except.\opb_nan' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:628$311'.
+  created $dff cell `$procdff$15717' with positive edge clock.
+Creating register for signal `\except.\opa_nan' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:625$307'.
+  created $dff cell `$procdff$15718' with positive edge clock.
+Creating register for signal `\except.\snan' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:622$303'.
+  created $dff cell `$procdff$15719' with positive edge clock.
+Creating register for signal `\except.\qnan' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:619$299'.
+  created $dff cell `$procdff$15720' with positive edge clock.
+Creating register for signal `\except.\inf' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:616$295'.
+  created $dff cell `$procdff$15721' with positive edge clock.
+Creating register for signal `\except.\ind' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:613$291'.
+  created $dff cell `$procdff$15722' with positive edge clock.
+Creating register for signal `\except.\snan_r_b' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:610$287'.
+  created $dff cell `$procdff$15723' with positive edge clock.
+Creating register for signal `\except.\qnan_r_b' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:607$286'.
+  created $dff cell `$procdff$15724' with positive edge clock.
+Creating register for signal `\except.\snan_r_a' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:604$282'.
+  created $dff cell `$procdff$15725' with positive edge clock.
+Creating register for signal `\except.\qnan_r_a' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:601$281'.
+  created $dff cell `$procdff$15726' with positive edge clock.
+Creating register for signal `\except.\infb_f_r' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:598$278'.
+  created $dff cell `$procdff$15727' with positive edge clock.
+Creating register for signal `\except.\infa_f_r' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:595$275'.
+  created $dff cell `$procdff$15728' with positive edge clock.
+Creating register for signal `\except.\expb_ff' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:592$273'.
+  created $dff cell `$procdff$15729' with positive edge clock.
+Creating register for signal `\except.\expa_ff' using process `\except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:589$271'.
+  created $dff cell `$procdff$15730' with positive edge clock.
+Creating register for signal `\pre_norm_fmul.\sign_exe' using process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:543$269'.
+  created $dff cell `$procdff$15731' with positive edge clock.
+Creating register for signal `\pre_norm_fmul.\sign' using process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:540$268'.
+  created $dff cell `$procdff$15732' with positive edge clock.
+Creating register for signal `\pre_norm_fmul.\inf' using process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:522$262'.
+  created $dff cell `$procdff$15733' with positive edge clock.
+Creating register for signal `\pre_norm_fmul.\underflow' using process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:519$261'.
+  created $dff cell `$procdff$15734' with positive edge clock.
+Creating register for signal `\pre_norm_fmul.\exp_ovf' using process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:511$236'.
+  created $dff cell `$procdff$15735' with positive edge clock.
+Creating register for signal `\pre_norm_fmul.\exp_out' using process `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:502$214'.
+  created $dff cell `$procdff$15736' with positive edge clock.
+Creating register for signal `\mul_r2.\prod' using process `\mul_r2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:426$187'.
+  created $dff cell `$procdff$15737' with positive edge clock.
+Creating register for signal `\mul_r2.\prod1' using process `\mul_r2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:423$185'.
+  created $dff cell `$procdff$15738' with positive edge clock.
+Creating register for signal `\fpu_mul.\out' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:402$184'.
+  created $dff cell `$procdff$15739' with positive edge clock.
+Creating register for signal `\fpu_mul.\zero' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:402$184'.
+  created $dff cell `$procdff$15740' with positive edge clock.
+Creating register for signal `\fpu_mul.\div_by_zero' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:402$184'.
+  created $dff cell `$procdff$15741' with positive edge clock.
+Creating register for signal `\fpu_mul.\overflow' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:402$184'.
+  created $dff cell `$procdff$15742' with positive edge clock.
+Creating register for signal `\fpu_mul.\underflow' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:402$184'.
+  created $dff cell `$procdff$15743' with positive edge clock.
+Creating register for signal `\fpu_mul.\inf' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:402$184'.
+  created $dff cell `$procdff$15744' with positive edge clock.
+Creating register for signal `\fpu_mul.\snan' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:402$184'.
+  created $dff cell `$procdff$15745' with positive edge clock.
+Creating register for signal `\fpu_mul.\qnan' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:402$184'.
+  created $dff cell `$procdff$15746' with positive edge clock.
+Creating register for signal `\fpu_mul.\ine' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:402$184'.
+  created $dff cell `$procdff$15747' with positive edge clock.
+Creating register for signal `\fpu_mul.\div_by_zero_o1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:397$178'.
+  created $dff cell `$procdff$15748' with positive edge clock.
+Creating register for signal `\fpu_mul.\opa_nan_r' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:394$174'.
+  created $dff cell `$procdff$15749' with positive edge clock.
+Creating register for signal `\fpu_mul.\zero_o1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:391$173'.
+  created $dff cell `$procdff$15750' with positive edge clock.
+Creating register for signal `\fpu_mul.\inf_o1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:376$143'.
+  created $dff cell `$procdff$15751' with positive edge clock.
+Creating register for signal `\fpu_mul.\qnan_o1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:367$123'.
+  created $dff cell `$procdff$15752' with positive edge clock.
+Creating register for signal `\fpu_mul.\snan_o1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:363$122'.
+  created $dff cell `$procdff$15753' with positive edge clock.
+Creating register for signal `\fpu_mul.\underflow_o1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:360$121'.
+  created $dff cell `$procdff$15754' with positive edge clock.
+Creating register for signal `\fpu_mul.\underflow_fmul_r' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:323$103'.
+  created $dff cell `$procdff$15755' with positive edge clock.
+Creating register for signal `\fpu_mul.\overflow_o1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:320$102'.
+  created $dff cell `$procdff$15756' with positive edge clock.
+Creating register for signal `\fpu_mul.\ine_o1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:314$94'.
+  created $dff cell `$procdff$15757' with positive edge clock.
+Creating register for signal `\fpu_mul.\out_o1 [31]' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:303$66'.
+  created $dff cell `$procdff$15758' with positive edge clock.
+Creating register for signal `\fpu_mul.\out_o1 [30:0]' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:294$46'.
+  created $dff cell `$procdff$15759' with positive edge clock.
+Creating register for signal `\fpu_mul.\inf_mul2' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:277$24'.
+  created $dff cell `$procdff$15760' with positive edge clock.
+Creating register for signal `\fpu_mul.\sign' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:226$19'.
+  created $dff cell `$procdff$15761' with positive edge clock.
+Creating register for signal `\fpu_mul.\opas_r2' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:221$18'.
+  created $dff cell `$procdff$15762' with positive edge clock.
+Creating register for signal `\fpu_mul.\opas_r1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:218$17'.
+  created $dff cell `$procdff$15763' with positive edge clock.
+Creating register for signal `\fpu_mul.\opa_r1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:211$15'.
+  created $dff cell `$procdff$15764' with positive edge clock.
+Creating register for signal `\fpu_mul.\exp_r' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:208$14'.
+  created $dff cell `$procdff$15765' with positive edge clock.
+Creating register for signal `\fpu_mul.\exp_ovf_r' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:181$13'.
+  created $dff cell `$procdff$15766' with positive edge clock.
+Creating register for signal `\fpu_mul.\inf_mul_r' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:178$12'.
+  created $dff cell `$procdff$15767' with positive edge clock.
+Creating register for signal `\fpu_mul.\sign_exe_r' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:175$11'.
+  created $dff cell `$procdff$15768' with positive edge clock.
+Creating register for signal `\fpu_mul.\sign_mul_r' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:172$10'.
+  created $dff cell `$procdff$15769' with positive edge clock.
+Creating register for signal `\fpu_mul.\fpu_op_r3' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:114$9'.
+  created $dff cell `$procdff$15770' with positive edge clock.
+Creating register for signal `\fpu_mul.\fpu_op_r2' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:111$8'.
+  created $dff cell `$procdff$15771' with positive edge clock.
+Creating register for signal `\fpu_mul.\fpu_op_r1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:108$7'.
+  created $dff cell `$procdff$15772' with positive edge clock.
+Creating register for signal `\fpu_mul.\rmode_r3' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:105$6'.
+  created $dff cell `$procdff$15773' with positive edge clock.
+Creating register for signal `\fpu_mul.\rmode_r2' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:102$5'.
+  created $dff cell `$procdff$15774' with positive edge clock.
+Creating register for signal `\fpu_mul.\rmode_r1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:99$4'.
+  created $dff cell `$procdff$15775' with positive edge clock.
+Creating register for signal `\fpu_mul.\opb_r' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:96$3'.
+  created $dff cell `$procdff$15776' with positive edge clock.
+Creating register for signal `\fpu_mul.\opa_r' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:93$2'.
+  created $dff cell `$procdff$15777' with positive edge clock.
+Creating register for signal `\fpu_mul.\fpu_op' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:89$1'.
+  created $dff cell `$procdff$15778' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 49 empty switches in `\pri_encoder.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1374$1058'.
+Removing empty process `pri_encoder.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1374$1058'.
+Found and cleaned up 1 empty switch in `\b_right_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1307$1009'.
+Removing empty process `b_right_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1307$1009'.
+Found and cleaned up 1 empty switch in `\b_left_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1239$960'.
+Removing empty process `b_left_shifter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1239$960'.
+Found and cleaned up 1 empty switch in `\b_left_shifter_new.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1164$903'.
+Removing empty process `b_left_shifter_new.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1164$903'.
+Found and cleaned up 1 empty switch in `\post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1014$654'.
+Removing empty process `post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1014$654'.
+Found and cleaned up 1 empty switch in `\post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1006$653'.
+Removing empty process `post_norm.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:1006$653'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:658$336'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:655$335'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:652$333'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:649$331'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:646$328'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:643$325'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:640$322'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:637$319'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:634$317'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:631$315'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:628$311'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:625$307'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:622$303'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:619$299'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:616$295'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:613$291'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:610$287'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:607$286'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:604$282'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:601$281'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:598$278'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:595$275'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:592$273'.
+Removing empty process `except.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:589$271'.
+Removing empty process `pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:543$269'.
+Removing empty process `pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:540$268'.
+Found and cleaned up 1 empty switch in `\pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:532$267'.
+Removing empty process `pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:532$267'.
+Removing empty process `pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:522$262'.
+Removing empty process `pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:519$261'.
+Removing empty process `pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:511$236'.
+Removing empty process `pre_norm_fmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:502$214'.
+Removing empty process `mul_r2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:426$187'.
+Removing empty process `mul_r2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:423$185'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:402$184'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:397$178'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:394$174'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:391$173'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:376$143'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:367$123'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:363$122'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:360$121'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:323$103'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:320$102'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:314$94'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:303$66'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:294$46'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:277$24'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:226$19'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:221$18'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:218$17'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:215$16'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:211$15'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:208$14'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:181$13'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:178$12'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:175$11'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:172$10'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:114$9'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:111$8'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:108$7'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:105$6'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:102$5'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:99$4'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:96$3'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:93$2'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:89$1'.
+Cleaned up 55 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pri_encoder.
+<suppressed ~3632 debug messages>
+Optimizing module b_right_shifter.
+<suppressed ~101 debug messages>
+Optimizing module b_left_shifter.
+<suppressed ~101 debug messages>
+Optimizing module b_left_shifter_new.
+<suppressed ~117 debug messages>
+Optimizing module post_norm.
+<suppressed ~16 debug messages>
+Optimizing module except.
+Optimizing module pre_norm_fmul.
+<suppressed ~9 debug messages>
+Optimizing module mul_r2.
+Optimizing module fpu_mul.
+<suppressed ~5 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pri_encoder.
+Optimizing module b_right_shifter.
+Optimizing module b_left_shifter.
+Optimizing module b_left_shifter_new.
+Optimizing module post_norm.
+Optimizing module except.
+Optimizing module pre_norm_fmul.
+Optimizing module mul_r2.
+Optimizing module fpu_mul.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pri_encoder'.
+<suppressed ~3528 debug messages>
+Finding identical cells in module `\b_right_shifter'.
+Finding identical cells in module `\b_left_shifter'.
+Finding identical cells in module `\b_left_shifter_new'.
+Finding identical cells in module `\post_norm'.
+<suppressed ~396 debug messages>
+Finding identical cells in module `\except'.
+<suppressed ~42 debug messages>
+Finding identical cells in module `\pre_norm_fmul'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\mul_r2'.
+Finding identical cells in module `\fpu_mul'.
+<suppressed ~108 debug messages>
+Removed a total of 1362 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pri_encoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_right_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_left_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_left_shifter_new..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \post_norm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:916$504: \opas -> 1'1
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:915$500: \opas -> 1'0
+  Analyzing evaluation results.
+Running muxtree optimizer on module \except..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \pre_norm_fmul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mul_r2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fpu_mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:301$65.
+    dead port 2/2 on $mux $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:301$65.
+Removed 2 multiplexer ports.
+<suppressed ~37 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pri_encoder.
+  Optimizing cells in module \b_right_shifter.
+    New ctrl vector for $pmux cell $procmux$4784: { $procmux$4832_CMP $procmux$4831_CMP $procmux$4830_CMP $procmux$4829_CMP $procmux$4828_CMP $procmux$4827_CMP $procmux$4826_CMP $procmux$4825_CMP $procmux$4824_CMP $procmux$4823_CMP $procmux$4822_CMP $procmux$4821_CMP $procmux$4820_CMP $procmux$4819_CMP $procmux$4818_CMP $procmux$4817_CMP $procmux$4816_CMP $procmux$4815_CMP $procmux$4814_CMP $procmux$4813_CMP $procmux$4812_CMP $procmux$4811_CMP $procmux$4810_CMP $procmux$4809_CMP $procmux$4808_CMP $procmux$4807_CMP $procmux$4806_CMP $procmux$4805_CMP $procmux$4804_CMP $procmux$4803_CMP $procmux$4802_CMP $procmux$4801_CMP $procmux$4800_CMP $procmux$4799_CMP $procmux$4798_CMP $procmux$4797_CMP $procmux$4796_CMP $procmux$4795_CMP $procmux$4794_CMP $procmux$4793_CMP $procmux$4792_CMP $procmux$4791_CMP $procmux$4790_CMP $procmux$4789_CMP $procmux$4788_CMP $procmux$4787_CMP $procmux$4786_CMP $procmux$4785_CMP }
+  Optimizing cells in module \b_right_shifter.
+  Optimizing cells in module \b_left_shifter.
+    New ctrl vector for $pmux cell $procmux$4835: { $procmux$4883_CMP $procmux$4882_CMP $procmux$4881_CMP $procmux$4880_CMP $procmux$4879_CMP $procmux$4878_CMP $procmux$4877_CMP $procmux$4876_CMP $procmux$4875_CMP $procmux$4874_CMP $procmux$4873_CMP $procmux$4872_CMP $procmux$4871_CMP $procmux$4870_CMP $procmux$4869_CMP $procmux$4868_CMP $procmux$4867_CMP $procmux$4866_CMP $procmux$4865_CMP $procmux$4864_CMP $procmux$4863_CMP $procmux$4862_CMP $procmux$4861_CMP $procmux$4860_CMP $procmux$4859_CMP $procmux$4858_CMP $procmux$4857_CMP $procmux$4856_CMP $procmux$4855_CMP $procmux$4854_CMP $procmux$4853_CMP $procmux$4852_CMP $procmux$4851_CMP $procmux$4850_CMP $procmux$4849_CMP $procmux$4848_CMP $procmux$4847_CMP $procmux$4846_CMP $procmux$4845_CMP $procmux$4844_CMP $procmux$4843_CMP $procmux$4842_CMP $procmux$4841_CMP $procmux$4840_CMP $procmux$4839_CMP $procmux$4838_CMP $procmux$4837_CMP $procmux$4836_CMP }
+  Optimizing cells in module \b_left_shifter.
+  Optimizing cells in module \b_left_shifter_new.
+    New ctrl vector for $pmux cell $procmux$4886: { $procmux$4942_CMP $procmux$4941_CMP $procmux$4940_CMP $procmux$4939_CMP $procmux$4938_CMP $procmux$4937_CMP $procmux$4936_CMP $procmux$4935_CMP $procmux$4934_CMP $procmux$4933_CMP $procmux$4932_CMP $procmux$4931_CMP $procmux$4930_CMP $procmux$4929_CMP $procmux$4928_CMP $procmux$4927_CMP $procmux$4926_CMP $procmux$4925_CMP $procmux$4924_CMP $procmux$4923_CMP $procmux$4922_CMP $procmux$4921_CMP $procmux$4920_CMP $procmux$4919_CMP $procmux$4918_CMP $procmux$4917_CMP $procmux$4916_CMP $procmux$4915_CMP $procmux$4914_CMP $procmux$4913_CMP $procmux$4912_CMP $procmux$4911_CMP $procmux$4910_CMP $procmux$4909_CMP $procmux$4908_CMP $procmux$4907_CMP $procmux$4906_CMP $procmux$4905_CMP $procmux$4904_CMP $procmux$4903_CMP $procmux$4902_CMP $procmux$4901_CMP $procmux$4900_CMP $procmux$4899_CMP $procmux$4898_CMP $procmux$4897_CMP $procmux$4896_CMP $procmux$4895_CMP $procmux$4894_CMP $procmux$4893_CMP $procmux$4892_CMP $procmux$4891_CMP $procmux$4890_CMP $procmux$4889_CMP $procmux$4888_CMP $procmux$4887_CMP }
+  Optimizing cells in module \b_left_shifter_new.
+  Optimizing cells in module \post_norm.
+    New ctrl vector for $pmux cell $procmux$4944: { $procmux$4948_CMP $procmux$4947_CMP $auto$opt_reduce.cc:134:opt_mux$15780 }
+    New ctrl vector for $pmux cell $procmux$4949: { $procmux$4948_CMP $procmux$4947_CMP $auto$opt_reduce.cc:134:opt_mux$15782 }
+    New ctrl vector for $mux cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:916$504: { }
+    New ctrl vector for $mux cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:915$500: { }
+    New ctrl vector for $mux cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/bgm_submodules/fpu_mul.v:915$501: { }
+  Optimizing cells in module \post_norm.
+  Optimizing cells in module \except.
+  Optimizing cells in module \pre_norm_fmul.
+    New ctrl vector for $pmux cell $procmux$4954: { $auto$opt_reduce.cc:134:opt_mux$15786 $auto$opt_reduce.cc:134:opt_mux$15784 }
+  Optimizing cells in module \pre_norm_fmul.
+  Optimizing cells in module \mul_r2.
+  Optimizing cells in module \fpu_mul.
+Performed a total of 9 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pri_encoder'.
+Finding identical cells in module `\b_right_shifter'.
+Finding identical cells in module `\b_left_shifter'.
+Finding identical cells in module `\b_left_shifter_new'.
+Finding identical cells in module `\post_norm'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\except'.
+Finding identical cells in module `\pre_norm_fmul'.
+Finding identical cells in module `\mul_r2'.
+Finding identical cells in module `\fpu_mul'.
+Removed a total of 1 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $procdff$15775 ($dff) from module fpu_mul.
+Setting constant 0-bit at position 1 on $procdff$15775 ($dff) from module fpu_mul.
+Setting constant 0-bit at position 0 on $procdff$15778 ($dff) from module fpu_mul.
+Setting constant 1-bit at position 1 on $procdff$15778 ($dff) from module fpu_mul.
+Setting constant 0-bit at position 2 on $procdff$15778 ($dff) from module fpu_mul.
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pri_encoder..
+Finding unused cells or wires in module \b_right_shifter..
+Finding unused cells or wires in module \b_left_shifter..
+Finding unused cells or wires in module \b_left_shifter_new..
+Finding unused cells or wires in module \post_norm..
+Finding unused cells or wires in module \except..
+Finding unused cells or wires in module \pre_norm_fmul..
+Finding unused cells or wires in module \mul_r2..
+Finding unused cells or wires in module \fpu_mul..
+Removed 11 unused cells and 6869 unused wires.
+<suppressed ~50 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module b_left_shifter.
+Optimizing module b_left_shifter_new.
+Optimizing module b_right_shifter.
+Optimizing module except.
+Optimizing module fpu_mul.
+Optimizing module mul_r2.
+Optimizing module post_norm.
+Optimizing module pre_norm_fmul.
+Optimizing module pri_encoder.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \b_left_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_left_shifter_new..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_right_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \except..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fpu_mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mul_r2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \post_norm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pre_norm_fmul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pri_encoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~37 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \b_left_shifter.
+  Optimizing cells in module \b_left_shifter_new.
+  Optimizing cells in module \b_right_shifter.
+  Optimizing cells in module \except.
+  Optimizing cells in module \fpu_mul.
+  Optimizing cells in module \mul_r2.
+  Optimizing cells in module \post_norm.
+  Optimizing cells in module \pre_norm_fmul.
+  Optimizing cells in module \pri_encoder.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\b_left_shifter'.
+Finding identical cells in module `\b_left_shifter_new'.
+Finding identical cells in module `\b_right_shifter'.
+Finding identical cells in module `\except'.
+Finding identical cells in module `\fpu_mul'.
+Finding identical cells in module `\mul_r2'.
+Finding identical cells in module `\post_norm'.
+Finding identical cells in module `\pre_norm_fmul'.
+Finding identical cells in module `\pri_encoder'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $procdff$15774 ($dff) from module fpu_mul.
+Setting constant 0-bit at position 1 on $procdff$15774 ($dff) from module fpu_mul.
+Setting constant 0-bit at position 0 on $procdff$15772 ($dff) from module fpu_mul.
+Setting constant 1-bit at position 1 on $procdff$15772 ($dff) from module fpu_mul.
+Setting constant 0-bit at position 2 on $procdff$15772 ($dff) from module fpu_mul.
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \b_left_shifter..
+Finding unused cells or wires in module \b_left_shifter_new..
+Finding unused cells or wires in module \b_right_shifter..
+Finding unused cells or wires in module \except..
+Finding unused cells or wires in module \fpu_mul..
+Finding unused cells or wires in module \mul_r2..
+Finding unused cells or wires in module \post_norm..
+Finding unused cells or wires in module \pre_norm_fmul..
+Finding unused cells or wires in module \pri_encoder..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module b_left_shifter.
+Optimizing module b_left_shifter_new.
+Optimizing module b_right_shifter.
+Optimizing module except.
+Optimizing module fpu_mul.
+<suppressed ~2 debug messages>
+Optimizing module mul_r2.
+Optimizing module post_norm.
+Optimizing module pre_norm_fmul.
+Optimizing module pri_encoder.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \b_left_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_left_shifter_new..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_right_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \except..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fpu_mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mul_r2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \post_norm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pre_norm_fmul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pri_encoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \b_left_shifter.
+  Optimizing cells in module \b_left_shifter_new.
+  Optimizing cells in module \b_right_shifter.
+  Optimizing cells in module \except.
+  Optimizing cells in module \fpu_mul.
+  Optimizing cells in module \mul_r2.
+  Optimizing cells in module \post_norm.
+  Optimizing cells in module \pre_norm_fmul.
+  Optimizing cells in module \pri_encoder.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\b_left_shifter'.
+Finding identical cells in module `\b_left_shifter_new'.
+Finding identical cells in module `\b_right_shifter'.
+Finding identical cells in module `\except'.
+Finding identical cells in module `\fpu_mul'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\mul_r2'.
+Finding identical cells in module `\post_norm'.
+Finding identical cells in module `\pre_norm_fmul'.
+Finding identical cells in module `\pri_encoder'.
+Removed a total of 1 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $procdff$15773 ($dff) from module fpu_mul.
+Setting constant 0-bit at position 1 on $procdff$15773 ($dff) from module fpu_mul.
+Setting constant 0-bit at position 0 on $procdff$15771 ($dff) from module fpu_mul.
+Setting constant 1-bit at position 1 on $procdff$15771 ($dff) from module fpu_mul.
+Setting constant 0-bit at position 2 on $procdff$15771 ($dff) from module fpu_mul.
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \b_left_shifter..
+Finding unused cells or wires in module \b_left_shifter_new..
+Finding unused cells or wires in module \b_right_shifter..
+Finding unused cells or wires in module \except..
+Finding unused cells or wires in module \fpu_mul..
+Finding unused cells or wires in module \mul_r2..
+Finding unused cells or wires in module \post_norm..
+Finding unused cells or wires in module \pre_norm_fmul..
+Finding unused cells or wires in module \pri_encoder..
+Removed 1 unused cells and 3 unused wires.
+<suppressed ~2 debug messages>
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module b_left_shifter.
+Optimizing module b_left_shifter_new.
+Optimizing module b_right_shifter.
+Optimizing module except.
+Optimizing module fpu_mul.
+<suppressed ~10 debug messages>
+Optimizing module mul_r2.
+Optimizing module post_norm.
+Optimizing module pre_norm_fmul.
+Optimizing module pri_encoder.
+
+4.23. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.24. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \b_left_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_left_shifter_new..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_right_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \except..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fpu_mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mul_r2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \post_norm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pre_norm_fmul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pri_encoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+4.25. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \b_left_shifter.
+  Optimizing cells in module \b_left_shifter_new.
+  Optimizing cells in module \b_right_shifter.
+  Optimizing cells in module \except.
+  Optimizing cells in module \fpu_mul.
+  Optimizing cells in module \mul_r2.
+  Optimizing cells in module \post_norm.
+  Optimizing cells in module \pre_norm_fmul.
+  Optimizing cells in module \pri_encoder.
+Performed a total of 0 changes.
+
+4.26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\b_left_shifter'.
+Finding identical cells in module `\b_left_shifter_new'.
+Finding identical cells in module `\b_right_shifter'.
+Finding identical cells in module `\except'.
+Finding identical cells in module `\fpu_mul'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\mul_r2'.
+Finding identical cells in module `\post_norm'.
+Finding identical cells in module `\pre_norm_fmul'.
+Finding identical cells in module `\pri_encoder'.
+Removed a total of 2 cells.
+
+4.27. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $procdff$15770 ($dff) from module fpu_mul.
+Setting constant 1-bit at position 1 on $procdff$15770 ($dff) from module fpu_mul.
+Setting constant 0-bit at position 2 on $procdff$15770 ($dff) from module fpu_mul.
+Setting constant 0-bit at position 0 on $procdff$15749 ($dff) from module fpu_mul.
+
+4.28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \b_left_shifter..
+Finding unused cells or wires in module \b_left_shifter_new..
+Finding unused cells or wires in module \b_right_shifter..
+Finding unused cells or wires in module \except..
+Finding unused cells or wires in module \fpu_mul..
+Finding unused cells or wires in module \mul_r2..
+Finding unused cells or wires in module \post_norm..
+Finding unused cells or wires in module \pre_norm_fmul..
+Finding unused cells or wires in module \pri_encoder..
+Removed 1 unused cells and 12 unused wires.
+<suppressed ~2 debug messages>
+
+4.29. Executing OPT_EXPR pass (perform const folding).
+Optimizing module b_left_shifter.
+Optimizing module b_left_shifter_new.
+Optimizing module b_right_shifter.
+Optimizing module except.
+Optimizing module fpu_mul.
+<suppressed ~18 debug messages>
+Optimizing module mul_r2.
+Optimizing module post_norm.
+Optimizing module pre_norm_fmul.
+Optimizing module pri_encoder.
+
+4.30. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.31. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \b_left_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_left_shifter_new..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_right_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \except..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fpu_mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mul_r2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \post_norm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pre_norm_fmul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pri_encoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+4.32. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \b_left_shifter.
+  Optimizing cells in module \b_left_shifter_new.
+  Optimizing cells in module \b_right_shifter.
+  Optimizing cells in module \except.
+  Optimizing cells in module \fpu_mul.
+  Optimizing cells in module \mul_r2.
+  Optimizing cells in module \post_norm.
+  Optimizing cells in module \pre_norm_fmul.
+  Optimizing cells in module \pri_encoder.
+Performed a total of 0 changes.
+
+4.33. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\b_left_shifter'.
+Finding identical cells in module `\b_left_shifter_new'.
+Finding identical cells in module `\b_right_shifter'.
+Finding identical cells in module `\except'.
+Finding identical cells in module `\fpu_mul'.
+Finding identical cells in module `\mul_r2'.
+Finding identical cells in module `\post_norm'.
+Finding identical cells in module `\pre_norm_fmul'.
+Finding identical cells in module `\pri_encoder'.
+Removed a total of 0 cells.
+
+4.34. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $procdff$15748 ($dff) from module fpu_mul.
+
+4.35. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \b_left_shifter..
+Finding unused cells or wires in module \b_left_shifter_new..
+Finding unused cells or wires in module \b_right_shifter..
+Finding unused cells or wires in module \except..
+Finding unused cells or wires in module \fpu_mul..
+Finding unused cells or wires in module \mul_r2..
+Finding unused cells or wires in module \post_norm..
+Finding unused cells or wires in module \pre_norm_fmul..
+Finding unused cells or wires in module \pri_encoder..
+Removed 3 unused cells and 18 unused wires.
+<suppressed ~4 debug messages>
+
+4.36. Executing OPT_EXPR pass (perform const folding).
+Optimizing module b_left_shifter.
+Optimizing module b_left_shifter_new.
+Optimizing module b_right_shifter.
+Optimizing module except.
+Optimizing module fpu_mul.
+Optimizing module mul_r2.
+Optimizing module post_norm.
+Optimizing module pre_norm_fmul.
+Optimizing module pri_encoder.
+
+4.37. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.38. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \b_left_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_left_shifter_new..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_right_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \except..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fpu_mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mul_r2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \post_norm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pre_norm_fmul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pri_encoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+4.39. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \b_left_shifter.
+  Optimizing cells in module \b_left_shifter_new.
+  Optimizing cells in module \b_right_shifter.
+  Optimizing cells in module \except.
+  Optimizing cells in module \fpu_mul.
+  Optimizing cells in module \mul_r2.
+  Optimizing cells in module \post_norm.
+  Optimizing cells in module \pre_norm_fmul.
+  Optimizing cells in module \pri_encoder.
+Performed a total of 0 changes.
+
+4.40. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\b_left_shifter'.
+Finding identical cells in module `\b_left_shifter_new'.
+Finding identical cells in module `\b_right_shifter'.
+Finding identical cells in module `\except'.
+Finding identical cells in module `\fpu_mul'.
+Finding identical cells in module `\mul_r2'.
+Finding identical cells in module `\post_norm'.
+Finding identical cells in module `\pre_norm_fmul'.
+Finding identical cells in module `\pri_encoder'.
+Removed a total of 0 cells.
+
+4.41. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $procdff$15741 ($dff) from module fpu_mul.
+
+4.42. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \b_left_shifter..
+Finding unused cells or wires in module \b_left_shifter_new..
+Finding unused cells or wires in module \b_right_shifter..
+Finding unused cells or wires in module \except..
+Finding unused cells or wires in module \fpu_mul..
+Finding unused cells or wires in module \mul_r2..
+Finding unused cells or wires in module \post_norm..
+Finding unused cells or wires in module \pre_norm_fmul..
+Finding unused cells or wires in module \pri_encoder..
+
+4.43. Executing OPT_EXPR pass (perform const folding).
+Optimizing module b_left_shifter.
+Optimizing module b_left_shifter_new.
+Optimizing module b_right_shifter.
+Optimizing module except.
+Optimizing module fpu_mul.
+Optimizing module mul_r2.
+Optimizing module post_norm.
+Optimizing module pre_norm_fmul.
+Optimizing module pri_encoder.
+
+4.44. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.45. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \b_left_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_left_shifter_new..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \b_right_shifter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \except..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fpu_mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mul_r2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \post_norm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pre_norm_fmul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pri_encoder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+4.46. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \b_left_shifter.
+  Optimizing cells in module \b_left_shifter_new.
+  Optimizing cells in module \b_right_shifter.
+  Optimizing cells in module \except.
+  Optimizing cells in module \fpu_mul.
+  Optimizing cells in module \mul_r2.
+  Optimizing cells in module \post_norm.
+  Optimizing cells in module \pre_norm_fmul.
+  Optimizing cells in module \pri_encoder.
+Performed a total of 0 changes.
+
+4.47. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\b_left_shifter'.
+Finding identical cells in module `\b_left_shifter_new'.
+Finding identical cells in module `\b_right_shifter'.
+Finding identical cells in module `\except'.
+Finding identical cells in module `\fpu_mul'.
+Finding identical cells in module `\mul_r2'.
+Finding identical cells in module `\post_norm'.
+Finding identical cells in module `\pre_norm_fmul'.
+Finding identical cells in module `\pri_encoder'.
+Removed a total of 0 cells.
+
+4.48. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.49. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \b_left_shifter..
+Finding unused cells or wires in module \b_left_shifter_new..
+Finding unused cells or wires in module \b_right_shifter..
+Finding unused cells or wires in module \except..
+Finding unused cells or wires in module \fpu_mul..
+Finding unused cells or wires in module \mul_r2..
+Finding unused cells or wires in module \post_norm..
+Finding unused cells or wires in module \pre_norm_fmul..
+Finding unused cells or wires in module \pri_encoder..
+
+4.50. Executing OPT_EXPR pass (perform const folding).
+Optimizing module b_left_shifter.
+Optimizing module b_left_shifter_new.
+Optimizing module b_right_shifter.
+Optimizing module except.
+Optimizing module fpu_mul.
+Optimizing module mul_r2.
+Optimizing module post_norm.
+Optimizing module pre_norm_fmul.
+Optimizing module pri_encoder.
+
+4.51. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== b_left_shifter ===
+
+   Number of wires:                150
+   Number of wire bits:            296
+   Number of public wires:           3
+   Number of public wire bits:     102
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                148
+     $and                           48
+     $dlatch                        48
+     $eq                           288
+     $logic_not                      6
+     $not                           49
+     $pmux                          48
+
+=== b_left_shifter_new ===
+
+   Number of wires:                174
+   Number of wire bits:            344
+   Number of public wires:           3
+   Number of public wire bits:     118
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                172
+     $and                           56
+     $dlatch                        56
+     $eq                           336
+     $logic_not                      6
+     $not                           57
+     $pmux                          56
+
+=== b_right_shifter ===
+
+   Number of wires:                150
+   Number of wire bits:            296
+   Number of public wires:           3
+   Number of public wire bits:     102
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                148
+     $and                           48
+     $dlatch                        48
+     $eq                           288
+     $logic_not                      6
+     $not                           49
+     $pmux                          48
+
+=== except ===
+
+   Number of wires:                 61
+   Number of wire bits:            179
+   Number of public wires:          31
+   Number of public wire bits:     149
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 52
+     $and                           13
+     $dff                           22
+     $logic_not                      6
+     $or                             3
+     $reduce_and                    16
+     $reduce_or                    106
+
+=== fpu_mul ===
+
+   Number of wires:                151
+   Number of wire bits:            696
+   Number of public wires:          91
+   Number of public wire bits:     606
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                105
+     $and                           21
+     $dff                          161
+     $eq                             8
+     $logic_not                     44
+     $mux                           63
+     $or                            29
+     $reduce_and                     8
+     $reduce_bool                   48
+     $reduce_or                     54
+
+=== mul_r2 ===
+
+   Number of wires:                  6
+   Number of wire bits:            193
+   Number of public wires:           5
+   Number of public wire bits:     145
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $dff                           96
+     $mul                           48
+
+=== post_norm ===
+
+   Number of wires:                458
+   Number of wire bits:           1475
+   Number of public wires:         133
+   Number of public wire bits:     995
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                435
+     $add                           81
+     $and                          169
+     $eq                            34
+     $gt                            55
+     $logic_not                     38
+     $lt                            66
+     $mux                          628
+     $ne                            32
+     $or                            83
+     $pmux                          31
+     $reduce_and                    54
+     $reduce_or                    197
+     $sub                          118
+
+=== pre_norm_fmul ===
+
+   Number of wires:                 82
+   Number of wire bits:            349
+   Number of public wires:          34
+   Number of public wire bits:     227
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 75
+     $add                           34
+     $and                           15
+     $dff                           16
+     $eq                            17
+     $gt                             9
+     $logic_not                     10
+     $lt                             8
+     $mux                           85
+     $or                             8
+     $pmux                           1
+     $reduce_or                    128
+     $sub                           34
+
+=== pri_encoder ===
+
+   Number of wires:               1371
+   Number of wire bits:           1663
+   Number of public wires:           3
+   Number of public wire bits:      60
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1369
+     $and                         1224
+     $dlatch                         6
+     $eq                          1175
+     $logic_not                     48
+     $mux                          282
+     $not                           49
+
+=== design hierarchy ===
+
+   fpu_mul                           1
+     except                          0
+     mul_r2                          0
+     post_norm                       0
+       b_left_shifter                0
+       b_left_shifter_new            0
+       b_right_shifter               0
+       pri_encoder                   0
+     pre_norm_fmul                   0
+
+   Number of wires:                151
+   Number of wire bits:            696
+   Number of public wires:          91
+   Number of public wire bits:     606
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                105
+     $and                           21
+     $dff                          161
+     $eq                             8
+     $logic_not                     44
+     $mux                           63
+     $or                            29
+     $reduce_and                     8
+     $reduce_bool                   48
+     $reduce_or                     54
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 72acc93f94, CPU: user 2.42s system 0.02s, MEM: 44.14 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 34% 9x opt_expr (0 sec), 14% 7x opt_clean (0 sec), ...

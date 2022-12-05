@@ -1,0 +1,167 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/DATA/raw_designs/vtr_designs/verilog/boundtop.v
+Parsing SystemVerilog input from `/home/zhigang/DATA/raw_designs/vtr_designs/verilog/boundtop.v' to AST representation.
+Generating RTLIL representation for module `\single_port_ram'.
+Generating RTLIL representation for module `\dual_port_ram'.
+Generating RTLIL representation for module `\paj_boundtop_hierarchy_no_mem'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/boundtop.v:316.5-330.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\resulttransmit'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/boundtop.v:488.5-569.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\boundcontroller'.
+Generating RTLIL representation for module `\onlyonecycle'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/boundtop.v:1480.5-1525.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\vblockramcontroller'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/boundtop.v:1591.5-1706.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\spramblock'.
+Generating RTLIL representation for module `\sramcontroller'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/boundtop.v:1816.5-1963.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\resultinterface'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/boundtop.v:2091.5-2170.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\rayinterface'.
+Generating RTLIL representation for module `\sortedstack'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/boundtop.v:2299.5-2335.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\listhandler'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/boundtop.v:2580.5-2601.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/boundtop.v:2632.5-2840.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\spram'.
+Generating RTLIL representation for module `\resultcounter'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: resultcounter       
+root of   0 design levels: spram               
+root of   1 design levels: listhandler         
+root of   0 design levels: sortedstack         
+root of   0 design levels: rayinterface        
+root of   0 design levels: resultinterface     
+root of   0 design levels: sramcontroller      
+root of   1 design levels: spramblock          
+root of   2 design levels: vblockramcontroller 
+root of   0 design levels: onlyonecycle        
+root of   0 design levels: boundcontroller     
+root of   0 design levels: resulttransmit      
+root of   3 design levels: paj_boundtop_hierarchy_no_mem
+root of   0 design levels: dual_port_ram       
+root of   0 design levels: single_port_ram     
+Automatically selected paj_boundtop_hierarchy_no_mem as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \paj_boundtop_hierarchy_no_mem
+Used module:     \resultcounter
+Used module:     \listhandler
+Used module:         \spram
+Used module:     \sortedstack
+Used module:     \resulttransmit
+Used module:     \boundcontroller
+Used module:     \rayinterface
+Used module:     \resultinterface
+Used module:     \sramcontroller
+Used module:     \vblockramcontroller
+Used module:         \spramblock
+Used module:             \single_port_ram
+Used module:     \onlyonecycle
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 10
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\single_port_ram'.
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 10
+Generating RTLIL representation for module `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \paj_boundtop_hierarchy_no_mem
+Used module:     \resultcounter
+Used module:     \listhandler
+Used module:         \spram
+Used module:     \sortedstack
+Used module:     \resulttransmit
+Used module:     \boundcontroller
+Used module:     \rayinterface
+Used module:     \resultinterface
+Used module:     \sramcontroller
+Used module:     \vblockramcontroller
+Used module:         \spramblock
+Used module:             $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram
+Used module:     \onlyonecycle
+
+2.5. Analyzing design hierarchy..
+Top module:  \paj_boundtop_hierarchy_no_mem
+Used module:     \resultcounter
+Used module:     \listhandler
+Used module:         \spram
+Used module:     \sortedstack
+Used module:     \resulttransmit
+Used module:     \boundcontroller
+Used module:     \rayinterface
+Used module:     \resultinterface
+Used module:     \sramcontroller
+Used module:     \vblockramcontroller
+Used module:         \spramblock
+Used module:             $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram
+Used module:     \onlyonecycle
+Removing unused module `\dual_port_ram'.
+Removing unused module `\single_port_ram'.
+Removed 2 unused modules.
+Mapping positional arguments of cell listhandler.ram (spram).
+Mapping positional arguments of cell vblockramcontroller.ramblock (spramblock).
+Mapping positional arguments of cell paj_boundtop_hierarchy_no_mem.rc (resultcounter).
+Mapping positional arguments of cell paj_boundtop_hierarchy_no_mem.lh02 (listhandler).
+Mapping positional arguments of cell paj_boundtop_hierarchy_no_mem.lh01 (listhandler).
+Mapping positional arguments of cell paj_boundtop_hierarchy_no_mem.st (sortedstack).
+Mapping positional arguments of cell paj_boundtop_hierarchy_no_mem.restransinst (resulttransmit).
+Mapping positional arguments of cell paj_boundtop_hierarchy_no_mem.boundcont10 (boundcontroller).
+Mapping positional arguments of cell paj_boundtop_hierarchy_no_mem.boundcont01 (boundcontroller).
+Mapping positional arguments of cell paj_boundtop_hierarchy_no_mem.rayint (rayinterface).
+Mapping positional arguments of cell paj_boundtop_hierarchy_no_mem.ri (resultinterface).
+Mapping positional arguments of cell paj_boundtop_hierarchy_no_mem.trilist (sramcontroller).
+Mapping positional arguments of cell paj_boundtop_hierarchy_no_mem.offsettable (vblockramcontroller).
+Mapping positional arguments of cell paj_boundtop_hierarchy_no_mem.oc (onlyonecycle).
+
+End of script. Logfile hash: 9678937d90, CPU: user 0.16s system 0.00s, MEM: 23.13 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 99% 2x read_verilog (0 sec), 0% 1x hierarchy (0 sec)

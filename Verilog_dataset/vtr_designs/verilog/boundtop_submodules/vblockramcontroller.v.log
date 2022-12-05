@@ -1,0 +1,357 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v' to AST representation.
+Generating RTLIL representation for module `\vblockramcontroller'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:57.5-172.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\spramblock'.
+Generating RTLIL representation for module `\single_port_ram'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: single_port_ram     
+root of   1 design levels: spramblock          
+root of   2 design levels: vblockramcontroller 
+Automatically selected vblockramcontroller as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \vblockramcontroller
+Used module:     \spramblock
+Used module:         \single_port_ram
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 10
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\single_port_ram'.
+Parameter \DATA_WIDTH = 32
+Parameter \ADDR_WIDTH = 10
+Generating RTLIL representation for module `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \vblockramcontroller
+Used module:     \spramblock
+Used module:         $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram
+
+2.5. Analyzing design hierarchy..
+Top module:  \vblockramcontroller
+Used module:     \spramblock
+Used module:         $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram
+Removing unused module `\single_port_ram'.
+Removed 1 unused modules.
+Mapping positional arguments of cell vblockramcontroller.ramblock (spramblock).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:215$29 in module $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.
+Marked 11 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:57$5 in module vblockramcontroller.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:38$3 in module vblockramcontroller.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 10 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:215$29'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:217$28_EN[31:0]$35
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:217$28_DATA[31:0]$34
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:217$28_ADDR[9:0]$33
+     4/4: $0\out[31:0]
+Creating decoders for process `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:57$5'.
+     1/19: $8\next_state[2:0]
+     2/19: $7\next_state[2:0]
+     3/19: $3\temp_waddr[9:0]
+     4/19: $6\next_state[2:0]
+     5/19: $3\we[0:0]
+     6/19: $5\next_state[2:0]
+     7/19: $2\we[0:0]
+     8/19: $4\next_state[2:0]
+     9/19: $2\temp_datavalid[0:0]
+    10/19: $2\temp_waddr[9:0]
+    11/19: $3\next_state[2:0]
+    12/19: $2\next_state[2:0]
+    13/19: $1\temp_datavalid[0:0]
+    14/19: $1\temp_waddr[9:0]
+    15/19: $1\next_state[2:0]
+    16/19: $1\want_data[0:0]
+    17/19: $1\want_addr[0:0]
+    18/19: $1\we[0:0]
+    19/19: $1\temp_data[31:0]
+Creating decoders for process `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:38$3'.
+     1/4: $0\datavalid[0:0]
+     2/4: $0\data[31:0]
+     3/4: $0\waddr[9:0]
+     4/4: $0\state[2:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\vblockramcontroller.\want_addr' from process `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:57$5': $auto$proc_dlatch.cc:427:proc_dlatch$269
+Latch inferred for signal `\vblockramcontroller.\want_data' from process `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:57$5': $auto$proc_dlatch.cc:427:proc_dlatch$310
+Latch inferred for signal `\vblockramcontroller.\next_state' from process `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:57$5': $auto$proc_dlatch.cc:427:proc_dlatch$351
+Latch inferred for signal `\vblockramcontroller.\we' from process `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:57$5': $auto$proc_dlatch.cc:427:proc_dlatch$436
+Latch inferred for signal `\vblockramcontroller.\temp_data' from process `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:57$5': $auto$proc_dlatch.cc:427:proc_dlatch$447
+Latch inferred for signal `\vblockramcontroller.\temp_waddr' from process `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:57$5': $auto$proc_dlatch.cc:427:proc_dlatch$500
+Latch inferred for signal `\vblockramcontroller.\temp_datavalid' from process `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:57$5': $auto$proc_dlatch.cc:427:proc_dlatch$535
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.\out' using process `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:215$29'.
+  created $dff cell `$procdff$536' with positive edge clock.
+Creating register for signal `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:217$28_ADDR' using process `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:215$29'.
+  created $dff cell `$procdff$537' with positive edge clock.
+Creating register for signal `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:217$28_DATA' using process `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:215$29'.
+  created $dff cell `$procdff$538' with positive edge clock.
+Creating register for signal `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:217$28_EN' using process `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:215$29'.
+  created $dff cell `$procdff$539' with positive edge clock.
+Creating register for signal `\vblockramcontroller.\data' using process `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:38$3'.
+  created $dff cell `$procdff$540' with positive edge clock.
+Creating register for signal `\vblockramcontroller.\datavalid' using process `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:38$3'.
+  created $dff cell `$procdff$541' with positive edge clock.
+Creating register for signal `\vblockramcontroller.\state' using process `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:38$3'.
+  created $dff cell `$procdff$542' with positive edge clock.
+Creating register for signal `\vblockramcontroller.\waddr' using process `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:38$3'.
+  created $dff cell `$procdff$543' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:215$29'.
+Removing empty process `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:215$29'.
+Found and cleaned up 11 empty switches in `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:57$5'.
+Removing empty process `vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:57$5'.
+Found and cleaned up 1 empty switch in `\vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:38$3'.
+Removing empty process `vblockramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:38$3'.
+Cleaned up 13 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.
+Optimizing module spramblock.
+Optimizing module vblockramcontroller.
+<suppressed ~123 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.
+Optimizing module spramblock.
+Optimizing module vblockramcontroller.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram'.
+Finding identical cells in module `\spramblock'.
+Finding identical cells in module `\vblockramcontroller'.
+<suppressed ~234 debug messages>
+Removed a total of 78 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \spramblock..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \vblockramcontroller..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.
+    Consolidated identical input bits for $mux cell $procmux$38:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$procmux$38_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$38_Y [0]
+      New connections: $procmux$38_Y [31:1] = { $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] $procmux$38_Y [0] }
+  Optimizing cells in module $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.
+  Optimizing cells in module \spramblock.
+  Optimizing cells in module \vblockramcontroller.
+    New ctrl vector for $pmux cell $procmux$187: $auto$opt_reduce.cc:134:opt_mux$546
+    New ctrl vector for $pmux cell $procmux$179: { $procmux$216_CMP $procmux$207_CMP $procmux$206_CMP $procmux$205_CMP $procmux$204_CMP }
+    New ctrl vector for $pmux cell $procmux$203: $procmux$206_CMP
+    New ctrl vector for $pmux cell $procmux$175: $procmux$206_CMP
+    New ctrl vector for $pmux cell $procmux$169: $procmux$216_CMP
+    New ctrl vector for $pmux cell $procmux$195: $auto$opt_reduce.cc:134:opt_mux$548
+  Optimizing cells in module \vblockramcontroller.
+Performed a total of 7 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram'.
+Finding identical cells in module `\spramblock'.
+Finding identical cells in module `\vblockramcontroller'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$536 ($dff) from module $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/boundtop_submodules/vblockramcontroller.v:220$36_DATA, Q = \out).
+Adding SRST signal on $procdff$543 ($dff) from module vblockramcontroller (D = \temp_waddr, Q = \waddr, rval = 10'0000000000).
+Adding SRST signal on $procdff$542 ($dff) from module vblockramcontroller (D = \next_state, Q = \state, rval = 3'000).
+Adding SRST signal on $procdff$541 ($dff) from module vblockramcontroller (D = \temp_datavalid, Q = \datavalid, rval = 1'0).
+Adding SRST signal on $procdff$540 ($dff) from module vblockramcontroller (D = \temp_data, Q = \data, rval = 0).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram..
+Finding unused cells or wires in module \spramblock..
+Finding unused cells or wires in module \vblockramcontroller..
+Removed 13 unused cells and 256 unused wires.
+<suppressed ~15 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.
+Optimizing module spramblock.
+Optimizing module vblockramcontroller.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \spramblock..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \vblockramcontroller..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.
+  Optimizing cells in module \spramblock.
+  Optimizing cells in module \vblockramcontroller.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram'.
+Finding identical cells in module `\spramblock'.
+Finding identical cells in module `\vblockramcontroller'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram..
+Finding unused cells or wires in module \spramblock..
+Finding unused cells or wires in module \vblockramcontroller..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram.
+Optimizing module spramblock.
+Optimizing module vblockramcontroller.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram ===
+
+   Number of wires:                  9
+   Number of wire bits:            182
+   Number of public wires:           5
+   Number of public wire bits:      76
+   Number of memories:               1
+   Number of memory bits:          320
+   Number of processes:              0
+   Number of cells:                  6
+     $dffe                          32
+     $mux                           43
+
+=== spramblock ===
+
+   Number of wires:                  5
+   Number of wire bits:             76
+   Number of public wires:           5
+   Number of public wire bits:      76
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+
+=== vblockramcontroller ===
+
+   Number of wires:                 76
+   Number of wire bits:            312
+   Number of public wires:          21
+   Number of public wire bits:     194
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 67
+     $add                           32
+     $and                           19
+     $dlatch                        49
+     $eq                            15
+     $logic_not                      3
+     $mux                           42
+     $not                            9
+     $pmux                           3
+     $reduce_bool                    3
+     $reduce_or                     13
+     $sdff                          46
+
+=== design hierarchy ===
+
+   vblockramcontroller               1
+     spramblock                      0
+       $paramod$f2486c22f8156b191d4f2958486e3c6079702f1e\single_port_ram      0
+
+   Number of wires:                 76
+   Number of wire bits:            312
+   Number of public wires:          21
+   Number of public wire bits:     194
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 67
+     $add                           32
+     $and                           19
+     $dlatch                        49
+     $eq                            15
+     $logic_not                      3
+     $mux                           42
+     $not                            9
+     $pmux                           3
+     $reduce_bool                    3
+     $reduce_or                     13
+     $sdff                          46
+
+End of script. Logfile hash: c20e27d8ee, CPU: user 0.08s system 0.00s, MEM: 12.46 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 24% 4x opt_expr (0 sec), 14% 3x opt_merge (0 sec), ...

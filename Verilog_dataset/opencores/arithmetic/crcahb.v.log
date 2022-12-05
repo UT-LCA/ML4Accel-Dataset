@@ -1,0 +1,955 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v' to AST representation.
+Generating RTLIL representation for module `\bit_reversal'.
+Generating RTLIL representation for module `\crc_comb'.
+Generating RTLIL representation for module `\crc_control_unit'.
+Generating RTLIL representation for module `\crc_datapath'.
+Generating RTLIL representation for module `\crc_ip'.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1053: Warning: Identifier `\reset_pending' is implicitly declared.
+Generating RTLIL representation for module `\crc_parallel'.
+Generating RTLIL representation for module `\crc_unit'.
+Generating RTLIL representation for module `\host_interface'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: host_interface      
+root of   3 design levels: crc_unit            
+root of   1 design levels: crc_parallel        
+root of   4 design levels: crc_ip              
+root of   2 design levels: crc_datapath        
+root of   0 design levels: crc_control_unit    
+root of   0 design levels: crc_comb            
+root of   0 design levels: bit_reversal        
+Automatically selected crc_ip as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \crc_ip
+Used module:     \crc_unit
+Used module:         \crc_control_unit
+Used module:         \crc_datapath
+Used module:             \crc_parallel
+Used module:                 \crc_comb
+Used module:             \bit_reversal
+Used module:     \host_interface
+Parameter \CRC_SIZE = 32
+Parameter \FRAME_SIZE = 8
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\crc_parallel'.
+Parameter \CRC_SIZE = 32
+Parameter \FRAME_SIZE = 8
+Generating RTLIL representation for module `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel'.
+Parameter \DATA_SIZE = 32
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\bit_reversal'.
+Parameter \DATA_SIZE = 32
+Generating RTLIL representation for module `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+
+2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Generating RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Parameter \CRC_SIZE = 8
+Parameter \MASK = 8'11111111
+Found cached RTLIL representation for module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+
+2.6. Analyzing design hierarchy..
+Top module:  \crc_ip
+Used module:     \crc_unit
+Used module:         \crc_control_unit
+Used module:         \crc_datapath
+Used module:             $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel
+Used module:                 \crc_comb
+Used module:             $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000
+Used module:     \host_interface
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+
+2.7. Executing AST frontend in derive mode using pre-parsed AST for module `\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Generating RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Parameter \CRC_SIZE = 32
+Parameter \MASK = 32'11111111111111111111111111111111
+Found cached RTLIL representation for module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+
+2.8. Analyzing design hierarchy..
+Top module:  \crc_ip
+Used module:     \crc_unit
+Used module:         \crc_control_unit
+Used module:         \crc_datapath
+Used module:             $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel
+Used module:                 $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb
+Used module:             $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000
+Used module:     \host_interface
+
+2.9. Analyzing design hierarchy..
+Top module:  \crc_ip
+Used module:     \crc_unit
+Used module:         \crc_control_unit
+Used module:         \crc_datapath
+Used module:             $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel
+Used module:                 $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb
+Used module:             $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000
+Used module:     \host_interface
+Removing unused module `$paramod$ad1d096bca2799602bb49a90d22e8449f293c071\crc_comb'.
+Removing unused module `\crc_parallel'.
+Removing unused module `\crc_comb'.
+Removing unused module `\bit_reversal'.
+Removed 4 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1628$239 in module host_interface.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1560$204 in module host_interface.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:884$130 in module crc_datapath.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:884$130 in module crc_datapath.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:871$127 in module crc_datapath.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:860$125 in module crc_datapath.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:848$123 in module crc_datapath.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:835$121 in module crc_datapath.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:819$119 in module crc_datapath.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:802$118 in module crc_datapath.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:802$118 in module crc_datapath.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:768$114 in module crc_datapath.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:747$112 in module crc_datapath.
+Marked 7 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:523$77 in module crc_control_unit.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:515$75 in module crc_control_unit.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:489$58 in module crc_control_unit.
+Marked 6 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:443$45 in module crc_control_unit.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:435$43 in module crc_control_unit.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:386$25 in module crc_control_unit.
+Marked 6 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:386$25 in module crc_control_unit.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:372$12 in module crc_control_unit.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$530 in module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$530 in module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.
+Removed a total of 4 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 203 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\host_interface.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1628$239'.
+     1/1: $0\crc_cr_ff[4:0]
+Creating decoders for process `\host_interface.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1560$204'.
+     1/5: $0\hselx_pp[0:0]
+     2/5: $0\hwrite_pp[0:0]
+     3/5: $0\htrans_pp[1:0]
+     4/5: $0\hsize_pp[2:0]
+     5/5: $0\haddr_pp[2:0]
+Creating decoders for process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:884$130'.
+     1/4: $1\crc_poly_size_7[0:0]
+     2/4: $1\crc_poly_size_32[0:0]
+     3/4: $1\crc_poly_size_16[0:0]
+     4/4: $1\crc_poly_size_8[0:0]
+Creating decoders for process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:871$127'.
+     1/1: $0\crc_poly_ff[31:0]
+Creating decoders for process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:860$125'.
+     1/1: $0\crc_idr_ff[7:0]
+Creating decoders for process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:848$123'.
+     1/1: $0\crc_out_ff[31:0]
+Creating decoders for process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:835$121'.
+     1/1: $0\crc_init_ff[31:0]
+Creating decoders for process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:819$119'.
+     1/1: $0\crc_init_sel_ff[0:0]
+Creating decoders for process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:802$118'.
+     1/1: $1\crc_data_in[7:0]
+Creating decoders for process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:768$114'.
+     1/2: $0\size_ff[1:0]
+     2/2: $0\bf_size_ff[1:0]
+Creating decoders for process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:747$112'.
+     1/2: $0\byte_ff[31:0]
+     2/2: $0\buffer_ff[31:0]
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:523$77'.
+     1/7: $7\next_state_reset[2:0]
+     2/7: $6\next_state_reset[2:0]
+     3/7: $5\next_state_reset[2:0]
+     4/7: $4\next_state_reset[2:0]
+     5/7: $3\next_state_reset[2:0]
+     6/7: $2\next_state_reset[2:0]
+     7/7: $1\next_state_reset[2:0]
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:515$75'.
+     1/1: $0\state_reset[2:0]
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:489$58'.
+     1/1: $1\byte_sel[1:0]
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:443$45'.
+     1/6: $6\next_state_byte[2:0]
+     2/6: $5\next_state_byte[2:0]
+     3/6: $4\next_state_byte[2:0]
+     4/6: $3\next_state_byte[2:0]
+     5/6: $2\next_state_byte[2:0]
+     6/6: $1\next_state_byte[2:0]
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:435$43'.
+     1/1: $0\state_byte[2:0]
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:386$25'.
+     1/6: $6\next_state_full[1:0]
+     2/6: $5\next_state_full[1:0]
+     3/6: $4\next_state_full[1:0]
+     4/6: $3\next_state_full[1:0]
+     5/6: $2\next_state_full[1:0]
+     6/6: $1\next_state_full[1:0]
+Creating decoders for process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:372$12'.
+     1/1: $0\state_full[1:0]
+Creating decoders for process `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$530'.
+     1/1: $1$mem2reg_rd$\data_reversed$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:117$528_DATA[31:0]$532
+Creating decoders for process `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$529'.
+Creating decoders for process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\crc_datapath.\crc_poly_size_7' from process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:884$130'.
+No latch inferred for signal `\crc_datapath.\crc_poly_size_8' from process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:884$130'.
+No latch inferred for signal `\crc_datapath.\crc_poly_size_16' from process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:884$130'.
+No latch inferred for signal `\crc_datapath.\crc_poly_size_32' from process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:884$130'.
+No latch inferred for signal `\crc_datapath.\crc_data_in' from process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:802$118'.
+No latch inferred for signal `\crc_control_unit.\next_state_reset' from process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:523$77'.
+No latch inferred for signal `\crc_control_unit.\byte_sel' from process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:489$58'.
+No latch inferred for signal `\crc_control_unit.\next_state_byte' from process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:443$45'.
+No latch inferred for signal `\crc_control_unit.\next_state_full' from process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:386$25'.
+No latch inferred for signal `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.$mem2reg_rd$\data_reversed$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:117$528_DATA' from process `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$530'.
+No latch inferred for signal `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.\data_reversed[0]' from process `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$529'.
+No latch inferred for signal `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.\data_reversed[1]' from process `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$529'.
+No latch inferred for signal `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.\data_reversed[2]' from process `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$529'.
+No latch inferred for signal `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.\data_reversed[3]' from process `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$529'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_comb_out[0]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[1]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[2]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[3]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[4]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[5]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[6]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[7]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[0]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[1]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[2]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[3]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[4]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[5]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[6]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[7]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[0]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[1]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[2]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[3]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[4]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[5]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[6]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[7]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[8]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[9]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[10]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[11]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[12]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[13]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[14]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[15]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[16]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[17]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[18]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[19]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[20]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[21]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[22]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[23]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[24]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[25]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[26]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[27]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[28]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[29]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[30]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\poly_sel[31]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[8]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[9]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[10]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[11]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[12]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[13]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[14]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[15]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[16]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[17]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[18]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[19]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[20]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[21]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[22]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[23]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[24]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[25]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[26]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[27]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[28]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[29]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[30]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\sel_out[31]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[8]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[9]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[10]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[11]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[12]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[13]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[14]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[15]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[16]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[17]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[18]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[19]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[20]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[21]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[22]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[23]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[24]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[25]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[26]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[27]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[28]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[29]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[30]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+No latch inferred for signal `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.\crc_init_sel[31]' from process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\host_interface.\crc_cr_ff' using process `\host_interface.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1628$239'.
+  created $dff cell `$procdff$826' with positive edge clock.
+Creating register for signal `\host_interface.\haddr_pp' using process `\host_interface.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1560$204'.
+  created $dff cell `$procdff$827' with positive edge clock.
+Creating register for signal `\host_interface.\hsize_pp' using process `\host_interface.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1560$204'.
+  created $dff cell `$procdff$828' with positive edge clock.
+Creating register for signal `\host_interface.\htrans_pp' using process `\host_interface.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1560$204'.
+  created $dff cell `$procdff$829' with positive edge clock.
+Creating register for signal `\host_interface.\hwrite_pp' using process `\host_interface.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1560$204'.
+  created $dff cell `$procdff$830' with positive edge clock.
+Creating register for signal `\host_interface.\hselx_pp' using process `\host_interface.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1560$204'.
+  created $dff cell `$procdff$831' with positive edge clock.
+Creating register for signal `\crc_datapath.\crc_poly_ff' using process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:871$127'.
+  created $dff cell `$procdff$832' with positive edge clock.
+Creating register for signal `\crc_datapath.\crc_idr_ff' using process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:860$125'.
+  created $dff cell `$procdff$833' with positive edge clock.
+Creating register for signal `\crc_datapath.\crc_out_ff' using process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:848$123'.
+  created $dff cell `$procdff$834' with positive edge clock.
+Creating register for signal `\crc_datapath.\crc_init_ff' using process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:835$121'.
+  created $dff cell `$procdff$835' with positive edge clock.
+Creating register for signal `\crc_datapath.\crc_init_sel_ff' using process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:819$119'.
+  created $dff cell `$procdff$836' with positive edge clock.
+Creating register for signal `\crc_datapath.\bf_size_ff' using process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:768$114'.
+  created $dff cell `$procdff$837' with positive edge clock.
+Creating register for signal `\crc_datapath.\size_ff' using process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:768$114'.
+  created $dff cell `$procdff$838' with positive edge clock.
+Creating register for signal `\crc_datapath.\buffer_ff' using process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:747$112'.
+  created $dff cell `$procdff$839' with positive edge clock.
+Creating register for signal `\crc_datapath.\byte_ff' using process `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:747$112'.
+  created $dff cell `$procdff$840' with positive edge clock.
+Creating register for signal `\crc_control_unit.\state_reset' using process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:515$75'.
+  created $dff cell `$procdff$841' with positive edge clock.
+Creating register for signal `\crc_control_unit.\state_byte' using process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:435$43'.
+  created $dff cell `$procdff$842' with positive edge clock.
+Creating register for signal `\crc_control_unit.\state_full' using process `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:372$12'.
+  created $dff cell `$procdff$843' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\host_interface.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1628$239'.
+Removing empty process `host_interface.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1628$239'.
+Found and cleaned up 2 empty switches in `\host_interface.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1560$204'.
+Removing empty process `host_interface.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:1560$204'.
+Found and cleaned up 1 empty switch in `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:884$130'.
+Removing empty process `crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:884$130'.
+Found and cleaned up 2 empty switches in `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:871$127'.
+Removing empty process `crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:871$127'.
+Found and cleaned up 2 empty switches in `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:860$125'.
+Removing empty process `crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:860$125'.
+Found and cleaned up 2 empty switches in `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:848$123'.
+Removing empty process `crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:848$123'.
+Found and cleaned up 3 empty switches in `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:835$121'.
+Removing empty process `crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:835$121'.
+Found and cleaned up 3 empty switches in `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:819$119'.
+Removing empty process `crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:819$119'.
+Found and cleaned up 1 empty switch in `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:802$118'.
+Removing empty process `crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:802$118'.
+Found and cleaned up 4 empty switches in `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:768$114'.
+Removing empty process `crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:768$114'.
+Found and cleaned up 3 empty switches in `\crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:747$112'.
+Removing empty process `crc_datapath.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:747$112'.
+Found and cleaned up 7 empty switches in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:523$77'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:523$77'.
+Found and cleaned up 1 empty switch in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:515$75'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:515$75'.
+Found and cleaned up 1 empty switch in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:489$58'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:489$58'.
+Found and cleaned up 6 empty switches in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:443$45'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:443$45'.
+Found and cleaned up 1 empty switch in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:435$43'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:435$43'.
+Found and cleaned up 6 empty switches in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:386$25'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:386$25'.
+Found and cleaned up 1 empty switch in `\crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:372$12'.
+Removing empty process `crc_control_unit.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:372$12'.
+Found and cleaned up 1 empty switch in `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$530'.
+Removing empty process `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$530'.
+Removing empty process `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$529'.
+Removing empty process `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/crcahb.v:0$432'.
+Cleaned up 49 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module host_interface.
+<suppressed ~7 debug messages>
+Optimizing module crc_unit.
+Optimizing module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb.
+Optimizing module crc_ip.
+Optimizing module crc_datapath.
+<suppressed ~14 debug messages>
+Optimizing module crc_control_unit.
+<suppressed ~19 debug messages>
+Optimizing module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.
+<suppressed ~1 debug messages>
+Optimizing module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.
+<suppressed ~95 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module host_interface.
+Optimizing module crc_unit.
+Optimizing module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb.
+Optimizing module crc_ip.
+Optimizing module crc_datapath.
+Optimizing module crc_control_unit.
+Optimizing module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.
+Optimizing module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\host_interface'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\crc_unit'.
+Finding identical cells in module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Finding identical cells in module `\crc_ip'.
+Finding identical cells in module `\crc_datapath'.
+<suppressed ~54 debug messages>
+Finding identical cells in module `\crc_control_unit'.
+<suppressed ~162 debug messages>
+Finding identical cells in module `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000'.
+Finding identical cells in module `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel'.
+Removed a total of 73 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \host_interface..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \crc_unit..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \crc_ip..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \crc_datapath..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \crc_control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$702.
+    dead port 2/2 on $mux $procmux$692.
+    dead port 2/2 on $mux $procmux$802.
+    dead port 2/2 on $mux $procmux$682.
+    dead port 2/2 on $mux $procmux$673.
+    dead port 2/2 on $mux $procmux$794.
+    dead port 2/2 on $mux $procmux$665.
+    dead port 2/2 on $mux $procmux$658.
+    dead port 1/2 on $mux $procmux$792.
+    dead port 2/2 on $mux $procmux$784.
+    dead port 2/2 on $mux $procmux$778.
+    dead port 2/2 on $mux $procmux$804.
+    dead port 2/2 on $mux $procmux$763.
+    dead port 2/2 on $mux $procmux$754.
+    dead port 2/2 on $mux $procmux$752.
+    dead port 2/2 on $mux $procmux$742.
+    dead port 2/2 on $mux $procmux$734.
+    dead port 2/2 on $mux $procmux$732.
+    dead port 2/2 on $mux $procmux$723.
+    dead port 2/2 on $mux $procmux$811.
+Running muxtree optimizer on module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 20 multiplexer ports.
+<suppressed ~28 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \host_interface.
+  Optimizing cells in module \crc_unit.
+  Optimizing cells in module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb.
+  Optimizing cells in module \crc_ip.
+  Optimizing cells in module \crc_datapath.
+    New ctrl vector for $pmux cell $procmux$590: { $procmux$593_CMP $auto$opt_reduce.cc:134:opt_mux$845 }
+    New ctrl vector for $pmux cell $procmux$585: { $procmux$592_CMP $auto$opt_reduce.cc:134:opt_mux$847 }
+    New ctrl vector for $pmux cell $procmux$580: { $auto$opt_reduce.cc:134:opt_mux$849 $procmux$591_CMP }
+    New ctrl vector for $pmux cell $procmux$575: { $procmux$594_CMP $auto$opt_reduce.cc:134:opt_mux$851 }
+  Optimizing cells in module \crc_datapath.
+  Optimizing cells in module \crc_control_unit.
+  Optimizing cells in module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.
+  Optimizing cells in module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.
+Performed a total of 4 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\host_interface'.
+Finding identical cells in module `\crc_unit'.
+Finding identical cells in module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Finding identical cells in module `\crc_ip'.
+Finding identical cells in module `\crc_datapath'.
+Finding identical cells in module `\crc_control_unit'.
+<suppressed ~9 debug messages>
+Finding identical cells in module `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000'.
+Finding identical cells in module `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel'.
+Removed a total of 3 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$831 ($dff) from module host_interface (D = $procmux$550_Y, Q = \hselx_pp, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$852 ($sdff) from module host_interface (D = \HSElx, Q = \hselx_pp).
+Adding SRST signal on $procdff$826 ($dff) from module host_interface (D = $procmux$545_Y, Q = \crc_cr_ff, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:262:slice$854 ($sdff) from module host_interface (D = \HWDATA [7:3], Q = \crc_cr_ff).
+Adding EN signal on $procdff$827 ($dff) from module host_interface (D = \HADDR [4:2], Q = \haddr_pp).
+Adding EN signal on $procdff$828 ($dff) from module host_interface (D = \HSIZE, Q = \hsize_pp).
+Adding EN signal on $procdff$829 ($dff) from module host_interface (D = \HTRANS, Q = \htrans_pp).
+Adding EN signal on $procdff$830 ($dff) from module host_interface (D = \HWRITE, Q = \hwrite_pp).
+Adding SRST signal on $procdff$832 ($dff) from module crc_datapath (D = $procmux$595_Y, Q = \crc_poly_ff, rval = 79764919).
+Adding EN signal on $auto$ff.cc:262:slice$868 ($sdff) from module crc_datapath (D = \bus_wr, Q = \crc_poly_ff).
+Adding SRST signal on $procdff$833 ($dff) from module crc_datapath (D = $procmux$600_Y, Q = \crc_idr_ff, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:262:slice$870 ($sdff) from module crc_datapath (D = \bus_wr [7:0], Q = \crc_idr_ff).
+Adding SRST signal on $procdff$834 ($dff) from module crc_datapath (D = $procmux$605_Y, Q = \crc_out_ff, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$872 ($sdff) from module crc_datapath (D = \crc_unit_out, Q = \crc_out_ff).
+Adding SRST signal on $procdff$835 ($dff) from module crc_datapath (D = $procmux$613_Y, Q = \crc_init_ff, rval = 32'11111111111111111111111111111111).
+Adding EN signal on $auto$ff.cc:262:slice$874 ($sdff) from module crc_datapath (D = $procmux$613_Y, Q = \crc_init_ff).
+Adding SRST signal on $procdff$836 ($dff) from module crc_datapath (D = $procmux$618_Y, Q = \crc_init_sel_ff, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$878 ($sdff) from module crc_datapath (D = 1'1, Q = \crc_init_sel_ff).
+Adding SRST signal on $procdff$837 ($dff) from module crc_datapath (D = $procmux$639_Y, Q = \bf_size_ff, rval = 2'10).
+Adding EN signal on $auto$ff.cc:262:slice$884 ($sdff) from module crc_datapath (D = $procmux$639_Y, Q = \bf_size_ff).
+Adding SRST signal on $procdff$838 ($dff) from module crc_datapath (D = $procmux$631_Y, Q = \size_ff, rval = 2'10).
+Adding EN signal on $auto$ff.cc:262:slice$888 ($sdff) from module crc_datapath (D = \bf_size_ff, Q = \size_ff).
+Adding SRST signal on $procdff$839 ($dff) from module crc_datapath (D = $procmux$649_Y, Q = \buffer_ff, rval = 32'11111111111111111111111111111111).
+Adding EN signal on $auto$ff.cc:262:slice$890 ($sdff) from module crc_datapath (D = \bus_reversed, Q = \buffer_ff).
+Adding SRST signal on $procdff$840 ($dff) from module crc_datapath (D = $procmux$644_Y, Q = \byte_ff, rval = 32'11111111111111111111111111111111).
+Adding EN signal on $auto$ff.cc:262:slice$892 ($sdff) from module crc_datapath (D = \buffer_ff, Q = \byte_ff).
+Adding SRST signal on $procdff$843 ($dff) from module crc_control_unit (D = $procmux$813_Y, Q = \state_full, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$894 ($sdff) from module crc_control_unit (D = $procmux$813_Y, Q = \state_full).
+Adding SRST signal on $procdff$841 ($dff) from module crc_control_unit (D = $procmux$705_Y, Q = \state_reset, rval = 3'000).
+Adding EN signal on $auto$ff.cc:262:slice$906 ($sdff) from module crc_control_unit (D = $procmux$705_Y, Q = \state_reset).
+Adding SRST signal on $procdff$842 ($dff) from module crc_control_unit (D = $procmux$766_Y, Q = \state_byte, rval = 3'100).
+Adding EN signal on $auto$ff.cc:262:slice$914 ($sdff) from module crc_control_unit (D = $procmux$766_Y, Q = \state_byte).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \host_interface..
+Finding unused cells or wires in module \crc_unit..
+Finding unused cells or wires in module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb..
+Finding unused cells or wires in module \crc_ip..
+Finding unused cells or wires in module \crc_datapath..
+Finding unused cells or wires in module \crc_control_unit..
+Finding unused cells or wires in module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel..
+Removed 35 unused cells and 580 unused wires.
+<suppressed ~43 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb.
+Optimizing module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.
+Optimizing module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.
+Optimizing module crc_control_unit.
+<suppressed ~2 debug messages>
+Optimizing module crc_datapath.
+<suppressed ~2 debug messages>
+Optimizing module crc_ip.
+Optimizing module crc_unit.
+Optimizing module host_interface.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \crc_control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \crc_datapath..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \crc_ip..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \crc_unit..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \host_interface..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb.
+  Optimizing cells in module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.
+  Optimizing cells in module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.
+  Optimizing cells in module \crc_control_unit.
+  Optimizing cells in module \crc_datapath.
+  Optimizing cells in module \crc_ip.
+  Optimizing cells in module \crc_unit.
+  Optimizing cells in module \host_interface.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Finding identical cells in module `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel'.
+Finding identical cells in module `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\crc_control_unit'.
+Finding identical cells in module `\crc_datapath'.
+Finding identical cells in module `\crc_ip'.
+Finding identical cells in module `\crc_unit'.
+Finding identical cells in module `\host_interface'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb..
+Finding unused cells or wires in module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel..
+Finding unused cells or wires in module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \crc_control_unit..
+Finding unused cells or wires in module \crc_datapath..
+Finding unused cells or wires in module \crc_ip..
+Finding unused cells or wires in module \crc_unit..
+Finding unused cells or wires in module \host_interface..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb.
+Optimizing module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.
+Optimizing module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.
+Optimizing module crc_control_unit.
+Optimizing module crc_datapath.
+Optimizing module crc_ip.
+Optimizing module crc_unit.
+Optimizing module host_interface.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \crc_control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \crc_datapath..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \crc_ip..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \crc_unit..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \host_interface..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb.
+  Optimizing cells in module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.
+  Optimizing cells in module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.
+  Optimizing cells in module \crc_control_unit.
+  Optimizing cells in module \crc_datapath.
+  Optimizing cells in module \crc_ip.
+  Optimizing cells in module \crc_unit.
+  Optimizing cells in module \host_interface.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb'.
+Finding identical cells in module `$paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel'.
+Finding identical cells in module `$paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\crc_control_unit'.
+Finding identical cells in module `\crc_datapath'.
+Finding identical cells in module `\crc_ip'.
+Finding identical cells in module `\crc_unit'.
+Finding identical cells in module `\host_interface'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb..
+Finding unused cells or wires in module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel..
+Finding unused cells or wires in module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \crc_control_unit..
+Finding unused cells or wires in module \crc_datapath..
+Finding unused cells or wires in module \crc_ip..
+Finding unused cells or wires in module \crc_unit..
+Finding unused cells or wires in module \host_interface..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb.
+Optimizing module $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel.
+Optimizing module $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000.
+Optimizing module crc_control_unit.
+Optimizing module crc_datapath.
+Optimizing module crc_ip.
+Optimizing module crc_unit.
+Optimizing module host_interface.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb ===
+
+   Number of wires:                 12
+   Number of wire bits:            316
+   Number of public wires:           9
+   Number of public wire bits:     253
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $and                           94
+     $not                           31
+     $xor                           32
+
+=== $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel ===
+
+   Number of wires:                207
+   Number of wire bits:           6600
+   Number of public wires:         112
+   Number of public wire bits:    3560
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                198
+     $and                         3040
+     $reduce_or                   3040
+
+=== $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000 ===
+
+   Number of wires:                 11
+   Number of wire bits:            198
+   Number of public wires:           7
+   Number of public wire bits:     194
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $eq                             6
+     $logic_not                      2
+     $pmux                          32
+
+=== crc_control_unit ===
+
+   Number of wires:                108
+   Number of wire bits:            155
+   Number of public wires:          23
+   Number of public wire bits:      35
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                102
+     $eq                            34
+     $logic_and                     24
+     $logic_not                     15
+     $logic_or                      13
+     $mux                           56
+     $ne                            21
+     $pmux                          10
+     $reduce_and                     8
+     $reduce_bool                   16
+     $sdffe                          8
+
+=== crc_datapath ===
+
+   Number of wires:                 68
+   Number of wire bits:            629
+   Number of public wires:          48
+   Number of public wire bits:     545
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 40
+     $eq                            12
+     $logic_not                      4
+     $mux                          142
+     $not                            1
+     $pmux                          12
+     $reduce_bool                    4
+     $reduce_or                     14
+     $sdffe                        173
+
+=== crc_ip ===
+
+   Number of wires:                 29
+   Number of wire bits:            259
+   Number of public wires:          29
+   Number of public wire bits:     259
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+
+=== crc_unit ===
+
+   Number of wires:                 29
+   Number of wire bits:            165
+   Number of public wires:          28
+   Number of public wire bits:     164
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $logic_and                      1
+     $logic_not                      1
+
+=== host_interface ===
+
+   Number of wires:                 64
+   Number of wire bits:            582
+   Number of public wires:          47
+   Number of public wire bits:     317
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 41
+     $and                          160
+     $dffe                           9
+     $eq                            14
+     $logic_and                     15
+     $logic_not                      5
+     $logic_or                       2
+     $or                           128
+     $reduce_and                     2
+     $sdffe                          6
+
+=== design hierarchy ===
+
+   crc_ip                            1
+     crc_unit                        0
+       crc_control_unit              0
+       crc_datapath                  0
+         $paramod$f4b98323ff6e0cd0e06fc10c3ad329b38eee598e\crc_parallel      0
+           $paramod$c34afa4e962990744f0b55670bc44b23c3a5a6d7\crc_comb      0
+         $paramod\bit_reversal\DATA_SIZE=s32'00000000000000000000000000100000      0
+     host_interface                  0
+
+   Number of wires:                 29
+   Number of wire bits:            259
+   Number of public wires:          29
+   Number of public wire bits:     259
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: e5907bfd61, CPU: user 0.52s system 0.00s, MEM: 18.42 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 22% 5x opt_expr (0 sec), 20% 2x read_verilog (0 sec), ...

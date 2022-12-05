@@ -1,0 +1,341 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v' to AST representation.
+Generating RTLIL representation for module `\sv_chip3_hierarchy_no_mem'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:640.4-1020.7 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: sv_chip3_hierarchy_no_mem
+Automatically selected sv_chip3_hierarchy_no_mem as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \sv_chip3_hierarchy_no_mem
+
+2.3. Analyzing design hierarchy..
+Top module:  \sv_chip3_hierarchy_no_mem
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:1022$47 in module sv_chip3_hierarchy_no_mem.
+Marked 27 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:640$20 in module sv_chip3_hierarchy_no_mem.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:141$19 in module sv_chip3_hierarchy_no_mem.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:124$11 in module sv_chip3_hierarchy_no_mem.
+Marked 3 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:83$1 in module sv_chip3_hierarchy_no_mem.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 5 redundant assignments.
+Promoted 10 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:1022$47'.
+     1/3: $0\reg_prog_state[4:0]
+     2/3: $0\iic_state[6:0]
+     3/3: $0\rst[0:0]
+Creating decoders for process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:640$20'.
+     1/31: $27\reg_prog_nextstate[4:0]
+     2/31: $26\reg_prog_nextstate[4:0]
+     3/31: $25\reg_prog_nextstate[4:0]
+     4/31: $24\reg_prog_nextstate[4:0]
+     5/31: $23\reg_prog_nextstate[4:0]
+     6/31: $22\reg_prog_nextstate[4:0]
+     7/31: $21\reg_prog_nextstate[4:0]
+     8/31: $20\reg_prog_nextstate[4:0]
+     9/31: $19\reg_prog_nextstate[4:0]
+    10/31: $18\reg_prog_nextstate[4:0]
+    11/31: $17\reg_prog_nextstate[4:0]
+    12/31: $16\reg_prog_nextstate[4:0]
+    13/31: $15\reg_prog_nextstate[4:0]
+    14/31: $14\reg_prog_nextstate[4:0]
+    15/31: $13\reg_prog_nextstate[4:0]
+    16/31: $12\reg_prog_nextstate[4:0]
+    17/31: $11\reg_prog_nextstate[4:0]
+    18/31: $10\reg_prog_nextstate[4:0]
+    19/31: $9\reg_prog_nextstate[4:0]
+    20/31: $8\reg_prog_nextstate[4:0]
+    21/31: $7\reg_prog_nextstate[4:0]
+    22/31: $6\reg_prog_nextstate[4:0]
+    23/31: $5\reg_prog_nextstate[4:0]
+    24/31: $4\reg_prog_nextstate[4:0]
+    25/31: $3\reg_prog_nextstate[4:0]
+    26/31: $2\reg_prog_nextstate[4:0]
+    27/31: $1\reg_prog_nextstate[4:0]
+    28/31: $1\iic_start[0:0]
+    29/31: $1\iicdata[7:0]
+    30/31: $1\iicaddr[7:0]
+    31/31: $1\rst_done[0:0]
+Creating decoders for process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:141$19'.
+     1/3: $0\tm3_vidin_scl[0:0]
+     2/3: $0\tm3_vidin_sda_xhdl0[0:0]
+     3/3: $0\iic_stop[0:0]
+Creating decoders for process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:124$11'.
+     1/3: $0\vidin_new_data[0:0]
+     2/3: $0\vidin_addr_reg[18:0]
+     3/3: $0\vidin_rgb_reg[7:0]
+Creating decoders for process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:83$1'.
+     1/11: $0\vidin_rgb_reg1[23:0] [7:3]
+     2/11: $0\vidin_rgb_reg1[23:0] [2:0]
+     3/11: $0\vidin_rgb_reg1[23:0] [9:8]
+     4/11: $0\vidin_rgb_reg1[23:0] [12:10]
+     5/11: $0\vidin_rgb_reg1[23:0] [15:13]
+     6/11: $0\vidin_rgb_reg1[23:0] [18:16]
+     7/11: $0\vidin_rgb_reg1[23:0] [23:19]
+     8/11: $0\vidin_rgb_reg2[23:0]
+     9/11: $0\vidin_addr_reg1[18:0]
+    10/11: $0\vert[7:0]
+    11/11: $0\horiz[9:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\sv_chip3_hierarchy_no_mem.\rst_done' from process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:640$20': $auto$proc_dlatch.cc:427:proc_dlatch$990
+Latch inferred for signal `\sv_chip3_hierarchy_no_mem.\iicaddr' from process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:640$20': $auto$proc_dlatch.cc:427:proc_dlatch$1157
+Latch inferred for signal `\sv_chip3_hierarchy_no_mem.\iicdata' from process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:640$20': $auto$proc_dlatch.cc:427:proc_dlatch$1324
+Latch inferred for signal `\sv_chip3_hierarchy_no_mem.\iic_start' from process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:640$20': $auto$proc_dlatch.cc:427:proc_dlatch$1491
+Latch inferred for signal `\sv_chip3_hierarchy_no_mem.\reg_prog_nextstate' from process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:640$20': $auto$proc_dlatch.cc:427:proc_dlatch$1658
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\temp_reg1' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:1022$47'.
+  created $dff cell `$procdff$1659' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\temp_reg2' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:1022$47'.
+  created $dff cell `$procdff$1660' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\rst' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:1022$47'.
+  created $dff cell `$procdff$1661' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\iic_state' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:1022$47'.
+  created $dff cell `$procdff$1662' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\reg_prog_state' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:1022$47'.
+  created $dff cell `$procdff$1663' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\tm3_vidin_sda_xhdl0' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:141$19'.
+  created $dff cell `$procdff$1664' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\tm3_vidin_scl' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:141$19'.
+  created $dff cell `$procdff$1665' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\iic_stop' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:141$19'.
+  created $dff cell `$procdff$1666' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\vidin_new_data' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:124$11'.
+  created $dff cell `$procdff$1667' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\vidin_rgb_reg' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:124$11'.
+  created $dff cell `$procdff$1668' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\vidin_addr_reg' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:124$11'.
+  created $dff cell `$procdff$1669' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\creg1' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:124$11'.
+  created $dff cell `$procdff$1670' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\creg2' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:124$11'.
+  created $dff cell `$procdff$1671' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\creg3' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:124$11'.
+  created $dff cell `$procdff$1672' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\horiz' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:83$1'.
+  created $dff cell `$procdff$1673' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\vert' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:83$1'.
+  created $dff cell `$procdff$1674' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\vidin_addr_reg1' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:83$1'.
+  created $dff cell `$procdff$1675' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\vidin_rgb_reg1' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:83$1'.
+  created $dff cell `$procdff$1676' with positive edge clock.
+Creating register for signal `\sv_chip3_hierarchy_no_mem.\vidin_rgb_reg2' using process `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:83$1'.
+  created $dff cell `$procdff$1677' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 5 empty switches in `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:1022$47'.
+Removing empty process `sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:1022$47'.
+Found and cleaned up 27 empty switches in `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:640$20'.
+Removing empty process `sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:640$20'.
+Found and cleaned up 1 empty switch in `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:141$19'.
+Removing empty process `sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:141$19'.
+Found and cleaned up 1 empty switch in `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:124$11'.
+Removing empty process `sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:124$11'.
+Found and cleaned up 5 empty switches in `\sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:83$1'.
+Removing empty process `sv_chip3_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:83$1'.
+Cleaned up 39 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sv_chip3_hierarchy_no_mem.
+<suppressed ~212 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sv_chip3_hierarchy_no_mem.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sv_chip3_hierarchy_no_mem'.
+<suppressed ~1224 debug messages>
+Removed a total of 408 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sv_chip3_hierarchy_no_mem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~24 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sv_chip3_hierarchy_no_mem.
+    New ctrl vector for $pmux cell $procmux$724: $auto$opt_reduce.cc:134:opt_mux$1679
+    New ctrl vector for $pmux cell $procmux$664: { $procmux$690_CMP $procmux$688_CMP $procmux$686_CMP $procmux$684_CMP $procmux$682_CMP $procmux$680_CMP $procmux$678_CMP $procmux$676_CMP $procmux$674_CMP $procmux$672_CMP $procmux$670_CMP $procmux$668_CMP $procmux$666_CMP }
+    New ctrl vector for $pmux cell $procmux$635: { $procmux$690_CMP $procmux$688_CMP $procmux$686_CMP $procmux$684_CMP $auto$opt_reduce.cc:134:opt_mux$1683 $procmux$676_CMP $procmux$674_CMP $auto$opt_reduce.cc:134:opt_mux$1681 $procmux$668_CMP $procmux$666_CMP }
+    New ctrl vector for $pmux cell $procmux$777: { $auto$opt_reduce.cc:134:opt_mux$1717 $auto$opt_reduce.cc:134:opt_mux$1715 $auto$opt_reduce.cc:134:opt_mux$1713 $auto$opt_reduce.cc:134:opt_mux$1711 $auto$opt_reduce.cc:134:opt_mux$1709 $auto$opt_reduce.cc:134:opt_mux$1707 $auto$opt_reduce.cc:134:opt_mux$1705 $auto$opt_reduce.cc:134:opt_mux$1703 $auto$opt_reduce.cc:134:opt_mux$1701 $auto$opt_reduce.cc:134:opt_mux$1699 $auto$opt_reduce.cc:134:opt_mux$1697 $auto$opt_reduce.cc:134:opt_mux$1695 $auto$opt_reduce.cc:134:opt_mux$1693 $auto$opt_reduce.cc:134:opt_mux$1691 $auto$opt_reduce.cc:134:opt_mux$1689 $auto$opt_reduce.cc:134:opt_mux$1687 $auto$opt_reduce.cc:134:opt_mux$1685 }
+    New ctrl vector for $pmux cell $procmux$606: $auto$opt_reduce.cc:134:opt_mux$1719
+    New ctrl vector for $pmux cell $procmux$853: $auto$opt_reduce.cc:134:opt_mux$1721
+    New ctrl vector for $pmux cell $procmux$577: { $procmux$690_CMP $procmux$689_CMP $procmux$688_CMP $procmux$687_CMP $procmux$686_CMP $procmux$685_CMP $procmux$684_CMP $procmux$683_CMP $procmux$682_CMP $procmux$681_CMP $procmux$680_CMP $procmux$679_CMP $procmux$678_CMP $procmux$677_CMP $procmux$676_CMP $procmux$675_CMP $procmux$674_CMP $procmux$673_CMP $procmux$672_CMP $procmux$671_CMP $procmux$670_CMP $procmux$669_CMP $procmux$668_CMP $procmux$667_CMP $procmux$666_CMP $procmux$665_CMP }
+  Optimizing cells in module \sv_chip3_hierarchy_no_mem.
+Performed a total of 7 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sv_chip3_hierarchy_no_mem'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$1677 ($dff) from module sv_chip3_hierarchy_no_mem (D = \vidin_rgb_reg1, Q = \vidin_rgb_reg2).
+Adding EN signal on $procdff$1676 ($dff) from module sv_chip3_hierarchy_no_mem (D = \tm3_vidin_vpo [7:0], Q = { \vidin_rgb_reg1 [12:10] \vidin_rgb_reg1 [7:3] }).
+Adding EN signal on $procdff$1676 ($dff) from module sv_chip3_hierarchy_no_mem (D = { \tm3_vidin_vpo [15:11] \tm3_vidin_vpo [7:5] \tm3_vidin_vpo [10:8] \tm3_vidin_vpo [4:0] }, Q = { \vidin_rgb_reg1 [23:13] \vidin_rgb_reg1 [9:8] \vidin_rgb_reg1 [2:0] }).
+Adding EN signal on $procdff$1675 ($dff) from module sv_chip3_hierarchy_no_mem (D = { \vert \tm3_vidin_rts0 \horiz }, Q = \vidin_addr_reg1).
+Adding SRST signal on $procdff$1674 ($dff) from module sv_chip3_hierarchy_no_mem (D = $procmux$970_Y, Q = \vert, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:262:slice$1726 ($sdff) from module sv_chip3_hierarchy_no_mem (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:104$9_Y [7:0], Q = \vert).
+Adding SRST signal on $procdff$1673 ($dff) from module sv_chip3_hierarchy_no_mem (D = $procmux$975_Y, Q = \horiz, rval = 10'0000000000).
+Adding EN signal on $auto$ff.cc:262:slice$1728 ($sdff) from module sv_chip3_hierarchy_no_mem (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision3.v:93$4_Y [9:0], Q = \horiz).
+Adding EN signal on $procdff$1669 ($dff) from module sv_chip3_hierarchy_no_mem (D = { 2'00 \vidin_addr_reg1 [18:11] \vidin_addr_reg1 [9:1] }, Q = \vidin_addr_reg).
+Setting constant 0-bit at position 17 on $auto$ff.cc:262:slice$1730 ($dffe) from module sv_chip3_hierarchy_no_mem.
+Setting constant 0-bit at position 18 on $auto$ff.cc:262:slice$1730 ($dffe) from module sv_chip3_hierarchy_no_mem.
+Adding EN signal on $procdff$1668 ($dff) from module sv_chip3_hierarchy_no_mem (D = \vidin_rgb_reg2 [7:0], Q = \vidin_rgb_reg).
+Adding SRST signal on $procdff$1663 ($dff) from module sv_chip3_hierarchy_no_mem (D = \reg_prog_nextstate, Q = \reg_prog_state, rval = 5'00001).
+Adding EN signal on $procdff$1662 ($dff) from module sv_chip3_hierarchy_no_mem (D = $procmux$65_Y, Q = \iic_state).
+Adding EN signal on $procdff$1661 ($dff) from module sv_chip3_hierarchy_no_mem (D = 1'1, Q = \rst).
+Setting constant 1-bit at position 0 on $auto$ff.cc:262:slice$1741 ($dffe) from module sv_chip3_hierarchy_no_mem.
+Setting constant 1-bit at position 0 on $auto$proc_dlatch.cc:427:proc_dlatch$990 ($dlatch) from module sv_chip3_hierarchy_no_mem.
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sv_chip3_hierarchy_no_mem..
+Removed 22 unused cells and 698 unused wires.
+<suppressed ~23 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sv_chip3_hierarchy_no_mem.
+<suppressed ~2 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sv_chip3_hierarchy_no_mem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sv_chip3_hierarchy_no_mem.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sv_chip3_hierarchy_no_mem'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sv_chip3_hierarchy_no_mem..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sv_chip3_hierarchy_no_mem.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sv_chip3_hierarchy_no_mem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sv_chip3_hierarchy_no_mem.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sv_chip3_hierarchy_no_mem'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sv_chip3_hierarchy_no_mem..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sv_chip3_hierarchy_no_mem.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== sv_chip3_hierarchy_no_mem ===
+
+   Number of wires:                266
+   Number of wire bits:            641
+   Number of public wires:          33
+   Number of public wire bits:     181
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                256
+     $add                           96
+     $and                           31
+     $dff                            9
+     $dffe                          99
+     $dlatch                        22
+     $eq                           688
+     $logic_not                      7
+     $mux                          148
+     $ne                             2
+     $not                           32
+     $pmux                          22
+     $reduce_bool                   10
+     $reduce_or                    221
+     $sdff                           5
+     $sdffe                         18
+
+End of script. Logfile hash: 42554f161e, CPU: user 0.26s system 0.00s, MEM: 15.95 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 33% 5x opt_expr (0 sec), 30% 4x opt_merge (0 sec), ...

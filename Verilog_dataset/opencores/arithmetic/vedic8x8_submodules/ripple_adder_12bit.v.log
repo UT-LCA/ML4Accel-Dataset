@@ -1,0 +1,274 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic/vedic8x8_submodules/ripple_adder_12bit.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic/vedic8x8_submodules/ripple_adder_12bit.v' to AST representation.
+Generating RTLIL representation for module `\ripple_adder_12bit'.
+Generating RTLIL representation for module `\ripple_adder_6bit'.
+Generating RTLIL representation for module `\full_adder'.
+Generating RTLIL representation for module `\half_adder'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: half_adder          
+root of   1 design levels: full_adder          
+root of   2 design levels: ripple_adder_6bit   
+root of   3 design levels: ripple_adder_12bit  
+Automatically selected ripple_adder_12bit as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \ripple_adder_12bit
+Used module:     \ripple_adder_6bit
+Used module:         \full_adder
+Used module:             \half_adder
+
+2.3. Analyzing design hierarchy..
+Top module:  \ripple_adder_12bit
+Used module:     \ripple_adder_6bit
+Used module:         \full_adder
+Used module:             \half_adder
+Removed 0 unused modules.
+Mapping positional arguments of cell full_adder.HA1 (half_adder).
+Mapping positional arguments of cell full_adder.HA0 (half_adder).
+Mapping positional arguments of cell ripple_adder_6bit.FA5 (full_adder).
+Mapping positional arguments of cell ripple_adder_6bit.FA4 (full_adder).
+Mapping positional arguments of cell ripple_adder_6bit.FA3 (full_adder).
+Mapping positional arguments of cell ripple_adder_6bit.FA2 (full_adder).
+Mapping positional arguments of cell ripple_adder_6bit.FA1 (full_adder).
+Mapping positional arguments of cell ripple_adder_6bit.FA0 (full_adder).
+Mapping positional arguments of cell ripple_adder_12bit.RA1 (ripple_adder_6bit).
+Mapping positional arguments of cell ripple_adder_12bit.RA0 (ripple_adder_6bit).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module half_adder.
+Optimizing module full_adder.
+Optimizing module ripple_adder_6bit.
+Optimizing module ripple_adder_12bit.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module half_adder.
+Optimizing module full_adder.
+Optimizing module ripple_adder_6bit.
+Optimizing module ripple_adder_12bit.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\half_adder'.
+Finding identical cells in module `\full_adder'.
+Finding identical cells in module `\ripple_adder_6bit'.
+Finding identical cells in module `\ripple_adder_12bit'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \half_adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \full_adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \ripple_adder_6bit..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \ripple_adder_12bit..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \half_adder.
+  Optimizing cells in module \full_adder.
+  Optimizing cells in module \ripple_adder_6bit.
+  Optimizing cells in module \ripple_adder_12bit.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\half_adder'.
+Finding identical cells in module `\full_adder'.
+Finding identical cells in module `\ripple_adder_6bit'.
+Finding identical cells in module `\ripple_adder_12bit'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \half_adder..
+Finding unused cells or wires in module \full_adder..
+Finding unused cells or wires in module \ripple_adder_6bit..
+Finding unused cells or wires in module \ripple_adder_12bit..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~2 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module full_adder.
+Optimizing module half_adder.
+Optimizing module ripple_adder_12bit.
+Optimizing module ripple_adder_6bit.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \full_adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \half_adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \ripple_adder_12bit..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \ripple_adder_6bit..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \full_adder.
+  Optimizing cells in module \half_adder.
+  Optimizing cells in module \ripple_adder_12bit.
+  Optimizing cells in module \ripple_adder_6bit.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\full_adder'.
+Finding identical cells in module `\half_adder'.
+Finding identical cells in module `\ripple_adder_12bit'.
+Finding identical cells in module `\ripple_adder_6bit'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \full_adder..
+Finding unused cells or wires in module \half_adder..
+Finding unused cells or wires in module \ripple_adder_12bit..
+Finding unused cells or wires in module \ripple_adder_6bit..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module full_adder.
+Optimizing module half_adder.
+Optimizing module ripple_adder_12bit.
+Optimizing module ripple_adder_6bit.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== full_adder ===
+
+   Number of wires:                  8
+   Number of wire bits:              8
+   Number of public wires:           8
+   Number of public wire bits:       8
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $or                             1
+
+=== half_adder ===
+
+   Number of wires:                  4
+   Number of wire bits:              4
+   Number of public wires:           4
+   Number of public wire bits:       4
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $and                            1
+     $xor                            1
+
+=== ripple_adder_12bit ===
+
+   Number of wires:                  6
+   Number of wire bits:             39
+   Number of public wires:           6
+   Number of public wire bits:      39
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+
+=== ripple_adder_6bit ===
+
+   Number of wires:                 10
+   Number of wire bits:             25
+   Number of public wires:          10
+   Number of public wire bits:      25
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+
+=== design hierarchy ===
+
+   ripple_adder_12bit                1
+     ripple_adder_6bit               0
+       full_adder                    0
+         half_adder                  0
+
+   Number of wires:                  6
+   Number of wire bits:             39
+   Number of public wires:           6
+   Number of public wire bits:      39
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+
+End of script. Logfile hash: 0fbf34adf0, CPU: user 0.05s system 0.00s, MEM: 11.22 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 27% 4x opt_expr (0 sec), 27% 3x opt_merge (0 sec), ...

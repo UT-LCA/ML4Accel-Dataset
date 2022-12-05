@@ -1,0 +1,2383 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v' to AST representation.
+Generating RTLIL representation for module `\single_port_ram'.
+Generating RTLIL representation for module `\dual_port_ram'.
+Generating RTLIL representation for module `\paj_raygentop_hierarchy_no_mem'.
+Generating RTLIL representation for module `\delay1x3'.
+Generating RTLIL representation for module `\onlyonecycle'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:329.5-374.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\matmult'.
+Generating RTLIL representation for module `\rgconfigmemory'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537.5-620.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\spram21x4'.
+Generating RTLIL representation for module `\rgsramcontroller'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792.5-1106.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\raysend'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1180.5-1335.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\raygencont'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460.5-1693.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\resultrecieve'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863.5-1970.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\resultwriter'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201.5-2716.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\col16to21'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2746.5-2766.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\linearmap'.
+Generating RTLIL representation for module `\bilinearintrp'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2897.9-2937.12 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\fifo3'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: fifo3               
+root of   0 design levels: bilinearintrp       
+root of   0 design levels: linearmap           
+root of   0 design levels: col16to21           
+root of   1 design levels: resultwriter        
+root of   0 design levels: resultrecieve       
+root of   0 design levels: raygencont          
+root of   0 design levels: raysend             
+root of   0 design levels: rgsramcontroller    
+root of   1 design levels: spram21x4           
+root of   2 design levels: rgconfigmemory      
+root of   0 design levels: matmult             
+root of   0 design levels: onlyonecycle        
+root of   0 design levels: delay1x3            
+root of   3 design levels: paj_raygentop_hierarchy_no_mem
+root of   0 design levels: dual_port_ram       
+root of   0 design levels: single_port_ram     
+Automatically selected paj_raygentop_hierarchy_no_mem as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \paj_raygentop_hierarchy_no_mem
+Used module:     \resultwriter
+Used module:         \fifo3
+Used module:         \bilinearintrp
+Used module:         \linearmap
+Used module:         \col16to21
+Used module:     \resultrecieve
+Used module:     \raygencont
+Used module:     \raysend
+Used module:     \rgsramcontroller
+Used module:     \rgconfigmemory
+Used module:         \spram21x4
+Used module:             \single_port_ram
+Used module:     \delay1x3
+Used module:     \matmult
+Used module:     \onlyonecycle
+Parameter \DATA_WIDTH = 21
+Parameter \ADDR_WIDTH = 8
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\single_port_ram'.
+Parameter \DATA_WIDTH = 21
+Parameter \ADDR_WIDTH = 8
+Generating RTLIL representation for module `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \paj_raygentop_hierarchy_no_mem
+Used module:     \resultwriter
+Used module:         \fifo3
+Used module:         \bilinearintrp
+Used module:         \linearmap
+Used module:         \col16to21
+Used module:     \resultrecieve
+Used module:     \raygencont
+Used module:     \raysend
+Used module:     \rgsramcontroller
+Used module:     \rgconfigmemory
+Used module:         \spram21x4
+Used module:             $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram
+Used module:     \delay1x3
+Used module:     \matmult
+Used module:     \onlyonecycle
+
+2.5. Analyzing design hierarchy..
+Top module:  \paj_raygentop_hierarchy_no_mem
+Used module:     \resultwriter
+Used module:         \fifo3
+Used module:         \bilinearintrp
+Used module:         \linearmap
+Used module:         \col16to21
+Used module:     \resultrecieve
+Used module:     \raygencont
+Used module:     \raysend
+Used module:     \rgsramcontroller
+Used module:     \rgconfigmemory
+Used module:         \spram21x4
+Used module:             $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram
+Used module:     \delay1x3
+Used module:     \matmult
+Used module:     \onlyonecycle
+Removing unused module `\dual_port_ram'.
+Removing unused module `\single_port_ram'.
+Removed 2 unused modules.
+Mapping positional arguments of cell resultwriter.fifo3instb (fifo3).
+Mapping positional arguments of cell resultwriter.fifo3insta (fifo3).
+Mapping positional arguments of cell resultwriter.bilinearimp (bilinearintrp).
+Mapping positional arguments of cell resultwriter.linearmapinst (linearmap).
+Mapping positional arguments of cell resultwriter.col16to21inst (col16to21).
+Mapping positional arguments of cell rgconfigmemory.spraminst (spram21x4).
+Mapping positional arguments of cell paj_raygentop_hierarchy_no_mem.resultwriteinst (resultwriter).
+Mapping positional arguments of cell paj_raygentop_hierarchy_no_mem.resultrecieveinst (resultrecieve).
+Mapping positional arguments of cell paj_raygentop_hierarchy_no_mem.raygencontinst (raygencont).
+Mapping positional arguments of cell paj_raygentop_hierarchy_no_mem.raysendinst (raysend).
+Mapping positional arguments of cell paj_raygentop_hierarchy_no_mem.sramcont (rgsramcontroller).
+Mapping positional arguments of cell paj_raygentop_hierarchy_no_mem.ConfigMemoryInst (rgconfigmemory).
+Mapping positional arguments of cell paj_raygentop_hierarchy_no_mem.dir01delay (delay1x3).
+Mapping positional arguments of cell paj_raygentop_hierarchy_no_mem.matmultinst (matmult).
+Mapping positional arguments of cell paj_raygentop_hierarchy_no_mem.onlyeonecycleinst (onlyonecycle).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2897$371 in module bilinearintrp.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2790$353 in module linearmap.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2746$352 in module col16to21.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2746$352 in module col16to21.
+Marked 50 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267 in module resultwriter.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263 in module resultwriter.
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238 in module resultrecieve.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236 in module resultrecieve.
+Marked 30 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169 in module raygencont.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165 in module raygencont.
+Marked 14 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1180$145 in module raysend.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1156$143 in module raysend.
+Marked 20 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108 in module rgsramcontroller.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106 in module rgsramcontroller.
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63 in module rgconfigmemory.
+Marked 16 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63 in module rgconfigmemory.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61 in module rgconfigmemory.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:329$36 in module onlyonecycle.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:314$34 in module onlyonecycle.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:242$28 in module paj_raygentop_hierarchy_no_mem.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:21$400 in module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2988$390 in module fifo3.
+Removed a total of 2 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 78 redundant assignments.
+Promoted 152 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+Creating decoders for process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2897$371'.
+     1/2: $1\v[7:0]
+     2/2: $1\u[7:0]
+Creating decoders for process `\linearmap.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2790$353'.
+     1/3: $0\addr[17:0]
+     2/3: $0\vl[6:0]
+     3/3: $0\ul[6:0]
+Creating decoders for process `\col16to21.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2746$352'.
+     1/1: $1\col16[15:0]
+Creating decoders for process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267'.
+     1/78: $1\temp_shadedatac[20:0] [20:14]
+     2/78: $2\temp_shiften01[0:0]
+     3/78: $16\temp_pending10[0:0]
+     4/78: $15\temp_pending01[0:0]
+     5/78: $15\temp_pending10[0:0]
+     6/78: $15\next_state[3:0]
+     7/78: $1\selectuv[2:0] [1:0]
+     8/78: $2\temp_shadedatac[20:0]
+     9/78: $14\temp_pending10[0:0]
+    10/78: $14\temp_pending01[0:0]
+    11/78: $14\next_state[3:0]
+    12/78: $13\next_state[3:0]
+    13/78: $4\triID[15:0]
+    14/78: $1\temp_shadedatac[20:0] [6:0]
+    15/78: $2\temp_shadedatab[20:0]
+    16/78: $13\temp_pending10[0:0]
+    17/78: $13\temp_pending01[0:0]
+    18/78: $12\next_state[3:0]
+    19/78: $11\next_state[3:0]
+    20/78: $3\triID[15:0]
+    21/78: $1\temp_shadedataa[20:0] [20:14]
+    22/78: $12\temp_pending01[0:0]
+    23/78: $10\next_state[3:0]
+    24/78: $1\temp_shadedataa[20:0] [13:7]
+    25/78: $11\temp_pending01[0:0]
+    26/78: $1\temp_shadedatab[20:0] [13:7]
+    27/78: $10\temp_pending01[0:0]
+    28/78: $9\next_state[3:0]
+    29/78: $1\temp_shadedatab[20:0] [6:0]
+    30/78: $9\temp_pending01[0:0]
+    31/78: $1\selectuv[2:0] [2]
+    32/78: $8\temp_pending01[0:0]
+    33/78: $8\next_state[3:0]
+    34/78: $1\temp_shadedataa[20:0] [6:0]
+    35/78: $12\temp_pending10[0:0]
+    36/78: $1\temp_shadedatab[20:0] [20:14]
+    37/78: $7\temp_pending01[0:0]
+    38/78: $7\next_state[3:0]
+    39/78: $3\temp_texmap[0:0]
+    40/78: $11\temp_pending10[0:0]
+    41/78: $10\temp_pending10[0:0]
+    42/78: $6\temp_pending01[0:0]
+    43/78: $6\next_state[3:0]
+    44/78: $4\temp_texmap[0:0]
+    45/78: $5\temp_pending01[0:0]
+    46/78: $5\next_state[3:0]
+    47/78: $8\temp_pending10[0:0]
+    48/78: $7\temp_pending10[0:0]
+    49/78: $6\temp_pending10[0:0]
+    50/78: $4\temp_pending01[0:0]
+    51/78: $2\temp_texmap[0:0]
+    52/78: $2\temp_shadedataa[20:0]
+    53/78: $3\temp_pending10[0:0]
+    54/78: $3\temp_pending01[0:0]
+    55/78: $4\next_state[3:0]
+    56/78: $3\next_state[3:0]
+    57/78: $2\triID[15:0]
+    58/78: $9\temp_pending10[0:0]
+    59/78: $5\temp_pending10[0:0]
+    60/78: $2\temp_pending01[0:0]
+    61/78: $2\next_state[3:0]
+    62/78: $1\temp_write[0:0]
+    63/78: $1\temp_shiften10[0:0]
+    64/78: $1\temp_shiften01[0:0]
+    65/78: $1\temp_process01[0:0]
+    66/78: $1\temp_pending10[0:0]
+    67/78: $1\temp_pending01[0:0]
+    68/78: $1\next_state[3:0]
+    69/78: $1\wanttexel[0:0]
+    70/78: $1\lmenable[0:0]
+    71/78: $2\temp_pending10[0:0]
+    72/78: $1\triID[15:0]
+    73/78: $1\wantshadedata[0:0]
+    74/78: $2\temp_shiften10[0:0]
+    75/78: $1\temp_shadedatac[20:0] [13:7]
+    76/78: $4\temp_pending10[0:0]
+    77/78: $1\temp_texinfol[20:0]
+    78/78: $1\temp_texmap[0:0]
+Creating decoders for process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263'.
+     1/10: $0\texinfol[20:0]
+     2/10: $0\texmap[0:0]
+     3/10: $0\process01[0:0]
+     4/10: $0\shadedatac[20:0]
+     5/10: $0\shadedatab[20:0]
+     6/10: $0\shadedataa[20:0]
+     7/10: $0\pending10[0:0]
+     8/10: $0\pending01[0:0]
+     9/10: $0\state[3:0]
+    10/10: $0\dataout[63:0]
+Creating decoders for process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238'.
+     1/35: $3\temp_id10b[15:0]
+     2/35: $3\temp_id10a[15:0]
+     3/35: $2\temp_id01b[15:0]
+     4/35: $2\temp_id01a[15:0]
+     5/35: $2\temp_id10b[15:0]
+     6/35: $2\temp_id10a[15:0]
+     7/35: $3\next_state[2:0]
+     8/35: $2\next_state[2:0]
+     9/35: $1\temp_id10b[15:0]
+    10/35: $1\temp_id10a[15:0]
+    11/35: $1\temp_id01b[15:0]
+    12/35: $1\temp_id01a[15:0]
+    13/35: $1\temp_valid10[0:0]
+    14/35: $1\temp_valid01[0:0]
+    15/35: $1\next_state[2:0]
+    16/35: $1\temp_v10c[7:0]
+    17/35: $1\temp_v10b[7:0]
+    18/35: $1\temp_v10a[7:0]
+    19/35: $1\temp_u10c[7:0]
+    20/35: $1\temp_u10b[7:0]
+    21/35: $1\temp_u10a[7:0]
+    22/35: $1\temp_v01c[7:0]
+    23/35: $1\temp_v01b[7:0]
+    24/35: $1\temp_v01a[7:0]
+    25/35: $1\temp_u01c[7:0]
+    26/35: $1\temp_u01b[7:0]
+    27/35: $1\temp_u01a[7:0]
+    28/35: $1\temp_hit10c[0:0]
+    29/35: $1\temp_hit10b[0:0]
+    30/35: $1\temp_hit10a[0:0]
+    31/35: $1\temp_hit01c[0:0]
+    32/35: $1\temp_hit01b[0:0]
+    33/35: $1\temp_hit01a[0:0]
+    34/35: $1\temp_id10c[15:0]
+    35/35: $1\temp_id01c[15:0]
+Creating decoders for process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+     1/27: $0\v10c[7:0]
+     2/27: $0\v10b[7:0]
+     3/27: $0\v10a[7:0]
+     4/27: $0\u10c[7:0]
+     5/27: $0\u10b[7:0]
+     6/27: $0\u10a[7:0]
+     7/27: $0\v01c[7:0]
+     8/27: $0\v01b[7:0]
+     9/27: $0\v01a[7:0]
+    10/27: $0\u01c[7:0]
+    11/27: $0\u01b[7:0]
+    12/27: $0\u01a[7:0]
+    13/27: $0\id01c[15:0]
+    14/27: $0\id01b[15:0]
+    15/27: $0\id01a[15:0]
+    16/27: $0\hit10c[0:0]
+    17/27: $0\hit10b[0:0]
+    18/27: $0\hit10a[0:0]
+    19/27: $0\hit01c[0:0]
+    20/27: $0\hit01b[0:0]
+    21/27: $0\hit01a[0:0]
+    22/27: $0\valid10[0:0]
+    23/27: $0\valid01[0:0]
+    24/27: $0\state[2:0]
+    25/27: $0\id10c[15:0]
+    26/27: $0\id10b[15:0]
+    27/27: $0\id10a[15:0]
+Creating decoders for process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169'.
+     1/72: $1\temp_groupID[1:0] [1]
+     2/72: $8\temp_raygroupvalid1[0:0]
+     3/72: $12\temp_active[0:0]
+     4/72: $7\temp_raygroupvalid1[0:0]
+     5/72: $11\temp_active[0:0]
+     6/72: $3\temp_count[14:0]
+     7/72: $7\temp_raygroupvalid0[0:0]
+     8/72: $3\temp_groupID[0:0]
+     9/72: $14\next_state[2:0]
+    10/72: $13\next_state[2:0]
+    11/72: $12\next_state[2:0]
+    12/72: $10\temp_active[0:0]
+    13/72: $6\temp_raygroupvalid0[0:0]
+    14/72: $9\temp_active[0:0]
+    15/72: $5\temp_raygroupvalid0[0:0]
+    16/72: $8\temp_active[0:0]
+    17/72: $2\temp_count[14:0]
+    18/72: $6\temp_raygroupvalid1[0:0]
+    19/72: $2\temp_groupID[1:1]
+    20/72: $11\next_state[2:0]
+    21/72: $10\next_state[2:0]
+    22/72: $9\next_state[2:0]
+    23/72: $1\temp_groupID[1:0] [0]
+    24/72: $1\temp_loaded[1:0] [1]
+    25/72: $13\temp_active[0:0]
+    26/72: $7\temp_active[0:0]
+    27/72: $6\temp_addr[1:0]
+    28/72: $6\temp_active[0:0]
+    29/72: $5\temp_raygroupvalid1[0:0]
+    30/72: $5\temp_active[0:0]
+    31/72: $5\temp_addr[1:0]
+    32/72: $4\temp_raygroupvalid0[0:0]
+    33/72: $4\temp_raygroupvalid1[0:0]
+    34/72: $4\temp_active[0:0]
+    35/72: $4\temp_addr[1:0]
+    36/72: $3\temp_raygroupvalid0[0:0]
+    37/72: $3\temp_raygroupvalid1[0:0]
+    38/72: $3\temp_active[0:0]
+    39/72: $3\temp_addr[1:0]
+    40/72: $2\temp_addr[1:0]
+    41/72: $2\temp_raygroupvalid0[0:0]
+    42/72: $2\temp_raygroupvalid1[0:0]
+    43/72: $2\temp_active[0:0]
+    44/72: $8\next_state[2:0]
+    45/72: $7\next_state[2:0]
+    46/72: $6\next_state[2:0]
+    47/72: $5\next_state[2:0]
+    48/72: $4\next_state[2:0]
+    49/72: $3\temp_loaded[1:0] [0]
+    50/72: $3\temp_loaded[1:0] [1]
+    51/72: $2\temp_loaded[1:0]
+    52/72: $2\temp_nas1[0:0]
+    53/72: $2\temp_nas0[0:0]
+    54/72: $3\next_state[2:0]
+    55/72: $2\temp_cycles[30:0]
+    56/72: $2\next_state[2:0]
+    57/72: $1\temp_active[0:0]
+    58/72: $1\temp_count[14:0]
+    59/72: $1\temp_loaded[1:0] [0]
+    60/72: $7\temp_addr[1:0]
+    61/72: $1\temp_addr[1:0]
+    62/72: $1\temp_cycles[30:0]
+    63/72: $1\temp_nas1[0:0]
+    64/72: $1\temp_nas0[0:0]
+    65/72: $1\temp_busyout[0:0]
+    66/72: $1\statepeek[2:0]
+    67/72: $1\next_state[2:0]
+    68/72: $1\wantDir[0:0]
+    69/72: $1\as[0:0]
+    70/72: $1\temp_raygroupvalid0[0:0]
+    71/72: $1\temp_raygroupvalid1[0:0]
+    72/72: $1\temp_dir[47:0]
+Creating decoders for process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+     1/13: $0\active[0:0]
+     2/13: $0\loaded[1:0]
+     3/13: $0\raygroupvalid1[0:0]
+     4/13: $0\raygroupvalid0[0:0]
+     5/13: $0\count[14:0]
+     6/13: $0\groupID[1:0]
+     7/13: $0\addr[3:0] [1:0]
+     8/13: $0\dir[47:0]
+     9/13: $0\cycles[30:0]
+    10/13: $0\state[2:0]
+    11/13: $0\destaddr[17:0]
+    12/13: $0\first[0:0]
+    13/13: $0\addr[3:0] [3:2]
+Creating decoders for process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1180$145'.
+     1/23: $7\temp_rgAddrValid[0:0]
+     2/23: $7\next_state[3:0]
+     3/23: $6\temp_rgAddrValid[0:0]
+     4/23: $6\next_state[3:0]
+     5/23: $5\temp_rgAddrValid[0:0]
+     6/23: $5\next_state[3:0]
+     7/23: $4\temp_rgAddrValid[0:0]
+     8/23: $4\next_state[3:0]
+     9/23: $3\temp_rgAddrValid[0:0]
+    10/23: $3\next_state[3:0]
+    11/23: $2\temp_ack[0:0]
+    12/23: $2\temp_rgAddr[3:0]
+    13/23: $2\temp_rgAddrValid[0:0]
+    14/23: $2\temp_rgWE[2:0]
+    15/23: $2\temp_rgData[31:0]
+    16/23: $2\next_state[3:0]
+    17/23: $1\temp_ack[0:0]
+    18/23: $1\temp_rgAddr[3:0]
+    19/23: $1\temp_rgAddrValid[0:0]
+    20/23: $1\temp_rgWE[2:0]
+    21/23: $1\temp_rgData[31:0]
+    22/23: $1\statepeek[2:0]
+    23/23: $1\next_state[3:0]
+Creating decoders for process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1156$143'.
+     1/6: $0\rgAddr[3:0]
+     2/6: $0\rgAddrValid[0:0]
+     3/6: $0\rgData[31:0]
+     4/6: $0\rgWE[2:0]
+     5/6: $0\ack[0:0]
+     6/6: $0\state[3:0]
+Creating decoders for process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108'.
+     1/37: $3\temp_faddress[14:0]
+     2/37: $2\temp_fcount[6:0]
+     3/37: $2\temp_faddress[14:0]
+     4/37: $15\next_state[3:0]
+     5/37: $4\temp_waddress[17:0]
+     6/37: $14\next_state[3:0]
+     7/37: $13\next_state[3:0]
+     8/37: $3\temp_waddress[17:0]
+     9/37: $12\next_state[3:0]
+    10/37: $11\next_state[3:0]
+    11/37: $2\temp_waddress[17:0]
+    12/37: $10\next_state[3:0]
+    13/37: $9\next_state[3:0]
+    14/37: $8\next_state[3:0]
+    15/37: $7\next_state[3:0]
+    16/37: $6\next_state[3:0]
+    17/37: $5\next_state[3:0]
+    18/37: $4\next_state[3:0]
+    19/37: $3\next_state[3:0]
+    20/37: $2\next_state[3:0]
+    21/37: $1\temp_waddress[17:0]
+    22/37: $1\temp_texelready[0:0]
+    23/37: $1\temp_shadedataready[0:0]
+    24/37: $1\temp_fbdatavalidl[0:0]
+    25/37: $1\next_state[3:0]
+    26/37: $1\writebackack[0:0]
+    27/37: $1\dirReady[0:0]
+    28/37: $1\read_ready[0:0]
+    29/37: $1\want_data[0:0]
+    30/37: $1\want_addr[0:0]
+    31/37: $1\tm3_sram_addr[18:0]
+    32/37: $1\tm3_sram_data_xhdl0[63:0]
+    33/37: $1\tm3_sram_adsp[0:0]
+    34/37: $1\tm3_sram_oe[1:0]
+    35/37: $1\tm3_sram_we[7:0]
+    36/37: $1\temp_fcount[6:0]
+    37/37: $1\temp_faddress[14:0]
+Creating decoders for process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106'.
+     1/10: $0\fbdata[63:0]
+     2/10: $0\sramdatal[47:0]
+     3/10: $0\texelready[0:0]
+     4/10: $0\shadedataready[0:0]
+     5/10: $0\fbdatavalidl[0:0]
+     6/10: $0\fbdatavalid[0:0]
+     7/10: $0\fcount[6:0]
+     8/10: $0\faddress[14:0]
+     9/10: $0\waddress[17:0]
+    10/10: $0\state[3:0]
+Creating decoders for process `\spram21x4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:635$105'.
+Creating decoders for process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63'.
+     1/108: $3\next_state[0:0]
+     2/108: $14\temp_bkcolour[20:0]
+     3/108: $13\temp_m33[15:0]
+     4/108: $13\temp_bkcolour[20:0]
+     5/108: $12\temp_m32[15:0]
+     6/108: $12\temp_bkcolour[20:0]
+     7/108: $12\temp_m33[15:0]
+     8/108: $11\temp_m31[15:0]
+     9/108: $11\temp_bkcolour[20:0]
+    10/108: $11\temp_m33[15:0]
+    11/108: $11\temp_m32[15:0]
+    12/108: $10\temp_m23[15:0]
+    13/108: $10\temp_bkcolour[20:0]
+    14/108: $10\temp_m33[15:0]
+    15/108: $10\temp_m32[15:0]
+    16/108: $10\temp_m31[15:0]
+    17/108: $9\temp_m22[15:0]
+    18/108: $9\temp_bkcolour[20:0]
+    19/108: $9\temp_m33[15:0]
+    20/108: $9\temp_m32[15:0]
+    21/108: $9\temp_m31[15:0]
+    22/108: $9\temp_m23[15:0]
+    23/108: $8\temp_m21[15:0]
+    24/108: $8\temp_bkcolour[20:0]
+    25/108: $8\temp_m33[15:0]
+    26/108: $8\temp_m32[15:0]
+    27/108: $8\temp_m31[15:0]
+    28/108: $8\temp_m23[15:0]
+    29/108: $8\temp_m22[15:0]
+    30/108: $7\temp_m13[15:0]
+    31/108: $7\temp_bkcolour[20:0]
+    32/108: $7\temp_m33[15:0]
+    33/108: $7\temp_m32[15:0]
+    34/108: $7\temp_m31[15:0]
+    35/108: $7\temp_m23[15:0]
+    36/108: $7\temp_m22[15:0]
+    37/108: $7\temp_m21[15:0]
+    38/108: $6\temp_m12[15:0]
+    39/108: $6\temp_bkcolour[20:0]
+    40/108: $6\temp_m33[15:0]
+    41/108: $6\temp_m32[15:0]
+    42/108: $6\temp_m31[15:0]
+    43/108: $6\temp_m23[15:0]
+    44/108: $6\temp_m22[15:0]
+    45/108: $6\temp_m21[15:0]
+    46/108: $6\temp_m13[15:0]
+    47/108: $5\temp_m11[15:0]
+    48/108: $5\temp_bkcolour[20:0]
+    49/108: $5\temp_m33[15:0]
+    50/108: $5\temp_m32[15:0]
+    51/108: $5\temp_m31[15:0]
+    52/108: $5\temp_m23[15:0]
+    53/108: $5\temp_m22[15:0]
+    54/108: $5\temp_m21[15:0]
+    55/108: $5\temp_m13[15:0]
+    56/108: $5\temp_m12[15:0]
+    57/108: $4\temp_origz[27:0]
+    58/108: $4\temp_bkcolour[20:0]
+    59/108: $4\temp_m33[15:0]
+    60/108: $4\temp_m32[15:0]
+    61/108: $4\temp_m31[15:0]
+    62/108: $4\temp_m23[15:0]
+    63/108: $4\temp_m22[15:0]
+    64/108: $4\temp_m21[15:0]
+    65/108: $4\temp_m13[15:0]
+    66/108: $4\temp_m12[15:0]
+    67/108: $4\temp_m11[15:0]
+    68/108: $3\temp_origy[27:0]
+    69/108: $3\temp_bkcolour[20:0]
+    70/108: $3\temp_m33[15:0]
+    71/108: $3\temp_m32[15:0]
+    72/108: $3\temp_m31[15:0]
+    73/108: $3\temp_m23[15:0]
+    74/108: $3\temp_m22[15:0]
+    75/108: $3\temp_m21[15:0]
+    76/108: $3\temp_m13[15:0]
+    77/108: $3\temp_m12[15:0]
+    78/108: $3\temp_m11[15:0]
+    79/108: $3\temp_origz[27:0]
+    80/108: $2\temp_origx[27:0]
+    81/108: $2\temp_bkcolour[20:0]
+    82/108: $2\temp_m33[15:0]
+    83/108: $2\temp_m32[15:0]
+    84/108: $2\temp_m31[15:0]
+    85/108: $2\temp_m23[15:0]
+    86/108: $2\temp_m22[15:0]
+    87/108: $2\temp_m21[15:0]
+    88/108: $2\temp_m13[15:0]
+    89/108: $2\temp_m12[15:0]
+    90/108: $2\temp_m11[15:0]
+    91/108: $2\temp_origz[27:0]
+    92/108: $2\temp_origy[27:0]
+    93/108: $2\next_state[0:0]
+    94/108: $1\temp_bkcolour[20:0]
+    95/108: $1\temp_m33[15:0]
+    96/108: $1\temp_m32[15:0]
+    97/108: $1\temp_m31[15:0]
+    98/108: $1\temp_m23[15:0]
+    99/108: $1\temp_m22[15:0]
+   100/108: $1\temp_m21[15:0]
+   101/108: $1\temp_m13[15:0]
+   102/108: $1\temp_m12[15:0]
+   103/108: $1\temp_m11[15:0]
+   104/108: $1\temp_origz[27:0]
+   105/108: $1\temp_origy[27:0]
+   106/108: $1\temp_origx[27:0]
+   107/108: $1\next_state[0:0]
+   108/108: $1\want_CfgData[0:0]
+Creating decoders for process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+     1/14: $0\bkcolour[20:0]
+     2/14: $0\m33[15:0]
+     3/14: $0\m32[15:0]
+     4/14: $0\m31[15:0]
+     5/14: $0\m23[15:0]
+     6/14: $0\m22[15:0]
+     7/14: $0\m21[15:0]
+     8/14: $0\m13[15:0]
+     9/14: $0\m12[15:0]
+    10/14: $0\m11[15:0]
+    11/14: $0\origz[27:0]
+    12/14: $0\origy[27:0]
+    13/14: $0\origx[27:0]
+    14/14: $0\state[0:0]
+Creating decoders for process `\matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+Creating decoders for process `\onlyonecycle.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:329$36'.
+     1/6: $4\next_state[1:0]
+     2/6: $3\next_state[1:0]
+     3/6: $2\next_state[1:0]
+     4/6: $1\temp_count[0:0]
+     5/6: $1\next_state[1:0]
+     6/6: $1\output_xhdl0[0:0]
+Creating decoders for process `\onlyonecycle.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:314$34'.
+     1/2: $0\count[0:0]
+     2/2: $0\state[1:0]
+Creating decoders for process `\delay1x3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:285$33'.
+Creating decoders for process `\paj_raygentop_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:242$28'.
+     1/1: $0\page[0:0]
+Creating decoders for process `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:21$400'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:23$399_EN[20:0]$406
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:23$399_DATA[20:0]$405
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:23$399_ADDR[7:0]$404
+     4/4: $0\out[20:0]
+Creating decoders for process `\fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2988$390'.
+     1/4: $0\pos[1:0]
+     2/4: $0\data0[17:0]
+     3/4: $0\data2[17:0]
+     4/4: $0\data1[17:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\bilinearintrp.\u' from process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2897$371'.
+No latch inferred for signal `\bilinearintrp.\v' from process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2897$371'.
+No latch inferred for signal `\col16to21.\col16' from process `\col16to21.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2746$352'.
+Latch inferred for signal `\resultwriter.\triID' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$5389
+Latch inferred for signal `\resultwriter.\wantshadedata' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$5478
+Latch inferred for signal `\resultwriter.\wanttexel' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$5567
+Latch inferred for signal `\resultwriter.\next_state' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$5656
+Latch inferred for signal `\resultwriter.\temp_write' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$5739
+Latch inferred for signal `\resultwriter.\temp_shiften01' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$5840
+Latch inferred for signal `\resultwriter.\temp_shiften10' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$5933
+Latch inferred for signal `\resultwriter.\selectuv [1:0]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$6022
+Latch inferred for signal `\resultwriter.\selectuv [2]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$6111
+Latch inferred for signal `\resultwriter.\lmenable' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$6200
+Latch inferred for signal `\resultwriter.\temp_pending01' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$6541
+Latch inferred for signal `\resultwriter.\temp_pending10' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$6908
+Latch inferred for signal `\resultwriter.\temp_process01' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$6919
+Latch inferred for signal `\resultwriter.\temp_texmap' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$6996
+Latch inferred for signal `\resultwriter.\temp_texinfol' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$7019
+Latch inferred for signal `\resultwriter.\temp_shadedataa [6:0]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$7042
+Latch inferred for signal `\resultwriter.\temp_shadedataa [13:7]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$7065
+Latch inferred for signal `\resultwriter.\temp_shadedataa [20:14]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$7088
+Latch inferred for signal `\resultwriter.\temp_shadedatab [6:0]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$7111
+Latch inferred for signal `\resultwriter.\temp_shadedatab [13:7]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$7134
+Latch inferred for signal `\resultwriter.\temp_shadedatab [20:14]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$7157
+Latch inferred for signal `\resultwriter.\temp_shadedatac [6:0]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$7180
+Latch inferred for signal `\resultwriter.\temp_shadedatac [13:7]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$7203
+Latch inferred for signal `\resultwriter.\temp_shadedatac [20:14]' from process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267': $auto$proc_dlatch.cc:427:proc_dlatch$7226
+Latch inferred for signal `\resultrecieve.\next_state' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7273
+Latch inferred for signal `\resultrecieve.\temp_valid01' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7320
+Latch inferred for signal `\resultrecieve.\temp_valid10' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7367
+Latch inferred for signal `\resultrecieve.\temp_id01a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7396
+Latch inferred for signal `\resultrecieve.\temp_id01b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7417
+Latch inferred for signal `\resultrecieve.\temp_id01c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7428
+Latch inferred for signal `\resultrecieve.\temp_id10a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7483
+Latch inferred for signal `\resultrecieve.\temp_id10b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7518
+Latch inferred for signal `\resultrecieve.\temp_id10c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7529
+Latch inferred for signal `\resultrecieve.\temp_hit01a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7540
+Latch inferred for signal `\resultrecieve.\temp_hit01b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7551
+Latch inferred for signal `\resultrecieve.\temp_hit01c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7562
+Latch inferred for signal `\resultrecieve.\temp_hit10a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7573
+Latch inferred for signal `\resultrecieve.\temp_hit10b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7584
+Latch inferred for signal `\resultrecieve.\temp_hit10c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7595
+Latch inferred for signal `\resultrecieve.\temp_u01a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7606
+Latch inferred for signal `\resultrecieve.\temp_u01b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7617
+Latch inferred for signal `\resultrecieve.\temp_u01c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7628
+Latch inferred for signal `\resultrecieve.\temp_v01a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7639
+Latch inferred for signal `\resultrecieve.\temp_v01b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7650
+Latch inferred for signal `\resultrecieve.\temp_v01c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7661
+Latch inferred for signal `\resultrecieve.\temp_u10a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7672
+Latch inferred for signal `\resultrecieve.\temp_u10b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7683
+Latch inferred for signal `\resultrecieve.\temp_u10c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7694
+Latch inferred for signal `\resultrecieve.\temp_v10a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7705
+Latch inferred for signal `\resultrecieve.\temp_v10b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7716
+Latch inferred for signal `\resultrecieve.\temp_v10c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238': $auto$proc_dlatch.cc:427:proc_dlatch$7727
+Latch inferred for signal `\raygencont.\wantDir' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$7750
+Latch inferred for signal `\raygencont.\next_state' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$7785
+Latch inferred for signal `\raygencont.\temp_count' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$7844
+Latch inferred for signal `\raygencont.\as' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$7867
+Latch inferred for signal `\raygencont.\statepeek' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$7902
+Latch inferred for signal `\raygencont.\temp_busyout' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$7937
+Latch inferred for signal `\raygencont.\temp_nas0' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$7990
+Latch inferred for signal `\raygencont.\temp_nas1' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$8035
+Latch inferred for signal `\raygencont.\temp_dir' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$8046
+Latch inferred for signal `\raygencont.\temp_cycles' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$8099
+Latch inferred for signal `\raygencont.\temp_addr' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$8340
+Latch inferred for signal `\raygencont.\temp_loaded [0]' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$8405
+Latch inferred for signal `\raygencont.\temp_loaded [1]' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$8462
+Latch inferred for signal `\raygencont.\temp_groupID [0]' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$8489
+Latch inferred for signal `\raygencont.\temp_groupID [1]' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$8516
+Latch inferred for signal `\raygencont.\temp_active' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$8769
+Latch inferred for signal `\raygencont.\temp_raygroupvalid1' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$8940
+Latch inferred for signal `\raygencont.\temp_raygroupvalid0' from process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169': $auto$proc_dlatch.cc:427:proc_dlatch$9075
+Latch inferred for signal `\raysend.\next_state' from process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1180$145': $auto$proc_dlatch.cc:427:proc_dlatch$9140
+Latch inferred for signal `\raysend.\statepeek' from process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1180$145': $auto$proc_dlatch.cc:427:proc_dlatch$9181
+Latch inferred for signal `\raysend.\temp_rgData' from process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1180$145': $auto$proc_dlatch.cc:427:proc_dlatch$9234
+Latch inferred for signal `\raysend.\temp_rgWE' from process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1180$145': $auto$proc_dlatch.cc:427:proc_dlatch$9279
+Latch inferred for signal `\raysend.\temp_rgAddrValid' from process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1180$145': $auto$proc_dlatch.cc:427:proc_dlatch$9444
+Latch inferred for signal `\raysend.\temp_ack' from process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1180$145': $auto$proc_dlatch.cc:427:proc_dlatch$9479
+Latch inferred for signal `\raysend.\temp_rgAddr' from process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1180$145': $auto$proc_dlatch.cc:427:proc_dlatch$9500
+Latch inferred for signal `\rgsramcontroller.\tm3_sram_data_xhdl0' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$9571
+Latch inferred for signal `\rgsramcontroller.\tm3_sram_addr' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$9642
+Latch inferred for signal `\rgsramcontroller.\tm3_sram_we' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$9713
+Latch inferred for signal `\rgsramcontroller.\tm3_sram_oe' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$9784
+Latch inferred for signal `\rgsramcontroller.\tm3_sram_adsp' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$9855
+Latch inferred for signal `\rgsramcontroller.\dirReady' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$9926
+Latch inferred for signal `\rgsramcontroller.\writebackack' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$9997
+Latch inferred for signal `\rgsramcontroller.\next_state' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$10068
+Latch inferred for signal `\rgsramcontroller.\want_addr' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$10139
+Latch inferred for signal `\rgsramcontroller.\want_data' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$10210
+Latch inferred for signal `\rgsramcontroller.\read_ready' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$10281
+Latch inferred for signal `\rgsramcontroller.\temp_waddress' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$10364
+Latch inferred for signal `\rgsramcontroller.\temp_faddress' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$10417
+Latch inferred for signal `\rgsramcontroller.\temp_fcount' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$10444
+Latch inferred for signal `\rgsramcontroller.\temp_fbdatavalidl' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$10497
+Latch inferred for signal `\rgsramcontroller.\temp_texelready' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$10550
+Latch inferred for signal `\rgsramcontroller.\temp_shadedataready' from process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108': $auto$proc_dlatch.cc:427:proc_dlatch$10603
+No latch inferred for signal `\rgconfigmemory.\next_state' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63'.
+No latch inferred for signal `\rgconfigmemory.\want_CfgData' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63'.
+Latch inferred for signal `\rgconfigmemory.\temp_origx' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63': $auto$proc_dlatch.cc:427:proc_dlatch$10630
+Latch inferred for signal `\rgconfigmemory.\temp_origy' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63': $auto$proc_dlatch.cc:427:proc_dlatch$10683
+Latch inferred for signal `\rgconfigmemory.\temp_origz' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63': $auto$proc_dlatch.cc:427:proc_dlatch$10766
+Latch inferred for signal `\rgconfigmemory.\temp_m11' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63': $auto$proc_dlatch.cc:427:proc_dlatch$10887
+Latch inferred for signal `\rgconfigmemory.\temp_m12' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63': $auto$proc_dlatch.cc:427:proc_dlatch$11054
+Latch inferred for signal `\rgconfigmemory.\temp_m13' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63': $auto$proc_dlatch.cc:427:proc_dlatch$11275
+Latch inferred for signal `\rgconfigmemory.\temp_m21' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63': $auto$proc_dlatch.cc:427:proc_dlatch$11558
+Latch inferred for signal `\rgconfigmemory.\temp_m22' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63': $auto$proc_dlatch.cc:427:proc_dlatch$11911
+Latch inferred for signal `\rgconfigmemory.\temp_m23' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63': $auto$proc_dlatch.cc:427:proc_dlatch$12342
+Latch inferred for signal `\rgconfigmemory.\temp_m31' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63': $auto$proc_dlatch.cc:427:proc_dlatch$12859
+Latch inferred for signal `\rgconfigmemory.\temp_m32' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63': $auto$proc_dlatch.cc:427:proc_dlatch$13470
+Latch inferred for signal `\rgconfigmemory.\temp_m33' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63': $auto$proc_dlatch.cc:427:proc_dlatch$14183
+Latch inferred for signal `\rgconfigmemory.\temp_bkcolour' from process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63': $auto$proc_dlatch.cc:427:proc_dlatch$15006
+Latch inferred for signal `\onlyonecycle.\output_xhdl0' from process `\onlyonecycle.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:329$36': $auto$proc_dlatch.cc:427:proc_dlatch$15029
+Latch inferred for signal `\onlyonecycle.\next_state' from process `\onlyonecycle.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:329$36': $auto$proc_dlatch.cc:427:proc_dlatch$15052
+Latch inferred for signal `\onlyonecycle.\temp_count' from process `\onlyonecycle.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:329$36': $auto$proc_dlatch.cc:427:proc_dlatch$15069
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\bilinearintrp.\ul' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15070' with positive edge clock.
+Creating register for signal `\bilinearintrp.\vl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15071' with positive edge clock.
+Creating register for signal `\bilinearintrp.\wl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15072' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i1b' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15073' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i2b' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15074' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i3b' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15075' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i1g' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15076' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i2g' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15077' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i3g' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15078' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i1r' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15079' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i2r' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15080' with positive edge clock.
+Creating register for signal `\bilinearintrp.\i3r' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15081' with positive edge clock.
+Creating register for signal `\bilinearintrp.\rul' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15082' with positive edge clock.
+Creating register for signal `\bilinearintrp.\rvl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15083' with positive edge clock.
+Creating register for signal `\bilinearintrp.\rwl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15084' with positive edge clock.
+Creating register for signal `\bilinearintrp.\gul' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15085' with positive edge clock.
+Creating register for signal `\bilinearintrp.\gvl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15086' with positive edge clock.
+Creating register for signal `\bilinearintrp.\gwl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15087' with positive edge clock.
+Creating register for signal `\bilinearintrp.\bul' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15088' with positive edge clock.
+Creating register for signal `\bilinearintrp.\bvl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15089' with positive edge clock.
+Creating register for signal `\bilinearintrp.\bwl' using process `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+  created $dff cell `$procdff$15090' with positive edge clock.
+Creating register for signal `\linearmap.\addr' using process `\linearmap.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2790$353'.
+  created $dff cell `$procdff$15091' with positive edge clock.
+Creating register for signal `\linearmap.\ul' using process `\linearmap.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2790$353'.
+  created $dff cell `$procdff$15092' with positive edge clock.
+Creating register for signal `\linearmap.\vl' using process `\linearmap.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2790$353'.
+  created $dff cell `$procdff$15093' with positive edge clock.
+Creating register for signal `\resultwriter.\dataout' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263'.
+  created $dff cell `$procdff$15094' with positive edge clock.
+Creating register for signal `\resultwriter.\state' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263'.
+  created $dff cell `$procdff$15095' with positive edge clock.
+Creating register for signal `\resultwriter.\pending01' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263'.
+  created $dff cell `$procdff$15096' with positive edge clock.
+Creating register for signal `\resultwriter.\pending10' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263'.
+  created $dff cell `$procdff$15097' with positive edge clock.
+Creating register for signal `\resultwriter.\process01' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263'.
+  created $dff cell `$procdff$15098' with positive edge clock.
+Creating register for signal `\resultwriter.\shadedataa' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263'.
+  created $dff cell `$procdff$15099' with positive edge clock.
+Creating register for signal `\resultwriter.\shadedatab' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263'.
+  created $dff cell `$procdff$15100' with positive edge clock.
+Creating register for signal `\resultwriter.\shadedatac' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263'.
+  created $dff cell `$procdff$15101' with positive edge clock.
+Creating register for signal `\resultwriter.\texmap' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263'.
+  created $dff cell `$procdff$15102' with positive edge clock.
+Creating register for signal `\resultwriter.\texinfol' using process `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263'.
+  created $dff cell `$procdff$15103' with positive edge clock.
+Creating register for signal `\resultrecieve.\valid01' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15104' with positive edge clock.
+Creating register for signal `\resultrecieve.\valid10' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15105' with positive edge clock.
+Creating register for signal `\resultrecieve.\id01a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15106' with positive edge clock.
+Creating register for signal `\resultrecieve.\id01b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15107' with positive edge clock.
+Creating register for signal `\resultrecieve.\id01c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15108' with positive edge clock.
+Creating register for signal `\resultrecieve.\id10a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15109' with positive edge clock.
+Creating register for signal `\resultrecieve.\id10b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15110' with positive edge clock.
+Creating register for signal `\resultrecieve.\id10c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15111' with positive edge clock.
+Creating register for signal `\resultrecieve.\hit01a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15112' with positive edge clock.
+Creating register for signal `\resultrecieve.\hit01b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15113' with positive edge clock.
+Creating register for signal `\resultrecieve.\hit01c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15114' with positive edge clock.
+Creating register for signal `\resultrecieve.\hit10a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15115' with positive edge clock.
+Creating register for signal `\resultrecieve.\hit10b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15116' with positive edge clock.
+Creating register for signal `\resultrecieve.\hit10c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15117' with positive edge clock.
+Creating register for signal `\resultrecieve.\u01a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15118' with positive edge clock.
+Creating register for signal `\resultrecieve.\u01b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15119' with positive edge clock.
+Creating register for signal `\resultrecieve.\u01c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15120' with positive edge clock.
+Creating register for signal `\resultrecieve.\v01a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15121' with positive edge clock.
+Creating register for signal `\resultrecieve.\v01b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15122' with positive edge clock.
+Creating register for signal `\resultrecieve.\v01c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15123' with positive edge clock.
+Creating register for signal `\resultrecieve.\u10a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15124' with positive edge clock.
+Creating register for signal `\resultrecieve.\u10b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15125' with positive edge clock.
+Creating register for signal `\resultrecieve.\u10c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15126' with positive edge clock.
+Creating register for signal `\resultrecieve.\v10a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15127' with positive edge clock.
+Creating register for signal `\resultrecieve.\v10b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15128' with positive edge clock.
+Creating register for signal `\resultrecieve.\v10c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15129' with positive edge clock.
+Creating register for signal `\resultrecieve.\state' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+  created $dff cell `$procdff$15130' with positive edge clock.
+Creating register for signal `\raygencont.\addr' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+  created $dff cell `$procdff$15131' with positive edge clock.
+Creating register for signal `\raygencont.\dir' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+  created $dff cell `$procdff$15132' with positive edge clock.
+Creating register for signal `\raygencont.\state' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+  created $dff cell `$procdff$15133' with positive edge clock.
+Creating register for signal `\raygencont.\count' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+  created $dff cell `$procdff$15134' with positive edge clock.
+Creating register for signal `\raygencont.\cycles' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+  created $dff cell `$procdff$15135' with positive edge clock.
+Creating register for signal `\raygencont.\raygroupvalid0' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+  created $dff cell `$procdff$15136' with positive edge clock.
+Creating register for signal `\raygencont.\raygroupvalid1' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+  created $dff cell `$procdff$15137' with positive edge clock.
+Creating register for signal `\raygencont.\first' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+  created $dff cell `$procdff$15138' with positive edge clock.
+Creating register for signal `\raygencont.\destaddr' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+  created $dff cell `$procdff$15139' with positive edge clock.
+Creating register for signal `\raygencont.\loaded' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+  created $dff cell `$procdff$15140' with positive edge clock.
+Creating register for signal `\raygencont.\groupID' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+  created $dff cell `$procdff$15141' with positive edge clock.
+Creating register for signal `\raygencont.\active' using process `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+  created $dff cell `$procdff$15142' with positive edge clock.
+Creating register for signal `\raysend.\rgData' using process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1156$143'.
+  created $dff cell `$procdff$15143' with positive edge clock.
+Creating register for signal `\raysend.\rgAddr' using process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1156$143'.
+  created $dff cell `$procdff$15144' with positive edge clock.
+Creating register for signal `\raysend.\rgWE' using process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1156$143'.
+  created $dff cell `$procdff$15145' with positive edge clock.
+Creating register for signal `\raysend.\rgAddrValid' using process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1156$143'.
+  created $dff cell `$procdff$15146' with positive edge clock.
+Creating register for signal `\raysend.\state' using process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1156$143'.
+  created $dff cell `$procdff$15147' with positive edge clock.
+Creating register for signal `\raysend.\ack' using process `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1156$143'.
+  created $dff cell `$procdff$15148' with positive edge clock.
+Creating register for signal `\rgsramcontroller.\fbdata' using process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106'.
+  created $dff cell `$procdff$15149' with positive edge clock.
+Creating register for signal `\rgsramcontroller.\fbdatavalid' using process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106'.
+  created $dff cell `$procdff$15150' with positive edge clock.
+Creating register for signal `\rgsramcontroller.\sramdatal' using process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106'.
+  created $dff cell `$procdff$15151' with positive edge clock.
+Creating register for signal `\rgsramcontroller.\shadedataready' using process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106'.
+  created $dff cell `$procdff$15152' with positive edge clock.
+Creating register for signal `\rgsramcontroller.\texelready' using process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106'.
+  created $dff cell `$procdff$15153' with positive edge clock.
+Creating register for signal `\rgsramcontroller.\state' using process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106'.
+  created $dff cell `$procdff$15154' with positive edge clock.
+Creating register for signal `\rgsramcontroller.\waddress' using process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106'.
+  created $dff cell `$procdff$15155' with positive edge clock.
+Creating register for signal `\rgsramcontroller.\faddress' using process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106'.
+  created $dff cell `$procdff$15156' with positive edge clock.
+Creating register for signal `\rgsramcontroller.\fcount' using process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106'.
+  created $dff cell `$procdff$15157' with positive edge clock.
+Creating register for signal `\rgsramcontroller.\fbdatavalidl' using process `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106'.
+  created $dff cell `$procdff$15158' with positive edge clock.
+Creating register for signal `\spram21x4.\addr' using process `\spram21x4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:635$105'.
+  created $dff cell `$procdff$15159' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\origx' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15160' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\origy' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15161' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\origz' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15162' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\m11' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15163' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\m12' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15164' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\m13' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15165' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\m21' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15166' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\m22' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15167' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\m23' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15168' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\m31' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15169' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\m32' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15170' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\m33' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15171' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\bkcolour' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15172' with positive edge clock.
+Creating register for signal `\rgconfigmemory.\state' using process `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+  created $dff cell `$procdff$15173' with positive edge clock.
+Creating register for signal `\matmult.\Cx' using process `\matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+  created $dff cell `$procdff$15174' with positive edge clock.
+Creating register for signal `\matmult.\Cy' using process `\matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+  created $dff cell `$procdff$15175' with positive edge clock.
+Creating register for signal `\matmult.\Cz' using process `\matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+  created $dff cell `$procdff$15176' with positive edge clock.
+Creating register for signal `\matmult.\am11' using process `\matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+  created $dff cell `$procdff$15177' with positive edge clock.
+Creating register for signal `\matmult.\am12' using process `\matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+  created $dff cell `$procdff$15178' with positive edge clock.
+Creating register for signal `\matmult.\am13' using process `\matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+  created $dff cell `$procdff$15179' with positive edge clock.
+Creating register for signal `\matmult.\am21' using process `\matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+  created $dff cell `$procdff$15180' with positive edge clock.
+Creating register for signal `\matmult.\am22' using process `\matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+  created $dff cell `$procdff$15181' with positive edge clock.
+Creating register for signal `\matmult.\am23' using process `\matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+  created $dff cell `$procdff$15182' with positive edge clock.
+Creating register for signal `\matmult.\am31' using process `\matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+  created $dff cell `$procdff$15183' with positive edge clock.
+Creating register for signal `\matmult.\am32' using process `\matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+  created $dff cell `$procdff$15184' with positive edge clock.
+Creating register for signal `\matmult.\am33' using process `\matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+  created $dff cell `$procdff$15185' with positive edge clock.
+Creating register for signal `\onlyonecycle.\state' using process `\onlyonecycle.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:314$34'.
+  created $dff cell `$procdff$15186' with positive edge clock.
+Creating register for signal `\onlyonecycle.\count' using process `\onlyonecycle.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:314$34'.
+  created $dff cell `$procdff$15187' with positive edge clock.
+Creating register for signal `\delay1x3.\buff0' using process `\delay1x3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:285$33'.
+  created $dff cell `$procdff$15188' with positive edge clock.
+Creating register for signal `\delay1x3.\buff1' using process `\delay1x3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:285$33'.
+  created $dff cell `$procdff$15189' with positive edge clock.
+Creating register for signal `\delay1x3.\buff2' using process `\delay1x3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:285$33'.
+  created $dff cell `$procdff$15190' with positive edge clock.
+Creating register for signal `\paj_raygentop_hierarchy_no_mem.\page' using process `\paj_raygentop_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:242$28'.
+  created $dff cell `$procdff$15191' with positive edge clock.
+Creating register for signal `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.\out' using process `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:21$400'.
+  created $dff cell `$procdff$15192' with positive edge clock.
+Creating register for signal `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:23$399_ADDR' using process `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:21$400'.
+  created $dff cell `$procdff$15193' with positive edge clock.
+Creating register for signal `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:23$399_DATA' using process `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:21$400'.
+  created $dff cell `$procdff$15194' with positive edge clock.
+Creating register for signal `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:23$399_EN' using process `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:21$400'.
+  created $dff cell `$procdff$15195' with positive edge clock.
+Creating register for signal `\fifo3.\data1' using process `\fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2988$390'.
+  created $dff cell `$procdff$15196' with positive edge clock.
+Creating register for signal `\fifo3.\data2' using process `\fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2988$390'.
+  created $dff cell `$procdff$15197' with positive edge clock.
+Creating register for signal `\fifo3.\data0' using process `\fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2988$390'.
+  created $dff cell `$procdff$15198' with positive edge clock.
+Creating register for signal `\fifo3.\pos' using process `\fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2988$390'.
+  created $dff cell `$procdff$15199' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2939$372'.
+Found and cleaned up 1 empty switch in `\bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2897$371'.
+Removing empty process `bilinearintrp.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2897$371'.
+Found and cleaned up 2 empty switches in `\linearmap.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2790$353'.
+Removing empty process `linearmap.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2790$353'.
+Found and cleaned up 1 empty switch in `\col16to21.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2746$352'.
+Removing empty process `col16to21.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2746$352'.
+Found and cleaned up 50 empty switches in `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267'.
+Removing empty process `resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2201$267'.
+Found and cleaned up 1 empty switch in `\resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263'.
+Removing empty process `resultwriter.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2103$263'.
+Found and cleaned up 5 empty switches in `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238'.
+Removing empty process `resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1863$238'.
+Found and cleaned up 1 empty switch in `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+Removing empty process `resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1798$236'.
+Found and cleaned up 30 empty switches in `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169'.
+Removing empty process `raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1460$169'.
+Found and cleaned up 1 empty switch in `\raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+Removing empty process `raygencont.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1415$165'.
+Found and cleaned up 14 empty switches in `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1180$145'.
+Removing empty process `raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1180$145'.
+Found and cleaned up 1 empty switch in `\raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1156$143'.
+Removing empty process `raysend.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1156$143'.
+Found and cleaned up 20 empty switches in `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108'.
+Removing empty process `rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:792$108'.
+Found and cleaned up 1 empty switch in `\rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106'.
+Removing empty process `rgsramcontroller.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:758$106'.
+Removing empty process `spram21x4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:635$105'.
+Found and cleaned up 16 empty switches in `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63'.
+Removing empty process `rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:537$63'.
+Found and cleaned up 1 empty switch in `\rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+Removing empty process `rgconfigmemory.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:498$61'.
+Removing empty process `matmult.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:412$41'.
+Found and cleaned up 4 empty switches in `\onlyonecycle.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:329$36'.
+Removing empty process `onlyonecycle.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:329$36'.
+Found and cleaned up 1 empty switch in `\onlyonecycle.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:314$34'.
+Removing empty process `onlyonecycle.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:314$34'.
+Removing empty process `delay1x3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:285$33'.
+Found and cleaned up 1 empty switch in `\paj_raygentop_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:242$28'.
+Removing empty process `paj_raygentop_hierarchy_no_mem.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:242$28'.
+Found and cleaned up 1 empty switch in `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:21$400'.
+Removing empty process `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:21$400'.
+Found and cleaned up 6 empty switches in `\fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2988$390'.
+Removing empty process `fifo3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:2988$390'.
+Cleaned up 158 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module bilinearintrp.
+<suppressed ~2 debug messages>
+Optimizing module linearmap.
+<suppressed ~2 debug messages>
+Optimizing module col16to21.
+<suppressed ~1 debug messages>
+Optimizing module resultwriter.
+<suppressed ~635 debug messages>
+Optimizing module resultrecieve.
+<suppressed ~211 debug messages>
+Optimizing module raygencont.
+<suppressed ~581 debug messages>
+Optimizing module raysend.
+<suppressed ~163 debug messages>
+Optimizing module rgsramcontroller.
+<suppressed ~350 debug messages>
+Optimizing module spram21x4.
+Optimizing module rgconfigmemory.
+<suppressed ~1804 debug messages>
+Optimizing module matmult.
+Optimizing module onlyonecycle.
+<suppressed ~30 debug messages>
+Optimizing module delay1x3.
+Optimizing module paj_raygentop_hierarchy_no_mem.
+<suppressed ~1 debug messages>
+Optimizing module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.
+Optimizing module fifo3.
+<suppressed ~9 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module bilinearintrp.
+Optimizing module linearmap.
+Optimizing module col16to21.
+Optimizing module resultwriter.
+Optimizing module resultrecieve.
+Optimizing module raygencont.
+Optimizing module raysend.
+Optimizing module rgsramcontroller.
+Optimizing module spram21x4.
+Optimizing module rgconfigmemory.
+Optimizing module matmult.
+Optimizing module onlyonecycle.
+Optimizing module delay1x3.
+Optimizing module paj_raygentop_hierarchy_no_mem.
+Optimizing module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.
+Optimizing module fifo3.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\bilinearintrp'.
+<suppressed ~18 debug messages>
+Finding identical cells in module `\linearmap'.
+<suppressed ~21 debug messages>
+Finding identical cells in module `\col16to21'.
+Finding identical cells in module `\resultwriter'.
+<suppressed ~1908 debug messages>
+Finding identical cells in module `\resultrecieve'.
+<suppressed ~348 debug messages>
+Finding identical cells in module `\raygencont'.
+<suppressed ~909 debug messages>
+Finding identical cells in module `\raysend'.
+<suppressed ~312 debug messages>
+Finding identical cells in module `\rgsramcontroller'.
+<suppressed ~1326 debug messages>
+Finding identical cells in module `\spram21x4'.
+Finding identical cells in module `\rgconfigmemory'.
+<suppressed ~1644 debug messages>
+Finding identical cells in module `\matmult'.
+Finding identical cells in module `\onlyonecycle'.
+<suppressed ~48 debug messages>
+Finding identical cells in module `\delay1x3'.
+Finding identical cells in module `\paj_raygentop_hierarchy_no_mem'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram'.
+Finding identical cells in module `\fifo3'.
+<suppressed ~33 debug messages>
+Removed a total of 2190 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \bilinearintrp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \linearmap..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \col16to21..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \resultwriter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \resultrecieve..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \raygencont..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \raysend..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \rgsramcontroller..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \spram21x4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \rgconfigmemory..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$5087.
+    dead port 2/2 on $mux $procmux$3443.
+Running muxtree optimizer on module \matmult..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \onlyonecycle..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \delay1x3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \paj_raygentop_hierarchy_no_mem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 2 multiplexer ports.
+<suppressed ~172 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \bilinearintrp.
+  Optimizing cells in module \linearmap.
+  Optimizing cells in module \col16to21.
+  Optimizing cells in module \resultwriter.
+    New ctrl vector for $pmux cell $procmux$1357: { $procmux$1359_CMP $procmux$1390_CMP }
+    New ctrl vector for $pmux cell $procmux$1158: $procmux$1354_CMP
+    New ctrl vector for $pmux cell $procmux$773: { $procmux$1340_CMP $procmux$1391_CMP }
+    New ctrl vector for $pmux cell $procmux$1251: { $procmux$1392_CMP $procmux$1386_CMP $procmux$1345_CMP $procmux$1344_CMP $procmux$1343_CMP $procmux$1360_CMP $procmux$1385_CMP $procmux$1340_CMP $procmux$1384_CMP $procmux$1359_CMP $procmux$1391_CMP $procmux$1390_CMP $procmux$1354_CMP }
+    New ctrl vector for $pmux cell $procmux$757: { $procmux$1345_CMP $procmux$1344_CMP }
+    New ctrl vector for $pmux cell $procmux$706: $auto$opt_reduce.cc:134:opt_mux$15202
+    New ctrl vector for $pmux cell $procmux$1334: $auto$opt_reduce.cc:134:opt_mux$15204
+    New ctrl vector for $pmux cell $procmux$689: { $procmux$1340_CMP $procmux$1391_CMP }
+    New ctrl vector for $pmux cell $procmux$660: { $procmux$1340_CMP $procmux$1391_CMP }
+    New ctrl vector for $pmux cell $procmux$643: { $procmux$1345_CMP $procmux$1344_CMP }
+    New ctrl vector for $pmux cell $procmux$1389: { }
+    New ctrl vector for $pmux cell $procmux$611: { $procmux$1345_CMP $procmux$1344_CMP }
+    New ctrl vector for $pmux cell $procmux$1219: $procmux$1354_CMP
+    New ctrl vector for $pmux cell $procmux$546: { $procmux$1359_CMP $procmux$1390_CMP }
+    New ctrl vector for $pmux cell $procmux$1318: { $procmux$1392_CMP $procmux$1391_CMP $procmux$1390_CMP }
+    New ctrl vector for $pmux cell $procmux$484: { $auto$opt_reduce.cc:134:opt_mux$15208 $auto$opt_reduce.cc:134:opt_mux$15206 }
+    New ctrl vector for $pmux cell $procmux$1383: { }
+    New ctrl vector for $pmux cell $procmux$1235: $procmux$1354_CMP
+    New ctrl vector for $pmux cell $procmux$1188: $procmux$1354_CMP
+    New ctrl vector for $pmux cell $procmux$446: { $procmux$1359_CMP $procmux$1390_CMP }
+    New ctrl vector for $pmux cell $procmux$1283: $auto$opt_reduce.cc:134:opt_mux$15210
+    New ctrl vector for $pmux cell $procmux$1267: $auto$opt_reduce.cc:134:opt_mux$15212
+    New ctrl vector for $pmux cell $procmux$1173: $procmux$1354_CMP
+  Optimizing cells in module \resultwriter.
+  Optimizing cells in module \resultrecieve.
+    New ctrl vector for $pmux cell $procmux$1583: { $procmux$1702_CMP $procmux$1650_CMP $procmux$1694_CMP $procmux$1611_CMP $auto$opt_reduce.cc:134:opt_mux$15214 }
+    New ctrl vector for $pmux cell $procmux$1574: $procmux$1629_CMP
+    New ctrl vector for $pmux cell $procmux$1565: $procmux$1599_CMP
+  Optimizing cells in module \resultrecieve.
+  Optimizing cells in module \raygencont.
+    New ctrl vector for $pmux cell $procmux$2482: $procmux$2488_CMP
+    New ctrl vector for $pmux cell $procmux$2461: { $procmux$2496_CMP $procmux$2490_CMP $procmux$2489_CMP $procmux$2488_CMP }
+    New ctrl vector for $pmux cell $procmux$2477: { $procmux$2496_CMP $procmux$2490_CMP }
+    New ctrl vector for $pmux cell $procmux$2454: { $procmux$2496_CMP $procmux$2490_CMP $procmux$2489_CMP $procmux$2488_CMP }
+    New ctrl vector for $pmux cell $procmux$2447: $auto$opt_reduce.cc:134:opt_mux$15216
+    New ctrl vector for $pmux cell $procmux$1968: $procmux$2496_CMP
+    New ctrl vector for $pmux cell $procmux$2381: { $procmux$2490_CMP $procmux$2489_CMP $procmux$2488_CMP }
+    New ctrl vector for $pmux cell $procmux$1963: $procmux$2488_CMP
+    New ctrl vector for $pmux cell $procmux$2392: $procmux$2496_CMP
+    New ctrl vector for $pmux cell $procmux$2440: $procmux$2496_CMP
+    New ctrl vector for $pmux cell $procmux$2470: $procmux$2496_CMP
+    New ctrl vector for $pmux cell $procmux$2433: $procmux$2496_CMP
+    New ctrl vector for $pmux cell $procmux$1786: $procmux$2489_CMP
+    New ctrl vector for $pmux cell $procmux$2387: $auto$opt_reduce.cc:134:opt_mux$15218
+    New ctrl vector for $pmux cell $procmux$2487: $procmux$2489_CMP
+    New ctrl vector for $pmux cell $procmux$2426: $auto$opt_reduce.cc:134:opt_mux$15220
+    New ctrl vector for $pmux cell $procmux$2420: $procmux$2490_CMP
+  Optimizing cells in module \raygencont.
+  Optimizing cells in module \raysend.
+    New ctrl vector for $pmux cell $procmux$2797: { $procmux$2814_CMP $procmux$2813_CMP $procmux$2812_CMP $procmux$2811_CMP $procmux$2810_CMP }
+    New ctrl vector for $pmux cell $procmux$2786: { $procmux$2809_CMP $procmux$2808_CMP $procmux$2807_CMP $procmux$2806_CMP }
+    New ctrl vector for $pmux cell $procmux$2779: { $procmux$2809_CMP $procmux$2808_CMP $procmux$2807_CMP $procmux$2806_CMP }
+    New ctrl vector for $pmux cell $procmux$2805: { $procmux$2814_CMP $procmux$2813_CMP $procmux$2812_CMP $procmux$2811_CMP $procmux$2810_CMP $procmux$2809_CMP $procmux$2808_CMP $procmux$2807_CMP $procmux$2806_CMP }
+    New ctrl vector for $pmux cell $procmux$2767: $auto$opt_reduce.cc:134:opt_mux$15222
+    New ctrl vector for $pmux cell $procmux$2751: $procmux$2810_CMP
+  Optimizing cells in module \raysend.
+  Optimizing cells in module \rgsramcontroller.
+    New ctrl vector for $pmux cell $procmux$3226: $procmux$3387_CMP
+    New ctrl vector for $pmux cell $procmux$3220: $auto$opt_reduce.cc:134:opt_mux$15224
+    New ctrl vector for $pmux cell $procmux$3236: $procmux$3388_CMP
+    New ctrl vector for $pmux cell $procmux$3321: $procmux$3396_CMP
+    New ctrl vector for $pmux cell $procmux$3386: $auto$opt_reduce.cc:134:opt_mux$15226
+    New ctrl vector for $pmux cell $procmux$3401: $procmux$3408_CMP
+    New ctrl vector for $pmux cell $procmux$3347: { $procmux$3394_CMP $procmux$3391_CMP }
+    New ctrl vector for $pmux cell $procmux$3373: $auto$opt_reduce.cc:134:opt_mux$15228
+    New ctrl vector for $pmux cell $procmux$3407: $procmux$3408_CMP
+    New ctrl vector for $pmux cell $procmux$3308: $auto$opt_reduce.cc:134:opt_mux$15230
+    New ctrl vector for $pmux cell $procmux$3269: $procmux$3391_CMP
+    New ctrl vector for $pmux cell $procmux$3246: $procmux$3409_CMP
+    New ctrl vector for $pmux cell $procmux$3282: $procmux$3392_CMP
+    New ctrl vector for $pmux cell $procmux$3256: { $procmux$3396_CMP $procmux$3395_CMP $procmux$3394_CMP $procmux$3393_CMP $procmux$3392_CMP $procmux$3409_CMP $procmux$3408_CMP $auto$opt_reduce.cc:134:opt_mux$15232 }
+    New ctrl vector for $pmux cell $procmux$3360: { }
+    New ctrl vector for $pmux cell $procmux$3295: $procmux$3395_CMP
+    New ctrl vector for $pmux cell $procmux$3334: { $procmux$3391_CMP $procmux$3409_CMP $procmux$3388_CMP $procmux$3387_CMP }
+  Optimizing cells in module \rgsramcontroller.
+  Optimizing cells in module \spram21x4.
+  Optimizing cells in module \rgconfigmemory.
+  Optimizing cells in module \matmult.
+  Optimizing cells in module \onlyonecycle.
+    New ctrl vector for $pmux cell $procmux$5208: $procmux$5210_CMP
+    New ctrl vector for $pmux cell $procmux$5203: { $procmux$5210_CMP $procmux$5209_CMP }
+    New ctrl vector for $pmux cell $procmux$5199: $procmux$5210_CMP
+  Optimizing cells in module \onlyonecycle.
+  Optimizing cells in module \delay1x3.
+  Optimizing cells in module \paj_raygentop_hierarchy_no_mem.
+  Optimizing cells in module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.
+    Consolidated identical input bits for $mux cell $procmux$5222:
+      Old ports: A=21'000000000000000000000, B=21'111111111111111111111, Y=$procmux$5222_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$5222_Y [0]
+      New connections: $procmux$5222_Y [20:1] = { $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] $procmux$5222_Y [0] }
+  Optimizing cells in module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.
+  Optimizing cells in module \fifo3.
+    New ctrl vector for $pmux cell $procmux$5272: { $auto$opt_reduce.cc:134:opt_mux$15234 $procmux$5292_CMP }
+    New ctrl vector for $pmux cell $procmux$5291: { $auto$opt_reduce.cc:134:opt_mux$15236 $procmux$5293_CMP $procmux$5292_CMP }
+    New ctrl vector for $pmux cell $procmux$5254: { $procmux$5295_CMP $procmux$5294_CMP $auto$opt_reduce.cc:134:opt_mux$15238 }
+  Optimizing cells in module \fifo3.
+Performed a total of 73 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\bilinearintrp'.
+Finding identical cells in module `\linearmap'.
+Finding identical cells in module `\col16to21'.
+Finding identical cells in module `\resultwriter'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\resultrecieve'.
+Finding identical cells in module `\raygencont'.
+<suppressed ~24 debug messages>
+Finding identical cells in module `\raysend'.
+Finding identical cells in module `\rgsramcontroller'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\spram21x4'.
+Finding identical cells in module `\rgconfigmemory'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\matmult'.
+Finding identical cells in module `\onlyonecycle'.
+Finding identical cells in module `\delay1x3'.
+Finding identical cells in module `\paj_raygentop_hierarchy_no_mem'.
+Finding identical cells in module `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram'.
+Finding identical cells in module `\fifo3'.
+Removed a total of 14 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$15093 ($dff) from module linearmap (D = \v, Q = \vl).
+Adding EN signal on $procdff$15092 ($dff) from module linearmap (D = \u, Q = \ul).
+Adding SRST signal on $procdff$15095 ($dff) from module resultwriter (D = \next_state, Q = \state, rval = 4'0000).
+Adding EN signal on $procdff$15094 ($dff) from module resultwriter (D = { 1'0 \shadedataa \shadedatab \shadedatac }, Q = \dataout).
+Setting constant 0-bit at position 63 on $auto$ff.cc:262:slice$15242 ($dffe) from module resultwriter.
+Adding SRST signal on $procdff$15103 ($dff) from module resultwriter (D = \temp_texinfol, Q = \texinfol, rval = 21'000000000000000000000).
+Adding SRST signal on $procdff$15099 ($dff) from module resultwriter (D = \temp_shadedataa, Q = \shadedataa, rval = 21'000000000000000000000).
+Adding SRST signal on $procdff$15098 ($dff) from module resultwriter (D = \temp_process01, Q = \process01, rval = 1'0).
+Adding SRST signal on $procdff$15097 ($dff) from module resultwriter (D = \temp_pending10, Q = \pending10, rval = 1'0).
+Adding SRST signal on $procdff$15096 ($dff) from module resultwriter (D = \temp_pending01, Q = \pending01, rval = 1'0).
+Adding SRST signal on $procdff$15102 ($dff) from module resultwriter (D = \temp_texmap, Q = \texmap, rval = 1'0).
+Adding SRST signal on $procdff$15101 ($dff) from module resultwriter (D = \temp_shadedatac, Q = \shadedatac, rval = 21'000000000000000000000).
+Adding SRST signal on $procdff$15100 ($dff) from module resultwriter (D = \temp_shadedatab, Q = \shadedatab, rval = 21'000000000000000000000).
+Adding SRST signal on $procdff$15130 ($dff) from module resultrecieve (D = \next_state, Q = \state, rval = 3'000).
+Adding SRST signal on $procdff$15129 ($dff) from module resultrecieve (D = \temp_v10c, Q = \v10c, rval = 8'00000000).
+Adding SRST signal on $procdff$15128 ($dff) from module resultrecieve (D = \temp_v10b, Q = \v10b, rval = 8'00000000).
+Adding SRST signal on $procdff$15127 ($dff) from module resultrecieve (D = \temp_v10a, Q = \v10a, rval = 8'00000000).
+Adding SRST signal on $procdff$15126 ($dff) from module resultrecieve (D = \temp_u10c, Q = \u10c, rval = 8'00000000).
+Adding SRST signal on $procdff$15125 ($dff) from module resultrecieve (D = \temp_u10b, Q = \u10b, rval = 8'00000000).
+Adding SRST signal on $procdff$15124 ($dff) from module resultrecieve (D = \temp_u10a, Q = \u10a, rval = 8'00000000).
+Adding SRST signal on $procdff$15123 ($dff) from module resultrecieve (D = \temp_v01c, Q = \v01c, rval = 8'00000000).
+Adding SRST signal on $procdff$15122 ($dff) from module resultrecieve (D = \temp_v01b, Q = \v01b, rval = 8'00000000).
+Adding SRST signal on $procdff$15121 ($dff) from module resultrecieve (D = \temp_v01a, Q = \v01a, rval = 8'00000000).
+Adding SRST signal on $procdff$15120 ($dff) from module resultrecieve (D = \temp_u01c, Q = \u01c, rval = 8'00000000).
+Adding SRST signal on $procdff$15119 ($dff) from module resultrecieve (D = \temp_u01b, Q = \u01b, rval = 8'00000000).
+Adding SRST signal on $procdff$15118 ($dff) from module resultrecieve (D = \temp_u01a, Q = \u01a, rval = 8'00000000).
+Adding SRST signal on $procdff$15117 ($dff) from module resultrecieve (D = \temp_hit10c, Q = \hit10c, rval = 1'0).
+Adding SRST signal on $procdff$15116 ($dff) from module resultrecieve (D = \temp_hit10b, Q = \hit10b, rval = 1'0).
+Adding SRST signal on $procdff$15115 ($dff) from module resultrecieve (D = \temp_hit10a, Q = \hit10a, rval = 1'0).
+Adding SRST signal on $procdff$15114 ($dff) from module resultrecieve (D = \temp_hit01c, Q = \hit01c, rval = 1'0).
+Adding SRST signal on $procdff$15113 ($dff) from module resultrecieve (D = \temp_hit01b, Q = \hit01b, rval = 1'0).
+Adding SRST signal on $procdff$15112 ($dff) from module resultrecieve (D = \temp_hit01a, Q = \hit01a, rval = 1'0).
+Adding EN signal on $procdff$15111 ($dff) from module resultrecieve (D = 16'0000000000000000, Q = \id10c).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 2 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 3 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 4 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 5 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 6 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 7 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 8 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 9 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 10 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 11 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 12 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 13 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 14 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 15 on $auto$ff.cc:262:slice$15271 ($dffe) from module resultrecieve.
+Adding EN signal on $procdff$15110 ($dff) from module resultrecieve (D = 16'0000000000000000, Q = \id10b).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 2 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 3 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 4 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 5 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 6 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 7 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 8 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 9 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 10 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 11 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 12 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 13 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 14 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 15 on $auto$ff.cc:262:slice$15272 ($dffe) from module resultrecieve.
+Adding EN signal on $procdff$15109 ($dff) from module resultrecieve (D = 16'0000000000000000, Q = \id10a).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 2 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 3 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 4 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 5 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 6 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 7 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 8 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 9 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 10 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 11 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 12 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 13 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 14 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 15 on $auto$ff.cc:262:slice$15273 ($dffe) from module resultrecieve.
+Adding SRST signal on $procdff$15108 ($dff) from module resultrecieve (D = \temp_id01c, Q = \id01c, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$15107 ($dff) from module resultrecieve (D = \temp_id01b, Q = \id01b, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$15106 ($dff) from module resultrecieve (D = \temp_id01a, Q = \id01a, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$15105 ($dff) from module resultrecieve (D = \temp_valid10, Q = \valid10, rval = 1'0).
+Adding SRST signal on $procdff$15104 ($dff) from module resultrecieve (D = \temp_valid01, Q = \valid01, rval = 1'0).
+Adding SRST signal on $procdff$15142 ($dff) from module raygencont (D = \temp_active, Q = \active, rval = 1'0).
+Adding SRST signal on $procdff$15141 ($dff) from module raygencont (D = \temp_groupID, Q = \groupID, rval = 2'00).
+Adding SRST signal on $procdff$15140 ($dff) from module raygencont (D = \temp_loaded, Q = \loaded, rval = 2'00).
+Adding EN signal on $procdff$15139 ($dff) from module raygencont (D = 18'000000000000000000, Q = \destaddr).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 2 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 3 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 4 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 5 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 6 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 7 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 8 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 9 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 10 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 11 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 12 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 13 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 14 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 15 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 16 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Setting constant 0-bit at position 17 on $auto$ff.cc:262:slice$15282 ($dffe) from module raygencont.
+Adding EN signal on $procdff$15138 ($dff) from module raygencont (D = 1'0, Q = \first).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$15283 ($dffe) from module raygencont.
+Adding SRST signal on $procdff$15137 ($dff) from module raygencont (D = \temp_raygroupvalid1, Q = \raygroupvalid1, rval = 1'0).
+Adding SRST signal on $procdff$15136 ($dff) from module raygencont (D = \temp_raygroupvalid0, Q = \raygroupvalid0, rval = 1'0).
+Adding SRST signal on $procdff$15135 ($dff) from module raygencont (D = \temp_cycles, Q = \cycles, rval = 31'0000000000000000000000000000000).
+Adding SRST signal on $procdff$15134 ($dff) from module raygencont (D = \temp_count, Q = \count, rval = 15'000000000000000).
+Adding SRST signal on $procdff$15133 ($dff) from module raygencont (D = \next_state, Q = \state, rval = 3'000).
+Adding SRST signal on $procdff$15132 ($dff) from module raygencont (D = \temp_dir, Q = \dir, rval = 48'000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$15131 ($dff) from module raygencont (D = \temp_addr, Q = \addr [1:0], rval = 2'00).
+Adding EN signal on $procdff$15131 ($dff) from module raygencont (D = $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:1437$168_Y, Q = \addr [3:2]).
+Adding SRST signal on $procdff$15148 ($dff) from module raysend (D = \temp_ack, Q = \ack, rval = 1'0).
+Adding SRST signal on $procdff$15147 ($dff) from module raysend (D = \next_state, Q = \state, rval = 4'0000).
+Adding SRST signal on $procdff$15146 ($dff) from module raysend (D = \temp_rgAddrValid, Q = \rgAddrValid, rval = 1'0).
+Adding SRST signal on $procdff$15145 ($dff) from module raysend (D = \temp_rgWE, Q = \rgWE, rval = 3'000).
+Adding SRST signal on $procdff$15144 ($dff) from module raysend (D = \temp_rgAddr, Q = \rgAddr, rval = 4'0000).
+Adding SRST signal on $procdff$15143 ($dff) from module raysend (D = \temp_rgData, Q = \rgData, rval = 0).
+Adding SRST signal on $procdff$15158 ($dff) from module rgsramcontroller (D = \temp_fbdatavalidl, Q = \fbdatavalidl, rval = 1'0).
+Adding SRST signal on $procdff$15157 ($dff) from module rgsramcontroller (D = \temp_fcount, Q = \fcount, rval = 7'1101011).
+Adding SRST signal on $procdff$15156 ($dff) from module rgsramcontroller (D = \temp_faddress, Q = \faddress, rval = 15'000000000000000).
+Adding SRST signal on $procdff$15155 ($dff) from module rgsramcontroller (D = \temp_waddress, Q = \waddress, rval = 18'000000000000000000).
+Adding SRST signal on $procdff$15154 ($dff) from module rgsramcontroller (D = \next_state, Q = \state, rval = 4'0000).
+Adding SRST signal on $procdff$15153 ($dff) from module rgsramcontroller (D = \temp_texelready, Q = \texelready, rval = 1'0).
+Adding SRST signal on $procdff$15152 ($dff) from module rgsramcontroller (D = \temp_shadedataready, Q = \shadedataready, rval = 1'0).
+Adding SRST signal on $procdff$15151 ($dff) from module rgsramcontroller (D = \tm3_sram_data_in [47:0], Q = \sramdatal, rval = 48'000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$15150 ($dff) from module rgsramcontroller (D = \fbdatavalidl, Q = \fbdatavalid, rval = 1'0).
+Adding SRST signal on $procdff$15149 ($dff) from module rgsramcontroller (D = \tm3_sram_data_in, Q = \fbdata, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$15173 ($dff) from module rgconfigmemory (D = \next_state, Q = \state, rval = 1'0).
+Adding EN signal on $procdff$15172 ($dff) from module rgconfigmemory (D = 21'000000000000000000000, Q = \bkcolour).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 2 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 3 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 4 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 5 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 6 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 7 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 8 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 9 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 10 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 11 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 12 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 13 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 14 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 15 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 16 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 17 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 18 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 19 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Setting constant 0-bit at position 20 on $auto$ff.cc:262:slice$15310 ($dffe) from module rgconfigmemory.
+Adding SRST signal on $procdff$15171 ($dff) from module rgconfigmemory (D = \temp_m33, Q = \m33, rval = 16'0000000000000001).
+Adding SRST signal on $procdff$15170 ($dff) from module rgconfigmemory (D = \temp_m32, Q = \m32, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$15169 ($dff) from module rgconfigmemory (D = \temp_m31, Q = \m31, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$15168 ($dff) from module rgconfigmemory (D = \temp_m23, Q = \m23, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$15167 ($dff) from module rgconfigmemory (D = \temp_m22, Q = \m22, rval = 16'0000000000000001).
+Adding SRST signal on $procdff$15166 ($dff) from module rgconfigmemory (D = \temp_m21, Q = \m21, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$15165 ($dff) from module rgconfigmemory (D = \temp_m13, Q = \m13, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$15164 ($dff) from module rgconfigmemory (D = \temp_m12, Q = \m12, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$15163 ($dff) from module rgconfigmemory (D = \temp_m11, Q = \m11, rval = 16'0000000000000001).
+Adding SRST signal on $procdff$15162 ($dff) from module rgconfigmemory (D = \temp_origz, Q = \origz, rval = 28'0000000000000000000000000000).
+Adding SRST signal on $procdff$15161 ($dff) from module rgconfigmemory (D = \temp_origy, Q = \origy, rval = 28'0000000000000000000000000000).
+Adding SRST signal on $procdff$15160 ($dff) from module rgconfigmemory (D = \temp_origx, Q = \origx, rval = 28'0000000000000000000000000000).
+Adding SRST signal on $procdff$15187 ($dff) from module onlyonecycle (D = \temp_count, Q = \count, rval = 1'0).
+Adding SRST signal on $procdff$15186 ($dff) from module onlyonecycle (D = \next_state, Q = \state, rval = 2'00).
+Adding SRST signal on $procdff$15191 ($dff) from module paj_raygentop_hierarchy_no_mem (D = $not$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:251$30_Y, Q = \page, rval = 1'1).
+Adding EN signal on $procdff$15192 ($dff) from module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop.v:26$407_DATA, Q = \out).
+Adding SRST signal on $procdff$15199 ($dff) from module fifo3 (D = $procmux$5239_Y, Q = \pos, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$15327 ($sdff) from module fifo3 (D = $procmux$5236_Y, Q = \pos).
+Adding SRST signal on $procdff$15198 ($dff) from module fifo3 (D = $procmux$5259_Y, Q = \data0, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$15335 ($sdff) from module fifo3 (D = $procmux$5259_Y, Q = \data0).
+Adding SRST signal on $procdff$15197 ($dff) from module fifo3 (D = $procmux$5277_Y, Q = \data2, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$15343 ($sdff) from module fifo3 (D = $procmux$5277_Y, Q = \data2).
+Adding SRST signal on $procdff$15196 ($dff) from module fifo3 (D = $procmux$5296_Y, Q = \data1, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$15353 ($sdff) from module fifo3 (D = $procmux$5296_Y, Q = \data1).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \bilinearintrp..
+Finding unused cells or wires in module \linearmap..
+Finding unused cells or wires in module \col16to21..
+Finding unused cells or wires in module \resultwriter..
+Finding unused cells or wires in module \resultrecieve..
+Finding unused cells or wires in module \raygencont..
+Finding unused cells or wires in module \raysend..
+Finding unused cells or wires in module \rgsramcontroller..
+Finding unused cells or wires in module \spram21x4..
+Finding unused cells or wires in module \rgconfigmemory..
+Finding unused cells or wires in module \matmult..
+Finding unused cells or wires in module \onlyonecycle..
+Finding unused cells or wires in module \delay1x3..
+Finding unused cells or wires in module \paj_raygentop_hierarchy_no_mem..
+Finding unused cells or wires in module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram..
+Finding unused cells or wires in module \fifo3..
+Removed 286 unused cells and 7375 unused wires.
+<suppressed ~307 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.
+Optimizing module bilinearintrp.
+Optimizing module col16to21.
+Optimizing module delay1x3.
+Optimizing module fifo3.
+<suppressed ~4 debug messages>
+Optimizing module linearmap.
+Optimizing module matmult.
+Optimizing module onlyonecycle.
+Optimizing module paj_raygentop_hierarchy_no_mem.
+Optimizing module raygencont.
+Optimizing module raysend.
+Optimizing module resultrecieve.
+Optimizing module resultwriter.
+Optimizing module rgconfigmemory.
+Optimizing module rgsramcontroller.
+Optimizing module spram21x4.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \bilinearintrp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \col16to21..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \delay1x3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fifo3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \linearmap..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \matmult..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \onlyonecycle..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \paj_raygentop_hierarchy_no_mem..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \raygencont..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \raysend..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \resultrecieve..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \resultwriter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \rgconfigmemory..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \rgsramcontroller..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \spram21x4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~79 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.
+  Optimizing cells in module \bilinearintrp.
+  Optimizing cells in module \col16to21.
+  Optimizing cells in module \delay1x3.
+  Optimizing cells in module \fifo3.
+  Optimizing cells in module \linearmap.
+  Optimizing cells in module \matmult.
+  Optimizing cells in module \onlyonecycle.
+  Optimizing cells in module \paj_raygentop_hierarchy_no_mem.
+  Optimizing cells in module \raygencont.
+    New ctrl vector for $pmux cell $procmux$2381: { $auto$opt_reduce.cc:134:opt_mux$15362 $procmux$1797_CMP }
+  Optimizing cells in module \raygencont.
+  Optimizing cells in module \raysend.
+  Optimizing cells in module \resultrecieve.
+  Optimizing cells in module \resultwriter.
+  Optimizing cells in module \rgconfigmemory.
+    New ctrl vector for $pmux cell $procmux$5128: $auto$opt_reduce.cc:134:opt_mux$15364
+  Optimizing cells in module \rgconfigmemory.
+  Optimizing cells in module \rgsramcontroller.
+  Optimizing cells in module \spram21x4.
+Performed a total of 2 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram'.
+Finding identical cells in module `\bilinearintrp'.
+Finding identical cells in module `\col16to21'.
+Finding identical cells in module `\delay1x3'.
+Finding identical cells in module `\fifo3'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\linearmap'.
+Finding identical cells in module `\matmult'.
+Finding identical cells in module `\onlyonecycle'.
+Finding identical cells in module `\paj_raygentop_hierarchy_no_mem'.
+Finding identical cells in module `\raygencont'.
+Finding identical cells in module `\raysend'.
+Finding identical cells in module `\resultrecieve'.
+Finding identical cells in module `\resultwriter'.
+Finding identical cells in module `\rgconfigmemory'.
+Finding identical cells in module `\rgsramcontroller'.
+Finding identical cells in module `\spram21x4'.
+Removed a total of 2 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $auto$proc_dlatch.cc:427:proc_dlatch$9855 ($dlatch) from module rgsramcontroller.
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram..
+Finding unused cells or wires in module \bilinearintrp..
+Finding unused cells or wires in module \col16to21..
+Finding unused cells or wires in module \delay1x3..
+Finding unused cells or wires in module \fifo3..
+Finding unused cells or wires in module \linearmap..
+Finding unused cells or wires in module \matmult..
+Finding unused cells or wires in module \onlyonecycle..
+Finding unused cells or wires in module \paj_raygentop_hierarchy_no_mem..
+Finding unused cells or wires in module \raygencont..
+Finding unused cells or wires in module \raysend..
+Finding unused cells or wires in module \resultrecieve..
+Finding unused cells or wires in module \resultwriter..
+Finding unused cells or wires in module \rgconfigmemory..
+Finding unused cells or wires in module \rgsramcontroller..
+Finding unused cells or wires in module \spram21x4..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.
+Optimizing module bilinearintrp.
+Optimizing module col16to21.
+Optimizing module delay1x3.
+Optimizing module fifo3.
+Optimizing module linearmap.
+Optimizing module matmult.
+Optimizing module onlyonecycle.
+Optimizing module paj_raygentop_hierarchy_no_mem.
+Optimizing module raygencont.
+Optimizing module raysend.
+Optimizing module resultrecieve.
+Optimizing module resultwriter.
+Optimizing module rgconfigmemory.
+<suppressed ~2 debug messages>
+Optimizing module rgsramcontroller.
+Optimizing module spram21x4.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \bilinearintrp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \col16to21..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \delay1x3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fifo3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \linearmap..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \matmult..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \onlyonecycle..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \paj_raygentop_hierarchy_no_mem..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \raygencont..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \raysend..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \resultrecieve..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \resultwriter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \rgconfigmemory..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \rgsramcontroller..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \spram21x4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~79 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.
+  Optimizing cells in module \bilinearintrp.
+  Optimizing cells in module \col16to21.
+  Optimizing cells in module \delay1x3.
+  Optimizing cells in module \fifo3.
+  Optimizing cells in module \linearmap.
+  Optimizing cells in module \matmult.
+  Optimizing cells in module \onlyonecycle.
+  Optimizing cells in module \paj_raygentop_hierarchy_no_mem.
+  Optimizing cells in module \raygencont.
+  Optimizing cells in module \raysend.
+  Optimizing cells in module \resultrecieve.
+  Optimizing cells in module \resultwriter.
+  Optimizing cells in module \rgconfigmemory.
+  Optimizing cells in module \rgsramcontroller.
+  Optimizing cells in module \spram21x4.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram'.
+Finding identical cells in module `\bilinearintrp'.
+Finding identical cells in module `\col16to21'.
+Finding identical cells in module `\delay1x3'.
+Finding identical cells in module `\fifo3'.
+Finding identical cells in module `\linearmap'.
+Finding identical cells in module `\matmult'.
+Finding identical cells in module `\onlyonecycle'.
+Finding identical cells in module `\paj_raygentop_hierarchy_no_mem'.
+Finding identical cells in module `\raygencont'.
+Finding identical cells in module `\raysend'.
+Finding identical cells in module `\resultrecieve'.
+Finding identical cells in module `\resultwriter'.
+Finding identical cells in module `\rgconfigmemory'.
+Finding identical cells in module `\rgsramcontroller'.
+Finding identical cells in module `\spram21x4'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram..
+Finding unused cells or wires in module \bilinearintrp..
+Finding unused cells or wires in module \col16to21..
+Finding unused cells or wires in module \delay1x3..
+Finding unused cells or wires in module \fifo3..
+Finding unused cells or wires in module \linearmap..
+Finding unused cells or wires in module \matmult..
+Finding unused cells or wires in module \onlyonecycle..
+Finding unused cells or wires in module \paj_raygentop_hierarchy_no_mem..
+Finding unused cells or wires in module \raygencont..
+Finding unused cells or wires in module \raysend..
+Finding unused cells or wires in module \resultrecieve..
+Finding unused cells or wires in module \resultwriter..
+Finding unused cells or wires in module \rgconfigmemory..
+Finding unused cells or wires in module \rgsramcontroller..
+Finding unused cells or wires in module \spram21x4..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.
+Optimizing module bilinearintrp.
+Optimizing module col16to21.
+Optimizing module delay1x3.
+Optimizing module fifo3.
+Optimizing module linearmap.
+Optimizing module matmult.
+Optimizing module onlyonecycle.
+Optimizing module paj_raygentop_hierarchy_no_mem.
+Optimizing module raygencont.
+Optimizing module raysend.
+Optimizing module resultrecieve.
+Optimizing module resultwriter.
+Optimizing module rgconfigmemory.
+Optimizing module rgsramcontroller.
+Optimizing module spram21x4.
+
+4.23. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.24. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \bilinearintrp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \col16to21..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \delay1x3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fifo3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \linearmap..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \matmult..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \onlyonecycle..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \paj_raygentop_hierarchy_no_mem..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \raygencont..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \raysend..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \resultrecieve..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \resultwriter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \rgconfigmemory..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \rgsramcontroller..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \spram21x4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~79 debug messages>
+
+4.25. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.
+  Optimizing cells in module \bilinearintrp.
+  Optimizing cells in module \col16to21.
+  Optimizing cells in module \delay1x3.
+  Optimizing cells in module \fifo3.
+  Optimizing cells in module \linearmap.
+  Optimizing cells in module \matmult.
+  Optimizing cells in module \onlyonecycle.
+  Optimizing cells in module \paj_raygentop_hierarchy_no_mem.
+  Optimizing cells in module \raygencont.
+  Optimizing cells in module \raysend.
+  Optimizing cells in module \resultrecieve.
+  Optimizing cells in module \resultwriter.
+  Optimizing cells in module \rgconfigmemory.
+  Optimizing cells in module \rgsramcontroller.
+  Optimizing cells in module \spram21x4.
+Performed a total of 0 changes.
+
+4.26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram'.
+Finding identical cells in module `\bilinearintrp'.
+Finding identical cells in module `\col16to21'.
+Finding identical cells in module `\delay1x3'.
+Finding identical cells in module `\fifo3'.
+Finding identical cells in module `\linearmap'.
+Finding identical cells in module `\matmult'.
+Finding identical cells in module `\onlyonecycle'.
+Finding identical cells in module `\paj_raygentop_hierarchy_no_mem'.
+Finding identical cells in module `\raygencont'.
+Finding identical cells in module `\raysend'.
+Finding identical cells in module `\resultrecieve'.
+Finding identical cells in module `\resultwriter'.
+Finding identical cells in module `\rgconfigmemory'.
+Finding identical cells in module `\rgsramcontroller'.
+Finding identical cells in module `\spram21x4'.
+Removed a total of 0 cells.
+
+4.27. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram..
+Finding unused cells or wires in module \bilinearintrp..
+Finding unused cells or wires in module \col16to21..
+Finding unused cells or wires in module \delay1x3..
+Finding unused cells or wires in module \fifo3..
+Finding unused cells or wires in module \linearmap..
+Finding unused cells or wires in module \matmult..
+Finding unused cells or wires in module \onlyonecycle..
+Finding unused cells or wires in module \paj_raygentop_hierarchy_no_mem..
+Finding unused cells or wires in module \raygencont..
+Finding unused cells or wires in module \raysend..
+Finding unused cells or wires in module \resultrecieve..
+Finding unused cells or wires in module \resultwriter..
+Finding unused cells or wires in module \rgconfigmemory..
+Finding unused cells or wires in module \rgsramcontroller..
+Finding unused cells or wires in module \spram21x4..
+
+4.29. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram.
+Optimizing module bilinearintrp.
+Optimizing module col16to21.
+Optimizing module delay1x3.
+Optimizing module fifo3.
+Optimizing module linearmap.
+Optimizing module matmult.
+Optimizing module onlyonecycle.
+Optimizing module paj_raygentop_hierarchy_no_mem.
+Optimizing module raygencont.
+Optimizing module raysend.
+Optimizing module resultrecieve.
+Optimizing module resultwriter.
+Optimizing module rgconfigmemory.
+Optimizing module rgsramcontroller.
+Optimizing module spram21x4.
+
+4.30. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram ===
+
+   Number of wires:                  9
+   Number of wire bits:            123
+   Number of public wires:           5
+   Number of public wire bits:      52
+   Number of memories:               1
+   Number of memory bits:          168
+   Number of processes:              0
+   Number of cells:                  6
+     $dffe                          21
+     $mux                           30
+
+=== bilinearintrp ===
+
+   Number of wires:                 72
+   Number of wire bits:            669
+   Number of public wires:          49
+   Number of public wire bits:     422
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 46
+     $add                           90
+     $dff                          222
+     $eq                            15
+     $logic_not                      3
+     $mul                          135
+     $pmux                          16
+     $sub                           16
+
+=== col16to21 ===
+
+   Number of wires:                 10
+   Number of wire bits:            107
+   Number of public wires:           6
+   Number of public wire bits:     103
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $eq                             6
+     $logic_not                      2
+     $pmux                          16
+
+=== delay1x3 ===
+
+   Number of wires:                  6
+   Number of wire bits:              6
+   Number of public wires:           6
+   Number of public wire bits:       6
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $dff                            3
+
+=== fifo3 ===
+
+   Number of wires:                 48
+   Number of wire bits:            453
+   Number of public wires:          10
+   Number of public wire bits:      96
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 42
+     $add                           32
+     $and                            1
+     $eq                             6
+     $logic_not                      2
+     $mux                          220
+     $ne                            14
+     $not                            1
+     $pmux                          54
+     $reduce_and                     9
+     $reduce_bool                    5
+     $reduce_or                      7
+     $sdffe                         56
+     $sub                           32
+
+=== linearmap ===
+
+   Number of wires:                 28
+   Number of wire bits:            259
+   Number of public wires:          10
+   Number of public wire bits:      71
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 21
+     $add                          162
+     $dff                           18
+     $dffe                          14
+     $eq                            21
+     $logic_not                      3
+     $pmux                          18
+
+=== matmult ===
+
+   Number of wires:                 40
+   Number of wire bits:            913
+   Number of public wires:          25
+   Number of public wire bits:     529
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 27
+     $add                           96
+     $dff                          336
+     $mul                          288
+
+=== onlyonecycle ===
+
+   Number of wires:                 24
+   Number of wire bits:             61
+   Number of public wires:           8
+   Number of public wire bits:      10
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 21
+     $and                            3
+     $dlatch                         4
+     $eq                             4
+     $logic_not                      2
+     $mux                            8
+     $not                            3
+     $pmux                           2
+     $sdff                           3
+     $sub                           32
+
+=== paj_raygentop_hierarchy_no_mem ===
+
+   Number of wires:                113
+   Number of wire bits:           1514
+   Number of public wires:         113
+   Number of public wire bits:    1514
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 12
+     $not                            1
+     $or                             1
+     $sdff                           1
+
+=== raygencont ===
+
+   Number of wires:                245
+   Number of wire bits:            707
+   Number of public wires:          46
+   Number of public wire bits:     354
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                227
+     $add                           34
+     $and                          111
+     $dffe                           2
+     $dlatch                       113
+     $eq                            14
+     $gt                            32
+     $logic_not                      5
+     $mux                           96
+     $ne                             4
+     $not                           17
+     $pmux                           8
+     $reduce_or                     67
+     $sdff                         106
+     $sub                           32
+
+=== raysend ===
+
+   Number of wires:                 96
+   Number of wire bits:            363
+   Number of public wires:          22
+   Number of public wire bits:     233
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 87
+     $and                           32
+     $dlatch                        48
+     $eq                            36
+     $logic_not                      4
+     $mux                           26
+     $not                           15
+     $pmux                          42
+     $reduce_or                     18
+     $sdff                          45
+
+=== resultrecieve ===
+
+   Number of wires:                 90
+   Number of wire bits:            435
+   Number of public wires:          56
+   Number of public wire bits:     395
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 82
+     $and                           10
+     $dlatch                       155
+     $eq                            22
+     $logic_not                      3
+     $mux                            8
+     $not                            8
+     $pmux                           3
+     $reduce_or                      4
+     $sdff                         155
+
+=== resultwriter ===
+
+   Number of wires:                271
+   Number of wire bits:           1209
+   Number of public wires:          83
+   Number of public wire bits:     794
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                237
+     $and                          106
+     $dffe                          63
+     $dlatch                       116
+     $eq                            54
+     $logic_not                      4
+     $mux                          191
+     $not                           23
+     $or                             5
+     $pmux                          85
+     $reduce_or                     61
+     $sdff                          92
+
+=== rgconfigmemory ===
+
+   Number of wires:                594
+   Number of wire bits:           1096
+   Number of public wires:          35
+   Number of public wire bits:     537
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                588
+     $and                          443
+     $dlatch                       228
+     $eq                            52
+     $logic_and                     12
+     $mux                            2
+     $not                           13
+     $pmux                           1
+     $reduce_or                    156
+     $sdff                         229
+
+=== rgsramcontroller ===
+
+   Number of wires:                154
+   Number of wire bits:           1255
+   Number of public wires:          50
+   Number of public wire bits:     850
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                127
+     $add                           64
+     $and                           28
+     $dlatch                       145
+     $eq                            62
+     $logic_not                      4
+     $mux                          114
+     $not                           14
+     $or                             5
+     $pmux                          87
+     $reduce_bool                    7
+     $reduce_or                     19
+     $sdff                         160
+     $sub                           32
+
+=== spram21x4 ===
+
+   Number of wires:                  5
+   Number of wire bits:             52
+   Number of public wires:           5
+   Number of public wire bits:      52
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $dff                            8
+
+=== design hierarchy ===
+
+   paj_raygentop_hierarchy_no_mem      1
+     delay1x3                        0
+     matmult                         0
+     onlyonecycle                    0
+     raygencont                      0
+     raysend                         0
+     resultrecieve                   0
+     resultwriter                    0
+       bilinearintrp                 0
+       col16to21                     0
+       fifo3                         0
+       linearmap                     0
+     rgconfigmemory                  0
+       spram21x4                     0
+         $paramod$69ef3ba125364ac04d6727c81f3bd598500042c7\single_port_ram      0
+     rgsramcontroller                0
+
+   Number of wires:                113
+   Number of wire bits:           1514
+   Number of public wires:         113
+   Number of public wire bits:    1514
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 12
+     $not                            1
+     $or                             1
+     $sdff                           1
+
+End of script. Logfile hash: 054169818e, CPU: user 1.70s system 0.01s, MEM: 43.72 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 30% 6x opt_expr (0 sec), 18% 5x opt_merge (0 sec), ...

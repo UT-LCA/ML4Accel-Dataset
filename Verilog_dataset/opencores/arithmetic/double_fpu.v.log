@@ -1,0 +1,2016 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v' to AST representation.
+Generating RTLIL representation for module `\fpu_add'.
+Generating RTLIL representation for module `\fpu_div'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:426.1-482.12 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:484.1-540.12 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\fpu'.
+/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:691: Warning: Identifier `\except_enable' is implicitly declared.
+Generating RTLIL representation for module `\fpu_exceptions'.
+Generating RTLIL representation for module `\fpu_mul'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1337.1-1395.9 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\fpu_round'.
+Generating RTLIL representation for module `\fpu_sub'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1646.1-1704.9 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: fpu_sub             
+root of   0 design levels: fpu_round           
+root of   0 design levels: fpu_mul             
+root of   0 design levels: fpu_exceptions      
+root of   1 design levels: fpu                 
+root of   0 design levels: fpu_div             
+root of   0 design levels: fpu_add             
+Automatically selected fpu as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \fpu
+Used module:     \fpu_exceptions
+Used module:     \fpu_round
+Used module:     \fpu_div
+Used module:     \fpu_mul
+Used module:     \fpu_sub
+Used module:     \fpu_add
+
+2.3. Analyzing design hierarchy..
+Top module:  \fpu
+Used module:     \fpu_exceptions
+Used module:     \fpu_round
+Used module:     \fpu_div
+Used module:     \fpu_mul
+Used module:     \fpu_sub
+Used module:     \fpu_add
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1646$450 in module fpu_sub.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408 in module fpu_sub.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1470$393 in module fpu_round.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327 in module fpu_mul.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1102$326 in module fpu_exceptions.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169 in module fpu_exceptions.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:825$167 in module fpu.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:806$165 in module fpu.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:788$164 in module fpu.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:772$160 in module fpu.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:762$158 in module fpu.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:739$145 in module fpu.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:728$144 in module fpu.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:717$143 in module fpu.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:706$142 in module fpu.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:695$141 in module fpu.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:484$125 in module fpu_div.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:426$124 in module fpu_div.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:417$123 in module fpu_div.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:393$122 in module fpu_div.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91 in module fpu_div.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:313$85 in module fpu_div.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:301$80 in module fpu_div.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:293$62 in module fpu_div.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:280$60 in module fpu_div.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:270$58 in module fpu_div.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:262$56 in module fpu_div.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7 in module fpu_add.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 38 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1646$450'.
+     1/1: $0\diff_shift[6:0]
+Creating decoders for process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+     1/30: $0\diff_1[54:0]
+     2/30: $0\diffshift_et_55[0:0]
+     3/30: $0\diffshift_gt_exponent[0:0]
+     4/30: $0\diff[54:0]
+     5/30: $0\subtra_shift_3[54:0]
+     6/30: $0\subtra_shift[54:0]
+     7/30: $0\subtrahend[54:0]
+     8/30: $0\minuend[54:0]
+     9/30: $0\a_gtet_b[0:0]
+    10/30: $0\mana_gtet_manb[0:0]
+    11/30: $0\expa_et_expb[0:0]
+    12/30: $0\diff_shift_2[6:0]
+    13/30: $0\diff_2[55:0]
+    14/30: $0\exponent[10:0]
+    15/30: $0\small_is_nonzero[0:0]
+    16/30: $0\exponent_diff[10:0]
+    17/30: $0\large_norm_small_denorm[0:0]
+    18/30: $0\large_is_denorm[0:0]
+    19/30: $0\small_is_denorm[0:0]
+    20/30: $0\mantissa_large[51:0]
+    21/30: $0\mantissa_small[51:0]
+    22/30: $0\exponent_large[10:0]
+    23/30: $0\exponent_small[10:0]
+    24/30: $0\expa_gt_expb[0:0]
+    25/30: $0\mantissa_b[51:0]
+    26/30: $0\mantissa_a[51:0]
+    27/30: $0\exponent_b[10:0]
+    28/30: $0\exponent_a[10:0]
+    29/30: $0\exponent_2[10:0]
+    30/30: $0\sign[0:0]
+Creating decoders for process `\fpu_round.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1470$393'.
+     1/6: $0\round_out[63:0]
+     2/6: $0\exponent_final[11:0]
+     3/6: $0\sum_final[55:0]
+     4/6: $0\exponent_round[11:0]
+     5/6: $0\sum_round_2[55:0]
+     6/6: $0\sum_round[55:0]
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1337$377'.
+     1/1: $0\product_shift[5:0]
+Creating decoders for process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+     1/50: $0\product_lsb[0:0]
+     2/50: $0\product_6[105:0]
+     3/50: $0\product_5[105:0]
+     4/50: $0\product_4[105:0]
+     5/50: $0\product_3[105:0]
+     6/50: $0\product_2[105:0]
+     7/50: $0\product_1[105:0]
+     8/50: $0\product[105:0]
+     9/50: $0\sum_8[30:0]
+    10/50: $0\sum_7[36:0]
+    11/50: $0\sum_6[29:0]
+    12/50: $0\sum_5[27:0]
+    13/50: $0\sum_4[36:0]
+    14/50: $0\sum_3[35:0]
+    15/50: $0\sum_1[35:0]
+    16/50: $0\sum_0[41:0]
+    17/50: $0\product_j[30:0]
+    18/50: $0\product_i[28:0]
+    19/50: $0\product_h[28:0]
+    20/50: $0\product_g[35:0]
+    21/50: $0\product_f[33:0]
+    22/50: $0\product_e[33:0]
+    23/50: $0\product_d[25:0]
+    24/50: $0\product_c[40:0]
+    25/50: $0\product_b[40:0]
+    26/50: $0\product_a[40:0]
+    27/50: $0\mul_b[52:0]
+    28/50: $0\mul_a[52:0]
+    29/50: $0\exponent_et_zero[0:0]
+    30/50: $0\exponent_4[11:0]
+    31/50: $0\exponent_3[11:0]
+    32/50: $0\exponent_gt_prodshift[0:0]
+    33/50: $0\exponent_1[11:0]
+    34/50: $0\exponent_under[11:0]
+    35/50: $0\exponent_gt_expoffset[0:0]
+    36/50: $0\exponent_terms[11:0]
+    37/50: $0\in_zero[0:0]
+    38/50: $0\b_is_zero[0:0]
+    39/50: $0\product_shift_2[5:0]
+    40/50: $0\exponent_5[11:0]
+    41/50: $0\a_is_zero[0:0]
+    42/50: $0\b_is_norm[0:0]
+    43/50: $0\a_is_norm[0:0]
+    44/50: $0\mantissa_b[51:0]
+    45/50: $0\mantissa_a[51:0]
+    46/50: $0\exponent_b[10:0]
+    47/50: $0\exponent_a[10:0]
+    48/50: $0\exponent_2[11:0]
+    49/50: $0\sum_2[41:0]
+    50/50: $0\sign[0:0]
+Creating decoders for process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1102$326'.
+     1/7: $0\ex_enable[0:0]
+     2/7: $0\invalid[0:0]
+     3/7: $0\exception[0:0]
+     4/7: $0\inexact[0:0]
+     5/7: $0\overflow[0:0]
+     6/7: $0\underflow[0:0]
+     7/7: $0\out[63:0]
+Creating decoders for process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+     1/57: $0\out_2[63:0]
+     2/57: $0\out_1[63:0]
+     3/57: $0\out_0[63:0]
+     4/57: $0\out_inf[62:0]
+     5/57: $0\inf_round_down[62:0]
+     6/57: $0\NaN_output[62:0]
+     7/57: $0\NaN_output_0[62:0]
+     8/57: $0\SNaN_trigger[0:0]
+     9/57: $0\NaN_out_trigger[0:0]
+    10/57: $0\enable_trigger[0:0]
+    11/57: $0\except_trigger[0:0]
+    12/57: $0\inexact_trigger[0:0]
+    13/57: $0\overflow_trigger[0:0]
+    14/57: $0\invalid_trigger[0:0]
+    15/57: $0\underflow_trigger[0:0]
+    16/57: $0\div_uf[0:0]
+    17/57: $0\mul_uf[0:0]
+    18/57: $0\inf_round_down_trigger[0:0]
+    19/57: $0\round_to_neg_inf[0:0]
+    20/57: $0\round_to_pos_inf[0:0]
+    21/57: $0\round_to_zero[0:0]
+    22/57: $0\round_nearest[0:0]
+    23/57: $0\out_neg_inf[0:0]
+    24/57: $0\out_pos_inf[0:0]
+    25/57: $0\out_inf_trigger[0:0]
+    26/57: $0\addsub_inf[0:0]
+    27/57: $0\addsub_inf_invalid[0:0]
+    28/57: $0\sub_inf[0:0]
+    29/57: $0\add_inf[0:0]
+    30/57: $0\div_inf[0:0]
+    31/57: $0\mul_inf[0:0]
+    32/57: $0\mul_0_by_inf[0:0]
+    33/57: $0\div_by_inf[0:0]
+    34/57: $0\div_inf_by_inf[0:0]
+    35/57: $0\div_0_by_0[0:0]
+    36/57: $0\div_by_0[0:0]
+    37/57: $0\a_NaN[0:0]
+    38/57: $0\SNaN_input[0:0]
+    39/57: $0\NaN_input[0:0]
+    40/57: $0\opb_inf[0:0]
+    41/57: $0\opa_inf[0:0]
+    42/57: $0\opb_neg_inf[0:0]
+    43/57: $0\opa_neg_inf[0:0]
+    44/57: $0\opb_pos_inf[0:0]
+    45/57: $0\opa_pos_inf[0:0]
+    46/57: $0\opb_SNaN[0:0]
+    47/57: $0\opa_SNaN[0:0]
+    48/57: $0\opb_QNaN[0:0]
+    49/57: $0\opa_QNaN[0:0]
+    50/57: $0\divide[0:0]
+    51/57: $0\multiply[0:0]
+    52/57: $0\subtract[0:0]
+    53/57: $0\add[0:0]
+    54/57: $0\input_et_zero[0:0]
+    55/57: $0\opb_et_zero[0:0]
+    56/57: $0\opa_et_zero[0:0]
+    57/57: $0\in_et_zero[0:0]
+Creating decoders for process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:825$167'.
+     1/6: $0\invalid[0:0]
+     2/6: $0\exception[0:0]
+     3/6: $0\inexact[0:0]
+     4/6: $0\overflow[0:0]
+     5/6: $0\underflow[0:0]
+     6/6: $0\out[63:0]
+Creating decoders for process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:806$165'.
+     1/3: $0\ready[0:0]
+     2/3: $0\ready_1[0:0]
+     3/3: $0\ready_0[0:0]
+Creating decoders for process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:788$164'.
+     1/5: $0\op_enable[0:0]
+     2/5: $0\rmode_reg[1:0]
+     3/5: $0\fpu_op_reg[2:0]
+     4/5: $0\opb_reg[63:0]
+     5/5: $0\opa_reg[63:0]
+Creating decoders for process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:772$160'.
+     1/4: $0\enable_reg_3[0:0]
+     2/4: $0\enable_reg_2[0:0]
+     3/4: $0\enable_reg_1[0:0]
+     4/4: $0\enable_reg[0:0]
+Creating decoders for process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:762$158'.
+     1/1: $0\count_ready[6:0]
+Creating decoders for process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:739$145'.
+     1/7: $0\exp_addsub[11:0]
+     2/7: $0\addsub_sign[0:0]
+     3/7: $0\addsub_out[55:0]
+     4/7: $0\div_enable[0:0]
+     5/7: $0\mul_enable[0:0]
+     6/7: $0\sub_enable[0:0]
+     7/7: $0\add_enable[0:0]
+Creating decoders for process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:728$144'.
+     1/1: $0\count_cycles[6:0]
+Creating decoders for process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:717$143'.
+     1/1: $0\sign_round[0:0]
+Creating decoders for process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:706$142'.
+     1/1: $0\exponent_round[11:0]
+Creating decoders for process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:695$141'.
+     1/1: $0\mantissa_round[55:0]
+Creating decoders for process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:484$125'.
+     1/1: $0\divisor_shift[5:0]
+Creating decoders for process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:426$124'.
+     1/1: $0\dividend_shift[5:0]
+Creating decoders for process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:417$123'.
+     1/1: $0\enable_reg_2[0:0]
+Creating decoders for process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:393$122'.
+     1/8: $0\enable_reg_e[0:0]
+     2/8: $0\enable_reg_d[0:0]
+     3/8: $0\enable_reg_c[0:0]
+     4/8: $0\enable_reg_b[0:0]
+     5/8: $0\enable_reg_a[0:0]
+     6/8: $0\enable_reg[0:0]
+     7/8: $0\count_nonzero_reg_2[0:0]
+     8/8: $0\count_nonzero_reg[0:0]
+Creating decoders for process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+     1/28: $0\remainder_b[107:0]
+     2/28: $0\remainder_shift_term[6:0]
+     3/28: $0\mantissa_1[51:0]
+     4/28: $0\expon_final_5[11:0]
+     5/28: $0\expon_final_4_term[0:0]
+     6/28: $0\expon_final_4_et0[0:0]
+     7/28: $0\expon_final_4[11:0]
+     8/28: $0\expon_final_3[11:0]
+     9/28: $0\expon_uf_term_4[11:0]
+    10/28: $0\expon_uf_gt_maxshift[0:0]
+    11/28: $0\expon_uf_term_3[11:0]
+    12/28: $0\expon_uf_term_2[11:0]
+    13/28: $0\expon_uf_2[0:0]
+    14/28: $0\expon_shift_b[11:0]
+    15/28: $0\expon_shift_a[11:0]
+    16/28: $0\expon_final_2[11:0]
+    17/28: $0\expon_final_1[11:0]
+    18/28: $0\expon_uf_term_1[11:0]
+    19/28: $0\expon_uf_1[0:0]
+    20/28: $0\expon_term[11:0]
+    21/28: $0\divisor_b_shifted[51:0]
+    22/28: $0\divisor_b[51:0]
+    23/28: $0\dividend_a_shifted[51:0]
+    24/28: $0\dividend_a[51:0]
+    25/28: $0\divisor_shift_2[5:0]
+    26/28: $0\dividend_shift_2[5:0]
+    27/28: $0\mantissa_b[51:0]
+    28/28: $0\mantissa_a[51:0]
+Creating decoders for process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:313$85'.
+     1/2: $0\divisor_reg[53:0]
+     2/2: $0\dividend_reg[53:0]
+Creating decoders for process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:301$80'.
+     1/2: $0\remainder_msb[0:0]
+     2/2: $0\remainder[53:0]
+Creating decoders for process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:293$62'.
+     1/6: $2$lookahead\quotient$61[53:0]$71
+     2/6: $2$bitselwrite$data$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:298$36[53:0]$70
+     3/6: $2$bitselwrite$mask$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:298$35[53:0]$69
+     4/6: $1$lookahead\quotient$61[53:0]$68
+     5/6: $1$bitselwrite$data$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:298$36[53:0]$67
+     6/6: $1$bitselwrite$mask$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:298$35[53:0]$66
+Creating decoders for process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:280$60'.
+     1/2: $0\remainder_out[53:0]
+     2/2: $0\quotient_out[53:0]
+Creating decoders for process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:270$58'.
+     1/1: $0\count_out[5:0]
+Creating decoders for process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:262$56'.
+     1/1: $0\exponent_out[11:0]
+Creating decoders for process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+     1/23: $0\denorm_to_norm[0:0]
+     2/23: $0\exponent[10:0]
+     3/23: $0\sum[55:0]
+     4/23: $0\small_shift_3[55:0]
+     5/23: $0\small_shift[55:0]
+     6/23: $0\small_add[55:0]
+     7/23: $0\large_add[55:0]
+     8/23: $0\exponent_diff[10:0]
+     9/23: $0\large_norm_small_denorm[0:0]
+    10/23: $0\large_is_denorm[0:0]
+    11/23: $0\small_is_denorm[0:0]
+    12/23: $0\mantissa_large[51:0]
+    13/23: $0\mantissa_small[51:0]
+    14/23: $0\exponent_large[10:0]
+    15/23: $0\exponent_small[10:0]
+    16/23: $0\expa_gt_expb[0:0]
+    17/23: $0\mantissa_b[51:0]
+    18/23: $0\mantissa_a[51:0]
+    19/23: $0\exponent_b[10:0]
+    20/23: $0\exponent_a[10:0]
+    21/23: $0\exponent_2[10:0]
+    22/23: $0\sum_2[55:0]
+    23/23: $0\sign[0:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\fpu_sub.\diff_shift' from process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1646$450'.
+Latch inferred for signal `\fpu_mul.\product_shift' from process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1337$377': $auto$proc_dlatch.cc:427:proc_dlatch$2227
+No latch inferred for signal `\fpu_div.\divisor_shift' from process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:484$125'.
+No latch inferred for signal `\fpu_div.\dividend_shift' from process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:426$124'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\fpu_sub.\sign' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2228' with positive edge clock.
+Creating register for signal `\fpu_sub.\exponent_2' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2229' with positive edge clock.
+Creating register for signal `\fpu_sub.\exponent_a' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2230' with positive edge clock.
+Creating register for signal `\fpu_sub.\exponent_b' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2231' with positive edge clock.
+Creating register for signal `\fpu_sub.\mantissa_a' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2232' with positive edge clock.
+Creating register for signal `\fpu_sub.\mantissa_b' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2233' with positive edge clock.
+Creating register for signal `\fpu_sub.\expa_gt_expb' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2234' with positive edge clock.
+Creating register for signal `\fpu_sub.\exponent_small' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2235' with positive edge clock.
+Creating register for signal `\fpu_sub.\exponent_large' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2236' with positive edge clock.
+Creating register for signal `\fpu_sub.\mantissa_small' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2237' with positive edge clock.
+Creating register for signal `\fpu_sub.\mantissa_large' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2238' with positive edge clock.
+Creating register for signal `\fpu_sub.\small_is_denorm' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2239' with positive edge clock.
+Creating register for signal `\fpu_sub.\large_is_denorm' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2240' with positive edge clock.
+Creating register for signal `\fpu_sub.\large_norm_small_denorm' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2241' with positive edge clock.
+Creating register for signal `\fpu_sub.\exponent_diff' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2242' with positive edge clock.
+Creating register for signal `\fpu_sub.\small_is_nonzero' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2243' with positive edge clock.
+Creating register for signal `\fpu_sub.\exponent' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2244' with positive edge clock.
+Creating register for signal `\fpu_sub.\diff_2' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2245' with positive edge clock.
+Creating register for signal `\fpu_sub.\diff_shift_2' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2246' with positive edge clock.
+Creating register for signal `\fpu_sub.\expa_et_expb' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2247' with positive edge clock.
+Creating register for signal `\fpu_sub.\mana_gtet_manb' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2248' with positive edge clock.
+Creating register for signal `\fpu_sub.\a_gtet_b' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2249' with positive edge clock.
+Creating register for signal `\fpu_sub.\minuend' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2250' with positive edge clock.
+Creating register for signal `\fpu_sub.\subtrahend' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2251' with positive edge clock.
+Creating register for signal `\fpu_sub.\subtra_shift' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2252' with positive edge clock.
+Creating register for signal `\fpu_sub.\subtra_shift_3' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2253' with positive edge clock.
+Creating register for signal `\fpu_sub.\diff' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2254' with positive edge clock.
+Creating register for signal `\fpu_sub.\diffshift_gt_exponent' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2255' with positive edge clock.
+Creating register for signal `\fpu_sub.\diffshift_et_55' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2256' with positive edge clock.
+Creating register for signal `\fpu_sub.\diff_1' using process `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+  created $dff cell `$procdff$2257' with positive edge clock.
+Creating register for signal `\fpu_round.\exponent_round' using process `\fpu_round.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1470$393'.
+  created $dff cell `$procdff$2258' with positive edge clock.
+Creating register for signal `\fpu_round.\round_out' using process `\fpu_round.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1470$393'.
+  created $dff cell `$procdff$2259' with positive edge clock.
+Creating register for signal `\fpu_round.\exponent_final' using process `\fpu_round.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1470$393'.
+  created $dff cell `$procdff$2260' with positive edge clock.
+Creating register for signal `\fpu_round.\sum_round' using process `\fpu_round.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1470$393'.
+  created $dff cell `$procdff$2261' with positive edge clock.
+Creating register for signal `\fpu_round.\sum_round_2' using process `\fpu_round.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1470$393'.
+  created $dff cell `$procdff$2262' with positive edge clock.
+Creating register for signal `\fpu_round.\sum_final' using process `\fpu_round.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1470$393'.
+  created $dff cell `$procdff$2263' with positive edge clock.
+Creating register for signal `\fpu_mul.\sign' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2264' with positive edge clock.
+Creating register for signal `\fpu_mul.\sum_2' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2265' with positive edge clock.
+Creating register for signal `\fpu_mul.\exponent_2' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2266' with positive edge clock.
+Creating register for signal `\fpu_mul.\exponent_a' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2267' with positive edge clock.
+Creating register for signal `\fpu_mul.\exponent_b' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2268' with positive edge clock.
+Creating register for signal `\fpu_mul.\mantissa_a' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2269' with positive edge clock.
+Creating register for signal `\fpu_mul.\mantissa_b' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2270' with positive edge clock.
+Creating register for signal `\fpu_mul.\a_is_norm' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2271' with positive edge clock.
+Creating register for signal `\fpu_mul.\b_is_norm' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2272' with positive edge clock.
+Creating register for signal `\fpu_mul.\a_is_zero' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2273' with positive edge clock.
+Creating register for signal `\fpu_mul.\exponent_5' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2274' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_shift_2' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2275' with positive edge clock.
+Creating register for signal `\fpu_mul.\b_is_zero' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2276' with positive edge clock.
+Creating register for signal `\fpu_mul.\in_zero' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2277' with positive edge clock.
+Creating register for signal `\fpu_mul.\exponent_terms' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2278' with positive edge clock.
+Creating register for signal `\fpu_mul.\exponent_gt_expoffset' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2279' with positive edge clock.
+Creating register for signal `\fpu_mul.\exponent_under' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2280' with positive edge clock.
+Creating register for signal `\fpu_mul.\exponent_1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2281' with positive edge clock.
+Creating register for signal `\fpu_mul.\exponent_gt_prodshift' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2282' with positive edge clock.
+Creating register for signal `\fpu_mul.\exponent_3' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2283' with positive edge clock.
+Creating register for signal `\fpu_mul.\exponent_4' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2284' with positive edge clock.
+Creating register for signal `\fpu_mul.\exponent_et_zero' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2285' with positive edge clock.
+Creating register for signal `\fpu_mul.\mul_a' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2286' with positive edge clock.
+Creating register for signal `\fpu_mul.\mul_b' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2287' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_a' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2288' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_b' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2289' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_c' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2290' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_d' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2291' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_e' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2292' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_f' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2293' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_g' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2294' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_h' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2295' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_i' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2296' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_j' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2297' with positive edge clock.
+Creating register for signal `\fpu_mul.\sum_0' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2298' with positive edge clock.
+Creating register for signal `\fpu_mul.\sum_1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2299' with positive edge clock.
+Creating register for signal `\fpu_mul.\sum_3' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2300' with positive edge clock.
+Creating register for signal `\fpu_mul.\sum_4' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2301' with positive edge clock.
+Creating register for signal `\fpu_mul.\sum_5' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2302' with positive edge clock.
+Creating register for signal `\fpu_mul.\sum_6' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2303' with positive edge clock.
+Creating register for signal `\fpu_mul.\sum_7' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2304' with positive edge clock.
+Creating register for signal `\fpu_mul.\sum_8' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2305' with positive edge clock.
+Creating register for signal `\fpu_mul.\product' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2306' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_1' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2307' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_2' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2308' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_3' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2309' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_4' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2310' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_5' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2311' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_6' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2312' with positive edge clock.
+Creating register for signal `\fpu_mul.\product_lsb' using process `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+  created $dff cell `$procdff$2313' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1102$326'.
+  created $dff cell `$procdff$2314' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\underflow' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1102$326'.
+  created $dff cell `$procdff$2315' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\overflow' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1102$326'.
+  created $dff cell `$procdff$2316' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\inexact' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1102$326'.
+  created $dff cell `$procdff$2317' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\exception' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1102$326'.
+  created $dff cell `$procdff$2318' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\invalid' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1102$326'.
+  created $dff cell `$procdff$2319' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\ex_enable' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1102$326'.
+  created $dff cell `$procdff$2320' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\in_et_zero' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2321' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opa_et_zero' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2322' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opb_et_zero' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2323' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\input_et_zero' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2324' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\add' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2325' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\subtract' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2326' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\multiply' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2327' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\divide' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2328' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opa_QNaN' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2329' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opb_QNaN' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2330' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opa_SNaN' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2331' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opb_SNaN' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2332' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opa_pos_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2333' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opb_pos_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2334' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opa_neg_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2335' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opb_neg_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2336' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opa_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2337' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\opb_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2338' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\NaN_input' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2339' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\SNaN_input' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2340' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\a_NaN' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2341' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\div_by_0' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2342' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\div_0_by_0' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2343' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\div_inf_by_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2344' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\div_by_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2345' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\mul_0_by_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2346' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\mul_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2347' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\div_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2348' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\add_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2349' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\sub_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2350' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\addsub_inf_invalid' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2351' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\addsub_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2352' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_inf_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2353' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_pos_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2354' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_neg_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2355' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\round_nearest' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2356' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\round_to_zero' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2357' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\round_to_pos_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2358' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\round_to_neg_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2359' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\inf_round_down_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2360' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\mul_uf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2361' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\div_uf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2362' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\underflow_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2363' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\invalid_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2364' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\overflow_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2365' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\inexact_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2366' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\except_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2367' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\enable_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2368' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\NaN_out_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2369' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\SNaN_trigger' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2370' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\NaN_output_0' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2371' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\NaN_output' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2372' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\inf_round_down' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2373' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_inf' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2374' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_0' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2375' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_1' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2376' with positive edge clock.
+Creating register for signal `\fpu_exceptions.\out_2' using process `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+  created $dff cell `$procdff$2377' with positive edge clock.
+Creating register for signal `\fpu.\out' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:825$167'.
+  created $dff cell `$procdff$2378' with positive edge clock.
+Creating register for signal `\fpu.\underflow' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:825$167'.
+  created $dff cell `$procdff$2379' with positive edge clock.
+Creating register for signal `\fpu.\overflow' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:825$167'.
+  created $dff cell `$procdff$2380' with positive edge clock.
+Creating register for signal `\fpu.\inexact' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:825$167'.
+  created $dff cell `$procdff$2381' with positive edge clock.
+Creating register for signal `\fpu.\exception' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:825$167'.
+  created $dff cell `$procdff$2382' with positive edge clock.
+Creating register for signal `\fpu.\invalid' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:825$167'.
+  created $dff cell `$procdff$2383' with positive edge clock.
+Creating register for signal `\fpu.\ready' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:806$165'.
+  created $dff cell `$procdff$2384' with positive edge clock.
+Creating register for signal `\fpu.\ready_0' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:806$165'.
+  created $dff cell `$procdff$2385' with positive edge clock.
+Creating register for signal `\fpu.\ready_1' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:806$165'.
+  created $dff cell `$procdff$2386' with positive edge clock.
+Creating register for signal `\fpu.\opa_reg' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:788$164'.
+  created $dff cell `$procdff$2387' with positive edge clock.
+Creating register for signal `\fpu.\opb_reg' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:788$164'.
+  created $dff cell `$procdff$2388' with positive edge clock.
+Creating register for signal `\fpu.\fpu_op_reg' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:788$164'.
+  created $dff cell `$procdff$2389' with positive edge clock.
+Creating register for signal `\fpu.\rmode_reg' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:788$164'.
+  created $dff cell `$procdff$2390' with positive edge clock.
+Creating register for signal `\fpu.\op_enable' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:788$164'.
+  created $dff cell `$procdff$2391' with positive edge clock.
+Creating register for signal `\fpu.\enable_reg' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:772$160'.
+  created $dff cell `$procdff$2392' with positive edge clock.
+Creating register for signal `\fpu.\enable_reg_2' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:772$160'.
+  created $dff cell `$procdff$2393' with positive edge clock.
+Creating register for signal `\fpu.\enable_reg_1' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:772$160'.
+  created $dff cell `$procdff$2394' with positive edge clock.
+Creating register for signal `\fpu.\enable_reg_3' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:772$160'.
+  created $dff cell `$procdff$2395' with positive edge clock.
+Creating register for signal `\fpu.\count_ready' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:762$158'.
+  created $dff cell `$procdff$2396' with positive edge clock.
+Creating register for signal `\fpu.\add_enable' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:739$145'.
+  created $dff cell `$procdff$2397' with positive edge clock.
+Creating register for signal `\fpu.\sub_enable' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:739$145'.
+  created $dff cell `$procdff$2398' with positive edge clock.
+Creating register for signal `\fpu.\mul_enable' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:739$145'.
+  created $dff cell `$procdff$2399' with positive edge clock.
+Creating register for signal `\fpu.\div_enable' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:739$145'.
+  created $dff cell `$procdff$2400' with positive edge clock.
+Creating register for signal `\fpu.\addsub_out' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:739$145'.
+  created $dff cell `$procdff$2401' with positive edge clock.
+Creating register for signal `\fpu.\exp_addsub' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:739$145'.
+  created $dff cell `$procdff$2402' with positive edge clock.
+Creating register for signal `\fpu.\addsub_sign' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:739$145'.
+  created $dff cell `$procdff$2403' with positive edge clock.
+Creating register for signal `\fpu.\count_cycles' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:728$144'.
+  created $dff cell `$procdff$2404' with positive edge clock.
+Creating register for signal `\fpu.\sign_round' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:717$143'.
+  created $dff cell `$procdff$2405' with positive edge clock.
+Creating register for signal `\fpu.\exponent_round' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:706$142'.
+  created $dff cell `$procdff$2406' with positive edge clock.
+Creating register for signal `\fpu.\mantissa_round' using process `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:695$141'.
+  created $dff cell `$procdff$2407' with positive edge clock.
+Creating register for signal `\fpu_div.\enable_reg_2' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:417$123'.
+  created $dff cell `$procdff$2408' with positive edge clock.
+Creating register for signal `\fpu_div.\enable_reg' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:393$122'.
+  created $dff cell `$procdff$2409' with positive edge clock.
+Creating register for signal `\fpu_div.\enable_reg_a' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:393$122'.
+  created $dff cell `$procdff$2410' with positive edge clock.
+Creating register for signal `\fpu_div.\enable_reg_b' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:393$122'.
+  created $dff cell `$procdff$2411' with positive edge clock.
+Creating register for signal `\fpu_div.\enable_reg_c' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:393$122'.
+  created $dff cell `$procdff$2412' with positive edge clock.
+Creating register for signal `\fpu_div.\enable_reg_d' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:393$122'.
+  created $dff cell `$procdff$2413' with positive edge clock.
+Creating register for signal `\fpu_div.\enable_reg_e' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:393$122'.
+  created $dff cell `$procdff$2414' with positive edge clock.
+Creating register for signal `\fpu_div.\count_nonzero_reg' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:393$122'.
+  created $dff cell `$procdff$2415' with positive edge clock.
+Creating register for signal `\fpu_div.\count_nonzero_reg_2' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:393$122'.
+  created $dff cell `$procdff$2416' with positive edge clock.
+Creating register for signal `\fpu_div.\mantissa_a' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2417' with positive edge clock.
+Creating register for signal `\fpu_div.\mantissa_b' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2418' with positive edge clock.
+Creating register for signal `\fpu_div.\dividend_shift_2' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2419' with positive edge clock.
+Creating register for signal `\fpu_div.\divisor_shift_2' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2420' with positive edge clock.
+Creating register for signal `\fpu_div.\dividend_a' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2421' with positive edge clock.
+Creating register for signal `\fpu_div.\dividend_a_shifted' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2422' with positive edge clock.
+Creating register for signal `\fpu_div.\divisor_b' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2423' with positive edge clock.
+Creating register for signal `\fpu_div.\divisor_b_shifted' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2424' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_term' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2425' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_uf_1' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2426' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_uf_term_1' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2427' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_final_1' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2428' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_final_2' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2429' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_shift_a' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2430' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_shift_b' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2431' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_uf_2' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2432' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_uf_term_2' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2433' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_uf_term_3' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2434' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_uf_gt_maxshift' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2435' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_uf_term_4' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2436' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_final_3' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2437' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_final_4' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2438' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_final_4_et0' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2439' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_final_4_term' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2440' with positive edge clock.
+Creating register for signal `\fpu_div.\expon_final_5' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2441' with positive edge clock.
+Creating register for signal `\fpu_div.\mantissa_1' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2442' with positive edge clock.
+Creating register for signal `\fpu_div.\remainder_shift_term' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2443' with positive edge clock.
+Creating register for signal `\fpu_div.\remainder_b' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+  created $dff cell `$procdff$2444' with positive edge clock.
+Creating register for signal `\fpu_div.\dividend_reg' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:313$85'.
+  created $dff cell `$procdff$2445' with positive edge clock.
+Creating register for signal `\fpu_div.\divisor_reg' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:313$85'.
+  created $dff cell `$procdff$2446' with positive edge clock.
+Creating register for signal `\fpu_div.\remainder' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:301$80'.
+  created $dff cell `$procdff$2447' with positive edge clock.
+Creating register for signal `\fpu_div.\remainder_msb' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:301$80'.
+  created $dff cell `$procdff$2448' with positive edge clock.
+Creating register for signal `\fpu_div.\quotient' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:293$62'.
+  created $dff cell `$procdff$2449' with positive edge clock.
+Creating register for signal `\fpu_div.$bitselwrite$mask$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:298$35' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:293$62'.
+  created $dff cell `$procdff$2450' with positive edge clock.
+Creating register for signal `\fpu_div.$bitselwrite$data$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:298$36' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:293$62'.
+  created $dff cell `$procdff$2451' with positive edge clock.
+Creating register for signal `\fpu_div.$lookahead\quotient$61' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:293$62'.
+  created $dff cell `$procdff$2452' with positive edge clock.
+Creating register for signal `\fpu_div.\quotient_out' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:280$60'.
+  created $dff cell `$procdff$2453' with positive edge clock.
+Creating register for signal `\fpu_div.\remainder_out' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:280$60'.
+  created $dff cell `$procdff$2454' with positive edge clock.
+Creating register for signal `\fpu_div.\count_out' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:270$58'.
+  created $dff cell `$procdff$2455' with positive edge clock.
+Creating register for signal `\fpu_div.\exponent_out' using process `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:262$56'.
+  created $dff cell `$procdff$2456' with positive edge clock.
+Creating register for signal `\fpu_add.\sign' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2457' with positive edge clock.
+Creating register for signal `\fpu_add.\sum_2' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2458' with positive edge clock.
+Creating register for signal `\fpu_add.\exponent_2' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2459' with positive edge clock.
+Creating register for signal `\fpu_add.\exponent_a' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2460' with positive edge clock.
+Creating register for signal `\fpu_add.\exponent_b' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2461' with positive edge clock.
+Creating register for signal `\fpu_add.\mantissa_a' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2462' with positive edge clock.
+Creating register for signal `\fpu_add.\mantissa_b' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2463' with positive edge clock.
+Creating register for signal `\fpu_add.\expa_gt_expb' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2464' with positive edge clock.
+Creating register for signal `\fpu_add.\exponent_small' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2465' with positive edge clock.
+Creating register for signal `\fpu_add.\exponent_large' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2466' with positive edge clock.
+Creating register for signal `\fpu_add.\mantissa_small' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2467' with positive edge clock.
+Creating register for signal `\fpu_add.\mantissa_large' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2468' with positive edge clock.
+Creating register for signal `\fpu_add.\small_is_denorm' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2469' with positive edge clock.
+Creating register for signal `\fpu_add.\large_is_denorm' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2470' with positive edge clock.
+Creating register for signal `\fpu_add.\large_norm_small_denorm' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2471' with positive edge clock.
+Creating register for signal `\fpu_add.\exponent_diff' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2472' with positive edge clock.
+Creating register for signal `\fpu_add.\large_add' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2473' with positive edge clock.
+Creating register for signal `\fpu_add.\small_add' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2474' with positive edge clock.
+Creating register for signal `\fpu_add.\small_shift' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2475' with positive edge clock.
+Creating register for signal `\fpu_add.\small_shift_3' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2476' with positive edge clock.
+Creating register for signal `\fpu_add.\sum' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2477' with positive edge clock.
+Creating register for signal `\fpu_add.\exponent' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2478' with positive edge clock.
+Creating register for signal `\fpu_add.\denorm_to_norm' using process `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+  created $dff cell `$procdff$2479' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1646$450'.
+Removing empty process `fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1646$450'.
+Found and cleaned up 2 empty switches in `\fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+Removing empty process `fpu_sub.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1576$408'.
+Found and cleaned up 1 empty switch in `\fpu_round.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1470$393'.
+Removing empty process `fpu_round.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1470$393'.
+Found and cleaned up 1 empty switch in `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1337$377'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1337$377'.
+Found and cleaned up 2 empty switches in `\fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+Removing empty process `fpu_mul.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1227$327'.
+Found and cleaned up 2 empty switches in `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1102$326'.
+Removing empty process `fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1102$326'.
+Found and cleaned up 2 empty switches in `\fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+Removing empty process `fpu_exceptions.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:974$169'.
+Found and cleaned up 2 empty switches in `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:825$167'.
+Removing empty process `fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:825$167'.
+Found and cleaned up 2 empty switches in `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:806$165'.
+Removing empty process `fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:806$165'.
+Found and cleaned up 2 empty switches in `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:788$164'.
+Removing empty process `fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:788$164'.
+Found and cleaned up 1 empty switch in `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:772$160'.
+Removing empty process `fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:772$160'.
+Found and cleaned up 3 empty switches in `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:762$158'.
+Removing empty process `fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:762$158'.
+Found and cleaned up 1 empty switch in `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:739$145'.
+Removing empty process `fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:739$145'.
+Found and cleaned up 1 empty switch in `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:728$144'.
+Removing empty process `fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:728$144'.
+Found and cleaned up 1 empty switch in `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:717$143'.
+Removing empty process `fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:717$143'.
+Found and cleaned up 1 empty switch in `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:706$142'.
+Removing empty process `fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:706$142'.
+Found and cleaned up 1 empty switch in `\fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:695$141'.
+Removing empty process `fpu.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:695$141'.
+Found and cleaned up 1 empty switch in `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:484$125'.
+Removing empty process `fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:484$125'.
+Found and cleaned up 1 empty switch in `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:426$124'.
+Removing empty process `fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:426$124'.
+Found and cleaned up 2 empty switches in `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:417$123'.
+Removing empty process `fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:417$123'.
+Found and cleaned up 1 empty switch in `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:393$122'.
+Removing empty process `fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:393$122'.
+Found and cleaned up 2 empty switches in `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+Removing empty process `fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:329$91'.
+Found and cleaned up 3 empty switches in `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:313$85'.
+Removing empty process `fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:313$85'.
+Found and cleaned up 2 empty switches in `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:301$80'.
+Removing empty process `fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:301$80'.
+Found and cleaned up 2 empty switches in `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:293$62'.
+Removing empty process `fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:293$62'.
+Found and cleaned up 1 empty switch in `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:280$60'.
+Removing empty process `fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:280$60'.
+Found and cleaned up 3 empty switches in `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:270$58'.
+Removing empty process `fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:270$58'.
+Found and cleaned up 1 empty switch in `\fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:262$56'.
+Removing empty process `fpu_div.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:262$56'.
+Found and cleaned up 2 empty switches in `\fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+Removing empty process `fpu_add.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:76$7'.
+Cleaned up 47 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fpu_sub.
+<suppressed ~6 debug messages>
+Optimizing module fpu_round.
+<suppressed ~2 debug messages>
+Optimizing module fpu_mul.
+<suppressed ~60 debug messages>
+Optimizing module fpu_exceptions.
+<suppressed ~2 debug messages>
+Optimizing module fpu.
+<suppressed ~6 debug messages>
+Optimizing module fpu_div.
+<suppressed ~8 debug messages>
+Optimizing module fpu_add.
+<suppressed ~1 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fpu_sub.
+Optimizing module fpu_round.
+Optimizing module fpu_mul.
+Optimizing module fpu_exceptions.
+Optimizing module fpu.
+Optimizing module fpu_div.
+Optimizing module fpu_add.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fpu_sub'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\fpu_round'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\fpu_mul'.
+Finding identical cells in module `\fpu_exceptions'.
+<suppressed ~93 debug messages>
+Finding identical cells in module `\fpu'.
+<suppressed ~66 debug messages>
+Finding identical cells in module `\fpu_div'.
+<suppressed ~15 debug messages>
+Finding identical cells in module `\fpu_add'.
+<suppressed ~6 debug messages>
+Removed a total of 63 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fpu_sub..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_round..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1482$396: \sum_round -> { 1'0 \sum_round [54:0] }
+      Replacing known input bits on port B of cell $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1482$396: $shr$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1482$395_Y -> { $shr$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1482$395_Y [55] 1'1 $shr$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1482$395_Y [53:0] }
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_exceptions..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_div..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$1765.
+    dead port 2/2 on $mux $procmux$1765.
+    dead port 1/2 on $mux $procmux$1762.
+    dead port 2/2 on $mux $procmux$1762.
+    dead port 1/2 on $mux $procmux$1756.
+    dead port 2/2 on $mux $procmux$1756.
+    dead port 1/2 on $mux $procmux$1753.
+    dead port 2/2 on $mux $procmux$1753.
+    dead port 1/2 on $mux $procmux$1750.
+    dead port 2/2 on $mux $procmux$1750.
+    dead port 1/2 on $mux $procmux$1747.
+    dead port 2/2 on $mux $procmux$1747.
+    dead port 1/2 on $mux $procmux$1744.
+Running muxtree optimizer on module \fpu_add..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:123$27: \sum -> { 1'0 \sum [54:0] }
+      Replacing known input bits on port B of cell $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:123$27: $shr$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:123$26_Y -> { $shr$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:123$26_Y [55] 1'1 $shr$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:123$26_Y [53:0] }
+  Analyzing evaluation results.
+Removed 13 multiplexer ports.
+<suppressed ~252 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fpu_sub.
+  Optimizing cells in module \fpu_round.
+  Optimizing cells in module \fpu_mul.
+    New ctrl vector for $pmux cell $procmux$676: { $procmux$729_CMP $procmux$728_CMP $procmux$727_CMP $procmux$726_CMP $procmux$725_CMP $procmux$724_CMP $procmux$723_CMP $procmux$722_CMP $procmux$721_CMP $procmux$720_CMP $procmux$719_CMP $procmux$718_CMP $procmux$717_CMP $procmux$716_CMP $procmux$715_CMP $procmux$714_CMP $procmux$713_CMP $procmux$712_CMP $procmux$711_CMP $procmux$710_CMP $procmux$709_CMP $procmux$708_CMP $procmux$707_CMP $procmux$706_CMP $procmux$705_CMP $procmux$704_CMP $procmux$703_CMP $procmux$702_CMP $procmux$701_CMP $procmux$700_CMP $procmux$699_CMP $procmux$698_CMP $procmux$697_CMP $procmux$696_CMP $procmux$695_CMP $procmux$694_CMP $procmux$693_CMP $procmux$692_CMP $procmux$691_CMP $procmux$690_CMP $procmux$689_CMP $procmux$688_CMP $procmux$687_CMP $procmux$686_CMP $procmux$685_CMP $procmux$684_CMP $procmux$683_CMP $procmux$682_CMP $procmux$681_CMP $procmux$680_CMP $procmux$679_CMP $procmux$678_CMP $procmux$677_CMP }
+  Optimizing cells in module \fpu_mul.
+  Optimizing cells in module \fpu_exceptions.
+  Optimizing cells in module \fpu.
+    New ctrl vector for $pmux cell $procmux$1434: { $auto$opt_reduce.cc:134:opt_mux$2481 $procmux$1436_CMP $procmux$1435_CMP }
+    New ctrl vector for $pmux cell $procmux$1428: { $auto$opt_reduce.cc:134:opt_mux$2483 $procmux$1436_CMP $procmux$1435_CMP }
+    New ctrl vector for $pmux cell $procmux$1422: { $auto$opt_reduce.cc:134:opt_mux$2485 $procmux$1436_CMP $procmux$1435_CMP }
+  Optimizing cells in module \fpu.
+  Optimizing cells in module \fpu_div.
+  Optimizing cells in module \fpu_add.
+Performed a total of 4 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fpu_sub'.
+Finding identical cells in module `\fpu_round'.
+Finding identical cells in module `\fpu_mul'.
+Finding identical cells in module `\fpu_exceptions'.
+Finding identical cells in module `\fpu'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\fpu_div'.
+Finding identical cells in module `\fpu_add'.
+Removed a total of 2 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$2254 ($dff) from module fpu_sub (D = $procmux$523_Y, Q = \diff, rval = 55'0000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2486 ($sdff) from module fpu_sub (D = $sub$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1634$438_Y, Q = \diff).
+Adding SRST signal on $procdff$2255 ($dff) from module fpu_sub (D = $procmux$518_Y, Q = \diffshift_gt_exponent, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2488 ($sdff) from module fpu_sub (D = $gt$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1635$439_Y, Q = \diffshift_gt_exponent).
+Adding SRST signal on $procdff$2257 ($dff) from module fpu_sub (D = $procmux$508_Y, Q = \diff_1, rval = 55'0000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2490 ($sdff) from module fpu_sub (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1637$443_Y, Q = \diff_1).
+Adding SRST signal on $procdff$2256 ($dff) from module fpu_sub (D = $procmux$513_Y, Q = \diffshift_et_55, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2492 ($sdff) from module fpu_sub (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1636$440_Y, Q = \diffshift_et_55).
+Adding SRST signal on $procdff$2228 ($dff) from module fpu_sub (D = $procmux$653_Y, Q = \sign, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2494 ($sdff) from module fpu_sub (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1619$417_Y, Q = \sign).
+Adding SRST signal on $procdff$2229 ($dff) from module fpu_sub (D = $procmux$648_Y, Q = \exponent_2, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2496 ($sdff) from module fpu_sub (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1639$447_Y [10:0], Q = \exponent_2).
+Adding SRST signal on $procdff$2230 ($dff) from module fpu_sub (D = $procmux$643_Y, Q = \exponent_a, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2498 ($sdff) from module fpu_sub (D = \opa [62:52], Q = \exponent_a).
+Adding SRST signal on $procdff$2231 ($dff) from module fpu_sub (D = $procmux$638_Y, Q = \exponent_b, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2500 ($sdff) from module fpu_sub (D = \opb [62:52], Q = \exponent_b).
+Adding SRST signal on $procdff$2232 ($dff) from module fpu_sub (D = $procmux$633_Y, Q = \mantissa_a, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2502 ($sdff) from module fpu_sub (D = \opa [51:0], Q = \mantissa_a).
+Adding SRST signal on $procdff$2233 ($dff) from module fpu_sub (D = $procmux$628_Y, Q = \mantissa_b, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2504 ($sdff) from module fpu_sub (D = \opb [51:0], Q = \mantissa_b).
+Adding SRST signal on $procdff$2234 ($dff) from module fpu_sub (D = $procmux$623_Y, Q = \expa_gt_expb, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2506 ($sdff) from module fpu_sub (D = $gt$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1615$409_Y, Q = \expa_gt_expb).
+Adding SRST signal on $procdff$2235 ($dff) from module fpu_sub (D = $procmux$618_Y, Q = \exponent_small, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2508 ($sdff) from module fpu_sub (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1620$418_Y, Q = \exponent_small).
+Adding SRST signal on $procdff$2236 ($dff) from module fpu_sub (D = $procmux$613_Y, Q = \exponent_large, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2510 ($sdff) from module fpu_sub (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1621$419_Y, Q = \exponent_large).
+Adding SRST signal on $procdff$2237 ($dff) from module fpu_sub (D = $procmux$608_Y, Q = \mantissa_small, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2512 ($sdff) from module fpu_sub (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1622$420_Y, Q = \mantissa_small).
+Adding SRST signal on $procdff$2238 ($dff) from module fpu_sub (D = $procmux$603_Y, Q = \mantissa_large, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2514 ($sdff) from module fpu_sub (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1623$421_Y, Q = \mantissa_large).
+Adding SRST signal on $procdff$2239 ($dff) from module fpu_sub (D = $procmux$598_Y, Q = \small_is_denorm, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2516 ($sdff) from module fpu_sub (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1624$423_Y, Q = \small_is_denorm).
+Adding SRST signal on $procdff$2240 ($dff) from module fpu_sub (D = $procmux$593_Y, Q = \large_is_denorm, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2518 ($sdff) from module fpu_sub (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1625$425_Y, Q = \large_is_denorm).
+Adding SRST signal on $procdff$2241 ($dff) from module fpu_sub (D = $procmux$588_Y, Q = \large_norm_small_denorm, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2520 ($sdff) from module fpu_sub (D = $logic_and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1626$428_Y, Q = \large_norm_small_denorm).
+Adding SRST signal on $procdff$2242 ($dff) from module fpu_sub (D = $procmux$583_Y, Q = \exponent_diff, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2522 ($sdff) from module fpu_sub (D = $sub$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1628$433_Y, Q = \exponent_diff).
+Adding SRST signal on $procdff$2243 ($dff) from module fpu_sub (D = $procmux$578_Y, Q = \small_is_nonzero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2524 ($sdff) from module fpu_sub (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1627$431_Y, Q = \small_is_nonzero).
+Adding SRST signal on $procdff$2244 ($dff) from module fpu_sub (D = $procmux$573_Y, Q = \exponent, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2526 ($sdff) from module fpu_sub (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1638$445_Y [10:0], Q = \exponent).
+Adding SRST signal on $procdff$2245 ($dff) from module fpu_sub (D = $procmux$568_Y, Q = \diff_2, rval = 56'00000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2528 ($sdff) from module fpu_sub (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1640$449_Y, Q = \diff_2).
+Adding SRST signal on $procdff$2246 ($dff) from module fpu_sub (D = $procmux$563_Y, Q = \diff_shift_2, rval = 7'0000000).
+Adding EN signal on $auto$ff.cc:262:slice$2530 ($sdff) from module fpu_sub (D = $procmux$451_Y, Q = \diff_shift_2).
+Adding SRST signal on $procdff$2247 ($dff) from module fpu_sub (D = $procmux$558_Y, Q = \expa_et_expb, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2532 ($sdff) from module fpu_sub (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1616$410_Y, Q = \expa_et_expb).
+Adding SRST signal on $procdff$2248 ($dff) from module fpu_sub (D = $procmux$553_Y, Q = \mana_gtet_manb, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2534 ($sdff) from module fpu_sub (D = $ge$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1617$411_Y, Q = \mana_gtet_manb).
+Adding SRST signal on $procdff$2249 ($dff) from module fpu_sub (D = $procmux$548_Y, Q = \a_gtet_b, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2536 ($sdff) from module fpu_sub (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1618$413_Y, Q = \a_gtet_b).
+Adding SRST signal on $procdff$2250 ($dff) from module fpu_sub (D = $procmux$543_Y, Q = \minuend, rval = 55'0000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2538 ($sdff) from module fpu_sub (D = { $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1629$434_Y \mantissa_large 2'00 }, Q = \minuend).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$2539 ($sdffe) from module fpu_sub.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$2539 ($sdffe) from module fpu_sub.
+Adding SRST signal on $procdff$2251 ($dff) from module fpu_sub (D = $procmux$538_Y, Q = \subtrahend, rval = 55'0000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2541 ($sdff) from module fpu_sub (D = { $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1630$435_Y \mantissa_small 2'00 }, Q = \subtrahend).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$2542 ($sdffe) from module fpu_sub.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$2542 ($sdffe) from module fpu_sub.
+Adding SRST signal on $procdff$2252 ($dff) from module fpu_sub (D = $procmux$533_Y, Q = \subtra_shift, rval = 55'0000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2544 ($sdff) from module fpu_sub (D = $shr$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1631$436_Y, Q = \subtra_shift).
+Adding SRST signal on $procdff$2253 ($dff) from module fpu_sub (D = $procmux$528_Y, Q = \subtra_shift_3, rval = 55'0000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2546 ($sdff) from module fpu_sub (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1632$437_Y, Q = \subtra_shift_3).
+Adding SRST signal on $procdff$2262 ($dff) from module fpu_round (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1482$396_Y, Q = \sum_round_2, rval = 56'00000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$2263 ($dff) from module fpu_round (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1484$400_Y, Q = \sum_final, rval = 56'00000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$2258 ($dff) from module fpu_round (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1483$399_Y [11:0], Q = \exponent_round, rval = 12'000000000000).
+Adding SRST signal on $procdff$2259 ($dff) from module fpu_round (D = { \sign_term \exponent_final [10:0] \sum_final [53:2] }, Q = \round_out, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$2260 ($dff) from module fpu_round (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1485$401_Y, Q = \exponent_final, rval = 12'000000000000).
+Adding SRST signal on $procdff$2261 ($dff) from module fpu_round (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1481$394_Y, Q = \sum_round, rval = 56'00000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$2313 ($dff) from module fpu_mul (D = $procmux$731_Y, Q = \product_lsb, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2554 ($sdff) from module fpu_mul (D = $reduce_or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1330$375_Y, Q = \product_lsb).
+Adding SRST signal on $procdff$2312 ($dff) from module fpu_mul (D = $procmux$736_Y, Q = \product_6, rval = 106'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2556 ($sdff) from module fpu_mul (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1329$374_Y, Q = \product_6).
+Adding SRST signal on $procdff$2311 ($dff) from module fpu_mul (D = $procmux$741_Y, Q = \product_5, rval = 106'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2558 ($sdff) from module fpu_mul (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1328$372_Y, Q = \product_5).
+Adding SRST signal on $procdff$2310 ($dff) from module fpu_mul (D = $procmux$746_Y, Q = \product_4, rval = 106'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2560 ($sdff) from module fpu_mul (D = $shl$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1327$371_Y, Q = \product_4).
+Adding SRST signal on $procdff$2309 ($dff) from module fpu_mul (D = $procmux$751_Y, Q = \product_3, rval = 106'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2562 ($sdff) from module fpu_mul (D = $shl$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1326$370_Y, Q = \product_3).
+Adding SRST signal on $procdff$2308 ($dff) from module fpu_mul (D = $procmux$756_Y, Q = \product_2, rval = 106'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2564 ($sdff) from module fpu_mul (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1325$369_Y, Q = \product_2).
+Adding SRST signal on $procdff$2307 ($dff) from module fpu_mul (D = $procmux$761_Y, Q = \product_1, rval = 106'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2566 ($sdff) from module fpu_mul (D = $shr$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1324$368_Y, Q = \product_1).
+Adding SRST signal on $procdff$2306 ($dff) from module fpu_mul (D = $procmux$766_Y, Q = \product, rval = 106'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2568 ($sdff) from module fpu_mul (D = { \sum_8 \sum_7 [16:0] \sum_5 [6:0] \sum_4 [9:0] \sum_2 [6:0] \sum_1 [9:0] \sum_0 [6:0] \product_a [16:0] }, Q = \product).
+Adding SRST signal on $procdff$2305 ($dff) from module fpu_mul (D = $procmux$771_Y, Q = \sum_8, rval = 31'0000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2570 ($sdff) from module fpu_mul (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1321$367_Y, Q = \sum_8).
+Adding SRST signal on $procdff$2304 ($dff) from module fpu_mul (D = $procmux$776_Y, Q = \sum_7, rval = 37'0000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2572 ($sdff) from module fpu_mul (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1320$366_Y, Q = \sum_7).
+Adding SRST signal on $procdff$2303 ($dff) from module fpu_mul (D = $procmux$781_Y, Q = \sum_6, rval = 30'000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2574 ($sdff) from module fpu_mul (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1319$365_Y, Q = \sum_6).
+Adding SRST signal on $procdff$2302 ($dff) from module fpu_mul (D = $procmux$786_Y, Q = \sum_5, rval = 28'0000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2576 ($sdff) from module fpu_mul (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1318$364_Y, Q = \sum_5).
+Adding SRST signal on $procdff$2301 ($dff) from module fpu_mul (D = $procmux$791_Y, Q = \sum_4, rval = 37'0000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2578 ($sdff) from module fpu_mul (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1317$363_Y, Q = \sum_4).
+Adding SRST signal on $procdff$2300 ($dff) from module fpu_mul (D = $procmux$796_Y, Q = \sum_3, rval = 36'000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2580 ($sdff) from module fpu_mul (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1316$362_Y, Q = \sum_3).
+Adding SRST signal on $procdff$2299 ($dff) from module fpu_mul (D = $procmux$801_Y, Q = \sum_1, rval = 36'000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2582 ($sdff) from module fpu_mul (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1314$360_Y, Q = \sum_1).
+Adding SRST signal on $procdff$2298 ($dff) from module fpu_mul (D = $procmux$806_Y, Q = \sum_0, rval = 42'000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2584 ($sdff) from module fpu_mul (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1313$359_Y, Q = \sum_0).
+Adding SRST signal on $procdff$2297 ($dff) from module fpu_mul (D = $procmux$811_Y, Q = \product_j, rval = 31'0000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2586 ($sdff) from module fpu_mul (D = $mul$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1312$358_Y, Q = \product_j).
+Adding SRST signal on $procdff$2296 ($dff) from module fpu_mul (D = $procmux$816_Y, Q = \product_i, rval = 29'00000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2588 ($sdff) from module fpu_mul (D = $mul$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1311$357_Y, Q = \product_i).
+Adding SRST signal on $procdff$2295 ($dff) from module fpu_mul (D = $procmux$821_Y, Q = \product_h, rval = 29'00000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2590 ($sdff) from module fpu_mul (D = $mul$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1310$356_Y, Q = \product_h).
+Adding SRST signal on $procdff$2294 ($dff) from module fpu_mul (D = $procmux$826_Y, Q = \product_g, rval = 36'000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2592 ($sdff) from module fpu_mul (D = $mul$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1309$355_Y, Q = \product_g).
+Adding SRST signal on $procdff$2293 ($dff) from module fpu_mul (D = $procmux$831_Y, Q = \product_f, rval = 34'0000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2594 ($sdff) from module fpu_mul (D = $mul$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1308$354_Y, Q = \product_f).
+Adding SRST signal on $procdff$2292 ($dff) from module fpu_mul (D = $procmux$836_Y, Q = \product_e, rval = 34'0000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2596 ($sdff) from module fpu_mul (D = $mul$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1307$353_Y, Q = \product_e).
+Adding SRST signal on $procdff$2291 ($dff) from module fpu_mul (D = $procmux$841_Y, Q = \product_d, rval = 26'00000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2598 ($sdff) from module fpu_mul (D = $mul$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1306$352_Y, Q = \product_d).
+Adding SRST signal on $procdff$2290 ($dff) from module fpu_mul (D = $procmux$846_Y, Q = \product_c, rval = 41'00000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2600 ($sdff) from module fpu_mul (D = $mul$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1305$351_Y, Q = \product_c).
+Adding SRST signal on $procdff$2289 ($dff) from module fpu_mul (D = $procmux$851_Y, Q = \product_b, rval = 41'00000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2602 ($sdff) from module fpu_mul (D = $mul$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1304$350_Y, Q = \product_b).
+Adding SRST signal on $procdff$2288 ($dff) from module fpu_mul (D = $procmux$856_Y, Q = \product_a, rval = 41'00000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2604 ($sdff) from module fpu_mul (D = $mul$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1303$349_Y, Q = \product_a).
+Adding SRST signal on $procdff$2287 ($dff) from module fpu_mul (D = $procmux$861_Y, Q = \mul_b, rval = 53'00000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2606 ($sdff) from module fpu_mul (D = { \b_is_norm \mantissa_b }, Q = \mul_b).
+Adding SRST signal on $procdff$2286 ($dff) from module fpu_mul (D = $procmux$866_Y, Q = \mul_a, rval = 53'00000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2608 ($sdff) from module fpu_mul (D = { \a_is_norm \mantissa_a }, Q = \mul_a).
+Adding SRST signal on $procdff$2285 ($dff) from module fpu_mul (D = $procmux$871_Y, Q = \exponent_et_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2610 ($sdff) from module fpu_mul (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1300$348_Y, Q = \exponent_et_zero).
+Adding SRST signal on $procdff$2284 ($dff) from module fpu_mul (D = $procmux$876_Y, Q = \exponent_4, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2612 ($sdff) from module fpu_mul (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1299$347_Y, Q = \exponent_4).
+Adding SRST signal on $procdff$2283 ($dff) from module fpu_mul (D = $procmux$881_Y, Q = \exponent_3, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2614 ($sdff) from module fpu_mul (D = $sub$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1298$346_Y, Q = \exponent_3).
+Adding SRST signal on $procdff$2282 ($dff) from module fpu_mul (D = $procmux$886_Y, Q = \exponent_gt_prodshift, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2616 ($sdff) from module fpu_mul (D = $gt$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1297$345_Y, Q = \exponent_gt_prodshift).
+Adding SRST signal on $procdff$2281 ($dff) from module fpu_mul (D = $procmux$891_Y, Q = \exponent_1, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2618 ($sdff) from module fpu_mul (D = $sub$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1295$343_Y [11:0], Q = \exponent_1).
+Adding SRST signal on $procdff$2280 ($dff) from module fpu_mul (D = $procmux$896_Y, Q = \exponent_under, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2620 ($sdff) from module fpu_mul (D = $sub$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1294$342_Y [11:0], Q = \exponent_under).
+Adding SRST signal on $procdff$2279 ($dff) from module fpu_mul (D = $procmux$901_Y, Q = \exponent_gt_expoffset, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2622 ($sdff) from module fpu_mul (D = $gt$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1293$341_Y, Q = \exponent_gt_expoffset).
+Adding SRST signal on $procdff$2278 ($dff) from module fpu_mul (D = $procmux$906_Y, Q = \exponent_terms, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2624 ($sdff) from module fpu_mul (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1292$340_Y, Q = \exponent_terms).
+Adding SRST signal on $procdff$2277 ($dff) from module fpu_mul (D = $procmux$911_Y, Q = \in_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2626 ($sdff) from module fpu_mul (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1291$335_Y, Q = \in_zero).
+Adding SRST signal on $procdff$2276 ($dff) from module fpu_mul (D = $procmux$916_Y, Q = \b_is_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2628 ($sdff) from module fpu_mul (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1290$334_Y, Q = \b_is_zero).
+Adding SRST signal on $procdff$2275 ($dff) from module fpu_mul (D = $procmux$921_Y, Q = \product_shift_2, rval = 6'000000).
+Adding EN signal on $auto$ff.cc:262:slice$2630 ($sdff) from module fpu_mul (D = \product_shift, Q = \product_shift_2).
+Adding SRST signal on $procdff$2274 ($dff) from module fpu_mul (D = $procmux$926_Y, Q = \exponent_5, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2632 ($sdff) from module fpu_mul (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1331$376_Y, Q = \exponent_5).
+Adding SRST signal on $procdff$2273 ($dff) from module fpu_mul (D = $procmux$931_Y, Q = \a_is_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2634 ($sdff) from module fpu_mul (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1289$332_Y, Q = \a_is_zero).
+Adding SRST signal on $procdff$2272 ($dff) from module fpu_mul (D = $procmux$936_Y, Q = \b_is_norm, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2636 ($sdff) from module fpu_mul (D = $reduce_or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1288$330_Y, Q = \b_is_norm).
+Adding SRST signal on $procdff$2271 ($dff) from module fpu_mul (D = $procmux$941_Y, Q = \a_is_norm, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2638 ($sdff) from module fpu_mul (D = $reduce_or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1287$329_Y, Q = \a_is_norm).
+Adding SRST signal on $procdff$2270 ($dff) from module fpu_mul (D = $procmux$946_Y, Q = \mantissa_b, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2640 ($sdff) from module fpu_mul (D = \opb [51:0], Q = \mantissa_b).
+Adding SRST signal on $procdff$2269 ($dff) from module fpu_mul (D = $procmux$951_Y, Q = \mantissa_a, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2642 ($sdff) from module fpu_mul (D = \opa [51:0], Q = \mantissa_a).
+Adding SRST signal on $procdff$2268 ($dff) from module fpu_mul (D = $procmux$956_Y, Q = \exponent_b, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2644 ($sdff) from module fpu_mul (D = \opb [62:52], Q = \exponent_b).
+Adding SRST signal on $procdff$2267 ($dff) from module fpu_mul (D = $procmux$961_Y, Q = \exponent_a, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2646 ($sdff) from module fpu_mul (D = \opa [62:52], Q = \exponent_a).
+Adding SRST signal on $procdff$2266 ($dff) from module fpu_mul (D = $procmux$966_Y, Q = \exponent_2, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2648 ($sdff) from module fpu_mul (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1296$344_Y, Q = \exponent_2).
+Adding SRST signal on $procdff$2265 ($dff) from module fpu_mul (D = $procmux$971_Y, Q = \sum_2, rval = 42'000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2650 ($sdff) from module fpu_mul (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1315$361_Y, Q = \sum_2).
+Adding SRST signal on $procdff$2264 ($dff) from module fpu_mul (D = $procmux$976_Y, Q = \sign, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2652 ($sdff) from module fpu_mul (D = $xor$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1282$328_Y, Q = \sign).
+Adding SRST signal on $procdff$2354 ($dff) from module fpu_exceptions (D = $procmux$1131_Y, Q = \out_pos_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2654 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1070$280_Y, Q = \out_pos_inf).
+Adding SRST signal on $procdff$2347 ($dff) from module fpu_exceptions (D = $procmux$1166_Y, Q = \mul_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2656 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1062$252_Y, Q = \mul_inf).
+Adding SRST signal on $procdff$2355 ($dff) from module fpu_exceptions (D = $procmux$1126_Y, Q = \out_neg_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2658 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1071$281_Y, Q = \out_neg_inf).
+Adding SRST signal on $procdff$2356 ($dff) from module fpu_exceptions (D = $procmux$1121_Y, Q = \round_nearest, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2660 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1072$282_Y, Q = \round_nearest).
+Adding SRST signal on $procdff$2348 ($dff) from module fpu_exceptions (D = $procmux$1161_Y, Q = \div_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2662 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1063$255_Y, Q = \div_inf).
+Adding SRST signal on $procdff$2357 ($dff) from module fpu_exceptions (D = $procmux$1116_Y, Q = \round_to_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2664 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1073$283_Y, Q = \round_to_zero).
+Adding SRST signal on $procdff$2358 ($dff) from module fpu_exceptions (D = $procmux$1111_Y, Q = \round_to_pos_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2666 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1074$284_Y, Q = \round_to_pos_inf).
+Adding SRST signal on $procdff$2349 ($dff) from module fpu_exceptions (D = $procmux$1156_Y, Q = \add_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2668 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1064$257_Y, Q = \add_inf).
+Adding SRST signal on $procdff$2359 ($dff) from module fpu_exceptions (D = $procmux$1106_Y, Q = \round_to_neg_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2670 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1075$285_Y, Q = \round_to_neg_inf).
+Adding SRST signal on $procdff$2360 ($dff) from module fpu_exceptions (D = $procmux$1101_Y, Q = \inf_round_down_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2672 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1076$290_Y, Q = \inf_round_down_trigger).
+Adding SRST signal on $procdff$2361 ($dff) from module fpu_exceptions (D = $procmux$1096_Y, Q = \mul_uf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2674 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1079$295_Y, Q = \mul_uf).
+Adding SRST signal on $procdff$2362 ($dff) from module fpu_exceptions (D = $procmux$1091_Y, Q = \div_uf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2676 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1080$298_Y, Q = \div_uf).
+Adding SRST signal on $procdff$2363 ($dff) from module fpu_exceptions (D = $procmux$1086_Y, Q = \underflow_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2678 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1081$300_Y, Q = \underflow_trigger).
+Adding SRST signal on $procdff$2364 ($dff) from module fpu_exceptions (D = $procmux$1081_Y, Q = \invalid_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2680 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1082$304_Y, Q = \invalid_trigger).
+Adding SRST signal on $procdff$2350 ($dff) from module fpu_exceptions (D = $procmux$1151_Y, Q = \sub_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2682 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1065$259_Y, Q = \sub_inf).
+Adding SRST signal on $procdff$2365 ($dff) from module fpu_exceptions (D = $procmux$1076_Y, Q = \overflow_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2684 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1084$306_Y, Q = \overflow_trigger).
+Adding SRST signal on $procdff$2366 ($dff) from module fpu_exceptions (D = $procmux$1071_Y, Q = \inexact_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2686 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1085$311_Y, Q = \inexact_trigger).
+Adding SRST signal on $procdff$2351 ($dff) from module fpu_exceptions (D = $procmux$1146_Y, Q = \addsub_inf_invalid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2688 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1066$270_Y, Q = \addsub_inf_invalid).
+Adding SRST signal on $procdff$2367 ($dff) from module fpu_exceptions (D = $procmux$1066_Y, Q = \except_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2690 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1087$314_Y, Q = \except_trigger).
+Adding SRST signal on $procdff$2368 ($dff) from module fpu_exceptions (D = $procmux$1061_Y, Q = \enable_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2692 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1089$316_Y, Q = \enable_trigger).
+Adding SRST signal on $procdff$2352 ($dff) from module fpu_exceptions (D = $procmux$1141_Y, Q = \addsub_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2694 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1068$273_Y, Q = \addsub_inf).
+Adding SRST signal on $procdff$2369 ($dff) from module fpu_exceptions (D = $procmux$1056_Y, Q = \NaN_out_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2696 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1090$317_Y, Q = \NaN_out_trigger).
+Adding SRST signal on $procdff$2370 ($dff) from module fpu_exceptions (D = $procmux$1051_Y, Q = \SNaN_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2698 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1091$319_Y, Q = \SNaN_trigger).
+Adding SRST signal on $procdff$2353 ($dff) from module fpu_exceptions (D = $procmux$1136_Y, Q = \out_inf_trigger, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2700 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1069$278_Y, Q = \out_inf_trigger).
+Adding SRST signal on $procdff$2371 ($dff) from module fpu_exceptions (D = $procmux$1046_Y, Q = \NaN_output_0, rval = 63'000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2702 ($sdff) from module fpu_exceptions (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1092$320_Y, Q = \NaN_output_0).
+Adding SRST signal on $procdff$2372 ($dff) from module fpu_exceptions (D = $procmux$1041_Y, Q = \NaN_output, rval = 63'000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2704 ($sdff) from module fpu_exceptions (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1093$321_Y, Q = \NaN_output).
+Adding SRST signal on $procdff$2373 ($dff) from module fpu_exceptions (D = $procmux$1036_Y, Q = \inf_round_down, rval = 63'000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2706 ($sdff) from module fpu_exceptions (D = 63'111111111101111111111111111111111111111111111111111111111111111, Q = \inf_round_down).
+Setting constant 0-bit at position 52 on $auto$ff.cc:262:slice$2707 ($sdffe) from module fpu_exceptions.
+Adding SRST signal on $procdff$2374 ($dff) from module fpu_exceptions (D = $procmux$1031_Y, Q = \out_inf, rval = 63'000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2709 ($sdff) from module fpu_exceptions (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1095$322_Y, Q = \out_inf).
+Adding SRST signal on $procdff$2375 ($dff) from module fpu_exceptions (D = $procmux$1026_Y, Q = \out_0, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2711 ($sdff) from module fpu_exceptions (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1096$323_Y, Q = \out_0).
+Adding SRST signal on $procdff$2376 ($dff) from module fpu_exceptions (D = $procmux$1021_Y, Q = \out_1, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2713 ($sdff) from module fpu_exceptions (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1097$324_Y, Q = \out_1).
+Adding SRST signal on $procdff$2377 ($dff) from module fpu_exceptions (D = $procmux$1016_Y, Q = \out_2, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2715 ($sdff) from module fpu_exceptions (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1098$325_Y, Q = \out_2).
+Adding SRST signal on $procdff$2314 ($dff) from module fpu_exceptions (D = $procmux$1011_Y, Q = \out, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2717 ($sdff) from module fpu_exceptions (D = \out_2, Q = \out).
+Adding SRST signal on $procdff$2315 ($dff) from module fpu_exceptions (D = $procmux$1006_Y, Q = \underflow, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2719 ($sdff) from module fpu_exceptions (D = \underflow_trigger, Q = \underflow).
+Adding SRST signal on $procdff$2316 ($dff) from module fpu_exceptions (D = $procmux$1001_Y, Q = \overflow, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2721 ($sdff) from module fpu_exceptions (D = \overflow_trigger, Q = \overflow).
+Adding SRST signal on $procdff$2317 ($dff) from module fpu_exceptions (D = $procmux$996_Y, Q = \inexact, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2723 ($sdff) from module fpu_exceptions (D = \inexact_trigger, Q = \inexact).
+Adding SRST signal on $procdff$2318 ($dff) from module fpu_exceptions (D = $procmux$991_Y, Q = \exception, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2725 ($sdff) from module fpu_exceptions (D = \except_trigger, Q = \exception).
+Adding SRST signal on $procdff$2319 ($dff) from module fpu_exceptions (D = $procmux$986_Y, Q = \invalid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2727 ($sdff) from module fpu_exceptions (D = \invalid_trigger, Q = \invalid).
+Adding SRST signal on $procdff$2320 ($dff) from module fpu_exceptions (D = $procmux$981_Y, Q = \ex_enable, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2729 ($sdff) from module fpu_exceptions (D = \enable_trigger, Q = \ex_enable).
+Adding SRST signal on $procdff$2321 ($dff) from module fpu_exceptions (D = $procmux$1296_Y, Q = \in_et_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2731 ($sdff) from module fpu_exceptions (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1039$177_Y, Q = \in_et_zero).
+Adding SRST signal on $procdff$2322 ($dff) from module fpu_exceptions (D = $procmux$1291_Y, Q = \opa_et_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2733 ($sdff) from module fpu_exceptions (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1037$173_Y, Q = \opa_et_zero).
+Adding SRST signal on $procdff$2323 ($dff) from module fpu_exceptions (D = $procmux$1286_Y, Q = \opb_et_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2735 ($sdff) from module fpu_exceptions (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1038$175_Y, Q = \opb_et_zero).
+Adding SRST signal on $procdff$2324 ($dff) from module fpu_exceptions (D = $procmux$1281_Y, Q = \input_et_zero, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2737 ($sdff) from module fpu_exceptions (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1039$177_Y, Q = \input_et_zero).
+Adding SRST signal on $procdff$2325 ($dff) from module fpu_exceptions (D = $procmux$1276_Y, Q = \add, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2739 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1040$178_Y, Q = \add).
+Adding SRST signal on $procdff$2326 ($dff) from module fpu_exceptions (D = $procmux$1271_Y, Q = \subtract, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2741 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1041$179_Y, Q = \subtract).
+Adding SRST signal on $procdff$2327 ($dff) from module fpu_exceptions (D = $procmux$1266_Y, Q = \multiply, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2743 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1042$180_Y, Q = \multiply).
+Adding SRST signal on $procdff$2328 ($dff) from module fpu_exceptions (D = $procmux$1261_Y, Q = \divide, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2745 ($sdff) from module fpu_exceptions (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1043$181_Y, Q = \divide).
+Adding SRST signal on $procdff$2329 ($dff) from module fpu_exceptions (D = $procmux$1256_Y, Q = \opa_QNaN, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2747 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1044$185_Y, Q = \opa_QNaN).
+Adding SRST signal on $procdff$2330 ($dff) from module fpu_exceptions (D = $procmux$1251_Y, Q = \opb_QNaN, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2749 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1045$189_Y, Q = \opb_QNaN).
+Adding SRST signal on $procdff$2331 ($dff) from module fpu_exceptions (D = $procmux$1246_Y, Q = \opa_SNaN, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2751 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1046$194_Y, Q = \opa_SNaN).
+Adding SRST signal on $procdff$2332 ($dff) from module fpu_exceptions (D = $procmux$1241_Y, Q = \opb_SNaN, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2753 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1047$199_Y, Q = \opb_SNaN).
+Adding SRST signal on $procdff$2333 ($dff) from module fpu_exceptions (D = $procmux$1236_Y, Q = \opa_pos_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2755 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1048$205_Y, Q = \opa_pos_inf).
+Adding SRST signal on $procdff$2334 ($dff) from module fpu_exceptions (D = $procmux$1231_Y, Q = \opb_pos_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2757 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1049$211_Y, Q = \opb_pos_inf).
+Adding SRST signal on $procdff$2335 ($dff) from module fpu_exceptions (D = $procmux$1226_Y, Q = \opa_neg_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2759 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1050$216_Y, Q = \opa_neg_inf).
+Adding SRST signal on $procdff$2336 ($dff) from module fpu_exceptions (D = $procmux$1221_Y, Q = \opb_neg_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2761 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1051$221_Y, Q = \opb_neg_inf).
+Adding SRST signal on $procdff$2337 ($dff) from module fpu_exceptions (D = $procmux$1216_Y, Q = \opa_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2763 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1052$225_Y, Q = \opa_inf).
+Adding SRST signal on $procdff$2338 ($dff) from module fpu_exceptions (D = $procmux$1211_Y, Q = \opb_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2765 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1053$229_Y, Q = \opb_inf).
+Adding SRST signal on $procdff$2339 ($dff) from module fpu_exceptions (D = $procmux$1206_Y, Q = \NaN_input, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2767 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1054$232_Y, Q = \NaN_input).
+Adding SRST signal on $procdff$2340 ($dff) from module fpu_exceptions (D = $procmux$1201_Y, Q = \SNaN_input, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2769 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1055$233_Y, Q = \SNaN_input).
+Adding SRST signal on $procdff$2341 ($dff) from module fpu_exceptions (D = $procmux$1196_Y, Q = \a_NaN, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2771 ($sdff) from module fpu_exceptions (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1056$234_Y, Q = \a_NaN).
+Adding SRST signal on $procdff$2342 ($dff) from module fpu_exceptions (D = $procmux$1191_Y, Q = \div_by_0, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2773 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1057$237_Y, Q = \div_by_0).
+Adding SRST signal on $procdff$2343 ($dff) from module fpu_exceptions (D = $procmux$1186_Y, Q = \div_0_by_0, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2775 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1058$239_Y, Q = \div_0_by_0).
+Adding SRST signal on $procdff$2344 ($dff) from module fpu_exceptions (D = $procmux$1181_Y, Q = \div_inf_by_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2777 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1059$241_Y, Q = \div_inf_by_inf).
+Adding SRST signal on $procdff$2345 ($dff) from module fpu_exceptions (D = $procmux$1176_Y, Q = \div_by_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2779 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1060$244_Y, Q = \div_by_inf).
+Adding SRST signal on $procdff$2346 ($dff) from module fpu_exceptions (D = $procmux$1171_Y, Q = \mul_0_by_inf, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2781 ($sdff) from module fpu_exceptions (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:1061$248_Y, Q = \mul_0_by_inf).
+Adding SRST signal on $procdff$2387 ($dff) from module fpu (D = $procmux$1369_Y, Q = \opa_reg, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2783 ($sdff) from module fpu (D = \opa, Q = \opa_reg).
+Adding SRST signal on $procdff$2388 ($dff) from module fpu (D = $procmux$1364_Y, Q = \opb_reg, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2785 ($sdff) from module fpu (D = \opb, Q = \opb_reg).
+Adding SRST signal on $procdff$2386 ($dff) from module fpu (D = \ready_0, Q = \ready_1, rval = 1'0).
+Adding SRST signal on $procdff$2389 ($dff) from module fpu (D = $procmux$1359_Y, Q = \fpu_op_reg, rval = 3'000).
+Adding EN signal on $auto$ff.cc:262:slice$2790 ($sdff) from module fpu (D = \fpu_op, Q = \fpu_op_reg).
+Adding SRST signal on $procdff$2390 ($dff) from module fpu (D = $procmux$1354_Y, Q = \rmode_reg, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$2792 ($sdff) from module fpu (D = \rmode, Q = \rmode_reg).
+Adding SRST signal on $procdff$2391 ($dff) from module fpu (D = $procmux$1349_Y, Q = \op_enable, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2794 ($sdff) from module fpu (D = 1'1, Q = \op_enable).
+Adding SRST signal on $procdff$2392 ($dff) from module fpu (D = \enable, Q = \enable_reg, rval = 1'0).
+Adding SRST signal on $procdff$2393 ($dff) from module fpu (D = \enable_reg_1, Q = \enable_reg_2, rval = 1'0).
+Adding SRST signal on $procdff$2394 ($dff) from module fpu (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:782$162_Y, Q = \enable_reg_1, rval = 1'0).
+Adding SRST signal on $procdff$2395 ($dff) from module fpu (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:784$163_Y, Q = \enable_reg_3, rval = 1'0).
+Adding SRST signal on $procdff$2396 ($dff) from module fpu (D = $procmux$1386_Y, Q = \count_ready, rval = 7'0000000).
+Adding EN signal on $auto$ff.cc:262:slice$2800 ($sdff) from module fpu (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:769$159_Y [6:0], Q = \count_ready).
+Adding SRST signal on $procdff$2397 ($dff) from module fpu (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:751$147_Y, Q = \add_enable, rval = 1'0).
+Adding SRST signal on $procdff$2398 ($dff) from module fpu (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:752$149_Y, Q = \sub_enable, rval = 1'0).
+Adding SRST signal on $procdff$2399 ($dff) from module fpu (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:753$151_Y, Q = \mul_enable, rval = 1'0).
+Adding SRST signal on $procdff$2400 ($dff) from module fpu (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:754$154_Y, Q = \div_enable, rval = 1'0).
+Adding SRST signal on $procdff$2401 ($dff) from module fpu (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:756$155_Y, Q = \addsub_out, rval = 56'00000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$2402 ($dff) from module fpu (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:758$157_Y, Q = \exp_addsub, rval = 12'000000000000).
+Adding SRST signal on $procdff$2403 ($dff) from module fpu (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:757$156_Y, Q = \addsub_sign, rval = 1'0).
+Adding SRST signal on $procdff$2378 ($dff) from module fpu (D = $procmux$1326_Y, Q = \out, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2811 ($sdff) from module fpu (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:841$168_Y, Q = \out).
+Adding SRST signal on $procdff$2379 ($dff) from module fpu (D = $procmux$1321_Y, Q = \underflow, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2813 ($sdff) from module fpu (D = \underflow_0, Q = \underflow).
+Adding SRST signal on $procdff$2380 ($dff) from module fpu (D = $procmux$1316_Y, Q = \overflow, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2815 ($sdff) from module fpu (D = \overflow_0, Q = \overflow).
+Adding SRST signal on $procdff$2381 ($dff) from module fpu (D = $procmux$1311_Y, Q = \inexact, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2817 ($sdff) from module fpu (D = \inexact_0, Q = \inexact).
+Adding SRST signal on $procdff$2382 ($dff) from module fpu (D = $procmux$1306_Y, Q = \exception, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2819 ($sdff) from module fpu (D = \exception_0, Q = \exception).
+Adding SRST signal on $procdff$2383 ($dff) from module fpu (D = $procmux$1301_Y, Q = \invalid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2821 ($sdff) from module fpu (D = \invalid_0, Q = \invalid).
+Adding SRST signal on $procdff$2384 ($dff) from module fpu (D = \ready_1, Q = \ready, rval = 1'0).
+Adding SRST signal on $procdff$2385 ($dff) from module fpu (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:819$166_Y, Q = \ready_0, rval = 1'0).
+Adding SRST signal on $procdff$2453 ($dff) from module fpu_div (D = \quotient, Q = \quotient_out, rval = 54'000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$2454 ($dff) from module fpu_div (D = \remainder, Q = \remainder_out, rval = 54'000000000000000000000000000000000000000000000000000000).
+Setting constant 1-bit at position 0 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 1 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 2 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 3 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 4 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 5 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 6 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 7 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 8 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 9 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 10 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 11 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 12 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 13 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 14 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 15 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 16 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 17 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 18 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 19 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 20 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 21 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 22 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 23 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 24 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 25 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 26 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 27 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 28 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 29 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 30 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 31 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 32 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 33 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 34 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 35 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 36 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 37 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 38 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 39 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 40 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 41 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 42 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 43 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 44 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 45 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 46 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 47 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 48 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 49 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 50 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 51 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 52 on $procdff$2452 ($dff) from module fpu_div.
+Setting constant 1-bit at position 53 on $procdff$2452 ($dff) from module fpu_div.
+Adding SRST signal on $procdff$2456 ($dff) from module fpu_div (D = \expon_final_5, Q = \exponent_out, rval = 12'000000000000).
+Adding SRST signal on $procdff$2455 ($dff) from module fpu_div (D = { $procmux$1776_Y [5:4] $procmux$1776_Y [2] $procmux$1776_Y [0] }, Q = { \count_out [5:4] \count_out [2] \count_out [0] }, rval = 4'0000).
+Adding SRST signal on $procdff$2455 ($dff) from module fpu_div (D = { $procmux$1773_Y [3] $procmux$1773_Y [1] }, Q = { \count_out [3] \count_out [1] }, rval = 2'00).
+Adding EN signal on $auto$ff.cc:262:slice$2837 ($sdff) from module fpu_div (D = { $sub$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:277$59_Y [3] $sub$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:277$59_Y [1] }, Q = { \count_out [3] \count_out [1] }).
+Adding EN signal on $auto$ff.cc:262:slice$2836 ($sdff) from module fpu_div (D = { $procmux$1776_Y [5:4] $procmux$1776_Y [2] $procmux$1776_Y [0] }, Q = { \count_out [5:4] \count_out [2] \count_out [0] }).
+Adding SRST signal on $procdff$2443 ($dff) from module fpu_div (D = $procmux$1581_Y, Q = \remainder_shift_term, rval = 7'0000000).
+Adding EN signal on $auto$ff.cc:262:slice$2844 ($sdff) from module fpu_div (D = $sub$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:385$117_Y [6:0], Q = \remainder_shift_term).
+Adding SRST signal on $procdff$2444 ($dff) from module fpu_div (D = $procmux$1576_Y, Q = \remainder_b, rval = 108'000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2846 ($sdff) from module fpu_div (D = $shl$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:386$118_Y, Q = \remainder_b).
+Adding SRST signal on $procdff$2445 ($dff) from module fpu_div (D = $procmux$1725_Y, Q = \dividend_reg, rval = 54'000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2848 ($sdff) from module fpu_div (D = $procmux$1725_Y, Q = \dividend_reg).
+Adding SRST signal on $procdff$2446 ($dff) from module fpu_div (D = $procmux$1717_Y, Q = \divisor_reg, rval = 54'000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2852 ($sdff) from module fpu_div (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:215$43_Y, Q = \divisor_reg).
+Adding SRST signal on $procdff$2447 ($dff) from module fpu_div (D = $procmux$1735_Y, Q = \remainder, rval = 54'000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2854 ($sdff) from module fpu_div (D = \dividend_reg, Q = \remainder).
+Adding SRST signal on $procdff$2448 ($dff) from module fpu_div (D = $procmux$1730_Y, Q = \remainder_msb, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2856 ($sdff) from module fpu_div (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:309$84_Y [0], Q = \remainder_msb).
+Adding SRST signal on $procdff$2449 ($dff) from module fpu_div (D = $2$lookahead\quotient$61[53:0]$71, Q = \quotient, rval = 54'000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$2408 ($dff) from module fpu_div (D = $procmux$1547_Y, Q = \enable_reg_2, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2859 ($sdff) from module fpu_div (D = 1'1, Q = \enable_reg_2).
+Adding SRST signal on $procdff$2409 ($dff) from module fpu_div (D = \enable_reg_e, Q = \enable_reg, rval = 1'0).
+Adding SRST signal on $procdff$2410 ($dff) from module fpu_div (D = \enable, Q = \enable_reg_a, rval = 1'0).
+Adding SRST signal on $procdff$2411 ($dff) from module fpu_div (D = \enable_reg_a, Q = \enable_reg_b, rval = 1'0).
+Adding SRST signal on $procdff$2412 ($dff) from module fpu_div (D = \enable_reg_b, Q = \enable_reg_c, rval = 1'0).
+Adding SRST signal on $procdff$2413 ($dff) from module fpu_div (D = \enable_reg_c, Q = \enable_reg_d, rval = 1'0).
+Adding SRST signal on $procdff$2414 ($dff) from module fpu_div (D = \enable_reg_d, Q = \enable_reg_e, rval = 1'0).
+Adding SRST signal on $procdff$2415 ($dff) from module fpu_div (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:217$45_Y, Q = \count_nonzero_reg, rval = 1'0).
+Adding SRST signal on $procdff$2416 ($dff) from module fpu_div (D = \count_nonzero_reg, Q = \count_nonzero_reg_2, rval = 1'0).
+Adding SRST signal on $procdff$2417 ($dff) from module fpu_div (D = $procmux$1711_Y, Q = \mantissa_a, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2869 ($sdff) from module fpu_div (D = \opa [51:0], Q = \mantissa_a).
+Adding SRST signal on $procdff$2418 ($dff) from module fpu_div (D = $procmux$1706_Y, Q = \mantissa_b, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2871 ($sdff) from module fpu_div (D = \opb [51:0], Q = \mantissa_b).
+Adding SRST signal on $procdff$2419 ($dff) from module fpu_div (D = $procmux$1701_Y, Q = \dividend_shift_2, rval = 6'000000).
+Adding EN signal on $auto$ff.cc:262:slice$2873 ($sdff) from module fpu_div (D = $procmux$1493_Y, Q = \dividend_shift_2).
+Adding SRST signal on $procdff$2420 ($dff) from module fpu_div (D = $procmux$1696_Y, Q = \divisor_shift_2, rval = 6'000000).
+Adding EN signal on $auto$ff.cc:262:slice$2875 ($sdff) from module fpu_div (D = $procmux$1439_Y, Q = \divisor_shift_2).
+Adding SRST signal on $procdff$2421 ($dff) from module fpu_div (D = $procmux$1691_Y, Q = \dividend_a, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2877 ($sdff) from module fpu_div (D = \mantissa_a, Q = \dividend_a).
+Adding SRST signal on $procdff$2422 ($dff) from module fpu_div (D = $procmux$1686_Y, Q = \dividend_a_shifted, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2879 ($sdff) from module fpu_div (D = $shl$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:387$119_Y, Q = \dividend_a_shifted).
+Adding SRST signal on $procdff$2423 ($dff) from module fpu_div (D = $procmux$1681_Y, Q = \divisor_b, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2881 ($sdff) from module fpu_div (D = \mantissa_b, Q = \divisor_b).
+Adding SRST signal on $procdff$2424 ($dff) from module fpu_div (D = $procmux$1676_Y, Q = \divisor_b_shifted, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2883 ($sdff) from module fpu_div (D = $shl$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:388$120_Y, Q = \divisor_b_shifted).
+Adding SRST signal on $procdff$2425 ($dff) from module fpu_div (D = $procmux$1671_Y, Q = \expon_term, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2885 ($sdff) from module fpu_div (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:362$92_Y [11:0], Q = \expon_term).
+Adding SRST signal on $procdff$2426 ($dff) from module fpu_div (D = $procmux$1666_Y, Q = \expon_uf_1, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2887 ($sdff) from module fpu_div (D = $gt$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:363$93_Y, Q = \expon_uf_1).
+Adding SRST signal on $procdff$2427 ($dff) from module fpu_div (D = $procmux$1661_Y, Q = \expon_uf_term_1, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2889 ($sdff) from module fpu_div (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:364$95_Y [11:0], Q = \expon_uf_term_1).
+Adding SRST signal on $procdff$2428 ($dff) from module fpu_div (D = $procmux$1656_Y, Q = \expon_final_1, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2891 ($sdff) from module fpu_div (D = $sub$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:365$96_Y, Q = \expon_final_1).
+Adding SRST signal on $procdff$2429 ($dff) from module fpu_div (D = $procmux$1651_Y, Q = \expon_final_2, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2893 ($sdff) from module fpu_div (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:366$98_Y [11:0], Q = \expon_final_2).
+Adding SRST signal on $procdff$2430 ($dff) from module fpu_div (D = $procmux$1646_Y, Q = \expon_shift_a, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2895 ($sdff) from module fpu_div (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:367$100_Y [11:0], Q = \expon_shift_a).
+Adding SRST signal on $procdff$2431 ($dff) from module fpu_div (D = $procmux$1641_Y, Q = \expon_shift_b, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2897 ($sdff) from module fpu_div (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:368$102_Y [11:0], Q = \expon_shift_b).
+Adding SRST signal on $procdff$2432 ($dff) from module fpu_div (D = $procmux$1636_Y, Q = \expon_uf_2, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2899 ($sdff) from module fpu_div (D = $gt$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:369$103_Y, Q = \expon_uf_2).
+Adding SRST signal on $procdff$2433 ($dff) from module fpu_div (D = $procmux$1631_Y, Q = \expon_uf_term_2, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2901 ($sdff) from module fpu_div (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:370$105_Y [11:0], Q = \expon_uf_term_2).
+Adding SRST signal on $procdff$2434 ($dff) from module fpu_div (D = $procmux$1626_Y, Q = \expon_uf_term_3, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2903 ($sdff) from module fpu_div (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:371$106_Y, Q = \expon_uf_term_3).
+Adding SRST signal on $procdff$2435 ($dff) from module fpu_div (D = $procmux$1621_Y, Q = \expon_uf_gt_maxshift, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2905 ($sdff) from module fpu_div (D = $gt$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:372$107_Y, Q = \expon_uf_gt_maxshift).
+Adding SRST signal on $procdff$2436 ($dff) from module fpu_div (D = $procmux$1616_Y, Q = \expon_uf_term_4, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2907 ($sdff) from module fpu_div (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:373$109_Y [11:0], Q = \expon_uf_term_4).
+Adding SRST signal on $procdff$2437 ($dff) from module fpu_div (D = $procmux$1611_Y, Q = \expon_final_3, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2909 ($sdff) from module fpu_div (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:374$111_Y [11:0], Q = \expon_final_3).
+Adding SRST signal on $procdff$2438 ($dff) from module fpu_div (D = $procmux$1606_Y, Q = \expon_final_4, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2911 ($sdff) from module fpu_div (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:375$112_Y, Q = \expon_final_4).
+Adding SRST signal on $procdff$2439 ($dff) from module fpu_div (D = $procmux$1601_Y, Q = \expon_final_4_et0, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2913 ($sdff) from module fpu_div (D = $eq$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:376$113_Y, Q = \expon_final_4_et0).
+Adding SRST signal on $procdff$2440 ($dff) from module fpu_div (D = $procmux$1596_Y, Q = \expon_final_4_term, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2915 ($sdff) from module fpu_div (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:377$114_Y [0], Q = \expon_final_4_term).
+Adding SRST signal on $procdff$2441 ($dff) from module fpu_div (D = $procmux$1591_Y, Q = \expon_final_5, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2917 ($sdff) from module fpu_div (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:378$116_Y, Q = \expon_final_5).
+Adding SRST signal on $procdff$2442 ($dff) from module fpu_div (D = $procmux$1586_Y, Q = \mantissa_1, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2919 ($sdff) from module fpu_div (D = $shr$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:389$121_Y, Q = \mantissa_1).
+Adding SRST signal on $procdff$2477 ($dff) from module fpu_add (D = $procmux$1794_Y, Q = \sum, rval = 56'00000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2921 ($sdff) from module fpu_add (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:122$25_Y, Q = \sum).
+Adding SRST signal on $procdff$2478 ($dff) from module fpu_add (D = $procmux$1789_Y, Q = \exponent, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2923 ($sdff) from module fpu_add (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:124$30_Y [10:0], Q = \exponent).
+Adding SRST signal on $procdff$2479 ($dff) from module fpu_add (D = $procmux$1784_Y, Q = \denorm_to_norm, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2925 ($sdff) from module fpu_add (D = $and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:125$31_Y, Q = \denorm_to_norm).
+Adding SRST signal on $procdff$2457 ($dff) from module fpu_add (D = $procmux$1894_Y, Q = \sign, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2927 ($sdff) from module fpu_add (D = \opa [63], Q = \sign).
+Adding SRST signal on $procdff$2458 ($dff) from module fpu_add (D = $procmux$1889_Y, Q = \sum_2, rval = 56'00000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2929 ($sdff) from module fpu_add (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:123$27_Y, Q = \sum_2).
+Adding SRST signal on $procdff$2459 ($dff) from module fpu_add (D = $procmux$1884_Y, Q = \exponent_2, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2931 ($sdff) from module fpu_add (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:126$34_Y [10:0], Q = \exponent_2).
+Adding SRST signal on $procdff$2460 ($dff) from module fpu_add (D = $procmux$1879_Y, Q = \exponent_a, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2933 ($sdff) from module fpu_add (D = \opa [62:52], Q = \exponent_a).
+Adding SRST signal on $procdff$2461 ($dff) from module fpu_add (D = $procmux$1874_Y, Q = \exponent_b, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2935 ($sdff) from module fpu_add (D = \opb [62:52], Q = \exponent_b).
+Adding SRST signal on $procdff$2462 ($dff) from module fpu_add (D = $procmux$1869_Y, Q = \mantissa_a, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2937 ($sdff) from module fpu_add (D = \opa [51:0], Q = \mantissa_a).
+Adding SRST signal on $procdff$2463 ($dff) from module fpu_add (D = $procmux$1864_Y, Q = \mantissa_b, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2939 ($sdff) from module fpu_add (D = \opb [51:0], Q = \mantissa_b).
+Adding SRST signal on $procdff$2464 ($dff) from module fpu_add (D = $procmux$1859_Y, Q = \expa_gt_expb, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2941 ($sdff) from module fpu_add (D = $gt$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:109$8_Y, Q = \expa_gt_expb).
+Adding SRST signal on $procdff$2465 ($dff) from module fpu_add (D = $procmux$1854_Y, Q = \exponent_small, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2943 ($sdff) from module fpu_add (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:110$9_Y, Q = \exponent_small).
+Adding SRST signal on $procdff$2466 ($dff) from module fpu_add (D = $procmux$1849_Y, Q = \exponent_large, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2945 ($sdff) from module fpu_add (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:111$10_Y, Q = \exponent_large).
+Adding SRST signal on $procdff$2467 ($dff) from module fpu_add (D = $procmux$1844_Y, Q = \mantissa_small, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2947 ($sdff) from module fpu_add (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:112$11_Y, Q = \mantissa_small).
+Adding SRST signal on $procdff$2468 ($dff) from module fpu_add (D = $procmux$1839_Y, Q = \mantissa_large, rval = 52'0000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2949 ($sdff) from module fpu_add (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:113$12_Y, Q = \mantissa_large).
+Adding SRST signal on $procdff$2469 ($dff) from module fpu_add (D = $procmux$1834_Y, Q = \small_is_denorm, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2951 ($sdff) from module fpu_add (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:114$14_Y, Q = \small_is_denorm).
+Adding SRST signal on $procdff$2470 ($dff) from module fpu_add (D = $procmux$1829_Y, Q = \large_is_denorm, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2953 ($sdff) from module fpu_add (D = $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:115$16_Y, Q = \large_is_denorm).
+Adding SRST signal on $procdff$2471 ($dff) from module fpu_add (D = $procmux$1824_Y, Q = \large_norm_small_denorm, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$2955 ($sdff) from module fpu_add (D = $logic_and$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:116$18_Y, Q = \large_norm_small_denorm).
+Adding SRST signal on $procdff$2472 ($dff) from module fpu_add (D = $procmux$1819_Y, Q = \exponent_diff, rval = 11'00000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2957 ($sdff) from module fpu_add (D = $sub$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:117$20_Y, Q = \exponent_diff).
+Adding SRST signal on $procdff$2473 ($dff) from module fpu_add (D = $procmux$1814_Y, Q = \large_add, rval = 56'00000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2959 ($sdff) from module fpu_add (D = { 1'0 $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:118$21_Y \mantissa_large 2'00 }, Q = \large_add).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$2960 ($sdffe) from module fpu_add.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$2960 ($sdffe) from module fpu_add.
+Setting constant 0-bit at position 55 on $auto$ff.cc:262:slice$2960 ($sdffe) from module fpu_add.
+Adding SRST signal on $procdff$2474 ($dff) from module fpu_add (D = $procmux$1809_Y, Q = \small_add, rval = 56'00000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2962 ($sdff) from module fpu_add (D = { 1'0 $logic_not$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:119$22_Y \mantissa_small 2'00 }, Q = \small_add).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$2963 ($sdffe) from module fpu_add.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$2963 ($sdffe) from module fpu_add.
+Setting constant 0-bit at position 55 on $auto$ff.cc:262:slice$2963 ($sdffe) from module fpu_add.
+Adding SRST signal on $procdff$2475 ($dff) from module fpu_add (D = $procmux$1804_Y, Q = \small_shift, rval = 56'00000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2965 ($sdff) from module fpu_add (D = $shr$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:120$23_Y, Q = \small_shift).
+Adding SRST signal on $procdff$2476 ($dff) from module fpu_add (D = $procmux$1799_Y, Q = \small_shift_3, rval = 56'00000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$2967 ($sdff) from module fpu_add (D = $ternary$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:121$24_Y, Q = \small_shift_3).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fpu_sub..
+Finding unused cells or wires in module \fpu_round..
+Finding unused cells or wires in module \fpu_mul..
+Finding unused cells or wires in module \fpu_exceptions..
+Finding unused cells or wires in module \fpu..
+Finding unused cells or wires in module \fpu_div..
+Finding unused cells or wires in module \fpu_add..
+Removed 467 unused cells and 1385 unused wires.
+<suppressed ~486 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fpu.
+Optimizing module fpu_add.
+Optimizing module fpu_div.
+<suppressed ~1 debug messages>
+Optimizing module fpu_exceptions.
+Optimizing module fpu_mul.
+Optimizing module fpu_round.
+Optimizing module fpu_sub.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fpu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_add..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_div..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_exceptions..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_round..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_sub..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~62 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fpu.
+  Optimizing cells in module \fpu_add.
+  Optimizing cells in module \fpu_div.
+  Optimizing cells in module \fpu_exceptions.
+  Optimizing cells in module \fpu_mul.
+  Optimizing cells in module \fpu_round.
+  Optimizing cells in module \fpu_sub.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fpu'.
+<suppressed ~9 debug messages>
+Finding identical cells in module `\fpu_add'.
+Finding identical cells in module `\fpu_div'.
+Finding identical cells in module `\fpu_exceptions'.
+Finding identical cells in module `\fpu_mul'.
+Finding identical cells in module `\fpu_round'.
+Finding identical cells in module `\fpu_sub'.
+Removed a total of 3 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$ff.cc:262:slice$2858 ($sdff) from module fpu_div (D = $or$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/double_fpu.v:0$79_Y, Q = \quotient).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fpu..
+Finding unused cells or wires in module \fpu_add..
+Finding unused cells or wires in module \fpu_div..
+Finding unused cells or wires in module \fpu_exceptions..
+Finding unused cells or wires in module \fpu_mul..
+Finding unused cells or wires in module \fpu_round..
+Finding unused cells or wires in module \fpu_sub..
+Removed 1 unused cells and 4 unused wires.
+<suppressed ~3 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fpu.
+Optimizing module fpu_add.
+Optimizing module fpu_div.
+Optimizing module fpu_exceptions.
+Optimizing module fpu_mul.
+Optimizing module fpu_round.
+Optimizing module fpu_sub.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fpu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_add..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_div..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_exceptions..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_round..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fpu_sub..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~61 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fpu.
+  Optimizing cells in module \fpu_add.
+  Optimizing cells in module \fpu_div.
+  Optimizing cells in module \fpu_exceptions.
+  Optimizing cells in module \fpu_mul.
+  Optimizing cells in module \fpu_round.
+  Optimizing cells in module \fpu_sub.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fpu'.
+Finding identical cells in module `\fpu_add'.
+Finding identical cells in module `\fpu_div'.
+Finding identical cells in module `\fpu_exceptions'.
+Finding identical cells in module `\fpu_mul'.
+Finding identical cells in module `\fpu_round'.
+Finding identical cells in module `\fpu_sub'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fpu..
+Finding unused cells or wires in module \fpu_add..
+Finding unused cells or wires in module \fpu_div..
+Finding unused cells or wires in module \fpu_exceptions..
+Finding unused cells or wires in module \fpu_mul..
+Finding unused cells or wires in module \fpu_round..
+Finding unused cells or wires in module \fpu_sub..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fpu.
+Optimizing module fpu_add.
+Optimizing module fpu_div.
+Optimizing module fpu_exceptions.
+Optimizing module fpu_mul.
+Optimizing module fpu_round.
+Optimizing module fpu_sub.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== fpu ===
+
+   Number of wires:                 91
+   Number of wire bits:           1187
+   Number of public wires:          63
+   Number of public wire bits:     927
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 69
+     $add                           32
+     $and                           10
+     $dff                           76
+     $eq                             9
+     $le                             7
+     $logic_not                      6
+     $mux                          133
+     $or                             3
+     $pmux                          76
+     $reduce_or                      4
+     $sdff                          80
+     $sdffe                        210
+     $xor                            1
+
+=== fpu_add ===
+
+   Number of wires:                 59
+   Number of wire bits:           1330
+   Number of public wires:          34
+   Number of public wire bits:     819
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 51
+     $add                          120
+     $and                            2
+     $gt                            75
+     $logic_and                      1
+     $logic_not                      5
+     $mux                          302
+     $or                             1
+     $reduce_or                    108
+     $sdffe                        621
+     $shr                           56
+     $sub                           22
+
+=== fpu_div ===
+
+   Number of wires:                239
+   Number of wire bits:           3751
+   Number of public wires:          82
+   Number of public wire bits:    2168
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                219
+     $add                           56
+     $and                          109
+     $eq                          2766
+     $gt                           110
+     $logic_not                    178
+     $mux                          906
+     $ne                             2
+     $not                           55
+     $or                            54
+     $pmux                          12
+     $reduce_bool                    2
+     $reduce_or                    156
+     $sdff                         128
+     $sdffe                        864
+     $shl                          320
+     $shr                           52
+     $sub                          238
+     $xor                            1
+
+=== fpu_exceptions ===
+
+   Number of wires:                199
+   Number of wire bits:           1349
+   Number of public wires:          75
+   Number of public wire bits:     850
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                186
+     $and                           53
+     $eq                            37
+     $gt                            32
+     $logic_not                     21
+     $mux                          381
+     $or                            31
+     $reduce_or                    295
+     $sdffe                        561
+
+=== fpu_mul ===
+
+   Number of wires:                267
+   Number of wire bits:           3587
+   Number of public wires:          58
+   Number of public wire bits:    1940
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                260
+     $add                          355
+     $and                           53
+     $dlatch                         6
+     $eq                          1430
+     $gt                            44
+     $logic_not                     92
+     $mul                          342
+     $mux                          354
+     $not                           54
+     $or                             1
+     $pmux                           6
+     $reduce_or                    200
+     $sdffe                       1735
+     $shl                          212
+     $shr                          106
+     $sub                           76
+     $xor                            1
+
+=== fpu_round ===
+
+   Number of wires:                 34
+   Number of wire bits:            644
+   Number of public wires:          22
+   Number of public wire bits:     394
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 25
+     $add                           88
+     $and                            6
+     $eq                             4
+     $logic_not                      3
+     $mux                          156
+     $or                             2
+     $reduce_or                      2
+     $sdff                         256
+
+=== fpu_sub ===
+
+   Number of wires:                135
+   Number of wire bits:           1596
+   Number of public wires:          41
+   Number of public wire bits:     888
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                128
+     $and                            3
+     $eq                          1557
+     $ge                            52
+     $gt                            86
+     $logic_and                      1
+     $logic_not                     75
+     $mux                          357
+     $not                            1
+     $or                             2
+     $pmux                           7
+     $reduce_or                    107
+     $sdffe                        685
+     $shl                          110
+     $shr                           55
+     $sub                          109
+     $xor                            1
+
+=== design hierarchy ===
+
+   fpu                               1
+     fpu_add                         0
+     fpu_div                         0
+     fpu_exceptions                  0
+     fpu_mul                         0
+     fpu_round                       0
+     fpu_sub                         0
+
+   Number of wires:                 91
+   Number of wire bits:           1187
+   Number of public wires:          63
+   Number of public wire bits:     927
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 69
+     $add                           32
+     $and                           10
+     $dff                           76
+     $eq                             9
+     $le                             7
+     $logic_not                      6
+     $mux                          133
+     $or                             3
+     $pmux                          76
+     $reduce_or                      4
+     $sdff                          80
+     $sdffe                        210
+     $xor                            1
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 707503510f, CPU: user 0.94s system 0.01s, MEM: 24.93 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 26% 5x opt_expr (0 sec), 18% 3x opt_clean (0 sec), ...

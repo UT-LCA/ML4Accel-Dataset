@@ -1,0 +1,275 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v' to AST representation.
+Generating RTLIL representation for module `\or1200_mult_mac'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:650.1-667.9 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: or1200_mult_mac     
+Automatically selected or1200_mult_mac as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \or1200_mult_mac
+
+2.3. Analyzing design hierarchy..
+Top module:  \or1200_mult_mac
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:771$52 in module or1200_mult_mac.
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:747$44 in module or1200_mult_mac.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:738$43 in module or1200_mult_mac.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:729$42 in module or1200_mult_mac.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:720$41 in module or1200_mult_mac.
+Marked 4 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:690$35 in module or1200_mult_mac.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:650$29 in module or1200_mult_mac.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:771$52'.
+     1/1: $0\mac_stall_r[0:0]
+Creating decoders for process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:747$44'.
+     1/2: $0\mac_r[63:0] [63:32]
+     2/2: $0\mac_r[63:0] [31:0]
+Creating decoders for process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:738$43'.
+     1/1: $0\mac_op_r3[1:0]
+Creating decoders for process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:729$42'.
+     1/1: $0\mac_op_r2[1:0]
+Creating decoders for process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:720$41'.
+     1/1: $0\mac_op_r1[1:0]
+Creating decoders for process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:690$35'.
+     1/3: $0\div_cntr[5:0]
+     2/3: $0\div_free[0:0]
+     3/3: $0\mul_prod_r[63:0]
+Creating decoders for process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:650$29'.
+     1/1: $1\result[31:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\or1200_mult_mac.\result' from process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:650$29'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\or1200_mult_mac.\mac_stall_r' using process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:771$52'.
+  created $dff cell `$procdff$146' with positive edge clock.
+Creating register for signal `\or1200_mult_mac.\mac_r' using process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:747$44'.
+  created $dff cell `$procdff$147' with positive edge clock.
+Creating register for signal `\or1200_mult_mac.\mac_op_r3' using process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:738$43'.
+  created $dff cell `$procdff$148' with positive edge clock.
+Creating register for signal `\or1200_mult_mac.\mac_op_r2' using process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:729$42'.
+  created $dff cell `$procdff$149' with positive edge clock.
+Creating register for signal `\or1200_mult_mac.\mac_op_r1' using process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:720$41'.
+  created $dff cell `$procdff$150' with positive edge clock.
+Creating register for signal `\or1200_mult_mac.\mul_prod_r' using process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:690$35'.
+  created $dff cell `$procdff$151' with positive edge clock.
+Creating register for signal `\or1200_mult_mac.\div_free' using process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:690$35'.
+  created $dff cell `$procdff$152' with positive edge clock.
+Creating register for signal `\or1200_mult_mac.\div_cntr' using process `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:690$35'.
+  created $dff cell `$procdff$153' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:771$52'.
+Removing empty process `or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:771$52'.
+Found and cleaned up 6 empty switches in `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:747$44'.
+Removing empty process `or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:747$44'.
+Found and cleaned up 1 empty switch in `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:738$43'.
+Removing empty process `or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:738$43'.
+Found and cleaned up 1 empty switch in `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:729$42'.
+Removing empty process `or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:729$42'.
+Found and cleaned up 1 empty switch in `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:720$41'.
+Removing empty process `or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:720$41'.
+Found and cleaned up 5 empty switches in `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:690$35'.
+Removing empty process `or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:690$35'.
+Found and cleaned up 1 empty switch in `\or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:650$29'.
+Removing empty process `or1200_mult_mac.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:650$29'.
+Cleaned up 16 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module or1200_mult_mac.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module or1200_mult_mac.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\or1200_mult_mac'.
+<suppressed ~33 debug messages>
+Removed a total of 11 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \or1200_mult_mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~13 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \or1200_mult_mac.
+    New ctrl vector for $pmux cell $procmux$142: { $procmux$145_CMP $auto$opt_reduce.cc:134:opt_mux$155 }
+  Optimizing cells in module \or1200_mult_mac.
+Performed a total of 1 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\or1200_mult_mac'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$146 ($dff) from module or1200_mult_mac (D = $or$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/or1200_submodules/or1200_mult_mac.v:775$60_Y, Q = \mac_stall_r, rval = 1'0).
+Adding SRST signal on $procdff$147 ($dff) from module or1200_mult_mac (D = { $procmux$76_Y $procmux$93_Y }, Q = \mac_r, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$157 ($sdff) from module or1200_mult_mac (D = $procmux$93_Y, Q = \mac_r [31:0]).
+Adding EN signal on $auto$ff.cc:262:slice$157 ($sdff) from module or1200_mult_mac (D = $procmux$73_Y, Q = \mac_r [63:32]).
+Adding SRST signal on $procdff$148 ($dff) from module or1200_mult_mac (D = \mac_op_r2, Q = \mac_op_r3, rval = 2'00).
+Adding SRST signal on $procdff$149 ($dff) from module or1200_mult_mac (D = \mac_op_r1, Q = \mac_op_r2, rval = 2'00).
+Adding SRST signal on $procdff$150 ($dff) from module or1200_mult_mac (D = \mac_op, Q = \mac_op_r1, rval = 2'00).
+Adding SRST signal on $procdff$151 ($dff) from module or1200_mult_mac (D = $procmux$136_Y, Q = \mul_prod_r, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$175 ($sdff) from module or1200_mult_mac (D = $procmux$136_Y, Q = \mul_prod_r).
+Adding SRST signal on $procdff$152 ($dff) from module or1200_mult_mac (D = $procmux$122_Y, Q = \div_free, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$179 ($sdff) from module or1200_mult_mac (D = $procmux$119_Y, Q = \div_free).
+Adding SRST signal on $procdff$153 ($dff) from module or1200_mult_mac (D = $procmux$111_Y, Q = \div_cntr, rval = 6'000000).
+Adding EN signal on $auto$ff.cc:262:slice$187 ($sdff) from module or1200_mult_mac (D = $procmux$111_Y, Q = \div_cntr).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \or1200_mult_mac..
+Removed 12 unused cells and 72 unused wires.
+<suppressed ~14 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module or1200_mult_mac.
+<suppressed ~5 debug messages>
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \or1200_mult_mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \or1200_mult_mac.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\or1200_mult_mac'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \or1200_mult_mac..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module or1200_mult_mac.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \or1200_mult_mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~10 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \or1200_mult_mac.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\or1200_mult_mac'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \or1200_mult_mac..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module or1200_mult_mac.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== or1200_mult_mac ===
+
+   Number of wires:                 94
+   Number of wire bits:           1494
+   Number of public wires:          31
+   Number of public wire bits:     511
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 82
+     $add                          160
+     $and                            7
+     $eq                            16
+     $logic_and                      1
+     $logic_not                      2
+     $mul                           64
+     $mux                          718
+     $ne                             2
+     $not                           98
+     $or                             7
+     $pmux                          32
+     $reduce_and                     6
+     $reduce_bool                   16
+     $reduce_or                     14
+     $sdff                           7
+     $sdffe                        135
+     $sub                          102
+     $xor                            1
+
+End of script. Logfile hash: e838bde5f2, CPU: user 0.13s system 0.01s, MEM: 12.89 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 25% 5x opt_expr (0 sec), 19% 3x opt_dff (0 sec), ...

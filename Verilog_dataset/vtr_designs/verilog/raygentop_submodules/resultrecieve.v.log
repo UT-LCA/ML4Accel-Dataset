@@ -1,0 +1,397 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v' to AST representation.
+Generating RTLIL representation for module `\resultrecieve'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163.5-270.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: resultrecieve       
+Automatically selected resultrecieve as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \resultrecieve
+
+2.3. Analyzing design hierarchy..
+Top module:  \resultrecieve
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 5 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3 in module resultrecieve.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1 in module resultrecieve.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 24 redundant assignments.
+Promoted 27 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3'.
+     1/35: $3\temp_id10b[15:0]
+     2/35: $3\temp_id10a[15:0]
+     3/35: $2\temp_id01b[15:0]
+     4/35: $2\temp_id01a[15:0]
+     5/35: $2\temp_id10b[15:0]
+     6/35: $2\temp_id10a[15:0]
+     7/35: $3\next_state[2:0]
+     8/35: $2\next_state[2:0]
+     9/35: $1\temp_id10b[15:0]
+    10/35: $1\temp_id10a[15:0]
+    11/35: $1\temp_id01b[15:0]
+    12/35: $1\temp_id01a[15:0]
+    13/35: $1\temp_valid10[0:0]
+    14/35: $1\temp_valid01[0:0]
+    15/35: $1\next_state[2:0]
+    16/35: $1\temp_v10c[7:0]
+    17/35: $1\temp_v10b[7:0]
+    18/35: $1\temp_v10a[7:0]
+    19/35: $1\temp_u10c[7:0]
+    20/35: $1\temp_u10b[7:0]
+    21/35: $1\temp_u10a[7:0]
+    22/35: $1\temp_v01c[7:0]
+    23/35: $1\temp_v01b[7:0]
+    24/35: $1\temp_v01a[7:0]
+    25/35: $1\temp_u01c[7:0]
+    26/35: $1\temp_u01b[7:0]
+    27/35: $1\temp_u01a[7:0]
+    28/35: $1\temp_hit10c[0:0]
+    29/35: $1\temp_hit10b[0:0]
+    30/35: $1\temp_hit10a[0:0]
+    31/35: $1\temp_hit01c[0:0]
+    32/35: $1\temp_hit01b[0:0]
+    33/35: $1\temp_hit01a[0:0]
+    34/35: $1\temp_id10c[15:0]
+    35/35: $1\temp_id01c[15:0]
+Creating decoders for process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+     1/27: $0\v10c[7:0]
+     2/27: $0\v10b[7:0]
+     3/27: $0\v10a[7:0]
+     4/27: $0\u10c[7:0]
+     5/27: $0\u10b[7:0]
+     6/27: $0\u10a[7:0]
+     7/27: $0\v01c[7:0]
+     8/27: $0\v01b[7:0]
+     9/27: $0\v01a[7:0]
+    10/27: $0\u01c[7:0]
+    11/27: $0\u01b[7:0]
+    12/27: $0\u01a[7:0]
+    13/27: $0\id01c[15:0]
+    14/27: $0\id01b[15:0]
+    15/27: $0\id01a[15:0]
+    16/27: $0\hit10c[0:0]
+    17/27: $0\hit10b[0:0]
+    18/27: $0\hit10a[0:0]
+    19/27: $0\hit01c[0:0]
+    20/27: $0\hit01b[0:0]
+    21/27: $0\hit01a[0:0]
+    22/27: $0\valid10[0:0]
+    23/27: $0\valid01[0:0]
+    24/27: $0\state[2:0]
+    25/27: $0\id10c[15:0]
+    26/27: $0\id10b[15:0]
+    27/27: $0\id10a[15:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\resultrecieve.\temp_valid01' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$423
+Latch inferred for signal `\resultrecieve.\temp_valid10' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$470
+Latch inferred for signal `\resultrecieve.\temp_id01a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$499
+Latch inferred for signal `\resultrecieve.\temp_id01b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$520
+Latch inferred for signal `\resultrecieve.\temp_id01c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$531
+Latch inferred for signal `\resultrecieve.\temp_id10a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$586
+Latch inferred for signal `\resultrecieve.\temp_id10b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$621
+Latch inferred for signal `\resultrecieve.\temp_id10c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$632
+Latch inferred for signal `\resultrecieve.\temp_hit01a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$643
+Latch inferred for signal `\resultrecieve.\temp_hit01b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$654
+Latch inferred for signal `\resultrecieve.\temp_hit01c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$665
+Latch inferred for signal `\resultrecieve.\temp_hit10a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$676
+Latch inferred for signal `\resultrecieve.\temp_hit10b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$687
+Latch inferred for signal `\resultrecieve.\temp_hit10c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$698
+Latch inferred for signal `\resultrecieve.\temp_u01a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$709
+Latch inferred for signal `\resultrecieve.\temp_u01b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$720
+Latch inferred for signal `\resultrecieve.\temp_u01c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$731
+Latch inferred for signal `\resultrecieve.\temp_v01a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$742
+Latch inferred for signal `\resultrecieve.\temp_v01b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$753
+Latch inferred for signal `\resultrecieve.\temp_v01c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$764
+Latch inferred for signal `\resultrecieve.\temp_u10a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$775
+Latch inferred for signal `\resultrecieve.\temp_u10b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$786
+Latch inferred for signal `\resultrecieve.\temp_u10c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$797
+Latch inferred for signal `\resultrecieve.\temp_v10a' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$808
+Latch inferred for signal `\resultrecieve.\temp_v10b' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$819
+Latch inferred for signal `\resultrecieve.\temp_v10c' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$830
+Latch inferred for signal `\resultrecieve.\next_state' from process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3': $auto$proc_dlatch.cc:427:proc_dlatch$877
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\resultrecieve.\valid01' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$878' with positive edge clock.
+Creating register for signal `\resultrecieve.\valid10' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$879' with positive edge clock.
+Creating register for signal `\resultrecieve.\id01a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$880' with positive edge clock.
+Creating register for signal `\resultrecieve.\id01b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$881' with positive edge clock.
+Creating register for signal `\resultrecieve.\id01c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$882' with positive edge clock.
+Creating register for signal `\resultrecieve.\id10a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$883' with positive edge clock.
+Creating register for signal `\resultrecieve.\id10b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$884' with positive edge clock.
+Creating register for signal `\resultrecieve.\id10c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$885' with positive edge clock.
+Creating register for signal `\resultrecieve.\hit01a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$886' with positive edge clock.
+Creating register for signal `\resultrecieve.\hit01b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$887' with positive edge clock.
+Creating register for signal `\resultrecieve.\hit01c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$888' with positive edge clock.
+Creating register for signal `\resultrecieve.\hit10a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$889' with positive edge clock.
+Creating register for signal `\resultrecieve.\hit10b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$890' with positive edge clock.
+Creating register for signal `\resultrecieve.\hit10c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$891' with positive edge clock.
+Creating register for signal `\resultrecieve.\u01a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$892' with positive edge clock.
+Creating register for signal `\resultrecieve.\u01b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$893' with positive edge clock.
+Creating register for signal `\resultrecieve.\u01c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$894' with positive edge clock.
+Creating register for signal `\resultrecieve.\v01a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$895' with positive edge clock.
+Creating register for signal `\resultrecieve.\v01b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$896' with positive edge clock.
+Creating register for signal `\resultrecieve.\v01c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$897' with positive edge clock.
+Creating register for signal `\resultrecieve.\u10a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$898' with positive edge clock.
+Creating register for signal `\resultrecieve.\u10b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$899' with positive edge clock.
+Creating register for signal `\resultrecieve.\u10c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$900' with positive edge clock.
+Creating register for signal `\resultrecieve.\v10a' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$901' with positive edge clock.
+Creating register for signal `\resultrecieve.\v10b' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$902' with positive edge clock.
+Creating register for signal `\resultrecieve.\v10c' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$903' with positive edge clock.
+Creating register for signal `\resultrecieve.\state' using process `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+  created $dff cell `$procdff$904' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 5 empty switches in `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3'.
+Removing empty process `resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:163$3'.
+Found and cleaned up 1 empty switch in `\resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+Removing empty process `resultrecieve.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/raygentop_submodules/resultrecieve.v:98$1'.
+Cleaned up 6 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module resultrecieve.
+<suppressed ~211 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module resultrecieve.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\resultrecieve'.
+<suppressed ~348 debug messages>
+Removed a total of 116 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \resultrecieve..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~30 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \resultrecieve.
+    New ctrl vector for $pmux cell $procmux$176: { $procmux$295_CMP $procmux$243_CMP $procmux$287_CMP $procmux$204_CMP $auto$opt_reduce.cc:134:opt_mux$906 }
+    New ctrl vector for $pmux cell $procmux$167: $procmux$222_CMP
+    New ctrl vector for $pmux cell $procmux$158: $procmux$192_CMP
+  Optimizing cells in module \resultrecieve.
+Performed a total of 3 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\resultrecieve'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$904 ($dff) from module resultrecieve (D = \next_state, Q = \state, rval = 3'000).
+Adding SRST signal on $procdff$903 ($dff) from module resultrecieve (D = \temp_v10c, Q = \v10c, rval = 8'00000000).
+Adding SRST signal on $procdff$902 ($dff) from module resultrecieve (D = \temp_v10b, Q = \v10b, rval = 8'00000000).
+Adding SRST signal on $procdff$901 ($dff) from module resultrecieve (D = \temp_v10a, Q = \v10a, rval = 8'00000000).
+Adding SRST signal on $procdff$900 ($dff) from module resultrecieve (D = \temp_u10c, Q = \u10c, rval = 8'00000000).
+Adding SRST signal on $procdff$899 ($dff) from module resultrecieve (D = \temp_u10b, Q = \u10b, rval = 8'00000000).
+Adding SRST signal on $procdff$898 ($dff) from module resultrecieve (D = \temp_u10a, Q = \u10a, rval = 8'00000000).
+Adding SRST signal on $procdff$897 ($dff) from module resultrecieve (D = \temp_v01c, Q = \v01c, rval = 8'00000000).
+Adding SRST signal on $procdff$896 ($dff) from module resultrecieve (D = \temp_v01b, Q = \v01b, rval = 8'00000000).
+Adding SRST signal on $procdff$895 ($dff) from module resultrecieve (D = \temp_v01a, Q = \v01a, rval = 8'00000000).
+Adding SRST signal on $procdff$894 ($dff) from module resultrecieve (D = \temp_u01c, Q = \u01c, rval = 8'00000000).
+Adding SRST signal on $procdff$893 ($dff) from module resultrecieve (D = \temp_u01b, Q = \u01b, rval = 8'00000000).
+Adding SRST signal on $procdff$892 ($dff) from module resultrecieve (D = \temp_u01a, Q = \u01a, rval = 8'00000000).
+Adding SRST signal on $procdff$891 ($dff) from module resultrecieve (D = \temp_hit10c, Q = \hit10c, rval = 1'0).
+Adding SRST signal on $procdff$890 ($dff) from module resultrecieve (D = \temp_hit10b, Q = \hit10b, rval = 1'0).
+Adding SRST signal on $procdff$889 ($dff) from module resultrecieve (D = \temp_hit10a, Q = \hit10a, rval = 1'0).
+Adding SRST signal on $procdff$888 ($dff) from module resultrecieve (D = \temp_hit01c, Q = \hit01c, rval = 1'0).
+Adding SRST signal on $procdff$887 ($dff) from module resultrecieve (D = \temp_hit01b, Q = \hit01b, rval = 1'0).
+Adding SRST signal on $procdff$886 ($dff) from module resultrecieve (D = \temp_hit01a, Q = \hit01a, rval = 1'0).
+Adding EN signal on $procdff$885 ($dff) from module resultrecieve (D = 16'0000000000000000, Q = \id10c).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 2 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 3 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 4 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 5 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 6 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 7 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 8 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 9 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 10 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 11 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 12 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 13 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 14 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 15 on $auto$ff.cc:262:slice$926 ($dffe) from module resultrecieve.
+Adding EN signal on $procdff$884 ($dff) from module resultrecieve (D = 16'0000000000000000, Q = \id10b).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 2 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 3 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 4 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 5 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 6 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 7 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 8 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 9 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 10 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 11 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 12 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 13 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 14 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 15 on $auto$ff.cc:262:slice$927 ($dffe) from module resultrecieve.
+Adding EN signal on $procdff$883 ($dff) from module resultrecieve (D = 16'0000000000000000, Q = \id10a).
+Setting constant 0-bit at position 0 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 1 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 2 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 3 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 4 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 5 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 6 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 7 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 8 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 9 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 10 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 11 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 12 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 13 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 14 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Setting constant 0-bit at position 15 on $auto$ff.cc:262:slice$928 ($dffe) from module resultrecieve.
+Adding SRST signal on $procdff$882 ($dff) from module resultrecieve (D = \temp_id01c, Q = \id01c, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$881 ($dff) from module resultrecieve (D = \temp_id01b, Q = \id01b, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$880 ($dff) from module resultrecieve (D = \temp_id01a, Q = \id01a, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$879 ($dff) from module resultrecieve (D = \temp_valid10, Q = \valid10, rval = 1'0).
+Adding SRST signal on $procdff$878 ($dff) from module resultrecieve (D = \temp_valid01, Q = \valid01, rval = 1'0).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \resultrecieve..
+Removed 41 unused cells and 473 unused wires.
+<suppressed ~45 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module resultrecieve.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \resultrecieve..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \resultrecieve.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\resultrecieve'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \resultrecieve..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module resultrecieve.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== resultrecieve ===
+
+   Number of wires:                 90
+   Number of wire bits:            435
+   Number of public wires:          56
+   Number of public wire bits:     395
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 82
+     $and                           10
+     $dlatch                       155
+     $eq                            22
+     $logic_not                      3
+     $mux                            8
+     $not                            8
+     $pmux                           3
+     $reduce_or                      4
+     $sdff                         155
+
+End of script. Logfile hash: 19fd2ea333, CPU: user 0.13s system 0.01s, MEM: 13.62 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 23% 4x opt_expr (0 sec), 17% 2x read_verilog (0 sec), ...

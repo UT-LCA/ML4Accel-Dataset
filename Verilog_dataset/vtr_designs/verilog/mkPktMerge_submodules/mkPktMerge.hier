@@ -1,0 +1,105 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/DATA/raw_designs/vtr_designs/verilog/mkPktMerge.v
+Parsing SystemVerilog input from `/home/zhigang/DATA/raw_designs/vtr_designs/verilog/mkPktMerge.v' to AST representation.
+Generating RTLIL representation for module `\dual_port_ram'.
+Generating RTLIL representation for module `\mkPktMerge'.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/mkPktMerge.v:254.3-269.6 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/DATA/raw_designs/vtr_designs/verilog/mkPktMerge.v:300.3-312.6 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\arSRLFIFO_a'.
+Generating RTLIL representation for module `\generic_fifo_sc_a'.
+Generating RTLIL representation for module `\arSRLFIFO_b'.
+Generating RTLIL representation for module `\generic_fifo_sc_b'.
+Generating RTLIL representation for module `\arSRLFIFO_c'.
+Generating RTLIL representation for module `\generic_fifo_sc_c'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   1 design levels: generic_fifo_sc_c   
+root of   2 design levels: arSRLFIFO_c         
+root of   1 design levels: generic_fifo_sc_b   
+root of   2 design levels: arSRLFIFO_b         
+root of   1 design levels: generic_fifo_sc_a   
+root of   2 design levels: arSRLFIFO_a         
+root of   3 design levels: mkPktMerge          
+root of   0 design levels: dual_port_ram       
+Automatically selected mkPktMerge as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \mkPktMerge
+Used module:     \arSRLFIFO_c
+Used module:         \generic_fifo_sc_c
+Used module:             \dual_port_ram
+Used module:     \arSRLFIFO_b
+Used module:         \generic_fifo_sc_b
+Used module:     \arSRLFIFO_a
+Used module:         \generic_fifo_sc_a
+Parameter \DATA_WIDTH = 153
+Parameter \ADDR_WIDTH = 4
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\dual_port_ram'.
+Parameter \DATA_WIDTH = 153
+Parameter \ADDR_WIDTH = 4
+Generating RTLIL representation for module `$paramod$787b2b116888960e7723a738800dc0d62f27a28e\dual_port_ram'.
+Parameter \DATA_WIDTH = 153
+Parameter \ADDR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$787b2b116888960e7723a738800dc0d62f27a28e\dual_port_ram'.
+Parameter \DATA_WIDTH = 153
+Parameter \ADDR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$787b2b116888960e7723a738800dc0d62f27a28e\dual_port_ram'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \mkPktMerge
+Used module:     \arSRLFIFO_c
+Used module:         \generic_fifo_sc_c
+Used module:             $paramod$787b2b116888960e7723a738800dc0d62f27a28e\dual_port_ram
+Used module:     \arSRLFIFO_b
+Used module:         \generic_fifo_sc_b
+Used module:     \arSRLFIFO_a
+Used module:         \generic_fifo_sc_a
+
+2.5. Analyzing design hierarchy..
+Top module:  \mkPktMerge
+Used module:     \arSRLFIFO_c
+Used module:         \generic_fifo_sc_c
+Used module:             $paramod$787b2b116888960e7723a738800dc0d62f27a28e\dual_port_ram
+Used module:     \arSRLFIFO_b
+Used module:         \generic_fifo_sc_b
+Used module:     \arSRLFIFO_a
+Used module:         \generic_fifo_sc_a
+Removing unused module `\dual_port_ram'.
+Removed 1 unused modules.
+
+End of script. Logfile hash: 9dbc983c4e, CPU: user 0.04s system 0.00s, MEM: 14.95 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 90% 2x read_verilog (0 sec), 9% 1x hierarchy (0 sec)

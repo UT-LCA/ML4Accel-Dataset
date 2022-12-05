@@ -1,0 +1,206 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v' to AST representation.
+Generating RTLIL representation for module `\dsp_signed_mult_18x18_unit_18_18_1'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: dsp_signed_mult_18x18_unit_18_18_1
+Automatically selected dsp_signed_mult_18x18_unit_18_18_1 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \dsp_signed_mult_18x18_unit_18_18_1
+
+2.3. Analyzing design hierarchy..
+Top module:  \dsp_signed_mult_18x18_unit_18_18_1
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:40$4 in module dsp_signed_mult_18x18_unit_18_18_1.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:19$1 in module dsp_signed_mult_18x18_unit_18_18_1.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:40$4'.
+     1/3: $0\output_valid[0:0]
+     2/3: $0\result_valid[0:0]
+     3/3: $0\input_valid[0:0]
+Creating decoders for process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:19$1'.
+     1/6: $0\reg_resb[36:0]
+     2/6: $0\reg_resa[36:0]
+     3/6: $0\reg_by[17:0]
+     4/6: $0\reg_bx[17:0]
+     5/6: $0\reg_ay[17:0]
+     6/6: $0\reg_ax[17:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\input_valid' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:40$4'.
+  created $dff cell `$procdff$50' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\result_valid' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:40$4'.
+  created $dff cell `$procdff$51' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\output_valid' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:40$4'.
+  created $dff cell `$procdff$52' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\reg_ax' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:19$1'.
+  created $dff cell `$procdff$53' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\reg_ay' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:19$1'.
+  created $dff cell `$procdff$54' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\reg_bx' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:19$1'.
+  created $dff cell `$procdff$55' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\reg_by' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:19$1'.
+  created $dff cell `$procdff$56' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\reg_resa' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:19$1'.
+  created $dff cell `$procdff$57' with positive edge clock.
+Creating register for signal `\dsp_signed_mult_18x18_unit_18_18_1.\reg_resb' using process `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:19$1'.
+  created $dff cell `$procdff$58' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:40$4'.
+Removing empty process `dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:40$4'.
+Found and cleaned up 2 empty switches in `\dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:19$1'.
+Removing empty process `dsp_signed_mult_18x18_unit_18_18_1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:19$1'.
+Cleaned up 4 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp_signed_mult_18x18_unit_18_18_1.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp_signed_mult_18x18_unit_18_18_1.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp_signed_mult_18x18_unit_18_18_1'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp_signed_mult_18x18_unit_18_18_1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp_signed_mult_18x18_unit_18_18_1.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp_signed_mult_18x18_unit_18_18_1'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$50 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$15_Y, Q = \input_valid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$59 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \i_valid, Q = \input_valid).
+Adding SRST signal on $procdff$51 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$10_Y, Q = \result_valid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$61 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \input_valid, Q = \result_valid).
+Adding SRST signal on $procdff$52 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$5_Y, Q = \output_valid, rval = 1'0).
+Adding EN signal on $auto$ff.cc:262:slice$63 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \result_valid, Q = \output_valid).
+Adding SRST signal on $procdff$53 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$45_Y, Q = \reg_ax, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$65 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \ax, Q = \reg_ax).
+Adding SRST signal on $procdff$54 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$40_Y, Q = \reg_ay, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$67 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \ay, Q = \reg_ay).
+Adding SRST signal on $procdff$55 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$35_Y, Q = \reg_bx, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$69 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \bx, Q = \reg_bx).
+Adding SRST signal on $procdff$56 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$30_Y, Q = \reg_by, rval = 18'000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$71 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = \by, Q = \reg_by).
+Adding SRST signal on $procdff$57 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$25_Y, Q = \reg_resa, rval = 37'0000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$73 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:32$2_Y, Q = \reg_resa).
+Adding SRST signal on $procdff$58 ($dff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $procmux$20_Y, Q = \reg_resb, rval = 37'0000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$75 ($sdff) from module dsp_signed_mult_18x18_unit_18_18_1 (D = $mul$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/clstm_like.large_submodules/dsp_signed_mult_18x18_unit_18_18_1.v:33$3_Y, Q = \reg_resb).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp_signed_mult_18x18_unit_18_18_1..
+Removed 18 unused cells and 45 unused wires.
+<suppressed ~19 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp_signed_mult_18x18_unit_18_18_1.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp_signed_mult_18x18_unit_18_18_1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp_signed_mult_18x18_unit_18_18_1.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp_signed_mult_18x18_unit_18_18_1'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp_signed_mult_18x18_unit_18_18_1..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp_signed_mult_18x18_unit_18_18_1.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== dsp_signed_mult_18x18_unit_18_18_1 ===
+
+   Number of wires:                 22
+   Number of wire bits:            374
+   Number of public wires:          20
+   Number of public wire bits:     300
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 11
+     $mul                           74
+     $sdffe                        149
+
+End of script. Logfile hash: f26794b88f, CPU: user 0.05s system 0.00s, MEM: 11.88 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 27% 3x opt_merge (0 sec), 27% 2x opt_clean (0 sec), ...

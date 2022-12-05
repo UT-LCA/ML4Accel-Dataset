@@ -1,0 +1,874 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v' to AST representation.
+Generating RTLIL representation for module `\h_fltr'.
+Generating RTLIL representation for module `\steer_fltr'.
+Generating RTLIL representation for module `\my_fir_h4'.
+Generating RTLIL representation for module `\my_fir_h3'.
+Generating RTLIL representation for module `\my_fir_h2'.
+Generating RTLIL representation for module `\my_fir_h1'.
+Generating RTLIL representation for module `\my_fir_f3'.
+Generating RTLIL representation for module `\my_fir_f2'.
+Generating RTLIL representation for module `\my_fir_f1'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: my_fir_f1           
+root of   0 design levels: my_fir_f2           
+root of   0 design levels: my_fir_f3           
+root of   0 design levels: my_fir_h1           
+root of   0 design levels: my_fir_h2           
+root of   0 design levels: my_fir_h3           
+root of   0 design levels: my_fir_h4           
+root of   0 design levels: steer_fltr          
+root of   1 design levels: h_fltr              
+Automatically selected h_fltr as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \h_fltr
+Used module:     \steer_fltr
+Used module:     \my_fir_h4
+Used module:     \my_fir_h3
+Used module:     \my_fir_h2
+Used module:     \my_fir_h1
+Used module:     \my_fir_f3
+Used module:     \my_fir_f2
+Used module:     \my_fir_f1
+
+2.3. Analyzing design hierarchy..
+Top module:  \h_fltr
+Used module:     \steer_fltr
+Used module:     \my_fir_h4
+Used module:     \my_fir_h3
+Used module:     \my_fir_h2
+Used module:     \my_fir_h1
+Used module:     \my_fir_f3
+Used module:     \my_fir_f2
+Used module:     \my_fir_f1
+Removed 0 unused modules.
+Mapping positional arguments of cell h_fltr.my_steer_fltr_inst (steer_fltr).
+Mapping positional arguments of cell h_fltr.your_instance_name_h4 (my_fir_h4).
+Mapping positional arguments of cell h_fltr.your_instance_name_h3 (my_fir_h3).
+Mapping positional arguments of cell h_fltr.your_instance_name_h2 (my_fir_h2).
+Mapping positional arguments of cell h_fltr.your_instance_name_h1 (my_fir_h1).
+Mapping positional arguments of cell h_fltr.your_instance_name_f3 (my_fir_f3).
+Mapping positional arguments of cell h_fltr.your_instance_name_f2 (my_fir_f2).
+Mapping positional arguments of cell h_fltr.your_instance_name_f1 (my_fir_f1).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:565$109 in module my_fir_f1.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:517$94 in module my_fir_f2.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:470$81 in module my_fir_f3.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:424$68 in module my_fir_h1.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:376$53 in module my_fir_h2.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:330$40 in module my_fir_h3.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:285$27 in module my_fir_h4.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 7 redundant assignments.
+Promoted 27 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\my_fir_f1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:565$109'.
+     1/8: $0\output_data_ready[0:0]
+     2/8: $0\n_delay_reg6[15:0]
+     3/8: $0\n_delay_reg5[15:0]
+     4/8: $0\n_delay_reg4[15:0]
+     5/8: $0\n_delay_reg3[15:0]
+     6/8: $0\n_delay_reg2[15:0]
+     7/8: $0\n_delay_reg1[15:0]
+     8/8: $0\dout[27:0]
+Creating decoders for process `\my_fir_f2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:517$94'.
+     1/8: $0\output_data_ready[0:0]
+     2/8: $0\n_delay_reg6[15:0]
+     3/8: $0\n_delay_reg5[15:0]
+     4/8: $0\n_delay_reg4[15:0]
+     5/8: $0\n_delay_reg3[15:0]
+     6/8: $0\n_delay_reg2[15:0]
+     7/8: $0\n_delay_reg1[15:0]
+     8/8: $0\dout[27:0]
+Creating decoders for process `\my_fir_f3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:470$81'.
+     1/8: $0\output_data_ready[0:0]
+     2/8: $0\n_delay_reg6[15:0]
+     3/8: $0\n_delay_reg5[15:0]
+     4/8: $0\n_delay_reg4[15:0]
+     5/8: $0\n_delay_reg3[15:0]
+     6/8: $0\n_delay_reg2[15:0]
+     7/8: $0\n_delay_reg1[15:0]
+     8/8: $0\dout[27:0]
+Creating decoders for process `\my_fir_h1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:424$68'.
+     1/8: $0\output_data_ready[0:0]
+     2/8: $0\n_delay_reg6[15:0]
+     3/8: $0\n_delay_reg5[15:0]
+     4/8: $0\n_delay_reg4[15:0]
+     5/8: $0\n_delay_reg3[15:0]
+     6/8: $0\n_delay_reg2[15:0]
+     7/8: $0\n_delay_reg1[15:0]
+     8/8: $0\dout[27:0]
+Creating decoders for process `\my_fir_h2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:376$53'.
+     1/8: $0\output_data_ready[0:0]
+     2/8: $0\n_delay_reg6[15:0]
+     3/8: $0\n_delay_reg5[15:0]
+     4/8: $0\n_delay_reg4[15:0]
+     5/8: $0\n_delay_reg3[15:0]
+     6/8: $0\n_delay_reg2[15:0]
+     7/8: $0\n_delay_reg1[15:0]
+     8/8: $0\dout[27:0]
+Creating decoders for process `\my_fir_h3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:330$40'.
+     1/8: $0\output_data_ready[0:0]
+     2/8: $0\n_delay_reg6[15:0]
+     3/8: $0\n_delay_reg5[15:0]
+     4/8: $0\n_delay_reg4[15:0]
+     5/8: $0\n_delay_reg3[15:0]
+     6/8: $0\n_delay_reg2[15:0]
+     7/8: $0\n_delay_reg1[15:0]
+     8/8: $0\dout[27:0]
+Creating decoders for process `\my_fir_h4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:285$27'.
+     1/8: $0\output_data_ready[0:0]
+     2/8: $0\n_delay_reg6[15:0]
+     3/8: $0\n_delay_reg5[15:0]
+     4/8: $0\n_delay_reg4[15:0]
+     5/8: $0\n_delay_reg3[15:0]
+     6/8: $0\n_delay_reg2[15:0]
+     7/8: $0\n_delay_reg1[15:0]
+     8/8: $0\dout[27:0]
+Creating decoders for process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+Creating decoders for process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:226$10'.
+     1/7: $0\h4_reg[27:0]
+     2/7: $0\h3_reg[27:0]
+     3/7: $0\h2_reg[27:0]
+     4/7: $0\h1_reg[27:0]
+     5/7: $0\f3_reg[27:0]
+     6/7: $0\f2_reg[27:0]
+     7/7: $0\f1_reg[27:0]
+Creating decoders for process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:169$9'.
+Creating decoders for process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:136$1'.
+     1/7: $0\vidin_out_reg_h4[27:0]
+     2/7: $0\vidin_out_reg_h3[27:0]
+     3/7: $0\vidin_out_reg_h2[27:0]
+     4/7: $0\vidin_out_reg_h1[27:0]
+     5/7: $0\vidin_out_reg_f3[27:0]
+     6/7: $0\vidin_out_reg_f2[27:0]
+     7/7: $0\vidin_out_reg_f1[27:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\my_fir_f1.\dout' using process `\my_fir_f1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:565$109'.
+  created $dff cell `$procdff$320' with positive edge clock.
+Creating register for signal `\my_fir_f1.\output_data_ready' using process `\my_fir_f1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:565$109'.
+  created $dff cell `$procdff$321' with positive edge clock.
+Creating register for signal `\my_fir_f1.\n_delay_reg1' using process `\my_fir_f1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:565$109'.
+  created $dff cell `$procdff$322' with positive edge clock.
+Creating register for signal `\my_fir_f1.\n_delay_reg2' using process `\my_fir_f1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:565$109'.
+  created $dff cell `$procdff$323' with positive edge clock.
+Creating register for signal `\my_fir_f1.\n_delay_reg3' using process `\my_fir_f1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:565$109'.
+  created $dff cell `$procdff$324' with positive edge clock.
+Creating register for signal `\my_fir_f1.\n_delay_reg4' using process `\my_fir_f1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:565$109'.
+  created $dff cell `$procdff$325' with positive edge clock.
+Creating register for signal `\my_fir_f1.\n_delay_reg5' using process `\my_fir_f1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:565$109'.
+  created $dff cell `$procdff$326' with positive edge clock.
+Creating register for signal `\my_fir_f1.\n_delay_reg6' using process `\my_fir_f1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:565$109'.
+  created $dff cell `$procdff$327' with positive edge clock.
+Creating register for signal `\my_fir_f2.\dout' using process `\my_fir_f2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:517$94'.
+  created $dff cell `$procdff$328' with positive edge clock.
+Creating register for signal `\my_fir_f2.\output_data_ready' using process `\my_fir_f2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:517$94'.
+  created $dff cell `$procdff$329' with positive edge clock.
+Creating register for signal `\my_fir_f2.\n_delay_reg1' using process `\my_fir_f2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:517$94'.
+  created $dff cell `$procdff$330' with positive edge clock.
+Creating register for signal `\my_fir_f2.\n_delay_reg2' using process `\my_fir_f2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:517$94'.
+  created $dff cell `$procdff$331' with positive edge clock.
+Creating register for signal `\my_fir_f2.\n_delay_reg3' using process `\my_fir_f2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:517$94'.
+  created $dff cell `$procdff$332' with positive edge clock.
+Creating register for signal `\my_fir_f2.\n_delay_reg4' using process `\my_fir_f2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:517$94'.
+  created $dff cell `$procdff$333' with positive edge clock.
+Creating register for signal `\my_fir_f2.\n_delay_reg5' using process `\my_fir_f2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:517$94'.
+  created $dff cell `$procdff$334' with positive edge clock.
+Creating register for signal `\my_fir_f2.\n_delay_reg6' using process `\my_fir_f2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:517$94'.
+  created $dff cell `$procdff$335' with positive edge clock.
+Creating register for signal `\my_fir_f3.\dout' using process `\my_fir_f3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:470$81'.
+  created $dff cell `$procdff$336' with positive edge clock.
+Creating register for signal `\my_fir_f3.\output_data_ready' using process `\my_fir_f3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:470$81'.
+  created $dff cell `$procdff$337' with positive edge clock.
+Creating register for signal `\my_fir_f3.\n_delay_reg1' using process `\my_fir_f3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:470$81'.
+  created $dff cell `$procdff$338' with positive edge clock.
+Creating register for signal `\my_fir_f3.\n_delay_reg2' using process `\my_fir_f3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:470$81'.
+  created $dff cell `$procdff$339' with positive edge clock.
+Creating register for signal `\my_fir_f3.\n_delay_reg3' using process `\my_fir_f3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:470$81'.
+  created $dff cell `$procdff$340' with positive edge clock.
+Creating register for signal `\my_fir_f3.\n_delay_reg4' using process `\my_fir_f3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:470$81'.
+  created $dff cell `$procdff$341' with positive edge clock.
+Creating register for signal `\my_fir_f3.\n_delay_reg5' using process `\my_fir_f3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:470$81'.
+  created $dff cell `$procdff$342' with positive edge clock.
+Creating register for signal `\my_fir_f3.\n_delay_reg6' using process `\my_fir_f3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:470$81'.
+  created $dff cell `$procdff$343' with positive edge clock.
+Creating register for signal `\my_fir_h1.\dout' using process `\my_fir_h1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:424$68'.
+  created $dff cell `$procdff$344' with positive edge clock.
+Creating register for signal `\my_fir_h1.\output_data_ready' using process `\my_fir_h1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:424$68'.
+  created $dff cell `$procdff$345' with positive edge clock.
+Creating register for signal `\my_fir_h1.\n_delay_reg1' using process `\my_fir_h1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:424$68'.
+  created $dff cell `$procdff$346' with positive edge clock.
+Creating register for signal `\my_fir_h1.\n_delay_reg2' using process `\my_fir_h1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:424$68'.
+  created $dff cell `$procdff$347' with positive edge clock.
+Creating register for signal `\my_fir_h1.\n_delay_reg3' using process `\my_fir_h1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:424$68'.
+  created $dff cell `$procdff$348' with positive edge clock.
+Creating register for signal `\my_fir_h1.\n_delay_reg4' using process `\my_fir_h1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:424$68'.
+  created $dff cell `$procdff$349' with positive edge clock.
+Creating register for signal `\my_fir_h1.\n_delay_reg5' using process `\my_fir_h1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:424$68'.
+  created $dff cell `$procdff$350' with positive edge clock.
+Creating register for signal `\my_fir_h1.\n_delay_reg6' using process `\my_fir_h1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:424$68'.
+  created $dff cell `$procdff$351' with positive edge clock.
+Creating register for signal `\my_fir_h2.\dout' using process `\my_fir_h2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:376$53'.
+  created $dff cell `$procdff$352' with positive edge clock.
+Creating register for signal `\my_fir_h2.\output_data_ready' using process `\my_fir_h2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:376$53'.
+  created $dff cell `$procdff$353' with positive edge clock.
+Creating register for signal `\my_fir_h2.\n_delay_reg1' using process `\my_fir_h2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:376$53'.
+  created $dff cell `$procdff$354' with positive edge clock.
+Creating register for signal `\my_fir_h2.\n_delay_reg2' using process `\my_fir_h2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:376$53'.
+  created $dff cell `$procdff$355' with positive edge clock.
+Creating register for signal `\my_fir_h2.\n_delay_reg3' using process `\my_fir_h2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:376$53'.
+  created $dff cell `$procdff$356' with positive edge clock.
+Creating register for signal `\my_fir_h2.\n_delay_reg4' using process `\my_fir_h2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:376$53'.
+  created $dff cell `$procdff$357' with positive edge clock.
+Creating register for signal `\my_fir_h2.\n_delay_reg5' using process `\my_fir_h2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:376$53'.
+  created $dff cell `$procdff$358' with positive edge clock.
+Creating register for signal `\my_fir_h2.\n_delay_reg6' using process `\my_fir_h2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:376$53'.
+  created $dff cell `$procdff$359' with positive edge clock.
+Creating register for signal `\my_fir_h3.\dout' using process `\my_fir_h3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:330$40'.
+  created $dff cell `$procdff$360' with positive edge clock.
+Creating register for signal `\my_fir_h3.\output_data_ready' using process `\my_fir_h3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:330$40'.
+  created $dff cell `$procdff$361' with positive edge clock.
+Creating register for signal `\my_fir_h3.\n_delay_reg1' using process `\my_fir_h3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:330$40'.
+  created $dff cell `$procdff$362' with positive edge clock.
+Creating register for signal `\my_fir_h3.\n_delay_reg2' using process `\my_fir_h3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:330$40'.
+  created $dff cell `$procdff$363' with positive edge clock.
+Creating register for signal `\my_fir_h3.\n_delay_reg3' using process `\my_fir_h3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:330$40'.
+  created $dff cell `$procdff$364' with positive edge clock.
+Creating register for signal `\my_fir_h3.\n_delay_reg4' using process `\my_fir_h3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:330$40'.
+  created $dff cell `$procdff$365' with positive edge clock.
+Creating register for signal `\my_fir_h3.\n_delay_reg5' using process `\my_fir_h3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:330$40'.
+  created $dff cell `$procdff$366' with positive edge clock.
+Creating register for signal `\my_fir_h3.\n_delay_reg6' using process `\my_fir_h3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:330$40'.
+  created $dff cell `$procdff$367' with positive edge clock.
+Creating register for signal `\my_fir_h4.\dout' using process `\my_fir_h4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:285$27'.
+  created $dff cell `$procdff$368' with positive edge clock.
+Creating register for signal `\my_fir_h4.\output_data_ready' using process `\my_fir_h4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:285$27'.
+  created $dff cell `$procdff$369' with positive edge clock.
+Creating register for signal `\my_fir_h4.\n_delay_reg1' using process `\my_fir_h4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:285$27'.
+  created $dff cell `$procdff$370' with positive edge clock.
+Creating register for signal `\my_fir_h4.\n_delay_reg2' using process `\my_fir_h4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:285$27'.
+  created $dff cell `$procdff$371' with positive edge clock.
+Creating register for signal `\my_fir_h4.\n_delay_reg3' using process `\my_fir_h4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:285$27'.
+  created $dff cell `$procdff$372' with positive edge clock.
+Creating register for signal `\my_fir_h4.\n_delay_reg4' using process `\my_fir_h4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:285$27'.
+  created $dff cell `$procdff$373' with positive edge clock.
+Creating register for signal `\my_fir_h4.\n_delay_reg5' using process `\my_fir_h4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:285$27'.
+  created $dff cell `$procdff$374' with positive edge clock.
+Creating register for signal `\my_fir_h4.\n_delay_reg6' using process `\my_fir_h4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:285$27'.
+  created $dff cell `$procdff$375' with positive edge clock.
+Creating register for signal `\steer_fltr.\re_z' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$376' with positive edge clock.
+Creating register for signal `\steer_fltr.\im_z' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$377' with positive edge clock.
+Creating register for signal `\steer_fltr.\re_p' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$378' with positive edge clock.
+Creating register for signal `\steer_fltr.\im_p' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$379' with positive edge clock.
+Creating register for signal `\steer_fltr.\re_n' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$380' with positive edge clock.
+Creating register for signal `\steer_fltr.\im_n' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$381' with positive edge clock.
+Creating register for signal `\steer_fltr.\re_z_tmp_1' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$382' with positive edge clock.
+Creating register for signal `\steer_fltr.\im_z_tmp_1' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$383' with positive edge clock.
+Creating register for signal `\steer_fltr.\re_p_tmp_1' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$384' with positive edge clock.
+Creating register for signal `\steer_fltr.\re_p_tmp_2' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$385' with positive edge clock.
+Creating register for signal `\steer_fltr.\re_p_tmp_3' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$386' with positive edge clock.
+Creating register for signal `\steer_fltr.\im_p_tmp_1' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$387' with positive edge clock.
+Creating register for signal `\steer_fltr.\im_p_tmp_2' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$388' with positive edge clock.
+Creating register for signal `\steer_fltr.\im_p_tmp_3' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$389' with positive edge clock.
+Creating register for signal `\steer_fltr.\im_p_tmp_4' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$390' with positive edge clock.
+Creating register for signal `\steer_fltr.\re_z_tmp' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$391' with positive edge clock.
+Creating register for signal `\steer_fltr.\im_z_tmp' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$392' with positive edge clock.
+Creating register for signal `\steer_fltr.\re_p_tmp' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$393' with positive edge clock.
+Creating register for signal `\steer_fltr.\im_p_tmp' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$394' with positive edge clock.
+Creating register for signal `\steer_fltr.\re_n_tmp' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$395' with positive edge clock.
+Creating register for signal `\steer_fltr.\im_n_tmp' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+  created $dff cell `$procdff$396' with positive edge clock.
+Creating register for signal `\steer_fltr.\f1_reg' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:226$10'.
+  created $dff cell `$procdff$397' with positive edge clock.
+Creating register for signal `\steer_fltr.\f2_reg' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:226$10'.
+  created $dff cell `$procdff$398' with positive edge clock.
+Creating register for signal `\steer_fltr.\f3_reg' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:226$10'.
+  created $dff cell `$procdff$399' with positive edge clock.
+Creating register for signal `\steer_fltr.\h1_reg' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:226$10'.
+  created $dff cell `$procdff$400' with positive edge clock.
+Creating register for signal `\steer_fltr.\h2_reg' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:226$10'.
+  created $dff cell `$procdff$401' with positive edge clock.
+Creating register for signal `\steer_fltr.\h3_reg' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:226$10'.
+  created $dff cell `$procdff$402' with positive edge clock.
+Creating register for signal `\steer_fltr.\h4_reg' using process `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:226$10'.
+  created $dff cell `$procdff$403' with positive edge clock.
+Creating register for signal `\h_fltr.\real_z_reg' using process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:169$9'.
+  created $dff cell `$procdff$404' with positive edge clock.
+Creating register for signal `\h_fltr.\imag_z_reg' using process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:169$9'.
+  created $dff cell `$procdff$405' with positive edge clock.
+Creating register for signal `\h_fltr.\real_p_reg' using process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:169$9'.
+  created $dff cell `$procdff$406' with positive edge clock.
+Creating register for signal `\h_fltr.\imag_p_reg' using process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:169$9'.
+  created $dff cell `$procdff$407' with positive edge clock.
+Creating register for signal `\h_fltr.\real_n_reg' using process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:169$9'.
+  created $dff cell `$procdff$408' with positive edge clock.
+Creating register for signal `\h_fltr.\imag_n_reg' using process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:169$9'.
+  created $dff cell `$procdff$409' with positive edge clock.
+Creating register for signal `\h_fltr.\vidin_out_reg_f1' using process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:136$1'.
+  created $dff cell `$procdff$410' with positive edge clock.
+Creating register for signal `\h_fltr.\vidin_out_reg_f2' using process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:136$1'.
+  created $dff cell `$procdff$411' with positive edge clock.
+Creating register for signal `\h_fltr.\vidin_out_reg_f3' using process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:136$1'.
+  created $dff cell `$procdff$412' with positive edge clock.
+Creating register for signal `\h_fltr.\vidin_out_reg_h1' using process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:136$1'.
+  created $dff cell `$procdff$413' with positive edge clock.
+Creating register for signal `\h_fltr.\vidin_out_reg_h2' using process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:136$1'.
+  created $dff cell `$procdff$414' with positive edge clock.
+Creating register for signal `\h_fltr.\vidin_out_reg_h3' using process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:136$1'.
+  created $dff cell `$procdff$415' with positive edge clock.
+Creating register for signal `\h_fltr.\vidin_out_reg_h4' using process `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:136$1'.
+  created $dff cell `$procdff$416' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\my_fir_f1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:565$109'.
+Removing empty process `my_fir_f1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:565$109'.
+Found and cleaned up 1 empty switch in `\my_fir_f2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:517$94'.
+Removing empty process `my_fir_f2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:517$94'.
+Found and cleaned up 1 empty switch in `\my_fir_f3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:470$81'.
+Removing empty process `my_fir_f3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:470$81'.
+Found and cleaned up 1 empty switch in `\my_fir_h1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:424$68'.
+Removing empty process `my_fir_h1.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:424$68'.
+Found and cleaned up 1 empty switch in `\my_fir_h2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:376$53'.
+Removing empty process `my_fir_h2.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:376$53'.
+Found and cleaned up 1 empty switch in `\my_fir_h3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:330$40'.
+Removing empty process `my_fir_h3.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:330$40'.
+Found and cleaned up 1 empty switch in `\my_fir_h4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:285$27'.
+Removing empty process `my_fir_h4.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:285$27'.
+Removing empty process `steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:240$12'.
+Found and cleaned up 1 empty switch in `\steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:226$10'.
+Removing empty process `steer_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:226$10'.
+Removing empty process `h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:169$9'.
+Found and cleaned up 7 empty switches in `\h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:136$1'.
+Removing empty process `h_fltr.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:136$1'.
+Cleaned up 15 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module my_fir_f1.
+<suppressed ~1 debug messages>
+Optimizing module my_fir_f2.
+<suppressed ~1 debug messages>
+Optimizing module my_fir_f3.
+<suppressed ~1 debug messages>
+Optimizing module my_fir_h1.
+<suppressed ~1 debug messages>
+Optimizing module my_fir_h2.
+<suppressed ~1 debug messages>
+Optimizing module my_fir_h3.
+<suppressed ~1 debug messages>
+Optimizing module my_fir_h4.
+<suppressed ~1 debug messages>
+Optimizing module steer_fltr.
+<suppressed ~1 debug messages>
+Optimizing module h_fltr.
+<suppressed ~7 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module my_fir_f1.
+Optimizing module my_fir_f2.
+<suppressed ~6 debug messages>
+Optimizing module my_fir_f3.
+<suppressed ~4 debug messages>
+Optimizing module my_fir_h1.
+Optimizing module my_fir_h2.
+<suppressed ~6 debug messages>
+Optimizing module my_fir_h3.
+<suppressed ~2 debug messages>
+Optimizing module my_fir_h4.
+<suppressed ~2 debug messages>
+Optimizing module steer_fltr.
+Optimizing module h_fltr.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\my_fir_f1'.
+Finding identical cells in module `\my_fir_f2'.
+Finding identical cells in module `\my_fir_f3'.
+Finding identical cells in module `\my_fir_h1'.
+Finding identical cells in module `\my_fir_h2'.
+Finding identical cells in module `\my_fir_h3'.
+Finding identical cells in module `\my_fir_h4'.
+Finding identical cells in module `\steer_fltr'.
+Finding identical cells in module `\h_fltr'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \my_fir_f1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \my_fir_f2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \my_fir_f3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \my_fir_h1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \my_fir_h2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \my_fir_h3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \my_fir_h4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \steer_fltr..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \h_fltr..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~70 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \my_fir_f1.
+  Optimizing cells in module \my_fir_f2.
+  Optimizing cells in module \my_fir_f3.
+  Optimizing cells in module \my_fir_h1.
+  Optimizing cells in module \my_fir_h2.
+  Optimizing cells in module \my_fir_h3.
+  Optimizing cells in module \my_fir_h4.
+  Optimizing cells in module \steer_fltr.
+  Optimizing cells in module \h_fltr.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\my_fir_f1'.
+Finding identical cells in module `\my_fir_f2'.
+Finding identical cells in module `\my_fir_f3'.
+Finding identical cells in module `\my_fir_h1'.
+Finding identical cells in module `\my_fir_h2'.
+Finding identical cells in module `\my_fir_h3'.
+Finding identical cells in module `\my_fir_h4'.
+Finding identical cells in module `\steer_fltr'.
+Finding identical cells in module `\h_fltr'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$327 ($dff) from module my_fir_f1 (D = \n_delay_reg5, Q = \n_delay_reg6).
+Adding EN signal on $procdff$320 ($dff) from module my_fir_f1 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:577$123_Y [27:0], Q = \dout).
+Adding EN signal on $procdff$322 ($dff) from module my_fir_f1 (D = \din, Q = \n_delay_reg1).
+Adding EN signal on $procdff$323 ($dff) from module my_fir_f1 (D = \n_delay_reg1, Q = \n_delay_reg2).
+Adding EN signal on $procdff$324 ($dff) from module my_fir_f1 (D = \n_delay_reg2, Q = \n_delay_reg3).
+Adding EN signal on $procdff$325 ($dff) from module my_fir_f1 (D = \n_delay_reg3, Q = \n_delay_reg4).
+Adding EN signal on $procdff$326 ($dff) from module my_fir_f1 (D = \n_delay_reg4, Q = \n_delay_reg5).
+Adding EN signal on $procdff$335 ($dff) from module my_fir_f2 (D = \n_delay_reg5, Q = \n_delay_reg6).
+Adding EN signal on $procdff$334 ($dff) from module my_fir_f2 (D = \n_delay_reg4, Q = \n_delay_reg5).
+Adding EN signal on $procdff$333 ($dff) from module my_fir_f2 (D = \n_delay_reg3, Q = \n_delay_reg4).
+Adding EN signal on $procdff$328 ($dff) from module my_fir_f2 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:529$108_Y [27:0], Q = \dout).
+Adding EN signal on $procdff$330 ($dff) from module my_fir_f2 (D = \din, Q = \n_delay_reg1).
+Adding EN signal on $procdff$331 ($dff) from module my_fir_f2 (D = \n_delay_reg1, Q = \n_delay_reg2).
+Adding EN signal on $procdff$332 ($dff) from module my_fir_f2 (D = \n_delay_reg2, Q = \n_delay_reg3).
+Adding EN signal on $procdff$343 ($dff) from module my_fir_f3 (D = \n_delay_reg5, Q = \n_delay_reg6).
+Adding EN signal on $procdff$336 ($dff) from module my_fir_f3 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:482$93_Y [27:0], Q = \dout).
+Adding EN signal on $procdff$338 ($dff) from module my_fir_f3 (D = \din, Q = \n_delay_reg1).
+Adding EN signal on $procdff$339 ($dff) from module my_fir_f3 (D = \n_delay_reg1, Q = \n_delay_reg2).
+Adding EN signal on $procdff$340 ($dff) from module my_fir_f3 (D = \n_delay_reg2, Q = \n_delay_reg3).
+Adding EN signal on $procdff$341 ($dff) from module my_fir_f3 (D = \n_delay_reg3, Q = \n_delay_reg4).
+Adding EN signal on $procdff$342 ($dff) from module my_fir_f3 (D = \n_delay_reg4, Q = \n_delay_reg5).
+Adding EN signal on $procdff$351 ($dff) from module my_fir_h1 (D = \n_delay_reg5, Q = \n_delay_reg6).
+Adding EN signal on $procdff$344 ($dff) from module my_fir_h1 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:436$80_Y [27:0], Q = \dout).
+Adding EN signal on $procdff$346 ($dff) from module my_fir_h1 (D = \din, Q = \n_delay_reg1).
+Adding EN signal on $procdff$347 ($dff) from module my_fir_h1 (D = \n_delay_reg1, Q = \n_delay_reg2).
+Adding EN signal on $procdff$348 ($dff) from module my_fir_h1 (D = \n_delay_reg2, Q = \n_delay_reg3).
+Adding EN signal on $procdff$349 ($dff) from module my_fir_h1 (D = \n_delay_reg3, Q = \n_delay_reg4).
+Adding EN signal on $procdff$350 ($dff) from module my_fir_h1 (D = \n_delay_reg4, Q = \n_delay_reg5).
+Adding EN signal on $procdff$359 ($dff) from module my_fir_h2 (D = \n_delay_reg5, Q = \n_delay_reg6).
+Adding EN signal on $procdff$358 ($dff) from module my_fir_h2 (D = \n_delay_reg4, Q = \n_delay_reg5).
+Adding EN signal on $procdff$357 ($dff) from module my_fir_h2 (D = \n_delay_reg3, Q = \n_delay_reg4).
+Adding EN signal on $procdff$352 ($dff) from module my_fir_h2 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:388$67_Y [27:0], Q = \dout).
+Adding EN signal on $procdff$354 ($dff) from module my_fir_h2 (D = \din, Q = \n_delay_reg1).
+Adding EN signal on $procdff$355 ($dff) from module my_fir_h2 (D = \n_delay_reg1, Q = \n_delay_reg2).
+Adding EN signal on $procdff$356 ($dff) from module my_fir_h2 (D = \n_delay_reg2, Q = \n_delay_reg3).
+Adding EN signal on $procdff$367 ($dff) from module my_fir_h3 (D = \n_delay_reg5, Q = \n_delay_reg6).
+Adding EN signal on $procdff$360 ($dff) from module my_fir_h3 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:342$52_Y [27:0], Q = \dout).
+Adding EN signal on $procdff$362 ($dff) from module my_fir_h3 (D = \din, Q = \n_delay_reg1).
+Adding EN signal on $procdff$363 ($dff) from module my_fir_h3 (D = \n_delay_reg1, Q = \n_delay_reg2).
+Adding EN signal on $procdff$364 ($dff) from module my_fir_h3 (D = \n_delay_reg2, Q = \n_delay_reg3).
+Adding EN signal on $procdff$365 ($dff) from module my_fir_h3 (D = \n_delay_reg3, Q = \n_delay_reg4).
+Adding EN signal on $procdff$366 ($dff) from module my_fir_h3 (D = \n_delay_reg4, Q = \n_delay_reg5).
+Adding EN signal on $procdff$375 ($dff) from module my_fir_h4 (D = \n_delay_reg5, Q = \n_delay_reg6).
+Adding EN signal on $procdff$368 ($dff) from module my_fir_h4 (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/stereovision2_submodules/h_fltr.v:297$39_Y [27:0], Q = \dout).
+Adding EN signal on $procdff$370 ($dff) from module my_fir_h4 (D = \din, Q = \n_delay_reg1).
+Adding EN signal on $procdff$371 ($dff) from module my_fir_h4 (D = \n_delay_reg1, Q = \n_delay_reg2).
+Adding EN signal on $procdff$372 ($dff) from module my_fir_h4 (D = \n_delay_reg2, Q = \n_delay_reg3).
+Adding EN signal on $procdff$373 ($dff) from module my_fir_h4 (D = \n_delay_reg3, Q = \n_delay_reg4).
+Adding EN signal on $procdff$374 ($dff) from module my_fir_h4 (D = \n_delay_reg4, Q = \n_delay_reg5).
+Adding EN signal on $procdff$403 ($dff) from module steer_fltr (D = \h4, Q = \h4_reg).
+Adding EN signal on $procdff$397 ($dff) from module steer_fltr (D = \f1, Q = \f1_reg).
+Adding EN signal on $procdff$398 ($dff) from module steer_fltr (D = \f2, Q = \f2_reg).
+Adding EN signal on $procdff$399 ($dff) from module steer_fltr (D = \f3, Q = \f3_reg).
+Adding EN signal on $procdff$400 ($dff) from module steer_fltr (D = \h1, Q = \h1_reg).
+Adding EN signal on $procdff$401 ($dff) from module steer_fltr (D = \h2, Q = \h2_reg).
+Adding EN signal on $procdff$402 ($dff) from module steer_fltr (D = \h3, Q = \h3_reg).
+Adding EN signal on $procdff$416 ($dff) from module h_fltr (D = \vidin_out_temp_h4, Q = \vidin_out_reg_h4).
+Adding EN signal on $procdff$415 ($dff) from module h_fltr (D = \vidin_out_temp_h3, Q = \vidin_out_reg_h3).
+Adding EN signal on $procdff$414 ($dff) from module h_fltr (D = \vidin_out_temp_h2, Q = \vidin_out_reg_h2).
+Adding EN signal on $procdff$413 ($dff) from module h_fltr (D = \vidin_out_temp_h1, Q = \vidin_out_reg_h1).
+Adding EN signal on $procdff$412 ($dff) from module h_fltr (D = \vidin_out_temp_f3, Q = \vidin_out_reg_f3).
+Adding EN signal on $procdff$411 ($dff) from module h_fltr (D = \vidin_out_temp_f2, Q = \vidin_out_reg_f2).
+Adding EN signal on $procdff$410 ($dff) from module h_fltr (D = \vidin_out_temp_f1, Q = \vidin_out_reg_f1).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \my_fir_f1..
+Finding unused cells or wires in module \my_fir_f2..
+Finding unused cells or wires in module \my_fir_f3..
+Finding unused cells or wires in module \my_fir_h1..
+Finding unused cells or wires in module \my_fir_h2..
+Finding unused cells or wires in module \my_fir_h3..
+Finding unused cells or wires in module \my_fir_h4..
+Finding unused cells or wires in module \steer_fltr..
+Finding unused cells or wires in module \h_fltr..
+Removed 63 unused cells and 255 unused wires.
+<suppressed ~78 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module h_fltr.
+Optimizing module my_fir_f1.
+Optimizing module my_fir_f2.
+Optimizing module my_fir_f3.
+Optimizing module my_fir_h1.
+Optimizing module my_fir_h2.
+Optimizing module my_fir_h3.
+Optimizing module my_fir_h4.
+Optimizing module steer_fltr.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \h_fltr..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \my_fir_f1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \my_fir_f2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \my_fir_f3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \my_fir_h1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \my_fir_h2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \my_fir_h3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \my_fir_h4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \steer_fltr..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~7 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \h_fltr.
+  Optimizing cells in module \my_fir_f1.
+  Optimizing cells in module \my_fir_f2.
+  Optimizing cells in module \my_fir_f3.
+  Optimizing cells in module \my_fir_h1.
+  Optimizing cells in module \my_fir_h2.
+  Optimizing cells in module \my_fir_h3.
+  Optimizing cells in module \my_fir_h4.
+  Optimizing cells in module \steer_fltr.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\h_fltr'.
+Finding identical cells in module `\my_fir_f1'.
+Finding identical cells in module `\my_fir_f2'.
+Finding identical cells in module `\my_fir_f3'.
+Finding identical cells in module `\my_fir_h1'.
+Finding identical cells in module `\my_fir_h2'.
+Finding identical cells in module `\my_fir_h3'.
+Finding identical cells in module `\my_fir_h4'.
+Finding identical cells in module `\steer_fltr'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \h_fltr..
+Finding unused cells or wires in module \my_fir_f1..
+Finding unused cells or wires in module \my_fir_f2..
+Finding unused cells or wires in module \my_fir_f3..
+Finding unused cells or wires in module \my_fir_h1..
+Finding unused cells or wires in module \my_fir_h2..
+Finding unused cells or wires in module \my_fir_h3..
+Finding unused cells or wires in module \my_fir_h4..
+Finding unused cells or wires in module \steer_fltr..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module h_fltr.
+Optimizing module my_fir_f1.
+Optimizing module my_fir_f2.
+Optimizing module my_fir_f3.
+Optimizing module my_fir_h1.
+Optimizing module my_fir_h2.
+Optimizing module my_fir_h3.
+Optimizing module my_fir_h4.
+Optimizing module steer_fltr.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== h_fltr ===
+
+   Number of wires:                 42
+   Number of wire bits:            705
+   Number of public wires:          42
+   Number of public wire bits:     705
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 21
+     $dff                           96
+     $dffe                         196
+
+=== my_fir_f1 ===
+
+   Number of wires:                 25
+   Number of wire bits:            560
+   Number of public wires:          11
+   Number of public wire bits:     143
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 22
+     $add                          192
+     $dff                            1
+     $dffe                         124
+     $mul                          224
+     $mux                            1
+
+=== my_fir_f2 ===
+
+   Number of wires:                 23
+   Number of wire bits:            496
+   Number of public wires:          11
+   Number of public wire bits:     143
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 20
+     $add                          192
+     $dff                            1
+     $dffe                         124
+     $mul                          158
+     $mux                            1
+
+=== my_fir_f3 ===
+
+   Number of wires:                 23
+   Number of wire bits:            496
+   Number of public wires:          11
+   Number of public wire bits:     143
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 20
+     $add                          160
+     $dff                            1
+     $dffe                         124
+     $mul                          184
+     $mux                            1
+
+=== my_fir_h1 ===
+
+   Number of wires:                 23
+   Number of wire bits:            496
+   Number of public wires:          11
+   Number of public wire bits:     143
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 20
+     $add                          160
+     $dff                            1
+     $dffe                         124
+     $mul                          192
+     $mux                            1
+
+=== my_fir_h2 ===
+
+   Number of wires:                 23
+   Number of wire bits:            496
+   Number of public wires:          11
+   Number of public wire bits:     143
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 20
+     $add                          192
+     $dff                            1
+     $dffe                         124
+     $mul                          158
+     $mux                            1
+
+=== my_fir_h3 ===
+
+   Number of wires:                 23
+   Number of wire bits:            496
+   Number of public wires:          11
+   Number of public wire bits:     143
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 20
+     $add                          160
+     $dff                            1
+     $dffe                         124
+     $mul                          186
+     $mux                            1
+
+=== my_fir_h4 ===
+
+   Number of wires:                 23
+   Number of wire bits:            496
+   Number of public wires:          11
+   Number of public wire bits:     143
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 20
+     $add                          160
+     $dff                            1
+     $dffe                         124
+     $mul                          186
+     $mux                            1
+
+=== steer_fltr ===
+
+   Number of wires:                 51
+   Number of wire bits:           1363
+   Number of public wires:          37
+   Number of public wire bits:     937
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 42
+     $add                          333
+     $dff                          543
+     $dffe                         196
+     $sub                           93
+
+=== design hierarchy ===
+
+   h_fltr                            1
+     my_fir_f1                       0
+     my_fir_f2                       0
+     my_fir_f3                       0
+     my_fir_h1                       0
+     my_fir_h2                       0
+     my_fir_h3                       0
+     my_fir_h4                       0
+     steer_fltr                      0
+
+   Number of wires:                 42
+   Number of wire bits:            705
+   Number of public wires:          42
+   Number of public wire bits:     705
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 21
+     $dff                           96
+     $dffe                         196
+
+End of script. Logfile hash: 78ceb5ffa3, CPU: user 0.26s system 0.00s, MEM: 14.42 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 31% 4x opt_expr (0 sec), 15% 2x read_verilog (0 sec), ...

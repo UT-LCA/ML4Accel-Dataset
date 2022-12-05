@@ -1,0 +1,254 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v' to AST representation.
+Generating RTLIL representation for module `\buffer_16_12100_buffer_init_23'.
+Generating RTLIL representation for module `\dual_port_ram'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: dual_port_ram       
+root of   1 design levels: buffer_16_12100_buffer_init_23
+Automatically selected buffer_16_12100_buffer_init_23 as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \buffer_16_12100_buffer_init_23
+Used module:     \dual_port_ram
+
+2.3. Analyzing design hierarchy..
+Top module:  \buffer_16_12100_buffer_init_23
+Used module:     \dual_port_ram
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:76$12 in module dual_port_ram.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:67$4 in module dual_port_ram.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 9 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:76$12'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:78$3_EN[15:0]$18
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:78$3_DATA[15:0]$17
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:78$3_ADDR[13:0]$16
+     4/4: $0\out2[15:0]
+Creating decoders for process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:67$4'.
+     1/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:69$2_EN[15:0]$10
+     2/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:69$2_DATA[15:0]$9
+     3/4: $1$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:69$2_ADDR[13:0]$8
+     4/4: $0\out1[15:0]
+Creating decoders for process `\buffer_16_12100_buffer_init_23.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:20$1'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\dual_port_ram.\out2' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:76$12'.
+  created $dff cell `$procdff$44' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:78$3_ADDR' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:76$12'.
+  created $dff cell `$procdff$45' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:78$3_DATA' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:76$12'.
+  created $dff cell `$procdff$46' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:78$3_EN' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:76$12'.
+  created $dff cell `$procdff$47' with positive edge clock.
+Creating register for signal `\dual_port_ram.\out1' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:67$4'.
+  created $dff cell `$procdff$48' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:69$2_ADDR' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:67$4'.
+  created $dff cell `$procdff$49' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:69$2_DATA' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:67$4'.
+  created $dff cell `$procdff$50' with positive edge clock.
+Creating register for signal `\dual_port_ram.$memwr$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:69$2_EN' using process `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:67$4'.
+  created $dff cell `$procdff$51' with positive edge clock.
+Creating register for signal `\buffer_16_12100_buffer_init_23.\raddr_reg' using process `\buffer_16_12100_buffer_init_23.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:20$1'.
+  created $dff cell `$procdff$52' with positive edge clock.
+Creating register for signal `\buffer_16_12100_buffer_init_23.\rdata_reg' using process `\buffer_16_12100_buffer_init_23.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:20$1'.
+  created $dff cell `$procdff$53' with positive edge clock.
+Creating register for signal `\buffer_16_12100_buffer_init_23.\pipeline_reg_0' using process `\buffer_16_12100_buffer_init_23.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:20$1'.
+  created $dff cell `$procdff$54' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:76$12'.
+Removing empty process `dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:76$12'.
+Found and cleaned up 1 empty switch in `\dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:67$4'.
+Removing empty process `dual_port_ram.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:67$4'.
+Removing empty process `buffer_16_12100_buffer_init_23.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:20$1'.
+Cleaned up 2 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dual_port_ram.
+Optimizing module buffer_16_12100_buffer_init_23.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dual_port_ram.
+Optimizing module buffer_16_12100_buffer_init_23.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dual_port_ram'.
+Finding identical cells in module `\buffer_16_12100_buffer_init_23'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \buffer_16_12100_buffer_init_23..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dual_port_ram.
+    Consolidated identical input bits for $mux cell $procmux$33:
+      Old ports: A=16'0000000000000000, B=16'1111111111111111, Y=$procmux$33_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$33_Y [0]
+      New connections: $procmux$33_Y [15:1] = { $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] $procmux$33_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$21:
+      Old ports: A=16'0000000000000000, B=16'1111111111111111, Y=$procmux$21_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$21_Y [0]
+      New connections: $procmux$21_Y [15:1] = { $procmux$21_Y [0] $procmux$21_Y [0] $procmux$21_Y [0] $procmux$21_Y [0] $procmux$21_Y [0] $procmux$21_Y [0] $procmux$21_Y [0] $procmux$21_Y [0] $procmux$21_Y [0] $procmux$21_Y [0] $procmux$21_Y [0] $procmux$21_Y [0] $procmux$21_Y [0] $procmux$21_Y [0] $procmux$21_Y [0] }
+  Optimizing cells in module \dual_port_ram.
+  Optimizing cells in module \buffer_16_12100_buffer_init_23.
+Performed a total of 2 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dual_port_ram'.
+Finding identical cells in module `\buffer_16_12100_buffer_init_23'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$44 ($dff) from module dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:81$19_DATA, Q = \out2).
+Adding EN signal on $procdff$48 ($dff) from module dual_port_ram (D = $memrd$\ram$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/dla_like.medium_submodules/buffer_16_12100_buffer_init_23.v:72$11_DATA, Q = \out1).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dual_port_ram..
+Finding unused cells or wires in module \buffer_16_12100_buffer_init_23..
+Removed 8 unused cells and 33 unused wires.
+<suppressed ~10 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buffer_16_12100_buffer_init_23.
+Optimizing module dual_port_ram.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \buffer_16_12100_buffer_init_23..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \dual_port_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \buffer_16_12100_buffer_init_23.
+  Optimizing cells in module \dual_port_ram.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\buffer_16_12100_buffer_init_23'.
+Finding identical cells in module `\dual_port_ram'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \buffer_16_12100_buffer_init_23..
+Finding unused cells or wires in module \dual_port_ram..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module buffer_16_12100_buffer_init_23.
+Optimizing module dual_port_ram.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== buffer_16_12100_buffer_init_23 ===
+
+   Number of wires:                 12
+   Number of wire bits:            156
+   Number of public wires:          12
+   Number of public wire bits:     156
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $dff                           46
+
+=== dual_port_ram ===
+
+   Number of wires:                 17
+   Number of wire bits:            219
+   Number of public wires:           9
+   Number of public wire bits:      95
+   Number of memories:               1
+   Number of memory bits:          224
+   Number of processes:              0
+   Number of cells:                 12
+     $dffe                          32
+     $mux                           62
+
+=== design hierarchy ===
+
+   buffer_16_12100_buffer_init_23      1
+     dual_port_ram                   0
+
+   Number of wires:                 12
+   Number of wire bits:            156
+   Number of public wires:          12
+   Number of public wire bits:     156
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $dff                           46
+
+End of script. Logfile hash: d0ae446c08, CPU: user 0.05s system 0.00s, MEM: 11.53 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 33% 4x opt_expr (0 sec), 16% 2x read_verilog (0 sec), ...

@@ -1,0 +1,535 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v' to AST representation.
+Generating RTLIL representation for module `\gng_interp'.
+Generating RTLIL representation for module `\gng_smul_16_18'.
+Generating RTLIL representation for module `\gng_smul_16_18_sadd_37'.
+Generating RTLIL representation for module `\gng_coef'.
+Generating RTLIL representation for module `\gng_lzd'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: gng_lzd             
+root of   0 design levels: gng_coef            
+root of   0 design levels: gng_smul_16_18_sadd_37
+root of   0 design levels: gng_smul_16_18      
+root of   1 design levels: gng_interp          
+Automatically selected gng_interp as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \gng_interp
+Used module:     \gng_smul_16_18
+Used module:     \gng_smul_16_18_sadd_37
+Used module:     \gng_coef
+Used module:     \gng_lzd
+
+2.3. Analyzing design hierarchy..
+Top module:  \gng_interp
+Used module:     \gng_smul_16_18
+Used module:     \gng_smul_16_18_sadd_37
+Used module:     \gng_coef
+Used module:     \gng_lzd
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:270$34 in module gng_coef.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:176$22 in module gng_interp.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:169$20 in module gng_interp.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:131$14 in module gng_interp.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:99$7 in module gng_interp.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:80$5 in module gng_interp.
+Marked 2 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:52$3 in module gng_interp.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:43$1 in module gng_interp.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 7 redundant assignments.
+Promoted 87 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+Creating decoders for process `\gng_coef.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:526$35'.
+Creating decoders for process `\gng_coef.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:270$34'.
+     1/1: $1\d[52:0]
+Creating decoders for process `\gng_smul_16_18_sadd_37.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:246$33'.
+Creating decoders for process `\gng_smul_16_18_sadd_37.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:240$30'.
+Creating decoders for process `\gng_smul_16_18_sadd_37.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:234$29'.
+Creating decoders for process `\gng_smul_16_18.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:207$27'.
+Creating decoders for process `\gng_smul_16_18.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:202$26'.
+Creating decoders for process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:176$22'.
+     1/1: $0\data_out[15:0]
+Creating decoders for process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:169$20'.
+     1/1: $0\valid_out[0:0]
+Creating decoders for process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:163$18'.
+Creating decoders for process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:159$16'.
+Creating decoders for process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:131$14'.
+     1/1: $0\valid_in_r[8:0]
+Creating decoders for process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:127$13'.
+Creating decoders for process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:119$12'.
+Creating decoders for process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:115$11'.
+Creating decoders for process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:108$9'.
+Creating decoders for process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:99$7'.
+     1/1: $0\x[14:0]
+Creating decoders for process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:80$5'.
+     1/1: $0\offset[1:0]
+Creating decoders for process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:52$3'.
+     1/1: $0\mask[14:0]
+Creating decoders for process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:43$1'.
+     1/1: $0\num_lzd_r[5:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\gng_lzd.\p1[0]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[1]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[2]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[3]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[4]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[5]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[6]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[7]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[8]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[9]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[10]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[11]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[12]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[13]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[14]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[15]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[16]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[17]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[18]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[19]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[20]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[21]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[22]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[23]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[24]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[25]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[26]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[27]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[28]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[29]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[30]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p1[31]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[0]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[1]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[2]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[3]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[4]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[5]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[6]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[7]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[8]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[9]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[10]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[11]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[12]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[13]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[14]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p2[15]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p3[0]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p3[1]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p3[2]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p3[3]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p3[4]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p3[5]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p3[6]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p3[7]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p4[0]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p4[1]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p4[2]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p4[3]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p5[0]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_lzd.\p5[1]' from process `\gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+No latch inferred for signal `\gng_coef.\d' from process `\gng_coef.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:270$34'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\gng_coef.\c0' using process `\gng_coef.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:526$35'.
+  created $dff cell `$procdff$484' with positive edge clock.
+Creating register for signal `\gng_coef.\c1' using process `\gng_coef.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:526$35'.
+  created $dff cell `$procdff$485' with positive edge clock.
+Creating register for signal `\gng_coef.\c2' using process `\gng_coef.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:526$35'.
+  created $dff cell `$procdff$486' with positive edge clock.
+Creating register for signal `\gng_smul_16_18_sadd_37.\result' using process `\gng_smul_16_18_sadd_37.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:246$33'.
+  created $dff cell `$procdff$487' with positive edge clock.
+Creating register for signal `\gng_smul_16_18_sadd_37.\prod' using process `\gng_smul_16_18_sadd_37.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:240$30'.
+  created $dff cell `$procdff$488' with positive edge clock.
+Creating register for signal `\gng_smul_16_18_sadd_37.\a_reg' using process `\gng_smul_16_18_sadd_37.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:234$29'.
+  created $dff cell `$procdff$489' with positive edge clock.
+Creating register for signal `\gng_smul_16_18_sadd_37.\b_reg' using process `\gng_smul_16_18_sadd_37.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:234$29'.
+  created $dff cell `$procdff$490' with positive edge clock.
+Creating register for signal `\gng_smul_16_18_sadd_37.\c_reg' using process `\gng_smul_16_18_sadd_37.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:234$29'.
+  created $dff cell `$procdff$491' with positive edge clock.
+Creating register for signal `\gng_smul_16_18.\prod' using process `\gng_smul_16_18.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:207$27'.
+  created $dff cell `$procdff$492' with positive edge clock.
+Creating register for signal `\gng_smul_16_18.\a_reg' using process `\gng_smul_16_18.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:202$26'.
+  created $dff cell `$procdff$493' with positive edge clock.
+Creating register for signal `\gng_smul_16_18.\b_reg' using process `\gng_smul_16_18.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:202$26'.
+  created $dff cell `$procdff$494' with positive edge clock.
+Creating register for signal `\gng_interp.\data_out' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:176$22'.
+  created $dff cell `$procdff$495' with positive edge clock.
+Creating register for signal `\gng_interp.\valid_out' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:169$20'.
+  created $dff cell `$procdff$496' with positive edge clock.
+Creating register for signal `\gng_interp.\sum2_rnd' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:163$18'.
+  created $dff cell `$procdff$497' with positive edge clock.
+Creating register for signal `\gng_interp.\sum2' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:159$16'.
+  created $dff cell `$procdff$498' with positive edge clock.
+Creating register for signal `\gng_interp.\valid_in_r' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:131$14'.
+  created $dff cell `$procdff$499' with positive edge clock.
+Creating register for signal `\gng_interp.\sign_r' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:127$13'.
+  created $dff cell `$procdff$500' with positive edge clock.
+Creating register for signal `\gng_interp.\c0_r1' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:119$12'.
+  created $dff cell `$procdff$501' with positive edge clock.
+Creating register for signal `\gng_interp.\c0_r2' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:119$12'.
+  created $dff cell `$procdff$502' with positive edge clock.
+Creating register for signal `\gng_interp.\c0_r3' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:119$12'.
+  created $dff cell `$procdff$503' with positive edge clock.
+Creating register for signal `\gng_interp.\c0_r4' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:119$12'.
+  created $dff cell `$procdff$504' with positive edge clock.
+Creating register for signal `\gng_interp.\c0_r5' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:119$12'.
+  created $dff cell `$procdff$505' with positive edge clock.
+Creating register for signal `\gng_interp.\c1_r1' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:115$11'.
+  created $dff cell `$procdff$506' with positive edge clock.
+Creating register for signal `\gng_interp.\x_r1' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:108$9'.
+  created $dff cell `$procdff$507' with positive edge clock.
+Creating register for signal `\gng_interp.\x_r2' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:108$9'.
+  created $dff cell `$procdff$508' with positive edge clock.
+Creating register for signal `\gng_interp.\x_r3' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:108$9'.
+  created $dff cell `$procdff$509' with positive edge clock.
+Creating register for signal `\gng_interp.\x_r4' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:108$9'.
+  created $dff cell `$procdff$510' with positive edge clock.
+Creating register for signal `\gng_interp.\x' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:99$7'.
+  created $dff cell `$procdff$511' with positive edge clock.
+Creating register for signal `\gng_interp.\offset' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:80$5'.
+  created $dff cell `$procdff$512' with positive edge clock.
+Creating register for signal `\gng_interp.\mask' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:52$3'.
+  created $dff cell `$procdff$513' with positive edge clock.
+Creating register for signal `\gng_interp.\num_lzd_r' using process `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:43$1'.
+  created $dff cell `$procdff$514' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `gng_lzd.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:0$100'.
+Removing empty process `gng_coef.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:526$35'.
+Found and cleaned up 1 empty switch in `\gng_coef.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:270$34'.
+Removing empty process `gng_coef.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:270$34'.
+Removing empty process `gng_smul_16_18_sadd_37.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:246$33'.
+Removing empty process `gng_smul_16_18_sadd_37.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:240$30'.
+Removing empty process `gng_smul_16_18_sadd_37.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:234$29'.
+Removing empty process `gng_smul_16_18.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:207$27'.
+Removing empty process `gng_smul_16_18.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:202$26'.
+Found and cleaned up 2 empty switches in `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:176$22'.
+Removing empty process `gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:176$22'.
+Found and cleaned up 1 empty switch in `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:169$20'.
+Removing empty process `gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:169$20'.
+Removing empty process `gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:163$18'.
+Removing empty process `gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:159$16'.
+Found and cleaned up 1 empty switch in `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:131$14'.
+Removing empty process `gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:131$14'.
+Removing empty process `gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:127$13'.
+Removing empty process `gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:119$12'.
+Removing empty process `gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:115$11'.
+Removing empty process `gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:108$9'.
+Found and cleaned up 1 empty switch in `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:99$7'.
+Removing empty process `gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:99$7'.
+Found and cleaned up 1 empty switch in `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:80$5'.
+Removing empty process `gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:80$5'.
+Found and cleaned up 2 empty switches in `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:52$3'.
+Removing empty process `gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:52$3'.
+Found and cleaned up 1 empty switch in `\gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:43$1'.
+Removing empty process `gng_interp.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:43$1'.
+Cleaned up 10 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gng_lzd.
+<suppressed ~9 debug messages>
+Optimizing module gng_coef.
+<suppressed ~1 debug messages>
+Optimizing module gng_smul_16_18_sadd_37.
+Optimizing module gng_smul_16_18.
+Optimizing module gng_interp.
+<suppressed ~7 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gng_lzd.
+Optimizing module gng_coef.
+Optimizing module gng_smul_16_18_sadd_37.
+Optimizing module gng_smul_16_18.
+Optimizing module gng_interp.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gng_lzd'.
+Finding identical cells in module `\gng_coef'.
+Finding identical cells in module `\gng_smul_16_18_sadd_37'.
+Finding identical cells in module `\gng_smul_16_18'.
+Finding identical cells in module `\gng_interp'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \gng_lzd..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \gng_coef..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \gng_smul_16_18_sadd_37..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \gng_smul_16_18..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \gng_interp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \gng_lzd.
+  Optimizing cells in module \gng_coef.
+  Optimizing cells in module \gng_smul_16_18_sadd_37.
+  Optimizing cells in module \gng_smul_16_18.
+  Optimizing cells in module \gng_interp.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gng_lzd'.
+Finding identical cells in module `\gng_coef'.
+Finding identical cells in module `\gng_smul_16_18_sadd_37'.
+Finding identical cells in module `\gng_smul_16_18'.
+Finding identical cells in module `\gng_interp'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$511 ($dff) from module gng_interp (D = { \data_in [3] \data_in [4] \data_in [5] \data_in [6] \data_in [7] \data_in [8] \data_in [9] \data_in [10] \data_in [11] \data_in [12] \data_in [13] \data_in [14] \data_in [15] \data_in [16] \data_in [17] }, Q = \x, rval = 15'000000000000000).
+Adding SRST signal on $procdff$512 ($dff) from module gng_interp (D = { \data_in [1] \data_in [2] }, Q = \offset, rval = 2'00).
+Adding SRST signal on $procdff$513 ($dff) from module gng_interp (D = $procmux$462_Y, Q = \mask, rval = 15'111111111111111).
+Adding SRST signal on $procdff$514 ($dff) from module gng_interp (D = \num_lzd, Q = \num_lzd_r, rval = 6'000000).
+Adding SRST signal on $procdff$495 ($dff) from module gng_interp (D = $procmux$444_Y [14:0], Q = \data_out [14:0], rval = 15'000000000000000).
+Adding SRST signal on $procdff$495 ($dff) from module gng_interp (D = $add$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/gng_submodules/gng_interp.v:180$25_Y [15], Q = \data_out [15], rval = 1'0).
+Adding SRST signal on $procdff$496 ($dff) from module gng_interp (D = \valid_in_r [8], Q = \valid_out, rval = 1'0).
+Adding SRST signal on $procdff$499 ($dff) from module gng_interp (D = { \valid_in_r [7:0] \valid_in }, Q = \valid_in_r, rval = 9'000000000).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gng_lzd..
+Finding unused cells or wires in module \gng_coef..
+Finding unused cells or wires in module \gng_smul_16_18_sadd_37..
+Finding unused cells or wires in module \gng_smul_16_18..
+Finding unused cells or wires in module \gng_interp..
+Removed 8 unused cells and 275 unused wires.
+<suppressed ~13 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gng_coef.
+Optimizing module gng_interp.
+Optimizing module gng_lzd.
+Optimizing module gng_smul_16_18.
+Optimizing module gng_smul_16_18_sadd_37.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \gng_coef..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \gng_interp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \gng_lzd..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \gng_smul_16_18..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \gng_smul_16_18_sadd_37..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \gng_coef.
+  Optimizing cells in module \gng_interp.
+  Optimizing cells in module \gng_lzd.
+  Optimizing cells in module \gng_smul_16_18.
+  Optimizing cells in module \gng_smul_16_18_sadd_37.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gng_coef'.
+Finding identical cells in module `\gng_interp'.
+Finding identical cells in module `\gng_lzd'.
+Finding identical cells in module `\gng_smul_16_18'.
+Finding identical cells in module `\gng_smul_16_18_sadd_37'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gng_coef..
+Finding unused cells or wires in module \gng_interp..
+Finding unused cells or wires in module \gng_lzd..
+Finding unused cells or wires in module \gng_smul_16_18..
+Finding unused cells or wires in module \gng_smul_16_18_sadd_37..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gng_coef.
+Optimizing module gng_interp.
+Optimizing module gng_lzd.
+Optimizing module gng_smul_16_18.
+Optimizing module gng_smul_16_18_sadd_37.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== gng_coef ===
+
+   Number of wires:                254
+   Number of wire bits:            363
+   Number of public wires:           6
+   Number of public wire bits:     115
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                252
+     $dff                           53
+     $eq                          1976
+     $logic_not                      8
+     $pmux                          53
+
+=== gng_interp ===
+
+   Number of wires:                 56
+   Number of wire bits:            640
+   Number of public wires:          33
+   Number of public wire bits:     513
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 48
+     $add                           50
+     $and                           15
+     $dff                          211
+     $eq                            90
+     $mux                           16
+     $not                           15
+     $pmux                          15
+     $reduce_and                     2
+     $sdff                          64
+
+=== gng_lzd ===
+
+   Number of wires:                 71
+   Number of wire bits:            313
+   Number of public wires:          71
+   Number of public wire bits:     313
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                147
+     $mux                           56
+     $not                           61
+     $or                            56
+
+=== gng_smul_16_18 ===
+
+   Number of wires:                  8
+   Number of wire bits:            171
+   Number of public wires:           7
+   Number of public wire bits:     137
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $dff                           68
+     $mul                           34
+
+=== gng_smul_16_18_sadd_37 ===
+
+   Number of wires:                 12
+   Number of wire bits:            325
+   Number of public wires:          11
+   Number of public wire bits:     291
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  7
+     $add                           38
+     $dff                          143
+     $mul                           34
+
+=== design hierarchy ===
+
+   gng_interp                        1
+     gng_coef                        0
+     gng_lzd                         0
+     gng_smul_16_18                  0
+     gng_smul_16_18_sadd_37          0
+
+   Number of wires:                 56
+   Number of wire bits:            640
+   Number of public wires:          33
+   Number of public wire bits:     513
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 48
+     $add                           50
+     $and                           15
+     $dff                          211
+     $eq                            90
+     $mux                           16
+     $not                           15
+     $pmux                          15
+     $reduce_and                     2
+     $sdff                          64
+
+End of script. Logfile hash: 401b3d9cf8, CPU: user 0.36s system 0.01s, MEM: 16.33 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 34% 2x opt_reduce (0 sec), 15% 4x opt_expr (0 sec), ...

@@ -1,0 +1,921 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v' to AST representation.
+Generating RTLIL representation for module `\lstm_top'.
+Generating RTLIL representation for module `\signedmul'.
+Generating RTLIL representation for module `\tanh'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:234.1-263.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:265.1-350.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\qadd2'.
+Generating RTLIL representation for module `\vecmat_add_h'.
+Generating RTLIL representation for module `\vecmat_add_x'.
+Generating RTLIL representation for module `\vecmat_mul_h'.
+Generating RTLIL representation for module `\vecmat_mul_x'.
+Generating RTLIL representation for module `\sigmoid'.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:871.1-927.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:930.1-1107.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: sigmoid             
+root of   1 design levels: vecmat_mul_x        
+root of   1 design levels: vecmat_mul_h        
+root of   1 design levels: vecmat_add_x        
+root of   1 design levels: vecmat_add_h        
+root of   0 design levels: qadd2               
+root of   0 design levels: tanh                
+root of   0 design levels: signedmul           
+root of   2 design levels: lstm_top            
+Automatically selected lstm_top as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \lstm_top
+Used module:     \signedmul
+Used module:     \tanh
+Used module:     \qadd2
+Used module:     \vecmat_add_h
+Used module:     \vecmat_add_x
+Used module:     \vecmat_mul_h
+Used module:     \vecmat_mul_x
+Used module:     \sigmoid
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\vecmat_add_h'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Generating RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\vecmat_add_x'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Generating RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+
+2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\vecmat_mul_h'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Generating RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+
+2.6. Executing AST frontend in derive mode using pre-parsed AST for module `\vecmat_mul_x'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Generating RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Found cached RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Found cached RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Found cached RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Found cached RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Found cached RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Found cached RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Found cached RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Found cached RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Found cached RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Found cached RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x'.
+Parameter 1 (\uarraysize) = 1024
+Parameter 2 (\vectwidth) = 64
+Found cached RTLIL representation for module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h'.
+Parameter 1 (\varraysize) = 1600
+Parameter 2 (\vectwidth) = 100
+Found cached RTLIL representation for module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x'.
+
+2.7. Analyzing design hierarchy..
+Top module:  \lstm_top
+Used module:     \signedmul
+Used module:     \tanh
+Used module:     \qadd2
+Used module:     $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h
+Used module:     $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x
+Used module:     $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h
+Used module:     $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x
+Used module:     \sigmoid
+
+2.8. Analyzing design hierarchy..
+Top module:  \lstm_top
+Used module:     \signedmul
+Used module:     \tanh
+Used module:     \qadd2
+Used module:     $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h
+Used module:     $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x
+Used module:     $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h
+Used module:     $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x
+Used module:     \sigmoid
+Removing unused module `\vecmat_mul_x'.
+Removing unused module `\vecmat_mul_h'.
+Removing unused module `\vecmat_add_x'.
+Removing unused module `\vecmat_add_h'.
+Removed 4 unused modules.
+Mapping positional arguments of cell lstm_top.tan_c2 (tanh).
+Mapping positional arguments of cell lstm_top.tan_c1 (tanh).
+Mapping positional arguments of cell lstm_top.sigo (sigmoid).
+Mapping positional arguments of cell lstm_top.sigi (sigmoid).
+Mapping positional arguments of cell lstm_top.sigf (sigmoid).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:930$101 in module sigmoid.
+Marked 36 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:930$101 in module sigmoid.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:871$100 in module sigmoid.
+Marked 26 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:265$23 in module tanh.
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:234$22 in module tanh.
+Removed a total of 1 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 48 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sigmoid.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:930$101'.
+     1/36: $36\address[5:0]
+     2/36: $35\address[5:0]
+     3/36: $34\address[5:0]
+     4/36: $33\address[5:0]
+     5/36: $32\address[5:0]
+     6/36: $31\address[5:0]
+     7/36: $30\address[5:0]
+     8/36: $29\address[5:0]
+     9/36: $28\address[5:0]
+    10/36: $27\address[5:0]
+    11/36: $26\address[5:0]
+    12/36: $25\address[5:0]
+    13/36: $24\address[5:0]
+    14/36: $23\address[5:0]
+    15/36: $22\address[5:0]
+    16/36: $21\address[5:0]
+    17/36: $20\address[5:0]
+    18/36: $19\address[5:0]
+    19/36: $18\address[5:0]
+    20/36: $17\address[5:0]
+    21/36: $16\address[5:0]
+    22/36: $15\address[5:0]
+    23/36: $14\address[5:0]
+    24/36: $13\address[5:0]
+    25/36: $12\address[5:0]
+    26/36: $11\address[5:0]
+    27/36: $10\address[5:0]
+    28/36: $9\address[5:0]
+    29/36: $8\address[5:0]
+    30/36: $7\address[5:0]
+    31/36: $6\address[5:0]
+    32/36: $5\address[5:0]
+    33/36: $4\address[5:0]
+    34/36: $3\address[5:0]
+    35/36: $2\address[5:0]
+    36/36: $1\address[5:0]
+Creating decoders for process `\sigmoid.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:871$100'.
+     1/1: $1\lut[15:0]
+Creating decoders for process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:741$199'.
+     1/2: $0\vector[1599:0]
+     2/2: $0\matrix[1599:0]
+Creating decoders for process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:638$197'.
+     1/2: $0\vector[1023:0]
+     2/2: $0\matrix[1023:0]
+Creating decoders for process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+     1/14: $0\ff73[15:0]
+     2/14: $0\ff71[15:0]
+     3/14: $0\ff69[15:0]
+     4/14: $0\ff67[15:0]
+     5/14: $0\ff65[15:0]
+     6/14: $0\ff63[15:0]
+     7/14: $0\ff61[15:0]
+     8/14: $0\ff59[15:0]
+     9/14: $0\ff57[15:0]
+    10/14: $0\ff55[15:0]
+    11/14: $0\ff53[15:0]
+    12/14: $0\ff51[15:0]
+    13/14: $0\ff49[15:0]
+    14/14: $0\data_out[15:0]
+Creating decoders for process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+     1/17: $0\ff31[15:0]
+     2/17: $0\ff29[15:0]
+     3/17: $0\ff27[15:0]
+     4/17: $0\ff25[15:0]
+     5/17: $0\ff23[15:0]
+     6/17: $0\ff21[15:0]
+     7/17: $0\ff19[15:0]
+     8/17: $0\ff17[15:0]
+     9/17: $0\ff15[15:0]
+    10/17: $0\ff13[15:0]
+    11/17: $0\ff11[15:0]
+    12/17: $0\ff9[15:0]
+    13/17: $0\ff7[15:0]
+    14/17: $0\ff5[15:0]
+    15/17: $0\ff3[15:0]
+    16/17: $0\ff1[15:0]
+    17/17: $0\data_out[15:0]
+Creating decoders for process `\tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:265$23'.
+     1/26: $26\address[4:0]
+     2/26: $25\address[4:0]
+     3/26: $24\address[4:0]
+     4/26: $23\address[4:0]
+     5/26: $22\address[4:0]
+     6/26: $21\address[4:0]
+     7/26: $20\address[4:0]
+     8/26: $19\address[4:0]
+     9/26: $18\address[4:0]
+    10/26: $17\address[4:0]
+    11/26: $16\address[4:0]
+    12/26: $15\address[4:0]
+    13/26: $14\address[4:0]
+    14/26: $13\address[4:0]
+    15/26: $12\address[4:0]
+    16/26: $11\address[4:0]
+    17/26: $10\address[4:0]
+    18/26: $9\address[4:0]
+    19/26: $8\address[4:0]
+    20/26: $7\address[4:0]
+    21/26: $6\address[4:0]
+    22/26: $5\address[4:0]
+    23/26: $4\address[4:0]
+    24/26: $3\address[4:0]
+    25/26: $2\address[4:0]
+    26/26: $1\address[4:0]
+Creating decoders for process `\tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:234$22'.
+     1/1: $1\lut[15:0]
+Creating decoders for process `\signedmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:206$15'.
+Creating decoders for process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\sigmoid.\address' from process `\sigmoid.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:930$101': $auto$proc_dlatch.cc:427:proc_dlatch$2549
+No latch inferred for signal `\sigmoid.\lut' from process `\sigmoid.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:871$100'.
+Latch inferred for signal `\tanh.\address' from process `\tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:265$23': $auto$proc_dlatch.cc:427:proc_dlatch$3672
+No latch inferred for signal `\tanh.\lut' from process `\tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:234$22'.
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x.\matrix' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:741$199'.
+  created $dff cell `$procdff$3673' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x.\vector' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:741$199'.
+  created $dff cell `$procdff$3674' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h.\matrix' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:638$197'.
+  created $dff cell `$procdff$3675' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h.\vector' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:638$197'.
+  created $dff cell `$procdff$3676' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\data_out' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3677' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\ff49' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3678' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\ff51' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3679' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\ff53' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3680' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\ff55' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3681' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\ff57' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3682' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\ff59' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3683' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\ff61' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3684' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\ff63' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3685' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\ff65' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3686' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\ff67' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3687' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\ff69' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3688' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\ff71' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3689' with positive edge clock.
+Creating register for signal `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.\ff73' using process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+  created $dff cell `$procdff$3690' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\data_out' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3691' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff1' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3692' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff3' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3693' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff5' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3694' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff7' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3695' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff9' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3696' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff11' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3697' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff13' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3698' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff15' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3699' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff17' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3700' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff19' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3701' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff21' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3702' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff23' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3703' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff25' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3704' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff27' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3705' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff29' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3706' with positive edge clock.
+Creating register for signal `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.\ff31' using process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+  created $dff cell `$procdff$3707' with positive edge clock.
+Creating register for signal `\signedmul.\a_ff' using process `\signedmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:206$15'.
+  created $dff cell `$procdff$3708' with positive edge clock.
+Creating register for signal `\signedmul.\b_ff' using process `\signedmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:206$15'.
+  created $dff cell `$procdff$3709' with positive edge clock.
+Creating register for signal `\signedmul.\result_ff' using process `\signedmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:206$15'.
+  created $dff cell `$procdff$3710' with positive edge clock.
+Creating register for signal `\signedmul.\a_sign' using process `\signedmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:206$15'.
+  created $dff cell `$procdff$3711' with positive edge clock.
+Creating register for signal `\signedmul.\b_sign' using process `\signedmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:206$15'.
+  created $dff cell `$procdff$3712' with positive edge clock.
+Creating register for signal `\signedmul.\a_sign_ff' using process `\signedmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:206$15'.
+  created $dff cell `$procdff$3713' with positive edge clock.
+Creating register for signal `\signedmul.\b_sign_ff' using process `\signedmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:206$15'.
+  created $dff cell `$procdff$3714' with positive edge clock.
+Creating register for signal `\lstm_top.\mac_fx_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3715' with positive edge clock.
+Creating register for signal `\lstm_top.\mac_fh_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3716' with positive edge clock.
+Creating register for signal `\lstm_top.\add_f_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3717' with positive edge clock.
+Creating register for signal `\lstm_top.\addb_f_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3718' with positive edge clock.
+Creating register for signal `\lstm_top.\sig_fo_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3719' with positive edge clock.
+Creating register for signal `\lstm_top.\mac_ix_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3720' with positive edge clock.
+Creating register for signal `\lstm_top.\mac_ih_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3721' with positive edge clock.
+Creating register for signal `\lstm_top.\add_i_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3722' with positive edge clock.
+Creating register for signal `\lstm_top.\addb_i_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3723' with positive edge clock.
+Creating register for signal `\lstm_top.\sig_io_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3724' with positive edge clock.
+Creating register for signal `\lstm_top.\mac_ox_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3725' with positive edge clock.
+Creating register for signal `\lstm_top.\mac_oh_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3726' with positive edge clock.
+Creating register for signal `\lstm_top.\add_o_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3727' with positive edge clock.
+Creating register for signal `\lstm_top.\addb_o_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3728' with positive edge clock.
+Creating register for signal `\lstm_top.\sig_oo_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3729' with positive edge clock.
+Creating register for signal `\lstm_top.\mac_cx_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3730' with positive edge clock.
+Creating register for signal `\lstm_top.\mac_ch_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3731' with positive edge clock.
+Creating register for signal `\lstm_top.\add_c_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3732' with positive edge clock.
+Creating register for signal `\lstm_top.\addb_c_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3733' with positive edge clock.
+Creating register for signal `\lstm_top.\tan_c_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3734' with positive edge clock.
+Creating register for signal `\lstm_top.\elmul_co_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3735' with positive edge clock.
+Creating register for signal `\lstm_top.\add_cf_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3736' with positive edge clock.
+Creating register for signal `\lstm_top.\tan_h_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3737' with positive edge clock.
+Creating register for signal `\lstm_top.\elmul_fo_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3738' with positive edge clock.
+Creating register for signal `\lstm_top.\mulout_ih_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3739' with positive edge clock.
+Creating register for signal `\lstm_top.\mulout_fh_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3740' with positive edge clock.
+Creating register for signal `\lstm_top.\mulout_oh_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3741' with positive edge clock.
+Creating register for signal `\lstm_top.\mulout_ch_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3742' with positive edge clock.
+Creating register for signal `\lstm_top.\mulout_ix_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3743' with positive edge clock.
+Creating register for signal `\lstm_top.\mulout_fx_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3744' with positive edge clock.
+Creating register for signal `\lstm_top.\mulout_ox_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3745' with positive edge clock.
+Creating register for signal `\lstm_top.\mulout_cx_reg' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3746' with positive edge clock.
+Creating register for signal `\lstm_top.\sig_oo_d1' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3747' with positive edge clock.
+Creating register for signal `\lstm_top.\sig_oo_d2' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3748' with positive edge clock.
+Creating register for signal `\lstm_top.\sig_oo_d3' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3749' with positive edge clock.
+Creating register for signal `\lstm_top.\sig_oo_d4' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3750' with positive edge clock.
+Creating register for signal `\lstm_top.\sig_oo_d5' using process `\lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+  created $dff cell `$procdff$3751' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 36 empty switches in `\sigmoid.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:930$101'.
+Removing empty process `sigmoid.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:930$101'.
+Found and cleaned up 1 empty switch in `\sigmoid.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:871$100'.
+Removing empty process `sigmoid.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:871$100'.
+Found and cleaned up 1 empty switch in `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:741$199'.
+Removing empty process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:741$199'.
+Found and cleaned up 1 empty switch in `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:638$197'.
+Removing empty process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:638$197'.
+Found and cleaned up 1 empty switch in `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+Removing empty process `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:489$195'.
+Found and cleaned up 1 empty switch in `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+Removing empty process `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:375$193'.
+Found and cleaned up 26 empty switches in `\tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:265$23'.
+Removing empty process `tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:265$23'.
+Found and cleaned up 1 empty switch in `\tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:234$22'.
+Removing empty process `tanh.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:234$22'.
+Removing empty process `signedmul.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:206$15'.
+Removing empty process `lstm_top.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:89$1'.
+Cleaned up 68 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sigmoid.
+<suppressed ~414 debug messages>
+Optimizing module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x.
+<suppressed ~2 debug messages>
+Optimizing module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h.
+<suppressed ~2 debug messages>
+Optimizing module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.
+<suppressed ~14 debug messages>
+Optimizing module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.
+<suppressed ~17 debug messages>
+Optimizing module qadd2.
+Optimizing module tanh.
+<suppressed ~441 debug messages>
+Optimizing module signedmul.
+Optimizing module lstm_top.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sigmoid.
+Optimizing module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x.
+Optimizing module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h.
+Optimizing module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.
+Optimizing module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.
+Optimizing module qadd2.
+Optimizing module tanh.
+Optimizing module signedmul.
+Optimizing module lstm_top.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sigmoid'.
+<suppressed ~711 debug messages>
+Finding identical cells in module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x'.
+Finding identical cells in module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h'.
+Finding identical cells in module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x'.
+Finding identical cells in module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h'.
+Finding identical cells in module `\qadd2'.
+Finding identical cells in module `\tanh'.
+<suppressed ~444 debug messages>
+Finding identical cells in module `\signedmul'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\lstm_top'.
+Removed a total of 386 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sigmoid..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \qadd2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \tanh..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:231$18: \x -> { 1'0 \x [14:0] }
+  Analyzing evaluation results.
+Running muxtree optimizer on module \signedmul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:203$13: \b -> { 1'0 \b [14:0] }
+      Replacing known input bits on port A of cell $ternary$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:202$10: \a -> { 1'0 \a [14:0] }
+  Analyzing evaluation results.
+Running muxtree optimizer on module \lstm_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~44 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sigmoid.
+    New ctrl vector for $pmux cell $procmux$831: { $procmux$842_CMP $procmux$841_CMP $procmux$840_CMP $procmux$839_CMP $procmux$838_CMP $procmux$837_CMP $procmux$836_CMP $auto$opt_reduce.cc:134:opt_mux$3753 }
+  Optimizing cells in module \sigmoid.
+  Optimizing cells in module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x.
+  Optimizing cells in module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h.
+  Optimizing cells in module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.
+  Optimizing cells in module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.
+  Optimizing cells in module \qadd2.
+  Optimizing cells in module \tanh.
+  Optimizing cells in module \signedmul.
+  Optimizing cells in module \lstm_top.
+Performed a total of 1 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sigmoid'.
+Finding identical cells in module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x'.
+Finding identical cells in module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h'.
+Finding identical cells in module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x'.
+Finding identical cells in module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h'.
+Finding identical cells in module `\qadd2'.
+Finding identical cells in module `\tanh'.
+Finding identical cells in module `\signedmul'.
+Finding identical cells in module `\lstm_top'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$3673 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x (D = \W, Q = \matrix).
+Adding EN signal on $procdff$3674 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x (D = \data, Q = \vector).
+Adding EN signal on $procdff$3675 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h (D = \W, Q = \matrix).
+Adding EN signal on $procdff$3676 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h (D = \data, Q = \vector).
+Adding EN signal on $procdff$3677 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp97, Q = \data_out).
+Adding EN signal on $procdff$3678 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp49, Q = \ff49).
+Adding EN signal on $procdff$3679 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp51, Q = \ff51).
+Adding EN signal on $procdff$3680 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp53, Q = \ff53).
+Adding EN signal on $procdff$3681 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp55, Q = \ff55).
+Adding EN signal on $procdff$3682 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp57, Q = \ff57).
+Adding EN signal on $procdff$3683 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp59, Q = \ff59).
+Adding EN signal on $procdff$3684 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp61, Q = \ff61).
+Adding EN signal on $procdff$3685 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp63, Q = \ff63).
+Adding EN signal on $procdff$3686 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp65, Q = \ff65).
+Adding EN signal on $procdff$3687 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp67, Q = \ff67).
+Adding EN signal on $procdff$3688 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp69, Q = \ff69).
+Adding EN signal on $procdff$3689 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp71, Q = \ff71).
+Adding EN signal on $procdff$3690 ($dff) from module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x (D = \tmp73, Q = \ff73).
+Adding EN signal on $procdff$3691 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp61, Q = \data_out).
+Adding EN signal on $procdff$3692 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp1, Q = \ff1).
+Adding EN signal on $procdff$3693 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp3, Q = \ff3).
+Adding EN signal on $procdff$3694 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp5, Q = \ff5).
+Adding EN signal on $procdff$3695 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp7, Q = \ff7).
+Adding EN signal on $procdff$3696 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp9, Q = \ff9).
+Adding EN signal on $procdff$3697 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp11, Q = \ff11).
+Adding EN signal on $procdff$3698 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp13, Q = \ff13).
+Adding EN signal on $procdff$3699 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp15, Q = \ff15).
+Adding EN signal on $procdff$3700 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp17, Q = \ff17).
+Adding EN signal on $procdff$3701 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp19, Q = \ff19).
+Adding EN signal on $procdff$3702 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp21, Q = \ff21).
+Adding EN signal on $procdff$3703 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp23, Q = \ff23).
+Adding EN signal on $procdff$3704 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp25, Q = \ff25).
+Adding EN signal on $procdff$3705 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp27, Q = \ff27).
+Adding EN signal on $procdff$3706 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp29, Q = \ff29).
+Adding EN signal on $procdff$3707 ($dff) from module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h (D = \tmp31, Q = \ff31).
+Adding SRST signal on $procdff$3708 ($dff) from module signedmul (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:202$9_Y [15], Q = \a_ff [15], rval = 1'0).
+Adding SRST signal on $procdff$3709 ($dff) from module signedmul (D = $add$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/koios/lstm_submodules/lstm_top.v:203$12_Y [15], Q = \b_ff [15], rval = 1'0).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sigmoid..
+Finding unused cells or wires in module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x..
+Finding unused cells or wires in module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h..
+Finding unused cells or wires in module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x..
+Finding unused cells or wires in module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h..
+Finding unused cells or wires in module \qadd2..
+Finding unused cells or wires in module \tanh..
+Finding unused cells or wires in module \signedmul..
+Finding unused cells or wires in module \lstm_top..
+Removed 50 unused cells and 1804 unused wires.
+<suppressed ~169 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.
+Optimizing module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h.
+Optimizing module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.
+Optimizing module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x.
+Optimizing module lstm_top.
+Optimizing module qadd2.
+Optimizing module sigmoid.
+Optimizing module signedmul.
+Optimizing module tanh.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \lstm_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \qadd2..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \sigmoid..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \signedmul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \tanh..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.
+  Optimizing cells in module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h.
+  Optimizing cells in module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.
+  Optimizing cells in module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x.
+  Optimizing cells in module \lstm_top.
+  Optimizing cells in module \qadd2.
+  Optimizing cells in module \sigmoid.
+  Optimizing cells in module \signedmul.
+  Optimizing cells in module \tanh.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h'.
+Finding identical cells in module `$paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h'.
+Finding identical cells in module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x'.
+Finding identical cells in module `$paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x'.
+Finding identical cells in module `\lstm_top'.
+Finding identical cells in module `\qadd2'.
+Finding identical cells in module `\sigmoid'.
+Finding identical cells in module `\signedmul'.
+Finding identical cells in module `\tanh'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h..
+Finding unused cells or wires in module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h..
+Finding unused cells or wires in module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x..
+Finding unused cells or wires in module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x..
+Finding unused cells or wires in module \lstm_top..
+Finding unused cells or wires in module \qadd2..
+Finding unused cells or wires in module \sigmoid..
+Finding unused cells or wires in module \signedmul..
+Finding unused cells or wires in module \tanh..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h.
+Optimizing module $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h.
+Optimizing module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x.
+Optimizing module $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x.
+Optimizing module lstm_top.
+Optimizing module qadd2.
+Optimizing module sigmoid.
+Optimizing module signedmul.
+Optimizing module tanh.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h ===
+
+   Number of wires:                 83
+   Number of wire bits:           2306
+   Number of public wires:          83
+   Number of public wire bits:    2306
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 80
+     $dffe                         272
+
+=== $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h ===
+
+   Number of wires:                  7
+   Number of wire bits:           5122
+   Number of public wires:           7
+   Number of public wire bits:    5122
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 66
+     $dffe                        2048
+
+=== $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x ===
+
+   Number of wires:                116
+   Number of wire bits:           3410
+   Number of public wires:         116
+   Number of public wire bits:    3410
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                113
+     $dffe                         224
+
+=== $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x ===
+
+   Number of wires:                  7
+   Number of wire bits:           8002
+   Number of public wires:           7
+   Number of public wire bits:    8002
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                102
+     $dffe                        3200
+
+=== lstm_top ===
+
+   Number of wires:                 84
+   Number of wire bits:          35010
+   Number of public wires:          84
+   Number of public wire bits:   35010
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 66
+     $dff                        10896
+
+=== qadd2 ===
+
+   Number of wires:                  3
+   Number of wire bits:             48
+   Number of public wires:           3
+   Number of public wire bits:      48
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $add                           16
+
+=== sigmoid ===
+
+   Number of wires:                229
+   Number of wire bits:            424
+   Number of public wires:           4
+   Number of public wire bits:      54
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                227
+     $and                          116
+     $dlatch                         6
+     $eq                           328
+     $ge                            12
+     $gt                            48
+     $le                            48
+     $logic_and                      4
+     $logic_not                     10
+     $mux                          168
+     $not                            5
+     $pmux                          22
+     $reduce_or                     11
+
+=== signedmul ===
+
+   Number of wires:                 21
+   Number of wire bits:            278
+   Number of public wires:          14
+   Number of public wire bits:     181
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 20
+     $add                           48
+     $dff                           66
+     $eq                             1
+     $mul                           32
+     $mux                           48
+     $not                           48
+     $sdff                           2
+
+=== tanh ===
+
+   Number of wires:                254
+   Number of wire bits:            465
+   Number of public wires:           5
+   Number of public wire bits:      69
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                253
+     $add                           32
+     $and                          145
+     $dlatch                         5
+     $eq                           123
+     $ge                           208
+     $logic_and                     11
+     $logic_not                      9
+     $lt                           176
+     $mux                          137
+     $not                           45
+     $pmux                          21
+     $reduce_or                      5
+
+=== design hierarchy ===
+
+   lstm_top                          1
+     $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_add_h      0
+       qadd2                         0
+     $paramod$22dc68451fcf4317fe294a8b8f6b7ec558c9fd5a\vecmat_mul_h      0
+       signedmul                     0
+     $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_add_x      0
+       qadd2                         0
+     $paramod$e3a666739cb884d69c4ef7b922d700778df0ab7e\vecmat_mul_x      0
+       signedmul                     0
+     qadd2                           0
+     sigmoid                         0
+     signedmul                       0
+     tanh                            0
+
+   Number of wires:                 84
+   Number of wire bits:          35010
+   Number of public wires:          84
+   Number of public wire bits:   35010
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 66
+     $dff                        10896
+
+End of script. Logfile hash: 976ba5cb9d, CPU: user 1.34s system 0.02s, MEM: 49.25 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 28% 2x opt_clean (0 sec), 14% 2x opt_dff (0 sec), ...

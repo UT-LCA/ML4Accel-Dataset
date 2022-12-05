@@ -1,0 +1,191 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/InternalsBlock_Reflector.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/InternalsBlock_Reflector.v' to AST representation.
+Generating RTLIL representation for module `\InternalsBlock_Reflector'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: InternalsBlock_Reflector
+Automatically selected InternalsBlock_Reflector as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \InternalsBlock_Reflector
+
+2.3. Analyzing design hierarchy..
+Top module:  \InternalsBlock_Reflector
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/InternalsBlock_Reflector.v:122$1 in module InternalsBlock_Reflector.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\InternalsBlock_Reflector.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/InternalsBlock_Reflector.v:122$1'.
+     1/7: $0\o_uy_transmitted[31:0]
+     2/7: $0\o_ux_transmitted[31:0]
+     3/7: $0\o_uz2_2[63:0]
+     4/7: $0\o_sa2_2[63:0]
+     5/7: $0\o_oneMinusUz_2[63:0]
+     6/7: $0\o_uz2[31:0]
+     7/7: $0\o_uz_2[63:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\InternalsBlock_Reflector.\o_uz_2' using process `\InternalsBlock_Reflector.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/InternalsBlock_Reflector.v:122$1'.
+  created $dff cell `$procdff$37' with positive edge clock.
+Creating register for signal `\InternalsBlock_Reflector.\o_uz2' using process `\InternalsBlock_Reflector.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/InternalsBlock_Reflector.v:122$1'.
+  created $dff cell `$procdff$38' with positive edge clock.
+Creating register for signal `\InternalsBlock_Reflector.\o_oneMinusUz_2' using process `\InternalsBlock_Reflector.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/InternalsBlock_Reflector.v:122$1'.
+  created $dff cell `$procdff$39' with positive edge clock.
+Creating register for signal `\InternalsBlock_Reflector.\o_sa2_2' using process `\InternalsBlock_Reflector.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/InternalsBlock_Reflector.v:122$1'.
+  created $dff cell `$procdff$40' with positive edge clock.
+Creating register for signal `\InternalsBlock_Reflector.\o_uz2_2' using process `\InternalsBlock_Reflector.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/InternalsBlock_Reflector.v:122$1'.
+  created $dff cell `$procdff$41' with positive edge clock.
+Creating register for signal `\InternalsBlock_Reflector.\o_ux_transmitted' using process `\InternalsBlock_Reflector.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/InternalsBlock_Reflector.v:122$1'.
+  created $dff cell `$procdff$42' with positive edge clock.
+Creating register for signal `\InternalsBlock_Reflector.\o_uy_transmitted' using process `\InternalsBlock_Reflector.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/InternalsBlock_Reflector.v:122$1'.
+  created $dff cell `$procdff$43' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\InternalsBlock_Reflector.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/InternalsBlock_Reflector.v:122$1'.
+Removing empty process `InternalsBlock_Reflector.$proc$/home/zhigang/raw_data/raw_designs/vtr_designs/verilog/mcml_submodules/InternalsBlock_Reflector.v:122$1'.
+Cleaned up 2 empty switches.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module InternalsBlock_Reflector.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module InternalsBlock_Reflector.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\InternalsBlock_Reflector'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \InternalsBlock_Reflector..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~7 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \InternalsBlock_Reflector.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\InternalsBlock_Reflector'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$37 ($dff) from module InternalsBlock_Reflector (D = $procmux$32_Y, Q = \o_uz_2, rval = 64'0011111111111111111111111111111111111111111111111111111111111111).
+Adding EN signal on $auto$ff.cc:262:slice$44 ($sdff) from module InternalsBlock_Reflector (D = \i_uz_2, Q = \o_uz_2).
+Adding SRST signal on $procdff$38 ($dff) from module InternalsBlock_Reflector (D = $procmux$27_Y, Q = \o_uz2, rval = 2147483647).
+Adding EN signal on $auto$ff.cc:262:slice$46 ($sdff) from module InternalsBlock_Reflector (D = \i_uz2, Q = \o_uz2).
+Adding SRST signal on $procdff$39 ($dff) from module InternalsBlock_Reflector (D = $procmux$22_Y, Q = \o_oneMinusUz_2, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$48 ($sdff) from module InternalsBlock_Reflector (D = \i_oneMinusUz_2, Q = \o_oneMinusUz_2).
+Adding SRST signal on $procdff$40 ($dff) from module InternalsBlock_Reflector (D = $procmux$17_Y, Q = \o_sa2_2, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$50 ($sdff) from module InternalsBlock_Reflector (D = \i_sa2_2, Q = \o_sa2_2).
+Adding SRST signal on $procdff$41 ($dff) from module InternalsBlock_Reflector (D = $procmux$12_Y, Q = \o_uz2_2, rval = 64'0011111111111111111111111111111111111111111111111111111111111111).
+Adding EN signal on $auto$ff.cc:262:slice$52 ($sdff) from module InternalsBlock_Reflector (D = \i_uz2_2, Q = \o_uz2_2).
+Adding SRST signal on $procdff$42 ($dff) from module InternalsBlock_Reflector (D = $procmux$7_Y, Q = \o_ux_transmitted, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$54 ($sdff) from module InternalsBlock_Reflector (D = \i_ux_transmitted, Q = \o_ux_transmitted).
+Adding SRST signal on $procdff$43 ($dff) from module InternalsBlock_Reflector (D = $procmux$2_Y, Q = \o_uy_transmitted, rval = 0).
+Adding EN signal on $auto$ff.cc:262:slice$56 ($sdff) from module InternalsBlock_Reflector (D = \i_uy_transmitted, Q = \o_uy_transmitted).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \InternalsBlock_Reflector..
+Removed 14 unused cells and 35 unused wires.
+<suppressed ~15 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module InternalsBlock_Reflector.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \InternalsBlock_Reflector..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \InternalsBlock_Reflector.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\InternalsBlock_Reflector'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \InternalsBlock_Reflector..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module InternalsBlock_Reflector.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== InternalsBlock_Reflector ===
+
+   Number of wires:                 17
+   Number of wire bits:            707
+   Number of public wires:          17
+   Number of public wire bits:     707
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  7
+     $sdffe                        352
+
+End of script. Logfile hash: 4d7344d173, CPU: user 0.06s system 0.00s, MEM: 12.46 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 28% 4x opt_expr (0 sec), 21% 2x opt_clean (0 sec), ...

@@ -1,0 +1,963 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/bnn.v
+Parsing SystemVerilog input from `/home/zhigang/DATA/raw_designs/vtr_designs/verilog/koios/bnn.v' to AST representation.
+Generating RTLIL representation for module `\dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_1'.
+Generating RTLIL representation for module `\dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_2'.
+Generating RTLIL representation for module `\dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_s'.
+Generating RTLIL representation for module `\dense_latency_ap_fixed_ap_fixed_config14_0_0_0_0_0_0'.
+Generating RTLIL representation for module `\myproject_mul_16s_10ns_26_2_0_MulnS_4'.
+Generating RTLIL representation for module `\myproject_mul_16s_10ns_26_2_0'.
+Generating RTLIL representation for module `\myproject_mul_16s_11ns_26_2_0_MulnS_1'.
+Generating RTLIL representation for module `\myproject_mul_16s_11ns_26_2_0'.
+Generating RTLIL representation for module `\myproject_mul_16s_12ns_26_2_0_MulnS_0'.
+Generating RTLIL representation for module `\myproject_mul_16s_12ns_26_2_0'.
+Generating RTLIL representation for module `\myproject_mul_16s_13ns_26_2_0_MulnS_2'.
+Generating RTLIL representation for module `\myproject_mul_16s_13ns_26_2_0'.
+Generating RTLIL representation for module `\myproject_mul_16s_8ns_24_2_0_MulnS_5'.
+Generating RTLIL representation for module `\myproject_mul_16s_8ns_24_2_0'.
+Generating RTLIL representation for module `\myproject_mul_16s_9ns_25_2_0_MulnS_3'.
+Generating RTLIL representation for module `\myproject_mul_16s_9ns_25_2_0'.
+Generating RTLIL representation for module `\myproject'.
+Generating RTLIL representation for module `\normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_1'.
+Generating RTLIL representation for module `\normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_2'.
+Generating RTLIL representation for module `\normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_s'.
+Generating RTLIL representation for module `\normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0'.
+Generating RTLIL representation for module `\relu_max_ap_fixed_ap_fixed_1_relu1_config13_s'.
+Generating RTLIL representation for module `\relu_max_ap_fixed_ap_fixed_1_relu1_config5_s'.
+Generating RTLIL representation for module `\relu_max_ap_fixed_ap_fixed_1_relu1_config9_s'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: relu_max_ap_fixed_ap_fixed_1_relu1_config9_s
+root of   0 design levels: relu_max_ap_fixed_ap_fixed_1_relu1_config5_s
+root of   0 design levels: relu_max_ap_fixed_ap_fixed_1_relu1_config13_s
+root of   2 design levels: normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0
+root of   2 design levels: normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_s
+root of   2 design levels: normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_2
+root of   2 design levels: normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_1
+root of   3 design levels: myproject           
+root of   1 design levels: myproject_mul_16s_9ns_25_2_0
+root of   0 design levels: myproject_mul_16s_9ns_25_2_0_MulnS_3
+root of   1 design levels: myproject_mul_16s_8ns_24_2_0
+root of   0 design levels: myproject_mul_16s_8ns_24_2_0_MulnS_5
+root of   1 design levels: myproject_mul_16s_13ns_26_2_0
+root of   0 design levels: myproject_mul_16s_13ns_26_2_0_MulnS_2
+root of   1 design levels: myproject_mul_16s_12ns_26_2_0
+root of   0 design levels: myproject_mul_16s_12ns_26_2_0_MulnS_0
+root of   1 design levels: myproject_mul_16s_11ns_26_2_0
+root of   0 design levels: myproject_mul_16s_11ns_26_2_0_MulnS_1
+root of   1 design levels: myproject_mul_16s_10ns_26_2_0
+root of   0 design levels: myproject_mul_16s_10ns_26_2_0_MulnS_4
+root of   0 design levels: dense_latency_ap_fixed_ap_fixed_config14_0_0_0_0_0_0
+root of   0 design levels: dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_s
+root of   0 design levels: dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_2
+root of   0 design levels: dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_1
+Automatically selected myproject as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \myproject
+Used module:     \normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0
+Used module:         \myproject_mul_16s_9ns_25_2_0
+Used module:             \myproject_mul_16s_9ns_25_2_0_MulnS_3
+Used module:     \relu_max_ap_fixed_ap_fixed_1_relu1_config13_s
+Used module:     \relu_max_ap_fixed_ap_fixed_1_relu1_config9_s
+Used module:     \relu_max_ap_fixed_ap_fixed_1_relu1_config5_s
+Used module:     \dense_latency_ap_fixed_ap_fixed_config14_0_0_0_0_0_0
+Used module:     \normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_s
+Used module:         \myproject_mul_16s_10ns_26_2_0
+Used module:             \myproject_mul_16s_10ns_26_2_0_MulnS_4
+Used module:     \normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_2
+Used module:         \myproject_mul_16s_11ns_26_2_0
+Used module:             \myproject_mul_16s_11ns_26_2_0_MulnS_1
+Used module:         \myproject_mul_16s_8ns_24_2_0
+Used module:             \myproject_mul_16s_8ns_24_2_0_MulnS_5
+Used module:     \normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_1
+Used module:         \myproject_mul_16s_13ns_26_2_0
+Used module:             \myproject_mul_16s_13ns_26_2_0_MulnS_2
+Used module:         \myproject_mul_16s_12ns_26_2_0
+Used module:             \myproject_mul_16s_12ns_26_2_0_MulnS_0
+Used module:     \dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_1
+Used module:     \dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_2
+Used module:     \dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_s
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 13
+Parameter \dout_WIDTH = 26
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\myproject_mul_16s_13ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 13
+Parameter \dout_WIDTH = 26
+Generating RTLIL representation for module `$paramod$c930608449b9447e164d2770ef98965886712494\myproject_mul_16s_13ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Generating RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+
+2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Generating RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 13
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$c930608449b9447e164d2770ef98965886712494\myproject_mul_16s_13ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 13
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$c930608449b9447e164d2770ef98965886712494\myproject_mul_16s_13ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 13
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$c930608449b9447e164d2770ef98965886712494\myproject_mul_16s_13ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 12
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+
+2.6. Executing AST frontend in derive mode using pre-parsed AST for module `\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Generating RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+
+2.7. Executing AST frontend in derive mode using pre-parsed AST for module `\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Generating RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 11
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 8
+Parameter \dout_WIDTH = 24
+
+2.8. Executing AST frontend in derive mode using pre-parsed AST for module `\myproject_mul_16s_8ns_24_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 8
+Parameter \dout_WIDTH = 24
+Generating RTLIL representation for module `$paramod$550c09fdea8284353e3c76802c597bf3d4e95998\myproject_mul_16s_8ns_24_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 10
+Parameter \dout_WIDTH = 26
+Found cached RTLIL representation for module `$paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+Parameter \ID = 1
+Parameter \NUM_STAGE = 2
+Parameter \din0_WIDTH = 16
+Parameter \din1_WIDTH = 9
+Parameter \dout_WIDTH = 25
+Found cached RTLIL representation for module `$paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0'.
+
+2.9. Analyzing design hierarchy..
+Top module:  \myproject
+Used module:     \normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0
+Used module:         $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0
+Used module:             \myproject_mul_16s_9ns_25_2_0_MulnS_3
+Used module:     \relu_max_ap_fixed_ap_fixed_1_relu1_config13_s
+Used module:     \relu_max_ap_fixed_ap_fixed_1_relu1_config9_s
+Used module:     \relu_max_ap_fixed_ap_fixed_1_relu1_config5_s
+Used module:     \dense_latency_ap_fixed_ap_fixed_config14_0_0_0_0_0_0
+Used module:     \normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_s
+Used module:         $paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0
+Used module:             \myproject_mul_16s_10ns_26_2_0_MulnS_4
+Used module:     \normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_2
+Used module:         $paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0
+Used module:             \myproject_mul_16s_11ns_26_2_0_MulnS_1
+Used module:         $paramod$550c09fdea8284353e3c76802c597bf3d4e95998\myproject_mul_16s_8ns_24_2_0
+Used module:             \myproject_mul_16s_8ns_24_2_0_MulnS_5
+Used module:     \normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_1
+Used module:         $paramod$c930608449b9447e164d2770ef98965886712494\myproject_mul_16s_13ns_26_2_0
+Used module:             \myproject_mul_16s_13ns_26_2_0_MulnS_2
+Used module:         $paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0
+Used module:             \myproject_mul_16s_12ns_26_2_0_MulnS_0
+Used module:     \dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_1
+Used module:     \dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_2
+Used module:     \dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_s
+
+2.10. Analyzing design hierarchy..
+Top module:  \myproject
+Used module:     \normalize_ap_fixed_ap_fixed_config16_0_0_0_0_0_0_0_0_0_0
+Used module:         $paramod$984ecd35e0f89596ee5f02ee0100f9125a86007a\myproject_mul_16s_9ns_25_2_0
+Used module:             \myproject_mul_16s_9ns_25_2_0_MulnS_3
+Used module:     \relu_max_ap_fixed_ap_fixed_1_relu1_config13_s
+Used module:     \relu_max_ap_fixed_ap_fixed_1_relu1_config9_s
+Used module:     \relu_max_ap_fixed_ap_fixed_1_relu1_config5_s
+Used module:     \dense_latency_ap_fixed_ap_fixed_config14_0_0_0_0_0_0
+Used module:     \normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_s
+Used module:         $paramod$06ed9e44535b073d8948b994de3cf7848819b6b5\myproject_mul_16s_10ns_26_2_0
+Used module:             \myproject_mul_16s_10ns_26_2_0_MulnS_4
+Used module:     \normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_2
+Used module:         $paramod$7f0a320bc5e26b892d2fafdb055ed84c02c7ec6b\myproject_mul_16s_11ns_26_2_0
+Used module:             \myproject_mul_16s_11ns_26_2_0_MulnS_1
+Used module:         $paramod$550c09fdea8284353e3c76802c597bf3d4e95998\myproject_mul_16s_8ns_24_2_0
+Used module:             \myproject_mul_16s_8ns_24_2_0_MulnS_5
+Used module:     \normalize_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_1
+Used module:         $paramod$c930608449b9447e164d2770ef98965886712494\myproject_mul_16s_13ns_26_2_0
+Used module:             \myproject_mul_16s_13ns_26_2_0_MulnS_2
+Used module:         $paramod$ba914997bfc9b4edf1973d51a5957c60a5cecff0\myproject_mul_16s_12ns_26_2_0
+Used module:             \myproject_mul_16s_12ns_26_2_0_MulnS_0
+Used module:     \dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_1
+Used module:     \dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_2
+Used module:     \dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_s
+Removing unused module `\myproject_mul_16s_9ns_25_2_0'.
+Removing unused module `\myproject_mul_16s_8ns_24_2_0'.
+Removing unused module `\myproject_mul_16s_13ns_26_2_0'.
+Removing unused module `\myproject_mul_16s_12ns_26_2_0'.
+Removing unused module `\myproject_mul_16s_11ns_26_2_0'.
+Removing unused module `\myproject_mul_16s_10ns_26_2_0'.
+Removed 6 unused modules.
+
+End of script. Logfile hash: 1f26a0ba3b, CPU: user 1.28s system 0.05s, MEM: 141.15 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 97% 2x read_verilog (1 sec), 2% 1x hierarchy (0 sec)

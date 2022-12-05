@@ -1,0 +1,168 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+
+
+-- Executing script file `out.ys' --
+
+1. Executing Verilog-2005 frontend: /home/zhigang/raw_data/raw_designs/opencores/arithmetic/tiny_tate_bilinear_pairing_submodules/rom.v
+Parsing SystemVerilog input from `/home/zhigang/raw_data/raw_designs/opencores/arithmetic/tiny_tate_bilinear_pairing_submodules/rom.v' to AST representation.
+Generating RTLIL representation for module `\rom'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: rom                 
+Automatically selected rom as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \rom
+
+2.3. Analyzing design hierarchy..
+Top module:  \rom
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/tiny_tate_bilinear_pairing_submodules/rom.v:22$1 in module rom.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\rom.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/tiny_tate_bilinear_pairing_submodules/rom.v:22$1'.
+     1/1: $0\out[28:0]
+
+3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\rom.\out' using process `\rom.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/tiny_tate_bilinear_pairing_submodules/rom.v:22$1'.
+  created $dff cell `$procdff$428' with positive edge clock.
+
+3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\rom.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/tiny_tate_bilinear_pairing_submodules/rom.v:22$1'.
+Removing empty process `rom.$proc$/home/zhigang/raw_data/raw_designs/opencores/arithmetic/tiny_tate_bilinear_pairing_submodules/rom.v:22$1'.
+Cleaned up 1 empty switch.
+
+3.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rom.
+<suppressed ~1 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rom.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rom'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \rom..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \rom.
+    New ctrl vector for $pmux cell $procmux$3: { $procmux$427_CMP $procmux$426_CMP $procmux$425_CMP $procmux$423_CMP $procmux$422_CMP $procmux$421_CMP $procmux$420_CMP $procmux$419_CMP $procmux$418_CMP $procmux$417_CMP $procmux$416_CMP $procmux$415_CMP $procmux$414_CMP $procmux$413_CMP $procmux$411_CMP $procmux$410_CMP $procmux$409_CMP $procmux$408_CMP $procmux$407_CMP $procmux$406_CMP $procmux$405_CMP $procmux$404_CMP $procmux$403_CMP $procmux$402_CMP $procmux$401_CMP $procmux$400_CMP $procmux$399_CMP $procmux$398_CMP $procmux$397_CMP $auto$opt_reduce.cc:134:opt_mux$492 $procmux$395_CMP $procmux$394_CMP $procmux$393_CMP $procmux$392_CMP $procmux$391_CMP $procmux$390_CMP $procmux$389_CMP $procmux$388_CMP $auto$opt_reduce.cc:134:opt_mux$490 $procmux$386_CMP $procmux$385_CMP $procmux$383_CMP $procmux$382_CMP $procmux$380_CMP $procmux$379_CMP $procmux$378_CMP $procmux$377_CMP $procmux$376_CMP $procmux$374_CMP $procmux$373_CMP $procmux$372_CMP $procmux$370_CMP $procmux$369_CMP $procmux$368_CMP $procmux$367_CMP $procmux$366_CMP $procmux$365_CMP $procmux$364_CMP $procmux$363_CMP $procmux$362_CMP $procmux$361_CMP $procmux$360_CMP $procmux$359_CMP $procmux$358_CMP $procmux$357_CMP $procmux$356_CMP $procmux$355_CMP $procmux$354_CMP $procmux$353_CMP $procmux$352_CMP $procmux$351_CMP $procmux$350_CMP $procmux$349_CMP $procmux$348_CMP $procmux$347_CMP $procmux$346_CMP $procmux$345_CMP $procmux$344_CMP $procmux$343_CMP $procmux$342_CMP $procmux$341_CMP $procmux$340_CMP $procmux$339_CMP $procmux$338_CMP $procmux$337_CMP $procmux$336_CMP $procmux$335_CMP $procmux$334_CMP $procmux$333_CMP $procmux$332_CMP $procmux$330_CMP $procmux$329_CMP $procmux$327_CMP $procmux$326_CMP $procmux$325_CMP $procmux$323_CMP $procmux$322_CMP $procmux$321_CMP $procmux$320_CMP $procmux$319_CMP $procmux$318_CMP $procmux$317_CMP $procmux$316_CMP $procmux$315_CMP $procmux$314_CMP $procmux$313_CMP $procmux$312_CMP $procmux$311_CMP $procmux$310_CMP $procmux$309_CMP $procmux$308_CMP $procmux$307_CMP $procmux$306_CMP $procmux$305_CMP $procmux$304_CMP $procmux$303_CMP $procmux$302_CMP $procmux$301_CMP $procmux$300_CMP $procmux$299_CMP $procmux$298_CMP $procmux$297_CMP $procmux$296_CMP $procmux$295_CMP $procmux$294_CMP $procmux$293_CMP $procmux$292_CMP $procmux$291_CMP $procmux$290_CMP $procmux$289_CMP $procmux$287_CMP $procmux$285_CMP $auto$opt_reduce.cc:134:opt_mux$488 $procmux$283_CMP $procmux$282_CMP $auto$opt_reduce.cc:134:opt_mux$486 $procmux$280_CMP $procmux$279_CMP $procmux$278_CMP $procmux$277_CMP $procmux$276_CMP $procmux$275_CMP $procmux$274_CMP $procmux$273_CMP $procmux$272_CMP $procmux$271_CMP $procmux$270_CMP $procmux$269_CMP $procmux$267_CMP $procmux$266_CMP $procmux$265_CMP $procmux$264_CMP $procmux$263_CMP $procmux$261_CMP $procmux$260_CMP $procmux$259_CMP $procmux$258_CMP $procmux$257_CMP $procmux$256_CMP $procmux$255_CMP $procmux$254_CMP $procmux$253_CMP $procmux$252_CMP $procmux$251_CMP $procmux$250_CMP $procmux$249_CMP $procmux$248_CMP $procmux$246_CMP $procmux$245_CMP $procmux$244_CMP $procmux$243_CMP $procmux$241_CMP $procmux$239_CMP $procmux$237_CMP $auto$opt_reduce.cc:134:opt_mux$484 $procmux$235_CMP $auto$opt_reduce.cc:134:opt_mux$482 $procmux$233_CMP $procmux$231_CMP $procmux$229_CMP $procmux$227_CMP $procmux$225_CMP $auto$opt_reduce.cc:134:opt_mux$480 $procmux$223_CMP $auto$opt_reduce.cc:134:opt_mux$478 $procmux$220_CMP $procmux$219_CMP $procmux$218_CMP $procmux$217_CMP $procmux$216_CMP $auto$opt_reduce.cc:134:opt_mux$476 $procmux$214_CMP $procmux$212_CMP $procmux$211_CMP $procmux$210_CMP $procmux$206_CMP $procmux$205_CMP $procmux$204_CMP $procmux$203_CMP $procmux$202_CMP $procmux$200_CMP $procmux$199_CMP $auto$opt_reduce.cc:134:opt_mux$474 $procmux$197_CMP $procmux$196_CMP $procmux$195_CMP $procmux$194_CMP $procmux$193_CMP $procmux$192_CMP $auto$opt_reduce.cc:134:opt_mux$472 $auto$opt_reduce.cc:134:opt_mux$470 $auto$opt_reduce.cc:134:opt_mux$468 $procmux$188_CMP $procmux$187_CMP $procmux$185_CMP $procmux$184_CMP $procmux$183_CMP $procmux$182_CMP $procmux$181_CMP $auto$opt_reduce.cc:134:opt_mux$466 $procmux$179_CMP $auto$opt_reduce.cc:134:opt_mux$464 $procmux$177_CMP $procmux$176_CMP $procmux$175_CMP $procmux$174_CMP $procmux$173_CMP $procmux$172_CMP $procmux$171_CMP $procmux$170_CMP $procmux$169_CMP $auto$opt_reduce.cc:134:opt_mux$462 $procmux$167_CMP $procmux$166_CMP $procmux$165_CMP $procmux$164_CMP $procmux$163_CMP $procmux$162_CMP $procmux$160_CMP $procmux$159_CMP $procmux$158_CMP $procmux$157_CMP $procmux$156_CMP $auto$opt_reduce.cc:134:opt_mux$460 $procmux$153_CMP $procmux$152_CMP $procmux$151_CMP $procmux$150_CMP $procmux$149_CMP $procmux$148_CMP $auto$opt_reduce.cc:134:opt_mux$458 $procmux$145_CMP $procmux$144_CMP $procmux$143_CMP $procmux$142_CMP $procmux$141_CMP $procmux$140_CMP $procmux$131_CMP $procmux$130_CMP $procmux$129_CMP $procmux$128_CMP $procmux$127_CMP $procmux$126_CMP $auto$opt_reduce.cc:134:opt_mux$456 $auto$opt_reduce.cc:134:opt_mux$454 $auto$opt_reduce.cc:134:opt_mux$452 $auto$opt_reduce.cc:134:opt_mux$450 $auto$opt_reduce.cc:134:opt_mux$448 $auto$opt_reduce.cc:134:opt_mux$446 $auto$opt_reduce.cc:134:opt_mux$444 $procmux$117_CMP $procmux$116_CMP $procmux$115_CMP $procmux$114_CMP $procmux$113_CMP $procmux$112_CMP $procmux$111_CMP $procmux$110_CMP $procmux$109_CMP $procmux$108_CMP $procmux$107_CMP $procmux$106_CMP $procmux$105_CMP $procmux$104_CMP $procmux$103_CMP $procmux$102_CMP $procmux$101_CMP $procmux$100_CMP $procmux$99_CMP $procmux$98_CMP $procmux$97_CMP $procmux$96_CMP $auto$opt_reduce.cc:134:opt_mux$442 $procmux$94_CMP $procmux$93_CMP $procmux$92_CMP $procmux$91_CMP $procmux$90_CMP $procmux$89_CMP $procmux$88_CMP $procmux$86_CMP $procmux$85_CMP $procmux$84_CMP $procmux$83_CMP $procmux$82_CMP $procmux$81_CMP $procmux$80_CMP $procmux$79_CMP $procmux$78_CMP $procmux$77_CMP $procmux$76_CMP $procmux$75_CMP $procmux$74_CMP $procmux$73_CMP $procmux$72_CMP $procmux$71_CMP $procmux$70_CMP $procmux$69_CMP $auto$opt_reduce.cc:134:opt_mux$440 $procmux$67_CMP $procmux$66_CMP $procmux$65_CMP $procmux$64_CMP $auto$opt_reduce.cc:134:opt_mux$438 $procmux$62_CMP $procmux$61_CMP $procmux$60_CMP $procmux$59_CMP $procmux$58_CMP $procmux$57_CMP $procmux$56_CMP $procmux$55_CMP $procmux$54_CMP $procmux$53_CMP $procmux$52_CMP $procmux$51_CMP $procmux$50_CMP $procmux$49_CMP $procmux$48_CMP $procmux$47_CMP $auto$opt_reduce.cc:134:opt_mux$436 $procmux$45_CMP $procmux$44_CMP $procmux$43_CMP $procmux$42_CMP $auto$opt_reduce.cc:134:opt_mux$434 $procmux$40_CMP $procmux$39_CMP $procmux$38_CMP $procmux$37_CMP $procmux$36_CMP $procmux$35_CMP $procmux$34_CMP $procmux$33_CMP $procmux$32_CMP $auto$opt_reduce.cc:134:opt_mux$432 $procmux$30_CMP $procmux$29_CMP $procmux$28_CMP $procmux$27_CMP $procmux$26_CMP $auto$opt_reduce.cc:134:opt_mux$430 $procmux$24_CMP $procmux$23_CMP $procmux$22_CMP $procmux$21_CMP $procmux$20_CMP $procmux$19_CMP $procmux$18_CMP $procmux$17_CMP $procmux$16_CMP $procmux$15_CMP $procmux$14_CMP $procmux$13_CMP $procmux$12_CMP $procmux$11_CMP $procmux$10_CMP $procmux$9_CMP $procmux$8_CMP $procmux$7_CMP $procmux$6_CMP $procmux$5_CMP $procmux$4_CMP }
+  Optimizing cells in module \rom.
+Performed a total of 1 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rom'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rom..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rom.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \rom..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \rom.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rom'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rom..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rom.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== rom ===
+
+   Number of wires:                460
+   Number of wire bits:            524
+   Number of public wires:           3
+   Number of public wire bits:      39
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                458
+     $dff                           29
+     $eq                          3807
+     $logic_not                      9
+     $pmux                          29
+     $reduce_or                     73
+
+End of script. Logfile hash: 556bdd6f96, CPU: user 0.64s system 0.00s, MEM: 15.65 MB peak
+Yosys 0.10+12 (git sha1 72fac04, gcc 7.4.0-1ubuntu1~16.04~ppa1 -fPIC -Os)
+Time spent: 60% 2x opt_reduce (0 sec), 10% 4x opt_expr (0 sec), ...
