@@ -5,7 +5,7 @@ It contains two categories according to the source of programs: HLS_dataset and 
 ## HLS_dataset
 It contains verilog designs generated from C program via high level synthesis. We refered to https://github.com/zlinaf/PowerGear and extended their methods to apply to varities of C benchmark to increase the diversities of verilog designs. This repo summarize how the generated verilog design look like while it does not contain the actual generated verilog designs, for the actualy verilog designs downloading, please refer to the below links.
 
-polybench: [xc7v585tffg1157-3.tar.gz](https://lca.ece.utexas.edu/hls_dataset/xc7v585tffg1157-3.tar.gz) and [xc7v585tffg1157-3.tar.gz](https://lca.ece.utexas.edu/hls_dataset/xc7v585tffg1157-3.tar.gz)  
+polybench: [xc7v585tffg1157-3.tar.gz](https://lca.ece.utexas.edu/hls_dataset/xc7v585tffg1157-3.tar.gz) and [xczu9eg-ffvb1156-2-i.tar.gz](  https://lca.ece.utexas.edu/hls_dataset/xczu9eg-ffvb1156-2-i.tar.gz)
 chstone:   work in progress  
 machsuite: work in progress  
 
