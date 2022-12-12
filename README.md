@@ -7,6 +7,7 @@
 6. udpate the csv files
 7. verilog dataset reorganize the yosys .out and verilog files .v (remove .log)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## File Architecture
   .
@@ -34,3 +35,5 @@
       └── yosys_designs
 =======
 >>>>>>> parent of adc9abb... Update README.md
+=======
+>>>>>>> parent of adc9abb (Update README.md)
