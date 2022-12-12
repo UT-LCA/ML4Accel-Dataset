@@ -3,7 +3,18 @@ This is the datasets used for fpga performance evaluation via machine learning. 
 It contains two categories according to the source of programs: HLS_dataset and Verilog_dataset.
 
 ## HLS_dataset
-Verilog
+It contains verilog designs generated from C program via high level synthesis. We refered to https://github.com/zlinaf/PowerGear and extended their methods to apply to varities of C benchmark to increase the diversities of verilog designs. This repo summarize how the generated verilog design look like while it does not contain the actual generated verilog designs, for the actualy verilog designs downloading, please refer to the below links.
+
+polybench:
+chstone:
+machsuite:
+
+Noted that in each tar ball, it contains:
+1. verilog files and tcl scripts which can be used directly in vivado
+2. IR codes(.bc), IR operator information(.adb), FSMD mdoel(.adb.xml), HLS report(.rpt, .rpt.xml) generated from HLS
+
+## Verilog_dataset
+It contains verilog designs collected from different domains. It contains only raw designs for now.
 
 ## File Architecture
     .
