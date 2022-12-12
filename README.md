@@ -24,9 +24,9 @@ It contains verilog designs collected from different domains. It contains only r
     │   │   │   ├── scripts                   # tcl scripts to run hls, synthesis, implementation and evaluation
     │   │   │   ├── src                       # source code in C which is marked with hls pragma
     │   │   │   ├── testbench                 # testbenches in verilog to test generated designs
-    │   │   │   ├── xczu9eg-ffvb1156-2-i      # contains a info.csv which summarize the post-implementation reousrces and clock freuqency and a 
-    │   │   │   │                               and a post_hls_info.csv which summarze the resource esimates and clock period esimates targeting xczu9eg
-    │   │   │   └── xc7v585tffg1157-3         # same as above
+    │   │   │   ├── xczu9eg-ffvb1156-2-i      # info.csv: post-implementation reousrces and clock freuqency targeting xczu9eg 
+    │   │   │   │                               post_hls_info.csv: resource esimates and clock period esimates targeting xczu9eg
+    │   │   │   └── xc7v585tffg1157-3         # same as above but targeting xc7v585
     │   │   ├── bicg
     │   │   ├── gemm
     │   │   ├── gesummv
