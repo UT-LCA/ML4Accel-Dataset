@@ -1,11 +1,9 @@
-# HLSDataset
-1. update the readme
-2. Qinzhe for the help to change the name of repo
-3. a few folders under HLS_dataset
-4. prepare the new tar balls without logs and reports
-5. ask bagus to upload it on lca
-6. udpate the csv files
-7. verilog dataset reorganize the yosys .out and verilog files .v (remove .log)
+# FPGA_ML_DATASET
+This is the datasets used for fpga performance evaluation via machine learning. It contains thousands of verilog designs which can be used to train machine learning model and perform performance prediction.
+It contains two categories according to the source of programs: HLS_dataset and Verilog_dataset.
+
+## HLS_dataset
+Verilog
 
 ## File Architecture
     .
@@ -28,6 +26,13 @@
     │   └── chstone                           # work in progress, it contains only C code now
     │   └── machsuite                         # work in progress, it contains only C code now
     └── Verilog_dataset                       # Veriog designs, work in progress
-        ├── opencores                         # designs from opencores
+        ├── opencores                         
         ├── vtr_designs
         └── yosys_designs
+        
+
+## Todo
+5. upload tar balls on lca/zenodo
+6. udpate the csv files
+7. verilog dataset reorganize the yosys .out and verilog files .v (remove .log)
+
