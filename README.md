@@ -16,7 +16,7 @@ Noted that in each tar ball, it contains:
 ## Verilog_dataset
 It contains verilog designs collected from different domains. It contains only raw designs for now.
 
-## File Architecture
+## Directory Structure
     .
     ├── HLS_dataset                           # machine learning dataset for high level synthesis, Verilog designs generated from C codes
     │   ├── polybench                         # benchmark name
