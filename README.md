@@ -47,6 +47,7 @@ It contains verilog designs collected from different domains. It contains only r
 2. tar ball update: remove report files
 3. one more high hierechy
 4. update the csv with the features in ppt.
-5. overleaf for the short paper on arxiv
+5. example use case in github readme
+6. overleaf for the short paper on arxiv
 
 ## Contact
