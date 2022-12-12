@@ -32,5 +32,3 @@
       ├── opencores                         # designs from opencores
       ├── vtr_designs
       └── yosys_designs
-=======
->>>>>>> parent of adc9abb... Update README.md
