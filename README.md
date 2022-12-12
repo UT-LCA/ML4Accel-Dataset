@@ -6,6 +6,7 @@
 5. ask bagus to upload it on lca
 6. udpate the csv files
 7. verilog dataset reorganize the yosys .out and verilog files .v (remove .log)
+<<<<<<< HEAD
 
 ## File Architecture
   .
@@ -31,3 +32,5 @@
       ├── opencores                         # designs from opencores
       ├── vtr_designs
       └── yosys_designs
+=======
+>>>>>>> parent of adc9abb... Update README.md
