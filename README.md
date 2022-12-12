@@ -43,11 +43,17 @@ It contains verilog designs collected from different domains. It contains only r
         └── yosys_designs
         
 # TODO
-1. csv files alignment
+1. csv files alignment, name of the csv file (post_implemnetaion_info.csv)
 2. tar ball update: remove report files
 3. one more high hierechy
 4. update the csv with the features in ppt.
 5. example use case in github readme
 6. overleaf for the short paper on arxiv
+
+## Use case
+1. resources usage prediction from HLS
+2. Power prediction from hls
+3. cross-fpga metics prediction (power, resource usage, freq etc.) 
+4. resource usage prediction from Verilog
 
 ## Contact
