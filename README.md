@@ -28,6 +28,6 @@
 │   └── chstone                           # work in progress, it contains only C code now
 │   └── machsuite                         # work in progress, it contains only C code now
 └── Verilog_dataset                       # Veriog designs, work in progress
-    ├── opencores
+    ├── opencores                         # designs from opencores
     ├── vtr_designs
     └── yosys_designs
