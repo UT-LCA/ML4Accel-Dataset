@@ -43,6 +43,5 @@ It contains verilog designs collected from different domains. It contains only r
         
 
 ## Todo
-5. upload tar balls on lca/zenodo
 6. udpate the csv files
 
