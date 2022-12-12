@@ -42,4 +42,8 @@ It contains verilog designs collected from different domains. It contains only r
         ├── vtr_designs
         └── yosys_designs
         
-
+# TODO
+1. csv files alignment
+2. tar ball update: remove report files
+3. one more high hierechy
+4. update the csv with the features in ppt.
