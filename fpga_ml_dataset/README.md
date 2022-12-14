@@ -5,7 +5,15 @@ It contains thousands of designs which can be used to train machine learning mod
 It contains two categories according to the source of programs: HLS_dataset and Verilog_dataset.
 
 ## HLS_dataset
-It contains C programs and the verilog designs generated from C applications via HLS (high level synthesis). We refered to [PowerGear](https://github.com/zlinaf/PowerGear) and extended their methods to apply to varities of C benchmark to increase the diversities of verilog designs. Because the size of the generated Verilog designs is very large, we compressed the actual designs in tar balls; you should be able to download them with the below links.
+This data is based on C programs and the verilog designs generated from C applications via HLS (high level synthesis). 
+We refered to [PowerGear](https://github.com/zlinaf/PowerGear) and extended their methods to apply to varities of C benchmark to increase the diversities of verilog designs. 
+There are two parts of the data:
+
+- CSV file
+- Tar ball
+
+The CSV file contains features and metrics extracted from the various reports.
+Because the size of the generated Verilog designs is very large, we compressed the actual designs in tar balls; you should be able to download them with the below links.
 
 - Polybench     
 It currently contains designs generated for two fpgas:  
@@ -13,12 +21,12 @@ It currently contains designs generated for two fpgas:
 [xczu9eg-ffvb1156-2-i.tar.gz](  https://lca.ece.utexas.edu/hls_dataset/xczu9eg-ffvb1156-2-i.tar.gz)   
 
 - CHStone  
-work in progress  
+Work in progress  
 
 - Machsuite  
-work in progress
+Work in progress
 
-Not that each tar ball contains:
+Note that each tar ball contains:
 1. C code and generated Verilog files. (TCL scripts which can be used directly in Xilinx Vivado are also included)
 2. IR codes(*.bc), IR operator information(*.adb), FSMD model(*.adb.xml) generated from Xilinx Vivado HLS
 
