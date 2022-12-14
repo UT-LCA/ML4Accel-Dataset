@@ -3,18 +3,25 @@ This is the datasets used for fpga performance evaluation via machine learning. 
 It contains two categories according to the source of programs: HLS_dataset and Verilog_dataset.
 
 ## HLS_dataset
-It contains verilog designs generated from C program via high level synthesis. We refered to [PowerGear](https://github.com/zlinaf/PowerGear) and extended their methods to apply to varities of C benchmark to increase the diversities of verilog designs. This repo summarize how the generated verilog design look like while it does not contain the actual generated verilog designs, for the actualy verilog designs downloading, please refer to the below links.
-
-polybench: [xc7v585tffg1157-3.tar.gz](https://lca.ece.utexas.edu/hls_dataset/xc7v585tffg1157-3.tar.gz) and [xczu9eg-ffvb1156-2-i.tar.gz](  https://lca.ece.utexas.edu/hls_dataset/xczu9eg-ffvb1156-2-i.tar.gz)  
-chstone:   work in progress  
-machsuite: work in progress  
+It contains verilog designs generated from C program via high level synthesis. We refered to [PowerGear](https://github.com/zlinaf/PowerGear) and extended their methods to apply to varities of C benchmark to increase the diversities of verilog designs. This repo summarize how the generated verilog design look like while it does not contain the actual generated verilog designs, we compressed the actual designs in tar balls, you should be able to download them with the link in next section.
 
 Noted that in each tar ball, it contains:
 1. verilog files and tcl scripts which can be used directly in vivado
-2. IR codes(.bc), IR operator information(.adb), FSMD mdoel(.adb.xml), HLS report(.rpt, .rpt.xml) generated from vivado HLS
+2. IR codes(.bc), IR operator information(.adb), FSMD mdoel(.adb.xml) generated from vivado HLS
+
+### polybench 
+it currently contains designs generated for two fpgas:
+[xc7v585tffg1157-3.tar.gz](https://lca.ece.utexas.edu/hls_dataset/xc7v585tffg1157-3.tar.gz)
+[xczu9eg-ffvb1156-2-i.tar.gz](  https://lca.ece.utexas.edu/hls_dataset/xczu9eg-ffvb1156-2-i.tar.gz)
+
+### chstone
+work in progress  
+
+### machsuite
+work in progress  
 
 ## Verilog_dataset
-It contains verilog designs collected from different domains. It contains only raw designs for now.
+It contains verilog designs collected from different domains. It contains only raw designs and general info about the designs.
 
 ## Directory Structure
     .
@@ -38,18 +45,10 @@ It contains verilog designs collected from different domains. It contains only r
     │   └── chstone                           # work in progress, it contains only C code now
     │   └── machsuite                         # work in progress, it contains only C code now
     └── Verilog_dataset                       # Veriog designs, work in progress
-        ├── opencores                         
+        ├── opencores                         # verilog designs(**.v), and general info about the designs (**.out)
         ├── vtr_designs
         └── yosys_designs
         
-# TODO
-1. csv files alignment, name of the csv file (post_implemnetaion_info.csv)
-2. tar ball update: remove report files
-3. one more high hierechy
-4. update the csv with the features in ppt.
-5. example use case in github readme
-6. overleaf for the short paper on arxiv
-
 ## Use case
 1. resources usage prediction from HLS
 2. Power prediction from hls
@@ -57,3 +56,16 @@ It contains verilog designs collected from different domains. It contains only r
 4. resource usage prediction from Verilog
 
 ## Contact
+Zhigang Wei: zw5259@utexas.edu
+Aman Arora:  aman.kbm@utexas.edu
+  
+  
+## TODO
+1. csv files alignment, name of the csv file (post_implemnetaion_info.csv) (done)
+2. tar ball update: remove report files (tar ball generated need to update the link)
+3. one more high hierechy (done)
+4. update the csv with the features in ppt (done)
+5. example use case in github readme (done)
+6. overleaf for the short paper on arxiv
+
+
