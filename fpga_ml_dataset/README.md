@@ -17,7 +17,7 @@ work in progress
 
 Noted that in each tar ball, it contains:
 1. verilog files and tcl scripts which can be used directly in vivado
-2. IR codes(*.bc), IR operator information(*.adb), FSMD mdoel(*.adb.xml) generated from vivado HLS
+2. IR codes(*.bc), IR operator information(*.adb), FSMD model(*.adb.xml) generated from vivado HLS
 
 ## Verilog_dataset
 It contains verilog designs collected from different domains. It contains only raw designs and general info generated from yosys about the designs.
