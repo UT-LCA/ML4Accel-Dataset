@@ -49,8 +49,9 @@ It contains verilog designs collected from different domains. It contains only r
         └── yosys_designs
         
 ## Use case
+These dataset can be potentailly used for:
 1. resources usage prediction from HLS
-2. Power prediction from hls
+2. power prediction from hls
 3. cross-fpga metics prediction (power, resource usage, freq etc.) 
 4. resource usage prediction from Verilog
 
@@ -61,7 +62,7 @@ Aman Arora:  aman.kbm@utexas.edu
   
 ## TODO
 1. csv files alignment, name of the csv file (post_implemnetaion_info.csv) (done)
-2. tar ball update: remove report files (tar ball generated need to update the link)
+2. tar ball update: remove report files (done)
 3. one more high hierechy (done)
 4. update the csv with the features in ppt (done)
 5. example use case in github readme (done)
