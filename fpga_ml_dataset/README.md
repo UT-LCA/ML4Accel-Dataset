@@ -3,12 +3,7 @@ This is the datasets used for fpga performance evaluation via machine learning. 
 It contains two categories according to the source of programs: HLS_dataset and Verilog_dataset.
 
 ## HLS_dataset
-It contains verilog designs generated from C program via high level synthesis. We refered to [PowerGear](https://github.com/zlinaf/PowerGear) and extended their methods to apply to varities of C benchmark to increase the diversities of verilog designs. This repo summarize how the generated verilog design look like while it does not contain the actual generated verilog designs, we compressed the actual designs in tar balls, you should be able to download them with the link in next section.
-
-Noted that in each tar ball, it contains:
-1. verilog files and tcl scripts which can be used directly in vivado
-2. IR codes(.bc), IR operator information(.adb), FSMD mdoel(.adb.xml) generated from vivado HLS
-
+It contains verilog designs generated from C program via high level synthesis. We refered to [PowerGear](https://github.com/zlinaf/PowerGear) and extended their methods to apply to varities of C benchmark to increase the diversities of verilog designs. This repo summarize how the generated verilog design look like while it does not contain the actual generated verilog designs, we compressed the actual designs in tar balls, you should be able to download them with the below links.
 - polybench     
 it currently contains designs generated for two fpgas:  
 [xc7v585tffg1157-3.tar.gz](https://lca.ece.utexas.edu/hls_dataset/xc7v585tffg1157-3.tar.gz)   
@@ -18,7 +13,11 @@ it currently contains designs generated for two fpgas:
 work in progress  
 
 - machsuite  
-work in progress  
+work in progress
+
+Noted that in each tar ball, it contains:
+1. verilog files and tcl scripts which can be used directly in vivado
+2. IR codes(.bc), IR operator information(.adb), FSMD mdoel(.adb.xml) generated from vivado HLS
 
 ## Verilog_dataset
 It contains verilog designs collected from different domains. It contains only raw designs and general info about the designs.
