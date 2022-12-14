@@ -9,15 +9,15 @@ Noted that in each tar ball, it contains:
 1. verilog files and tcl scripts which can be used directly in vivado
 2. IR codes(.bc), IR operator information(.adb), FSMD mdoel(.adb.xml) generated from vivado HLS
 
--polybench 
+- polybench 
 it currently contains designs generated for two fpgas:
 [xc7v585tffg1157-3.tar.gz](https://lca.ece.utexas.edu/hls_dataset/xc7v585tffg1157-3.tar.gz)
 [xczu9eg-ffvb1156-2-i.tar.gz](  https://lca.ece.utexas.edu/hls_dataset/xczu9eg-ffvb1156-2-i.tar.gz)
 
--chstone
+- chstone
 work in progress  
 
--machsuite
+- machsuite
 work in progress  
 
 ## Verilog_dataset
