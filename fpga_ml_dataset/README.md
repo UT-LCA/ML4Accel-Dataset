@@ -17,7 +17,7 @@ work in progress
 
 Noted that in each tar ball, it contains:
 1. verilog files and tcl scripts which can be used directly in vivado
-2. IR codes(.bc), IR operator information(.adb), FSMD mdoel(.adb.xml) generated from vivado HLS
+2. IR codes(*.bc), IR operator information(*.adb), FSMD mdoel(*.adb.xml) generated from vivado HLS
 
 ## Verilog_dataset
 It contains verilog designs collected from different domains. It contains only raw designs and general info generated from yosys about the designs.
@@ -44,7 +44,7 @@ It contains verilog designs collected from different domains. It contains only r
     │   └── chstone                           # work in progress, it contains only C code now
     │   └── machsuite                         # work in progress, it contains only C code now
     └── Verilog_dataset                       # Veriog designs, work in progress
-        ├── opencores                         # verilog designs(**.v), and general info which is generated from yosys about the designs (**.out)
+        ├── opencores                         # verilog designs(*.v), and general info which is generated from yosys about the designs (*.out)
         ├── vtr_designs
         └── yosys_designs
         
