@@ -55,7 +55,7 @@ It contains verilog designs collected from different domains. It contains only r
 4. resource usage prediction from Verilog
 
 ## Contact
-Zhigang Wei: zw5259@utexas.edu
+Zhigang Wei: zw5259@utexas.edu  
 Aman Arora:  aman.kbm@utexas.edu
   
   
