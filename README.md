@@ -1,7 +1,7 @@
 # Data Set for ML-Guided Chip Design
 
 Chip design times have been high typically taking over 3 years from architecture to implementation to deployment, 
-and it is extremely hard to keep up with the need for new domain specific chips specifically machine learning (ML) accelerators.  
+and it is extremely hard to keep up with the need for new domain specific chips specifically machine learning (ML) accelerators. 
 To reduce this gap, ML itself is being used to improve and expedite the chip design process. ML based methods here replace 
 previously used analytical, simulation based or manual methods, leading to improvement in speed or accuracy. ML based methods, 
 however, need extensive datasets to train models to produce acceptable results. 
@@ -61,11 +61,19 @@ Coming soon
 
 # References
 [1] A. Mirhoseini, A. Goldie, M. Yazgan, J. W. Jiang, E. Songhori, S. Wang, Y.J. Lee, E. Johnson, O. Pathak, A. Nazi, J. Pak, A. Tong, K. Srinivasa, W. Hang, E. Tuncer, Q. V. Le, J. Laudon, R. Ho, R. Carpenter, J. Dean, “A graph placement methodology for fast chip design”, NATURE’21
+
 [2] Kenneth O'Neal, Mitch Liu, Hans Tang, Amin Kalantar, Kennen DeRenard, Philip Brisk, “HLSPredict: Cross Platform Performance Prediction for FPGA High-Level Synthesis”, ICCAD’18
+
 [3] Zhe Lin, Zike Yuan, Jieru Zhao, Wei Zhang, Hui Wang, Yonghong Tian, “PowerGear: Early-Stage Power Estimation in FPGA HLS via Heterogeneous Edge-Centric GNNs”, DATE’22
+
 [4] W. Lee, Y. Kim, J.H. Ryoo, D. Sunwoo, A. Gerstlauer, L. K. John, “PowerTrain: A Learning-based Calibration of McPAT Power Model”, ISLPED’15
+
 [5] Hosein Mohammadi Makrani, Farnoud Farahmand, Hossein Sayadi, Sara Bondi, Sai Manoj Pudukotai Dinakarrao, Houman Homayoun, Setareh Rafatirad, “Pyramid: Machine Learning Framework to Estimate the Optimal Timing and Resource Usage of a High-Level Synthesis Design”, FPL’19
+
 [6] Ajay Krishna Ananda Kumar, Sami Alsalamin, Hussam Amrouch, Andreas Gerstlauer, “Machine Learning-Based Microarchitecture- Level Power Modeling of CPUs”, IEEE Transactions on Computer (TC)’22
+
 [7] Xinnian Zheng, Lizy K. John, Andreas Gerstlauer, “Accurate Phase-Level Cross-Platform Power and Performance Estimation”, DAC’16
+
 [8] Xinnian Zheng, Haris Vikalo, Shuang Song, Lizy K. John, Andreas Gerstlauer, “Sampling-Based Binary-Level Cross-Platform Performance Estimation”, DATE’17
+
 [9] Mingjie Liu, Keren Zhu, Jiaqi Gu, Linxiao Shen, Xiyuan Tang, Nan Sun, David Z. Pan, “Towards Decrypting the Art of Analog Layout: Placement Quality Prediction via Transfer Learning”, DATE’20
