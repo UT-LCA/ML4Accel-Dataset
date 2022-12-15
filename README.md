@@ -59,6 +59,10 @@ See the README for the data for each flow (FPGA or ASIC) in the corresponding di
 # How to Cite?
 Coming soon
 
+## Contact
+Zhigang Wei: zw5259@utexas.edu  
+Aman Arora:  aman.kbm@utexas.edu  
+
 # References
 [1] A. Mirhoseini, A. Goldie, M. Yazgan, J. W. Jiang, E. Songhori, S. Wang, Y.J. Lee, E. Johnson, O. Pathak, A. Nazi, J. Pak, A. Tong, K. Srinivasa, W. Hang, E. Tuncer, Q. V. Le, J. Laudon, R. Ho, R. Carpenter, J. Dean, “A graph placement methodology for fast chip design”, NATURE’21
 
