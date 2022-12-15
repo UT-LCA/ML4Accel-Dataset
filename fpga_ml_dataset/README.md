@@ -73,8 +73,4 @@ These dataset can be potentailly used for:
 3. Cross-FPGA prediction of metrics (Predicting from one FPGA device to another FPGA device)
 4. Prediction of metrics for larger HDL designs for design space exploration
 
-## Contact
-Zhigang Wei: zw5259@utexas.edu  
-Aman Arora:  aman.kbm@utexas.edu
-  
 
