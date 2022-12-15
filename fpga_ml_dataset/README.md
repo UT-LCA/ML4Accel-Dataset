@@ -6,7 +6,8 @@ It contains two categories according to the source of programs: HLS_dataset and 
 
 ## HLS_dataset
 This data is based on C programs and the verilog designs generated from C applications via HLS (high level synthesis). 
-We refered to [PowerGear](https://github.com/zlinaf/PowerGear) and extended their methods to apply to varities of C benchmark to increase the diversities of verilog designs. 
+We refered to [PowerGear](https://github.com/zlinaf/PowerGear) and extended their methods to apply to varieties of C benchmarks to increase the diversities of verilog designs. 
+
 There are two parts of the data:
 
 - CSV file
@@ -14,9 +15,11 @@ There are two parts of the data:
 
 The CSV file contains features and metrics extracted from the various reports.
 Because the size of the generated Verilog designs is very large, we compressed the actual designs in tar balls; you should be able to download them with the below links.
+Currently, we have data for two Xilinx FPGA devices.
 
 - Polybench     
-It currently contains designs generated for two fpgas:  
+The CSVs are: fpga_ml_dataset/HLS_dataset/polybench/\*/\*/\*.csv
+The TAR balls are at: 
 [xc7v585tffg1157-3.tar.gz](https://lca.ece.utexas.edu/hls_dataset/xc7v585tffg1157-3.tar.gz)   
 [xczu9eg-ffvb1156-2-i.tar.gz](  https://lca.ece.utexas.edu/hls_dataset/xczu9eg-ffvb1156-2-i.tar.gz)   
 
