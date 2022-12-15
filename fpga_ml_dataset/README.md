@@ -20,7 +20,9 @@ Currently, we have data for two Xilinx FPGA devices.
 - Polybench     
 The CSVs are: fpga_ml_dataset/HLS_dataset/polybench/\*/\*/\*.csv
 The TAR balls are at: 
+
 [xc7v585tffg1157-3.tar.gz](https://lca.ece.utexas.edu/hls_dataset/xc7v585tffg1157-3.tar.gz)   
+
 [xczu9eg-ffvb1156-2-i.tar.gz](  https://lca.ece.utexas.edu/hls_dataset/xczu9eg-ffvb1156-2-i.tar.gz)   
 
 - CHStone  
@@ -31,7 +33,7 @@ Work in progress
 
 Note that each tar ball contains:
 1. C code and generated Verilog files. (TCL scripts which can be used directly in Xilinx Vivado are also included)
-2. IR codes(*.bc), IR operator information(*.adb), FSMD model(*.adb.xml) generated from Xilinx Vivado HLS
+2. IR codes(\*.bc), IR operator information(\*.adb), FSMD model(\*.adb.xml) generated from Xilinx Vivado HLS
 
 ## Verilog_dataset
 It contains Verilog designs collected from different domains. It contains the raw designs and general info generated from yosys about the designs. 
@@ -64,7 +66,7 @@ We plan to add more data for Verilog designs (e.g. by running VTR or Synopsys DC
         ├── vtr_designs
         └── yosys_designs
         
-## Use case
+## Use cases
 These dataset can be potentailly used for:
 1. Prediction of metrics (like resource usage, power consumption, frequency, etc) from C code
 2. Improving the estimation of these metrics by HLS tools
