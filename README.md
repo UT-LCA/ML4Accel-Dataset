@@ -18,7 +18,7 @@ Some examples of works that have used ML in chip design processes are:
 This GitHub repo is a well-curated open-source dataset for ML-guided chip design that is being developed at UT Austin.
 Ths dataset can be easily used by researchers working with training models for chip design. 
 
-# Contents of the dataset
+## Contents of the dataset
 At the top-level this dataset contains two types of data:
 
 - Data from FPGA development flows (directory called `fpga_ml_dataset`)
@@ -42,7 +42,7 @@ For each source, some examples of features contained in the dataset:
 For each source, some examples of metrics contained in the dataset:
 - Area (or resource usage)
 - Power consumption
-- Wire lenhth
+- Wire length
 - Operating frequency
 
 We include information for:
@@ -53,17 +53,17 @@ We include information for:
 - Multiple implementation settings (like HLS pragmas, gate-level synthesis options, etc)
 - Multiple process corners
 
-# How to Use?
+## How to Use?
 See the README for the data for each flow (FPGA or ASIC) in the corresponding directories.
 
-# How to Cite?
+## How to Cite?
 Coming soon
 
 ## Contact
 Zhigang Wei: zw5259@utexas.edu  
 Aman Arora:  aman.kbm@utexas.edu  
 
-# References
+## References
 [1] A. Mirhoseini, A. Goldie, M. Yazgan, J. W. Jiang, E. Songhori, S. Wang, Y.J. Lee, E. Johnson, O. Pathak, A. Nazi, J. Pak, A. Tong, K. Srinivasa, W. Hang, E. Tuncer, Q. V. Le, J. Laudon, R. Ho, R. Carpenter, J. Dean, “A graph placement methodology for fast chip design”, NATURE’21
 
 [2] Kenneth O'Neal, Mitch Liu, Hans Tang, Amin Kalantar, Kennen DeRenard, Philip Brisk, “HLSPredict: Cross Platform Performance Prediction for FPGA High-Level Synthesis”, ICCAD’18
