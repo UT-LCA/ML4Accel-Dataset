@@ -1,4 +1,4 @@
-# Data Set for ML-Guided Chip Design
+# Data Set for ML-Guided Accelerator Design
 
 Chip design times have been high typically taking over 3 years from architecture to implementation to deployment, 
 and it is extremely hard to keep up with the need for new domain specific chips specifically machine learning (ML) accelerators. 
