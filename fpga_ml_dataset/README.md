@@ -20,8 +20,8 @@ Currently, we have data for two Xilinx FPGA devices.
 - Polybench     
 The CSVs are: fpga_ml_dataset/HLS_dataset/polybench/\*/\*/\*.csv
 The TAR balls are at:  
-  xc7v585tffg1157-3.tar.gz
-  xczu9eg-ffvb1156-2-i.tar.gz
+  xc7v585tffg1157-3.tar.gz (To be released)    
+  xczu9eg-ffvb1156-2-i.tar.gz (To be released)
 
 - CHStone  
 Work in progress  
