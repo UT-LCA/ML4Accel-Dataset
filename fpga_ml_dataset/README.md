@@ -21,9 +21,9 @@ Currently, we have data for two Xilinx FPGA devices.
 The CSVs are: fpga_ml_dataset/HLS_dataset/polybench/\*/\*/\*.csv
 The TAR balls are at:  
   [xc7v585tffg1157-3.tar.gz]
-  //(https://lca.ece.utexas.edu/hls_dataset/xc7v585tffg1157-3.tar.gz)   
+  #(https://lca.ece.utexas.edu/hls_dataset/xc7v585tffg1157-3.tar.gz)   
   [xczu9eg-ffvb1156-2-i.tar.gz]
-  //(https://lca.ece.utexas.edu/hls_dataset/xczu9eg-ffvb1156-2-i.tar.gz)   
+  #(https://lca.ece.utexas.edu/hls_dataset/xczu9eg-ffvb1156-2-i.tar.gz)   
 
 - CHStone  
 Work in progress  
