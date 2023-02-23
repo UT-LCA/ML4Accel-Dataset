@@ -15,7 +15,7 @@ There are two parts of the data:
 
 The CSV file contains features and metrics extracted from the various reports.
 Because the size of the generated Verilog designs is very large, we compressed the actual designs in tar balls; you should be able to download them with the below links.
-Currently, we have data for two Xilinx FPGA devices.
+Currently, we have data for two Xilinx FPGA devices. (We are talking with Xilinx to clarify on the license issue and the tar balls will be released soon)
 
 - Polybench     
 The CSVs are: fpga_ml_dataset/HLS_dataset/polybench/\*/\*/\*.csv
@@ -23,11 +23,22 @@ The TAR balls are at:
   xc7v585tffg1157-3.tar.gz (To be released)    
   xczu9eg-ffvb1156-2-i.tar.gz (To be released)
 
-- CHStone  
-Work in progress  
+- Machsuite
 
-- Machsuite  
-Work in progress
+The TAR balls are at:  
+  xc7v585tffg1157-3.tar.gz (To be released)    
+  xczu9eg-ffvb1156-2-i.tar.gz (To be released)
+
+
+- CHStone 
+
+The TAR balls are at:  
+  xc7v585tffg1157-3.tar.gz (To be released)    
+  xczu9eg-ffvb1156-2-i.tar.gz (To be released)
+
+
+  
+
 
 Note that each tar ball contains:
 1. C code and generated Verilog files. (TCL scripts which can be used directly in Xilinx Vivado are also included)
