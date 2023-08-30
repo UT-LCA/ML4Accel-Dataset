@@ -68,8 +68,9 @@ We plan to add more data for Verilog designs (e.g. by running VTR or Synopsys DC
     │   │   ├── mvt
     │   │   ├── syr2k
     │   │   └── syrk
-    │   └── chstone                           # work in progress, it contains only C code now
-    │   └── machsuite                         # work in progress, it contains only C code now
+    │   └── chstone                           
+    │   └── machsuite                         
+    │   └── rosetta                         
     └── Verilog_dataset                       # Veriog designs, work in progress
         ├── opencores                         # verilog designs(*.v), and general info which is generated from yosys about the designs (*.out)
         ├── vtr_designs
