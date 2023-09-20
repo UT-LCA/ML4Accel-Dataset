@@ -123,6 +123,10 @@ class DesignHLSSynthData:
             resources_uram_used=resource_data["used_abs"]["URAM"],
         )
 
+    @staticmethod
+    def find_synth_report(dir: Path) -> Path:
+        ...
+
 
 @serialize_methods
 @dataclass
@@ -143,7 +147,7 @@ def call_tool(cmd: str, cwd: Path):
     if s.returncode != 0:
         raise RuntimeError(
             f"Command {cmd} failed with return code {s.returncode} and error"
-            f" message\n\n{s.stderr}"
+            f" message:\n\n{s.stderr}\n\n{s.st
         )
     return s.stdout
 
@@ -197,9 +201,10 @@ def build_single_design(design_dir: Path):
     # - call vivado on synth_and_impl.tcl
     # - call vivado on info_ext.tcl
 
-    call_tool(f"{bin_path_vitis_hls} {fp_hls_tcl}", cwd=design_dir)
-    call_tool(f"{bin_path_vivado} -mode batch -source {fp_impl_tcl}", cwd=design_dir)
-    call_tool(f"{bin_path_vivado} -mode batch -source {fp_info_tcl}", cwd=design_dir)
+    call_tool(f"{bin_path_vitis_hls} dataset_hls.tcl", cwd=design_dir)
+
+    # call_tool(f"{bin_path_vivado} -mode batch -source {fp_impl_tcl}", cwd=design_dir)
+    # call_tool(f"{bin_path_vivado} -mode batch -source {fp_info_tcl}", cwd=design_dir)
 
 
 def build_multiple_designs(design_dirs: list[Path], n_jobs: int = 1):
