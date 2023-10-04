@@ -4,7 +4,7 @@ set HLS_PROJECT_DIR "fpga_gcn_qm9_vitis_hls_project"
 set script_dir [file dirname [info script]]
 set full_dir_path [file join $script_dir $HLS_PROJECT_DIR]
 if {[file exists $full_dir_path] && [file isdirectory $full_dir_path]} {
-    puts "The HLS project directory $PROJECT_DIR_NAME a;ready exists. Exiting script."
+    puts "The HLS project directory $HLS_PROJECT_DIR already exists. Exiting script."
     return
 }
 
