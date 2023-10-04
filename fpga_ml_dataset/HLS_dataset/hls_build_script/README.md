@@ -1,6 +1,6 @@
 # HLS Build Script
 
-> [!WARNING!]: This tool is a work in progress and is subject to change as it is developed. It is not complete and has not been fully tested on all designs.
+> [!WARNING]: This tool is a work in progress and is subject to change as it is developed. It is not complete and has not been fully tested on all designs.
 
 `hls_build_script.py` is a python script that allows you to build HLS deisngs uing Vitis HLS and extract the performance and resource utilization reports.
 
