@@ -5,7 +5,6 @@ import shlex
 import shutil
 import subprocess
 import xml.etree.ElementTree as ET
-
 from dataclasses import dataclass, is_dataclass
 from pathlib import Path
 
@@ -15,15 +14,18 @@ import yaml
 def print_xml_element(node: ET.Element):
     print("".join(node.itertext()))
 
+
 def auto_find_synth_report(dir: Path) -> Path:
     report_results = list(dir.rglob("**/csynth.xml"))
     if len(report_results) == 0:
-        raise FileNotFoundError(
-            f"No csynth.xml report file found in {dir}"
-        )
+        raise FileNotFoundError(f"No csynth.xml report file found in {dir}")
     if len(report_results) > 1:
-        print(f'Found multiple csynth.xml report files in {dir}. Using the first one: {report_results[0]}')
+        print(
+            f"Found multiple csynth.xml report files in {dir}. Using the first one:"
+            f" {report_results[0]}"
+        )
     return report_results[0]
+
 
 def serialize_methods(cls):
     if not is_dataclass(cls):
@@ -66,17 +68,17 @@ class DesignHLSSynthData:
     latency_worst_cycles: int | None
     latency_worst_seconds: float | None
 
-    # resources_lut_total: int
-    # resources_ff_total: int
-    # resources_dsp_total: int
-    # resources_bram_total: int
-    # resources_uram_total: int
-
     resources_lut_used: int
     resources_ff_used: int
     resources_dsp_used: int
     resources_bram_used: int
     resources_uram_used: int
+
+    # resources_lut_total: int
+    # resources_ff_total: int
+    # resources_dsp_total: int
+    # resources_bram_total: int
+    # resources_uram_total: int
 
     # resources_lut_fraction_used: float
     # resources_ff_fraction_used: float
@@ -96,7 +98,9 @@ class DesignHLSSynthData:
             "SummaryOfTimingAnalysis"
         )
         clock_units = str(summary_of_timing_analysis.find("unit").text)
-        clock_period = float(summary_of_timing_analysis.find("EstimatedClockPeriod").text)
+        clock_period = float(
+            summary_of_timing_analysis.find("EstimatedClockPeriod").text
+        )
         unit_scaler = 1
         match clock_units:
             case "ns":
@@ -108,7 +112,6 @@ class DesignHLSSynthData:
             case _:
                 raise NotImplementedError(f"Unknown clock unit: {clock_units}")
         clock_period_t = clock_period * unit_scaler
-
 
         summary_of_overall_latency = performance_estimates.find(
             "SummaryOfOverallLatency"
@@ -200,7 +203,7 @@ class Design:
     version_vivado: None | str
 
     @classmethod
-    def parse_from_synth_report_file(cls, fp: Path):
+    def parse_from_synth_report_file(cls, fp: Path) -> "Design":
         """
         <profile>
             <ReportVersion>
@@ -300,8 +303,8 @@ def build_single_design(design_dir: Path):
 
     call_tool(f"{bin_path_vitis_hls} dataset_hls.tcl", cwd=design_dir)
     csynth_report_fp = auto_find_synth_report(design_dir)
-    
-    hls_data =DesignHLSSynthData.parse_from_synth_report_file(csynth_report_fp)
+
+    hls_data = DesignHLSSynthData.parse_from_synth_report_file(csynth_report_fp)
     hls_data.to_json(design_dir / "data_hls.json")
 
     design_data = Design.parse_from_synth_report_file(csynth_report_fp)
@@ -315,7 +318,7 @@ def build_multiple_designs(design_dirs: list[Path], n_jobs: int = 1):
     # for design_dir in design_dirs:
     #     build_single_design(design_dir)
     print(design_dirs)
-    
+
     num_cores = multiprocessing.cpu_count()
     if n_jobs == -1:
         n_jobs = num_cores
