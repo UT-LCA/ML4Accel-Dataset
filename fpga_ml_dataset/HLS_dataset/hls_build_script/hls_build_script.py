@@ -132,15 +132,15 @@ class DesignHLSSynthData:
             summary_of_timing_analysis.find("EstimatedClockPeriod").text
         )
         unit_scaler = 1
-        match clock_units:
-            case "ns":
-                unit_scaler = 1e-9
-            case "us":
-                unit_scaler = 1e-6
-            case "ms":
-                unit_scaler = 1e-3
-            case _:
-                raise NotImplementedError(f"Unknown clock unit: {clock_units}")
+        if clock_units == "ns":
+            unit_scaler = 1e-9
+        elif clock_units == "us":
+            unit_scaler = 1e-6
+        elif clock_units == "ms":
+            unit_scaler = 1e-3
+        else:
+            raise NotImplementedError(f"Unknown clock unit: {clock_units}")
+
         clock_period_t = clock_period * unit_scaler
 
         summary_of_overall_latency = performance_estimates.find(
