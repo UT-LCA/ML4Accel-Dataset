@@ -15,6 +15,29 @@ def print_xml_element(node: ET.Element):
     print("".join(node.itertext()))
 
 
+def auto_find_solutions(dir: Path) -> list[Path]:
+    solutions = list(dir.rglob("**/*.aps"))
+    solutions = list(
+        filter(
+            lambda x: (
+                '<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">'
+            )
+            in x.read_text(),
+            solutions,
+        )
+    )
+    if len(solutions) == 0:
+        raise FileNotFoundError(f"No solution files found in {dir}")
+    
+    solution_dirs = [x.parent for x in solutions]
+    for solution_dir in solution_dirs:
+        if not solution_dir.is_dir():
+            raise FileNotFoundError(f"Solution directory {solution_dir} does not exist")
+    
+    return solution_dirs
+
+
+
 def auto_find_synth_report(dir: Path) -> Path:
     report_results = list(dir.rglob("**/csynth.xml"))
     if len(report_results) == 0:
@@ -25,6 +48,13 @@ def auto_find_synth_report(dir: Path) -> Path:
             f" {report_results[0]}"
         )
     return report_results[0]
+
+
+def auto_find_multiple_synth_report(dir: Path) -> list[Path]:
+    report_results = list(dir.rglob("**/csynth.xml"))
+    if len(report_results) == 0:
+        raise FileNotFoundError(f"No csynth.xml report file found in {dir}")
+    return report_results
 
 
 def serialize_methods(cls):
@@ -204,24 +234,6 @@ class Design:
 
     @classmethod
     def parse_from_synth_report_file(cls, fp: Path) -> "Design":
-        """
-        <profile>
-            <ReportVersion>
-                <Version>2023.1.1</Version>
-            </ReportVersion>
-            <UserAssignments>
-                <unit>ns</unit>
-                <ProductFamily>zynquplus</ProductFamily>
-                <Part>xczu9eg-ffvb1156-2-e</Part>
-                <TopModelName>fpga_gcn_qm9_top</TopModelName>
-                <TargetClockPeriod>3.33</TargetClockPeriod>
-                <ClockUncertainty>0.90</ClockUncertainty>
-                <FlowTarget>vitis</FlowTarget>
-            </UserAssignments>
-            <RTLDesignHierarchy>
-                <TopModule MAX_DEPTH="9">
-                    <ModuleName>fpga_gcn_qm9_top</ModuleName>
-        """
         tree = ET.parse(fp)
         root = tree.getroot()
         vitis_hls_version = root.find("ReportVersion").find("Version").text
@@ -301,7 +313,8 @@ def build_single_design(design_dir: Path):
     # - call vivado on synth_and_impl.tcl
     # - call vivado on dataset_info.tcl
 
-    call_tool(f"{bin_path_vitis_hls} dataset_hls.tcl", cwd=design_dir)
+    if not args.dont_build:
+        call_tool(f"{bin_path_vitis_hls} dataset_hls.tcl", cwd=design_dir)
     csynth_report_fp = auto_find_synth_report(design_dir)
 
     hls_data = DesignHLSSynthData.parse_from_synth_report_file(csynth_report_fp)
@@ -340,6 +353,13 @@ if __name__ == "__main__":
         type=int,
         default=1,
         help="Number of jobs to use for building",
+    )
+
+    parser.add_argument(
+        "-d",
+        "--dont-build",
+        action="store_true",
+        help="Don't build the designs, just parse the existing project files",
     )
 
     parser.add_argument(
