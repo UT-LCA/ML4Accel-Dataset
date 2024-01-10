@@ -28,14 +28,13 @@ def auto_find_solutions(dir: Path) -> list[Path]:
     )
     if len(solutions) == 0:
         raise FileNotFoundError(f"No solution files found in {dir}")
-    
+
     solution_dirs = [x.parent for x in solutions]
     for solution_dir in solution_dirs:
         if not solution_dir.is_dir():
             raise FileNotFoundError(f"Solution directory {solution_dir} does not exist")
-    
-    return solution_dirs
 
+    return solution_dirs
 
 
 def auto_find_synth_report(dir: Path) -> Path:
@@ -254,11 +253,11 @@ class Design:
 
 
 def call_tool(cmd: str, cwd: Path, log_output: bool = True):
-    cmd = shlex.split(cmd)
-    s = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
+    cmd_list = shlex.split(cmd)
+    s = subprocess.run(cmd_list, cwd=cwd, capture_output=True, text=True)
     if s.returncode != 0:
         raise RuntimeError(
-            f"Command {cmd} failed with return code {s.returncode} and error"
+            f"Command {cmd_list} failed with return code {s.returncode} and error"
             f" message:\n\n{s.stderr}\n\n{s.stdout}"
         )
     if log_output:
