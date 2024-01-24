@@ -32,8 +32,8 @@ def main(args):
 
 
 class FileFormat(Enum):
-    CSV = "CSV"
-    JSON = "JSON"
+    CSV = "csv"
+    JSON = "json"
 
 
 if __name__ == "__main__":
