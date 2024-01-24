@@ -298,6 +298,15 @@ def build_single_design(design_dir: Path):
                 " build process of all designs."
             )
 
+    reset_flag_str = "-reset"
+    for fp in [fp_hls_cosim_setup_tcl, fp_hls_ip_export]:
+        raw_tcl_txt = fp.read_text()
+        if reset_flag_str in raw_tcl_txt:
+            print(
+                f'Warning: {fp} contains the "-reset" flag {reset_flag_str}. Since "dataset_hls.tcl" is run first it will '
+                f'create the project and synthesis solution. A "-reset" flag in {reset_flag_str} will overwrite the already created project or solution.'
+            )
+
     # need two tools
     # - vitis_hls
     # - vivado
@@ -314,7 +323,8 @@ def build_single_design(design_dir: Path):
     # - call vivado on synth_and_impl.tcl
     # - call vivado on dataset_info.tcl
 
-    if not args.dont_build:
+    # csynth
+    if not args.dont_csynth:
         call_tool(f"{bin_path_vitis_hls} dataset_hls.tcl", cwd=design_dir)
     csynth_report_fp = auto_find_synth_report(design_dir)
 
@@ -324,8 +334,13 @@ def build_single_design(design_dir: Path):
     design_data = Design.parse_from_synth_report_file(csynth_report_fp)
     design_data.to_json(design_dir / "data_design.json")
 
-    # call_tool(f"{bin_path_vivado} -mode batch -source {fp_impl_tcl}", cwd=design_dir)
-    # call_tool(f"{bin_path_vivado} -mode batch -source {fp_info_tcl}", cwd=design_dir)
+    # cosim setup
+    if not args.dont_cosim_setup:
+        call_tool(f"{bin_path_vitis_hls} dataset_hls_cosim_setup.tcl", cwd=design_dir)
+
+    # export ip and implementation
+    if not args.dont_export_ip:
+        call_tool(f"{bin_path_vitis_hls} dataset_hls_ip_export.tcl", cwd=design_dir)
 
 
 def build_multiple_designs(design_dirs: list[Path], n_jobs: int = 1):
@@ -357,10 +372,21 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        "-d",
-        "--dont-build",
+        "--dont-csynth",
         action="store_true",
-        help="Don't build the designs, just parse the existing project files",
+        help="Don't csynth the designs.",
+    )
+
+    parser.add_argument(
+        "--dont-cosim-setup",
+        action="store_true",
+        help="Don't setup cosim.",
+    )
+
+    parser.add_argument(
+        "--dont-export-ip",
+        action="store_true",
+        help="Don't export the IP.",
     )
 
     parser.add_argument(
