@@ -314,6 +314,7 @@ def build_single_design(design_dir: Path):
     # check if both tools are available in the shell
     bin_path_vitis_hls = find_bin_path("vitis_hls")
     bin_path_vivado = find_bin_path("vivado")
+    patch_sim_fp = Path(__file__).parent / "patch_sim.sh"
 
     print(f"Found vitis_hls: {bin_path_vitis_hls}")
     print(f"Found vivado: {bin_path_vivado}")
@@ -337,6 +338,9 @@ def build_single_design(design_dir: Path):
     # cosim setup
     if not args.dont_cosim_setup:
         call_tool(f"{bin_path_vitis_hls} dataset_hls_cosim_setup.tcl", cwd=design_dir)
+    cosim_dir = list(design_dir.rglob("**/sim"))[0]
+    solution_dir = cosim_dir.parent
+    call_tool(f"bash {patch_sim_fp}", cwd=solution_dir)
 
     # export ip and implementation
     if not args.dont_export_ip:
