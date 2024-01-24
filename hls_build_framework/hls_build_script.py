@@ -327,6 +327,7 @@ def build_single_design(design_dir: Path):
     # csynth
     if not args.dont_csynth:
         call_tool(f"{bin_path_vitis_hls} dataset_hls.tcl", cwd=design_dir)
+
     csynth_report_fp = auto_find_synth_report(design_dir)
 
     hls_data = DesignHLSSynthData.parse_from_synth_report_file(csynth_report_fp)
@@ -338,9 +339,9 @@ def build_single_design(design_dir: Path):
     # cosim setup
     if not args.dont_cosim_setup:
         call_tool(f"{bin_path_vitis_hls} dataset_hls_cosim_setup.tcl", cwd=design_dir)
-    cosim_dir = list(design_dir.rglob("**/sim"))[0]
-    solution_dir = cosim_dir.parent
-    call_tool(f"bash {patch_sim_fp}", cwd=solution_dir)
+        cosim_dir = list(design_dir.rglob("**/sim"))[0]
+        solution_dir = cosim_dir.parent
+        call_tool(f"bash {patch_sim_fp}", cwd=solution_dir)
 
     # export ip and implementation
     if not args.dont_export_ip:
