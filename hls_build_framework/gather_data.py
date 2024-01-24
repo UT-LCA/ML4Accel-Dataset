@@ -1,8 +1,9 @@
 import argparse
-import csv
 import json
 from enum import Enum
 from pathlib import Path
+
+import pandas as pd
 
 
 def main(args):
@@ -21,19 +22,27 @@ def main(args):
     for data_design, data_hls in zip(data_designs, data_hls):
         data.append({**data_design, **data_hls})
 
+    # code to handle differnt data files with different sets of keys
+    data_dfs = []
+    for idx, d in enumerate(data):
+        df_single = pd.DataFrame(d, index=[idx])
+        data_dfs.append(df_single)
+    df_combined = pd.concat(data_dfs)
+
     if file_format == FileFormat.CSV:
-        with output_file.open("w") as f:
-            writer = csv.DictWriter(f, fieldnames=data[0].keys())
-            writer.writeheader()
-            writer.writerows(data)
+        df_combined.to_csv(output_file, index=False)
 
     if file_format == FileFormat.JSON:
-        output_file.write_text(json.dumps(data, indent=4))
+        df_combined.to_json(output_file, orient="records", indent=4)
+
+    if file_format == FileFormat.SQLITE:
+        raise NotImplementedError("sqlite output not implemented yet")
 
 
 class FileFormat(Enum):
     CSV = "csv"
     JSON = "json"
+    SQLITE = "sqlite"
 
 
 if __name__ == "__main__":
