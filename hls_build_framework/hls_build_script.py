@@ -201,10 +201,10 @@ class DesignHLSSynthData:
         # resource_data["used_percent"]["URAM"] = float(resource_data["used_abs"]["URAM"] / resource_data["available_abs"]["URAM"])
         # fmt: on
 
-        data = {
-            "latency": latency_data,
-            "resources": resource_data,
-        }
+        # data = {
+        #     "latency": latency_data,
+        #     "resources": resource_data,
+        # }
 
         return cls(
             clock_period=clock_period_t,
@@ -249,7 +249,10 @@ class Design:
         )
 
 
-# make a class dectoryator to add from_json and to_json methods to a class
+def auto_find_exported_ip(dir: Path) -> list[Path]:
+    ip_dirs = list(dir.rglob("**/ip"))
+    ip_dirs = list(filter(lambda x: x.is_dir(), ip_dirs))
+    return ip_dirs
 
 
 def call_tool(cmd: str, cwd: Path, log_output: bool = True):
@@ -282,11 +285,10 @@ def build_single_design(design_dir: Path):
     # - dataset_impl.tcl
     # - dataset_info.tcl
 
-    fp_hls_tcl = design_dir / "dataset_hls.tcl"
-    # fp_impl_tcl = design_dir / "dataset_impl.tcl"
-    # fp_info_tcl = design_dir / "dataset_info.tcl"
-    # build_files = [fp_hls_tcl, fp_impl_tcl, fp_info_tcl]
-    build_files = [fp_hls_tcl]
+    fp_hls_synth_tcl = design_dir / "dataset_hls.tcl"
+    fp_hls_cosim_setup_tcl = design_dir / "dataset_hls_cosim_setup.tcl"
+    fp_hls_ip_export = design_dir / "dataset_hls_ip_export.tcl"
+    build_files = [fp_hls_synth_tcl, fp_hls_cosim_setup_tcl, fp_hls_ip_export]
 
     # check if all three files exist
     for fp in build_files:

@@ -20,6 +20,8 @@ def main(args):
 
     output_file.write_text(json.dumps(data, indent=4))
 
+    
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

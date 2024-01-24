@@ -1,0 +1,6 @@
+class Frontend:
+    ...
+
+
+class FrontendJinja(Frontend):
+    ...
