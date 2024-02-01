@@ -2,6 +2,7 @@ import enum
 from abc import ABC, abstractmethod, abstractproperty
 from enum import Enum
 from pathlib import Path
+from tempfile import TemporaryDirectory
 
 EXTENSIONS_CPP = [".cpp", ".cc", ".hpp", ".h"]
 EXTENTIONS_TCL = [".tcl"]
@@ -57,15 +58,30 @@ class DesignDataset:
         self.designs = designs
 
     @classmethod
-    def from_dir(name, dir: Path, design_stage: DesignStage) -> "DesignDataset":
+    def from_dir(
+        name, dir: Path, design_stage_default: DesignStage = DesignStage.CONCRETE
+    ) -> "DesignDataset":
         designs = []
-        for subdir in dir.iterdir():
-            if subdir.is_dir():
-                if design_stage == DesignStage.ABSTRACT:
-                    designs.append(AbstractDesign(subdir.name, subdir))
-                else:
-                    designs.append(ConcreteDesign(subdir.name, subdir))
+        for sub_dir in dir.iterdir():
+            if sub_dir.is_dir():
+                match design_stage_default:
+                    case DesignStage.ABSTRACT:
+                        designs.append(AbstractDesign(sub_dir.name, sub_dir))
+                    case DesignStage.CONCRETE:
+                        designs.append(ConcreteDesign(sub_dir.name, sub_dir))
         return DesignDataset(name, designs)
+
+    @classmethod
+    def from_empty_temp_dir(name: str) -> "DesignDataset":
+        temp_dir_obj = TemporaryDirectory()
+        temp_dir = Path(temp_dir_obj.name)
+        return DesignDataset(name, temp_dir)
+
+    def add_design(self, design: Design):
+        self.designs.append(design)
+
+    def add_designs(self, designs: list[Design]):
+        self.designs.extend(designs)
 
 
 class Frontend(ABC):
