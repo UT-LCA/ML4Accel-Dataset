@@ -10,6 +10,9 @@ from pathlib import Path
 
 import yaml
 
+from framework import ConcreteDesign, ToolFlow
+from utils import call_tool, find_bin_path
+
 
 def print_xml_element(node: ET.Element):
     print("".join(node.itertext()))
@@ -255,28 +258,29 @@ def auto_find_exported_ip(dir: Path) -> list[Path]:
     return ip_dirs
 
 
-def call_tool(cmd: str, cwd: Path, log_output: bool = True):
-    cmd_list = shlex.split(cmd)
-    s = subprocess.run(cmd_list, cwd=cwd, capture_output=True, text=True)
-    if s.returncode != 0:
-        raise RuntimeError(
-            f"Command {cmd_list} failed with return code {s.returncode} and error"
-            f" message:\n\n{s.stderr}\n\n{s.stdout}"
-        )
-    if log_output:
-        print(s.stdout)
+# def call_tool(cmd: str, cwd: Path, log_output: bool = True):
+#     cmd_list = shlex.split(cmd)
+#     s = subprocess.run(cmd_list, cwd=cwd, capture_output=True, text=True)
+#     if s.returncode != 0:
+#         raise RuntimeError(
+#             f"Command {cmd_list} failed with return code {s.returncode} and error"
+#             f" message:\n\n{s.stderr}\n\n{s.stdout}"
+#         )
+#     if log_output:
+#         print(s.stdout)
 
 
-def find_bin_path(cmd: str):
-    bin_path = shutil.which(cmd)
-    if bin_path is None:
-        raise RuntimeError(
-            "Could not find `{cmd}` automatically (via which), please specify the `cmd`"
-            " path manually."
-        )
-    return bin_path
+# def find_bin_path(cmd: str):
+#     bin_path = shutil.which(cmd)
+#     if bin_path is None:
+#         raise RuntimeError(
+#             "Could not find `{cmd}` automatically (via which), please specify the `cmd`"
+#             " path manually."
+#         )
+#     return bin_path
 
-
+# old code
+"""
 def build_single_design(design_dir: Path):
     print(f"Building design {design_dir}...")
 
@@ -403,3 +407,94 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     build_multiple_designs(args.design_dirs, args.n_jobs)
+
+"""
+
+def check_build_files_exist(build_files: list[Path]):
+    for fp in build_files:
+        if not fp.exists():
+            raise FileNotFoundError(
+                f"Build file {fp} does not exist. This build file is required for the"
+                " build process of all designs."
+            )
+
+def warn_for_reset_flags(files: list[Path], reset_flag_str: str = "-reset"):
+    for fp in files:
+        raw_tcl_txt = fp.read_text()
+        if reset_flag_str in raw_tcl_txt:
+            print(
+                f'Warning: {fp} contains the "-reset" flag {reset_flag_str}. Since "dataset_hls.tcl" is run first it will '
+                f'create the project and synthesis solution. A "-reset" flag in {reset_flag_str} will overwrite the already created project or solution.'
+            )
+
+class VitisHLSSynthFlow(ToolFlow):
+    name = "VitisHLSSynthFlow"
+
+    def __init__(self, vitis_hls_bin: str | None = None):
+        if vitis_hls_bin is None:
+            self.vitis_hls_bin = find_bin_path("vitis_hls")
+        else:
+            self.vitis_hls_bin = vitis_hls_bin
+
+    def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
+        design_dir = design.dir
+
+        fp_hls_synth_tcl = design_dir / "dataset_hls.tcl"
+        build_files = [fp_hls_synth_tcl]
+        check_build_files_exist(build_files)
+        
+        call_tool(f"{self.vitis_hls_bin} dataset_hls.tcl", cwd=design_dir)
+
+        csynth_report_fp = auto_find_synth_report(design_dir)
+
+        hls_data = DesignHLSSynthData.parse_from_synth_report_file(csynth_report_fp)
+        hls_data.to_json(design_dir / "data_hls.json")
+
+        design_data = Design.parse_from_synth_report_file(csynth_report_fp)
+        design_data.to_json(design_dir / "data_design.json")
+
+
+class VitisHLSCosimSetupFlow(ToolFlow):
+    name = "VitisHLSCosimSetupFlow"
+
+    def __init__(self, vitis_hls_bin: str | None = None):
+        if vitis_hls_bin is None:
+            self.vitis_hls_bin = find_bin_path("vitis_hls")
+        else:
+            self.vitis_hls_bin = vitis_hls_bin
+        
+        self.patch_sim_fp = Path(__file__).parent / "patch_sim.sh"
+
+    def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
+        design_dir = design.dir
+
+        fp_hls_cosim_setup_tcl = design_dir / "dataset_hls_cosim_setup.tcl"
+        build_files = [fp_hls_cosim_setup_tcl]
+        check_build_files_exist(build_files)
+        warn_for_reset_flags(build_files)
+
+        call_tool(f"{self.vitis_hls_bin} dataset_hls_cosim_setup.tcl", cwd=design_dir)
+        cosim_dir = list(design_dir.rglob("**/sim"))[0]
+        solution_dir = cosim_dir.parent
+        call_tool(f"bash {self.patch_sim_fp}", cwd=solution_dir)
+
+
+class VitisHLSImplFlow(ToolFlow):
+    name = "VitisHLSImplFlow"
+
+    def __init__(self, vitis_hls_bin: str | None = None):
+        if vitis_hls_bin is None:
+            self.vitis_hls_bin = find_bin_path("vitis_hls")
+        else:
+            self.vitis_hls_bin = vitis_hls_bin
+
+    def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
+        design_dir = design.dir
+
+        fp_hls_ip_export = design_dir / "dataset_hls_ip_export.tcl"
+        build_files = [fp_hls_ip_export]
+        check_build_files_exist(build_files)
+        warn_for_reset_flags(build_files)
+
+        call_tool(f"{self.vitis_hls_bin} dataset_hls_ip_export.tcl", cwd=design_dir)
+

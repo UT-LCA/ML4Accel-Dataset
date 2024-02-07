@@ -42,6 +42,17 @@ class Design(ABC):
     @property
     def all_files(self) -> list[Path]:
         all_files_in_dir(self.dir)
+    
+    @property
+    def tcl_files(self) -> list[Path]:
+        return filter_files_by_ext(self.all_files, ".tcl")
+
+    @property
+    def cpp_source_files(self) -> list[Path]:
+        source_files = []
+        for ext in EXTENSIONS_CPP:
+            source_files.extend(filter_files_by_ext(self.all_files, ext))
+        return source_files
 
 
 class AbstractDesign(Design):
@@ -125,16 +136,3 @@ class ToolFlow(ABC):
         for design in designs:
             self.execute(design)
 
-
-class VitisHLSSynthFlow(ToolFlow):
-    name = "VitisHLSSynthFlow"
-
-    def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
-        ...
-
-
-class VitisHLSCosimSetupFlow(ToolFlow):
-    name = "VitisHLSCosimSetupFlow"
-
-    def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
-        ...
