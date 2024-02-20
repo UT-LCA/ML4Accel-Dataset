@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <math.h>
-#include "ap_cint.h"
+// #include "ap_cint.h"
 #include "syrk.h"
 
 void syrk(DATA_TYPE alpha, DATA_TYPE beta, DATA_TYPE A[N][N], DATA_TYPE B[N][N], DATA_TYPE C_out[N][N]) {

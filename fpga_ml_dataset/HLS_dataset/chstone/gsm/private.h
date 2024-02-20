@@ -35,6 +35,13 @@ typedef long longword;		/* 32 bit signed int    */
 
 #define	SASR(x, by)	((x) >> (by))
 
+word gsm_add(word a, word b);
+word gsm_mult(word a, word b);
+word gsm_mult_r(word a, word b);
+word gsm_abs(word a);
+word gsm_norm(longword a);
+word gsm_div(word num, word denum);
+
 #define GSM_MULT_R(a, b)	gsm_mult_r(a, b)
 #define GSM_MULT(a, b)		gsm_mult(a, b)
 #define GSM_ADD(a, b)		gsm_add(a, b)

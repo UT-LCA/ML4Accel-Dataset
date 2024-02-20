@@ -4,6 +4,9 @@ from enum import Enum
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+import tqdm
+from joblib import Parallel, delayed
+
 EXTENSIONS_CPP = [".cpp", ".cc", ".hpp", ".h"]
 EXTENTIONS_TCL = [".tcl"]
 EXTENSIONS_PYTHON = [".py"]
@@ -42,7 +45,7 @@ class Design(ABC):
     @property
     def all_files(self) -> list[Path]:
         all_files_in_dir(self.dir)
-    
+
     @property
     def tcl_files(self) -> list[Path]:
         return filter_files_by_ext(self.all_files, ".tcl")
@@ -70,7 +73,10 @@ class DesignDataset:
 
     @classmethod
     def from_dir(
-        name, dir: Path, design_stage_default: DesignStage = DesignStage.CONCRETE
+        cls,
+        name: str,
+        dir: Path,
+        design_stage_default: DesignStage = DesignStage.CONCRETE,
     ) -> "DesignDataset":
         designs = []
         for sub_dir in dir.iterdir():
@@ -80,6 +86,7 @@ class DesignDataset:
                         designs.append(AbstractDesign(sub_dir.name, sub_dir))
                     case DesignStage.CONCRETE:
                         designs.append(ConcreteDesign(sub_dir.name, sub_dir))
+        designs = sorted(designs, key=lambda design: design.name)
         return DesignDataset(name, designs)
 
     @classmethod
@@ -104,8 +111,11 @@ class Frontend(ABC):
 
     def execute_multiple(self, designs: list[Design], n_jobs: int = 1) -> list[Design]:
         # TODO: parallelize with joblib
-        for design in designs:
-            self.execute(design)
+        # for design in designs:
+        #     self.execute(design)
+        Parallel(n_jobs=n_jobs, backend="threading")(
+            delayed(self.execute)(design) for design in tqdm.tqdm(designs)
+        )
 
 
 class PargmaComboFrontend(Frontend):
@@ -126,13 +136,17 @@ class ToolFlow(ABC):
     name: str
 
     @abstractmethod
-    def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
+    def execute(self, design: Design) -> list[Design]:
         ...
 
     def execute_multiple(
-        self, designs: list[ConcreteDesign], n_jobs: int = 1
-    ) -> list[ConcreteDesign]:
+        self,
+        designs: list[Design],
+        n_jobs: int = 1,
+    ) -> list[Design]:
         # TODO: parallelize with joblib.
-        for design in designs:
-            self.execute(design)
-
+        # for design in designs:
+        #     self.execute(design)
+        Parallel(n_jobs=n_jobs, backend="multiprocessing")(
+            delayed(self.execute)(design) for design in tqdm.tqdm(designs)
+        )

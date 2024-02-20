@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <math.h>
-#include "ap_cint.h"
+// #include "ap_cint.h"
 #include "mvt.h"
 
 void mvt(DATA_TYPE A[N][N], DATA_TYPE x1[N], DATA_TYPE x2[N], DATA_TYPE y1[N], DATA_TYPE y2[N], DATA_TYPE x1_out[N], DATA_TYPE x2_out[N])

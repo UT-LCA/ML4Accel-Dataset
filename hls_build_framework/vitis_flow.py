@@ -1,17 +1,15 @@
-import argparse
 import json
-import multiprocessing
-import shlex
-import shutil
-import subprocess
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, is_dataclass
 from pathlib import Path
 
 import yaml
 
-from framework import ConcreteDesign, ToolFlow
-from utils import call_tool, find_bin_path
+# from framework import ConcreteDesign, ToolFlow
+from hls_build_framework.framework import ConcreteDesign, ToolFlow
+
+# from utils import call_tool, find_bin_path
+from hls_build_framework.utils import call_tool, find_bin_path
 
 
 def print_xml_element(node: ET.Element):
@@ -410,6 +408,7 @@ if __name__ == "__main__":
 
 """
 
+
 def check_build_files_exist(build_files: list[Path]):
     for fp in build_files:
         if not fp.exists():
@@ -417,6 +416,7 @@ def check_build_files_exist(build_files: list[Path]):
                 f"Build file {fp} does not exist. This build file is required for the"
                 " build process of all designs."
             )
+
 
 def warn_for_reset_flags(files: list[Path], reset_flag_str: str = "-reset"):
     for fp in files:
@@ -426,6 +426,7 @@ def warn_for_reset_flags(files: list[Path], reset_flag_str: str = "-reset"):
                 f'Warning: {fp} contains the "-reset" flag {reset_flag_str}. Since "dataset_hls.tcl" is run first it will '
                 f'create the project and synthesis solution. A "-reset" flag in {reset_flag_str} will overwrite the already created project or solution.'
             )
+
 
 class VitisHLSSynthFlow(ToolFlow):
     name = "VitisHLSSynthFlow"
@@ -442,7 +443,7 @@ class VitisHLSSynthFlow(ToolFlow):
         fp_hls_synth_tcl = design_dir / "dataset_hls.tcl"
         build_files = [fp_hls_synth_tcl]
         check_build_files_exist(build_files)
-        
+
         call_tool(f"{self.vitis_hls_bin} dataset_hls.tcl", cwd=design_dir)
 
         csynth_report_fp = auto_find_synth_report(design_dir)
@@ -462,7 +463,7 @@ class VitisHLSCosimSetupFlow(ToolFlow):
             self.vitis_hls_bin = find_bin_path("vitis_hls")
         else:
             self.vitis_hls_bin = vitis_hls_bin
-        
+
         self.patch_sim_fp = Path(__file__).parent / "patch_sim.sh"
 
     def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
@@ -497,4 +498,3 @@ class VitisHLSImplFlow(ToolFlow):
         warn_for_reset_flags(build_files)
 
         call_tool(f"{self.vitis_hls_bin} dataset_hls_ip_export.tcl", cwd=design_dir)
-

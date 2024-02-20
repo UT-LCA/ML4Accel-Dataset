@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <math.h>
-#include "ap_cint.h"
+// #include "ap_cint.h"
 #include "gesummv.h"
 
 void gesummv(DATA_TYPE alpha, DATA_TYPE beta, DATA_TYPE A[N][N], DATA_TYPE B[N][N], DATA_TYPE x[N], DATA_TYPE y_out[N])

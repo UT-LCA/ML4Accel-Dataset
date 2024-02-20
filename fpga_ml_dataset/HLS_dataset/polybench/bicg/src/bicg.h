@@ -1,5 +1,3 @@
-#include "ap_cint.h"
-
 #define N 64
 
 #define DATA_TYPE float

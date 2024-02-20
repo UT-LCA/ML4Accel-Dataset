@@ -2,7 +2,6 @@
 #include <unistd.h>
 #include <string.h>
 #include <math.h>
-//#include "ap_cint.h"
 #include "bicg.h"
 
 void bicg(DATA_TYPE A[N][N], DATA_TYPE p[N], DATA_TYPE r[N], DATA_TYPE s_out[N], DATA_TYPE q_out[N])
