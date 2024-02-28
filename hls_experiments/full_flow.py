@@ -1,17 +1,17 @@
 from pathlib import Path
 
-from hls_build_framework.framework import DesignDataset, DesignStage
-from hls_build_framework.vitis_flow import VitisHLSImplFlow, VitisHLSSynthFlow
+from hls_build_framework.framework import DesignDataset
+from hls_build_framework.opt_dsl_frontend import OptDSLFrontend
 
 DIR_CURRENT_SCRIPT = Path(__file__).parent
 
-# DIR_DATASET_POLYBENCH_XILINX = (
-#     DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "polybench"
-# )
-
-DIR_DATASET_MACHSUITE_XILINX = Path(
-    DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "machsuite"
+DIR_DATASET_POLYBENCH_XILINX = (
+    DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "polybench"
 )
+
+# DIR_DATASET_MACHSUITE_XILINX = Path(
+#     DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "machsuite"
+# )
 
 # DIR_DATASET_CHSTONE_XILINX = Path(
 #     DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "chstone"
@@ -22,16 +22,16 @@ DIR_DATASET_MACHSUITE_XILINX = Path(
 # )
 
 
-# dataset_polybench_xilinx = DesignDataset.from_dir(
-#     "polybench_xilinx",
-#     DIR_DATASET_POLYBENCH_XILINX,
-# )
-dataset_machsuite_xilinx = DesignDataset.from_dir(
-    "machsuite_xilinx",
-    DIR_DATASET_MACHSUITE_XILINX,
-    DesignStage.CONCRETE,
-    exclude_dir_filter=lambda dir: dir.name == "common",
+dataset_polybench_xilinx = DesignDataset.from_dir(
+    "polybench_xilinx",
+    DIR_DATASET_POLYBENCH_XILINX,
 )
+# dataset_machsuite_xilinx = DesignDataset.from_dir(
+#     "machsuite_xilinx",
+#     DIR_DATASET_MACHSUITE_XILINX,
+#     DesignStage.CONCRETE,
+#     exclude_dir_filter=lambda dir: dir.name == "common",
+# )
 # dataset_chstone_xilinx = DesignDataset.from_dir(
 #     "chstone_xilinx", DIR_DATASET_CHSTONE_XILINX
 # )
@@ -41,13 +41,18 @@ dataset_machsuite_xilinx = DesignDataset.from_dir(
 
 
 datasets = {
-    # "polybench_xilinx": dataset_polybench_xilinx,
-    "machsuite_xilinx": dataset_machsuite_xilinx,
+    "polybench_xilinx": dataset_polybench_xilinx,
+    # "machsuite_xilinx": dataset_machsuite_xilinx,
     # "chstone_xilinx": dataset_chstone_xilinx,
     # "rosetta_xilinx": dataset_rosetta_xilinx,
 }
 
 # frontend_pragma_combo = PargmaComboFrontend()
+
+frontent_opt_dsl = OptDSLFrontend()
+
+for dataset_name, dataset in datasets.items():
+    frontent_opt_dsl.execute_multiple(dataset.designs[:1])
 
 # intermediate_datasets = {
 #     "polybench_xilinx_post_frontend": DesignDataset.from_empty_temp_dir(
@@ -71,10 +76,10 @@ datasets = {
 #         dataset.designs, output_dataset=intermediate_dataset
 #     )
 
-toolflow_vitis_hls_synth = VitisHLSSynthFlow()
-toolflow_vitis_hls_impl = VitisHLSImplFlow()
+# toolflow_vitis_hls_synth = VitisHLSSynthFlow()
+# toolflow_vitis_hls_impl = VitisHLSImplFlow()
 
 
-for dataset_name, dataset in datasets.items():
-    toolflow_vitis_hls_synth.execute_multiple(dataset.designs, n_jobs=32)
-    # toolflow_vitis_hls_impl.execute_multiple(dataset.designs[:2])
+# for dataset_name, dataset in datasets.items():
+#     toolflow_vitis_hls_synth.execute_multiple(dataset.designs, n_jobs=32)
+# toolflow_vitis_hls_impl.execute_multiple(dataset.designs[:2])
