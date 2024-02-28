@@ -7,7 +7,7 @@ In Proceedings of the 3rd Workshop on General-Purpose Computation on Graphics Pr
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "../../common/support.h"
+#include "support.h"
 
 #define TYPE double
 

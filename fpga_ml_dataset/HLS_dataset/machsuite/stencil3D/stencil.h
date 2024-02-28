@@ -7,7 +7,7 @@ SC 2008
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../common/support.h"
+#include "support.h"
 
 //Define input sizes
 #define height_size 32

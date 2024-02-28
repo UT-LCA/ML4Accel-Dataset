@@ -1,10 +1,10 @@
-open_project -reset [prj_path]
+open_project -reset hls_prj
 set_top ms_mergesort
-add_files /home/projects/ljohn/simplescalar/zhigang/MachSuite/sort/merge/sort.c
-add_files /home/projects/ljohn/simplescalar/zhigang/MachSuite/sort/merge/sort.h
+add_files sort.c
+add_files sort.h
 open_solution -reset solution
 set_part xczu9eg-ffvb1156-2-i
 create_clock -period 10 -name default
-source [opt_tcl]
+# source [opt_tcl]
 csynth_design
 close_project

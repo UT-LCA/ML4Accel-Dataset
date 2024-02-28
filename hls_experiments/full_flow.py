@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from hls_build_framework.framework import DesignDataset
+from hls_build_framework.framework import DesignDataset, DesignStage
 from hls_build_framework.vitis_flow import VitisHLSImplFlow, VitisHLSSynthFlow
 
 DIR_CURRENT_SCRIPT = Path(__file__).parent
@@ -9,13 +9,13 @@ DIR_CURRENT_SCRIPT = Path(__file__).parent
 #     DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "polybench"
 # )
 
-# DIR_DATASET_MATCHSUITE_XILINX = Path(
-#     DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "matchsuite"
-# )
-
-DIR_DATASET_CHSTONE_XILINX = Path(
-    DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "chstone"
+DIR_DATASET_MACHSUITE_XILINX = Path(
+    DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "machsuite"
 )
+
+# DIR_DATASET_CHSTONE_XILINX = Path(
+#     DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "chstone"
+# )
 
 # DIR_DATASET_ROSETTA_XILINX = Path(
 #     DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "rosetta"
@@ -26,12 +26,15 @@ DIR_DATASET_CHSTONE_XILINX = Path(
 #     "polybench_xilinx",
 #     DIR_DATASET_POLYBENCH_XILINX,
 # )
-# dataset_matchsuite_xilinx = DesignDataset.from_dir(
-#     "matchsuite_xilinx", DIR_DATASET_MATCHSUITE_XILINX, DesignStage.CONCRETE
-# )
-dataset_chstone_xilinx = DesignDataset.from_dir(
-    "chstone_xilinx", DIR_DATASET_CHSTONE_XILINX
+dataset_machsuite_xilinx = DesignDataset.from_dir(
+    "machsuite_xilinx",
+    DIR_DATASET_MACHSUITE_XILINX,
+    DesignStage.CONCRETE,
+    exclude_dir_filter=lambda dir: dir.name == "common",
 )
+# dataset_chstone_xilinx = DesignDataset.from_dir(
+#     "chstone_xilinx", DIR_DATASET_CHSTONE_XILINX
+# )
 # dataset_rosetta_xilinx = DesignDataset.from_dir(
 #     "rosetta_xilinx", DIR_DATASET_ROSETTA_XILINX, DesignStage.CONCRETE
 # )
@@ -39,8 +42,8 @@ dataset_chstone_xilinx = DesignDataset.from_dir(
 
 datasets = {
     # "polybench_xilinx": dataset_polybench_xilinx,
-    # "matchsuite_xilinx": dataset_matchsuite_xilinx,
-    "chstone_xilinx": dataset_chstone_xilinx,
+    "machsuite_xilinx": dataset_machsuite_xilinx,
+    # "chstone_xilinx": dataset_chstone_xilinx,
     # "rosetta_xilinx": dataset_rosetta_xilinx,
 }
 
@@ -50,8 +53,8 @@ datasets = {
 #     "polybench_xilinx_post_frontend": DesignDataset.from_empty_temp_dir(
 #         "polybench_xilinx_post_frontend"
 #     ),
-#     "matchsuite_xilinx_post_frontend": DesignDataset.from_empty_temp_dir(
-#         "matchsuite_xilinx_post_frontend"
+#     "machsuite_xilinx_post_frontend": DesignDataset.from_empty_temp_dir(
+#         "machsuite_xilinx_post_frontend"
 #     ),
 #     "chstone_xilinx_post_frontend": DesignDataset.from_empty_temp_dir(
 #         "chstone_xilinx_post_frontend"
@@ -73,5 +76,5 @@ toolflow_vitis_hls_impl = VitisHLSImplFlow()
 
 
 for dataset_name, dataset in datasets.items():
-    toolflow_vitis_hls_synth.execute_multiple(dataset.designs, n_jobs=8)
+    toolflow_vitis_hls_synth.execute_multiple(dataset.designs, n_jobs=32)
     # toolflow_vitis_hls_impl.execute_multiple(dataset.designs[:2])

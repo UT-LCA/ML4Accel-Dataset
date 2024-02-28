@@ -1,6 +1,8 @@
 from framework import ConcreteDesign, ToolFlow
 from utils import call_tool, find_bin_path
 
+from hls_build_framework.vitis_flow import Design
+
 
 class IntelHLSSynthFlow(ToolFlow):
     name = "IntelHLSSynthFlow"
@@ -21,7 +23,7 @@ class IntelHLSSynthFlow(ToolFlow):
         self.clock = clock
         self.verbose = verbose
 
-    def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
+    def execute(self, design: ConcreteDesign) -> list[Design]:
         design_dir = design.dir
         design_name = design.name
 
@@ -40,6 +42,8 @@ class IntelHLSSynthFlow(ToolFlow):
 
         call_tool(cmd, design_dir)
 
+        return [design]
+
 
 class IntelQuartusImplFlow(ToolFlow):
     name = "IntelQuartusImplFlow"
@@ -52,10 +56,13 @@ class IntelQuartusImplFlow(ToolFlow):
 
         self.verbose = verbose
 
-    def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
+    def execute(self, design: ConcreteDesign) -> list[Design]:
         design_dir = design.dir
         design_name = design.name
 
         cwd = design_dir / f"{design_name}.prj"
         cmd = f"{self.quartus_bin} --flow compile {design_name}_quartus_compile"
         call_tool(cmd, cwd)
+        call_tool(cmd, cwd)
+
+        return [design]

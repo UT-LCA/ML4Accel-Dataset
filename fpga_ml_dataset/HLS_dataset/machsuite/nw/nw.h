@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../common/support.h"
+#include "support.h"
 
 #define ALEN 128
 #define BLEN 128

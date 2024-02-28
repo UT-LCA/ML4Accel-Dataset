@@ -6,7 +6,7 @@ V. Volkov and B. Kazian. Fitting fft onto the g80 architecture. 2008.
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "../../common/support.h"
+#include "support.h"
 
 #define TYPE double
 

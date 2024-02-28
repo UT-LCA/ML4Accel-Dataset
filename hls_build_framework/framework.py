@@ -1,8 +1,9 @@
 import enum
-from abc import ABC, abstractmethod, abstractproperty
+from abc import ABC, abstractmethod
 from enum import Enum
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from typing import Callable
 
 import tqdm
 from joblib import Parallel, delayed
@@ -22,6 +23,7 @@ def all_files_in_dir(dir: Path) -> list[Path]:
     for file in dir.rglob("*"):
         if file.is_file():
             files.append(file)
+    return files
 
 
 def filter_files_by_ext(files: list[Path], ext: str) -> list[Path]:
@@ -34,9 +36,10 @@ class DesignStage(Enum):
 
 
 class Design(ABC):
-    @abstractproperty
-    def design_stage(self) -> DesignStage:
-        ...
+    # @abstractproperty
+    # def design_stage(self) -> DesignStage:
+    #     ...
+    design_stage: DesignStage
 
     def __init__(self, name: str, dir: Path):
         self.name = name
@@ -44,7 +47,7 @@ class Design(ABC):
 
     @property
     def all_files(self) -> list[Path]:
-        all_files_in_dir(self.dir)
+        return all_files_in_dir(self.dir)
 
     @property
     def tcl_files(self) -> list[Path]:
@@ -67,8 +70,9 @@ class ConcreteDesign(Design):
 
 
 class DesignDataset:
-    def __init__(self, name: str, designs: list[Design]):
+    def __init__(self, name: str, dataset_dir: Path, designs: list[Design]):
         self.name = name
+        self.dataset_dir = dataset_dir
         self.designs = designs
 
     @classmethod
@@ -77,23 +81,26 @@ class DesignDataset:
         name: str,
         dir: Path,
         design_stage_default: DesignStage = DesignStage.CONCRETE,
+        exclude_dir_filter: None | Callable[[Path], bool] = None,
     ) -> "DesignDataset":
         designs = []
         for sub_dir in dir.iterdir():
             if sub_dir.is_dir():
+                if exclude_dir_filter is not None and exclude_dir_filter(sub_dir):
+                    continue
                 match design_stage_default:
                     case DesignStage.ABSTRACT:
                         designs.append(AbstractDesign(sub_dir.name, sub_dir))
                     case DesignStage.CONCRETE:
                         designs.append(ConcreteDesign(sub_dir.name, sub_dir))
         designs = sorted(designs, key=lambda design: design.name)
-        return DesignDataset(name, designs)
+        return DesignDataset(name, dir, designs)
 
     @classmethod
-    def from_empty_temp_dir(name: str) -> "DesignDataset":
+    def from_empty_temp_dir(cls, name: str) -> "DesignDataset":
         temp_dir_obj = TemporaryDirectory()
         temp_dir = Path(temp_dir_obj.name)
-        return DesignDataset(name, temp_dir)
+        return DesignDataset(name, temp_dir, [])
 
     def add_design(self, design: Design):
         self.designs.append(design)
@@ -113,9 +120,13 @@ class Frontend(ABC):
         # TODO: parallelize with joblib
         # for design in designs:
         #     self.execute(design)
-        Parallel(n_jobs=n_jobs, backend="threading")(
+        new_designs = Parallel(n_jobs=n_jobs, backend="multiprocessing")(  # type: ignore
             delayed(self.execute)(design) for design in tqdm.tqdm(designs)
         )
+        assert new_designs is not None
+        new_designs: list[Design] = list(new_designs)
+        new_designs = list(new_designs)
+        return new_designs
 
 
 class PargmaComboFrontend(Frontend):
@@ -147,6 +158,10 @@ class ToolFlow(ABC):
         # TODO: parallelize with joblib.
         # for design in designs:
         #     self.execute(design)
-        Parallel(n_jobs=n_jobs, backend="multiprocessing")(
+        new_designs = Parallel(n_jobs=n_jobs, backend="multiprocessing")(  # type: ignore
             delayed(self.execute)(design) for design in tqdm.tqdm(designs)
         )
+        assert new_designs is not None
+        new_designs: list[Design] = list(new_designs)
+        new_designs = list(new_designs)
+        return new_designs

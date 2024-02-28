@@ -7,7 +7,7 @@ Lawrence Rabiner. "A Tutorial on Hidden Markov Models and Selected Applications 
 #include <stdio.h>
 #include <stdint.h>
 #include <fcntl.h>
-#include "../../common/support.h"
+#include "support.h"
 
 #define TYPE double
 typedef uint8_t tok_t;

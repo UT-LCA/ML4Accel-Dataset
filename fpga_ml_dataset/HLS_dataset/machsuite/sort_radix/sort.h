@@ -8,7 +8,7 @@ In Proceedings of the 3rd Workshop on General-Purpose Computation on Graphics Pr
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../../common/support.h"
+#include "support.h"
 
 #define TYPE int32_t
 #define TYPE_MAX INT32_MAX

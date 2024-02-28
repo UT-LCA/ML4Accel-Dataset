@@ -1,11 +1,11 @@
-open_project -reset [prj_path]
+open_project -reset hls_prj
 set_top ellpack
-add_files /home/projects/ljohn/simplescalar/zhigang/MachSuite/spmv/ellpack/spmv.c
-add_files /home/projects/ljohn/simplescalar/zhigang/MachSuite/spmv/ellpack/spmv.h
+add_files spmv.c
+add_files spmv.h
 open_solution -reset solution
 set_part xczu9eg-ffvb1156-2-i
 create_clock -period 10 -name default
-source [opt_tcl]
+# source [opt_tcl]
 csynth_design
 close_project
 
