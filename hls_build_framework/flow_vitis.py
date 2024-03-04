@@ -479,6 +479,8 @@ class VitisHLSCosimSetupFlow(ToolFlow):
         solution_dir = cosim_dir.parent
         call_tool(f"bash {self.patch_sim_fp}", cwd=solution_dir)
 
+        return [design]
+
 
 class VitisHLSImplFlow(ToolFlow):
     name = "VitisHLSImplFlow"
@@ -498,3 +500,18 @@ class VitisHLSImplFlow(ToolFlow):
         warn_for_reset_flags(build_files)
 
         call_tool(f"{self.vitis_hls_bin} dataset_hls_ip_export.tcl", cwd=design_dir)
+
+        return [design]
+
+
+class VitisHLSImplReportFlow(ToolFlow):
+    name = "VitisHLSImplReportFlow"
+
+    def __init__(self, vitis_hls_bin: str | None = None):
+        if vitis_hls_bin is None:
+            self.vitis_hls_bin = find_bin_path("vitis_hls")
+        else:
+            self.vitis_hls_bin = vitis_hls_bin
+
+    def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
+        raise NotImplementedError

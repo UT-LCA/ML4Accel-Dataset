@@ -1,6 +1,8 @@
 import itertools
 import os
+import random
 import shutil
+from pathlib import Path
 from pprint import pp
 
 from hls_build_framework.framework import Design, Frontend
@@ -73,12 +75,15 @@ class LoopOpt:
 
 
 #################################################
-def parse_template(src_template) -> tuple[list[ArrayPartition], list[LoopOpt], str]:
-    array_partition_object_lists = []
-    loop_opt_object_lists = []
+def parse_template(
+    src_template: Path,
+) -> tuple[list[ArrayPartition], list[LoopOpt], str]:
+    array_partition_object_lists: list[ArrayPartition] = []
+    loop_opt_object_lists: list[LoopOpt] = []
     static_lines = str()
-    with open(src_template, "r+") as f:
-        lines = f.readlines()
+    # with open(src_template, "r+") as f:
+    #     lines = f.readlines()
+    lines = src_template.read_text().splitlines()
     i = 0
     while i < len(lines):
         line = lines[i]
@@ -174,76 +179,102 @@ def gen_opt(array_partition_object_lists, loop_opt_object_lists):
 
 
 def generate_tcl(
-    src_hls, output_path, array_partition_lines, loop_opt_lines, static_lines
+    src_hls: Path,
+    output_path: Path,
+    array_partition_lines,
+    loop_opt_lines,
+    static_lines,
+    random_sample=False,
+    random_sample_num=10,
+):
+    # write opt.tcl files
+    num_of_generated_tcls = 0
+
+    line_combos_all = list(itertools.product(array_partition_lines, loop_opt_lines))
+    if random_sample:
+        line_combos_all = random.sample(line_combos_all, random_sample_num)
+    else:
+        line_combos_all = line_combos_all
+
+    # for a_line in array_partition_lines:
+    #     for l_line in loop_opt_lines:
+    for a_line, l_line in line_combos_all:
+        num_of_generated_tcls += 1
+        # output_dir = "{}/{}".format(output_path, num_of_generated_tcls)
+        output_dir = output_path / f"{num_of_generated_tcls}"
+        # if os.path.isdir(output_dir) == False:  # noqa: E712
+        #     os.mkdir(output_dir)
+        if not output_dir.exists():
+            output_dir.mkdir()
+        # output_file = "{}/opt.tcl".format(output_dir)
+        output_file = output_dir / "opt.tcl"
+        # f = open(output_file, "w+")
+        with open(output_file, "w+") as f:
+            f.write(static_lines)
+            f.write("\n")
+
+            for x in a_line:
+                f.write(x)
+                f.write("\n")
+
+            for x in l_line:
+                f.write(x)
+                f.write("\n")
+        # f.close()
+
+    # open the hls_template file and write the final hls file used to run hls
+    # with open(src_hls, "r+") as f:
+    #     src_hls_lines = f.readlines()
+    src_hls_lines = src_hls.read_text().splitlines()
+
+    # hls_f = open("{}/hls.tcl".format(output_path), "w+")
+    # hls_f = open(output_path / "hls.tcl", "w+")
+    with open(output_path / "hls.tcl", "w+") as hls_f:
+        for i in range(1, num_of_generated_tcls + 1):
+            # prj_path = "{}".format(i)
+            prj_path = f"{i}"
+            # opt_tcl = "{}/opt.tcl".format(i)
+            opt_tcl = f"{i}/opt.tcl"
+
+            for line in src_hls_lines:
+                t_line = line.replace("[prj_path]", prj_path)
+                t_line = t_line.replace("[opt_tcl]", opt_tcl)
+                hls_f.write(t_line)
+            hls_f.write("\n")
+
+    # hls_f.close()
+    return num_of_generated_tcls
+
+
+def generate_opt_tcl(
+    output_path: Path, array_partition_lines, loop_opt_lines, static_lines
 ):
     # write opt.tcl files
     num_of_generated_tcls = 0
     for a_line in array_partition_lines:
         for l_line in loop_opt_lines:
             num_of_generated_tcls += 1
-            output_dir = "{}/{}".format(output_path, num_of_generated_tcls)
-            if os.path.isdir(output_dir) == False:  # noqa: E712
-                os.mkdir(output_dir)
-            output_file = "{}/opt.tcl".format(output_dir)
-            f = open(output_file, "w+")
-
-            f.write(static_lines)
-            f.write("\n")
-
-            for x in a_line:
-                f.write(x)
+            # output_dir = "{}/{}".format(output_path, num_of_generated_tcls)
+            output_dir = output_path / f"{num_of_generated_tcls}"
+            # if os.path.isdir(output_dir) == False:  # noqa: E712
+            #     os.mkdir(output_dir)
+            if not output_dir.exists():
+                output_dir.mkdir()
+            # output_file = "{}/opt.tcl".format(output_dir)
+            output_file = output_dir / "opt.tcl"
+            # f = open(output_file, "w+")
+            with open(output_file, "w+") as f:
+                f.write(static_lines)
                 f.write("\n")
 
-            for x in l_line:
-                f.write(x)
-                f.write("\n")
+                for x in a_line:
+                    f.write(x)
+                    f.write("\n")
 
-            f.close()
-
-    # open the hls_template file and write the final hls file used to run hls
-    with open(src_hls, "r+") as f:
-        src_hls_lines = f.readlines()
-
-    hls_f = open("{}/hls.tcl".format(output_path), "w+")
-
-    for i in range(1, num_of_generated_tcls + 1):
-        prj_path = "{}".format(i)
-        opt_tcl = "{}/opt.tcl".format(i)
-
-        for line in src_hls_lines:
-            t_line = line.replace("[prj_path]", prj_path)
-            t_line = t_line.replace("[opt_tcl]", opt_tcl)
-            hls_f.write(t_line)
-        hls_f.write("\n")
-
-    hls_f.close()
-    return num_of_generated_tcls
-
-
-def generate_opt_tcl(output_path, array_partition_lines, loop_opt_lines, static_lines):
-    # write opt.tcl files
-    num_of_generated_tcls = 0
-    for a_line in array_partition_lines:
-        for l_line in loop_opt_lines:
-            num_of_generated_tcls += 1
-            output_dir = "{}/{}".format(output_path, num_of_generated_tcls)
-            if os.path.isdir(output_dir) == False:  # noqa: E712
-                os.mkdir(output_dir)
-            output_file = "{}/opt.tcl".format(output_dir)
-            f = open(output_file, "w+")
-
-            f.write(static_lines)
-            f.write("\n")
-
-            for x in a_line:
-                f.write(x)
-                f.write("\n")
-
-            for x in l_line:
-                f.write(x)
-                f.write("\n")
-
-            f.close()
+                for x in l_line:
+                    f.write(x)
+                    f.write("\n")
+            # f.close()
 
 
 #############################################################

@@ -1,7 +1,7 @@
 from framework import ConcreteDesign, ToolFlow
 from utils import call_tool, find_bin_path
 
-from hls_build_framework.vitis_flow import Design
+from hls_build_framework.flow_vitis import Design
 
 
 class IntelHLSSynthFlow(ToolFlow):

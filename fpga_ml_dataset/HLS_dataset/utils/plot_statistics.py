@@ -63,8 +63,8 @@ if __name__ == "__main__":
         lut_data.append(rsc_dict[app][3])
 
     plt.figure(figsize=(25,9))
-    x_font_size = 20;
-    y_font_size = 15;
+    x_font_size = 20
+    y_font_size = 15
     plt.subplot(141)
     plt.ticklabel_format(axis='y', style='sci', scilimits=(0,0))
     plt.boxplot(bram_data, patch_artist=True, labels=app_name, sym='*')
