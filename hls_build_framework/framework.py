@@ -1,8 +1,8 @@
 import enum
+import shutil
 from abc import ABC, abstractmethod
 from enum import Enum
 from pathlib import Path
-from tempfile import TemporaryDirectory
 from typing import Callable
 
 import tqdm
@@ -35,12 +35,7 @@ class DesignStage(Enum):
     CONCRETE = enum.auto()
 
 
-class Design(ABC):
-    # @abstractproperty
-    # def design_stage(self) -> DesignStage:
-    #     ...
-    design_stage: DesignStage
-
+class Design:
     def __init__(self, name: str, dir: Path):
         self.name = name
         self.dir = dir
@@ -60,13 +55,20 @@ class Design(ABC):
             source_files.extend(filter_files_by_ext(self.all_files, ext))
         return source_files
 
+    def rename(self, new_name: str):
+        self.dir.rename(self.dir.parent / new_name)
+        self.name = new_name
 
-class AbstractDesign(Design):
-    design_stage = DesignStage.ABSTRACT
+    def move_to_new_parent_dir(self, new_parent_dir: Path):
+        shutil.move(self.dir, new_parent_dir / self.name)
 
-
-class ConcreteDesign(Design):
-    design_stage = DesignStage.CONCRETE
+    def copy_and_rename(self, new_name: str, work_dir: Path) -> "Design":
+        new_dir = work_dir / new_name
+        if new_dir.exists():
+            shutil.rmtree(new_dir)
+        shutil.copytree(self.dir, new_dir)
+        new_design = Design(new_name, new_dir)
+        return new_design
 
 
 class DesignDataset:
@@ -80,7 +82,6 @@ class DesignDataset:
         cls,
         name: str,
         dir: Path,
-        design_stage_default: DesignStage = DesignStage.CONCRETE,
         exclude_dir_filter: None | Callable[[Path], bool] = None,
     ) -> "DesignDataset":
         designs = []
@@ -88,25 +89,29 @@ class DesignDataset:
             if sub_dir.is_dir():
                 if exclude_dir_filter is not None and exclude_dir_filter(sub_dir):
                     continue
-                match design_stage_default:
-                    case DesignStage.ABSTRACT:
-                        designs.append(AbstractDesign(sub_dir.name, sub_dir))
-                    case DesignStage.CONCRETE:
-                        designs.append(ConcreteDesign(sub_dir.name, sub_dir))
+                designs.append(Design(sub_dir.name, sub_dir))
         designs = sorted(designs, key=lambda design: design.name)
         return DesignDataset(name, dir, designs)
 
     @classmethod
-    def from_empty_temp_dir(cls, name: str) -> "DesignDataset":
-        temp_dir_obj = TemporaryDirectory()
-        temp_dir = Path(temp_dir_obj.name)
-        return DesignDataset(name, temp_dir, [])
+    def from_empty_dir(cls, name: str, work_dir: Path) -> "DesignDataset":
+        dataset_dir = work_dir / name
+        if dataset_dir.exists():
+            shutil.rmtree(dataset_dir)
+        return DesignDataset(name, dataset_dir, [])
 
     def add_design(self, design: Design):
         self.designs.append(design)
 
     def add_designs(self, designs: list[Design]):
         self.designs.extend(designs)
+
+    def copy_dataset(self, work_dir: Path) -> "DesignDataset":
+        new_dataset = DesignDataset.from_empty_dir(self.name, work_dir)
+        for design in self.designs:
+            new_design = design.copy_and_rename(design.name, new_dataset.dataset_dir)
+            new_dataset.add_design(new_design)
+        return new_dataset
 
 
 class Frontend(ABC):
@@ -117,15 +122,12 @@ class Frontend(ABC):
         ...
 
     def execute_multiple(self, designs: list[Design], n_jobs: int = 1) -> list[Design]:
-        # TODO: parallelize with joblib
-        # for design in designs:
-        #     self.execute(design)
-        new_designs = Parallel(n_jobs=n_jobs, backend="multiprocessing")(  # type: ignore
+        new_designs_lists = Parallel(n_jobs=n_jobs, backend="multiprocessing")(  # type: ignore
             delayed(self.execute)(design) for design in tqdm.tqdm(designs)
         )
-        assert new_designs is not None
-        new_designs: list[Design] = list(new_designs)
-        new_designs = list(new_designs)
+        assert new_designs_lists is not None
+        new_designs_lists: list[list[Design]] = list(new_designs_lists)
+        new_designs = [design for sublist in new_designs_lists for design in sublist]
         return new_designs
 
 
@@ -146,6 +148,9 @@ class JinjaElaborationFrontend(Frontend):
 class ToolFlow(ABC):
     name: str
 
+    def __init__(self, work_dir: Path, *args, **kwargs):
+        self.work_dir = work_dir
+
     @abstractmethod
     def execute(self, design: Design) -> list[Design]:
         ...
@@ -155,13 +160,10 @@ class ToolFlow(ABC):
         designs: list[Design],
         n_jobs: int = 1,
     ) -> list[Design]:
-        # TODO: parallelize with joblib.
-        # for design in designs:
-        #     self.execute(design)
-        new_designs = Parallel(n_jobs=n_jobs, backend="multiprocessing")(  # type: ignore
+        new_designs_lists = Parallel(n_jobs=n_jobs, backend="multiprocessing")(  # type: ignore
             delayed(self.execute)(design) for design in tqdm.tqdm(designs)
         )
-        assert new_designs is not None
-        new_designs: list[Design] = list(new_designs)
-        new_designs = list(new_designs)
+        assert new_designs_lists is not None
+        new_designs_lists: list[list[Design]] = list(new_designs_lists)
+        new_designs = [design for sublist in new_designs_lists for design in sublist]
         return new_designs

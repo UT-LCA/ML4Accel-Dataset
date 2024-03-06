@@ -1,9 +1,7 @@
+import hashlib
 import itertools
-import os
 import random
-import shutil
 from pathlib import Path
-from pprint import pp
 
 from hls_build_framework.framework import Design, Frontend
 
@@ -81,8 +79,7 @@ def parse_template(
     array_partition_object_lists: list[ArrayPartition] = []
     loop_opt_object_lists: list[LoopOpt] = []
     static_lines = str()
-    # with open(src_template, "r+") as f:
-    #     lines = f.readlines()
+
     lines = src_template.read_text().splitlines()
     i = 0
     while i < len(lines):
@@ -115,7 +112,7 @@ def parse_template(
             i += 1
             continue
 
-        static_lines += line
+        static_lines += line + "\n"
         i += 1
 
     return array_partition_object_lists, loop_opt_object_lists, static_lines
@@ -136,7 +133,8 @@ def gen_opt(array_partition_object_lists, loop_opt_object_lists):
             for line in directive_lines:
                 temp_line = line.replace("[factor]", array_settings[0])
                 temp_line = temp_line.replace("[type]", array_settings[1])
-                output_line = output_line + temp_line
+                # output_line = output_line + temp_line
+                output_line += temp_line + "\n"
 
             array_block_lines.append(output_line)
 
@@ -162,14 +160,14 @@ def gen_opt(array_partition_object_lists, loop_opt_object_lists):
             if loop_opt_settings[1] is True:
                 for line in directive_pipeline_lines:
                     temp_line = line.replace("[name]", loop_opt_settings[0])
-                    output_line += temp_line
+                    output_line += temp_line + "\n"
 
             # need to unroll
             if loop_opt_settings[2] is True:
                 for line in directive_unroll_lines:
                     temp_line = line.replace("[factor]", loop_opt_settings[3])
                     temp_line = temp_line.replace("[name]", loop_opt_settings[0])
-                    output_line += temp_line
+                    output_line += temp_line + "\n"
 
             loop_opt_block.append(output_line)
 
@@ -178,103 +176,61 @@ def gen_opt(array_partition_object_lists, loop_opt_object_lists):
     return array_partition_lines, loop_opt_lines
 
 
-def generate_tcl(
-    src_hls: Path,
-    output_path: Path,
+def generate_opt_sources(
     array_partition_lines,
     loop_opt_lines,
     static_lines,
     random_sample=False,
     random_sample_num=10,
-):
-    # write opt.tcl files
-    num_of_generated_tcls = 0
-
+) -> list[str]:
     line_combos_all = list(itertools.product(array_partition_lines, loop_opt_lines))
     if random_sample:
         line_combos_all = random.sample(line_combos_all, random_sample_num)
     else:
         line_combos_all = line_combos_all
 
-    # for a_line in array_partition_lines:
-    #     for l_line in loop_opt_lines:
+    opt_tcl_sources: list[str] = []
     for a_line, l_line in line_combos_all:
-        num_of_generated_tcls += 1
-        # output_dir = "{}/{}".format(output_path, num_of_generated_tcls)
-        output_dir = output_path / f"{num_of_generated_tcls}"
-        # if os.path.isdir(output_dir) == False:  # noqa: E712
-        #     os.mkdir(output_dir)
-        if not output_dir.exists():
-            output_dir.mkdir()
-        # output_file = "{}/opt.tcl".format(output_dir)
-        output_file = output_dir / "opt.tcl"
-        # f = open(output_file, "w+")
-        with open(output_file, "w+") as f:
-            f.write(static_lines)
-            f.write("\n")
+        opt_tcl_source = ""
+        opt_tcl_source += static_lines + "\n"
+        for x in a_line:
+            opt_tcl_source += x + "\n"
+        for x in l_line:
+            opt_tcl_source += x + "\n"
+        opt_tcl_sources.append(opt_tcl_source)
 
-            for x in a_line:
-                f.write(x)
-                f.write("\n")
-
-            for x in l_line:
-                f.write(x)
-                f.write("\n")
-        # f.close()
-
-    # open the hls_template file and write the final hls file used to run hls
-    # with open(src_hls, "r+") as f:
-    #     src_hls_lines = f.readlines()
-    src_hls_lines = src_hls.read_text().splitlines()
-
-    # hls_f = open("{}/hls.tcl".format(output_path), "w+")
-    # hls_f = open(output_path / "hls.tcl", "w+")
-    with open(output_path / "hls.tcl", "w+") as hls_f:
-        for i in range(1, num_of_generated_tcls + 1):
-            # prj_path = "{}".format(i)
-            prj_path = f"{i}"
-            # opt_tcl = "{}/opt.tcl".format(i)
-            opt_tcl = f"{i}/opt.tcl"
-
-            for line in src_hls_lines:
-                t_line = line.replace("[prj_path]", prj_path)
-                t_line = t_line.replace("[opt_tcl]", opt_tcl)
-                hls_f.write(t_line)
-            hls_f.write("\n")
-
-    # hls_f.close()
-    return num_of_generated_tcls
+    return opt_tcl_sources
 
 
-def generate_opt_tcl(
-    output_path: Path, array_partition_lines, loop_opt_lines, static_lines
-):
-    # write opt.tcl files
-    num_of_generated_tcls = 0
-    for a_line in array_partition_lines:
-        for l_line in loop_opt_lines:
-            num_of_generated_tcls += 1
-            # output_dir = "{}/{}".format(output_path, num_of_generated_tcls)
-            output_dir = output_path / f"{num_of_generated_tcls}"
-            # if os.path.isdir(output_dir) == False:  # noqa: E712
-            #     os.mkdir(output_dir)
-            if not output_dir.exists():
-                output_dir.mkdir()
-            # output_file = "{}/opt.tcl".format(output_dir)
-            output_file = output_dir / "opt.tcl"
-            # f = open(output_file, "w+")
-            with open(output_file, "w+") as f:
-                f.write(static_lines)
-                f.write("\n")
+# def generate_opt_tcl(
+#     output_path: Path, array_partition_lines, loop_opt_lines, static_lines
+# ):
+#     # write opt.tcl files
+#     num_of_generated_tcls = 0
+#     for a_line in array_partition_lines:
+#         for l_line in loop_opt_lines:
+#             num_of_generated_tcls += 1
+#             # output_dir = "{}/{}".format(output_path, num_of_generated_tcls)
+#             output_dir = output_path / f"{num_of_generated_tcls}"
+#             # if os.path.isdir(output_dir) == False:  # noqa: E712
+#             #     os.mkdir(output_dir)
+#             if not output_dir.exists():
+#                 output_dir.mkdir()
+#             # output_file = "{}/opt.tcl".format(output_dir)
+#             output_file = output_dir / "opt.tcl"
+#             # f = open(output_file, "w+")
+#             with open(output_file, "w+") as f:
+#                 f.write(static_lines)
+#                 f.write("\n")
 
-                for x in a_line:
-                    f.write(x)
-                    f.write("\n")
+#                 for x in a_line:
+#                     f.write(x)
+#                     f.write("\n")
 
-                for x in l_line:
-                    f.write(x)
-                    f.write("\n")
-            # f.close()
+#                 for x in l_line:
+#                     f.write(x)
+#                     f.write("\n")
+#             # f.close()
 
 
 #############################################################
@@ -318,13 +274,13 @@ def generate_opt_tcl(
 class OptDSLFrontend(Frontend):
     name = "OptDSLFrontend"
 
+    def __init__(self, work_dir: Path, random_sample=False, random_sample_num=10):
+        self.work_dir = work_dir
+        self.random_sample = random_sample
+        self.random_sample_num = random_sample_num
+
     def execute(self, design: Design) -> list[Design]:
         opt_template_fp = design.dir / "opt_template.tcl"
-
-        output_dir_opt_fp = design.dir / "opt"
-        if output_dir_opt_fp.exists():
-            shutil.rmtree(output_dir_opt_fp)
-        output_dir_opt_fp.mkdir()
 
         (
             array_partition_object_lists,
@@ -335,9 +291,9 @@ class OptDSLFrontend(Frontend):
             array_partition_object_lists, loop_opt_object_lists
         )
 
-        pp(array_partition_lines)
-        pp(loop_opt_object_lists)
-        pp(static_lines)
+        # pp(array_partition_lines)
+        # pp(loop_opt_object_lists)
+        # pp(static_lines)
 
         # num_of_generated_tcls = generate_tcl(
         #     src_hls,
@@ -347,11 +303,29 @@ class OptDSLFrontend(Frontend):
         #     static_lines,
         # )
 
-        generate_opt_tcl(
-            output_dir_opt_fp,
+        # generate_opt_tcl(
+        #     output_dir_opt_fp,
+        #     array_partition_lines,
+        #     loop_opt_lines,
+        #     static_lines,
+        # )
+
+        opt_sources = generate_opt_sources(
             array_partition_lines,
             loop_opt_lines,
             static_lines,
+            self.random_sample,
+            self.random_sample_num,
         )
 
-        return [design]
+        new_designs = []
+        for opt_source in opt_sources:
+            opt_source_hash = hashlib.md5(opt_source.encode()).hexdigest()
+            new_design = design.copy_and_rename(
+                f"{design.name}_opt_{opt_source_hash}", self.work_dir
+            )
+            opt_fp = new_design.dir / "opt.tcl"
+            opt_fp.write_text(opt_source)
+            new_designs.append(new_design)
+
+        return new_designs

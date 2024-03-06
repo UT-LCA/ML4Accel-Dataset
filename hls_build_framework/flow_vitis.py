@@ -6,7 +6,7 @@ from pathlib import Path
 import yaml
 
 # from framework import ConcreteDesign, ToolFlow
-from hls_build_framework.framework import ConcreteDesign, ToolFlow
+from hls_build_framework.framework import Design, ToolFlow
 
 # from utils import call_tool, find_bin_path
 from hls_build_framework.utils import call_tool, find_bin_path
@@ -124,12 +124,12 @@ class DesignHLSSynthData:
         # Gather latency data
         performance_estimates = root.find("PerformanceEstimates")
 
-        summary_of_timing_analysis = performance_estimates.find(
+        summary_of_timing_analysis = performance_estimates.find(  # type: ignore
             "SummaryOfTimingAnalysis"
         )
-        clock_units = str(summary_of_timing_analysis.find("unit").text)
+        clock_units = str(summary_of_timing_analysis.find("unit").text)  # type: ignore
         clock_period = float(
-            summary_of_timing_analysis.find("EstimatedClockPeriod").text
+            summary_of_timing_analysis.find("EstimatedClockPeriod").text  # type: ignore
         )
         unit_scaler = 1
         if clock_units == "ns":
@@ -143,24 +143,24 @@ class DesignHLSSynthData:
 
         clock_period_t = clock_period * unit_scaler
 
-        summary_of_overall_latency = performance_estimates.find(
+        summary_of_overall_latency = performance_estimates.find(  # type: ignore
             "SummaryOfOverallLatency"
         )
         latency_data = {}
         # fmt: off
-        best_case_latency = summary_of_overall_latency.find("Best-caseLatency").text
+        best_case_latency = summary_of_overall_latency.find("Best-caseLatency").text # type: ignore
         try:
-            latency_data["best_case_latency"] = int(best_case_latency)
+            latency_data["best_case_latency"] = int(best_case_latency) # type: ignore
         except ValueError:
             latency_data["best_case_latency"] = None
-        average_case_latency = summary_of_overall_latency.find("Average-caseLatency").text
+        average_case_latency = summary_of_overall_latency.find("Average-caseLatency").text # type: ignore
         try:
-            latency_data["average_case_latency"] = int(average_case_latency)
+            latency_data["average_case_latency"] = int(average_case_latency) # type: ignore
         except ValueError:
             latency_data["average_case_latency"] = None
-        worst_case_latency = summary_of_overall_latency.find("Worst-caseLatency").text
+        worst_case_latency = summary_of_overall_latency.find("Worst-caseLatency").text # type: ignore
         try:
-            latency_data["worst_case_latency"] = int(worst_case_latency)
+            latency_data["worst_case_latency"] = int(worst_case_latency) # type: ignore
         except ValueError:
             latency_data["worst_case_latency"] = None
 
@@ -183,11 +183,11 @@ class DesignHLSSynthData:
         resource_data = {}
         # fmt: off
         resource_data["used_abs"] = {}
-        resource_data["used_abs"]["BRAM_18K"] = int( area_estimates.find("Resources").find("BRAM_18K").text )
-        resource_data["used_abs"]["DSP"] = int(area_estimates.find("Resources").find("DSP").text)
-        resource_data["used_abs"]["FF"] = int(area_estimates.find("Resources").find("FF").text)
-        resource_data["used_abs"]["LUT"] = int(area_estimates.find("Resources").find("LUT").text)
-        resource_data["used_abs"]["URAM"] = int( area_estimates.find("Resources").find("URAM").text )
+        resource_data["used_abs"]["BRAM_18K"] = int( area_estimates.find("Resources").find("BRAM_18K").text ) # type: ignore
+        resource_data["used_abs"]["DSP"] = int(area_estimates.find("Resources").find("DSP").text) # type: ignore
+        resource_data["used_abs"]["FF"] = int(area_estimates.find("Resources").find("FF").text) # type: ignore
+        resource_data["used_abs"]["LUT"] = int(area_estimates.find("Resources").find("LUT").text) # type: ignore
+        resource_data["used_abs"]["URAM"] = int( area_estimates.find("Resources").find("URAM").text ) # type: ignore
         # resource_data["available_abs"] = {}
         # resource_data["available_abs"]["BRAM_18K"] = int( area_estimates.find("AvailableResources").find("BRAM_18K").text )
         # resource_data["available_abs"]["DSP"] = int( area_estimates.find("AvailableResources").find("DSP").text )
@@ -225,7 +225,7 @@ class DesignHLSSynthData:
 
 @serialize_methods
 @dataclass
-class Design:
+class VitisHLSDesign:
     name: str
     part: str
     target_clock_period: float
@@ -233,17 +233,17 @@ class Design:
     version_vivado: None | str
 
     @classmethod
-    def parse_from_synth_report_file(cls, fp: Path) -> "Design":
+    def parse_from_synth_report_file(cls, fp: Path) -> "VitisHLSDesign":
         tree = ET.parse(fp)
         root = tree.getroot()
-        vitis_hls_version = root.find("ReportVersion").find("Version").text
-        user_assignments = root.find("UserAssignments")
-        part = user_assignments.find("Part").text
-        target_clock_period = float(user_assignments.find("TargetClockPeriod").text)
-        name = root.find("RTLDesignHierarchy").find("TopModule").find("ModuleName").text
+        vitis_hls_version = root.find("ReportVersion").find("Version").text  # type: ignore
+        user_assignments = root.find("UserAssignments")  # type: ignore
+        part = user_assignments.find("Part").text  # type: ignore
+        target_clock_period = float(user_assignments.find("TargetClockPeriod").text)  # type: ignore
+        name = root.find("RTLDesignHierarchy").find("TopModule").find("ModuleName").text  # type: ignore
         return cls(
-            name=name,
-            part=part,
+            name=name,  # type: ignore
+            part=part,  # type: ignore
             target_clock_period=target_clock_period,
             version_vitis_hls=vitis_hls_version,
             version_vivado=None,
@@ -431,42 +431,52 @@ def warn_for_reset_flags(files: list[Path], reset_flag_str: str = "-reset"):
 class VitisHLSSynthFlow(ToolFlow):
     name = "VitisHLSSynthFlow"
 
-    def __init__(self, vitis_hls_bin: str | None = None):
+    def __init__(self, vitis_hls_bin: str | None = None, log_output: bool = False):
         if vitis_hls_bin is None:
             self.vitis_hls_bin = find_bin_path("vitis_hls")
         else:
             self.vitis_hls_bin = vitis_hls_bin
 
-    def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
+        self.log_output = log_output
+
+    def execute(self, design: Design) -> list[Design]:
         design_dir = design.dir
 
         fp_hls_synth_tcl = design_dir / "dataset_hls.tcl"
         build_files = [fp_hls_synth_tcl]
         check_build_files_exist(build_files)
 
-        call_tool(f"{self.vitis_hls_bin} dataset_hls.tcl", cwd=design_dir)
+        call_tool(
+            f"{self.vitis_hls_bin} dataset_hls.tcl",
+            cwd=design_dir,
+            log_output=self.log_output,
+        )
 
         csynth_report_fp = auto_find_synth_report(design_dir)
 
         hls_data = DesignHLSSynthData.parse_from_synth_report_file(csynth_report_fp)
-        hls_data.to_json(design_dir / "data_hls.json")
+        hls_data.to_json(design_dir / "data_hls.json")  # type: ignore
 
-        design_data = Design.parse_from_synth_report_file(csynth_report_fp)
-        design_data.to_json(design_dir / "data_design.json")
+        design_data = VitisHLSDesign.parse_from_synth_report_file(csynth_report_fp)
+        design_data.to_json(design_dir / "data_design.json")  # type: ignore
+
+        return [design]
 
 
 class VitisHLSCosimSetupFlow(ToolFlow):
     name = "VitisHLSCosimSetupFlow"
 
-    def __init__(self, vitis_hls_bin: str | None = None):
+    def __init__(self, vitis_hls_bin: str | None = None, log_output: bool = False):
         if vitis_hls_bin is None:
             self.vitis_hls_bin = find_bin_path("vitis_hls")
         else:
             self.vitis_hls_bin = vitis_hls_bin
 
+        self.log_output = log_output
+
         self.patch_sim_fp = Path(__file__).parent / "patch_sim.sh"
 
-    def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
+    def execute(self, design: Design) -> list[Design]:
         design_dir = design.dir
 
         fp_hls_cosim_setup_tcl = design_dir / "dataset_hls_cosim_setup.tcl"
@@ -474,10 +484,16 @@ class VitisHLSCosimSetupFlow(ToolFlow):
         check_build_files_exist(build_files)
         warn_for_reset_flags(build_files)
 
-        call_tool(f"{self.vitis_hls_bin} dataset_hls_cosim_setup.tcl", cwd=design_dir)
+        call_tool(
+            f"{self.vitis_hls_bin} dataset_hls_cosim_setup.tcl",
+            cwd=design_dir,
+            log_output=self.log_output,
+        )
         cosim_dir = list(design_dir.rglob("**/sim"))[0]
         solution_dir = cosim_dir.parent
-        call_tool(f"bash {self.patch_sim_fp}", cwd=solution_dir)
+        call_tool(
+            f"bash {self.patch_sim_fp}", cwd=solution_dir, log_output=self.log_output
+        )
 
         return [design]
 
@@ -485,13 +501,15 @@ class VitisHLSCosimSetupFlow(ToolFlow):
 class VitisHLSImplFlow(ToolFlow):
     name = "VitisHLSImplFlow"
 
-    def __init__(self, vitis_hls_bin: str | None = None):
+    def __init__(self, vitis_hls_bin: str | None = None, log_output: bool = False):
         if vitis_hls_bin is None:
             self.vitis_hls_bin = find_bin_path("vitis_hls")
         else:
             self.vitis_hls_bin = vitis_hls_bin
 
-    def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
+        self.log_output = log_output
+
+    def execute(self, design: Design) -> list[Design]:
         design_dir = design.dir
 
         fp_hls_ip_export = design_dir / "dataset_hls_ip_export.tcl"
@@ -499,7 +517,11 @@ class VitisHLSImplFlow(ToolFlow):
         check_build_files_exist(build_files)
         warn_for_reset_flags(build_files)
 
-        call_tool(f"{self.vitis_hls_bin} dataset_hls_ip_export.tcl", cwd=design_dir)
+        call_tool(
+            f"{self.vitis_hls_bin} dataset_hls_ip_export.tcl",
+            cwd=design_dir,
+            log_output=self.log_output,
+        )
 
         return [design]
 
@@ -513,5 +535,5 @@ class VitisHLSImplReportFlow(ToolFlow):
         else:
             self.vitis_hls_bin = vitis_hls_bin
 
-    def execute(self, design: ConcreteDesign) -> list[ConcreteDesign]:
+    def execute(self, design: Design) -> list[Design]:
         raise NotImplementedError
