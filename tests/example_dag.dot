@@ -1,0 +1,90 @@
+digraph G {
+    splines="FALSE";
+    rankdir="LR";
+
+
+    design_xilinx_1 [ label="Design Xilinx" shape=note ];
+    dataset_xilinx_1 [ label="Dataset Xilinx" shape=note ];
+        
+    design_intel_1 [ label="Design Intel" shape=note ]
+    dataset_intel_1 [ label="Dataset Intel" shape=note ]
+
+    { rank=same; design_xilinx_1; dataset_xilinx_1; design_intel_1; dataset_intel_1; }
+
+    dataset_polybench [ label="Dataset Polybench" shape=note ]
+    dataset_machsuite [ label="Dataset MachSuite" shape=note ]
+    
+    { rank=same; dataset_polybench; dataset_machsuite}
+
+    xilinx_opt_dsl_frontend [ label="Xilinx Opt DSL\nFrontend" shape=cds ]
+    intel_opt_dsl_frontend [ label="Intel Opt DSL\nFrontend" shape=cds ]
+
+
+    dataset_polybench_post_frontend_xilinx [ label="Dataset Polybench\nPost Frontend Xilinx" shape=note ]
+    dataset_polybench_post_frontend_intel [ label="Dataset Polybench\nPost Frontend Intel" shape=note ]
+
+    dataset_machsuite_post_frontend_xilinx [ label="Dataset MachSuite\nPost Frontend Xilinx" shape=note ]
+    dataset_machsuite_post_frontend_intel [ label="Dataset MachSuite\nPost Frontend Intel" shape=note ]
+
+    {
+        rank=same;
+        dataset_polybench_post_frontend_xilinx;
+        dataset_polybench_post_frontend_intel;
+        dataset_machsuite_post_frontend_xilinx;
+        dataset_machsuite_post_frontend_intel;
+    }
+
+    xilinx_vitis_hls_synth [ label="Xilinx Vitis HLS Synth\nTool Flow" shape=cds ]
+    intel_ipp_hls_synth [ label="Intel IPP HLS Synth\nTool Flow" shape=cds ]
+
+    {
+        rank=same;
+        xilinx_vitis_hls_synth;
+        intel_ipp_hls_synth;
+    }
+
+    xilinx_vivado_impl [ label="Xilinx Vivado Impl\nTool Flow" shape=cds ]
+    intel_quartus_impl [ label="Intel Quartus Impl\nTool Flow" shape=cds ]
+
+
+    sync_post_frontend [ label="Sync Frontend"]
+    sync_post_hls [ label="Sync HLS"  ]
+    sync_post_impl [ label="Sync Impl" ]
+
+    // the polybench and machsuite datasets are both potining to both frotends
+    dataset_polybench -> xilinx_opt_dsl_frontend -> dataset_polybench_post_frontend_xilinx
+    dataset_polybench -> intel_opt_dsl_frontend -> dataset_polybench_post_frontend_intel
+
+    dataset_machsuite -> xilinx_opt_dsl_frontend -> dataset_machsuite_post_frontend_xilinx
+    dataset_machsuite -> intel_opt_dsl_frontend -> dataset_machsuite_post_frontend_intel
+
+    // the post frontends and the loose design are pointing to the HLS synthesis
+    dataset_polybench_post_frontend_xilinx -> xilinx_vitis_hls_synth
+    dataset_polybench_post_frontend_intel -> intel_ipp_hls_synth
+
+    dataset_machsuite_post_frontend_xilinx -> xilinx_vitis_hls_synth
+    dataset_machsuite_post_frontend_intel -> intel_ipp_hls_synth
+
+    design_xilinx_1 -> xilinx_vitis_hls_synth
+    dataset_xilinx_1 -> xilinx_vitis_hls_synth
+
+    design_intel_1 -> intel_ipp_hls_synth
+    dataset_intel_1 -> intel_ipp_hls_synth
+
+    xilinx_vitis_hls_synth -> xilinx_vivado_impl
+    intel_ipp_hls_synth -> intel_quartus_impl
+
+    // sync frontend hash dashed lines from the frontend to the sync point
+    xilinx_opt_dsl_frontend -> sync_post_frontend [dir=none style=dotted]
+    intel_opt_dsl_frontend -> sync_post_frontend [dir=none style=dotted]
+
+    // sync hls hash dashed lines from the hls to the sync point
+    xilinx_vitis_hls_synth -> sync_post_hls [dir=none style=dotted]
+    intel_ipp_hls_synth -> sync_post_hls [dir=none style=dotted]
+
+    // sync impl hash dashed lines from the impl to the sync point
+    xilinx_vivado_impl -> sync_post_impl [dir=none style=dotted]
+    intel_quartus_impl -> sync_post_impl [dir=none style=dotted]
+
+
+}

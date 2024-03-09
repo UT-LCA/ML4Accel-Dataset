@@ -121,7 +121,9 @@ class Frontend(ABC):
     def execute(self, design: Design) -> list[Design]:
         ...
 
-    def execute_multiple(self, designs: list[Design], n_jobs: int = 1) -> list[Design]:
+    def execute_multiple_designs(
+        self, designs: list[Design], n_jobs: int = 1
+    ) -> list[Design]:
         new_designs_lists = Parallel(n_jobs=n_jobs, backend="multiprocessing")(  # type: ignore
             delayed(self.execute)(design) for design in tqdm.tqdm(designs)
         )
@@ -155,7 +157,7 @@ class ToolFlow(ABC):
     def execute(self, design: Design) -> list[Design]:
         ...
 
-    def execute_multiple(
+    def execute_multiple_designs(
         self,
         designs: list[Design],
         n_jobs: int = 1,
