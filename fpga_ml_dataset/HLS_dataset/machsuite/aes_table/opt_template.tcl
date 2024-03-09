@@ -19,33 +19,27 @@ set_directive_array_partition -factor [factor] -type [type] -dim 1 "aes256_encry
 set_directive_array_partition -factor [factor] -type [type] -dim 1 "aes256_encrypt_ecb" buf
 set_directive_array_partition -factor [factor] -type [type] -dim 1 "aes256_encrypt_ecb" sbox
 
-#dim = 5 
-loop_opt,1,2
-0,sub,pipeline,unroll,[2 4 8 16]
-set_directive_pipeline bfs/[name]
-set_directive_unroll -factor [factor] bfs/[name]
-
 #dim = 5
 loop_opt,1,4
 0,addkey/cpkey,pipeline,unroll,[2 4 8 16]
-set_directive_pipeline bfs/addkey
-set_directive_unroll -factor [factor] bfs/addkey
-set_directive_pipeline bfs/cpkey
-set_directive_unroll -factor [factor] bfs/cpkey
+set_directive_pipeline aes_addRoundKey/addkey
+set_directive_unroll -factor [factor] aes_addRoundKey/addkey
+set_directive_pipeline aes_addRoundKey/cpkey
+set_directive_unroll -factor [factor] aes_addRoundKey/cpkey
 
 #dim = 3 
 loop_opt,1,2
 0,mix,pipeline,unroll,[2 4]
-set_directive_pipeline bfs/mix
-set_directive_unroll -factor [factor] bfs/mix
+set_directive_pipeline aes_mixColumns/mix
+set_directive_unroll -factor [factor] aes_mixColumns/mix
 
 #dim = 2
 loop_opt,1,4
 0,exp1/exp2,pipeline,unroll,[3]
-set_directive_pipeline bfs/exp1
-set_directive_unroll -factor [factor] bfs/exp1
-set_directive_pipeline bfs/exp2
-set_directive_unroll -factor [factor] bfs/exp2
+set_directive_pipeline aes_expandEncKey/exp1
+set_directive_unroll -factor [factor] aes_expandEncKey/exp1
+set_directive_pipeline baes_expandEncKeyfs/exp2
+set_directive_unroll -factor [factor] aes_expandEncKey/exp2
 
 
 

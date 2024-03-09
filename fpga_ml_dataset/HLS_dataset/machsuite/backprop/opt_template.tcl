@@ -32,43 +32,43 @@ set_directive_array_partition -factor [factor] -type [type] -dim 1 "backprop" tr
 #dim = 7 
 loop_opt,1,20
 0,up_weight_loop,pipeline,unroll,[2 4 8 16 32 64]
-set_directive_unroll -factor [factor] bfs/up_weight_loop1
-set_directive_unroll -factor [factor] bfs/up_weight_loop2
-set_directive_unroll -factor [factor] bfs/up_weight_loop3
-set_directive_unroll -factor [factor] bfs/up_weight_loop4
-set_directive_unroll -factor [factor] bfs/up_weight_loop5
-set_directive_unroll -factor [factor] bfs/up_weight_loop6
-set_directive_unroll -factor [factor] bfs/up_weight_loop7
-set_directive_unroll -factor [factor] bfs/up_weight_loop8
-set_directive_unroll -factor [factor] bfs/up_weight_loop9
-set_directive_unroll -factor [factor] bfs/up_weight_loop10
-set_directive_pipeline bfs/up_weight_loop1
-set_directive_pipeline bfs/up_weight_loop2
-set_directive_pipeline bfs/up_weight_loop3
-set_directive_pipeline bfs/up_weight_loop4
-set_directive_pipeline bfs/up_weight_loop5
-set_directive_pipeline bfs/up_weight_loop6
-set_directive_pipeline bfs/up_weight_loop7
-set_directive_pipeline bfs/up_weight_loop8
-set_directive_pipeline bfs/up_weight_loop9
-set_directive_pipeline bfs/up_weight_loop10
+set_directive_unroll -factor [factor] update_weights/up_weight_loop1
+set_directive_unroll -factor [factor] update_weights/up_weight_loop2
+set_directive_unroll -factor [factor] update_weights/up_weight_loop3
+set_directive_unroll -factor [factor] update_weights/up_weight_loop4
+set_directive_unroll -factor [factor] update_weights/up_weight_loop5
+set_directive_unroll -factor [factor] update_weights/up_weight_loop6
+set_directive_unroll -factor [factor] update_weights/up_weight_loop7
+set_directive_unroll -factor [factor] update_weights/up_weight_loop8
+set_directive_unroll -factor [factor] update_weights/up_weight_loop9
+set_directive_unroll -factor [factor] update_weights/up_weight_loop10
+set_directive_pipeline update_weights/up_weight_loop1
+set_directive_pipeline update_weights/up_weight_loop2
+set_directive_pipeline update_weights/up_weight_loop3
+set_directive_pipeline update_weights/up_weight_loop4
+set_directive_pipeline update_weights/up_weight_loop5
+set_directive_pipeline update_weights/up_weight_loop6
+set_directive_pipeline update_weights/up_weight_loop7
+set_directive_pipeline update_weights/up_weight_loop8
+set_directive_pipeline update_weights/up_weight_loop9
+set_directive_pipeline update_weights/up_weight_loop10
 
 #dim = 7
 loop_opt,1,16
 0,compute_loop,pipeline,unroll,[2 4 8 16 32 64]
-set_directive_unroll -factor [factor] bfs/delta_matrix_weights1_loop
-set_directive_unroll -factor [factor] bfs/delta_matrix_weights2_loop
-set_directive_unroll -factor [factor] bfs/delta_matrix_weights3_loop
-set_directive_unroll -factor [factor] bfs/activations1_loop
-set_directive_unroll -factor [factor] bfs/activations2_loop
-set_directive_unroll -factor [factor] bfs/mvp_product_loop1
-set_directive_unroll -factor [factor] bfs/mvp_product_loop2
-set_directive_unroll -factor [factor] bfs/mvp_product_input_loop
-set_directive_pipeline bfs/delta_matrix_weights1_loop
-set_directive_pipeline bfs/delta_matrix_weights2_loop
-set_directive_pipeline bfs/delta_matrix_weights3_loop
-set_directive_pipeline bfs/activations1_loop
-set_directive_pipeline bfs/activations2_loop
-set_directive_pipeline bfs/mvp_product_loop1
-set_directive_pipeline bfs/mvp_product_loop2
-set_directive_pipeline bfs/mvp_product_input_loop
+set_directive_unroll -factor [factor] get_delta_matrix_weights1/delta_matrix_weights1_loop
+set_directive_unroll -factor [factor] get_delta_matrix_weights2/delta_matrix_weights2_loop
+set_directive_unroll -factor [factor] get_delta_matrix_weights3/delta_matrix_weights3_loop
+set_directive_unroll -factor [factor] get_oracle_activations1/activations1_loop
+set_directive_unroll -factor [factor] get_oracle_activations2/activations2_loop
+set_directive_unroll -factor [factor] matrix_vector_product_with_bias_output_layer/mvp_product_loop1
+set_directive_unroll -factor [factor] matrix_vector_product_with_bias_second_layer/mvp_product_loop2
+set_directive_unroll -factor [factor] matrix_vector_product_with_bias_input_layer/mvp_product_input_loop
+set_directive_pipeline get_delta_matrix_weights1/delta_matrix_weights1_loop
+set_directive_pipeline get_delta_matrix_weights2/delta_matrix_weights2_loop
+set_directive_pipeline get_delta_matrix_weights3/delta_matrix_weights3_loop
+set_directive_pipeline get_oracle_activations1/activations1_loop
+set_directive_pipeline get_oracle_activations2/activations2_loop
+set_directive_pipeline matrix_vector_product_with_bias_output_layer/mvp_product_loop1
+set_directive_pipeline matrix_vector_product_with_bias_second_layer/mvp_product_loop2
+set_directive_pipeline matrix_vector_product_with_bias_input_layer/mvp_product_input_loop
