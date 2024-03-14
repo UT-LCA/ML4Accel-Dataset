@@ -19,7 +19,7 @@ set_directive_pipeline "atax/lpwr_1"
 loop_opt,3,2
 0,lp1,pipeline,unroll,[1 2 4 8]
 1,lp2,pipeline,unroll,[1 2 4 8]
-2,lp2,,unroll,1 [2 4 8]
+2,lp2,,unroll,[1 2 4 8]
 set_directive_unroll -factor [factor] atax/[name]
 set_directive_pipeline atax/[name]
 
