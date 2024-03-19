@@ -175,7 +175,7 @@ def gen_opt(array_partition_object_lists, loop_opt_object_lists):
 
 ### return dict[array_name, factor] #############
 def get_array_partition_dic(
-    lines = str
+    lines: str
 ) -> dict[str, str]:
     line_lists = lines.split('\n')
     array_dict = {}
@@ -193,14 +193,14 @@ def get_array_partition_dic(
 
 ### return dict[loop_name, factor] #############
 def get_loop_unroll_dic(
-    lines = str
+    lines: str
 ) -> dict[str, str]:
     line_lists = lines.split('\n')
     loop_dict = {}
     for line in line_lists:
         if 'set_directive_unroll' in line:
             loop_name = line.split(" ")[-1]
-            loop_name.replace('"', '')
+            loop_name = loop_name.replace('"', '')
             loop_name = loop_name.split("/")[-1]
 
             words = line.split()
@@ -213,14 +213,14 @@ def get_loop_unroll_dic(
 
 ### return list[loop_name] #############
 def get_pipeline_list(
-    lines = str
+    lines: str
 ) -> list[str]:
     line_lists = lines.split('\n')
     pipeline_list = []
     for line in line_lists:
         if 'set_directive_pipeline' in line:
             pipeline_name = line.split(" ")[-1]
-            pipeline_name.replace('"', '')
+            pipeline_name = pipeline_name.replace('"', '')
             pipeline_name = pipeline_name.split("/")[-1]
             pipeline_list.append(pipeline_name)
     
@@ -232,12 +232,12 @@ def generate_annotate_c(
     array_partition_lines,
     loop_opt_lines,
     static_lines,
+    work_dir: Path,
+    kernel_name: str,
+    kernel_file: str,
     random_sample=False,
-    random_sample_num=10,
-    work_dir = str,
-    kernel_name = str,
-    kernel_file = str
-) -> list[str]:
+    random_sample_num=10
+) -> list[Design]:
     line_combos_all = list(itertools.product(array_partition_lines, loop_opt_lines))
     if random_sample:
         line_combos_all = random.sample(line_combos_all, random_sample_num)
@@ -249,7 +249,7 @@ def generate_annotate_c(
     #####################################################################################################
     ct = 0
     kernel_f = open(kernel_file, 'r')
-    name_list = []
+    design_list = []
     for a_line, l_line in line_combos_all:
         ct += 1
 
@@ -266,9 +266,9 @@ def generate_annotate_c(
             shutil.rmtree(dir)
         dir.mkdir(parents=True)
 
-        array_partition_dic = get_array_partition_dic( a_l + static_lines )
-        loop_unroll_dic = get_loop_unroll_dic( l_l + static_lines )
-        pipeline_list = get_pipeline_list( l_l + static_lines )
+        array_partition_dic = get_array_partition_dic( a_l + l_l + static_lines )
+        loop_unroll_dic = get_loop_unroll_dic( a_l + l_l + static_lines )
+        pipeline_list = get_pipeline_list( a_l + l_l + static_lines )
 
         kernel_f.seek(0,0)
         new_filename = dir / (kernel_name + '_' + str(ct) + '.c') 
@@ -285,13 +285,12 @@ def generate_annotate_c(
                     new_f.write("hls_numbanks(" + array_partition_dic[array_name] + ")\n")
 
             ##############################################################################################
-            # @Note: To detect a for loop label, simply detecting ':', not sure if it is safe though    ##
+            # @Note: To detect a for loop label, simply detecting ':', it is unsafe but usable for now   #
             ##############################################################################################
             elif ':' in line:
-                match = re.search(r'\s*(\w+):', line)
+                match = re.search(r'(\w+):', line)
                 if match:
                     loop_name = match.group(1)
-
                     if loop_name in loop_unroll_dic:
                         new_f.write("#pragma unroll " + loop_unroll_dic[loop_name] + "\n")
                         if loop_name not in pipeline_list:
@@ -304,10 +303,32 @@ def generate_annotate_c(
             new_line = new_line.replace("register", "")
             new_f.write(new_line)
 
-        name_list.append((kernel_name + '_' + str(ct)))
+        new_design = Design(new_filename, dir)
+        design_list.append(new_design)
         new_f.close()
 
     kernel_f.close()
+
+    return design_list
+
+def get_kernel(
+    hls_template: Path
+) -> (str, str):
+    lines = hls_template.read_text().splitlines()
+    kernel_name = str
+    kernel_c = str
+    for line in lines:
+        if "set_top" in line:
+            kernel_name = line.split(" ")[-1]
+
+        #########################################################################################
+        # Warning: It assumes that only one .c file exsits and that is the source of the kernel #
+        #########################################################################################
+        if ".c" in line and "add_file" in line and "-tb" not in line:
+            kernel_c = line.split(" ")[-1].split("/")[-1]
+
+    
+    return kernel_name, kernel_c
 
 
 
@@ -324,11 +345,14 @@ class OptDSLFrontendIntel(Frontend):
         opt_template_fp = design.dir / "opt_template.tcl"
 
         #####################################################################################################
-        # @Note: This is not good since it gets the kernel name from the current dir, this                  #
-        # will not apply to machsuite, might need to think about a better way to include source code name   #
+        # @Note: It takes hls_template.tcl as the input to seek for the top function to synthesize          #
         #####################################################################################################
-        kernel_name = design.dir.name
-        kernel_file = design.dir / "intel_src" /  (design.dir.name + '.c')
+        hls_template = design.dir / "hls_template.tcl"
+        
+        ###  set_top [kernel_name] from hls_template.tcl  ###
+        kernel_name, kernel_c  = get_kernel(hls_template)
+
+        kernel_file = design.dir / "intel_src" /  kernel_c
         (
             array_partition_object_lists,
             loop_opt_object_lists,
@@ -338,19 +362,15 @@ class OptDSLFrontendIntel(Frontend):
             array_partition_object_lists, loop_opt_object_lists
         )
 
-        design_names = generate_annotate_c(
+        design_list = generate_annotate_c(
             array_partition_lines,
             loop_opt_lines,
             static_lines,
-            self.random_sample,
-            self.random_sample_num,
             self.work_dir,
             kernel_name,
-            kernel_file
+            kernel_file,
+            self.random_sample,
+            self.random_sample_num
         )
-        
-        ###################################################
-        # @Note: Not sure what to return here             #
-        ###################################################
 
-        return design_names
+        return design_list

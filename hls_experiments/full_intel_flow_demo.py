@@ -80,7 +80,7 @@ datasets = {
     # "simple": dataset_simple,
 }
 
-opt_dsl_frontend_intel = OptDSLFrontendIntel(WORK_DIR, random_sample=False, random_sample_num=10)
+opt_dsl_frontend_intel = OptDSLFrontendIntel(WORK_DIR, random_sample=True, random_sample_num=10)
 
 designs_after_frontend = {
     dataset_name: opt_dsl_frontend_intel.execute_multiple_designs(dataset.designs, n_jobs=32)
