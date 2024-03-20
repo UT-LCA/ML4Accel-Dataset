@@ -68,9 +68,7 @@ datasets_post_frontend = (
 )
 
 
-TIMEOUT_HLS_SYNTH = 60.0 * 8  # 8 minutes
-TIMEOUT_HLS_IMPL = 60.0 * 30  # 30 minutes
-
+TIMEOUT_HLS_SYNTH = 60.0 * 4  # 4 minutes
 
 VITIS_HLS_BINS = {
     "2021_1": "/tools/software/xilinx/Vitis_HLS/2021.1/bin/vitis_hls",
@@ -87,15 +85,13 @@ DATASET_VERSIONS = {
     for year, _ in VITIS_HLS_BINS.items()
 }
 
-print(DATASET_VERSIONS)
-
 for vitis_hls_version, datasets in DATASET_VERSIONS.items():
     vitis_hls_bin = VITIS_HLS_BINS[vitis_hls_version]
     toolflow_vitis_hls_synth = VitisHLSSynthFlow(vitis_hls_bin=vitis_hls_bin)
     datasets_post_hls_synth = (
         toolflow_vitis_hls_synth.execute_multiple_design_datasets_fine_grained_parallel(
             datasets,
-            True,
+            False,
             lambda x: f"{x}_post_hls_synth__{vitis_hls_version}",
             n_jobs=N_JOBS,
             cpu_affinity=CPU_AFFINITY,
