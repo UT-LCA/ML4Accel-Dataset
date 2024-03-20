@@ -94,7 +94,7 @@ for vitis_hls_version, datasets in DATASET_VERSIONS.items():
     toolflow_vitis_hls_synth = VitisHLSSynthFlow(vitis_hls_bin=vitis_hls_bin)
     datasets_post_hls_synth = (
         toolflow_vitis_hls_synth.execute_multiple_design_datasets_fine_grained_parallel(
-            datasets_post_frontend,
+            datasets,
             True,
             lambda x: f"{x}_post_hls_synth__{vitis_hls_version}",
             n_jobs=N_JOBS,
