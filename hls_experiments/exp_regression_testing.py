@@ -1,11 +1,7 @@
 import shutil
 from pathlib import Path
 
-from hls_build_framework.flow_vitis import (
-    VitisHLSImplFlow,
-    VitisHLSImplReportFlow,
-    VitisHLSSynthFlow,
-)
+from hls_build_framework.flow_vitis import VitisHLSSynthFlow
 from hls_build_framework.framework import DesignDataset
 from hls_build_framework.opt_dsl_frontend import OptDSLFrontend
 
@@ -52,7 +48,7 @@ datasets = {
 }
 
 
-N_RANDOM_SAMPLES = 10
+N_RANDOM_SAMPLES = 2
 RAMDOM_SAMPLE_SEED = 64
 opt_dsl_frontend = OptDSLFrontend(
     WORK_DIR,
@@ -81,7 +77,20 @@ VITIS_HLS_BINS = {
     "2023_1": "/tools/software/xilinx/Vitis_HLS/2023.1/bin/vitis_hls",
 }
 
-for vitis_hls_version, vitis_hls_bin in VITIS_HLS_BINS.items():
+DATASET_VERSIONS = {
+    year: {
+        dataset_name: dataset.copy_and_rename(
+            f"{dataset_name}_post_hls_synth__{year}", WORK_DIR
+        )
+        for dataset_name, dataset in datasets_post_frontend.items()
+    }
+    for year, _ in VITIS_HLS_BINS.items()
+}
+
+print(DATASET_VERSIONS)
+
+for vitis_hls_version, datasets in DATASET_VERSIONS.items():
+    vitis_hls_bin = VITIS_HLS_BINS[vitis_hls_version]
     toolflow_vitis_hls_synth = VitisHLSSynthFlow(vitis_hls_bin=vitis_hls_bin)
     datasets_post_hls_synth = (
         toolflow_vitis_hls_synth.execute_multiple_design_datasets_fine_grained_parallel(
