@@ -7,7 +7,7 @@ from hls_build_framework.opt_dsl_frontend_intel import OptDSLFrontendIntel
 
 DIR_CURRENT_SCRIPT = Path(__file__).parent
 
-WORK_DIR = Path("/home/projects/ljohn/simplescalar/zhigang/Intel_HLSDataset_demo")
+WORK_DIR = Path("/usr/scratch/skaram7/hlsdataset_workdir_intel_test_run")
 if WORK_DIR.exists():
     shutil.rmtree(WORK_DIR)
 WORK_DIR.mkdir()
@@ -80,10 +80,14 @@ datasets = {
     # "simple": dataset_simple,
 }
 
-opt_dsl_frontend_intel = OptDSLFrontendIntel(WORK_DIR, random_sample=True, random_sample_num=10)
+opt_dsl_frontend_intel = OptDSLFrontendIntel(
+    WORK_DIR, random_sample=True, random_sample_num=10
+)
 
 designs_after_frontend = {
-    dataset_name: opt_dsl_frontend_intel.execute_multiple_designs(dataset.designs, n_jobs=32)
+    dataset_name: opt_dsl_frontend_intel.execute_multiple_designs(
+        dataset.designs, n_jobs=32
+    )
     for dataset_name, dataset in datasets.items()
 }
 

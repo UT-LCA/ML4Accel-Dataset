@@ -83,6 +83,8 @@ def dataset_color(dataset_name):
         return "blue"
     elif "machsuite" in dataset_name:
         return "green"
+    elif "chstone" in dataset_name:
+        return "red"
     else:
         return "black"
 

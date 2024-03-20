@@ -579,7 +579,7 @@ class VitisHLSImplReportFlow(ToolFlow):
         self.log_output = log_output
         self.log_execution_time = log_execution_time
 
-    def execute(self, design: Design) -> list[Design]:
+    def execute(self, design: Design, timeout: float | None) -> list[Design]:
         t_0 = time.perf_counter()
 
         design_dir = design.dir

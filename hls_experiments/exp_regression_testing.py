@@ -12,7 +12,7 @@ from hls_build_framework.opt_dsl_frontend import OptDSLFrontend
 DIR_CURRENT_SCRIPT = Path(__file__).parent
 
 
-WORK_DIR = Path("/usr/scratch/skaram7/hlsdataset_workdir_design_space")
+WORK_DIR = Path("/usr/scratch/skaram7/hlsdataset_workdir_regression_testing")
 if WORK_DIR.exists():
     shutil.rmtree(WORK_DIR)
 WORK_DIR.mkdir()
@@ -52,7 +52,7 @@ datasets = {
 }
 
 
-N_RANDOM_SAMPLES = 16
+N_RANDOM_SAMPLES = 10
 RAMDOM_SAMPLE_SEED = 64
 opt_dsl_frontend = OptDSLFrontend(
     WORK_DIR,
@@ -76,30 +76,20 @@ TIMEOUT_HLS_SYNTH = 60.0 * 8  # 8 minutes
 TIMEOUT_HLS_IMPL = 60.0 * 30  # 30 minutes
 
 
-toolflow_vitis_hls_synth = VitisHLSSynthFlow(log_execution_time=True)
-datasets_post_hls_synth = (
-    toolflow_vitis_hls_synth.execute_multiple_design_datasets_fine_grained_parallel(
-        datasets_post_frontend,
-        False,
-        n_jobs=N_JOBS,
-        cpu_affinity=CPU_AFFINITY,
-        timeout=TIMEOUT_HLS_SYNTH,
+VITIS_HLS_BINS = {
+    "2021_1": "/tools/software/xilinx/Vitis_HLS/2021.1/bin/vitis_hls",
+    "2023_1": "/tools/software/xilinx/Vitis_HLS/2023.1/bin/vitis_hls",
+}
+
+for vitis_hls_version, vitis_hls_bin in VITIS_HLS_BINS.items():
+    toolflow_vitis_hls_synth = VitisHLSSynthFlow(vitis_hls_bin=vitis_hls_bin)
+    datasets_post_hls_synth = (
+        toolflow_vitis_hls_synth.execute_multiple_design_datasets_fine_grained_parallel(
+            datasets_post_frontend,
+            True,
+            lambda x: f"{x}_post_hls_synth__{vitis_hls_version}",
+            n_jobs=N_JOBS,
+            cpu_affinity=CPU_AFFINITY,
+            timeout=TIMEOUT_HLS_SYNTH,
+        )
     )
-)
-
-toolflow_vitis_hls_implementation = VitisHLSImplFlow(log_execution_time=True)
-datasets_post_hls_implementation = toolflow_vitis_hls_implementation.execute_multiple_design_datasets_fine_grained_parallel(
-    datasets_post_hls_synth,
-    False,
-    n_jobs=N_JOBS,
-    cpu_affinity=CPU_AFFINITY,
-    timeout=TIMEOUT_HLS_IMPL,
-)
-
-toolflow_vitis_hls_impl_report = VitisHLSImplReportFlow(log_execution_time=True)
-toolflow_vitis_hls_impl_report.execute_multiple_design_datasets_fine_grained_parallel(
-    datasets_post_hls_implementation,
-    False,
-    n_jobs=N_JOBS,
-    cpu_affinity=CPU_AFFINITY,
-)
