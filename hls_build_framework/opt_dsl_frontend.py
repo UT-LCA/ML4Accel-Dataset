@@ -1,9 +1,14 @@
 import hashlib
 import itertools
+import json
 import random
+import time
 from pathlib import Path
 
+import psutil
+
 from hls_build_framework.framework import Design, Frontend
+from hls_build_framework.utils import log_execution_time_to_file
 
 
 class ArrayPartition:
@@ -182,9 +187,13 @@ def generate_opt_sources(
     static_lines,
     random_sample=False,
     random_sample_num=10,
+    random_sample_seed=42,
 ) -> list[str]:
     line_combos_all = list(itertools.product(array_partition_lines, loop_opt_lines))
     if random_sample:
+        random.seed(random_sample_seed)
+        if random_sample_num > len(line_combos_all):
+            random_sample_num = len(line_combos_all)
         line_combos_all = random.sample(line_combos_all, random_sample_num)
     else:
         line_combos_all = line_combos_all
@@ -274,12 +283,23 @@ def generate_opt_sources(
 class OptDSLFrontend(Frontend):
     name = "OptDSLFrontend"
 
-    def __init__(self, work_dir: Path, random_sample=False, random_sample_num=10):
+    def __init__(
+        self,
+        work_dir: Path,
+        random_sample=False,
+        random_sample_num=10,
+        random_sample_seed=42,
+        log_execution_time=True,
+    ):
         self.work_dir = work_dir
         self.random_sample = random_sample
         self.random_sample_num = random_sample_num
+        self.random_sample_seed = random_sample_seed
+        self.log_execution_time = log_execution_time
 
-    def execute(self, design: Design) -> list[Design]:
+    def execute(self, design: Design, timeout: float | None = None) -> list[Design]:
+        t_0 = time.perf_counter()
+
         opt_template_fp = design.dir / "opt_template.tcl"
 
         (
@@ -316,16 +336,25 @@ class OptDSLFrontend(Frontend):
             static_lines,
             self.random_sample,
             self.random_sample_num,
+            self.random_sample_seed,
         )
 
         new_designs = []
         for opt_source in opt_sources:
             opt_source_hash = hashlib.md5(opt_source.encode()).hexdigest()
-            new_design = design.copy_and_rename(
-                f"{design.name}_opt_{opt_source_hash}", self.work_dir
+            new_design = design.copy_and_rename_to_new_parent_dir(
+                f"{design.name}_opt_{opt_source_hash}", design.dir.parent
             )
             opt_fp = new_design.dir / "opt.tcl"
             opt_fp.write_text(opt_source)
             new_designs.append(new_design)
+
+            t_1 = time.perf_counter()
+            if self.log_execution_time:
+                log_execution_time_to_file(new_design.dir, self.name, t_0, t_1)
+
+        t_1 = time.perf_counter()
+        if self.log_execution_time:
+            log_execution_time_to_file(design.dir, self.name, t_0, t_1)
 
         return new_designs

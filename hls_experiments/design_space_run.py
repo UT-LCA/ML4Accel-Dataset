@@ -1,11 +1,16 @@
 import shutil
 from pathlib import Path
 
-from hls_build_framework.flow_vitis import VitisHLSSynthFlow
+from hls_build_framework.flow_vitis import (
+    VitisHLSImplFlow,
+    VitisHLSImplReportFlow,
+    VitisHLSSynthFlow,
+)
 from hls_build_framework.framework import DesignDataset
 from hls_build_framework.opt_dsl_frontend import OptDSLFrontend
 
 DIR_CURRENT_SCRIPT = Path(__file__).parent
+
 
 WORK_DIR = Path("/usr/scratch/skaram7/hlsdataset_workdir_design_space")
 if WORK_DIR.exists():
@@ -13,13 +18,14 @@ if WORK_DIR.exists():
 WORK_DIR.mkdir()
 
 
-DIR_DATASET_POLYBENCH_XILINX = (
-    DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "polybench"
-)
+N_JOBS = 32
+CPU_AFFINITY = list(range(N_JOBS))
 
-DIR_DATASET_MACHSUITE_XILINX = Path(
-    DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "machsuite"
-)
+
+HLS_DATASET_DIR = DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset"
+DIR_DATASET_POLYBENCH_XILINX = HLS_DATASET_DIR / "polybench"
+DIR_DATASET_MACHSUITE_XILINX = HLS_DATASET_DIR / "machsuite"
+
 
 dataset_polybench_xilinx = DesignDataset.from_dir(
     "polybench_xilinx",
@@ -32,37 +38,64 @@ dataset_machsuite_xilinx = DesignDataset.from_dir(
     exclude_dir_filter=lambda dir: dir.name == "common",
 ).copy_dataset(WORK_DIR)
 
+# keep only first 2 designs for testing
+dataset_polybench_xilinx.designs = dataset_polybench_xilinx.designs[:2]
+dataset_machsuite_xilinx.designs = dataset_machsuite_xilinx.designs[:2]
 
 datasets = {
-    # "polybench_xilinx": dataset_polybench_xilinx,
+    "polybench_xilinx": dataset_polybench_xilinx,
     "machsuite_xilinx": dataset_machsuite_xilinx,
 }
 
-opt_dsl_frontend = OptDSLFrontend(WORK_DIR, random_sample=True, random_sample_num=1)
 
-designs_after_frontend = {
-    dataset_name: opt_dsl_frontend.execute_multiple_designs(dataset.designs, n_jobs=32)
-    for dataset_name, dataset in datasets.items()
-}
-
-for dataset_name, design_list in designs_after_frontend.items():
-    new_dir = WORK_DIR / f"{dataset_name}_post_frontend"
-    if new_dir.exists():
-        shutil.rmtree(new_dir)
-    new_dir.mkdir()
-    for design in design_list:
-        design.move_to_new_parent_dir(new_dir)
-datasets_post_frontend = {
-    f"{dataset_name}_post_frontend": DesignDataset.from_dir(
-        f"{dataset_name}_post_frontend", WORK_DIR / f"{dataset_name}_post_frontend"
+N_RANDOM_SAMPLES = 1
+RAMDOM_SAMPLE_SEED = 64
+opt_dsl_frontend = OptDSLFrontend(
+    WORK_DIR,
+    random_sample=True,
+    random_sample_num=N_RANDOM_SAMPLES,
+    random_sample_seed=RAMDOM_SAMPLE_SEED,
+    log_execution_time=True,
+)
+datasets_post_frontend = (
+    opt_dsl_frontend.execute_multiple_design_datasets_fine_grained_parallel(
+        datasets,
+        True,
+        lambda x: f"{x}_post_frontend",
+        n_jobs=N_JOBS,
+        cpu_affinity=CPU_AFFINITY,
     )
-    for dataset_name in datasets.keys()
-}
+)
 
-toolflow_vitis_hls_synth = VitisHLSSynthFlow()
-for dataset_name, dataset in datasets_post_frontend.items():
-    toolflow_vitis_hls_synth.execute_multiple_designs(dataset.designs, n_jobs=32)
 
-# toolflow_vitis_hls_impl = VitisHLSImplFlow()
-# for dataset_name, dataset in datasets_post_frontend.items():
-#     toolflow_vitis_hls_impl.execute_multiple(dataset.designs, n_jobs=32)
+TIMEOUT_HLS_SYNTH = 60.0 * 8  # 8 minutes
+TIMEOUT_HLS_IMPL = 60.0 * 16  # 16 minutes
+
+
+toolflow_vitis_hls_synth = VitisHLSSynthFlow(log_execution_time=True)
+datasets_post_hls_synth = (
+    toolflow_vitis_hls_synth.execute_multiple_design_datasets_fine_grained_parallel(
+        datasets_post_frontend,
+        False,
+        n_jobs=N_JOBS,
+        cpu_affinity=CPU_AFFINITY,
+        timeout=TIMEOUT_HLS_SYNTH,
+    )
+)
+
+toolflow_vitis_hls_implementation = VitisHLSImplFlow(log_execution_time=True)
+datasets_post_hls_implementation = toolflow_vitis_hls_implementation.execute_multiple_design_datasets_fine_grained_parallel(
+    datasets_post_hls_synth,
+    False,
+    n_jobs=N_JOBS,
+    cpu_affinity=CPU_AFFINITY,
+    timeout=TIMEOUT_HLS_IMPL,
+)
+
+toolflow_vitis_hls_impl_report = VitisHLSImplReportFlow(log_execution_time=True)
+toolflow_vitis_hls_impl_report.execute_multiple_design_datasets_fine_grained_parallel(
+    datasets_post_hls_implementation,
+    False,
+    n_jobs=N_JOBS,
+    cpu_affinity=CPU_AFFINITY,
+)

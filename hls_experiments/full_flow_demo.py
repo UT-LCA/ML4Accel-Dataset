@@ -103,7 +103,7 @@ datasets_post_frontend = {
 #         dataset.designs, output_dataset=intermediate_dataset
 #     )
 
-toolflow_vitis_hls_synth = VitisHLSSynthFlow()
+toolflow_vitis_hls_synth = VitisHLSSynthFlow(WORK_DIR)
 for dataset_name, dataset in datasets_post_frontend.items():
     toolflow_vitis_hls_synth.execute_multiple_designs(dataset.designs, n_jobs=32)
 
