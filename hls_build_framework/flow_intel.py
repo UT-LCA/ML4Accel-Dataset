@@ -40,7 +40,7 @@ class IntelHLSSynthFlow(ToolFlow):
         cmd += "-v "
         cmd += f"-o {design_dir / f'{bench_name}.prj'}"
 
-        #call_tool(cmd, design_dir)
+        call_tool(cmd, design_dir)
 
         return [design]
 
