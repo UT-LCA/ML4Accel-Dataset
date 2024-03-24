@@ -244,7 +244,34 @@ def get_kernel(hls_template: Path) -> (str, str):
             kernel_c = line.split(" ")[-1].split("/")[-1]
 
     return kernel_name, kernel_c
-    
+
+polybench_header_text = [ \
+'#include <unistd.h> \n', \
+'#include <string.h> \n', \
+'#include <math.h> \n', \
+'#include <HLS/stdio.h> \n', \
+'#include <HLS/hls.h> \n', \
+'\n']
+
+def polybench_copy(source_dir: Path, target_dir: Path, kernel_name: str) -> None:
+    # modify the header file and copy all the other files to the target folder
+    for file_name in os.listdir(source_dir):
+            if file_name == f'{kernel_name}.h':
+                f = open(source_dir / file_name, 'r')
+                lines = f.readlines()
+                new_lines = []
+                for line in lines:
+                    if "#include" not in line.strip():
+                        new_lines.append(line)
+                f.close()
+
+                new_lines = polybench_header_text + new_lines
+                with open(target_dir / file_name, 'w') as target_f:
+                    target_f.writelines(new_lines)
+                continue
+
+            shutil.copy( source_dir / file_name, target_dir / file_name)
+
 #### return the name list of annotated C codes  #######
 def generate_annotate_c(
     design_dir: Path,
@@ -285,10 +312,8 @@ def generate_annotate_c(
             shutil.rmtree(dir)
         dir.mkdir(parents=True)
 
-        # copy all the files to the target folder
-        for file_name in os.listdir(design_dir):
-            shutil.copy( design_dir / file_name, dir / file_name)
-
+        # copy and modify the files to the working folder
+        polybench_copy(design_dir, dir, kernel_name)
 
         array_partition_dic = get_array_partition_dic(a_l + l_l + static_lines)
         loop_unroll_dic = get_loop_unroll_dic(a_l + l_l + static_lines)
@@ -301,6 +326,10 @@ def generate_annotate_c(
         for line in kernel_f:
             new_line = line
 
+            ### This is not safe since patterns matches only with void type function ####
+            if "void " + kernel_name  in line:
+                new_line = "component " + new_line
+            
             # insert array partition
             if kernel_name not in line and "DATA_TYPE" in line:
                 array_name = line.split(" ")[-1]
@@ -362,8 +391,8 @@ class OptDSLFrontendIntel(Frontend):
         kernel_name, kernel_c = get_kernel(hls_template)
 
 
-        kernel_file = design.dir / "intel_src" / kernel_c
-        design_dir = design.dir / "intel_src"
+        kernel_file = design.dir / "src" / kernel_c
+        design_dir = design.dir / "src"
         (
             array_partition_object_lists,
             loop_opt_object_lists,

@@ -1,4 +1,8 @@
 // #include "ap_cint.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <math.h>
 
 #define N 64
 

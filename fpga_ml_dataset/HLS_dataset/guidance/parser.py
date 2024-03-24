@@ -139,7 +139,7 @@ def gen_opt(array_partition_object_lists, loop_opt_object_lists):
                 directive_unroll_lines.append(lines[i])
         #by default, nothing to apply to the unroll and pipeline
         loop_opt_block = []
-        loop_opt_block.append('')
+        #loop_opt_block.append('')
         for loop_opt_settings in loop_opt_object.get_flattened():
             output_line = str()
             #need to pipeline

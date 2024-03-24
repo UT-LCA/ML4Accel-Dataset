@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <math.h>
 // #include "ap_cint.h"
 #include "gesummv.h"
 
