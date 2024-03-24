@@ -122,6 +122,16 @@ class DesignDataset:
     def add_designs(self, designs: list[Design]):
         self.designs.extend(designs)
 
+    def add_design_copy(self, design: Design):
+        new_design = design.copy_and_rename_to_new_parent_dir(
+            design.name, self.dataset_dir
+        )
+        self.add_design(new_design)
+
+    def add_designs_copy(self, designs: list[Design]):
+        for design in designs:
+            self.add_design_copy(design)
+
     def copy_dataset(self, work_dir: Path) -> "DesignDataset":
         new_dataset = DesignDataset.from_empty_dir(self.name, work_dir)
         for design in self.designs:
@@ -168,22 +178,36 @@ class Flow(ABC):
     ) -> list[Design]:
         check_n_jobs_cpu_affinity(n_jobs, cpu_affinity)
 
+        # if cpu_affinity is None:
+        #     pool = multiprocessing.Pool(n_jobs)
+        # else:
+        #     pool = multiprocessing.Pool(
+        #         n_jobs,
+        #         initializer=lambda: psutil.Process(os.getpid()).cpu_affinity(
+        #             cpu_affinity
+        #         ),
+        #     )
+
+        def worker_init(core_queue):
+            worker_core = core_queue.get()
+            current_process = psutil.Process()
+            current_process.cpu_affinity([worker_core])
+
         if cpu_affinity is None:
             pool = multiprocessing.Pool(n_jobs)
         else:
+            cores_to_use = multiprocessing.Queue()
+            for core in cpu_affinity:
+                cores_to_use.put(core)
+
             pool = multiprocessing.Pool(
                 n_jobs,
-                initializer=lambda: psutil.Process(os.getpid()).cpu_affinity(
-                    cpu_affinity
-                ),
+                initializer=worker_init,
+                initargs=(cores_to_use,),
             )
 
-        # new_designs_lists = Parallel(n_jobs=n_jobs, backend="multiprocessing")(  # type: ignore
-        #     delayed(self.execute)(design) for design in tqdm.tqdm(designs)
-        # )
-        # new_designs_lists = pool.map(self.execute, tqdm.tqdm(designs))
         new_designs_lists = pool.map(
-            partial(self.execute, timeout=timeout), tqdm.tqdm(designs)
+            partial(self.execute, timeout=timeout), tqdm.tqdm(designs), chunksize=1
         )
         pool.close()
         pool.join()
@@ -253,6 +277,7 @@ class Flow(ABC):
         new_dataset_name_fn: Callable[[str], str] | None = None,
         n_jobs: int = 1,
         cpu_affinity: list[int] | None = None,
+        par_chunksize: int | None = 1,
         timeout: float | None = None,
     ) -> dict[str, DesignDataset]:
         check_n_jobs_cpu_affinity(n_jobs, cpu_affinity)
@@ -264,19 +289,29 @@ class Flow(ABC):
                 designs.append(design)
                 dataset_names.append(design_dataset_name)
 
+        def worker_init(core_queue):
+            worker_core = core_queue.get()
+            current_process = psutil.Process()
+            current_process.cpu_affinity([worker_core])
+
         if cpu_affinity is None:
             pool = multiprocessing.Pool(n_jobs)
         else:
+            cores_to_use = multiprocessing.Queue()
+            for core in cpu_affinity:
+                cores_to_use.put(core)
+
             pool = multiprocessing.Pool(
                 n_jobs,
-                initializer=lambda: psutil.Process(os.getpid()).cpu_affinity(
-                    cpu_affinity
-                ),
+                initializer=worker_init,
+                initargs=(cores_to_use,),
             )
 
         # new_designs_lists = pool.map(self.execute, tqdm.tqdm(designs))
         new_designs_lists = pool.map(
-            partial(self.execute, timeout=timeout), tqdm.tqdm(designs)
+            partial(self.execute, timeout=timeout),
+            tqdm.tqdm(designs),
+            chunksize=par_chunksize,
         )
         pool.close()
         pool.join()

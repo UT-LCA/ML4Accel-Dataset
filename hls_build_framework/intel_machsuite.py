@@ -64,6 +64,7 @@ class AnnotateMachSuiteIntel:
 
                 #open the destination C file in intel_src and find the line number
                 with open( os.path.join(dest_path, Cfile_name) ) as f:
+                        component_name= "void " + component_name 
                         for num, line in enumerate(f, 1):
                                 if component_name in line: 
                                         words = line.split()

@@ -2,6 +2,8 @@ import hashlib
 import itertools
 import random
 import re
+import shutil
+import os
 from pathlib import Path
 
 from hls_build_framework.framework import Design, Frontend
@@ -227,9 +229,52 @@ def get_pipeline_list(lines: str) -> list[str]:
 
     return pipeline_list
 
+def get_kernel(hls_template: Path) -> (str, str):
+    lines = hls_template.read_text().splitlines()
+    kernel_name = str
+    kernel_c = str
+    for line in lines:
+        if "set_top" in line:
+            kernel_name = line.split(" ")[-1]
+
+        #########################################################################################
+        # Warning: It assumes that only one .c file exsits and that is the source of the kernel #
+        #########################################################################################
+        if ".c" in line and "add_file" in line and "-tb" not in line:
+            kernel_c = line.split(" ")[-1].split("/")[-1]
+
+    return kernel_name, kernel_c
+
+polybench_header_text = [ \
+'#include <unistd.h> \n', \
+'#include <string.h> \n', \
+'#include <math.h> \n', \
+'#include <HLS/stdio.h> \n', \
+'#include <HLS/hls.h> \n', \
+'\n']
+
+def polybench_copy(source_dir: Path, target_dir: Path, kernel_name: str) -> None:
+    # modify the header file and copy all the other files to the target folder
+    for file_name in os.listdir(source_dir):
+            if file_name == f'{kernel_name}.h':
+                f = open(source_dir / file_name, 'r')
+                lines = f.readlines()
+                new_lines = []
+                for line in lines:
+                    if "#include" not in line.strip():
+                        new_lines.append(line)
+                f.close()
+
+                new_lines = polybench_header_text + new_lines
+                with open(target_dir / file_name, 'w') as target_f:
+                    target_f.writelines(new_lines)
+                continue
+
+            shutil.copy( source_dir / file_name, target_dir / file_name)
 
 #### return the name list of annotated C codes  #######
 def generate_annotate_c(
+    design_dir: Path,
     array_partition_lines,
     loop_opt_lines,
     static_lines,
@@ -267,17 +312,24 @@ def generate_annotate_c(
             shutil.rmtree(dir)
         dir.mkdir(parents=True)
 
+        # copy and modify the files to the working folder
+        polybench_copy(design_dir, dir, kernel_name)
+
         array_partition_dic = get_array_partition_dic(a_l + l_l + static_lines)
         loop_unroll_dic = get_loop_unroll_dic(a_l + l_l + static_lines)
         pipeline_list = get_pipeline_list(a_l + l_l + static_lines)
 
         kernel_f.seek(0, 0)
         new_filename = dir / (kernel_name + "_" + str(ct) + ".c")
-        new_f = open(new_filename, "a+")
+        new_f = open(new_filename, "w+")
 
         for line in kernel_f:
             new_line = line
 
+            ### This is not safe since patterns matches only with void type function ####
+            if "void " + kernel_name  in line:
+                new_line = "component " + new_line
+            
             # insert array partition
             if kernel_name not in line and "DATA_TYPE" in line:
                 array_name = line.split(" ")[-1]
@@ -301,9 +353,9 @@ def generate_annotate_c(
                         if loop_name not in pipeline_list:
                             new_f.write("#pragma disable_loop_pipelining\n")
 
-                    new_line.replace(loop_name, "")
-                    new_line.replace(":", "")
-
+                    new_line = new_line.replace(loop_name, "")
+                    new_line = new_line.replace(":", "")
+                    
             new_line = new_line.replace("register", "")
             new_f.write(new_line)
 
@@ -315,22 +367,6 @@ def generate_annotate_c(
 
     return design_list
 
-
-def get_kernel(hls_template: Path) -> (str, str):
-    lines = hls_template.read_text().splitlines()
-    kernel_name = str
-    kernel_c = str
-    for line in lines:
-        if "set_top" in line:
-            kernel_name = line.split(" ")[-1]
-
-        #########################################################################################
-        # Warning: It assumes that only one .c file exsits and that is the source of the kernel #
-        #########################################################################################
-        if ".c" in line and "add_file" in line and "-tb" not in line:
-            kernel_c = line.split(" ")[-1].split("/")[-1]
-
-    return kernel_name, kernel_c
 
 
 class OptDSLFrontendIntel(Frontend):
@@ -349,10 +385,14 @@ class OptDSLFrontendIntel(Frontend):
         #####################################################################################################
         hls_template = design.dir / "hls_template.tcl"
 
+
+        
         ###  set_top [kernel_name] from hls_template.tcl  ###
         kernel_name, kernel_c = get_kernel(hls_template)
 
-        kernel_file = design.dir / "intel_src" / kernel_c
+
+        kernel_file = design.dir / "src" / kernel_c
+        design_dir = design.dir / "src"
         (
             array_partition_object_lists,
             loop_opt_object_lists,
@@ -363,6 +403,7 @@ class OptDSLFrontendIntel(Frontend):
         )
 
         design_list = generate_annotate_c(
+            design_dir,
             array_partition_lines,
             loop_opt_lines,
             static_lines,
