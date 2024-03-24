@@ -276,7 +276,7 @@ class IntelQuartusImplFlow(ToolFlow):
 
         cwd = design_dir / f"{bench_name}.prj" / "quartus"
         cmd = f"{self.quartus_bin} --flow compile quartus_compile"
-        #call_tool(cmd, cwd)
+        call_tool(cmd, cwd)
 
         prj_dir = design_dir / f"{bench_name}.prj" 
         power_to_csv = prj_dir / "power_to_csv.tcl"
