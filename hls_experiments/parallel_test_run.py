@@ -13,13 +13,15 @@ if WORK_DIR.exists():
 WORK_DIR.mkdir()
 
 
-DIR_DATASET_POLYBENCH_XILINX = (
-    DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "polybench"
-)
+N_JOBS = 32
+CPU_AFFINITY = list(range(N_JOBS))
 
-DIR_DATASET_MACHSUITE_XILINX = Path(
-    DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "machsuite"
-)
+
+HLS_DATASET_DIR = DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset"
+DIR_DATASET_POLYBENCH_XILINX = HLS_DATASET_DIR / "polybench"
+DIR_DATASET_MACHSUITE_XILINX = HLS_DATASET_DIR / "machsuite"
+DIR_DATASET_CHSTONE_XILINX = HLS_DATASET_DIR / "chstone"
+
 
 dataset_polybench_xilinx = DesignDataset.from_dir(
     "polybench_xilinx",
@@ -32,79 +34,101 @@ dataset_machsuite_xilinx = DesignDataset.from_dir(
     exclude_dir_filter=lambda dir: dir.name == "common",
 ).copy_dataset(WORK_DIR)
 
+dataset_chstone_xilinx = DesignDataset.from_dir(
+    "chstone_xilinx",
+    DIR_DATASET_CHSTONE_XILINX,
+).copy_dataset(WORK_DIR)
+
 
 datasets = {
-    "polybench_xilinx_naive": dataset_polybench_xilinx.copy_and_rename(
-        "polybench_xilinx_naive", WORK_DIR
-    ),
-    "polybench_xilinx_fine_grained": dataset_polybench_xilinx.copy_and_rename(
-        "polybench_xilinx_fine_grained", WORK_DIR
-    ),
-    "machsuite_xilinx_naive": dataset_machsuite_xilinx.copy_and_rename(
-        "machsuite_xilinx_naive", WORK_DIR
-    ),
-    "machsuite_xilinx_fine_grained": dataset_machsuite_xilinx.copy_and_rename(
-        "machsuite_xilinx_fine_grained", WORK_DIR
-    ),
+    "polybench_xilinx": dataset_polybench_xilinx,
+    "machsuite_xilinx": dataset_machsuite_xilinx,
+    "chstone_xilinx": dataset_chstone_xilinx,
+}
+
+datasets_expanded = {
+    **{
+        f"{name}__naive": dataset.copy_and_rename(f"{name}__naive", WORK_DIR)
+        for name, dataset in datasets.items()
+    },
+    **{
+        f"{name}__fine_grained": dataset.copy_and_rename(
+            f"{name}__fine_grained", WORK_DIR
+        )
+        for name, dataset in datasets.items()
+    },
 }
 
 datasets_naive = {
-    "machsuite_xilinx_naive": datasets["machsuite_xilinx_naive"],
-    "polybench_xilinx_naive": datasets["polybench_xilinx_naive"],
+    name: dataset for name, dataset in datasets_expanded.items() if "__naive" in name
 }
 
-datasets_fine_grained = {
-    "machsuite_xilinx_fine_grained": datasets["machsuite_xilinx_fine_grained"],
-    "polybench_xilinx_fine_grained": datasets["polybench_xilinx_fine_grained"],
+datasets_fine = {
+    name: dataset for name, dataset in datasets_expanded.items() if "__fine" in name
 }
 
+
+N_RANDOM_SAMPLES = 8
+RAMDOM_SAMPLE_SEED = 64
 opt_dsl_frontend = OptDSLFrontend(
     WORK_DIR,
-    # random_sample=True,
-    # random_sample_num=50,
-    # random_sample_seed=64,
+    random_sample=True,
+    random_sample_num=N_RANDOM_SAMPLES,
+    random_sample_seed=RAMDOM_SAMPLE_SEED,
     log_execution_time=True,
 )
 
-opt_dsl_frontend.execute_multiple_design_datasets_naive_parallel(
-    datasets_naive, True, lambda x: f"{x}_post", n_jobs=3, cpu_affinity=[1, 2, 3]
-)
-
-datasets_post_frontend = (
-    opt_dsl_frontend.execute_multiple_design_datasets_fine_grained_parallel(
-        datasets_fine_grained,
+datasets_naive_post_frontend = (
+    opt_dsl_frontend.execute_multiple_design_datasets_naive_parallel(
+        datasets_naive,
         True,
-        lambda x: f"{x}_post",
-        n_jobs=3,
-        cpu_affinity=[1, 2, 3],
+        lambda x: f"{x}__post_frontend",
+        n_jobs=N_JOBS,
+        cpu_affinity=CPU_AFFINITY,
     )
 )
 
-# print(datasets_post_frontend["machsuite_xilinx_post_frontend"].designs)
+datasets_fine_post_frontend = (
+    opt_dsl_frontend.execute_multiple_design_datasets_fine_grained_parallel(
+        datasets_fine,
+        True,
+        lambda x: f"{x}__post_frontend",
+        n_jobs=N_JOBS,
+        cpu_affinity=CPU_AFFINITY,
+    )
+)
 
-# designs_after_frontend = {
-#     dataset_name: opt_dsl_frontend.execute_multiple_designs(dataset.designs, n_jobs=32)
-#     for dataset_name, dataset in datasets.items()
-# }
 
-# for dataset_name, design_list in designs_after_frontend.items():
-#     new_dir = WORK_DIR / f"{dataset_name}_post_frontend"
-#     if new_dir.exists():
-#         shutil.rmtree(new_dir)
-#     new_dir.mkdir()
-#     for design in design_list:
-#         design.move_to_new_parent_dir(new_dir)
-# datasets_post_frontend = {
-#     f"{dataset_name}_post_frontend": DesignDataset.from_dir(
-#         f"{dataset_name}_post_frontend", WORK_DIR / f"{dataset_name}_post_frontend"
-#     )
-#     for dataset_name in datasets.keys()
-# }
+TIMEOUT_HLS_SYNTH = 60.0 * 5  # 5 minutes
 
-# toolflow_vitis_hls_synth = VitisHLSSynthFlow(WORK_DIR)
-# for dataset_name, dataset in datasets_post_frontend.items():
-#     toolflow_vitis_hls_synth.execute_multiple_designs(dataset.designs, n_jobs=32)
 
-# toolflow_vitis_hls_impl = VitisHLSImplFlow()
-# for dataset_name, dataset in datasets_post_frontend.items():
-#     toolflow_vitis_hls_impl.execute_multiple(dataset.designs, n_jobs=32)
+VIVADO_PATH = Path("/tools/software/xilinx/Vivado/2023.1")
+VITIS_HLS_PATH = Path("/tools/software/xilinx/Vitis_HLS/2023.1")
+VITIS_HLS_BIN = VITIS_HLS_PATH / "bin" / "vitis_hls"
+
+
+toolflow_vitis_hls_synth = VitisHLSSynthFlow(
+    vitis_hls_bin=str(VITIS_HLS_BIN),
+    env_var_xilinx_hls=str(VITIS_HLS_PATH),
+    env_var_xilinx_vivado=str(VIVADO_PATH),
+)
+
+datasets_naive_post_hls_synth = (
+    toolflow_vitis_hls_synth.execute_multiple_design_datasets_naive_parallel(
+        datasets_naive_post_frontend,
+        False,
+        n_jobs=N_JOBS,
+        cpu_affinity=CPU_AFFINITY,
+        timeout=TIMEOUT_HLS_SYNTH,
+    )
+)
+
+datasets_fine_post_hls_synth = (
+    toolflow_vitis_hls_synth.execute_multiple_design_datasets_fine_grained_parallel(
+        datasets_fine_post_frontend,
+        False,
+        n_jobs=N_JOBS,
+        cpu_affinity=CPU_AFFINITY,
+        timeout=TIMEOUT_HLS_SYNTH,
+    )
+)
