@@ -244,7 +244,34 @@ def get_kernel(hls_template: Path) -> (str, str):
             kernel_c = line.split(" ")[-1].split("/")[-1]
 
     return kernel_name, kernel_c
-    
+
+polybench_header_text = [ \
+'#include <unistd.h> \n', \
+'#include <string.h> \n', \
+'#include <math.h> \n', \
+'#include <HLS/stdio.h> \n', \
+'#include <HLS/hls.h> \n', \
+'\n']
+
+def polybench_copy(source_dir: Path, target_dir: Path, kernel_name: str) -> None:
+    # modify the header file and copy all the other files to the target folder
+    for file_name in os.listdir(source_dir):
+            if file_name == f'{kernel_name}.h':
+                f = open(source_dir / file_name, 'r')
+                lines = f.readlines()
+                new_lines = []
+                for line in lines:
+                    if "#include" not in line.strip():
+                        new_lines.append(line)
+                f.close()
+
+                new_lines = polybench_header_text + new_lines
+                with open(target_dir / file_name, 'w') as target_f:
+                    target_f.writelines(new_lines)
+                continue
+
+            shutil.copy( source_dir / file_name, target_dir / file_name)
+
 #### return the name list of annotated C codes  #######
 def generate_annotate_c(
     design_dir: Path,
@@ -285,10 +312,8 @@ def generate_annotate_c(
             shutil.rmtree(dir)
         dir.mkdir(parents=True)
 
-        # copy all the files to the target folder
-        for file_name in os.listdir(design_dir):
-            shutil.copy( design_dir / file_name, dir / file_name)
-
+        # copy and modify the files to the working folder
+        polybench_copy(design_dir, dir, kernel_name)
 
         array_partition_dic = get_array_partition_dic(a_l + l_l + static_lines)
         loop_unroll_dic = get_loop_unroll_dic(a_l + l_l + static_lines)
@@ -298,41 +323,113 @@ def generate_annotate_c(
         new_filename = dir / (kernel_name + "_" + str(ct) + ".c")
         new_f = open(new_filename, "w+")
 
-        for line in kernel_f:
-            new_line = line
+        if "polybench" in str(design_dir):
+            for line in kernel_f:
+                new_line = line
 
-            # insert array partition
-            if kernel_name not in line and "DATA_TYPE" in line:
-                array_name = line.split(" ")[-1]
-                array_name = array_name.split("[")[0]
-                if array_name in array_partition_dic:
-                    new_f.write(
-                        "hls_numbanks(" + array_partition_dic[array_name] + ")\n"
-                    )
-
-            ##############################################################################################
-            # @Note: To detect a for loop label, simply detecting ':', it is unsafe but usable for now   #
-            ##############################################################################################
-            elif ":" in line:
-                match = re.search(r"(\w+):", line)
-                if match:
-                    loop_name = match.group(1)
-                    if loop_name in loop_unroll_dic:
+                ### This is not safe since patterns matches only with void type function ####
+                if "void " + kernel_name  in line:
+                    new_line = "component " + new_line
+                
+                # insert array partition
+                if kernel_name not in line and "DATA_TYPE" in line:
+                    array_name = line.split(" ")[-1]
+                    array_name = array_name.split("[")[0]
+                    if array_name in array_partition_dic:
                         new_f.write(
-                            "#pragma unroll " + loop_unroll_dic[loop_name] + "\n"
+                            "hls_numbanks(" + array_partition_dic[array_name] + ")\n"
                         )
-                        if loop_name not in pipeline_list:
-                            new_f.write("#pragma disable_loop_pipelining\n")
 
-                    new_line = new_line.replace(loop_name, "")
-                    new_line = new_line.replace(":", "")
-                    
-            new_line = new_line.replace("register", "")
-            new_f.write(new_line)
+                ##############################################################################################
+                # @Note: To detect a for loop label, simply detecting ':', it is unsafe but usable for now   #
+                ##############################################################################################
+                elif ":" in line:
+                    match = re.search(r"(\w+):", line)
+                    if match:
+                        loop_name = match.group(1)
+                        if loop_name in loop_unroll_dic:
+                            new_f.write(
+                                "#pragma unroll " + loop_unroll_dic[loop_name] + "\n"
+                            )
+                            if loop_name not in pipeline_list:
+                                new_f.write("#pragma disable_loop_pipelining\n")
 
-        new_design = Design(new_filename, dir)
-        design_list.append(new_design)
+                        new_line = new_line.replace(loop_name, "")
+                        new_line = new_line.replace(":", "")
+                        
+                new_line = new_line.replace("register", "")
+                new_f.write(new_line)
+
+            new_design = Design(new_filename, dir)
+            design_list.append(new_design)
+            
+
+            ############Machsuite###############
+            #numbanks( ) and array partition for machsuite
+        elif "machsuite" in str(design_dir):  
+            component_name= "void " + kernel_name 
+            for num, line in enumerate(kernel_f, 1):
+                #For functions only#
+                oldline=line
+                new_line = line
+                if component_name in line:
+                    params = re.findall(r"\((.*?)\)", line)
+                    stringc = ''.join(map(str, params))
+                    split_words=stringc.split(',')
+                    #print ("inside component function", kernel_name) 
+                    to_replace = []
+                    array_index= []
+                    data_type= []
+                    array_name = []
+                    for word in split_words:
+                        word=word.lstrip()
+                        for i in range(0,len(word)):
+                            if word[i]=="[":
+                                to_replace1=word
+                                array_index1=word[i+1]  #the letter next to [
+                                data_type1=word.split()[0]
+                                array_name_is= re.findall(r"\ (.*?)\[", word)  #this is a list
+                                array_name1= ''.join(map(str, array_name_is))  #convert to string
+                                #print ("word... is",to_replace1,array_index1,data_type1,array_name_is,array_name1) 
+
+                                to_replace.append(to_replace1)
+                                array_index.append(array_index1)
+                                data_type.append(data_type1)
+                                array_name.append(array_name1)
+                    newline=line
+
+           #         if array_name1 in array_partition_dic:
+                    for j in range(0,len(to_replace)):
+                            newline = newline.replace (to_replace[j], ' hls_avalon_slave_memory_argument(' + array_index[j] + ') hls_numbanks(' + "8"  + ')'+ ' hls_bankwidth(sizeof('   + data_type[j] + '))' + ' ' + data_type[j]+ '  *' + array_name[j] )
+                        
+
+                    #print ("Old line was", oldline)
+                    #print ("New line is", newline)
+                    new_f.write(newline)
+
+                #loop unrolls for machsuite
+                if ":" in line:
+                    match = re.search(r"(\w+):", line)
+                    if match:
+                        loop_name = match.group(1)
+                        if loop_name in loop_unroll_dic:
+                            new_f.write(
+                                "#pragma unroll " + loop_unroll_dic[loop_name] + "\n"
+                            )
+                            if loop_name not in pipeline_list:
+                                new_f.write("#pragma disable_loop_pipelining\n")
+
+                        new_line = new_line.replace(loop_name, "")
+                        new_line = new_line.replace(":", "")
+                        
+                new_line = new_line.replace("register", "")
+                if not "component" in new_line:
+                    new_f.write(new_line)
+            new_design = Design(new_filename, dir)
+            design_list.append(new_design)
+
         new_f.close()
+        
 
     kernel_f.close()
 
@@ -386,3 +483,4 @@ class OptDSLFrontendIntel(Frontend):
         )
 
         return design_list
+

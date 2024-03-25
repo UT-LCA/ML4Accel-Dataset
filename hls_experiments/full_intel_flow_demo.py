@@ -4,12 +4,12 @@ from pathlib import Path
 from hls_build_framework.flow_vitis import VitisHLSImplFlow, VitisHLSSynthFlow
 from hls_build_framework.framework import DesignDataset
 from hls_build_framework.opt_dsl_frontend_intel import OptDSLFrontendIntel
-from hls_build_framework.intel_machsuite import  AnnotateMachSuiteIntel
+from hls_build_framework.intel_machsuite_ch import  AnnotateMachSuiteChIntel
 
 
 
 DIR_CURRENT_SCRIPT = Path(__file__).parent
-WORK_DIR = Path("/raid/nanditha/ML4Accel-Dataset/work_space/front_end")
+WORK_DIR = Path("/raid/nanditha/ML4Accel-Dataset/work_space/front_end_mach")
 if WORK_DIR.exists():
     shutil.rmtree(WORK_DIR)
 WORK_DIR.mkdir()
@@ -58,7 +58,16 @@ dataset_machsuite_intel = DesignDataset.from_dir(
  )
 dataset_machsuite_intel = dataset_machsuite_intel.copy_dataset(WORK_DIR)
 #create intel_src and modify the C and header files for machsuite
-AnnotateMachSuiteIntel.Annotate(WORK_DIR)
+AnnotateMachSuiteChIntel.Annotate(WORK_DIR,"machsuite_intel")
+
+
+
+#dataset_chstone_intel = DesignDataset.from_dir(
+#             "chstone_intel",
+#                  DIR_DATASET_CHSTONE_INTEL
+#                   )
+#dataset_chstone_intel = dataset_chstone_intel.copy_dataset(WORK_DIR)
+#AnnotateMachSuiteChIntel.Annotate(WORK_DIR,"chstone_intel")
 
 
 # dataset_chstone_xilinx = DesignDataset.from_dir(
@@ -90,7 +99,7 @@ datasets = {
 }
 
 opt_dsl_frontend_intel = OptDSLFrontendIntel(
-    WORK_DIR, random_sample=True, random_sample_num=10
+    WORK_DIR, random_sample=False, random_sample_num=10
 )
 
 
