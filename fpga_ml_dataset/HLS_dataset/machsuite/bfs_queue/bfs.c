@@ -11,10 +11,7 @@ Hong, Oguntebi, Olukotun. "Efficient Parallel Graph Exploration on Multi-Core CP
 #define Q_EMPTY() (q_in>q_out ? q_in==q_out+1 : (q_in==0)&&(q_out==N_NODES-1))
 #define MAX_N_EDGES 158
 
-void bfs(node_t nodes[N_NODES], edge_t edges[N_EDGES],
-            node_index_t starting_node, level_t level[N_NODES],
-            edge_index_t level_counts[N_LEVELS])
-{
+void bfs(node_t nodes[N_NODES], edge_t edges[N_EDGES],  node_index_t starting_node, level_t level[N_NODES],  edge_index_t level_counts[N_LEVELS]){
   node_index_t queue[N_NODES];
   node_index_t q_in, q_out;
   node_index_t dummy;

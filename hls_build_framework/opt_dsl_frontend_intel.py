@@ -212,7 +212,7 @@ def get_loop_unroll_dic(lines: str) -> dict[str, str]:
             loop_factor = words[index_factor + 1]
 
             loop_dict[loop_name] = loop_factor
-
+            #print ("loop names", loop_name)
     return loop_dict
 
 
@@ -236,7 +236,7 @@ def get_kernel(hls_template: Path) -> (str, str):
     for line in lines:
         if "set_top" in line:
             kernel_name = line.split(" ")[-1]
-
+            #print ("kernel name is", kernel_name)
         #########################################################################################
         # Warning: It assumes that only one .c file exsits and that is the source of the kernel #
         #########################################################################################
@@ -307,11 +307,11 @@ def generate_annotate_c(
         for x in l_line:
             l_l += x
 
-        dir = work_dir / kernel_name / (kernel_name + "_" + str(ct))
+        dir = work_dir / str(design_dir).split('/')[-2] / (kernel_name + "_" + str(ct))
         if dir.exists():
             shutil.rmtree(dir)
         dir.mkdir(parents=True)
-
+       #print ("design dir is",str(design_dir).split('/')[-2])
         # copy and modify the files to the working folder
         polybench_copy(design_dir, dir, kernel_name)
 
@@ -367,12 +367,15 @@ def generate_annotate_c(
             ############Machsuite###############
             #numbanks( ) and array partition for machsuite
         elif "machsuite" in str(design_dir):  
-            component_name= "void " + kernel_name 
+   #         component_name= "void " + kernel_name 
+            component_names= ("void " + kernel_name, "int " + kernel_name)
             for num, line in enumerate(kernel_f, 1):
                 #For functions only#
                 oldline=line
                 new_line = line
-                if component_name in line:
+            
+ #               if component_name in line:
+                if any(s in line for s in component_names):    
                     params = re.findall(r"\((.*?)\)", line)
                     stringc = ''.join(map(str, params))
                     split_words=stringc.split(',')
@@ -409,7 +412,7 @@ def generate_annotate_c(
 
                 #loop unrolls for machsuite
                 if ":" in line:
-                    match = re.search(r"(\w+):", line)
+                    match = re.search(r"(\w+):", line) or re.search(r"(\w+) :",line)
                     if match:
                         loop_name = match.group(1)
                         if loop_name in loop_unroll_dic:

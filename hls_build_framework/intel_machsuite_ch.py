@@ -17,8 +17,8 @@ class AnnotateMachSuiteChIntel:
        # folders = [f for f in os.listdir(parent_dir) if os.path.isdir(f)]
         folders = [f for f in os.listdir(parent_dir) if os.path.isdir(os.path.join(parent_dir, f)) ]
 
-      #  print ("path is ", parent_dir)
-        print ('Folder names are', folders)
+      #  #print ("path is ", parent_dir)
+        #print ('Folder names are', folders)
         while(K in folders):
             folders.remove(K)
 
@@ -30,11 +30,11 @@ class AnnotateMachSuiteChIntel:
 
 
         for i in range(len(folders)):
-              #  print ("\nnames", folders[i])
+              #  #print ("\nnames", folders[i])
                 root_path = os.path.join(parent_dir,folders[i])
-                print ("rootdir", root_path)
+                #print ("rootdir", root_path)
                 dest_path = os.path.join(root_path,'intel_src')
-                print ("dest dir", dest_path)
+                #print ("dest dir", dest_path)
                 if not os.path.exists(dest_path): 			
                         os.makedirs(os.path.join(root_path, "intel_src"))
 
@@ -45,7 +45,7 @@ class AnnotateMachSuiteChIntel:
                 #Find the name of the hls template file
                 hls_template = [filename for filename in os.listdir(root_path) if filename.startswith("hls_template")]
                 #Pick the module name from the template file	
-               # print ("prefixed", hls_template[0])
+               # #print ("prefixed", hls_template[0])
                 
                 fp = open(os.path.join(root_path, hls_template[0]))
                 lines = fp.readlines()
@@ -54,12 +54,12 @@ class AnnotateMachSuiteChIntel:
 #                    if "add_files" in line.strip():
                        words = a.split()
                        component_name = words[1]
-                       print ("component",component_name)
+                       #print ("component",component_name)
 
                     if a.startswith("add_files") and ".c" in a:
                         words = a.split()
                         Cfile_name = words[1]
-                        print ("Cfilename",Cfile_name)
+                        #print ("Cfilename",Cfile_name)
 
                 #Cfile_names = words[1].split('/')
                 #Cfile_name= Cfile_names[-1]
@@ -68,7 +68,7 @@ class AnnotateMachSuiteChIntel:
                         words = a.split()
                         headerfile_name = words[1]
 
-                        print ("header name",headerfile_name)
+                        #print ("header name",headerfile_name)
                 fp.close()
 
 
@@ -78,7 +78,7 @@ class AnnotateMachSuiteChIntel:
                # lines = fp.readlines()
                # words = lines[1].split()
                # component_name = words[1]
-               # #print ("component",component_name)
+               # ##print ("component",component_name)
 
                # words = lines[2].split()
                # Cfile_name = words[1]
@@ -88,7 +88,7 @@ class AnnotateMachSuiteChIntel:
                # words = lines[3].split()
                # headerfile_name = words[1]
 
-               # #print ("header name",headerfile_name)
+               # ##print ("header name",headerfile_name)
                # fp.close()
 
                # #open the destination C file in intel_src and find the line number
@@ -97,17 +97,17 @@ class AnnotateMachSuiteChIntel:
                         for num, line in enumerate(f, 1):
                                 if any(s in line for s in component_names): 
                                         words = line.split()
-                                        print ('dest file line',component_names,words)
-                                        print ('dest file line num',num)
+                                        #print ('dest file line',component_names,words)
+                                        #print ('dest file line num',num)
                                         linenum=num
-                print ('dest file line num now is',linenum)
+                #print ('dest file line num now is',linenum)
                 f.close()
 
 
                 # append component word to the destination file
                 with open( os.path.join(dest_path, Cfile_name) ) as f:
                         lines = f.readlines()
-                      #  print ('num is ', linenum)
+                      #  #print ('num is ', linenum)
                 f.close()
                         
                 lines[linenum-1] = "component " + lines[linenum-1]
