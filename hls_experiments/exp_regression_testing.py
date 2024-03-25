@@ -2,7 +2,7 @@ import shutil
 from pathlib import Path
 
 from hls_build_framework.flow_vitis import VitisHLSSynthFlow
-from hls_build_framework.framework import DesignDataset
+from hls_build_framework.framework import Design, DesignDataset
 from hls_build_framework.opt_dsl_frontend import OptDSLFrontend
 
 DIR_CURRENT_SCRIPT = Path(__file__).parent
@@ -48,7 +48,7 @@ datasets = {
 }
 
 
-N_RANDOM_SAMPLES = 2
+N_RANDOM_SAMPLES = 16
 RAMDOM_SAMPLE_SEED = 64
 opt_dsl_frontend = OptDSLFrontend(
     WORK_DIR,
@@ -68,11 +68,20 @@ datasets_post_frontend = (
 )
 
 
-TIMEOUT_HLS_SYNTH = 60.0 * 4  # 4 minutes
+TIMEOUT_HLS_SYNTH = 60.0 * 5  # 5 minutes
+
+VIVADO_PATHS = {
+    "2021_1": Path("/tools/software/xilinx/Vivado/2021.1"),
+    "2023_1": Path("/tools/software/xilinx/Vivado/2023.1"),
+}
+
+VITIS_HLS_PATHS = {
+    "2021_1": Path("/tools/software/xilinx/Vitis_HLS/2021.1"),
+    "2023_1": Path("/tools/software/xilinx/Vitis_HLS/2023.1"),
+}
 
 VITIS_HLS_BINS = {
-    "2021_1": "/tools/software/xilinx/Vitis_HLS/2021.1/bin/vitis_hls",
-    "2023_1": "/tools/software/xilinx/Vitis_HLS/2023.1/bin/vitis_hls",
+    version: path / "bin" / "vitis_hls" for version, path in VITIS_HLS_PATHS.items()
 }
 
 DATASET_VERSIONS = {
@@ -87,7 +96,13 @@ DATASET_VERSIONS = {
 
 for vitis_hls_version, datasets in DATASET_VERSIONS.items():
     vitis_hls_bin = VITIS_HLS_BINS[vitis_hls_version]
-    toolflow_vitis_hls_synth = VitisHLSSynthFlow(vitis_hls_bin=vitis_hls_bin)
+    vitis_hls_path = VITIS_HLS_PATHS[vitis_hls_version]
+    vivado_path = VIVADO_PATHS[vitis_hls_version]
+    toolflow_vitis_hls_synth = VitisHLSSynthFlow(
+        vitis_hls_bin=str(vitis_hls_bin),
+        env_var_xilinx_hls=str(vitis_hls_path),
+        env_var_xilinx_vivado=str(vivado_path),
+    )
     datasets_post_hls_synth = (
         toolflow_vitis_hls_synth.execute_multiple_design_datasets_fine_grained_parallel(
             datasets,

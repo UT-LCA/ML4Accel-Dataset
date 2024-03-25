@@ -1,4 +1,5 @@
 import json
+import os
 import re
 import subprocess
 import time
@@ -301,6 +302,8 @@ class VitisHLSSynthFlow(ToolFlow):
         vitis_hls_bin: str | None = None,
         log_output: bool = False,
         log_execution_time: bool = True,
+        env_var_xilinx_hls: str | None = None,
+        env_var_xilinx_vivado: str | None = None,
     ):
         if vitis_hls_bin is None:
             self.vitis_hls_bin = find_bin_path("vitis_hls")
@@ -309,6 +312,8 @@ class VitisHLSSynthFlow(ToolFlow):
 
         self.log_output = log_output
         self.log_execution_time = log_execution_time
+        self.env_var_xilinx_hls = env_var_xilinx_hls
+        self.env_var_xilinx_vivado = env_var_xilinx_vivado
 
     def execute(self, design: Design, timeout: float | None = None) -> list[Design]:
         t_0 = time.perf_counter()
@@ -318,6 +323,11 @@ class VitisHLSSynthFlow(ToolFlow):
         fp_hls_synth_tcl = design_dir / "dataset_hls.tcl"
         build_files = [fp_hls_synth_tcl]
         check_build_files_exist(build_files)
+
+        if self.env_var_xilinx_hls:
+            os.environ["XILINX_HLS"] = self.env_var_xilinx_hls
+        if self.env_var_xilinx_vivado:
+            os.environ["XILINX_VIVADO"] = self.env_var_xilinx_vivado
 
         # if timeout is not None:
         #     try:

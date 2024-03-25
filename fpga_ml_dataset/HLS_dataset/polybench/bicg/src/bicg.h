@@ -1,5 +1,10 @@
 #define N 64
 
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <math.h>
+
 #define DATA_TYPE float
 #define SCALAR_VAL(x) x##f
 #define SQRT_FUN(x) sqrtf(x)
