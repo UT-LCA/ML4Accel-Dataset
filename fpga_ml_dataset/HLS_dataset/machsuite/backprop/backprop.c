@@ -30,10 +30,7 @@ void add_bias_to_activations(TYPE biases[nodes_per_layer],
     }
 }
 
-void matrix_vector_product_with_bias_input_layer(TYPE biases[nodes_per_layer],
-                                                 TYPE weights[input_dimension*nodes_per_layer],
-                                                 TYPE activations[nodes_per_layer],
-                                                 TYPE input_sample[input_dimension]){
+void matrix_vector_product_with_bias_input_layer(TYPE biases[nodes_per_layer], TYPE weights[input_dimension*nodes_per_layer],  TYPE activations[nodes_per_layer], TYPE input_sample[input_dimension]){
     int i,j;
     mvp_product_input_loop: for(j = 0; j < nodes_per_layer; j++){
         activations[j] = (TYPE)0.0;
@@ -44,10 +41,7 @@ void matrix_vector_product_with_bias_input_layer(TYPE biases[nodes_per_layer],
     add_bias_to_activations(biases, activations, nodes_per_layer);
 }
 
-void matrix_vector_product_with_bias_second_layer(TYPE biases[nodes_per_layer],
-                                                 TYPE weights[nodes_per_layer*nodes_per_layer],
-                                                 TYPE activations[nodes_per_layer],
-                                                 TYPE input_activations[nodes_per_layer]){
+void matrix_vector_product_with_bias_second_layer(TYPE biases[nodes_per_layer], TYPE weights[nodes_per_layer*nodes_per_layer],  TYPE activations[nodes_per_layer],  TYPE input_activations[nodes_per_layer]){
     int i,j;
     for (i = 0; i < nodes_per_layer; i++){
         activations[i] = (TYPE)0.0;
@@ -58,10 +52,7 @@ void matrix_vector_product_with_bias_second_layer(TYPE biases[nodes_per_layer],
     add_bias_to_activations(biases, activations, nodes_per_layer);
 }
 
-void matrix_vector_product_with_bias_output_layer(TYPE biases[possible_outputs],
-                                                 TYPE weights[nodes_per_layer*possible_outputs],
-                                                 TYPE activations[possible_outputs],
-                                                 TYPE input_activations[nodes_per_layer]){
+void matrix_vector_product_with_bias_output_layer(TYPE biases[possible_outputs], TYPE weights[nodes_per_layer*possible_outputs], TYPE activations[possible_outputs], TYPE input_activations[nodes_per_layer]){
     int i, j;
     for(j = 0; j < possible_outputs; j++){
         activations[j] = (TYPE)0.0;
@@ -72,19 +63,14 @@ void matrix_vector_product_with_bias_output_layer(TYPE biases[possible_outputs],
     add_bias_to_activations(biases, activations, possible_outputs);
 }
 
-void take_difference(TYPE net_outputs[possible_outputs], 
-                     TYPE solutions[possible_outputs], 
-                     TYPE output_difference[possible_outputs],
-                     TYPE dactivations[possible_outputs]) {
+void take_difference(TYPE net_outputs[possible_outputs], TYPE solutions[possible_outputs], TYPE output_difference[possible_outputs],  TYPE dactivations[possible_outputs]) {
     int i;
     for( i = 0; i < possible_outputs; i++){
         output_difference[i] = (((net_outputs[i]) - solutions[i]) * -1.0) * dactivations[i];
     }
 }
 
-void get_delta_matrix_weights3(TYPE delta_weights3[nodes_per_layer*possible_outputs],
-                               TYPE output_difference[possible_outputs],
-                               TYPE last_activations[nodes_per_layer]) {
+void get_delta_matrix_weights3(TYPE delta_weights3[nodes_per_layer*possible_outputs],  TYPE output_difference[possible_outputs],  TYPE last_activations[nodes_per_layer]) {
     int i, j;
     delta_matrix_weights3_loop: for( i = 0; i < nodes_per_layer; i++) {
         for( j = 0; j < possible_outputs; j++) {
@@ -93,10 +79,7 @@ void get_delta_matrix_weights3(TYPE delta_weights3[nodes_per_layer*possible_outp
     }
 }
 
-void get_oracle_activations2(TYPE weights3[nodes_per_layer*possible_outputs], 
-                             TYPE output_differences[possible_outputs], 
-                             TYPE oracle_activations[nodes_per_layer],
-                             TYPE dactivations[nodes_per_layer]) {
+void get_oracle_activations2(TYPE weights3[nodes_per_layer*possible_outputs],  TYPE output_differences[possible_outputs],  TYPE oracle_activations[nodes_per_layer], TYPE dactivations[nodes_per_layer]) {
     int i, j;
     activations2_loop: for( i = 0; i < nodes_per_layer; i++) {
         oracle_activations[i] = (TYPE)0.0;
@@ -107,9 +90,7 @@ void get_oracle_activations2(TYPE weights3[nodes_per_layer*possible_outputs],
     }
 }
 
-void get_delta_matrix_weights2(TYPE delta_weights2[nodes_per_layer*nodes_per_layer],
-                               TYPE output_difference[nodes_per_layer],
-                               TYPE last_activations[nodes_per_layer]) {
+void get_delta_matrix_weights2(TYPE delta_weights2[nodes_per_layer*nodes_per_layer], TYPE output_difference[nodes_per_layer],  TYPE last_activations[nodes_per_layer]) {
     int i, j;
     for( i = 0; i < nodes_per_layer; i++) {
         delta_matrix_weights2_loop: for( j = 0; j < nodes_per_layer; j++) {
@@ -118,10 +99,7 @@ void get_delta_matrix_weights2(TYPE delta_weights2[nodes_per_layer*nodes_per_lay
     }
 }
 
-void get_oracle_activations1(TYPE weights2[nodes_per_layer*nodes_per_layer], 
-                             TYPE output_differences[nodes_per_layer], 
-                             TYPE oracle_activations[nodes_per_layer],
-                             TYPE dactivations[nodes_per_layer]) {
+void get_oracle_activations1(TYPE weights2[nodes_per_layer*nodes_per_layer], TYPE output_differences[nodes_per_layer],  TYPE oracle_activations[nodes_per_layer], TYPE dactivations[nodes_per_layer]) {
     int i, j;
     for( i = 0; i < nodes_per_layer; i++) {
         oracle_activations[i] = (TYPE)0.0;
@@ -132,9 +110,7 @@ void get_oracle_activations1(TYPE weights2[nodes_per_layer*nodes_per_layer],
     }
 }
 
-void get_delta_matrix_weights1(TYPE delta_weights1[input_dimension*nodes_per_layer],
-                               TYPE output_difference[nodes_per_layer],
-                               TYPE last_activations[input_dimension]) {
+void get_delta_matrix_weights1(TYPE delta_weights1[input_dimension*nodes_per_layer], TYPE output_difference[nodes_per_layer],  TYPE last_activations[input_dimension]) {
     int i, j;
     for( i = 0; i < input_dimension; i++) {
         delta_matrix_weights1_loop: for( j = 0; j < nodes_per_layer; j++) {
@@ -143,18 +119,7 @@ void get_delta_matrix_weights1(TYPE delta_weights1[input_dimension*nodes_per_lay
     }
 }
 
-void update_weights(TYPE weights1[input_dimension*nodes_per_layer],
-                    TYPE weights2[nodes_per_layer*nodes_per_layer],
-                    TYPE weights3[nodes_per_layer*possible_outputs],
-                    TYPE d_weights1[input_dimension*nodes_per_layer],
-                    TYPE d_weights2[nodes_per_layer*nodes_per_layer],
-                    TYPE d_weights3[nodes_per_layer*possible_outputs],
-                    TYPE biases1[nodes_per_layer],
-                    TYPE biases2[nodes_per_layer],
-                    TYPE biases3[possible_outputs],
-                    TYPE d_biases1[nodes_per_layer],
-                    TYPE d_biases2[nodes_per_layer],
-                    TYPE d_biases3[possible_outputs]) {
+void update_weights(TYPE weights1[input_dimension*nodes_per_layer], TYPE weights2[nodes_per_layer*nodes_per_layer],  TYPE weights3[nodes_per_layer*possible_outputs], TYPE d_weights1[input_dimension*nodes_per_layer], TYPE d_weights2[nodes_per_layer*nodes_per_layer], TYPE d_weights3[nodes_per_layer*possible_outputs], TYPE biases1[nodes_per_layer], TYPE biases2[nodes_per_layer], TYPE biases3[possible_outputs],  TYPE d_biases1[nodes_per_layer],   TYPE d_biases2[nodes_per_layer], TYPE d_biases3[possible_outputs]) {
     int i, j;
     double norm, bias_norm;
     norm = 0.0;
@@ -236,7 +201,7 @@ void update_weights(TYPE weights1[input_dimension*nodes_per_layer],
     }
 }
 
-void backprop(TYPE weights1[input_dimension*nodes_per_layer],   TYPE weights2[nodes_per_layer*nodes_per_layer],   TYPE weights3[nodes_per_layer*possible_outputs],  TYPE biases1[nodes_per_layer], TYPE biases2[nodes_per_layer],  TYPE biases3[possible_outputs],   TYPE training_data[training_sets*input_dimension],   TYPE training_targets[training_sets*possible_outputs]) {
+void backprop(TYPE weights1[input_dimension*nodes_per_layer], TYPE weights2[nodes_per_layer*nodes_per_layer], TYPE weights3[nodes_per_layer*possible_outputs],  TYPE biases1[nodes_per_layer],   TYPE biases2[nodes_per_layer],   TYPE biases3[possible_outputs],  TYPE training_data[training_sets*input_dimension],  TYPE training_targets[training_sets*possible_outputs]) {
     int i,j;
     //Forward and training structures
     TYPE activations1[nodes_per_layer];
