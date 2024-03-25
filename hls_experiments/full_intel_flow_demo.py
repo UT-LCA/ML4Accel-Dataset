@@ -99,7 +99,7 @@ datasets = {
 }
 
 opt_dsl_frontend_intel = OptDSLFrontendIntel(
-    WORK_DIR, random_sample=False, random_sample_num=10
+    WORK_DIR, random_sample=True, random_sample_num=10
 )
 
 
