@@ -461,8 +461,8 @@ class OptDSLFrontendIntel(Frontend):
         kernel_name, kernel_c = get_kernel(hls_template)
 
 
-        kernel_file = design.dir / "intel_src" / kernel_c
-        design_dir = design.dir / "intel_src"
+        kernel_file = design.dir / "src" / kernel_c
+        design_dir = design.dir / "src"
         (
             array_partition_object_lists,
             loop_opt_object_lists,
