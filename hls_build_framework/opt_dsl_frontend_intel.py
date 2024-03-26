@@ -404,9 +404,9 @@ def generate_annotate_c(
                     for j in range(0,len(to_replace)):
                             newline = newline.replace (to_replace[j], ' hls_avalon_slave_memory_argument(' + array_index[j] + ') hls_numbanks(' + "8"  + ')'+ ' hls_bankwidth(sizeof('   + data_type[j] + '))' + ' ' + data_type[j]+ '  *' + array_name[j] )
                         
-                    print ("kernel name is ", kernel_name) 
-                    print ("Old line was", oldline)
-                    print ("New line is", newline)
+                    #print ("kernel name is ", kernel_name) 
+                    #print ("Old line was", oldline)
+                    #print ("New line is", newline)
                     new_f.write(newline)
 
                 #loop unrolls for machsuite

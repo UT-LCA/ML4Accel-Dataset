@@ -33,10 +33,10 @@ class AnnotateMachSuiteChIntel:
               #  #print ("\nnames", folders[i])
                 root_path = os.path.join(parent_dir,folders[i])
                 #print ("rootdir", root_path)
-                dest_path = os.path.join(root_path,'intel_src')
+                dest_path = os.path.join(root_path,'src')
                 #print ("dest dir", dest_path)
                 if not os.path.exists(dest_path): 			
-                        os.makedirs(os.path.join(root_path, "intel_src"))
+                        os.makedirs(os.path.join(root_path, "src"))
 
                 
                 copy_files_with_extension(root_path, dest_path, '.c')
