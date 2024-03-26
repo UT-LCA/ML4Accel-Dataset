@@ -367,15 +367,14 @@ def generate_annotate_c(
             ############Machsuite###############
             #numbanks( ) and array partition for machsuite
         elif "machsuite" in str(design_dir):  
-   #         component_name= "void " + kernel_name 
-            component_names= ("void " + kernel_name, "int " + kernel_name)
+   #         component_names= ("void " + kernel_name, "int " +kernel_name)
             for num, line in enumerate(kernel_f, 1):
-                #For functions only#
+                #iterate for functions only#
                 oldline=line
                 new_line = line
-            
- #               if component_name in line:
-                if any(s in line for s in component_names):    
+                is_function=re.search(r'\bint\b.*\b\(\b', line) or re.search(r'\bvoid\b.*\b\(\b', line)
+          #      if any(s in line for s in component_names):    
+                if is_function:
                     params = re.findall(r"\((.*?)\)", line)
                     stringc = ''.join(map(str, params))
                     split_words=stringc.split(',')
@@ -405,9 +404,9 @@ def generate_annotate_c(
                     for j in range(0,len(to_replace)):
                             newline = newline.replace (to_replace[j], ' hls_avalon_slave_memory_argument(' + array_index[j] + ') hls_numbanks(' + "8"  + ')'+ ' hls_bankwidth(sizeof('   + data_type[j] + '))' + ' ' + data_type[j]+ '  *' + array_name[j] )
                         
-
-                    #print ("Old line was", oldline)
-                    #print ("New line is", newline)
+                    print ("kernel name is ", kernel_name) 
+                    print ("Old line was", oldline)
+                    print ("New line is", newline)
                     new_f.write(newline)
 
                 #loop unrolls for machsuite
@@ -426,7 +425,7 @@ def generate_annotate_c(
                         new_line = new_line.replace(":", "")
                         
                 new_line = new_line.replace("register", "")
-                if not "component" in new_line:
+                if not is_function:
                     new_f.write(new_line)
             new_design = Design(new_filename, dir)
             design_list.append(new_design)
