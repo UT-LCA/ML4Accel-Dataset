@@ -30,8 +30,9 @@ DATA_DIR.mkdir(exist_ok=True)
 
 WORK_DIR = Path("/usr/scratch/skaram7/hlsdataset_workdir_parallel_test_run")
 
+USE_CACHE = True
 
-if not (DATA_DIR / "hlsyn_design_space_plot_data.csv").exists():
+if not (DATA_DIR / "hlsyn_design_space_plot_data.csv").exists() or not USE_CACHE:
     datasets = list(WORK_DIR.glob("*__post_frontend"))
 
     design_data = []

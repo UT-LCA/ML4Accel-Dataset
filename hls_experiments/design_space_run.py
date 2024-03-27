@@ -17,6 +17,8 @@ from hls_build_framework.framework import (
 )
 from hls_build_framework.opt_dsl_frontend import OptDSLFrontend
 
+exit()
+
 WORK_DIR = Path("/usr/scratch/skaram7/hlsdataset_workdir_design_space_v2")
 if WORK_DIR.exists():
     shutil.rmtree(WORK_DIR)
