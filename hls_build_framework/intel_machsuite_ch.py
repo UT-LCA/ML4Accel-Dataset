@@ -1,21 +1,24 @@
-import os 
-import shutil 
+import os
+import shutil
 from pathlib import Path
 
-#parent_dir = "/home/nanditha/Downloads/machsuite"
+# parent_dir = "/home/nanditha/Downloads/machsuite"
 
 
 class AnnotateMachSuiteChIntel:
     def __init__(self):
         print("initializing ...")
 
-
-    def Annotate(parent_dir,benchmark):
+    def Annotate(parent_dir, benchmark):
         parent_dir = str(parent_dir) + "/" + benchmark
 
-        K="common"
-       # folders = [f for f in os.listdir(parent_dir) if os.path.isdir(f)]
-        folders = [f for f in os.listdir(parent_dir) if os.path.isdir(os.path.join(parent_dir, f)) ]
+        K = "common"
+        # folders = [f for f in os.listdir(parent_dir) if os.path.isdir(f)]
+        folders = [
+            f
+            for f in os.listdir(parent_dir)
+            if os.path.isdir(os.path.join(parent_dir, f))
+        ]
 
       #  #print ("path is ", parent_dir)
         #print ('Folder names are', folders)
@@ -28,7 +31,6 @@ class AnnotateMachSuiteChIntel:
                 if os.path.isfile(source_file) and filename.endswith(extension):
                     shutil.copy(source_file, target_folder)
 
-
         for i in range(len(folders)):
               #  #print ("\nnames", folders[i])
                 root_path = os.path.join(parent_dir,folders[i])
@@ -38,9 +40,8 @@ class AnnotateMachSuiteChIntel:
                 if not os.path.exists(dest_path): 			
                         os.makedirs(os.path.join(root_path, "src"))
 
-                
-                copy_files_with_extension(root_path, dest_path, '.c')
-                copy_files_with_extension(root_path, dest_path, '.h')
+            copy_files_with_extension(root_path, dest_path, ".c")
+            copy_files_with_extension(root_path, dest_path, ".h")
 
                 #Find the name of the hls template file
                 hls_template = [filename for filename in os.listdir(root_path) if filename.startswith("hls_template")]
@@ -61,12 +62,12 @@ class AnnotateMachSuiteChIntel:
                         Cfile_name = words[1]
                         #print ("Cfilename",Cfile_name)
 
-                #Cfile_names = words[1].split('/')
-                #Cfile_name= Cfile_names[-1]
-                
-                    if a.startswith("add_files") and ".h" in a:
-                        words = a.split()
-                        headerfile_name = words[1]
+                # Cfile_names = words[1].split('/')
+                # Cfile_name= Cfile_names[-1]
+
+                if a.startswith("add_files") and ".h" in a:
+                    words = a.split()
+                    headerfile_name = words[1]
 
                         #print ("header name",headerfile_name)
                 fp.close()
@@ -80,13 +81,13 @@ class AnnotateMachSuiteChIntel:
                # component_name = words[1]
                # ##print ("component",component_name)
 
-               # words = lines[2].split()
-               # Cfile_name = words[1]
-               # #Cfile_names = words[1].split('/')
-               # #Cfile_name= Cfile_names[-1]
-               # 
-               # words = lines[3].split()
-               # headerfile_name = words[1]
+            # words = lines[2].split()
+            # Cfile_name = words[1]
+            # #Cfile_names = words[1].split('/')
+            # #Cfile_name= Cfile_names[-1]
+            #
+            # words = lines[3].split()
+            # headerfile_name = words[1]
 
                # ##print ("header name",headerfile_name)
                # fp.close()
@@ -112,37 +113,34 @@ class AnnotateMachSuiteChIntel:
                         
                 lines[linenum-1] = "component " + lines[linenum-1]
 
-                # write the edited content back to the file
-                with open( os.path.join(dest_path, Cfile_name), 'w') as txtfile:
-                        txtfile.writelines(lines)
+            # write the edited content back to the file
+            with open(os.path.join(dest_path, Cfile_name), "w") as txtfile:
+                txtfile.writelines(lines)
 
-                txtfile.close()
+            txtfile.close()
 
-        #####################################################################
+            #####################################################################
 
-                #open the destination header file in intel_src and find the line numbers for #include and just replace those lines with new lines
-                
-                f= open( os.path.join(dest_path, headerfile_name), 'r' )
-                lines = f.readlines()
-                new_lines=[]
-                for line in lines:
-                        if "#include" not in line.strip(): 
-                                new_lines.append(line)
+            # open the destination header file in intel_src and find the line numbers for #include and just replace those lines with new lines
 
-                f.close()
-                
+            f = open(os.path.join(dest_path, headerfile_name), "r")
+            lines = f.readlines()
+            new_lines = []
+            for line in lines:
+                if "#include" not in line.strip():
+                    new_lines.append(line)
 
-                header_text= "\n\n#include <stdlib.h> \n #include <inttypes.h> \n#include <string.h>\n#include \"../common/support.h\" "+ "\n" + "#include <HLS/hls.h> \n#include <HLS/stdio.h>\n#include <fcntl.h>\n#include <stdint.h>\n"
+            f.close()
 
+            header_text = (
+                '\n\n#include <stdlib.h> \n #include <inttypes.h> \n#include <string.h>\n#include "../common/support.h" '
+                + "\n"
+                + "#include <HLS/hls.h> \n#include <HLS/stdio.h>\n#include <fcntl.h>\n#include <stdint.h>\n"
+            )
 
-                new_lines[4] = header_text + new_lines[4]
-        # write the edited content back to the file
-                with open( os.path.join(dest_path, headerfile_name), 'w') as txtfile:
-                        txtfile.writelines(new_lines)
-                
+            new_lines[4] = header_text + new_lines[4]
+            # write the edited content back to the file
+            with open(os.path.join(dest_path, headerfile_name), "w") as txtfile:
+                txtfile.writelines(new_lines)
 
-                txtfile.close()
-
-                
-
-
+            txtfile.close()
