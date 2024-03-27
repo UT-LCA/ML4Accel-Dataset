@@ -1,7 +1,6 @@
 import shutil
 from pathlib import Path
 
-from hls_build_framework.flow_vitis import VitisHLSImplFlow, VitisHLSSynthFlow
 from hls_build_framework.framework import DesignDataset
 from hls_build_framework.opt_dsl_frontend_intel import OptDSLFrontendIntel
 
@@ -19,9 +18,9 @@ DIR_DATASET_POLYBENCH_INTEL = (
     DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "polybench"
 )
 
-#DIR_DATASET_MACHSUITE_INTEL = (
+# DIR_DATASET_MACHSUITE_INTEL = (
 #     DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "machsuite"
-#)
+# )
 
 # DIR_DATASET_CHSTONE_XILINX = Path(
 #     DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "chstone"
@@ -48,13 +47,12 @@ dataset_polybench_intel = DesignDataset.from_dir(
 dataset_polybench_intel = dataset_polybench_intel.copy_dataset(WORK_DIR)
 
 
-
-#dataset_machsuite_intel = DesignDataset.from_dir(
+# dataset_machsuite_intel = DesignDataset.from_dir(
 #     "machsuite_intel",
 #     DIR_DATASET_MACHSUITE_INTEL,
 #     exclude_dir_filter=lambda dir: dir.name == "common",
 # )
-#dataset_machsuite_intel = dataset_machsuite_intel.copy_dataset(WORK_DIR)
+# dataset_machsuite_intel = dataset_machsuite_intel.copy_dataset(WORK_DIR)
 
 
 # dataset_chstone_xilinx = DesignDataset.from_dir(
@@ -79,7 +77,7 @@ dataset_polybench_intel = dataset_polybench_intel.copy_dataset(WORK_DIR)
 
 datasets = {
     "polybench_intel": dataset_polybench_intel,
- #    "machsuite_intel": dataset_machsuite_intel,
+    #    "machsuite_intel": dataset_machsuite_intel,
     # "chstone_xilinx": dataset_chstone_xilinx,
     # "rosetta_xilinx": dataset_rosetta_xilinx,
     # "simple": dataset_simple,

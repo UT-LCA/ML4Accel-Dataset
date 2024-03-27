@@ -5,9 +5,11 @@ import shlex
 import shutil
 import subprocess
 import time
+from dataclasses import is_dataclass
 from pathlib import Path
 
 import psutil
+import yaml
 
 
 class CallToolResult(enum.Enum):
@@ -128,3 +130,63 @@ def log_execution_time_to_file(
         "core": psutil.Process().cpu_num(),
     }
     execution_time_data_fp.write_text(json.dumps(execution_time_data, indent=4))
+
+
+class FlowTimer:
+    def __init__(self, flow_name: str, dir_path: Path):
+        self.flow_name = flow_name
+        self.dir_path = dir_path
+        self.t_0: float | None = None
+        self.t_1: float | None = None
+
+    def start(self):
+        self.t_0 = time.time()
+
+    def stop(self):
+        self.t_1 = time.time()
+
+    def log(self):
+        assert self.t_0 is not None
+        assert self.t_1 is not None
+        log_execution_time_to_file(self.dir_path, self.flow_name, self.t_0, self.t_1)
+
+    def __enter__(self):
+        self.start()
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.stop()
+        self.log()
+
+
+def serialize_methods_for_dataclass(cls):
+    if not is_dataclass(cls):
+        raise TypeError("Decorated class must be a dataclass.")
+
+    def from_json(cls, json_path: Path):
+        with json_path.open("r") as f:
+            d = json.load(f)
+        return cls(**d)
+
+    def to_json(self, json_path: Path):
+        with json_path.open("w") as f:
+            json.dump(self.__dict__, f, indent=4)
+
+    def from_yaml(cls, yaml_path: Path):
+        with yaml_path.open("r") as f:
+            d = yaml.safe_load(f)
+        return cls(**d)
+
+    def to_yaml(self, yaml_path: Path):
+        with yaml_path.open("w") as f:
+            yaml.safe_dump(self.__dict__, f)
+
+    setattr(cls, "from_json", classmethod(from_json))
+    setattr(cls, "to_json", to_json)
+    setattr(cls, "from_yaml", classmethod(from_yaml))
+    setattr(cls, "to_yaml", to_yaml)
+    return cls
+
+
+def timeout_not_supported(flow_name: str):
+    raise RuntimeError(f"Timeout not supported for the current flow: {flow_name}")

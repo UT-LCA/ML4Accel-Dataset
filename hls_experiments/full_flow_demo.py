@@ -68,11 +68,6 @@ datasets = {
 opt_dsl_frontend = OptDSLFrontend(WORK_DIR, random_sample=True, random_sample_num=16)
 
 
-# TODO: refactor this into the flow and frontend APIs to suppport fine grained deisgn aprallsim
-# woudl look somthjiong like flow.execute_multiple_datasets(datasets, new_dataset_prefix="post_frontend", n_jobs=32)
-# should pool all deigsn accorss all datasets into one collection and then execute them in parallel
-# this maintains higher utilization compared to running a prallel job for each dataset
-
 designs_after_frontend = {
     dataset_name: opt_dsl_frontend.execute_multiple_designs(dataset.designs, n_jobs=32)
     for dataset_name, dataset in datasets.items()

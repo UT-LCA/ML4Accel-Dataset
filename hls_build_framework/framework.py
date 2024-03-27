@@ -1,6 +1,5 @@
 import enum
 import multiprocessing
-import os
 import shutil
 from abc import ABC, abstractmethod
 from collections import defaultdict
@@ -11,7 +10,6 @@ from typing import Callable
 
 import psutil
 import tqdm
-from joblib import Parallel, delayed
 
 EXTENSIONS_CPP = [".cpp", ".cc", ".hpp", ".h"]
 EXTENTIONS_TCL = [".tcl"]
@@ -159,6 +157,21 @@ def check_n_jobs_cpu_affinity(n_jobs: int, cpu_affinity: list[int] | None):
             )
 
 
+DesignDatasetCollection = dict[str, DesignDataset]
+
+
+def count_designs_in_dataset_collection(
+    design_datasets: DesignDatasetCollection,
+) -> dict[str, int]:
+    return {name: len(dataset.designs) for name, dataset in design_datasets.items()}
+
+
+def count_total_designs_in_dataset_collection(
+    design_datasets: DesignDatasetCollection,
+) -> int:
+    return sum(count_designs_in_dataset_collection(design_datasets).values())
+
+
 class Flow(ABC):
     name: str
 
@@ -221,13 +234,13 @@ class Flow(ABC):
 
     def execute_multiple_design_datasets_naive_parallel(
         self,
-        design_datasets: dict[str, DesignDataset],
+        design_datasets: DesignDatasetCollection,
         copy_dataset: bool,
         new_dataset_name_fn: Callable[[str], str] | None = None,
         n_jobs: int = 1,
         cpu_affinity: list[int] | None = None,
         timeout: float | None = None,
-    ) -> dict[str, DesignDataset]:
+    ) -> DesignDatasetCollection:
         check_n_jobs_cpu_affinity(n_jobs, cpu_affinity)
 
         new_design_datasets: dict[str, list[Design]] = defaultdict(list)
@@ -272,14 +285,14 @@ class Flow(ABC):
 
     def execute_multiple_design_datasets_fine_grained_parallel(
         self,
-        design_datasets: dict[str, DesignDataset],
+        design_datasets: DesignDatasetCollection,
         copy_dataset: bool,
         new_dataset_name_fn: Callable[[str], str] | None = None,
         n_jobs: int = 1,
         cpu_affinity: list[int] | None = None,
         par_chunksize: int | None = 1,
         timeout: float | None = None,
-    ) -> dict[str, DesignDataset]:
+    ) -> DesignDatasetCollection:
         check_n_jobs_cpu_affinity(n_jobs, cpu_affinity)
 
         designs = []
@@ -358,100 +371,3 @@ class Frontend(Flow):
 
 class ToolFlow(Flow):
     ...
-
-
-# class Frontend(ABC):
-#     name: str
-
-#     @abstractmethod
-#     def execute(self, design: Design) -> list[Design]:
-#         ...
-
-#     def execute_multiple_designs(
-#         self, designs: list[Design], n_jobs: int = 1
-#     ) -> list[Design]:
-#         new_designs_lists = Parallel(n_jobs=n_jobs, backend="multiprocessing")(  # type: ignore
-#             delayed(self.execute)(design) for design in tqdm.tqdm(designs)
-#         )
-#         assert new_designs_lists is not None
-#         new_designs_lists: list[list[Design]] = list(new_designs_lists)
-#         new_designs = [design for sublist in new_designs_lists for design in sublist]
-#         return new_designs
-
-
-# class PargmaComboFrontend(Frontend):
-#     name = "PargmaComboFrontend"
-
-#     def execute(self, design: Design) -> list[Design]:
-#         ...
-
-
-# class JinjaElaborationFrontend(Frontend):
-#     name = "JinjaElaborationFrontend"
-
-#     def execute(self, design: Design) -> list[Design]:
-#         ...
-
-
-# class ToolFlow(ABC):
-#     name: str
-
-#     def __init__(self, work_dir: Path, *args, **kwargs):
-#         self.work_dir = work_dir
-
-#     @abstractmethod
-#     def execute(self, design: Design) -> list[Design]:
-#         ...
-
-#     def execute_multiple_designs(
-#         self,
-#         designs: list[Design],
-#         n_jobs: int = 1,
-#     ) -> list[Design]:
-#         new_designs_lists = Parallel(n_jobs=n_jobs, backend="multiprocessing")(  # type: ignore
-#             delayed(self.execute)(design) for design in tqdm.tqdm(designs)
-#         )
-#         assert new_designs_lists is not None
-#         new_designs_lists: list[list[Design]] = list(new_designs_lists)
-#         new_designs = [design for sublist in new_designs_lists for design in sublist]
-#         return new_designs
-
-#     def execute_multiple_design_datasets_fine_grained_parallel(
-#         self,
-#         design_datasets: dict[str, DesignDataset],
-#         n_jobs: int = 1,
-#         cpu_affinity: list[int] | None = None,
-#     ) -> dict[str, DesignDataset]:
-#         designs = []
-#         dataset_names = []
-#         for design_dataset_name, design_dataset in design_datasets.items():
-#             for design in design_dataset.designs:
-#                 designs.append(design)
-#                 dataset_names.append(design_dataset_name)
-
-#         if cpu_affinity is None:
-#             pool = multiprocessing.Pool(n_jobs)
-#         else:
-#             pool = multiprocessing.Pool(
-#                 n_jobs,
-#                 initializer=lambda: psutil.Process(os.getpid()).cpu_affinity(
-#                     cpu_affinity
-#                 ),
-#             )
-
-#         new_designs_lists = pool.map(self.execute, tqdm.tqdm(designs))
-#         pool.close()
-#         pool.join()
-
-#         assert new_designs_lists is not None
-#         designs_collected = defaultdict(list)
-#         for design, dataset_name in zip(new_designs_lists, dataset_names):
-#             designs_collected[dataset_name].append(design)
-
-#         new_design_datasets = {}
-#         for dataset_name, designs in designs_collected.items():
-#             new_design_datasets[dataset_name] = DesignDataset(
-#                 dataset_name, self.work_dir, designs
-#             )
-#         return new_design_datasets
-#         return new_design_datasets
