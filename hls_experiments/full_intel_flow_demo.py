@@ -1,12 +1,12 @@
 import shutil
 from pathlib import Path
 
+from hls_build_framework.flow_vitis import VitisHLSImplFlow, VitisHLSSynthFlow
 from hls_build_framework.framework import DesignDataset
+from hls_build_framework.intel_machsuite_ch import AnnotateMachSuiteChIntel
 from hls_build_framework.opt_dsl_frontend_intel import OptDSLFrontendIntel
 
-DIR_CURRENT_SCRIPT = Path(__file__).parent
-
-WORK_DIR = Path("/raid/nanditha/ML4Accel-Dataset/work_space/front_end")
+WORK_DIR = Path("/raid/nanditha/ML4Accel-Dataset/work_space/front_end_mach")
 if WORK_DIR.exists():
     shutil.rmtree(WORK_DIR)
 WORK_DIR.mkdir()
@@ -14,13 +14,13 @@ WORK_DIR.mkdir()
 # DIR_DATASET_POLYBENCH_XILINX = (
 #     DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "polybench"
 # )
-DIR_DATASET_POLYBENCH_INTEL = (
-    DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "polybench"
-)
-
-# DIR_DATASET_MACHSUITE_INTEL = (
-#     DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "machsuite"
+# DIR_DATASET_POLYBENCH_INTEL = (
+#    DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "polybench"
 # )
+
+DIR_DATASET_MACHSUITE_INTEL = (
+    DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "machsuite"
+)
 
 # DIR_DATASET_CHSTONE_XILINX = Path(
 #     DIR_CURRENT_SCRIPT.parent / "fpga_ml_dataset" / "HLS_dataset" / "chstone"
@@ -40,19 +40,29 @@ DIR_DATASET_POLYBENCH_INTEL = (
 # )
 # dataset_polybench_xilinx = dataset_polybench_xilinx.copy_dataset(WORK_DIR)
 
-dataset_polybench_intel = DesignDataset.from_dir(
-    "polybench_intel",
-    DIR_DATASET_POLYBENCH_INTEL,
-)
-dataset_polybench_intel = dataset_polybench_intel.copy_dataset(WORK_DIR)
-
-
-# dataset_machsuite_intel = DesignDataset.from_dir(
-#     "machsuite_intel",
-#     DIR_DATASET_MACHSUITE_INTEL,
-#     exclude_dir_filter=lambda dir: dir.name == "common",
+# dataset_polybench_intel = DesignDataset.from_dir(
+#    "polybench_intel",
+#    DIR_DATASET_POLYBENCH_INTEL,
 # )
-# dataset_machsuite_intel = dataset_machsuite_intel.copy_dataset(WORK_DIR)
+# dataset_polybench_intel = dataset_polybench_intel.copy_dataset(WORK_DIR)
+
+
+dataset_machsuite_intel = DesignDataset.from_dir(
+    "machsuite_intel",
+    DIR_DATASET_MACHSUITE_INTEL,
+    exclude_dir_filter=lambda dir: dir.name == "common",
+)
+dataset_machsuite_intel = dataset_machsuite_intel.copy_dataset(WORK_DIR)
+# create intel_src and modify the C and header files for machsuite
+AnnotateMachSuiteChIntel.Annotate(WORK_DIR, "machsuite_intel")
+
+
+# dataset_chstone_intel = DesignDataset.from_dir(
+#             "chstone_intel",
+#                  DIR_DATASET_CHSTONE_INTEL
+#                   )
+# dataset_chstone_intel = dataset_chstone_intel.copy_dataset(WORK_DIR)
+# AnnotateMachSuiteChIntel.Annotate(WORK_DIR,"chstone_intel")
 
 
 # dataset_chstone_xilinx = DesignDataset.from_dir(
@@ -76,16 +86,17 @@ dataset_polybench_intel = dataset_polybench_intel.copy_dataset(WORK_DIR)
 # }
 
 datasets = {
-    "polybench_intel": dataset_polybench_intel,
-    #    "machsuite_intel": dataset_machsuite_intel,
+    #   "polybench_intel": dataset_polybench_intel,
+    "machsuite_intel": dataset_machsuite_intel,
     # "chstone_xilinx": dataset_chstone_xilinx,
     # "rosetta_xilinx": dataset_rosetta_xilinx,
     # "simple": dataset_simple,
 }
 
 opt_dsl_frontend_intel = OptDSLFrontendIntel(
-    WORK_DIR, random_sample=True, random_sample_num=20
+    WORK_DIR, random_sample=True, random_sample_num=10
 )
+
 
 designs_after_frontend = {
     dataset_name: opt_dsl_frontend_intel.execute_multiple_designs(

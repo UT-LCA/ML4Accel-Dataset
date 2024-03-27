@@ -3,9 +3,7 @@
 #define MIN(x,y) ( (x)<(y) ? (x) : (y) )
 #define MAX(x,y) ( (x)>(y) ? (x) : (y) )
 
-void md( int n_points[blockSide][blockSide][blockSide],
-         dvector_t force[blockSide][blockSide][blockSide][densityFactor],
-         dvector_t position[blockSide][blockSide][blockSide][densityFactor] )
+void md( int n_points[blockSide][blockSide][blockSide], dvector_t force[blockSide][blockSide][blockSide][densityFactor],  dvector_t position[blockSide][blockSide][blockSide][densityFactor] )
 {
   ivector_t b0, b1; // b0 is the current block, b1 is b0 or a neighboring block
   dvector_t p, q; // p is a point in b0, q is a point in either b0 or b1

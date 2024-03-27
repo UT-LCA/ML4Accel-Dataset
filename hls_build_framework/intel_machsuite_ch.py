@@ -20,9 +20,9 @@ class AnnotateMachSuiteChIntel:
             if os.path.isdir(os.path.join(parent_dir, f))
         ]
 
-        #  print ("path is ", parent_dir)
-        print("Folder names are", folders)
-        while K in folders:
+      #  #print ("path is ", parent_dir)
+        #print ('Folder names are', folders)
+        while(K in folders):
             folders.remove(K)
 
         def copy_files_with_extension(source_folder, target_folder, extension):
@@ -32,39 +32,35 @@ class AnnotateMachSuiteChIntel:
                     shutil.copy(source_file, target_folder)
 
         for i in range(len(folders)):
-            #  print ("\nnames", folders[i])
-            root_path = os.path.join(parent_dir, folders[i])
-            print("rootdir", root_path)
-            dest_path = os.path.join(root_path, "intel_src")
-            print("dest dir", dest_path)
-            if not os.path.exists(dest_path):
-                os.makedirs(os.path.join(root_path, "intel_src"))
+              #  #print ("\nnames", folders[i])
+                root_path = os.path.join(parent_dir,folders[i])
+                #print ("rootdir", root_path)
+                dest_path = os.path.join(root_path,'src')
+                #print ("dest dir", dest_path)
+                if not os.path.exists(dest_path): 			
+                        os.makedirs(os.path.join(root_path, "src"))
 
             copy_files_with_extension(root_path, dest_path, ".c")
             copy_files_with_extension(root_path, dest_path, ".h")
 
-            # Find the name of the hls template file
-            hls_template = [
-                filename
-                for filename in os.listdir(root_path)
-                if filename.startswith("hls_template")
-            ]
-            # Pick the module name from the template file
-            # print ("prefixed", hls_template[0])
+                #Find the name of the hls template file
+                hls_template = [filename for filename in os.listdir(root_path) if filename.startswith("hls_template")]
+                #Pick the module name from the template file	
+               # #print ("prefixed", hls_template[0])
+                
+                fp = open(os.path.join(root_path, hls_template[0]))
+                lines = fp.readlines()
+                for a in lines:
+                    if a.startswith("set_top"):
+#                    if "add_files" in line.strip():
+                       words = a.split()
+                       component_name = words[1]
+                       #print ("component",component_name)
 
-            fp = open(os.path.join(root_path, hls_template[0]))
-            lines = fp.readlines()
-            for a in lines:
-                if a.startswith("set_top"):
-                    #                    if "add_files" in line.strip():
-                    words = a.split()
-                    component_name = words[1]
-                    print("component", component_name)
-
-                if a.startswith("add_files") and ".c" in a:
-                    words = a.split()
-                    Cfile_name = words[1]
-                    print("Cfilename", Cfile_name)
+                    if a.startswith("add_files") and ".c" in a:
+                        words = a.split()
+                        Cfile_name = words[1]
+                        #print ("Cfilename",Cfile_name)
 
                 # Cfile_names = words[1].split('/')
                 # Cfile_name= Cfile_names[-1]
@@ -73,15 +69,17 @@ class AnnotateMachSuiteChIntel:
                     words = a.split()
                     headerfile_name = words[1]
 
-                    print("header name", headerfile_name)
-            fp.close()
+                        #print ("header name",headerfile_name)
+                fp.close()
 
-            # Pick the module name from the template file
-            # fp = open(os.path.join(root_path, hls_template[0]))
-            # lines = fp.readlines()
-            # words = lines[1].split()
-            # component_name = words[1]
-            # #print ("component",component_name)
+
+
+                #Pick the module name from the template file	
+               # fp = open(os.path.join(root_path, hls_template[0]))
+               # lines = fp.readlines()
+               # words = lines[1].split()
+               # component_name = words[1]
+               # ##print ("component",component_name)
 
             # words = lines[2].split()
             # Cfile_name = words[1]
@@ -91,28 +89,29 @@ class AnnotateMachSuiteChIntel:
             # words = lines[3].split()
             # headerfile_name = words[1]
 
-            # #print ("header name",headerfile_name)
-            # fp.close()
+               # ##print ("header name",headerfile_name)
+               # fp.close()
 
-            # #open the destination C file in intel_src and find the line number
-            with open(os.path.join(dest_path, Cfile_name)) as f:
-                component_name = "void " + component_name
-                for num, line in enumerate(f, 1):
-                    if component_name in line:
-                        words = line.split()
-                        # print ('dest file line',words)
-                        # print ('dest file line num',num)
-                        linenum = num
-            # print ('dest file line num now is',linenum)
-            f.close()
+               # #open the destination C file in intel_src and find the line number
+                with open( os.path.join(dest_path, Cfile_name) ) as f:
+                        component_names= ("void " + component_name, "int " + component_name)
+                        for num, line in enumerate(f, 1):
+                                if any(s in line for s in component_names): 
+                                        words = line.split()
+                                        #print ('dest file line',component_names,words)
+                                        #print ('dest file line num',num)
+                                        linenum=num
+                #print ('dest file line num now is',linenum)
+                f.close()
 
-            # append component word to the destination file
-            with open(os.path.join(dest_path, Cfile_name)) as f:
-                lines = f.readlines()
-            #  print ('num is ', linenum)
-            f.close()
 
-            lines[linenum - 1] = "component " + lines[linenum - 1]
+                # append component word to the destination file
+                with open( os.path.join(dest_path, Cfile_name) ) as f:
+                        lines = f.readlines()
+                      #  #print ('num is ', linenum)
+                f.close()
+                        
+                lines[linenum-1] = "component " + lines[linenum-1]
 
             # write the edited content back to the file
             with open(os.path.join(dest_path, Cfile_name), "w") as txtfile:

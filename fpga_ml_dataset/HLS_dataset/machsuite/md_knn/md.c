@@ -7,13 +7,7 @@ In Proceedings of the 3rd Workshop on General-Purpose Computation on Graphics Pr
 
 #include "md.h"
 
-void md_kernel(TYPE force_x[nAtoms],
-               TYPE force_y[nAtoms],
-               TYPE force_z[nAtoms],
-               TYPE position_x[nAtoms],
-               TYPE position_y[nAtoms],
-               TYPE position_z[nAtoms],
-               int32_t NL[nAtoms*maxNeighbors])
+void md_kernel(TYPE force_x[nAtoms],  TYPE force_y[nAtoms],   TYPE force_z[nAtoms], TYPE position_x[nAtoms], TYPE position_y[nAtoms], TYPE position_z[nAtoms], int32_t NL[nAtoms*maxNeighbors])
 {
     TYPE delx, dely, delz, r2inv;
     TYPE r6inv, potential, force, j_x, j_y, j_z;

@@ -10,9 +10,7 @@
 
 #define MAX(A,B) ( ((A)>(B))?(A):(B) )
 
-void needwun(char SEQA[ALEN], char SEQB[BLEN],
-             char alignedA[ALEN+BLEN], char alignedB[ALEN+BLEN],
-             int M[(ALEN+1)*(BLEN+1)], char ptr[(ALEN+1)*(BLEN+1)]){
+void needwun(char SEQA[ALEN], char SEQB[BLEN], char alignedA[ALEN+BLEN], char alignedB[ALEN+BLEN], int M[(ALEN+1)*(BLEN+1)], char ptr[(ALEN+1)*(BLEN+1)]){
 
     int score, up_left, up, left, max;
     int row, row_up, r;
