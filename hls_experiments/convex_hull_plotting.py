@@ -45,9 +45,11 @@ def draw_rounded_hull(
         # source: https://stackoverflow.com/a/1243676/991496
 
         norm_next = np.flip(hull_points[i] - hull_points[i + 1]) * [-1, 1]
+        # print(norm_next)
         norm_next /= np.linalg.norm(norm_next)
 
         norm_prev = np.flip(hull_points[i - 1] - hull_points[i]) * [-1, 1]
+        # print(norm_prev)
         norm_prev /= np.linalg.norm(norm_prev)
 
         # plot line
@@ -67,7 +69,7 @@ def draw_rounded_hull(
         if norm_prev[1] < 0:
             angle_prev = 360 - angle_prev
 
-        print(angle_prev, angle_next)
+        # print(angle_prev, angle_next)
 
         arc = patches.Arc(
             hull_points[i],

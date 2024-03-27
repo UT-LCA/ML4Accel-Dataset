@@ -1,25 +1,18 @@
 import json
 import os
 import re
-import subprocess
 import time
 import xml.etree.ElementTree as ET
-from dataclasses import dataclass, is_dataclass
+from dataclasses import dataclass
 from pathlib import Path
 
-import yaml
-
-# from framework import ConcreteDesign, ToolFlow
 from hls_build_framework.framework import Design, ToolFlow
-
-# from utils import call_tool, find_bin_path
 from hls_build_framework.utils import (
     CallToolResult,
     call_tool,
     find_bin_path,
     log_execution_time_to_file,
-    terminate_process_and_children,
-    wait_for_files_creation,
+    serialize_methods_for_dataclass,
 )
 
 
@@ -68,36 +61,36 @@ def auto_find_multiple_synth_report(dir: Path) -> list[Path]:
     return report_results
 
 
-def serialize_methods(cls):
-    if not is_dataclass(cls):
-        raise TypeError("Decorated class must be a dataclass.")
+# def serialize_methods(cls):
+#     if not is_dataclass(cls):
+#         raise TypeError("Decorated class must be a dataclass.")
 
-    def from_json(cls, json_path: Path):
-        with json_path.open("r") as f:
-            d = json.load(f)
-        return cls(**d)
+#     def from_json(cls, json_path: Path):
+#         with json_path.open("r") as f:
+#             d = json.load(f)
+#         return cls(**d)
 
-    def to_json(self, json_path: Path):
-        with json_path.open("w") as f:
-            json.dump(self.__dict__, f, indent=4)
+#     def to_json(self, json_path: Path):
+#         with json_path.open("w") as f:
+#             json.dump(self.__dict__, f, indent=4)
 
-    def from_yaml(cls, yaml_path: Path):
-        with yaml_path.open("r") as f:
-            d = yaml.safe_load(f)
-        return cls(**d)
+#     def from_yaml(cls, yaml_path: Path):
+#         with yaml_path.open("r") as f:
+#             d = yaml.safe_load(f)
+#         return cls(**d)
 
-    def to_yaml(self, yaml_path: Path):
-        with yaml_path.open("w") as f:
-            yaml.safe_dump(self.__dict__, f)
+#     def to_yaml(self, yaml_path: Path):
+#         with yaml_path.open("w") as f:
+#             yaml.safe_dump(self.__dict__, f)
 
-    setattr(cls, "from_json", classmethod(from_json))
-    setattr(cls, "to_json", to_json)
-    setattr(cls, "from_yaml", classmethod(from_yaml))
-    setattr(cls, "to_yaml", to_yaml)
-    return cls
+#     setattr(cls, "from_json", classmethod(from_json))
+#     setattr(cls, "to_json", to_json)
+#     setattr(cls, "from_yaml", classmethod(from_yaml))
+#     setattr(cls, "to_yaml", to_yaml)
+#     return cls
 
 
-@serialize_methods
+@serialize_methods_for_dataclass
 @dataclass
 class DesignHLSSynthData:
     clock_period: float
@@ -234,7 +227,7 @@ class DesignHLSSynthData:
         )
 
 
-@serialize_methods
+@serialize_methods_for_dataclass
 @dataclass
 class VitisHLSDesign:
     name: str
@@ -329,25 +322,6 @@ class VitisHLSSynthFlow(ToolFlow):
         if self.env_var_xilinx_vivado:
             os.environ["XILINX_VIVADO"] = self.env_var_xilinx_vivado
 
-        # if timeout is not None:
-        #     try:
-        #         call_tool(
-        #             f"{self.vitis_hls_bin} dataset_hls.tcl",
-        #             cwd=design_dir,
-        #             log_output=self.log_output,
-        #             timeout=timeout,
-        #         )
-        #     except subprocess.TimeoutExpired:
-        #         (design_dir / f"timeout_{self.name}.txt").touch()
-        #         print(f"Timeout of {timeout} seconds reached for {design_dir}")
-        #         return []
-        # else:
-        #     call_tool(
-        #         f"{self.vitis_hls_bin} dataset_hls.tcl",
-        #         cwd=design_dir,
-        #         log_output=self.log_output,
-        #     )
-
         if timeout is not None:
             return_result = call_tool(
                 f"{self.vitis_hls_bin} dataset_hls.tcl",
@@ -430,7 +404,8 @@ class VitisHLSImplFlow(ToolFlow):
         self,
         vitis_hls_bin: str | None = None,
         log_output: bool = False,
-        log_execution_time: bool = True,
+        env_var_xilinx_hls: str | None = None,
+        env_var_xilinx_vivado: str | None = None,
     ):
         if vitis_hls_bin is None:
             self.vitis_hls_bin = find_bin_path("vitis_hls")
@@ -438,7 +413,8 @@ class VitisHLSImplFlow(ToolFlow):
             self.vitis_hls_bin = vitis_hls_bin
 
         self.log_output = log_output
-        self.log_execution_time = log_execution_time
+        self.env_var_xilinx_hls = env_var_xilinx_hls
+        self.env_var_xilinx_vivado = env_var_xilinx_vivado
 
     def execute(self, design: Design, timeout: float | None = None) -> list[Design]:
         t_0 = time.perf_counter()
@@ -450,89 +426,10 @@ class VitisHLSImplFlow(ToolFlow):
         check_build_files_exist(build_files)
         warn_for_reset_flags(build_files)
 
-        # call_tool(
-        #     f"{self.vitis_hls_bin} dataset_hls_ip_export.tcl",
-        #     cwd=design_dir,
-        #     log_output=self.log_output,
-        # )
-
-        ### Vivado impl from Vitis HLS Workaround ###
-
-        # When running the 'export_design -flow impl ...' command from Vitis HLS, it seems to hang even when the child
-        # Vivado impl process is completed and logged that it is done. However the Vitis HLS process that spawned
-        # the Vivado processes still waits and does not return or exit.
-
-        # After several hours of debugging trying to run Vivado impl from Vitis HLS, I have come to the following workaround:
-
-        # - First we launch the 'export_design -flow impl ...' command in dataset_hls_ip_export.tcl using vitis hls
-        # - While that spins in the background, we keep an eye out for autogenerated files that we need
-        #   - This is a blocking operation with a timeout, it just polls for the files we are looking for
-        #   - We mainly need the 'run_vivado.tcl' and 'impl.sh' files
-        # - Once we see that the files we need are generated (or hit the timeout), we kill the running Vitis HLS process and its children
-        # - We then launch Vivado impl ourselves using the 'impl.sh' file
-
-        # solution_dirs = auto_find_solutions(design_dir)
-        # if len(solution_dirs) == 0 or len(solution_dirs) > 1:
-        #     raise ValueError(
-        #         f"Expected to find exactly one solution directory in {design_dir}."
-        #     )
-        # solution_dir = solution_dirs[0]
-
-        # impl_sh_fp = solution_dir / "impl" / "verilog" / "impl.sh"
-        # impl_sh_dir = impl_sh_fp.parent
-        # files_to_look_for = [
-        #     impl_sh_fp,
-        #     solution_dir / "impl" / "verilog" / "run_vivado.tcl",
-        #     solution_dir / "impl" / "verilog" / "settings.tcl",
-        #     solution_dir / "impl" / "verilog" / "extraction.tcl",
-        # ]
-
-        # p_fake_start = subprocess.Popen(
-        #     [str(self.vitis_hls_bin), "dataset_hls_ip_export.tcl"],
-        #     cwd=design_dir,
-        #     text=True,
-        # )
-        # files_found = wait_for_files_creation(files_to_look_for, 60.0 * 5)
-        # terminate_process_and_children(p_fake_start.pid)
-        # p_fake_start.terminate()
-        # if not files_found:
-        #     raise RuntimeError(
-        #         "Required files for implementation were not found in time, tool might have failed to generate them."
-        #     )
-        # time.sleep(1)
-
-        # sh_bin_path = find_bin_path("sh")
-        # impl_sh_command = f"{sh_bin_path} impl.sh"
-        #  -mode batch -source run_vivado.tcl
-        # vivado_bin_path = find_bin_path("vivado")
-        # impl_vivado_command = f"{vivado_bin_path} -mode batch -source run_vivado.tcl"
-
-        # if timeout is not None:
-        #     return_result = call_tool(
-        #         # f"{self.vitis_hls_bin} dataset_hls_ip_export.tcl",
-        #         impl_vivado_command,
-        #         cwd=impl_sh_dir,
-        #         log_output=self.log_output,
-        #         timeout=timeout,
-        #         raise_on_error=True,
-        #         shell=False,
-        #     )
-        #     if return_result == CallToolResult.TIMEOUT:
-        #         (design_dir / f"timeout__{self.name}.txt").touch()
-        #         print(f"[{design_dir}] Timeout of {timeout} seconds reached")
-        #         t_1 = time.perf_counter()
-        #         if self.log_execution_time:
-        #             log_execution_time_to_file(design_dir, self.name, t_0, t_1)
-        #         return []
-        # else:
-        #     call_tool(
-        #         # f"{self.vitis_hls_bin} dataset_hls_ip_export.tcl",
-        #         impl_vivado_command,
-        #         cwd=impl_sh_dir,
-        #         log_output=self.log_output,
-        #         raise_on_error=True,
-        #         shell=False,
-        #     )
+        if self.env_var_xilinx_hls:
+            os.environ["XILINX_HLS"] = self.env_var_xilinx_hls
+        if self.env_var_xilinx_vivado:
+            os.environ["XILINX_VIVADO"] = self.env_var_xilinx_vivado
 
         if timeout is not None:
             return_result = call_tool(
@@ -547,8 +444,7 @@ class VitisHLSImplFlow(ToolFlow):
                 (design_dir / f"timeout__{self.name}.txt").touch()
                 print(f"[{design_dir}] Timeout of {timeout} seconds reached")
                 t_1 = time.perf_counter()
-                if self.log_execution_time:
-                    log_execution_time_to_file(design_dir, self.name, t_0, t_1)
+                log_execution_time_to_file(design_dir, self.name, t_0, t_1)
                 return []
         else:
             call_tool(
@@ -560,8 +456,7 @@ class VitisHLSImplFlow(ToolFlow):
             )
 
         t_1 = time.perf_counter()
-        if self.log_execution_time:
-            log_execution_time_to_file(design_dir, self.name, t_0, t_1)
+        log_execution_time_to_file(design_dir, self.name, t_0, t_1)
 
         return [design]
 
@@ -574,7 +469,8 @@ class VitisHLSImplReportFlow(ToolFlow):
         vitis_hls_bin: str | None = None,
         vivado_bin: str | None = None,
         log_output: bool = False,
-        log_execution_time: bool = True,
+        env_var_xilinx_hls: str | None = None,
+        env_var_xilinx_vivado: str | None = None,
     ):
         if vitis_hls_bin is None:
             self.vitis_hls_bin = find_bin_path("vitis_hls")
@@ -587,10 +483,16 @@ class VitisHLSImplReportFlow(ToolFlow):
             self.vivado_bin = vivado_bin
 
         self.log_output = log_output
-        self.log_execution_time = log_execution_time
+        self.env_var_xilinx_hls = env_var_xilinx_hls
+        self.env_var_xilinx_vivado = env_var_xilinx_vivado
 
     def execute(self, design: Design, timeout: float | None) -> list[Design]:
         t_0 = time.perf_counter()
+
+        if self.env_var_xilinx_hls:
+            os.environ["XILINX_HLS"] = self.env_var_xilinx_hls
+        if self.env_var_xilinx_vivado:
+            os.environ["XILINX_VIVADO"] = self.env_var_xilinx_vivado
 
         design_dir = design.dir
 
@@ -631,8 +533,7 @@ class VitisHLSImplReportFlow(ToolFlow):
         data_fp.write_text(json.dumps(data, indent=4))
 
         t_1 = time.perf_counter()
-        if self.log_execution_time:
-            log_execution_time_to_file(design_dir, self.name, t_0, t_1)
+        log_execution_time_to_file(design_dir, self.name, t_0, t_1)
 
         return [design]
 
