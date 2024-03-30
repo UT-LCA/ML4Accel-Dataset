@@ -3,6 +3,7 @@ from itertools import cycle
 from pathlib import Path
 
 import matplotlib
+import matplotlib.ticker as ticker
 import pandas as pd
 import seaborn as sns
 from matplotlib import pyplot as plt
@@ -300,7 +301,7 @@ for dataset_name in dataset_names:
             label=leg_name_map[dataset_name],
         )
     )
-ax.legend(handles=leg_artists, loc="upper right", fontsize="small")
+ax.legend(handles=leg_artists, loc="upper left", fontsize="small")
 ax.set_xlabel("Projection $x_0$")
 ax.set_ylabel("Projection $x_1$")
 # remove x ticks
@@ -322,23 +323,94 @@ df_hist["dataset_name"] = df_hist["dataset_name"].apply(
     lambda x: "our_work" if x != "hlsyn" else x
 )
 
-fig = plt.figure(figsize=(12, 6))
+
+# print info for the latency colum for hlsyn
+# print(df_hist[df_hist["dataset_name"] == "hlsyn"]["latency_average_cycles"].describe())
+# print any rows where that vlaue is 0
+# print(
+#     df_hist[df_hist["dataset_name"] == "hlsyn"][df_hist["latency_average_cycles"] == 0]
+# )
+# remove these rows
+df_hist = df_hist[
+    ~((df_hist["dataset_name"] == "hlsyn") & (df_hist["latency_average_cycles"] == 0))
+]
+df_hist = df_hist[
+    ~((df_hist["dataset_name"] == "hlsyn") & (df_hist["resources_lut_used"] == 0))
+]
+df_hist = df_hist[
+    ~((df_hist["dataset_name"] == "hlsyn") & (df_hist["resources_ff_used"] == 0))
+]
+
+print(f"HLSyn: {len(df_hist[df_hist['dataset_name']=='hlsyn'])}")
+print(f"Our Work: {len(df_hist[df_hist['dataset_name']=='our_work'])}")
+
+df_hist["dataset_name"] = pd.Categorical(
+    df_hist["dataset_name"],
+    categories=[
+        "hlsyn",
+        "our_work",
+    ],
+    ordered=True,
+)
+
+colors = {
+    "our_work": "#48cae4",
+    "hlsyn": "#f08080",
+}
+
+fig = plt.figure(figsize=(7, 4))
 
 # top row
 ax = fig.add_subplot(2, 4, (1, 4))
-for dataset_name, df_group in df_transformed.groupby("dataset_name"):
-    sns.kdeplot(
-        data=df_hist,
-        x="latency_average_cycles",
-        ax=ax,
-        hue="dataset_name",
-        fill=True,
-        alpha=0.5,
-        common_norm=False,
-        # log_scale=(True, False),
-        clip=(0, None),
+sns.kdeplot(
+    data=df_hist,
+    x="latency_average_cycles",
+    ax=ax,
+    hue="dataset_name",
+    hue_order=["our_work", "hlsyn"],
+    palette=[colors["our_work"], colors["hlsyn"]],
+    fill=True,
+    alpha=0.5,
+    common_norm=False,
+    log_scale=(True, False),
+    clip=(0, None),
+    bw_adjust=0.25,
+)
+# get the artisis fo the distribution
+artists = ax.get_children()
+# get the last two artists which are the distributions
+print(artists)
+
+# sns.histplot(
+#     bins=40,
+#     data=df_hist,
+#     x="latency_average_cycles",
+#     ax=ax,
+#     stat="density",
+#     hue="dataset_name",
+#     element="step",
+#     fill=True,
+#     common_norm=False,
+#     log_scale=(True, False),
+#     # clip=(0, None),
+#     legend=False,
+# )
+
+leg_artists = [
+    Rectangle(
+        (0, 0), 1, 1, fc=colors[dataset_name], edgecolor="none", label=dataset_name
     )
-ax.set_title("Average Latency (Cycles)")
+    for dataset_name in ["our_work", "hlsyn"]
+]
+legend = ax.legend(
+    handles=leg_artists,
+    labels=["Our Work", "HLSyn"],
+    loc="upper left",
+)
+
+
+ax.set_xlim(0, None)
+ax.set_title("Average-Case Latency")
 ax.set_xlabel("Latency (Cycles)")
 
 # bottom row
@@ -349,9 +421,18 @@ resource_names = [
     "resources_dsp_used",
 ]
 
+resource_name_map = {
+    "resources_lut_used": "LUTs",
+    "resources_ff_used": "FFs",
+    "resources_bram_used": "BRAMs",
+    "resources_dsp_used": "DSPs",
+}
+
+
 for i, resource_name in enumerate(resource_names):
     ax = fig.add_subplot(2, 4, i + 5)
-    for dataset_name, df_group in df_transformed.groupby("dataset_name"):
+    # top 90 percentile
+    if resource_name in ["resources_lut_used", "resources_ff_used"]:
         sns.kdeplot(
             data=df_hist,
             x=resource_name,
@@ -359,12 +440,76 @@ for i, resource_name in enumerate(resource_names):
             hue="dataset_name",
             fill=True,
             alpha=0.5,
+            palette=[colors["our_work"], colors["hlsyn"]],
+            hue_order=["our_work", "hlsyn"],
             common_norm=False,
-            # log_scale=(True, False),
+            log_scale=(True, False),
             clip=(0, None),
+            bw_adjust=0.25,
+            legend=False,
         )
-    ax.set_title(f"Resource Usage: {resource_name}")
-    ax.set_xlabel(f"Resource Usage: {resource_name}")
+        ax.set_xbound(0, None)
+        # log formatting for tick labels using scientific notation
+        ax.get_xaxis().set_major_formatter(
+            ticker.LogFormatter(base=10, labelOnlyBase=False)
+        )
+    else:
+        outliers = df_hist[resource_name] > df_hist[resource_name].quantile(0.90)
+        df_no_outliers = df_hist[~outliers]
+        max_val = df_no_outliers[resource_name].max()
+        sns.kdeplot(
+            data=df_no_outliers,
+            x=resource_name,
+            ax=ax,
+            hue="dataset_name",
+            fill=True,
+            alpha=0.5,
+            common_norm=False,
+            palette=[colors["our_work"], colors["hlsyn"]],
+            hue_order=["our_work", "hlsyn"],
+            clip=(0, max_val),
+            bw_adjust=0.25,
+            legend=False,
+        )
+        ax.set_xbound(0, max_val)
+        ax.text(
+            0.95,
+            0.97,
+            "*90th percentile",
+            verticalalignment="top",
+            horizontalalignment="right",
+            transform=ax.transAxes,
+            fontsize=7,
+        )
+    # log scale on x axis
+    # sns.histplot(
+    #     bins=40,
+    #     data=df_hist,
+    #     x=resource_name,
+    #     ax=ax,
+    #     stat="density",
+    #     hue="dataset_name",
+    #     element="step",
+    #     fill=True,
+    #     common_norm=False,
+    #     log_scale=(True, False),
+    #     legend=False,
+    # )
 
+    ax.set_title(resource_name_map[resource_name])
+    ax.set_xlabel("Resource Count", fontsize=9)
+    # format x axis with commas
+    ax.get_xaxis().set_major_formatter(
+        ticker.FuncFormatter(lambda x, p: format(int(x), ","))
+    )
+    if i > 0:
+        # no y axis label
+        ax.set_ylabel("")
+
+for ax in fig.axes:
+    ax.tick_params(axis="y", labelsize=7)
+
+# fig.suptitle("Comparison of Reported HLS Metrics with HLSyn", fontsize=14, y=0.97)
 fig.tight_layout()
+# fig.subplots_adjust(wspace=0.25, hspace=0.4)
 fig.savefig(FIGURES_DIR / "hlsyn_design_space_histogram.png", dpi=300)

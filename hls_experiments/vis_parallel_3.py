@@ -106,10 +106,16 @@ print(f"Fine-Grained Speedup Percent: {speedup_percent:.2f}%")
 
 CORES_ALL = list(range(32))
 
+# COLORS_DATASET = {
+#     "machsuite_xilinx": "#48cae4",
+#     "polybench_xilinx": "#e63946",
+#     "chstone_xilinx": "#90be6d",
+# }
+
 COLORS_DATASET = {
-    "machsuite_xilinx": "#48cae4",
-    "polybench_xilinx": "#e63946",
-    "chstone_xilinx": "#90be6d",
+    "machsuite_xilinx": "#f6bd60",
+    "polybench_xilinx": "#00b4d8",
+    "chstone_xilinx": "#d62828",
 }
 
 
@@ -213,14 +219,20 @@ def build_timeline_plot(
 
     # make the y tick label font size smaller
     for tick in ax.yaxis.get_major_ticks():
-        tick.label1.set_fontsize(8)
+        tick.label1.set_fontsize(10)
 
     ax.set_xlabel("Time (s)")
     ax.set_ylabel("CPU Cores")
     # ax.set_title("Execution Timeline")
 
 
-fig, axs = plt.subplots(2, 1, figsize=(10, 7.5))
+# make font size bigfger
+mpl.rcParams.update({"font.size": 12})
+fig, axs = plt.subplots(
+    2,
+    1,
+    figsize=(7, 6),
+)
 build_timeline_plot(
     df_naive_adjusted,
     axs[0],
@@ -237,6 +249,9 @@ build_timeline_plot(
     draw_last_line=True,
 )
 axs[1].set_title(f"Fine-Grained Parallelism: {speedup_percent:.2f}% Runtime Speedup")
+
+for ax in axs:
+    ax.yaxis.set_label_coords(-0.02, 0.5)
 
 legend_labels = {
     "machsuite_xilinx": "MachSuite",
@@ -264,66 +279,69 @@ fig.legend(
     ncol=4,
     borderaxespad=0.0,
     frameon=True,
+    columnspacing=0.5,
 )
 
+# fig.suptitle("HLS Synthesis Execution Parallelism", fontsize=16)
+
 fig.tight_layout()
-fig.subplots_adjust(bottom=0.12)
+fig.subplots_adjust(bottom=0.15)
 fig.savefig(FIGURES_DIR / "timeline_plot_v3.png", dpi=300)
 
 
-def lpt_scheduling(df, n_cores):
-    df_scheduling = df.copy()
+# def lpt_scheduling(df, n_cores):
+#     df_scheduling = df.copy()
 
-    # drop t_start and t_end columns
-    df_scheduling = df_scheduling.drop(columns=["t_start", "t_end", "core"])
-    # sort by dt in descending order
-    df_scheduling = df_scheduling.sort_values("dt", ascending=False)
+#     # drop t_start and t_end columns
+#     df_scheduling = df_scheduling.drop(columns=["t_start", "t_end", "core"])
+#     # sort by dt in descending order
+#     df_scheduling = df_scheduling.sort_values("dt", ascending=False)
 
-    solution = {i: [] for i in range(n_cores)}
+#     solution = {i: [] for i in range(n_cores)}
 
-    for i, row in df_scheduling.iterrows():
-        row_dict = row.to_dict()
-        total_runtimes = {
-            core: sum(data["dt"] for data in solution[core]) for core in solution
-        }
-        core = min(solution, key=lambda core: total_runtimes[core])
-        solution[core].append(row_dict)
+#     for i, row in df_scheduling.iterrows():
+#         row_dict = row.to_dict()
+#         total_runtimes = {
+#             core: sum(data["dt"] for data in solution[core]) for core in solution
+#         }
+#         core = min(solution, key=lambda core: total_runtimes[core])
+#         solution[core].append(row_dict)
 
-    for core in solution:
-        t_start = 0
-        for design in solution[core]:
-            design["t_start"] = t_start
-            design["t_end"] = t_start + design["dt"]
-            t_start = design["t_end"]
+#     for core in solution:
+#         t_start = 0
+#         for design in solution[core]:
+#             design["t_start"] = t_start
+#             design["t_end"] = t_start + design["dt"]
+#             t_start = design["t_end"]
 
-        for design in solution[core]:
-            design["core"] = core
+#         for design in solution[core]:
+#             design["core"] = core
 
-    data_flat = [data for core in solution.values() for data in core]
-    df_solution = pd.DataFrame(data_flat)
-    return df_solution
+#     data_flat = [data for core in solution.values() for data in core]
+#     df_solution = pd.DataFrame(data_flat)
+#     return df_solution
 
 
-df_sch = lpt_scheduling(df_naive_adjusted, 32)
-max_time_sch = df_sch["t_end"].max()
-sch_speedup_ratio = max_time_naive / max_time_sch
-sch_speedup_percent = (max_time_naive - max_time_sch) / max_time_naive * 100
+# df_sch = lpt_scheduling(df_naive_adjusted, 32)
+# max_time_sch = df_sch["t_end"].max()
+# sch_speedup_ratio = max_time_naive / max_time_sch
+# sch_speedup_percent = (max_time_naive - max_time_sch) / max_time_naive * 100
 
-print(f"LPT Speedup Ratio: {sch_speedup_ratio:.2f}x")
-print(f"LPT Speedup Percent: {sch_speedup_percent:.2f}%")
+# print(f"LPT Speedup Ratio: {sch_speedup_ratio:.2f}x")
+# print(f"LPT Speedup Percent: {sch_speedup_percent:.2f}%")
 
-fig, ax = plt.subplots(figsize=(10, 5))
-build_timeline_plot(
-    df_sch,
-    ax,
-    adjust_zero=True,
-    t_max_x_axis=max_time,
-    cores=CORES_ALL,
-    draw_dataset_lines=False,
-    draw_last_line=True,
-)
-ax.set_title(
-    f"LPT Scheduling for Naive Parallelism: {sch_speedup_percent:.2f}% Speedup"
-)
-plt.tight_layout()
-fig.savefig(FIGURES_DIR / "scheduling.png", dpi=300)
+# fig, ax = plt.subplots(figsize=(10, 5))
+# build_timeline_plot(
+#     df_sch,
+#     ax,
+#     adjust_zero=True,
+#     t_max_x_axis=max_time,
+#     cores=CORES_ALL,
+#     draw_dataset_lines=False,
+#     draw_last_line=True,
+# )
+# ax.set_title(
+#     f"LPT Scheduling for Naive Parallelism: {sch_speedup_percent:.2f}% Speedup"
+# )
+# plt.tight_layout()
+# fig.savefig(FIGURES_DIR / "scheduling.png", dpi=300)

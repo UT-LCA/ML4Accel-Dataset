@@ -185,12 +185,12 @@ data_table_flat = [
 ]
 
 df_data_table = pd.DataFrame(data_table_flat)
+df_stats = df_data_table.copy()
 # drop the p_less and p_greater columns
 df_data_table = df_data_table.drop(
     columns=["p_less", "p_greater", "median_version_0", "median_version_1"]
 )
 
-print(df_data_table.columns)
 
 # format percent as xx.xx%
 df_data_table["ratio_average_percent_change"] = df_data_table[
@@ -276,11 +276,15 @@ print(latex_table)
 #     fig.savefig(FIGURES_DIR / "regression_testing_table.png", dpi=300)
 
 color_palette = sns.color_palette("crest", n_colors=6)
-print(color_palette)
 
 FIG_COLORS = {
     "2021_1": color_palette[2],
     "2023_1": color_palette[5],
+}
+
+FIG_COLORS = {
+    "2021_1": "#f94144",
+    "2023_1": "#64b5f6",
 }
 
 
@@ -312,8 +316,10 @@ def pair_plot(ax, feature, df_0, df_1, label_0, label_1, title, log_y=False):
         data=df_combined,
         ax=ax,
         hue="version",
-        hue_order=[label_0, label_1],
-        palette=[FIG_COLORS[label_0], FIG_COLORS[label_1]],
+        # hue_order=[label_0, label_1],
+        # palette=[FIG_COLORS[label_0], FIG_COLORS[label_1]],
+        hue_order=[label_1, label_0],
+        palette=[FIG_COLORS[label_1], FIG_COLORS[label_0]],
         size=5,
         alpha=0.75,
         # marker="x",
@@ -466,7 +472,7 @@ fig.subplots_adjust(bottom=0.07)
 fig.savefig(FIGURES_DIR / "regression_testing_plot.png", dpi=300)
 
 
-fig, axs = plt.subplots(2, 2, figsize=(8, 6))
+fig, axs = plt.subplots(2, 2, figsize=(8, 5))
 # kde plots in each section now
 
 
@@ -480,6 +486,8 @@ def kde_plot(
     title,
     log_x=False,
     x_axis_label: None | str = None,
+    p_value=None,
+    p_val_loc="right",
 ):
     df_combined = pd.DataFrame(
         {
@@ -493,8 +501,10 @@ def kde_plot(
         ax=ax,
         label=label_0,
         hue="version",
-        hue_order=[label_0, label_1],
-        palette=[FIG_COLORS[label_0], FIG_COLORS[label_1]],
+        # hue_order=[label_0, label_1],
+        # palette=[FIG_COLORS[label_0], FIG_COLORS[label_1]],
+        hue_order=[label_1, label_0],
+        palette=[FIG_COLORS[label_1], FIG_COLORS[label_0]],
         clip=(0, None),
         log_scale=(log_x, False),
         fill=True,
@@ -517,13 +527,48 @@ def kde_plot(
         color = FIG_COLORS[version]
         ax.axvline(median_val, color=color, linestyle="--", label=f"{version} Median")
 
+    if p_value is not None:
+        p_value_fromatted = ""
+        if p_value < 1e-3:
+            p_value_fromatted = "{:.1e}".format(p_value).replace("e-0", "E-")
+        else:
+            p_value_fromatted = "{:.3f}".format(p_value)
+        if p_value < 0.05:
+            p_value_fromatted += "*"
+
+        if p_val_loc == "right":
+            loc = (0.79, 0.9)
+        elif p_val_loc == "left":
+            loc = (0.2, 0.9)
+
+        ax.text(
+            # 0.5,
+            # 0.5,
+            # UPPER RIGHT
+            loc[0],
+            loc[1],
+            # format to three decimal places
+            f"p-value: {p_value_fromatted}",
+            horizontalalignment="center",
+            verticalalignment="center",
+            transform=ax.transAxes,
+            # PLACE A RECTANGLE AROUND THE TEXT
+            bbox=dict(
+                facecolor="white",
+                edgecolor="black",
+                boxstyle="round,pad=0.2",
+                linewidth=0.5,
+            ),
+            fontsize=10,
+        )
+
     if x_axis_label is not None:
         ax.set_xlabel(x_axis_label)
 
     ax.tick_params(axis="y", labelsize=8)
     ax.tick_params(axis="x", labelsize=8)
 
-    ax.set_title(title)
+    ax.set_title(title, fontsize=13)
     return ax
 
 
@@ -536,7 +581,9 @@ kde_plot(
     version_1,
     "HLS Synthesis Runtime",
     log_x=False,
-    x_axis_label="Tool Runtime, seconds",
+    x_axis_label="Tool Runtime (s)",
+    p_value=test_data["vitis_hls_dt"]["p_two_sided"],
+    p_val_loc="right",
 )
 
 kde_plot(
@@ -546,9 +593,11 @@ kde_plot(
     df_version_1,
     version_0,
     version_1,
-    "Estimated Latency (Average Cycles)",
+    "Average-Case Latency",
     log_x=True,
-    x_axis_label="Latency, cycles",
+    x_axis_label="Cycles",
+    p_value=test_data["latency_average_cycles"]["p_two_sided"],
+    p_val_loc="left",
 )
 
 kde_plot(
@@ -560,7 +609,9 @@ kde_plot(
     version_1,
     "Resource Usage: LUTs",
     log_x=True,
-    x_axis_label="# of LUTs",
+    x_axis_label="Resource Count",
+    p_value=test_data["resources_lut_used"]["p_two_sided"],
+    p_val_loc="left",
 )
 
 kde_plot(
@@ -572,7 +623,9 @@ kde_plot(
     version_1,
     "Resource Usage: FFs",
     log_x=True,
-    x_axis_label="# of FFs",
+    x_axis_label="Resource Count",
+    p_value=test_data["resources_ff_used"]["p_two_sided"],
+    p_val_loc="left",
 )
 
 
@@ -634,7 +687,7 @@ fig.suptitle(
     fontsize=15,
 )
 fig.tight_layout()
-fig.subplots_adjust(bottom=0.15)
+fig.subplots_adjust(bottom=0.16)
 fig.savefig(FIGURES_DIR / "regression_testing_kde_plot.png", dpi=300)
 
 

@@ -19,29 +19,8 @@ from umap import UMAP
 
 from hls_experiments.convex_hull_plotting import draw_rounded_hull
 
-DIR_CURRENT_SCRIPT = Path(__file__).parent
 
-FIGURES_DIR = DIR_CURRENT_SCRIPT / "figures"
-FIGURES_DIR.mkdir(exist_ok=True)
-
-DATA_DIR = DIR_CURRENT_SCRIPT / "data"
-DATA_DIR.mkdir(exist_ok=True)
-
-WORK_DIR = Path("/usr/scratch/skaram7/hlsdataset_workdir_design_space_v2")
-
-
-WORK_DIR_POLYBENCH = WORK_DIR / "polybench_xilinx__post_frontend"
-WORK_DIR_MACHSUITE = WORK_DIR / "machsuite_xilinx__post_frontend"
-WORK_DIR_CHSTONE = WORK_DIR / "chstone_xilinx__post_frontend"
-
-USE_CACHE = True
-if not (DATA_DIR / "design_space_v2_transformed.csv").exists() or not USE_CACHE:
-    design_dirs = sorted(
-        list(WORK_DIR_POLYBENCH.glob("*"))
-        + list(WORK_DIR_MACHSUITE.glob("*"))
-        + list(WORK_DIR_CHSTONE.glob("*"))
-    )
-
+def build_df(design_dirs):
     all_data = []
     for design_dir in design_dirs:
         data_design_fp = design_dir / "data_design.json"
@@ -72,6 +51,22 @@ if not (DATA_DIR / "design_space_v2_transformed.csv").exists() or not USE_CACHE:
         dataset_name = design_dir.parent.name.replace("__post_frontend", "")
         name_unique = design_dir.name
 
+        # some fixes for the current datasets
+        name = data_design["name"]
+        if name == "bfs":
+            if "bfs_bulk" in design_dir.name:
+                data_design["name"] = "bfs_bulk"
+            if "bfs_queue" in design_dir.name:
+                data_design["name"] = "bfs_queue"
+        if name == "aes256_encrypt_ecb":
+            if "aes_table" in design_dir.name:
+                data_design["name"] = "aes_table"
+            if "aes_tableless" in design_dir.name:
+                data_design["name"] = "aes_tableless"
+        if name == "gemm":
+            if "gemm_ncubed" in design_dir.name:
+                data_design["name"] = "gemm_ncubed"
+
         data = {
             "name_unique": name_unique,
             "dataset_name": dataset_name,
@@ -83,7 +78,49 @@ if not (DATA_DIR / "design_space_v2_transformed.csv").exists() or not USE_CACHE:
         all_data.append(data)
 
     df = pd.DataFrame(all_data)
-    print(df.columns)
+    return df
+
+
+DIR_CURRENT_SCRIPT = Path(__file__).parent
+
+FIGURES_DIR = DIR_CURRENT_SCRIPT / "figures"
+FIGURES_DIR.mkdir(exist_ok=True)
+
+DATA_DIR = DIR_CURRENT_SCRIPT / "data"
+DATA_DIR.mkdir(exist_ok=True)
+
+WORK_DIR = Path("/usr/scratch/skaram7/hlsdataset_workdir_design_space_v2")
+WORK_DIR_POLYBENCH = WORK_DIR / "polybench_xilinx__post_frontend"
+WORK_DIR_MACHSUITE = WORK_DIR / "machsuite_xilinx__post_frontend"
+WORK_DIR_CHSTONE = WORK_DIR / "chstone_xilinx__post_frontend"
+
+WORK_DIR_BASE = Path("/usr/scratch/skaram7/hlsdataset_workdir_design_space_base")
+WORK_DIR_BASE_POLYBENCH = WORK_DIR_BASE / "polybench_xilinx__post_frontend"
+WORK_DIR_BASE_MACHSUITE = WORK_DIR_BASE / "machsuite_xilinx__post_frontend"
+WORK_DIR_BASE_CHSTONE = WORK_DIR_BASE / "chstone_xilinx__post_frontend"
+
+USE_CACHE = False
+
+if not (DATA_DIR / "design_space_v2_transformed.csv").exists() or not USE_CACHE:
+    design_dirs = sorted(
+        list(WORK_DIR_POLYBENCH.glob("*"))
+        + list(WORK_DIR_MACHSUITE.glob("*"))
+        + list(WORK_DIR_CHSTONE.glob("*"))
+    )
+
+    df_space = build_df(design_dirs)
+    df_space["type"] = "space"
+
+    design_dirs_base = sorted(
+        list(WORK_DIR_BASE_POLYBENCH.glob("*"))
+        + list(WORK_DIR_BASE_MACHSUITE.glob("*"))
+        + list(WORK_DIR_BASE_CHSTONE.glob("*"))
+    )
+    df_base = build_df(design_dirs_base)
+    df_base["type"] = "base"
+
+    # stack df
+    df = pd.concat([df_space, df_base], ignore_index=True)
 
     df.to_csv(DATA_DIR / "design_space_v2.csv", index=False)
     df = pd.read_csv(DATA_DIR / "design_space_v2.csv")
@@ -92,6 +129,7 @@ if not (DATA_DIR / "design_space_v2_transformed.csv").exists() or not USE_CACHE:
         "name_unique",
         "dataset_name",
         "name",
+        "type",
         "hls_synth__latency_best_cycles",
         "hls_synth__latency_average_cycles",
         "hls_synth__latency_worst_cycles",
@@ -161,6 +199,10 @@ if not (DATA_DIR / "design_space_v2_transformed.csv").exists() or not USE_CACHE:
 
     df_plotting = df_plotting.dropna()
 
+    for design_name, df_group in df_plotting.groupby("name"):
+        if df_group["type"].nunique() == 1 and df_group["type"].unique()[0] == "base":
+            df_plotting = df_plotting[df_plotting["name"] != design_name]
+
     pipeline = Pipeline(
         [
             (
@@ -204,6 +246,7 @@ def plot_grouped_data(
     ax,
     colors: dict | None = None,
     legend_label_map: dict | None = None,
+    base_designs_df: pd.DataFrame | None = None,
 ) -> list:
     grouping_names = df[grouping_id].unique()
 
@@ -242,6 +285,17 @@ def plot_grouped_data(
             line_kwargs=dict(color=colors[group_name], linewidth=1),
             fill_kwargs=dict(alpha=0.15, color=colors[group_name]),
         )
+        if base_designs_df is not None:
+            base_designs = base_designs_df[base_designs_df[grouping_id] == group_name]
+            ax.scatter(
+                base_designs["PC_0"],
+                base_designs["PC_1"],
+                s=50,
+                marker="o",
+                edgecolors="black",
+                label=group_name,
+                color=colors[group_name],
+            )
 
     if legend_label_map is not None:
         leg_labels = [legend_label_map[name] for name in grouping_names]
@@ -261,23 +315,28 @@ def plot_grouped_data(
     return leg_artists
 
 
-fig, axs = plt.subplots(2, 1, figsize=(8, 8))
+base_df = df_transformed[df_transformed["type"] == "base"]
+print(base_df["name"].value_counts())
+
+fig, axs = plt.subplots(2, 1, figsize=(8, 6))
 ax = axs[0]
 leg_artists = plot_grouped_data(
     df_transformed,
     "name",
     ax,
+    base_designs_df=base_df,
 )
 ax.legend(
     handles=leg_artists,
-    loc="lower right",
+    # loc="lower right",
+    loc="upper left",
     ncol=1,
     fontsize=6,
     labelspacing=0.2,
     handletextpad=0.5,
     ncols=3,
 )
-ax.set_title("Design Space Visualization: Grouped by Dataset", fontsize=14)
+ax.set_title("Design Space Visualization: Grouped by Design", fontsize=14)
 
 # dataset_colors = {
 #     "polybench_xilinx": "#ffba08",
@@ -304,110 +363,112 @@ leg_artists = plot_grouped_data(
     ax,
     colors=dataset_colors,
     legend_label_map=dataset_labels,
+    base_designs_df=base_df,
 )
 ax.legend(
     handles=leg_artists,
-    loc="lower right",
+    # loc="lower right",
+    loc="upper left",
     ncol=1,
     fontsize="small",
     labelspacing=0.2,
     handletextpad=0.5,
     ncols=1,
 )
-ax.set_title("Design Space Visualization: Grouped by Name", fontsize=14)
+ax.set_title("Design Space Visualization: Grouped by Benchmark", fontsize=14)
 
 
 fig.tight_layout()
 fig.savefig(FIGURES_DIR / "design_space_v2_combined.png", dpi=300)
 
 
-fig, axs = plt.subplot_mosaic(
-    [
-        [
-            "hls_synth__latency_average_cycles",
-            "hls_synth__latency_average_cycles",
-            "hls_synth__latency_worst_cycles",
-            "hls_synth__latency_best_cycles",
-        ],
-        [
-            "hls_synth__resources_lut_used",
-            "hls_synth__resources_ff_used",
-            "hls_synth__resources_dsp_used",
-            "hls_synth__resources_bram_used",
-        ],
-        [
-            "impl__utilization__Total LUTs",
-            "impl__utilization__FFs",
-            "impl__utilization__DSP Blocks",
-            "impl__utilization__RAMB36",
-        ],
-    ],
-    figsize=(12, 12),
-)
+# fig, axs = plt.subplot_mosaic(
+#     [
+#         [
+#             "hls_synth__latency_average_cycles",
+#             "hls_synth__latency_average_cycles",
+#             "hls_synth__latency_worst_cycles",
+#             "hls_synth__latency_best_cycles",
+#         ],
+#         [
+#             "hls_synth__resources_lut_used",
+#             "hls_synth__resources_ff_used",
+#             "hls_synth__resources_dsp_used",
+#             "hls_synth__resources_bram_used",
+#         ],
+#         [
+#             "impl__utilization__Total LUTs",
+#             "impl__utilization__FFs",
+#             "impl__utilization__DSP Blocks",
+#             "impl__utilization__RAMB36",
+#         ],
+#     ],
+#     figsize=(12, 12),
+# )
 
-title_map = {
-    "hls_synth__latency_average_cycles": "HLS Latency: Average Cycles",
-    "hls_synth__latency_worst_cycles": "HLS Latency: Worst Cycles",
-    "hls_synth__latency_best_cycles": "HLS Latency: Best Cycles",
-    "hls_synth__resources_lut_used": "HLS Resources: LUTs",
-    "hls_synth__resources_ff_used": "HLS Resources: FFs",
-    "hls_synth__resources_dsp_used": "HLS Resources: DSPs",
-    "hls_synth__resources_bram_used": "HLS Resources: BRAMs",
-    "impl__utilization__Total LUTs": "Impl. Utilization: Total LUTs",
-    "impl__utilization__FFs": "Impl. Utilization: FFs",
-    "impl__utilization__DSP Blocks": "Impl. Utilization: DSPs",
-    "impl__utilization__RAMB36": "Impl. Utilization: RAMB36",
-}
+# title_map = {
+#     "hls_synth__latency_average_cycles": "HLS Latency: Average Cycles",
+#     "hls_synth__latency_worst_cycles": "HLS Latency: Worst Cycles",
+#     "hls_synth__latency_best_cycles": "HLS Latency: Best Cycles",
+#     "hls_synth__resources_lut_used": "HLS Resources: LUTs",
+#     "hls_synth__resources_ff_used": "HLS Resources: FFs",
+#     "hls_synth__resources_dsp_used": "HLS Resources: DSPs",
+#     "hls_synth__resources_bram_used": "HLS Resources: BRAMs",
+#     "impl__utilization__Total LUTs": "Impl. Utilization: Total LUTs",
+#     "impl__utilization__FFs": "Impl. Utilization: FFs",
+#     "impl__utilization__DSP Blocks": "Impl. Utilization: DSPs",
+#     "impl__utilization__RAMB36": "Impl. Utilization: RAMB36",
+# }
 
-x_axis_label_map = {
-    "hls_synth__latency_average_cycles": "# Cycles",
-    "hls_synth__latency_worst_cycles": "# Cycles",
-    "hls_synth__latency_best_cycles": "# Cycles",
-    "hls_synth__resources_lut_used": "Count",
-    "hls_synth__resources_ff_used": "Count",
-    "hls_synth__resources_dsp_used": "Count",
-    "hls_synth__resources_bram_used": "Count",
-    "impl__utilization__Total LUTs": "Count",
-    "impl__utilization__FFs": "Count",
-    "impl__utilization__DSP Blocks": "Count",
-    "impl__utilization__RAMB36": "Count",
-}
+# x_axis_label_map = {
+#     "hls_synth__latency_average_cycles": "# Cycles",
+#     "hls_synth__latency_worst_cycles": "# Cycles",
+#     "hls_synth__latency_best_cycles": "# Cycles",
+#     "hls_synth__resources_lut_used": "Count",
+#     "hls_synth__resources_ff_used": "Count",
+#     "hls_synth__resources_dsp_used": "Count",
+#     "hls_synth__resources_bram_used": "Count",
+#     "impl__utilization__Total LUTs": "Count",
+#     "impl__utilization__FFs": "Count",
+#     "impl__utilization__DSP Blocks": "Count",
+#     "impl__utilization__RAMB36": "Count",
+# }
 
 
-for label, ax in axs.items():
-    # sns.kdeplot(
-    #     data=df_transformed,
-    #     x=label,
-    #     ax=ax,
-    #     clip=(0, None),
-    #     hue="dataset_name",
-    #     log_scale=(True, False),
-    #     common_norm=False,
-    #     bw_adjust=0.25,
-    #     hue_order=["polybench_xilinx", "machsuite_xilinx", "chstone_xilinx"],
-    #     palette=dataset_colors.values(),
-    #     fill=True,
-    # )
-    # sns.boxenplot(
-    #     data=df_transformed,
-    #     x="dataset_name",
-    #     y=label,
-    #     ax=ax,
-    #     palette=dataset_colors.values(),
-    # )
+# for label, ax in axs.items():
+#     # sns.kdeplot(
+#     #     data=df_transformed,
+#     #     x=label,
+#     #     ax=ax,
+#     #     clip=(0, None),
+#     #     hue="dataset_name",
+#     #     log_scale=(True, False),
+#     #     common_norm=False,
+#     #     bw_adjust=0.25,
+#     #     hue_order=["polybench_xilinx", "machsuite_xilinx", "chstone_xilinx"],
+#     #     palette=dataset_colors.values(),
+#     #     fill=True,
+#     # )
+#     # sns.boxenplot(
+#     #     data=df_transformed,
+#     #     x="dataset_name",
+#     #     y=label,
+#     #     ax=ax,
+#     #     palette=dataset_colors.values(),
+#     # )
 
-    # if label == "impl__utilization__RAMB36":
-    #     print(
-    #         df_transformed[["dataset_name", label]].groupby("dataset_name").describe()
-    #     )
-    ax.set_xlabel(x_axis_label_map[label])
-    # rename the legend labels
-    ax.legend(
-        labels=["Polybench", "MachSuite", "CHStone"],
-        loc="upper right",
-        fontsize="small",
-    )
-    ax.set_title(title_map[label])
+#     # if label == "impl__utilization__RAMB36":
+#     #     print(
+#     #         df_transformed[["dataset_name", label]].groupby("dataset_name").describe()
+#     #     )
+#     ax.set_xlabel(x_axis_label_map[label])
+#     # rename the legend labels
+#     ax.legend(
+#         labels=["Polybench", "MachSuite", "CHStone"],
+#         loc="upper right",
+#         fontsize="small",
+#     )
+#     ax.set_title(title_map[label])
 
-fig.tight_layout()
-fig.savefig(FIGURES_DIR / "design_space_v2_kde.png", dpi=300)
+# fig.tight_layout()
+# fig.savefig(FIGURES_DIR / "design_space_v2_kde.png", dpi=300)

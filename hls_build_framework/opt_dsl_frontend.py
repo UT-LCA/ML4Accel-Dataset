@@ -311,25 +311,6 @@ class OptDSLFrontend(Frontend):
             array_partition_object_lists, loop_opt_object_lists
         )
 
-        # pp(array_partition_lines)
-        # pp(loop_opt_object_lists)
-        # pp(static_lines)
-
-        # num_of_generated_tcls = generate_tcl(
-        #     src_hls,
-        #     output_dir_opt_fp,
-        #     array_partition_lines,
-        #     loop_opt_slines,
-        #     static_lines,
-        # )
-
-        # generate_opt_tcl(
-        #     output_dir_opt_fp,
-        #     array_partition_lines,
-        #     loop_opt_lines,
-        #     static_lines,
-        # )
-
         opt_sources = generate_opt_sources(
             array_partition_lines,
             loop_opt_lines,
@@ -356,5 +337,33 @@ class OptDSLFrontend(Frontend):
         t_1 = time.perf_counter()
         if self.log_execution_time:
             log_execution_time_to_file(design.dir, self.name, t_0, t_1)
+
+        return new_designs
+
+
+class OptDSLPassthroughFrontend(Frontend):
+    name = "OptDSLPassthroughFrontend"
+
+    def __init__(
+        self,
+        work_dir: Path,
+    ):
+        self.work_dir = work_dir
+
+    def execute(self, design: Design, timeout: float | None = None) -> list[Design]:
+        t_0 = time.perf_counter()
+
+        new_designs = []
+
+        new_design = design.copy_and_rename_to_new_parent_dir(
+            f"{design.name}_opt_passthrough", design.dir.parent
+        )
+        opt_fp = new_design.dir / "opt.tcl"
+        opt_fp.write_text("")
+        new_designs.append(new_design)
+
+        t_1 = time.perf_counter()
+        log_execution_time_to_file(new_design.dir, self.name, t_0, t_1)
+        log_execution_time_to_file(design.dir, self.name, t_0, t_1)
 
         return new_designs
